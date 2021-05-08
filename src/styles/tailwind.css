@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Styles */
+
+html,
+body,
+#__next {
+  height: 100% !important;
+}
+
+body {
+  background: url("https://cdn.discordapp.com/attachments/688783611163443250/840446522537148446/shaderscov.png");
+  background-size: cover;
+}
+
+body,
+.font-inter {
+  font-family: "Inter", sans-serif;
+}
+
+.font-proxima {
+  font-family: "proxima-soft", sans-serif;
+}
