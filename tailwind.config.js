@@ -1,10 +1,6 @@
 module.exports = {
   mode: "jit",
-  purge: [
-    "./src/pages/**/*.{js,jsx}",
-    "./src/layouts/**/*.{js,jsx}",
-    "./src/components/**/*.{js,jsx}",
-  ],
+  purge: ["./src/**/*.jsx"],
   theme: {
     extend: {
       colors: {
@@ -19,6 +15,10 @@ module.exports = {
           60: "#40916C",
           70: "#2D6A4F",
         },
+      },
+      spacing: {
+        88: "22rem",
+        160: "40rem",
       },
     },
   },

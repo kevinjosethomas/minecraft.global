@@ -1,9 +1,12 @@
+import axios from "axios";
 import Head from "next/head";
+import { ReactQueryDevtools } from "react-query/devtools";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 import "../styles/tailwind.css";
 
 const queryClient = new QueryClient();
+axios.defaults.headers.common["Authorization"] = process.env.AUTH_TOKEN;
 
 function App({ Component, pageProps }) {
   return (
@@ -26,8 +29,15 @@ function App({ Component, pageProps }) {
           rel="stylesheet"
           href="https://pro.fontawesome.com/releases/v5.15.1/css/all.css"
         />
+
+        {/* Twmemoji Awesome */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/twemoji-awesome@1.0.6/dist/twemoji-awesome.min.css"
+        />
       </Head>
       <Component {...pageProps} />
+      <ReactQueryDevtools initialIsOpen={true} />
     </QueryClientProvider>
   );
 }

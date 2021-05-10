@@ -19,7 +19,7 @@ function Navbar(props) {
             </a>
           </Link>
           <a href={process.env.NEXT_PUBLIC_DISCORD_INVITE_URL} target="_blank">
-            <i className="fab fa-discord text-xl text-gray-400" />
+            <i className="fab fa-discord text-xl text-gray-400 hover:text-gray-300 transition duration-500" />
           </a>
         </div>
       </div>
