@@ -12,4 +12,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        script: whoami
+        script: cd web-frontend && git pull && yarn install && yarn build && pm2 restart frontend
