@@ -1,12 +1,14 @@
 import axios from "axios";
 import Head from "next/head";
+import { ToastProvider } from "react-toast-notifications";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 import "../styles/tailwind.css";
 
 const queryClient = new QueryClient();
-axios.defaults.headers.common["Authorization"] = process.env.AUTH_TOKEN;
+axios.defaults.headers.common["Authorization"] =
+  process.env.NEXT_PUBLIC_AUTH_TOKEN;
 
 function App({ Component, pageProps }) {
   return (
@@ -36,7 +38,9 @@ function App({ Component, pageProps }) {
           href="https://cdn.jsdelivr.net/npm/twemoji-awesome@1.0.6/dist/twemoji-awesome.min.css"
         />
       </Head>
-      <Component {...pageProps} />
+      <ToastProvider placement="bottom-right" autoDismiss="true">
+        <Component {...pageProps} />
+      </ToastProvider>
       <ReactQueryDevtools initialIsOpen={true} />
     </QueryClientProvider>
   );

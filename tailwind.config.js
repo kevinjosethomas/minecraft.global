@@ -5,20 +5,25 @@ module.exports = {
     extend: {
       colors: {
         dark: {
-          60: "#232323",
-          70: "#1E1E1E",
-          80: "#141414",
-          90: "#0A0A0A",
+          60: "var(--color-dark-60)",
+          70: "var(--color-dark-70)",
+          80: "var(--color-dark-80)",
+          90: "var(--color-dark-90)",
         },
         olive: {
-          50: "#52B788",
-          60: "#40916C",
-          70: "#2D6A4F",
+          50: "var(--color-olive-50)",
+          60: "var(--color-olive-60)",
+          70: "var(--color-olive-70)",
+        },
+        gray: {
+          450: "var(--color-gray-450)",
         },
       },
       spacing: {
-        88: "22rem",
-        160: "40rem",
+        72: "20rem",
+        124: "31rem",
+        "23/30": "76.66666%",
+        "7/30": "23.33333%",
       },
     },
   },

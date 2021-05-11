@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-dark-60: #232323;
+  --color-dark-70: #1e1e1e;
+  --color-dark-80: #141414;
+  --color-dark-90: #0a0a0a;
+
+  --color-olive-50: #52b788;
+  --color-olive-60: #40916c;
+  --color-olive-70: #2d6a4f;
+
+  --color-gray-450: #7b8290;
+}
+
 /* Custom Styles */
 
 html,
@@ -22,4 +35,17 @@ body,
 
 .font-proxima {
   font-family: "proxima-soft", sans-serif;
+}
+
+.server-status-tooltip {
+  padding: 0.4rem 0.75rem !important;
+  font-family: "Inter", sans-serif !important;
+  letter-spacing: 0.035em !important;
+
+  transition: opacity 0.5s ease-in-out, visibility 1s ease-out !important;
+  opacity: 0 !important;
+}
+
+.server-status-tooltip.show {
+  opacity: 1 !important;
 }
