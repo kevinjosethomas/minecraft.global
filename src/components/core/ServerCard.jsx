@@ -20,7 +20,6 @@ function ServerCard(props) {
             <ReactTooltip
               effect="solid"
               className="server-status-tooltip"
-              delayShow="100"
               backgroundColor="#000"
               arrowColor="#000"
             />
@@ -36,12 +35,12 @@ function ServerCard(props) {
               <h1 className="font-proxima font-bold text-xl text-gray-300">
                 {props.name}
               </h1>
-              <div className="flex flex-row items-center justify-center rounded-full px-3 space-x-1 bg-dark-80 bg-opacity-[0.8]">
+              <div
+                className="flex flex-row items-center justify-center rounded-full px-3 space-x-1 bg-dark-80 bg-opacity-[0.8]"
+                data-tip="Upvotes"
+              >
                 <i className="fas fa-angle-up text-olive-50" />
-                <h6
-                  className="font-proxima font-bold text-gray-400 cursor-default"
-                  data-tip="Upvotes"
-                >
+                <h6 className="font-proxima font-bold text-gray-400 cursor-default">
                   {props.monthly_votes || 0}
                 </h6>
               </div>

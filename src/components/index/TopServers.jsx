@@ -24,7 +24,7 @@ function TopServers(props) {
 
   return (
     <div className="grid grid-cols-3 gap-10">
-      {data.map((server) => (
+      {data.payload.map((server) => (
         <ServerCard key={server.server_id} {...server} />
       ))}
     </div>

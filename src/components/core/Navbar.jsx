@@ -5,7 +5,7 @@ function Navbar(props) {
     <div className="flex flex-row items-center justify-between w-full px-56 py-5 bg-dark-80">
       <div className="flex flex-row items-center justify-center space-x-6">
         <h1 className="font-semibold text-2xl text-olive-60">
-          minecraft<span className="text-olive-50">.</span>mc
+          minecraft<span className="text-olive-50">.</span>global
         </h1>
         <div className="flex flex-row items-center justify-center space-x-4">
           <Link href="/">

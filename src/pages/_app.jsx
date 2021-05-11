@@ -7,8 +7,6 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import "../styles/tailwind.css";
 
 const queryClient = new QueryClient();
-axios.defaults.headers.common["Authorization"] =
-  process.env.NEXT_PUBLIC_AUTH_TOKEN;
 
 function App({ Component, pageProps }) {
   return (
