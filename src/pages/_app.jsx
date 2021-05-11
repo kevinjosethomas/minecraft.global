@@ -14,7 +14,7 @@ function App({ Component, pageProps }) {
   return (
     <QueryClientProvider client={queryClient}>
       <Head>
-        <title>minecraft.mc</title>
+        <title>minecraft.global</title>
 
         {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.gstatic.com" />
