@@ -8,7 +8,7 @@ function Index(props) {
   const router = useRouter();
 
   return (
-    <StandardLayout>
+    <StandardLayout user={props.user}>
       <div className="flex flex-col items-center justify-center w-full py-48 space-y-8 bg-dark-90 bg-opacity-90">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <h1 className="max-w-3xl font-proxima font-bold text-7xl text-gray-300 tracking-tight">
@@ -57,7 +57,7 @@ export async function getServerSideProps(ctx) {
   const user = await getAuth(ctx.req, ctx.res);
   return {
     props: {
-      user: user,
+      user: user.payload,
     },
   };
 }
