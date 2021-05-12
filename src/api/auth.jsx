@@ -3,7 +3,7 @@ import Cookies from "cookies";
 
 async function getAuth(req, res) {
   try {
-    const cookies = new Cookies(ctx.req, ctx.res);
+    const cookies = new Cookies(req, res);
     const token = cookies.get("token");
 
     const { data } = await axios.get(
