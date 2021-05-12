@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 
+import getAuth from "../api/auth";
 import StandardLayout from "../layouts/Standard";
 import TopServers from "../components/index/TopServers";
 
@@ -50,6 +51,15 @@ function Index(props) {
       </div>
     </StandardLayout>
   );
+}
+
+export async function getServerSideProps(ctx) {
+  const user = await getAuth(req, res);
+  return {
+    props: {
+      user: user,
+    },
+  };
 }
 
 export default Index;

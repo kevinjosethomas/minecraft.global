@@ -1,4 +1,5 @@
 import Cookies from "cookies";
+
 import getLoginDiscord from "../../api/login/discord";
 
 function Discord(props) {
@@ -9,7 +10,7 @@ function Discord(props) {
   );
 }
 
-async function getServerSideProps(ctx) {
+export async function getServerSideProps(ctx) {
   try {
     const code = ctx.query.code;
     if (!code) {
@@ -41,7 +42,5 @@ async function getServerSideProps(ctx) {
     };
   }
 }
-
-export { getServerSideProps };
 
 export default Discord;
