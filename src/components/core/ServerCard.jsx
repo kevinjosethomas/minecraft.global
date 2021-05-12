@@ -21,7 +21,7 @@ function ServerCard(props) {
             <Link href={"/server/" + props.server_id}>
               <img
                 src={props.favicon || "/images/default_favicon.png"}
-                className="w-24 rounded-full"
+                className="w-24 rounded-full cursor-pointer"
                 onError={(e) => (e.target.src = "/images/default_favicon.png")}
                 draggable="false"
               />
