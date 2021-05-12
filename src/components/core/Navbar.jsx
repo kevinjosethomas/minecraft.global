@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 function Navbar(props) {
+  const router = useRouter();
+
   return (
     <div className="flex flex-row items-center justify-between w-full px-56 py-5 bg-dark-80">
       <div className="flex flex-row items-center justify-center space-x-6">
@@ -36,6 +39,11 @@ function Navbar(props) {
           <input
             className="text-gray-400 placeholder-gray-400 bg-transparent focus:outline-none"
             placeholder="Search for servers..."
+            onKeyPress={(e) =>
+              e.key == "Enter" && e.target.value
+                ? router.push("/servers?q=" + e.target.value)
+                : void 0
+            }
           />
         </div>
         <Link href="/login">

@@ -1,7 +1,11 @@
+import { useRouter } from "next/router";
+
 import StandardLayout from "../layouts/Standard";
 import TopServers from "../components/index/TopServers";
 
 function Index(props) {
+  const router = useRouter();
+
   return (
     <StandardLayout>
       <div className="flex flex-col items-center justify-center w-full py-48 space-y-8 bg-dark-90 bg-opacity-90">
@@ -19,6 +23,11 @@ function Index(props) {
           <input
             className="w-96 mx-4 placeholder-gray-400 text-gray-400 bg-transparent rounded-l focus:outline-none"
             placeholder="Search for a cool server..."
+            onKeyPress={(e) =>
+              e.key == "Enter" && e.target.value
+                ? router.push("/servers?q=" + e.target.value)
+                : void 0
+            }
           />
           <div className="flex flex-row items-center justify-center px-5 py-3 bg-olive-60 rounded-r">
             <i className="far fa-search text-xl text-gray-200" />
