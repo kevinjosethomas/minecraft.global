@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ReactTooltip from "react-tooltip";
 import { useToasts } from "react-toast-notifications";
 import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -17,12 +18,14 @@ function ServerCard(props) {
       <div className="flex flex-col items-center justify-start w-full h-23/30 p-8 space-y-4">
         <div className="flex flex-row items-center justify-start w-full space-x-4 select-none">
           <div className="relative flex flex-col items-center justify-center">
-            <img
-              src={props.favicon || "/images/default_favicon.png"}
-              className="w-24 rounded-full"
-              onError={(e) => (e.target.src = "/images/default_favicon.png")}
-              draggable="false"
-            />
+            <Link href={"/server/" + props.server_id}>
+              <img
+                src={props.favicon || "/images/default_favicon.png"}
+                className="w-24 rounded-full cursor-pointer"
+                onError={(e) => (e.target.src = "/images/default_favicon.png")}
+                draggable="false"
+              />
+            </Link>
             <div
               className={`absolute w-8 h-8 -bottom-1 -right-1 ${
                 props.online ? "bg-green-500" : "bg-red-500"
@@ -33,9 +36,11 @@ function ServerCard(props) {
           <div className="flex flex-col items-start justify-center space-y-1">
             <div className="flex flex-col items-start justify-center">
               <div className="flex flex-row items-center justify-start space-x-3">
-                <h1 className="font-proxima font-bold text-xl text-gray-300">
-                  {props.name}
-                </h1>
+                <Link href={"/server/" + props.server_id}>
+                  <h1 className="font-proxima font-bold text-xl text-gray-300 cursor-pointer">
+                    {props.name}
+                  </h1>
+                </Link>
                 <div
                   className="flex flex-row items-center justify-center rounded-full px-3 space-x-1 bg-dark-80 bg-opacity-[0.8]"
                   data-tip="Upvotes"
