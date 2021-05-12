@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { useQuery } from "react-query";
 
+import getServers from "../../api/servers";
 import ServerCard, { ServerCardSkeleton } from "../core/ServerCard";
-import getServerList from "../../api/server/list";
 
 function TopServers(props) {
   const { isLoading, error, data } = useQuery(["IndexTopServers", 6, 0], () =>
-    getServerList(6, 0)
+    getServers(6, 0)
   );
 
   if (isLoading) {

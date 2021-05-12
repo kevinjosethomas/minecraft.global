@@ -1,6 +1,6 @@
 import axios from "axios";
 
-async function getServerList(amount, offset) {
+async function getServers(amount, offset) {
   amount = amount != null ? amount : 10;
   offset = offset != null ? offset : 0;
 
