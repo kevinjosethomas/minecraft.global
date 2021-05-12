@@ -9,10 +9,22 @@ function Discord(props) {
 }
 
 async function getServerSideProps(ctx) {
-  const code = ctx.query.code;
-  if (!code) {
-    console.log("returning here");
-    console.log(code);
+  try {
+    const code = ctx.query.code;
+    if (!code) {
+      console.log("returning here");
+      console.log(code);
+      return {
+        redirect: {
+          destination: "/login",
+          permanent: true,
+        },
+      };
+    }
+
+    const token = await getLoginDiscord(code);
+    console.log(token);
+  } catch (e) {
     return {
       redirect: {
         destination: "/login",
@@ -20,9 +32,6 @@ async function getServerSideProps(ctx) {
       },
     };
   }
-
-  const token = await getLoginDiscord(code);
-  console.log(token);
 }
 
 export { getServerSideProps };
