@@ -5,11 +5,11 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - name: run whoami
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        script: cd web-frontend && git pull && yarn install && yarn build && pm2 restart frontend
+      - name: build & deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: cd web-frontend && git pull && yarn install && yarn build && pm2 restart frontend
