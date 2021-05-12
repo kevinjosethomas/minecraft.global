@@ -6,7 +6,7 @@ async function getLoginDiscord(code) {
     { withCredentials: true }
   );
 
-  return data.token;
+  return data;
 }
 
 export default getLoginDiscord;

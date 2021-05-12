@@ -22,8 +22,15 @@ async function getServerSideProps(ctx) {
       };
     }
 
-    const token = await getLoginDiscord(code);
-    console.log(token);
+    const data = await getLoginDiscord(code);
+
+    console.log(data);
+
+    return {
+      props: {
+        token: data.token,
+      },
+    };
   } catch (e) {
     return {
       redirect: {
