@@ -46,13 +46,22 @@ function Navbar(props) {
             }
           />
         </div>
-        <Link href="/login">
-          <a className="flex flex-row items-center justify-center px-6 py-2 bg-olive-70 rounded-md">
+        {props.user ? (
+          <div className="flex flex-row items-center justify-center px-6 py-2 space-x-2 bg-olive-70 rounded-md cursor-pointer select-none">
             <span className="font-medium text-lg text-gray-300">
-              login / register
+              {props.user.username || props.user.name}
             </span>
-          </a>
-        </Link>
+            <i className="fas fa-caret-down text-lg text-gray-300" />
+          </div>
+        ) : (
+          <Link href="/login">
+            <a className="flex flex-row items-center justify-center px-6 py-2 bg-olive-70 rounded-md">
+              <span className="font-medium text-lg text-gray-300">
+                login / register
+              </span>
+            </a>
+          </Link>
+        )}
       </div>
     </div>
   );
