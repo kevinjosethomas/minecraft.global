@@ -22,14 +22,12 @@ function Login(props) {
               <a
                 href={process.env.NEXT_PUBLIC_DISCORD_LOGIN_URL}
                 className="flex flex-row items-center justify-center w-full py-2 bg-dark-70 rounded cursor-pointer text-gray-400 hover:text-gray-300 transition duration-500"
-                target="_blank"
               >
                 <i className="fab fa-discord text-xl" />
               </a>
               <a
                 href=""
                 className="flex flex-row items-center justify-center w-full py-2 bg-dark-70 rounded cursor-pointer text-gray-400 hover:text-gray-300 transition duration-500"
-                target="_blank"
               >
                 <i className="fab fa-google text-xl" />
               </a>
