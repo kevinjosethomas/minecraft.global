@@ -14,6 +14,9 @@ function App({ Component, pageProps }) {
       <Head>
         <title>minecraft.global</title>
 
+        {/* Add favicon to tab */}
+        <link rel="icon" type="image/png" href="/images/logo.svg" />
+
         {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
