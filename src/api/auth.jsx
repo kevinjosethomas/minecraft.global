@@ -18,7 +18,7 @@ async function getAuth(req, res) {
 
     return data;
   } catch (e) {
-    return null;
+    return { payload: null };
   }
 }
 

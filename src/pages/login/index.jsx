@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import getAuth from "../../api/auth";
+
 function Login(props) {
   return (
     <div className="bg-login flex flex-row items-center justify-start w-full h-full">
@@ -42,6 +44,25 @@ function Login(props) {
       <div className="flex-1 h-full bg-dark-90 bg-opacity-50" />
     </div>
   );
+}
+
+export async function getServerSideProps(ctx) {
+  const user = await getAuth(ctx.req, ctx.res);
+
+  if (user.payload) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: true,
+      },
+    };
+  } else {
+    return {
+      props: {
+        user: null,
+      },
+    };
+  }
 }
 
 export default Login;
