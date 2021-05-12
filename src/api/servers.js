@@ -13,4 +13,4 @@ async function getServers(amount, offset) {
   return data;
 }
 
-export default getServerList;
+export default getServers;
