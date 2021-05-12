@@ -1,19 +1,19 @@
 module.exports = {
   mode: "jit",
-  purge: ["./src/**/*.jsx"],
+  purge: ["./src/**/*.{js,jsx}"],
   theme: {
     extend: {
       colors: {
         dark: {
-          60: "var(--color-dark-60)",
-          70: "var(--color-dark-70)",
-          80: "var(--color-dark-80)",
-          90: "var(--color-dark-90)",
+          60: "#232323",
+          70: "#1E1E1E",
+          80: "#141414",
+          90: "#0A0A0A",
         },
         olive: {
-          50: "var(--color-olive-50)",
-          60: "var(--color-olive-60)",
-          70: "var(--color-olive-70)",
+          50: "#52B788",
+          60: "#40916C",
+          70: "#2D6A4F",
         },
         gray: {
           450: "var(--color-gray-450)",
