@@ -23,7 +23,7 @@ body,
   height: 100% !important;
 }
 
-body {
+.bg-index {
   background: url("/images/background-1.png");
   background-size: cover;
 }
@@ -35,6 +35,11 @@ body,
 
 .font-proxima {
   font-family: "proxima-soft", sans-serif;
+}
+
+.bg-login {
+  background: url("/images/background-2.jpg");
+  bakground-size: cover;
 }
 
 .server-status-tooltip {
