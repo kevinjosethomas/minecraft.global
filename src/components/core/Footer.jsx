@@ -26,10 +26,7 @@ function Footer(props) {
             >
               <i className="fab fa-discord text-lg text-gray-400 hover:text-gray-300 transition duration-500" />
             </a>
-            <a
-              href={`mailto:${process.env.NEXT_PUBLIC_DISCORD_INVITE_URL}`}
-              target="_blank"
-            >
+            <a href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`} target="_blank">
               <i className="fas fa-inbox text-lg text-gray-400 hover:text-gray-300 transition duration-500" />
             </a>
           </div>
