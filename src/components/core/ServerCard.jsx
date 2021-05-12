@@ -18,14 +18,12 @@ function ServerCard(props) {
       <div className="flex flex-col items-center justify-start w-full h-23/30 p-8 space-y-4">
         <div className="flex flex-row items-center justify-start w-full space-x-4 select-none">
           <div className="relative flex flex-col items-center justify-center">
-            <Link href={"/server/" + props.server_id}>
-              <img
-                src={props.favicon || "/images/default_favicon.png"}
-                className="w-24 rounded-full cursor-pointer"
-                onError={(e) => (e.target.src = "/images/default_favicon.png")}
-                draggable="false"
-              />
-            </Link>
+            <img
+              src={props.favicon || "/images/default_favicon.png"}
+              className="w-24 rounded-full cursor-pointer"
+              onError={(e) => (e.target.src = "/images/default_favicon.png")}
+              draggable="false"
+            />
             <div
               className={`absolute w-8 h-8 -bottom-1 -right-1 ${
                 props.online ? "bg-green-500" : "bg-red-500"
@@ -36,11 +34,9 @@ function ServerCard(props) {
           <div className="flex flex-col items-start justify-center space-y-1">
             <div className="flex flex-col items-start justify-center">
               <div className="flex flex-row items-center justify-start space-x-3">
-                <Link href={"/server/" + props.server_id}>
-                  <h1 className="font-proxima font-bold text-xl text-gray-300 cursor-pointer">
-                    {props.name}
-                  </h1>
-                </Link>
+                <h1 className="font-proxima font-bold text-xl text-gray-300 cursor-pointer">
+                  {props.name}
+                </h1>
                 <div
                   className="flex flex-row items-center justify-center rounded-full px-3 space-x-1 bg-dark-80 bg-opacity-[0.8]"
                   data-tip="Upvotes"
