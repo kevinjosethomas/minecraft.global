@@ -4,9 +4,16 @@ function Navbar(props) {
   return (
     <div className="flex flex-row items-center justify-between w-full px-56 py-5 bg-dark-80">
       <div className="flex flex-row items-center justify-center space-x-6">
-        <h1 className="font-semibold text-2xl text-olive-60">
-          minecraft<span className="text-olive-50">.</span>global
-        </h1>
+        <div className="flex flex-row items-center justify-center space-x-3">
+          <img
+            src="/images/logo.svg"
+            className="w-6 transform hover:rotate-[360deg] duration-1000"
+            draggable="false"
+          />
+          <h1 className="font-semibold text-2xl text-olive-60">
+            minecraft<span className="text-olive-50">.</span>global
+          </h1>
+        </div>
         <div className="flex flex-row items-center justify-center space-x-4">
           <Link href="/">
             <a className="font-medium text-xl text-gray-400 hover:text-gray-300 transition duration-500">
