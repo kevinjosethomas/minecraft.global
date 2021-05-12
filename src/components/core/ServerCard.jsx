@@ -72,7 +72,7 @@ function ServerCard(props) {
           text={props.host + ":" + props.port}
           onCopy={() =>
             addToast(
-              `Copied the ${props.host + ":" + props.port} to your clipboard!`,
+              `Copied ${props.host + ":" + props.port} to your clipboard!`,
               {
                 appearance: "success",
               }
