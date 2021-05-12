@@ -15,7 +15,7 @@ function Navbar(props) {
           </h1>
         </div>
         <div className="flex flex-row items-center justify-center space-x-4">
-          <Link href="/">
+          <Link href="/servers">
             <a className="font-medium text-xl text-gray-400 hover:text-gray-300 transition duration-500">
               servers
             </a>

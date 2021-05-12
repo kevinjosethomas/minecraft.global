@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 function Login(props) {
   return (
     <div className="bg-login flex flex-row items-center justify-start w-full h-full">
@@ -7,9 +9,11 @@ function Login(props) {
           <div className="flex flex-col items-start justify-center space-y-1">
             <h1 className="font-bold text-3xl text-gray-300">
               Join{" "}
-              <span className="text-olive-60">
-                minecraft<span className="text-olive-50">.</span>global
-              </span>{" "}
+              <Link href="/">
+                <a className="text-olive-60">
+                  minecraft<span className="text-olive-50">.</span>global
+                </a>
+              </Link>{" "}
               now!
             </h1>
           </div>
