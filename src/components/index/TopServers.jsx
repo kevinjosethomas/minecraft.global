@@ -31,7 +31,7 @@ function TopServers(props) {
         ))}
       </div>
       <Link href="/servers">
-        <a className="flex flex-row items-center justify-center w-full py-10 bg-dark-70 rounded-xl">
+        <a className="flex flex-row items-center justify-center w-full py-8 bg-dark-70 rounded-xl">
           <span className="font-proxima font-semibold text-4xl text-gray-400">
             SEE MORE
           </span>
