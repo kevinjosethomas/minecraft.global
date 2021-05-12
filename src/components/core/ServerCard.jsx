@@ -36,9 +36,11 @@ function ServerCard(props) {
           <div className="flex flex-col items-start justify-center space-y-1">
             <div className="flex flex-col items-start justify-center">
               <div className="flex flex-row items-center justify-start space-x-3">
-                <h1 className="font-proxima font-bold text-xl text-gray-300">
-                  {props.name}
-                </h1>
+                <Link href={"/server/" + props.server_id}>
+                  <h1 className="font-proxima font-bold text-xl text-gray-300 cursor-pointer">
+                    {props.name}
+                  </h1>
+                </Link>
                 <div
                   className="flex flex-row items-center justify-center rounded-full px-3 space-x-1 bg-dark-80 bg-opacity-[0.8]"
                   data-tip="Upvotes"
