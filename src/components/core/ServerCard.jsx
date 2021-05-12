@@ -20,7 +20,7 @@ function ServerCard(props) {
           <div className="relative flex flex-col items-center justify-center">
             <img
               src={props.favicon || "/images/default_favicon.png"}
-              className="w-24 rounded-full cursor-pointer"
+              className="w-24 rounded-full"
               onError={(e) => (e.target.src = "/images/default_favicon.png")}
               draggable="false"
             />
@@ -34,7 +34,7 @@ function ServerCard(props) {
           <div className="flex flex-col items-start justify-center space-y-1">
             <div className="flex flex-col items-start justify-center">
               <div className="flex flex-row items-center justify-start space-x-3">
-                <h1 className="font-proxima font-bold text-xl text-gray-300 cursor-pointer">
+                <h1 className="font-proxima font-bold text-xl text-gray-300">
                   {props.name}
                 </h1>
                 <div
