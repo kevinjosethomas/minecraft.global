@@ -1,3 +1,4 @@
+import Cookies from "cookies";
 import getLoginDiscord from "../../api/login/discord";
 
 function Discord(props) {
@@ -12,8 +13,6 @@ async function getServerSideProps(ctx) {
   try {
     const code = ctx.query.code;
     if (!code) {
-      console.log("returning here");
-      console.log(code);
       return {
         redirect: {
           destination: "/login",
@@ -24,11 +23,13 @@ async function getServerSideProps(ctx) {
 
     const data = await getLoginDiscord(code);
 
-    console.log(data);
+    const cookies = new Cookies(ctx.req, ctx.res);
+    cookies.set("token", data.payload.token);
 
     return {
-      props: {
-        token: data.token,
+      redirect: {
+        destination: "/",
+        permanent: true,
       },
     };
   } catch (e) {
