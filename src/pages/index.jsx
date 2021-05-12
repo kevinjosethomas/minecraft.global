@@ -55,7 +55,6 @@ function Index(props) {
 
 export async function getServerSideProps(ctx) {
   const user = await getAuth(ctx.req, ctx.res);
-  console.log(user);
   return {
     props: {
       user: user,
