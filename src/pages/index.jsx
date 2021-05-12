@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 import getAuth from "../api/auth";
@@ -48,6 +49,24 @@ function Index(props) {
           </h6>
         </div>
         <TopServers />
+      </div>
+      <div className="flex flex-col items-center justify-center w-full py-16 space-y-4 bg-dark-70 text-center">
+        <div className="flex flex-col items-center justify-center space-y-2">
+          <h1 className="space-x-2 font-bold text-5xl text-gray-300">
+            <i className="far fa-rocket-launch" /> Get started now!
+          </h1>
+          <h6 className="max-w-xl font-semibold text-xl text-gray-400">
+            Add your server to our list to get more players, advanced analytics
+            and statistics about your server and a lot more!
+          </h6>
+        </div>
+        <Link href={props.user ? "/server/new" : "/login"}>
+          <a className="flex flex-row items-center justify-center px-8 py-3 bg-olive-70 rounded-md">
+            <span className="font-semibold text-2xl text-gray-300">
+              Get Started
+            </span>
+          </a>
+        </Link>
       </div>
     </StandardLayout>
   );
