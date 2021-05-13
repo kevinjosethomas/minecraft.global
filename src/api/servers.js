@@ -1,12 +1,9 @@
 import axios from "axios";
+import qs from "querystring";
 
-async function getServers(amount, offset) {
-  amount = amount != null ? amount : 10;
-  offset = offset != null ? offset : 0;
-
+async function getServers(params) {
   const { data } = await axios.get(
-    process.env.NEXT_PUBLIC_API_URL +
-      `/servers?amount=${amount}&offset=${offset}`,
+    process.env.NEXT_PUBLIC_API_URL + `/search?${qs.stringify(params)}`,
     { withCredentials: true }
   );
 
