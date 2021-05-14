@@ -1,10 +1,9 @@
-import axios from "axios";
 import Head from "next/head";
 import { ToastProvider } from "react-toast-notifications";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-import "../styles/tailwind.css";
+import "../assets/styles/tailwind.css";
 
 const queryClient = new QueryClient();
 
@@ -15,7 +14,11 @@ function App({ Component, pageProps }) {
         <title>minecraft.global</title>
 
         {/* Add favicon to tab */}
-        <link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg" />
+        <link
+          rel="shortcut icon"
+          type="image/svg+xml"
+          href="/images/logo.svg"
+        />
 
         {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.gstatic.com" />

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import Sort from "./components/Sort";
 import Filter from "./components/Filter";
-import refineOptionsData from "../../../data/refine";
+import refineOptionsData from "../../../assets/data/refine";
 
 function Refine(props) {
   const [refineOptions, setRefineOptions] = useState(refineOptionsData);
