@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { useQuery } from "react-query";
 
 import getServers from "../../api/servers";
@@ -31,11 +32,14 @@ function TopServers(props) {
         ))}
       </div>
       <Link href="/servers">
-        <a className="flex flex-row items-center justify-center w-full py-8 bg-dark-70 rounded-xl">
+        <motion.div
+          className="flex flex-row items-center justify-center w-full py-8 bg-dark-70 rounded-xl cursor-pointer"
+          whileHover={{ y: -5, transition: { duration: 0.5 } }}
+        >
           <span className="font-proxima font-semibold text-3xl lg:text-4xl text-gray-400">
             SEE MORE
           </span>
-        </a>
+        </motion.div>
       </Link>
     </div>
   );
