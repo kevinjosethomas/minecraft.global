@@ -56,6 +56,9 @@ body,
 }
 
 .server-status-favicon {
-  -ms-interpolation-mode: nearest-neighbor !important;
-  image-rendering: pixelated !important;
+  /* -ms-interpolation-mode: nearest-neighbor !important;
+  image-rendering: pixelated !important; */
+
+  image-rendering: -webkit-optimize-contrast !important;
+  image-rendering: crisp-edges !important;
 }
