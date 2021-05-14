@@ -25,8 +25,8 @@ function Servers(props) {
   useEffect(() => {
     const newPage = parseInt(router.query.page || 1);
     setPage(newPage);
-    setParams({ ...params, offset: newPage * 12 - 12 });
-  }, [router.query.page]);
+    setParams({ ...params, offset: newPage * 12 - 12, query: router.query.q });
+  }, [router.query.page, router.query.q]);
 
   return (
     <StandardLayout user={props.user}>

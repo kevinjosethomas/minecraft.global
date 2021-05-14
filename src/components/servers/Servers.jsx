@@ -35,7 +35,15 @@ function Servers(props) {
               <span className="text-olive-60">
                 {data?.payload.total_records}
               </span>{" "}
-              results
+              results{" "}
+              {props.params.query ? (
+                <span>
+                  for{" "}
+                  <span className="text-olive-60">{props.params.query}</span>
+                </span>
+              ) : (
+                <></>
+              )}
             </span>
           ) : (
             <></>
@@ -71,7 +79,15 @@ function Servers(props) {
           <div className="flex flex-col items-start justify-center">
             <h1 className="font-bold text-4xl text-gray-300">Not Found</h1>
             <span className="max-w-md font-medium text-xl text-gray-400">
-              Uhh, we couldn't find any servers that match your filters (⌒_⌒;)
+              Uhh, we couldn't find any servers that match your filters{" "}
+              {props.params.query ? (
+                <span>
+                  for{" "}
+                  <span className="text-gray-300">{props.params.query}</span>
+                </span>
+              ) : (
+                <></>
+              )}
             </span>
           </div>
         </div>
