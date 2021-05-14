@@ -25,14 +25,14 @@ function TopServers(props) {
 
   return (
     <div className="flex flex-col items-center justify-center space-y-10">
-      <div className="grid grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-10 2xl:gap-5 3xl:gap-10">
         {data.payload.servers.map((server) => (
           <ServerCard key={server.server_id} {...server} />
         ))}
       </div>
       <Link href="/servers">
         <a className="flex flex-row items-center justify-center w-full py-8 bg-dark-70 rounded-xl">
-          <span className="font-proxima font-semibold text-4xl text-gray-400">
+          <span className="font-proxima font-semibold text-3xl lg:text-4xl text-gray-400">
             SEE MORE
           </span>
         </a>

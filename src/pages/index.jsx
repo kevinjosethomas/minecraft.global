@@ -49,12 +49,12 @@ function Index(props) {
       <div className="flex flex-col items-center justify-center w-full py-32 space-y-10 bg-dark-80">
         <div className="flex flex-col items-center justify-center space-y-2 text-center">
           <div className="flex flex-row items-center justify-center space-x-2">
-            <i className="twa twa-2728 text-5xl" />
-            <h1 className="font-proxima font-bold text-5xl text-gray-300">
+            <i className="twa twa-2728 text-3xl md:text-5xl" />
+            <h1 className="font-proxima font-bold text-3xl md:text-5xl text-gray-300">
               Trending Servers
             </h1>
           </div>
-          <h6 className="max-w-xl font-semibold text-2xl text-gray-400">
+          <h6 className="max-w-md md:max-w-xl font-semibold text-lg md:text-2xl text-gray-400">
             These are some of the most voted Minecraft servers this month!
           </h6>
         </div>
@@ -62,17 +62,17 @@ function Index(props) {
       </div>
       <div className="flex flex-col items-center justify-center w-full py-16 space-y-4 bg-dark-70 text-center">
         <div className="flex flex-col items-center justify-center space-y-2">
-          <h1 className="space-x-2 font-bold text-5xl text-gray-300">
+          <h1 className="space-x-2 font-bold text-3xl md:text-5xl text-gray-300">
             <i className="far fa-rocket-launch" /> Get started now!
           </h1>
-          <h6 className="max-w-xl font-semibold text-xl text-gray-400">
+          <h6 className="max-w-xs md:max-w-xl font-medium md:font-semibold md:text-xl text-gray-400">
             Add your server to our list to get more players, advanced analytics
             and statistics about your server and a lot more!
           </h6>
         </div>
         <Link href={props.user ? "/server/new" : "/login"}>
           <a className="flex flex-row items-center justify-center px-8 py-3 bg-olive-70 rounded-md">
-            <span className="font-semibold text-2xl text-gray-300">
+            <span className="font-semibold text-xl md:text-2xl text-gray-300">
               Get Started
             </span>
           </a>

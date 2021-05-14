@@ -8,7 +8,7 @@ function ServerCard(props) {
   const { addToast } = useToasts();
 
   return (
-    <div className="flex flex-col items-center justify-between w-124 h-72 bg-dark-70 overflow-hidden rounded-xl">
+    <div className="flex flex-col items-center justify-between w-80 md:w-124 lg:w-112 xl:w-124 2xl:w-112 3xl:w-124 h-72 bg-dark-70 overflow-hidden rounded-xl">
       <ReactTooltip
         effect="solid"
         className="server-status-tooltip"
@@ -20,21 +20,21 @@ function ServerCard(props) {
           <div className="relative flex flex-col items-center justify-center">
             <img
               src={props.favicon || "/images/default_favicon.png"}
-              className="w-24 rounded-full server-status-favicon"
+              className="w-12 md:w-24 min-w-[3rem] md:min-w-[6rem] rounded-full server-status-favicon"
               onError={(e) => (e.target.src = "/images/default_favicon.png")}
               draggable="false"
             />
             <div
-              className={`absolute w-8 h-8 -bottom-1 -right-1 ${
+              className={`absolute w-4 md:w-8 h-4 md:h-8 -bottom-0.5 md:-bottom-1 -right-0.5 md:-right-1 ${
                 props.online ? "bg-green-500" : "bg-red-500"
-              } rounded-full border-8 border-dark-70`}
+              } rounded-full border-4 md:border-8 border-dark-70`}
               data-tip={props.online ? "Online" : "Offline"}
             />
           </div>
           <div className="flex flex-col items-start justify-center space-y-1">
             <div className="flex flex-col items-start justify-center">
               <div className="flex flex-row items-center justify-start space-x-3">
-                <h1 className="font-proxima font-bold text-xl text-gray-300">
+                <h1 className="font-proxima font-bold md:text-xl text-gray-300">
                   {props.name}
                 </h1>
                 <div
@@ -47,11 +47,11 @@ function ServerCard(props) {
                   </h6>
                 </div>
               </div>
-              <span className="font-proxima font-bold text-gray-400">
+              <span className="font-proxima font-bold text-sm md:text-sm text-gray-400">
                 {props.players_online || 0} players
               </span>
             </div>
-            <div className="flex flex-row items-center justify-start space-x-2">
+            <div className="hidden md:flex flex-row items-center justify-start space-x-2">
               {props.tags.map((tag, index) => (
                 <div
                   key={index}
@@ -65,7 +65,19 @@ function ServerCard(props) {
             </div>
           </div>
         </div>
-        <p className="font-medium text-sm text-gray-400">{props.description}</p>
+        <div className="flex md:hidden flex-row items-center justify-start space-x-2">
+          {props.tags.map((tag, index) => (
+            <div
+              key={index}
+              className="flex flex-row items-center justify-center px-2 py-1 bg-dark-80"
+            >
+              <span className="font-semibold text-xs text-gray-400">{tag}</span>
+            </div>
+          ))}
+        </div>
+        <p className="font-medium text-xs md:text-sm text-gray-400">
+          {props.description}
+        </p>
       </div>
       <div className="flex flex-row items-center justify-center w-full h-7/30 cursor-pointer select-none">
         <CopyToClipboard
@@ -80,13 +92,13 @@ function ServerCard(props) {
           }
         >
           <div className="flex flex-row items-center justify-center w-1/2 h-full bg-white bg-opacity-[0.02]">
-            <span className="font-proxima font-semibold text-xl text-gray-450">
+            <span className="font-proxima font-semibold text-lg md:text-xl text-gray-450">
               COPY IP
             </span>
           </div>
         </CopyToClipboard>
         <div className="flex flex-row items-center justify-center w-1/2 h-full bg-white bg-opacity-[0.04]">
-          <span className="font-proxima font-semibold text-xl text-gray-450">
+          <span className="font-proxima font-semibold text-lg md:text-xl text-gray-450">
             VIEW SERVER
           </span>
         </div>
