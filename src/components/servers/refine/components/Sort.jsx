@@ -3,11 +3,7 @@ function Sort(props) {
     const newOptions = { ...props.options };
     newOptions.sort.forEach((option, index) => {
       if (option.id == id) {
-        if (option.checked) {
-          newOptions.sort[index].checked = false;
-        } else {
-          newOptions.sort[index].checked = true;
-        }
+        newOptions.sort[index].checked = true;
       } else {
         if (option.checked == true) {
           newOptions.sort[index].checked = false;
