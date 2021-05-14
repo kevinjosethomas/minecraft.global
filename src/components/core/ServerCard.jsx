@@ -20,7 +20,7 @@ function ServerCard(props) {
           <div className="relative flex flex-col items-center justify-center">
             <img
               src={props.favicon || "/images/default_favicon.png"}
-              className="w-24 rounded-full"
+              className="w-24 rounded-full server-status-favicon"
               onError={(e) => (e.target.src = "/images/default_favicon.png")}
               draggable="false"
             />

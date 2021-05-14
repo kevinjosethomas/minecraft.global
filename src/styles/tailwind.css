@@ -54,3 +54,8 @@ body,
 .server-status-tooltip.show {
   opacity: 1 !important;
 }
+
+.server-status-favicon {
+  -ms-interpolation-mode: nearest-neighbor !important;
+  image-rendering: pixelated !important;
+}
