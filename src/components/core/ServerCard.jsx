@@ -15,7 +15,7 @@ function ServerCard(props) {
         backgroundColor="#000"
         arrowColor="#000"
       />
-      <div className="flex flex-col items-center justify-start w-full h-23/30 p-8 space-y-4">
+      <div className="flex flex-col items-start justify-start w-full h-23/30 p-8 space-y-4">
         <div className="flex flex-row items-center justify-start w-full space-x-4 select-none">
           <div className="relative flex flex-col items-center justify-center">
             <img
