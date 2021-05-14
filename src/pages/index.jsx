@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRef } from "react";
 import { useRouter } from "next/router";
 
 import getAuth from "../api/auth";
@@ -7,6 +8,7 @@ import TopServers from "../components/index/TopServers";
 
 function Index(props) {
   const router = useRouter();
+  const searchInputRef = useRef();
 
   return (
     <StandardLayout user={props.user}>
@@ -25,13 +27,21 @@ function Index(props) {
           <input
             className="w-96 mx-4 placeholder-gray-400 text-gray-400 bg-transparent rounded-l focus:outline-none"
             placeholder="Search for a cool server..."
+            ref={searchInputRef}
             onKeyPress={(e) =>
               e.key == "Enter" && e.target.value
                 ? router.push("/servers?q=" + e.target.value)
                 : void 0
             }
           />
-          <div className="flex flex-row items-center justify-center px-5 py-3 bg-olive-60 rounded-r">
+          <div
+            className="flex flex-row items-center justify-center px-5 py-3 bg-olive-60 rounded-r cursor-pointer"
+            onClick={() =>
+              searchInputRef.current.value
+                ? router.push("/servers?q=" + searchInputRef.current.value)
+                : void 0
+            }
+          >
             <i className="far fa-search text-xl text-gray-200" />
           </div>
         </div>
