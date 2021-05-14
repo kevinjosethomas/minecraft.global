@@ -12,9 +12,9 @@ function Standard(props) {
         router.pathname == "/" ? "bg-index" : ""
       }`}
     >
-      <Navbar user={props.user} />
+      <Navbar user={props.user} dark={router.pathname == "/" ? true : false} />
       {props.children}
-      <Footer />
+      <Footer dark={router.pathname == "/" ? true : false} />
     </div>
   );
 }

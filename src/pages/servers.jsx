@@ -14,8 +14,8 @@ function Servers(props) {
     amount: 12,
     offset: page * 12 - 12,
     query: "",
-    sort: "upvotes",
-    online: false,
+    sort: "players",
+    online: true,
     premium: false,
     whitelisted: false,
     bedrock_edition: false,
@@ -31,7 +31,7 @@ function Servers(props) {
   return (
     <StandardLayout user={props.user}>
       <div className="flex flex-row items-start justify-center w-full py-32 space-x-32 bg-dark-80">
-        <Refine />
+        <Refine params={params} setParams={setParams} />
         <ServerList page={page} params={params} />
       </div>
     </StandardLayout>

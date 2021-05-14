@@ -5,7 +5,11 @@ function Navbar(props) {
   const router = useRouter();
 
   return (
-    <div className="flex flex-row items-center justify-between w-full px-56 py-5 bg-dark-80">
+    <div
+      className={`flex flex-row items-center justify-between w-full px-56 py-5 ${
+        props.dark ? "bg-dark-80" : "bg-dark-70"
+      }`}
+    >
       <div className="flex flex-row items-center justify-center space-x-6">
         <Link href="/">
           <a className="flex flex-row items-center justify-center space-x-3">

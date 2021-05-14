@@ -2,7 +2,11 @@ import Link from "next/link";
 
 function Footer(props) {
   return (
-    <div className="flex flex-row items-center justify-center w-full space-x-20 py-10 bg-dark-80">
+    <div
+      className={`flex flex-row items-center justify-center w-full space-x-20 py-10 ${
+        props.dark ? "bg-dark-80" : "bg-dark-70"
+      }`}
+    >
       <img src="/images/logo.svg" className="w-32" draggable="false" />
       <div className="flex flex-col items-start justify-center space-y-2">
         <h1 className="font-bold text-3xl text-olive-60">

@@ -4,13 +4,13 @@ const refineOptions = {
       id: 1,
       name: "upvotes",
       label: "Upvotes",
-      checked: true,
+      checked: false,
     },
     {
       id: 2,
-      name: "online_players",
+      name: "players",
       label: "Online Players",
-      checked: false,
+      checked: true,
     },
   ],
   filter: [
@@ -18,13 +18,13 @@ const refineOptions = {
       id: 1,
       name: "online",
       label: "Online",
-      checked: false,
+      checked: true,
     },
     {
       id: 2,
       name: "premium",
       label: "Premium",
-      checked: true,
+      checked: false,
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ const refineOptions = {
     },
     {
       id: 4,
-      name: "bedrock",
+      name: "bedrock_edition",
       label: "Bedrock Edition",
       checked: false,
     },

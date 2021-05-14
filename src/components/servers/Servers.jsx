@@ -7,47 +7,108 @@ import ServerCard, { ServerCardSkeleton } from "../core/ServerCard";
 function Servers(props) {
   const router = useRouter();
 
-  const { isLoading, error, data } = useQuery(["Servers", props.params], () =>
-    getServers(props.params)
-  );
-
   const updatePageNumber = (page) => {
     router.query.page = page;
     router.push(router);
   };
 
+  const { isLoading, error, data } = useQuery(["Servers", props.params], () =>
+    getServers(props.params)
+  );
+
+  if (error) {
+    return "sus";
+  }
+
   return (
     <div className="flex flex-col items-center justify-center space-y-5">
       <div className="flex flex-row items-center justify-between w-full">
-        <span className="font-bold text-4xl text-gray-300">Servers</span>
-        <div className="flex flex-row items-center justify-center space-x-4">
-          {props.page > 1 ? (
-            <div
-              className="flex flex-row items-center justify-center w-8 h-8 bg-olive-60 rounded cursor-pointer hover:bg-olive-70 transition duration-500"
-              onClick={() => updatePageNumber(props.page - 1)}
-            >
-              <i className="fas fa-chevron-left text-lg text-gray-300" />
-            </div>
+        <div className="flex flex-col items-start justify-center space-y-1">
+          <span className="font-bold text-4xl text-gray-300">Servers</span>
+          {data?.payload.servers.length ? (
+            <span className="font-semibold text-xl text-gray-400">
+              <i className="far fa-search" /> Showing{" "}
+              <span className="text-olive-60">
+                {data?.payload.servers.length}
+              </span>{" "}
+              out of{" "}
+              <span className="text-olive-60">
+                {data?.payload.total_records}
+              </span>{" "}
+              results
+            </span>
           ) : (
             <></>
           )}
-          <h1 className="font-bold text-2xl text-gray-400">
-            Page {props.page}
-          </h1>
-          <div
-            className="flex flex-row items-center justify-center w-8 h-8 bg-olive-60 rounded cursor-pointer hover:bg-olive-70 transition duration-500"
-            onClick={() => updatePageNumber(props.page + 1)}
-          >
-            <i className="fas fa-chevron-right text-lg text-gray-300" />
+        </div>
+
+        {data?.payload.servers.length ? (
+          <PageNav
+            page={props.page}
+            onClick={(page) => updatePageNumber(page)}
+          />
+        ) : (
+          <></>
+        )}
+      </div>
+      {isLoading || data.payload.servers.length ? (
+        <div className="grid grid-cols-2 gap-10">
+          {isLoading
+            ? [...Array(6)].map((el, index) => (
+                <ServerCardSkeleton key={index} />
+              ))
+            : data.payload.servers.map((server) => (
+                <ServerCard key={server.server_id} {...server} />
+              ))}
+        </div>
+      ) : (
+        <div className="flex flex-row items-center justify-center w-[64.5rem] py-28 space-x-10">
+          <img
+            src="/images/creeper-error.png"
+            className="w-48 filter saturate-0"
+            draggable="false"
+          />
+          <div className="flex flex-col items-start justify-center">
+            <h1 className="font-bold text-4xl text-gray-300">Not Found</h1>
+            <span className="max-w-md font-medium text-xl text-gray-400">
+              Uhh, we couldn't find any servers that match your filters (⌒_⌒;)
+            </span>
           </div>
         </div>
-      </div>
-      <div className="grid grid-cols-2 gap-10">
-        {isLoading
-          ? [...Array(6)].map((el, index) => <ServerCardSkeleton key={index} />)
-          : data.payload.servers.map((server) => (
-              <ServerCard key={server.server_id} {...server} />
-            ))}
+      )}
+      {data?.payload.servers.length ? (
+        <div className="flex flex-row items-center justify-end w-full">
+          <PageNav
+            page={props.page}
+            onClick={(page) => updatePageNumber(page)}
+          />
+        </div>
+      ) : (
+        <></>
+      )}
+    </div>
+  );
+}
+
+function PageNav(props) {
+  return (
+    <div className="flex flex-row items-center justify-center space-x-4">
+      {props.page > 1 ? (
+        <div
+          className="flex flex-row items-center justify-center w-8 h-8 bg-olive-60 rounded cursor-pointer hover:bg-olive-70 transition duration-500"
+          onClick={() => props.onClick(props.page - 1)}
+        >
+          <i className="fas fa-chevron-left text-lg text-gray-300" />
+        </div>
+      ) : (
+        <></>
+      )}
+      <h1 className="font-bold text-2xl text-gray-400">Page {props.page}</h1>
+      <div
+        className="flex flex-row items-center justify-center w-8 h-8 bg-olive-60 rounded cursor-pointer hover:bg-olive-70 transition duration-500"
+        onClick={() => props.onClick(props.page + 1)}
+      >
+        <i className="fas fa-chevron-right text-lg text-gray-300" />
       </div>
     </div>
   );
