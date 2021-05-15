@@ -3,7 +3,7 @@ import Link from "next/link";
 function Footer(props) {
   return (
     <div
-      className={`flex flex-col md:flex-row items-center justify-center w-full md:space-x-20 space-y-6 md:space-y-0 py-10 ${
+      className={`flex flex-col md:flex-row items-center justify-center w-full md:space-x-20 py-16 md:py-10 space-y-6 md:space-y-0 ${
         props.dark ? "bg-dark-80" : "bg-dark-70"
       }`}
     >
