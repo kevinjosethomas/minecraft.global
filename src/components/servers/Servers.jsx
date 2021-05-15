@@ -25,11 +25,11 @@ function Servers(props) {
       <div className="flex flex-row items-center justify-between w-full">
         <div className="flex flex-col items-start justify-center space-y-1">
           <span className="font-bold text-4xl text-gray-300">Servers</span>
-          {data?.payload.servers.length ? (
+          {data?.payload.entries.length ? (
             <span className="font-semibold text-xl text-gray-400">
               <i className="far fa-search" /> Showing{" "}
               <span className="text-olive-60">
-                {data?.payload.servers.length}
+                {data?.payload.entries.length}
               </span>{" "}
               out of{" "}
               <span className="text-olive-60">
@@ -50,7 +50,7 @@ function Servers(props) {
           )}
         </div>
 
-        {data?.payload.servers.length ? (
+        {data?.payload.entries.length ? (
           <PageNav
             page={props.page}
             onClick={(page) => updatePageNumber(page)}
@@ -59,13 +59,13 @@ function Servers(props) {
           <></>
         )}
       </div>
-      {isLoading || data.payload.servers.length ? (
+      {isLoading || data.payload.entries.length ? (
         <div className="grid grid-cols-2 gap-10">
           {isLoading
             ? [...Array(6)].map((el, index) => (
                 <ServerCardSkeleton key={index} />
               ))
-            : data.payload.servers.map((server) => (
+            : data.payload.entries.map((server) => (
                 <ServerCard key={server.server_id} {...server} />
               ))}
         </div>
@@ -92,7 +92,7 @@ function Servers(props) {
           </div>
         </div>
       )}
-      {data?.payload.servers.length ? (
+      {data?.payload.entries.length ? (
         <div className="flex flex-row items-center justify-end w-full">
           <PageNav
             page={props.page}
