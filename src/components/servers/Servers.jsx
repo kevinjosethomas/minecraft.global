@@ -62,12 +62,15 @@ function Servers(props) {
       {isLoading || data.payload.entries.length ? (
         <div className="grid grid-cols-2 gap-10">
           {isLoading
-            ? [...Array(6)].map((el, index) => (
+            ? [...Array(12)].map((el, index) => (
                 <ServerCardSkeleton key={index} />
               ))
-            : data.payload.entries.map((server) => (
-                <ServerCard key={server.server_id} {...server} />
-              ))}
+            : data.payload.entries.map((entry) => {
+                if (entry.server_id) {
+                  return <ServerCard key={entry.server_id} {...entry} />;
+                } else if (entry.advertisement_id) {
+                }
+              })}
         </div>
       ) : (
         <div className="flex flex-row items-center justify-center w-[64.5rem] py-28 space-x-10">
