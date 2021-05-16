@@ -23,11 +23,13 @@ function Servers(props) {
 
   return (
     <div className="flex flex-col items-center justify-center space-y-5">
-      <div className="flex flex-row items-center justify-between w-full">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-center md:justify-between w-full space-y-10 md:space-y-0">
         <div className="flex flex-col items-start justify-center space-y-1">
-          <span className="font-bold text-4xl text-gray-300">Servers</span>
+          <span className="font-bold text-3xl md:text-4xl text-gray-300">
+            Servers
+          </span>
           {data?.payload.entries.length ? (
-            <span className="font-semibold text-xl text-gray-400">
+            <span className="font-semibold text-lg md:text-xl text-gray-400">
               <i className="far fa-search" /> Showing{" "}
               <span className="text-olive-60">
                 {data?.payload.entries.length}
@@ -50,7 +52,6 @@ function Servers(props) {
             <></>
           )}
         </div>
-
         {data?.payload.entries.length ? (
           <PageNav
             page={props.page}
@@ -61,7 +62,7 @@ function Servers(props) {
         )}
       </div>
       {isLoading || data.payload.entries.length ? (
-        <div className="grid grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 2xl:gap-5 3xl:gap-10">
           {isLoading
             ? [...Array(12)].map((el, index) => (
                 <ServerCardSkeleton key={index} />
@@ -116,7 +117,7 @@ function Servers(props) {
 
 function PageNav(props) {
   return (
-    <div className="flex flex-row items-center justify-center space-x-4">
+    <div className="flex flex-row items-center justify-between md:justify-center w-full md:w-auto space-x-4">
       {props.page > 1 ? (
         <div
           className="flex flex-row items-center justify-center w-8 h-8 bg-olive-60 rounded cursor-pointer hover:bg-olive-70 transition duration-500"

@@ -30,7 +30,7 @@ function Servers(props) {
 
   return (
     <StandardLayout user={props.user}>
-      <div className="flex flex-row items-start justify-center w-full py-32 space-x-32 bg-dark-80">
+      <div className="flex flex-row items-start justify-center w-full py-16 md:py-32 2xl:space-x-32 bg-dark-80">
         <Refine params={params} setParams={setParams} />
         <ServerList page={page} params={params} />
       </div>

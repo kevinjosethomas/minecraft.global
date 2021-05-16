@@ -13,7 +13,7 @@ function TopServers(props) {
 
   if (isLoading) {
     return (
-      <div className="grid grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-10 2xl:gap-5 3xl:gap-10">
         {[...Array(6)].map((el, index) => (
           <ServerCardSkeleton key={index} />
         ))}
