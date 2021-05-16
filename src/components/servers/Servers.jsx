@@ -2,6 +2,7 @@ import { useQuery } from "react-query";
 import { useRouter } from "next/router";
 
 import getServers from "../../api/servers";
+import Advertisement from "../core/Advertisement";
 import ServerCard, { ServerCardSkeleton } from "../core/ServerCard";
 
 function Servers(props) {
@@ -65,10 +66,14 @@ function Servers(props) {
             ? [...Array(12)].map((el, index) => (
                 <ServerCardSkeleton key={index} />
               ))
-            : data.payload.entries.map((entry) => {
+            : data.payload.entries.map((entry, index) => {
                 if (entry.server_id) {
-                  return <ServerCard key={entry.server_id} {...entry} />;
+                  if (entry.is_custom_advertisement) {
+                    return <ServerCard key={index} {...entry} />;
+                  }
+                  return <ServerCard key={index} {...entry} />;
                 } else if (entry.advertisement_id) {
+                  return <Advertisement key={index} {...entry} />;
                 }
               })}
         </div>

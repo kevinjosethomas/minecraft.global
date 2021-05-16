@@ -30,6 +30,9 @@ function TopServers(props) {
       <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-10 2xl:gap-5 3xl:gap-10">
         {data.payload.entries.map((entry, index) => {
           if (entry.server_id) {
+            if (entry.is_custom_advertisement) {
+              return <ServerCard key={index} {...entry} />;
+            }
             return <ServerCard key={index} {...entry} />;
           } else if (entry.advertisement_id) {
             return <Advertisement key={index} {...entry} />;
