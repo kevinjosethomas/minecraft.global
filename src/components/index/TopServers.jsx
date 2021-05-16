@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useQuery } from "react-query";
 
 import getServers from "../../api/servers";
+import Advertisement from "../core/Advertisement";
 import ServerCard, { ServerCardSkeleton } from "../core/ServerCard";
 
 function TopServers(props) {
@@ -27,10 +28,11 @@ function TopServers(props) {
   return (
     <div className="flex flex-col items-center justify-center space-y-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-10 2xl:gap-5 3xl:gap-10">
-        {data.payload.entries.map((entry) => {
+        {data.payload.entries.map((entry, index) => {
           if (entry.server_id) {
-            return <ServerCard key={entry.server_id} {...entry} />;
+            return <ServerCard key={index} {...entry} />;
           } else if (entry.advertisement_id) {
+            return <Advertisement key={index} {...entry} />;
           }
         })}
       </div>

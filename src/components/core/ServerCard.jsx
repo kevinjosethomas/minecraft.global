@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import ReactTooltip from "react-tooltip";
 import { useToasts } from "react-toast-notifications";
 import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -8,10 +7,7 @@ function ServerCard(props) {
   const { addToast } = useToasts();
 
   return (
-    <motion.div
-      className="flex flex-col items-center justify-between w-80 md:w-124 lg:w-112 xl:w-124 2xl:w-112 3xl:w-124 h-72 bg-dark-70 overflow-hidden rounded-xl"
-      whileHover={{ y: -3, transition: { duration: 1 } }}
-    >
+    <div className="flex flex-col items-center justify-between w-80 md:w-124 lg:w-112 xl:w-124 2xl:w-112 3xl:w-124 h-72 bg-dark-70 overflow-hidden rounded-xl transform hover:scale-[1.02] duration-500">
       <ReactTooltip
         effect="solid"
         className="server-status-tooltip"
@@ -106,7 +102,7 @@ function ServerCard(props) {
           </span>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
