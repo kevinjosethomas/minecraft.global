@@ -13,12 +13,12 @@ function Server(props) {
 
   return (
     <StandardLayout>
-      <ReactTooltip
+      {/* <ReactTooltip
         effect="solid"
         className="server-status-tooltip"
         backgroundColor="#000"
         arrowColor="#000"
-      />
+      /> */}
       <div className="flex flex-col md:flex-row items-center md:items-start justify-center w-full px-10 lg:px-20 2xl:px-56 py-20 md:py-40 space-y-10 md:space-y-0 md:space-x-10 bg-dark-80">
         <div className="flex flex-col items-center justify-center space-y-8">
           <div className="relative flex flex-col items-center justify-center">
