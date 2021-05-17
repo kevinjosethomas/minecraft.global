@@ -158,7 +158,7 @@ function Server(props) {
             ))}
           </div>
           <div className="flex flex-col items-start justify-start w-full min-h-[2rem] h-full p-5 bg-dark-70">
-            <ReactMarkdown className="long-description font-medium text-sm md:text-md text-gray-400">
+            <ReactMarkdown className="long-description w-full font-medium text-sm md:text-md text-gray-400 overflow-hidden">
               {props.server.long_description ||
                 (props.server.scraped
                   ? "Uh, so the owner of the server hasn't provided a description for us to use yet... ┬─┬ ノ( ゜-゜ノ) If you own this server, you can claim it in our [discord server]()"
