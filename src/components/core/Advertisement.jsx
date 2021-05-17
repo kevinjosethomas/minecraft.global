@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 function Advertisement(props) {
   return (
     <div className="flex flex-col items-center justify-between w-80 md:w-124 lg:w-112 xl:w-124 2xl:w-112 3xl:w-124 h-72 bg-dark-70 overflow-hidden rounded-xl border-2 border-olive-60 transform hover:scale-[1.02] duration-500">
@@ -28,9 +30,11 @@ function Advertisement(props) {
       </div>
       <div className="flex flex-row items-center justify-center w-full h-7/30 cursor-pointer select-none">
         <div className="flex flex-row items-center justify-center w-full h-full bg-white bg-opacity-[0.04]">
-          <span className="font-proxima font-semibold text-lg md:text-xl text-gray-450">
-            VIEW INFO
-          </span>
+          <a href={props.url} target="_blank">
+            <span className="font-proxima font-semibold text-lg md:text-xl text-gray-450">
+              VIEW INFO
+            </span>
+          </a>
         </div>
       </div>
     </div>
