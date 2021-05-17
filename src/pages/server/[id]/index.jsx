@@ -19,7 +19,7 @@ function Server(props) {
         backgroundColor="#000"
         arrowColor="#000"
       />
-      <div className="flex flex-row items-start justify-center w-full px-10 lg:px-20 2xl:px-56 py-32 space-x-10 bg-dark-80">
+      <div className="flex flex-row items-start justify-center w-full px-10 lg:px-20 2xl:px-56 py-40 space-x-10 bg-dark-80">
         <div className="flex flex-col items-center justify-center space-y-8">
           <div className="relative flex flex-col items-center justify-center">
             <img
@@ -157,7 +157,7 @@ function Server(props) {
             ))}
           </div>
           <div className="flex flex-col items-start justify-start w-full min-h-[2rem] h-full p-5 bg-dark-70">
-            <ReactMarkdown className="font-medium text-sm md:text-md text-gray-400">
+            <ReactMarkdown className="long-description font-medium text-sm md:text-md text-gray-400">
               {props.server.long_description ||
                 (props.server.scraped
                   ? "Uh, so the owner of the server hasn't provided a description for us to use yet... ┬─┬ ノ( ゜-゜ノ) If you own this server, you can claim it in our [discord server]()"

@@ -58,3 +58,7 @@ body,
 .server-icon {
   image-rendering: crisp-edges;
 }
+
+.long-description a {
+  @apply text-olive-50;
+}
