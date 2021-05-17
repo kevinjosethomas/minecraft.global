@@ -55,6 +55,7 @@ function Servers(props) {
         {data?.payload.entries.length ? (
           <PageNav
             page={props.page}
+            entry_count={data.payload.entries.length}
             onClick={(page) => updatePageNumber(page)}
           />
         ) : (
@@ -105,6 +106,7 @@ function Servers(props) {
         <div className="flex flex-row items-center justify-end w-full">
           <PageNav
             page={props.page}
+            entry_count={data.payload.entries.length}
             onClick={(page) => updatePageNumber(page)}
           />
         </div>
@@ -129,12 +131,16 @@ function PageNav(props) {
         <></>
       )}
       <h1 className="font-bold text-2xl text-gray-400">Page {props.page}</h1>
-      <div
-        className="flex flex-row items-center justify-center w-8 h-8 bg-olive-60 rounded cursor-pointer hover:bg-olive-70 transition duration-500"
-        onClick={() => props.onClick(props.page + 1)}
-      >
-        <i className="fas fa-chevron-right text-lg text-gray-300" />
-      </div>
+      {props.entry_count >= 12 ? (
+        <div
+          className="flex flex-row items-center justify-center w-8 h-8 bg-olive-60 rounded cursor-pointer hover:bg-olive-70 transition duration-500"
+          onClick={() => props.onClick(props.page + 1)}
+        >
+          <i className="fas fa-chevron-right text-lg text-gray-300" />
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
