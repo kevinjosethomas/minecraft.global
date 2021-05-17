@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 function Advertisement(props) {
   return (
     <div className="flex flex-col items-center justify-between w-80 md:w-124 lg:w-112 xl:w-124 2xl:w-112 3xl:w-124 h-72 bg-dark-70 overflow-hidden rounded-xl border-2 border-olive-60 transform hover:scale-[1.02] duration-500">
