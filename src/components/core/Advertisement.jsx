@@ -33,7 +33,7 @@ function Advertisement(props) {
           <span className="font-proxima font-semibold text-lg md:text-xl text-gray-450">
             VIEW INFO
           </span>
-        </div>
+        </a>
       </div>
     </div>
   );
