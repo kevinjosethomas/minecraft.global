@@ -19,7 +19,7 @@ function Server(props) {
         backgroundColor="#000"
         arrowColor="#000"
       />
-      <div className="flex flex-row items-start justify-center w-full px-10 lg:px-20 2xl:px-56 py-40 space-x-10 bg-dark-80">
+      <div className="flex flex-col md:flex-row items-center md:items-start justify-center w-full px-10 lg:px-20 2xl:px-56 py-20 md:py-40 space-y-10 md:space-y-0 md:space-x-10 bg-dark-80">
         <div className="flex flex-col items-center justify-center space-y-8">
           <div className="relative flex flex-col items-center justify-center">
             <img
@@ -29,13 +29,13 @@ function Server(props) {
               draggable="false"
             />
             <div
-              className={`absolute w-4 md:w-12 h-4 md:h-12 -bottom-4 -right-4 ${
+              className={`absolute w-12 h-12 -bottom-4 -right-4 ${
                 props.server.online ? "bg-green-500" : "bg-red-500"
-              } rounded-full border-4 md:border-[10px] border-dark-80`}
+              } rounded-full border-[10px] border-dark-80`}
               data-tip={props.server.online ? "Online" : "Offline"}
             />
           </div>
-          <div className="flex flex-col items-start justify-center w-full space-y-2">
+          <div className="flex flex-col items-center md:items-start justify-center w-full space-y-2">
             <div className="flex flex-row items-center justify-start w-full pl-4 py-2 space-x-2 bg-dark-70 hover:bg-dark-60 select-none rounded-sm cursor-pointer transition duration-300">
               <i className="fas fa-arrow-alt-up text-2xl text-olive-60" />
               <span className="font- font-semibold text-xl text-gray-400">
@@ -120,7 +120,7 @@ function Server(props) {
             )}
           </div>
         </div>
-        <div className="flex flex-col items-start justify-center space-y-4 w-full h-full">
+        <div className="flex flex-col items-start justify-center space-y-4 w-full h-full overflow-hidden">
           <div className="flex flex-col items-start justify-center space-y-2">
             <div className="flex flex-col items-start justify-center">
               <div className="flex flex-row items-center justify-center space-x-2">
