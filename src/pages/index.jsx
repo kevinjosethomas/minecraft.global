@@ -25,7 +25,7 @@ function Index(props) {
         </div>
         <div className="flex flex-row items-center justify-between bg-gray-300 rounded">
           <input
-            className="w-full md:w-96 mx-4 placeholder-gray-400 text-sm md:text-md text-gray-400 bg-transparent rounded-l focus:outline-none"
+            className="w-full md:w-96 mx-4 placeholder-gray-400 text-sm md:text-md text-gray-600 bg-transparent rounded-l focus:outline-none"
             placeholder="Search for a cool server..."
             ref={searchInputRef}
             onKeyPress={(e) =>
