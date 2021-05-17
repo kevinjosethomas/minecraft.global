@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ReactTooltip from "react-tooltip";
 import { useToasts } from "react-toast-notifications";
 import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -96,11 +97,13 @@ function ServerCard(props) {
             </span>
           </div>
         </CopyToClipboard>
-        <div className="flex flex-row items-center justify-center w-1/2 h-full bg-white bg-opacity-[0.04]">
-          <span className="font-proxima font-semibold text-lg md:text-xl text-gray-450">
-            VIEW SERVER
-          </span>
-        </div>
+        <Link href={`/server/${props.server_id}`}>
+          <a className="flex flex-row items-center justify-center w-1/2 h-full bg-white bg-opacity-[0.04]">
+            <span className="font-proxima font-semibold text-lg md:text-xl text-gray-450">
+              VIEW SERVER
+            </span>
+          </a>
+        </Link>
       </div>
     </div>
   );
