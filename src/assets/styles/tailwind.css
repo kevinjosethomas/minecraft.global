@@ -55,10 +55,6 @@ body,
   opacity: 1 !important;
 }
 
-.server-status-favicon {
-  /* -ms-interpolation-mode: nearest-neighbor !important;
-  image-rendering: pixelated !important; */
-
-  image-rendering: -webkit-optimize-contrast !important;
-  image-rendering: crisp-edges !important;
+.server-icon {
+  image-rendering: crisp-edges;
 }

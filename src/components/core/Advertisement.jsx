@@ -6,7 +6,7 @@ function Advertisement(props) {
           <div className="relative flex flex-col items-center justify-center">
             <img
               src={props.icon_url || "/images/default_favicon.png"}
-              className="w-12 md:w-24 min-w-[3rem] md:min-w-[6rem] rounded-full server-status-favicon"
+              className="w-12 md:w-24 min-w-[3rem] md:min-w-[6rem] rounded-full"
               onError={(e) => (e.target.src = "/images/default_favicon.png")}
               draggable="false"
             />
@@ -27,7 +27,11 @@ function Advertisement(props) {
         </p>
       </div>
       <div className="flex flex-row items-center justify-center w-full h-7/30 cursor-pointer select-none">
-        <a href={props.url} target="_blank" className="flex flex-row items-center justify-center w-full h-full bg-white bg-opacity-[0.04]">
+        <a
+          href={props.url}
+          target="_blank"
+          className="flex flex-row items-center justify-center w-full h-full bg-white bg-opacity-[0.04]"
+        >
           <span className="font-proxima font-semibold text-lg md:text-xl text-gray-450">
             VIEW INFO
           </span>

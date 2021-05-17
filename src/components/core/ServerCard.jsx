@@ -20,7 +20,7 @@ function ServerCard(props) {
           <div className="relative flex flex-col items-center justify-center">
             <img
               src={props.favicon || "/images/default_favicon.png"}
-              className="w-12 md:w-24 min-w-[3rem] md:min-w-[6rem] rounded-full server-status-favicon"
+              className="w-12 md:w-24 min-w-[3rem] md:min-w-[6rem] rounded-full"
               onError={(e) => (e.target.src = "/images/default_favicon.png")}
               draggable="false"
             />
@@ -47,7 +47,7 @@ function ServerCard(props) {
                   </h6>
                 </div>
               </div>
-              <span className="font-proxima font-bold text-sm md:text-sm text-gray-400">
+              <span className="font-proxima font-bold text-sm text-gray-400">
                 {props.players_online || 0} players
               </span>
             </div>
