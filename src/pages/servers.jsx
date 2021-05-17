@@ -18,8 +18,7 @@ function Servers(props) {
     online: true,
     premium: false,
     whitelisted: false,
-    bedrock_edition: false,
-    cross_platform: false,
+    is_bedrock: false,
   });
 
   useEffect(() => {

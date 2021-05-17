@@ -34,14 +34,8 @@ const refineOptions = {
     },
     {
       id: 4,
-      name: "bedrock_edition",
+      name: "is_bedrock",
       label: "Bedrock Edition",
-      checked: false,
-    },
-    {
-      id: 5,
-      name: "cross_platform",
-      label: "Cross Platform",
       checked: false,
     },
   ],
