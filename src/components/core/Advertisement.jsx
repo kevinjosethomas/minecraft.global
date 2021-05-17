@@ -29,12 +29,10 @@ function Advertisement(props) {
         </p>
       </div>
       <div className="flex flex-row items-center justify-center w-full h-7/30 cursor-pointer select-none">
-        <div className="flex flex-row items-center justify-center w-full h-full bg-white bg-opacity-[0.04]">
-          <a href={props.url} target="_blank">
-            <span className="font-proxima font-semibold text-lg md:text-xl text-gray-450">
-              VIEW INFO
-            </span>
-          </a>
+        <a href={props.url} target="_blank" className="flex flex-row items-center justify-center w-full h-full bg-white bg-opacity-[0.04]">
+          <span className="font-proxima font-semibold text-lg md:text-xl text-gray-450">
+            VIEW INFO
+          </span>
         </div>
       </div>
     </div>
