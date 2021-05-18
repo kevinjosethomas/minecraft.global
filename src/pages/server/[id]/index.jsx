@@ -104,8 +104,7 @@ function Server(props) {
             ) : (
               <></>
             )}
-            {props.user.user_id &&
-            props.user.user_id == props.server.owner_id ? (
+            {props.user && props.user.user_id == props.server.owner_id ? (
               <Link href={`/server/${props.server.server_id}/edit`}>
                 <a className="font-medium text-gray-400 hover:text-gray-300 transition duration-300">
                   Edit Server
@@ -172,7 +171,10 @@ function Server(props) {
 }
 
 export async function getServerSideProps(ctx) {
-  const [user, server] = await Promise.all([getAuth(ctx.req, ctx.res), getServer(ctx.params.id)]);
+  const [user, server] = await Promise.all([
+    getAuth(ctx.req, ctx.res),
+    getServer(ctx.params.id),
+  ]);
   return {
     props: {
       user: user.payload,
