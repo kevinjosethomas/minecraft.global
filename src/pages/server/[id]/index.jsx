@@ -172,7 +172,7 @@ function Server(props) {
 }
 
 export async function getServerSideProps(ctx) {
-  const [user, server] = Promise.all([getAuth(ctx.req, ctx.res), getServer(ctx.params.id)]);
+  const [user, server] = await Promise.all([getAuth(ctx.req, ctx.res), getServer(ctx.params.id)]);
   return {
     props: {
       user: user.payload,
