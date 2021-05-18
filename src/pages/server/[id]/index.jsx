@@ -148,7 +148,7 @@ function Server(props) {
             {props.server.tags.map((tag, index) => (
               <div
                 key={index}
-                className="flex flex-row items-center justify-center px-2 py-1 bg-dark-70"
+                className="flex flex-row items-center justify-center px-2 py-1 bg-dark-70 rounded"
               >
                 <span className="font-semibold text-sm text-gray-400">
                   {tag}
@@ -156,7 +156,7 @@ function Server(props) {
               </div>
             ))}
           </div>
-          <div className="flex flex-col items-start justify-start w-full min-h-[2rem] h-full p-5 bg-dark-70">
+          <div className="flex flex-col items-start justify-start w-full min-h-[2rem] h-full p-5 bg-dark-70 rounded-lg">
             <ReactMarkdown className="long-description w-full font-medium text-sm md:text-md text-gray-400 overflow-hidden">
               {props.server.long_description ||
                 (props.server.scraped
