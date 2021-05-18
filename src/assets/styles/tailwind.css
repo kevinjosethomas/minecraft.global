@@ -42,6 +42,10 @@ body,
   bakground-size: cover;
 }
 
+.tag-container::-webkit-scrollbar {
+  display: none;
+}
+
 .server-status-tooltip {
   padding: 0.4rem 0.75rem !important;
   font-family: "Inter", sans-serif !important;
