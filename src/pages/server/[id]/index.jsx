@@ -12,7 +12,7 @@ function Server(props) {
   const { addToast } = useToasts();
 
   return (
-    <StandardLayout>
+    <StandardLayout user={props.user}>
       {/* <ReactTooltip
         effect="solid"
         className="server-status-tooltip"
@@ -175,6 +175,7 @@ export async function getServerSideProps(ctx) {
     getAuth(ctx.req, ctx.res),
     getServer(ctx.params.id),
   ]);
+
   return {
     props: {
       user: user.payload,
