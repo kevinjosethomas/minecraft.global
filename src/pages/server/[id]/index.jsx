@@ -24,7 +24,7 @@ function Server(props) {
           <div className="relative flex flex-col items-center justify-center">
             <img
               src={props.server.favicon || "/images/default_favicon.png"}
-              className="server-icon w-64"
+              className="w-64 image-pixelated"
               onError={(e) => (e.target.src = "/images/default_favicon.png")}
               draggable="false"
             />

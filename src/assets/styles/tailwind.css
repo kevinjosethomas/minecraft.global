@@ -55,8 +55,9 @@ body,
   opacity: 1 !important;
 }
 
-.server-icon {
-  image-rendering: crisp-edges;
+.image-pixelated {
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: pixelated;
 }
 
 .long-description a {
