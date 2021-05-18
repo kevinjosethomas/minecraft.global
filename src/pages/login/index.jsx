@@ -3,13 +3,14 @@ import Link from "next/link";
 import getAuth from "../../api/auth";
 
 function Login(props) {
+  console.log("hi");
   return (
     <div className="bg-login flex flex-row items-center justify-start w-full h-full">
       <div className="flex flex-col items-center justify-center h-full px-16 bg-dark-80">
         <div className="flex flex-col items-start justify-center space-y-4">
           <img src="/images/logo.svg" className="w-28" draggable="false" />
           <div className="flex flex-col items-start justify-center space-y-1">
-            <h1 className="font-bold text-3xl text-gray-300">
+            <h1 className="font-bold text-2xl md:text-3xl text-gray-300">
               Join{" "}
               <Link href="/">
                 <a className="text-olive-60">
@@ -46,23 +47,23 @@ function Login(props) {
   );
 }
 
-export async function getServerSideProps(ctx) {
-  const user = await getAuth(ctx.req, ctx.res);
+// export async function getServerSideProps(ctx) {
+//   const user = await getAuth(ctx.req, ctx.res);
 
-  if (user.payload) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: true,
-      },
-    };
-  } else {
-    return {
-      props: {
-        user: null,
-      },
-    };
-  }
-}
+//   if (user.payload) {
+//     return {
+//       redirect: {
+//         destination: "/",
+//         permanent: true,
+//       },
+//     };
+//   } else {
+//     return {
+//       props: {
+//         user: null,
+//       },
+//     };
+//   }
+// }
 
 export default Login;
