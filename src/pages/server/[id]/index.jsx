@@ -133,12 +133,12 @@ function Server(props) {
                 >
                   <i className="fas fa-angle-up text-olive-50" />
                   <h6 className="font-proxima font-bold text-gray-400 cursor-default">
-                    {props.monthly_votes || 0}
+                    {props.server.monthly_votes || 0}
                   </h6>
                 </div>
               </div>
               <span className="font-proxima font-bold text-lg text-gray-400">
-                {props.players_online || 0} players
+                {props.server.players_online || 0} players
               </span>
             </div>
             <p className="max-w-md font-semibold text-sm md:text-lg text-gray-400 tracking-tight">
