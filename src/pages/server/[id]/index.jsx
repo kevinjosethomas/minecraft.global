@@ -13,12 +13,12 @@ function Server(props) {
 
   return (
     <StandardLayout user={props.user}>
-      {/* <ReactTooltip
+      <ReactTooltip
         effect="solid"
         className="server-status-tooltip"
         backgroundColor="#000"
         arrowColor="#000"
-      /> */}
+      />
       <div className="flex flex-col md:flex-row items-center md:items-start justify-center w-full px-10 lg:px-20 2xl:px-56 py-20 md:py-40 space-y-10 md:space-y-0 md:space-x-10 bg-dark-80">
         <div className="flex flex-col items-center justify-center space-y-8">
           <div className="relative flex flex-col items-center justify-center">
@@ -157,7 +157,7 @@ function Server(props) {
             ))}
           </div>
           <div className="flex flex-col items-start justify-start w-full min-h-[2rem] h-full p-5 bg-dark-70 rounded-lg">
-            <ReactMarkdown className="long-description w-full font-medium text-sm md:text-md text-gray-400 overflow-hidden">
+            <ReactMarkdown className="long-description w-full font-medium text-sm md:text-md text-gray-400 overflow-hidden whitespace-pre-wrap">
               {props.server.long_description ||
                 (props.server.scraped
                   ? "Uh, so the owner of the server hasn't provided a description for us to use yet... ┬─┬ ノ( ゜-゜ノ) If you own this server, you can claim it in our [discord server]()"
