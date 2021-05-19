@@ -42,8 +42,13 @@ body,
   bakground-size: cover;
 }
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+.hidden-scrollbar {
+  overflow: overlay;
+}
+
+.hidden-scrollbar::-webkit-scrollbar {
+  height: 1.5rem;
+  background: transparent;
 }
 
 /* width */

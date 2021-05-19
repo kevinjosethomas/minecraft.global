@@ -31,7 +31,7 @@ function ServerCard(props) {
               data-tip={props.online ? "Online" : "Offline"}
             />
           </div>
-          <div className="flex flex-col items-start justify-center space-y-1">
+          <div className="flex flex-col items-start justify-center space-y-1 overflow-hidden">
             <div className="flex flex-col items-start justify-center">
               <div className="flex flex-row items-center justify-start space-x-3">
                 <h1 className="font-proxima font-bold md:text-xl text-gray-300">
@@ -51,11 +51,11 @@ function ServerCard(props) {
                 {props.players_online || 0} players
               </span>
             </div>
-            <div className="no-scrollbar hidden md:flex flex-row items-center justify-start w-full space-x-2 overflow-x-scroll">
+            <div className="hidden-scrollbar hidden md:flex flex-row items-center justify-start w-full space-x-2 overflow-x-scroll">
               {props.tags.map((tag, index) => (
                 <div
                   key={index}
-                  className="flex flex-row items-center justify-center px-2 py-1 bg-dark-80"
+                  className="flex flex-row items-center justify-center px-2 py-1 bg-dark-80 select-none"
                 >
                   <span className="font-semibold text-xs text-gray-400">
                     {tag}
@@ -65,11 +65,11 @@ function ServerCard(props) {
             </div>
           </div>
         </div>
-        <div className="no-scrollbar flex md:hidden flex-row items-center justify-start w-full space-x-2 overflow-x-scroll">
+        <div className="relative hidden-scrollbar flex md:hidden flex-row items-center justify-start w-full space-x-2 overflow-x-scroll">
           {props.tags.map((tag, index) => (
             <div
               key={index}
-              className="flex flex-row items-center justify-center px-2 py-1 bg-dark-80"
+              className="flex flex-row items-center justify-center px-2 py-1 bg-dark-80 select-none"
             >
               <span className="font-semibold text-xs text-gray-400">{tag}</span>
             </div>
