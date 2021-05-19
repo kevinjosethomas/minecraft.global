@@ -2,7 +2,9 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 import getAuth from "../api/auth";
+import categoriesData from "../assets/data/tags";
 import StandardLayout from "../layouts/Standard";
+import Tags from "../components/servers/tags/Tags";
 import ServerList from "../components/servers/Servers";
 import Refine from "../components/servers/refine/Refine";
 
@@ -21,6 +23,8 @@ function Servers(props) {
     is_bedrock: false,
   });
 
+  const [categories, setCategories] = useState(categoriesData);
+
   useEffect(() => {
     const newPage = parseInt(router.query.page || 1);
     setPage(newPage);
@@ -29,9 +33,14 @@ function Servers(props) {
 
   return (
     <StandardLayout user={props.user}>
-      <div className="flex flex-row items-start justify-center w-full py-16 md:py-32 2xl:space-x-32 bg-dark-80">
-        <Refine params={params} setParams={setParams} />
-        <ServerList page={page} params={params} />
+      <div className="flex flex-col items-center justify-center w-full py-16 bg-dark-80">
+        <div className="flex flex-col items-start justify-start bg-dark-80 space-y-16">
+          <Tags categories={categories} setCategories={setCategories} />
+          <div className="flex flex-row items-start justify-center w-full 2xl:space-x-32">
+            <Refine params={params} setParams={setParams} />
+            <ServerList page={page} params={params} />
+          </div>
+        </div>
       </div>
     </StandardLayout>
   );

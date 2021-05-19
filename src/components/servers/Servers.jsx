@@ -122,7 +122,7 @@ function PageNav(props) {
     <div className="flex flex-row items-center justify-between md:justify-center w-full md:w-auto space-x-4">
       {props.page > 1 ? (
         <div
-          className="flex flex-row items-center justify-center w-8 h-8 bg-olive-60 rounded cursor-pointer hover:bg-olive-70 transition duration-500"
+          className="flex flex-row items-center justify-center w-8 h-8 bg-olive-70 hover:bg-olive-60 rounded cursor-pointer transition duration-500"
           onClick={() => props.onClick(props.page - 1)}
         >
           <i className="fas fa-chevron-left text-lg text-gray-300" />
@@ -133,7 +133,7 @@ function PageNav(props) {
       <h1 className="font-bold text-2xl text-gray-400">Page {props.page}</h1>
       {props.entry_count >= 12 ? (
         <div
-          className="flex flex-row items-center justify-center w-8 h-8 bg-olive-60 rounded cursor-pointer hover:bg-olive-70 transition duration-500"
+          className="flex flex-row items-center justify-center w-8 h-8 bg-olive-70 hover:bg-olive-60 rounded cursor-pointer transition duration-500"
           onClick={() => props.onClick(props.page + 1)}
         >
           <i className="fas fa-chevron-right text-lg text-gray-300" />

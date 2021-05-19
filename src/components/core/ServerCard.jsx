@@ -51,7 +51,7 @@ function ServerCard(props) {
                 {props.players_online || 0} players
               </span>
             </div>
-            <div className="tag-container hidden md:flex flex-row items-center justify-start w-full space-x-2 overflow-x-scroll">
+            <div className="no-scrollbar hidden md:flex flex-row items-center justify-start w-full space-x-2 overflow-x-scroll">
               {props.tags.map((tag, index) => (
                 <div
                   key={index}
@@ -65,7 +65,7 @@ function ServerCard(props) {
             </div>
           </div>
         </div>
-        <div className="tag-container flex md:hidden flex-row items-center justify-start w-full space-x-2 overflow-x-scroll">
+        <div className="no-scrollbar flex md:hidden flex-row items-center justify-start w-full space-x-2 overflow-x-scroll">
           {props.tags.map((tag, index) => (
             <div
               key={index}

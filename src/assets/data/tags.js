@@ -1,41 +1,3 @@
-const categories = [
-  {
-    id: 1,
-    name: "versions",
-    label: "Versions",
-    checked: false,
-    tags: versions,
-  },
-  {
-    id: 2,
-    name: "minigames",
-    label: "Minigames",
-    checked: false,
-    tags: minigames,
-  },
-  {
-    id: 3,
-    name: "gamemodes",
-    label: "Gamemodes",
-    checked: false,
-    tags: gamemodes,
-  },
-  {
-    id: 4,
-    name: "features",
-    label: "Features",
-    checked: false,
-    tags: features,
-  },
-  {
-    id: 5,
-    name: "language",
-    label: "Language",
-    checked: false,
-    tags: languages,
-  },
-];
-
 const versions = [
   { id: 0, name: "1.17", label: "1.17", checked: false },
   { id: 1, name: "1.16.5", label: "1.16.5", checked: false },
@@ -117,3 +79,43 @@ const languages = [
   { id: 75, name: "deutsche", label: "Deutsche", checked: false },
   { id: 76, name: "中国人", label: "中国人", checked: false },
 ];
+
+const categories = [
+  {
+    id: 1,
+    name: "version",
+    label: "Version",
+    checked: false,
+    tags: versions,
+  },
+  {
+    id: 2,
+    name: "minigame",
+    label: "Minigame",
+    checked: false,
+    tags: minigames,
+  },
+  {
+    id: 3,
+    name: "gamemode",
+    label: "Gamemode",
+    checked: false,
+    tags: gamemodes,
+  },
+  {
+    id: 4,
+    name: "feature",
+    label: "Feature",
+    checked: false,
+    tags: features,
+  },
+  {
+    id: 5,
+    name: "language",
+    label: "Language",
+    checked: false,
+    tags: languages,
+  },
+];
+
+export default categories;

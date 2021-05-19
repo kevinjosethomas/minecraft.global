@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --color-dark-60: #232323;
-  --color-dark-70: #1e1e1e;
-  --color-dark-80: #141414;
+  --color-dark-60: #222822;
+  --color-dark-70: #181e18;
+  --color-dark-80: #090f09;
   --color-dark-90: #0a0a0a;
 
   --color-olive-50: #52b788;
@@ -42,8 +42,28 @@ body,
   bakground-size: cover;
 }
 
-.tag-container::-webkit-scrollbar {
+.no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* width */
+.tag-filter-scroll::-webkit-scrollbar {
+  height: 5px;
+}
+
+/* Track */
+.tag-filter-scroll::-webkit-scrollbar-track {
+  background: var(--color-dark-70);
+}
+
+/* Handle */
+.tag-filter-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-dark-60);
+}
+
+/* Handle on hover */
+.tag-filter-scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .server-status-tooltip {
