@@ -1,25 +1,40 @@
 import Link from "next/link";
-import { Fragment } from "react";
+import { useRouter } from "next/router";
 import ReactTooltip from "react-tooltip";
 import ReactMarkdown from "react-markdown";
+import { Fragment, useState } from "react";
 import { useToasts } from "react-toast-notifications";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import getAuth from "../../../api/auth";
 import getServer from "../../../api/server/[id]";
 import StandardLayout from "../../../layouts/Standard";
+import UpvoteModal from "../../../components/server/modals/upvote/Upvote";
 
 function Server(props) {
   const { addToast } = useToasts();
+  const router = useRouter();
+
+  const [showUpvoteModal, setShowUpvoteModal] = useState(
+    router.query.upvote || false
+  );
 
   return (
     <StandardLayout user={props.user}>
-      <ReactTooltip
+      {/* <ReactTooltip
         effect="solid"
         className="server-status-tooltip"
         backgroundColor="#000"
         arrowColor="#000"
-      />
+      /> */}
+      {showUpvoteModal ? (
+        <UpvoteModal
+          name={props.server.name}
+          closeModal={() => setShowUpvoteModal(false)}
+        />
+      ) : (
+        <Fragment />
+      )}
       <div className="flex flex-col md:flex-row items-center md:items-start justify-center w-full px-10 lg:px-20 2xl:px-56 py-20 md:py-40 space-y-10 md:space-y-0 md:space-x-10 bg-dark-80">
         <div className="flex flex-col items-center justify-center space-y-8">
           <div className="relative flex flex-col items-center justify-center">
@@ -37,7 +52,10 @@ function Server(props) {
             />
           </div>
           <div className="flex flex-col items-center md:items-start justify-center w-full space-y-2">
-            <div className="flex flex-row items-center justify-start w-full pl-4 py-2 space-x-2 bg-dark-70 hover:bg-dark-60 select-none rounded-sm cursor-pointer transition duration-300">
+            <div
+              className="flex flex-row items-center justify-start w-full pl-4 py-2 space-x-2 bg-dark-70 hover:bg-dark-60 select-none rounded-sm cursor-pointer transition duration-300"
+              onClick={() => setShowUpvoteModal(true)}
+            >
               <i className="fas fa-arrow-alt-up text-2xl text-olive-60" />
               <span className="font- font-semibold text-xl text-gray-400">
                 Upvote
