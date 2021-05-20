@@ -111,7 +111,7 @@ function ServerCard(props) {
 
 function ServerCardSkeleton(props) {
   return (
-    <SkeletonTheme color="#232323" highlightColor="#282828">
+    <SkeletonTheme color="#222822" highlightColor="#2C322C">
       <div className="flex flex-col items-center justify-between w-80 md:w-124 lg:w-112 xl:w-124 2xl:w-112 3xl:w-124 h-72 bg-dark-70 overflow-hidden rounded-xl">
         <div className="flex flex-col items-start justify-between w-full h-23/30 p-8">
           <div className="flex flex-row items-center justify-start w-full space-x-4">
