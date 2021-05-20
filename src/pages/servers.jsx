@@ -21,6 +21,7 @@ function Servers(props) {
     premium: false,
     whitelisted: false,
     is_bedrock: false,
+    tags: "",
   });
 
   const [categories, setCategories] = useState(categoriesData);
@@ -30,6 +31,20 @@ function Servers(props) {
     setPage(newPage);
     setParams({ ...params, offset: newPage * 12 - 12, query: router.query.q });
   }, [router.query.page, router.query.q]);
+
+  useEffect(() => {
+    console.log("hi");
+    const tags = [];
+    categories
+      .filter((category) => category.checked)
+      .forEach((category) => {
+        category.tags
+          .filter((tag) => tag.checked)
+          .forEach((tag) => tags.push(tag.name));
+      });
+    setParams({ ...params, tags: tags.join("+") });
+    console.log(tags);
+  }, [categories]);
 
   return (
     <StandardLayout user={props.user}>
