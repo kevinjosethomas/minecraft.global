@@ -2,6 +2,7 @@ import { Fragment } from "react";
 
 import Tag from "./components/Tag";
 import Category from "./components/Category";
+import { useToasts } from "react-toast-notifications";
 
 function RefineTags(props) {
   return (
@@ -81,7 +82,23 @@ function Categories(props) {
 }
 
 function Tags(props) {
+  const { addToast } = useToasts();
+
   const setActiveTag = (id) => {
+    const tags = [];
+    props.categories
+      .filter((category) => category.checked)
+      .forEach((category) => {
+        category.tags
+          .filter((tag) => tag.checked)
+          .forEach((tag) => tags.push(tag));
+      });
+    if (tags.length == 10) {
+      addToast("You cannot filter with more than 10 tags!", {
+        appearance: "error",
+      });
+      return;
+    }
     const newCategories = [...props.categories];
     newCategories.forEach((category, index) => {
       category.tags.forEach((tag, ind) => {
