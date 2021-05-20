@@ -48,12 +48,12 @@ const gamemodes = [
 const minigames = [
   { id: 70, name: "arena", label: "Arena", checked: false },
   { id: 24, name: "parkour", label: "Parkour", checked: false },
-  { id: 31, name: "kitPvP", label: "KitPvP", checked: false },
+  { id: 31, name: "kitpvp", label: "KitPvP", checked: false },
   { id: 32, name: "skywars", label: "Skywars", checked: false },
   { id: 33, name: "bedwars", label: "Bedwars", checked: false },
   { id: 34, name: "spleef", label: "Spleef", checked: false },
   { id: 61, name: "minigames", label: "Minigames", checked: false },
-  { id: 62, name: "hunger_games", label: "Hunger Games", checked: false },
+  { id: 62, name: "hunger games", label: "Hunger Games", checked: false },
   { id: 68, name: "zombies", label: "Zombies", checked: false },
 ];
 
@@ -64,7 +64,7 @@ const features = [
   { id: 40, name: "plots", label: "Plots", checked: false },
   { id: 29, name: "pvp", label: "PvP", checked: false },
   { id: 30, name: "pve", label: "PvE", checked: false },
-  { id: 69, name: "anti_grief", label: "Anti-Grief", checked: false },
+  { id: 69, name: "anti grief", label: "Anti-Grief", checked: false },
   { id: 71, name: "fantasy", label: "Fantasy", checked: false },
 ];
 

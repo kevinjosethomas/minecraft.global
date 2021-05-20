@@ -33,7 +33,6 @@ function Servers(props) {
   }, [router.query.page, router.query.q]);
 
   useEffect(() => {
-    console.log("hi");
     const tags = [];
     categories
       .filter((category) => category.checked)
@@ -43,7 +42,6 @@ function Servers(props) {
           .forEach((tag) => tags.push(tag.name));
       });
     setParams({ ...params, tags: tags.join("+") });
-    console.log(tags);
   }, [categories]);
 
   return (

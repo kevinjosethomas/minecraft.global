@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+
 function Sort(props) {
   const updateCheckedOption = (id) => {
     const newOptions = { ...props.options };
@@ -39,7 +41,7 @@ function SortOption(props) {
         {props.checked ? (
           <div className="w-3 h-3 bg-olive-60 rounded-full" />
         ) : (
-          <></>
+          <Fragment />
         )}
       </div>
       <span className="font-medium text-gray-400 text-lg">{props.label}</span>

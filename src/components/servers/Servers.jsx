@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { useQuery } from "react-query";
 import { useRouter } from "next/router";
 
@@ -45,11 +46,11 @@ function Servers(props) {
                   <span className="text-olive-60">{props.params.query}</span>
                 </span>
               ) : (
-                <></>
+                <Fragment />
               )}
             </span>
           ) : (
-            <></>
+            <Fragment />
           )}
         </div>
         {data?.payload.entries.length ? (
@@ -59,7 +60,7 @@ function Servers(props) {
             onClick={(page) => updatePageNumber(page)}
           />
         ) : (
-          <></>
+          <Fragment />
         )}
       </div>
       {isLoading || data.payload.entries.length ? (
@@ -96,7 +97,7 @@ function Servers(props) {
                   <span className="text-gray-300">{props.params.query}</span>
                 </span>
               ) : (
-                <></>
+                <Fragment />
               )}
             </span>
           </div>
@@ -111,7 +112,7 @@ function Servers(props) {
           />
         </div>
       ) : (
-        <></>
+        <Fragment />
       )}
     </div>
   );
@@ -128,7 +129,7 @@ function PageNav(props) {
           <i className="fas fa-chevron-left text-lg text-gray-300" />
         </div>
       ) : (
-        <></>
+        <Fragment />
       )}
       <h1 className="font-bold text-2xl text-gray-400">Page {props.page}</h1>
       {props.entry_count >= 12 ? (
@@ -139,7 +140,7 @@ function PageNav(props) {
           <i className="fas fa-chevron-right text-lg text-gray-300" />
         </div>
       ) : (
-        <></>
+        <Fragment />
       )}
     </div>
   );

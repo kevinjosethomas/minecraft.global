@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+
 import Tag from "./components/Tag";
 import Category from "./components/Category";
 
@@ -8,7 +10,7 @@ function RefineTags(props) {
       {props.categories.filter((category) => category.checked).length ? (
         <div className="w-full h-0.5 bg-dark-60" />
       ) : (
-        <></>
+        <Fragment />
       )}
       <Tags {...props} />
       <div className="w-full h-2 bg-dark-60" />
@@ -44,7 +46,7 @@ function Categories(props) {
     <div className="flex flex-row items-center justify-center h-full space-x-4">
       <h1 className="font-semibold text-2xl text-gray-400">Filter by:</h1>
       {props.categories.filter((category) => category.checked).length ? (
-        <>
+        <Fragment>
           <div className="flex flex-row items-center justify-center space-x-4">
             {props.categories
               .filter((category) => category.checked)
@@ -58,9 +60,9 @@ function Categories(props) {
               ))}
           </div>
           <div className="w-0.5 h-1/2 bg-dark-60" />
-        </>
+        </Fragment>
       ) : (
-        <></>
+        <Fragment />
       )}
       <div className="flex flex-row items-center justify-center space-x-2">
         {props.categories
@@ -105,17 +107,16 @@ function Tags(props) {
 
   return (
     <div className="flex flex-row items-start justify-starts max-w-7xl h-full space-x-4">
-      {props.categories.filter(
-        (category) =>
-          category.checked && category.tags.some((tag) => tag.checked)
-      ).length ? (
-        <>
+      {props.categories.filter((category) => {
+        return category.checked && category.tags.some((tag) => tag.checked);
+      }).length ? (
+        <Fragment>
           <div className="flex flex-row items-center justify-start flex-wrap max-w-[40%] max-h-20 overflow-y-scroll tag-filter-scroll">
             {props.categories
               .filter((category) => category.checked)
               .map((category) => {
                 return (
-                  <>
+                  <Fragment>
                     {category.tags
                       .filter((tag) => tag.checked)
                       .map((tag, index) => (
@@ -126,21 +127,21 @@ function Tags(props) {
                           {...tag}
                         />
                       ))}
-                  </>
+                  </Fragment>
                 );
               })}
           </div>
           <div className="self-center w-0.5 h-1/2 bg-dark-60" />
-        </>
+        </Fragment>
       ) : (
-        <></>
+        <Fragment />
       )}
       <div className="flex flex-row items-start justify-start flex-wrap max-w-[60%] max-h-20 overflow-y-scroll tag-filter-scroll">
         {props.categories
           .filter((category) => category.checked)
           .map((category) => {
             return (
-              <>
+              <Fragment>
                 {category.tags
                   .filter((tag) => !tag.checked)
                   .map((tag, index) => (
@@ -151,7 +152,7 @@ function Tags(props) {
                       {...tag}
                     />
                   ))}
-              </>
+              </Fragment>
             );
           })}
       </div>

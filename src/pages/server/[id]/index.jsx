@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Fragment } from "react";
 import ReactTooltip from "react-tooltip";
 import ReactMarkdown from "react-markdown";
 import { useToasts } from "react-toast-notifications";
@@ -74,7 +75,7 @@ function Server(props) {
                 </span>
               </a>
             ) : (
-              <></>
+              <Fragment />
             )}
             {props.server.discord_url ? (
               <a
@@ -88,7 +89,7 @@ function Server(props) {
                 </span>
               </a>
             ) : (
-              <></>
+              <Fragment />
             )}
             {props.server.trailer_url ? (
               <a
@@ -102,7 +103,7 @@ function Server(props) {
                 </span>
               </a>
             ) : (
-              <></>
+              <Fragment />
             )}
             {props.user && props.user.user_id == props.server.owner_id ? (
               <Link href={`/server/${props.server.server_id}/edit`}>
