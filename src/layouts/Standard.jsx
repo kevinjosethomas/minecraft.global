@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 
-import Navbar from "../components/core/Navbar";
 import Footer from "../components/core/Footer";
+import Navbar from "../components/core/Navbar/Navbar";
 
 function Standard(props) {
   const router = useRouter();
