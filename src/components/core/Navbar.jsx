@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { Fragment, useState } from "react";
 
 function Navbar(props) {
   const router = useRouter();
+  const [dropdown, showDropdown] = useState(false);
 
   return (
     <div
@@ -53,11 +55,38 @@ function Navbar(props) {
           />
         </div>
         {props.user ? (
-          <div className="flex flex-row items-center justify-center px-6 py-2 space-x-2 bg-olive-70 rounded-md cursor-pointer select-none">
+          <div
+            className="relative flex flex-row items-center justify-center px-6 py-2 space-x-2 bg-olive-70 rounded-md cursor-pointer select-none"
+            onClick={() => showDropdown(!dropdown)}
+          >
             <span className="font-medium text-xs lg:text-sm xl:text-lg text-gray-300">
               {props.user.username || props.user.name}
             </span>
             <i className="fas fa-caret-down text-xs lg:text-sm xl:text-lg text-gray-300" />
+            {dropdown ? (
+              <div className="absolute flex flex-col items-center justify-start w-full right-0 top-12 py-2 bg-dark-70 rounded">
+                <div className="flex flex-row items-center justify-start w-full px-5 py-2 space-x-2 hover:bg-dark-60">
+                  <i className="fas fa-eye w-5 text-lg text-gray-400" />
+                  <span className="font-medium text-lg text-gray-400">
+                    View Profile
+                  </span>
+                </div>
+                <div className="flex flex-row items-center justify-start w-full px-5 py-2 space-x-2 hover:bg-dark-60">
+                  <i className="fas fa-pencil-paintbrush w-5 text-lg text-gray-400" />
+                  <span className="font-medium text-lg text-gray-400">
+                    Edit Profile
+                  </span>
+                </div>
+                <div className="flex flex-row items-center justify-start w-full px-5 py-2 space-x-2 hover:bg-dark-60">
+                  <i className="fas fa-sign-out w-5 text-lg text-gray-400" />
+                  <span className="font-medium text-lg text-gray-400">
+                    Log Out
+                  </span>
+                </div>
+              </div>
+            ) : (
+              <Fragment />
+            )}
           </div>
         ) : (
           <Link href="/login">
@@ -69,6 +98,7 @@ function Navbar(props) {
           </Link>
         )}
       </div>
+
       <div className="flex md:hidden flex-row items-center justify-between w-full">
         <Link href="/">
           <a className="flex flex-row items-center justify-center space-x-3">
