@@ -15,7 +15,10 @@ function Progress(props) {
 
   return (
     <div className="flex flex-col items-center justify-center space-y-5 select-none">
-      <div className="flex flex-row items-center justify-center w-10 h-10 bg-olive-70 rounded-full">
+      <div
+        className="flex flex-row items-center justify-center w-10 h-10 bg-olive-70 rounded-full"
+        onClick={() => props.updateActiveScreen(1)}
+      >
         <span className="font-semibold text-lg text-gray-300">1</span>
       </div>
       <div className="flex flex-col items-center justify-center space-y-2">
@@ -39,6 +42,7 @@ function Progress(props) {
         className={`flex flex-row items-center justify-center w-10 h-10 ${
           second ? "bg-olive-70" : "bg-dark-60"
         } rounded-full`}
+        onClick={() => props.updateActiveScreen(2)}
       >
         <span
           className={`font-semibold text-lg ${
@@ -69,6 +73,7 @@ function Progress(props) {
         className={`flex flex-row items-center justify-center w-10 h-10 ${
           third ? "bg-olive-70" : "bg-dark-60"
         } rounded-full`}
+        onClick={() => props.updateActiveScreen(3)}
       >
         <span
           className={`font-semibold text-lg ${

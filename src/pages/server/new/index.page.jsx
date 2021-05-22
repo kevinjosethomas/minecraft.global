@@ -29,10 +29,8 @@ function NewServer(props) {
     screens.find((screen) => (screen.id = 1))
   );
 
-  const updateActiveScreen = (difference) => {
-    setActiveScreen(
-      screens.find((screen) => screen.id == activeScreen.id + difference)
-    );
+  const updateActiveScreen = (id) => {
+    setActiveScreen(screens.find((screen) => screen.id == id));
   };
 
   const [details, setDetails] = useState({
@@ -60,7 +58,7 @@ function NewServer(props) {
               {activeScreen.id != 1 && (
                 <div
                   className="flex flex-row items-center justify-center px-3 py-1 space-x-2 bg-dark-60 hover:brightness-125 rounded cursor-pointer filter duration-500"
-                  onClick={() => updateActiveScreen(-1)}
+                  onClick={() => updateActiveScreen(activeScreen.id - 1)}
                 >
                   <i className="fas fa-long-arrow-alt-left text-lg text-gray-400" />
                   <span className="font-semibold text-lg text-gray-400">
@@ -71,7 +69,7 @@ function NewServer(props) {
               {activeScreen.id != 3 && (
                 <div
                   className="flex flex-row items-center justify-center px-3 py-1 space-x-2 bg-olive-70 hover:brightness-125 rounded cursor-pointer filter duration-500"
-                  onClick={() => updateActiveScreen(1)}
+                  onClick={() => updateActiveScreen(activeScreen.id + 1)}
                 >
                   <span className="font-semibold text-lg text-gray-300">
                     Next
@@ -90,7 +88,11 @@ function NewServer(props) {
             </div>
           </div>
           <div className="flex flex-row items-start justify-start w-full space-x-10">
-            <Progress details={details} activeScreen={activeScreen} />
+            <Progress
+              details={details}
+              activeScreen={activeScreen}
+              updateActiveScreen={updateActiveScreen}
+            />
             <activeScreen.screen details={details} setDetails={setDetails} />
           </div>
         </div>
