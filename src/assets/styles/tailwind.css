@@ -37,6 +37,27 @@ body,
   font-family: "proxima-soft", sans-serif;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--color-dark-80);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-dark-60);
+  border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dark-60);
+}
+
 .bg-login {
   background: url("/images/background-2.jpg");
   bakground-size: cover;
