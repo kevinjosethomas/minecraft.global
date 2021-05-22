@@ -5,8 +5,11 @@ function Progress(props) {
     Boolean(props.details.description),
   ];
   const firstCount = firstFields.filter((el) => el == true).length;
+  const firstBlob = props.activeScreen.id > 1;
 
   const second = props.activeScreen.id >= 2;
+  const secondCount = props.details.tags.length;
+  const secondBlob = props.activeScreen.id > 2;
 
   const third = props.activeScreen.id >= 3;
 
@@ -18,23 +21,17 @@ function Progress(props) {
       <div className="flex flex-col items-center justify-center space-y-2">
         <div
           className={`w-2 h-2 rounded-full ${
-            firstCount >= 1 || props.activeScreen.id > 1
-              ? "bg-olive-70"
-              : "bg-dark-60"
+            firstCount >= 1 || firstBlob ? "bg-olive-70" : "bg-dark-60"
           }`}
         />
         <div
           className={`w-2 h-2 rounded-full ${
-            firstCount >= 2 || props.activeScreen.id > 1
-              ? "bg-olive-70"
-              : "bg-dark-60"
+            firstCount >= 2 || firstBlob ? "bg-olive-70" : "bg-dark-60"
           }`}
         />
         <div
           className={`w-2 h-2 rounded-full ${
-            firstCount >= 3 || props.activeScreen.id > 1
-              ? "bg-olive-70"
-              : "bg-dark-60"
+            firstCount >= 3 || firstBlob ? "bg-olive-70" : "bg-dark-60"
           }`}
         />
       </div>
@@ -52,9 +49,21 @@ function Progress(props) {
         </span>
       </div>
       <div className="flex flex-col items-center justify-center space-y-2">
-        <div className={`w-2 h-2 rounded-full ${false ? "" : "bg-dark-60"}`} />
-        <div className={`w-2 h-2 rounded-full ${false ? "" : "bg-dark-60"}`} />
-        <div className={`w-2 h-2 rounded-full ${false ? "" : "bg-dark-60"}`} />
+        <div
+          className={`w-2 h-2 rounded-full ${
+            secondCount || secondBlob ? "bg-olive-70" : "bg-dark-60"
+          }`}
+        />
+        <div
+          className={`w-2 h-2 rounded-full ${
+            secondCount || secondBlob ? "bg-olive-70" : "bg-dark-60"
+          }`}
+        />
+        <div
+          className={`w-2 h-2 rounded-full ${
+            secondCount || secondBlob ? "bg-olive-70" : "bg-dark-60"
+          }`}
+        />
       </div>
       <div
         className={`flex flex-row items-center justify-center w-10 h-10 ${

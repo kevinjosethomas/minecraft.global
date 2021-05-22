@@ -45,7 +45,7 @@ function NewServer(props) {
     website: null,
     discord: null,
     trailer: null,
-    long_description: null,
+    longDescription: null,
   });
 
   return (
@@ -89,7 +89,7 @@ function NewServer(props) {
               )}
             </div>
           </div>
-          <div className="flex flex-row items-start justify-start space-x-10">
+          <div className="flex flex-row items-start justify-start w-full space-x-10">
             <Progress details={details} activeScreen={activeScreen} />
             <activeScreen.screen details={details} setDetails={setDetails} />
           </div>

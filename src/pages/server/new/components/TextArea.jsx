@@ -1,6 +1,8 @@
 function TextArea(props) {
   return (
-    <div className="flex flex-col items-start justify-center">
+    <div
+      className={`flex flex-col items-start justify-center ${props.parentClassName}`}
+    >
       <span className="font-medium text-lg text-gray-400">{props.label}</span>
       <textarea
         maxLength={props.maxLength}
