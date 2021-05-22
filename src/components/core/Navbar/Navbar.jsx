@@ -36,11 +36,18 @@ function Navbar(props) {
       <div className="hidden md:flex flex-row items-center justify-center space-x-2 lg:space-x-6">
         <Search />
         {props.user ? (
-          <User
-            id={props.user.user_id}
-            username={props.user.username}
-            name={props.user.name}
-          />
+          <div className="flex flex-row items-center justify-center space-x-2 lg:space-x-3">
+            <Link href="/server/new">
+              <a className="flex flex-row items-center justify-center h-12 w-12 bg-olive-70 rounded-md">
+                <i className="far fa-plus text-sm lg:text-lg xl:text-xl text-gray-300" />
+              </a>
+            </Link>
+            <User
+              id={props.user.user_id}
+              username={props.user.username}
+              name={props.user.name}
+            />
+          </div>
         ) : (
           <Login />
         )}

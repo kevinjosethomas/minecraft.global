@@ -8,7 +8,7 @@ function User(props) {
 
   return (
     <div
-      className="relative flex flex-row items-center justify-center px-6 py-2 space-x-2 bg-olive-70 rounded-md cursor-pointer select-none"
+      className="relative flex flex-row items-center justify-center px-6 h-12 space-x-2 bg-olive-70 rounded-md cursor-pointer select-none"
       onClick={() => showDropdown(!dropdown)}
     >
       <span className="font-medium text-xs lg:text-sm xl:text-lg text-gray-300">
