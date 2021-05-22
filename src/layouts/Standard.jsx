@@ -14,7 +14,9 @@ function Standard(props) {
     >
       <Navbar user={props.user} dark={router.pathname == "/" ? true : false} />
       {props.children}
-      <Footer dark={router.pathname == "/" ? true : false} />
+      {(props.footer != null ? props.footer : true) && (
+        <Footer dark={router.pathname == "/" ? true : false} />
+      )}
     </div>
   );
 }
