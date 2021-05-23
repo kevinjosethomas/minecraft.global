@@ -17,15 +17,14 @@ function App({ Component, pageProps }) {
         ></script>
         <script
           dangerouslySetInnerHTML={{
-            _html: `
+            __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             gtag('config', 'G-QC7CZYZV5P');
             `,
           }}
-        ></script>
+        />
 
         <title>minecraft.global</title>
 
