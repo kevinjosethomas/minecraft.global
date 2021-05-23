@@ -18,11 +18,11 @@ function App({ Component, pageProps }) {
         <script
           dangerouslySetInnerHTML={{
             _html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-              gtag('config', 'G-QC7CZYZV5P');
+            gtag('config', 'G-QC7CZYZV5P');
             `,
           }}
         ></script>
