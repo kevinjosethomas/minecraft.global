@@ -11,6 +11,22 @@ function App({ Component, pageProps }) {
   return (
     <QueryClientProvider client={queryClient}>
       <Head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-QC7CZYZV5P"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            _html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-QC7CZYZV5P');
+            `,
+          }}
+        ></script>
+
         <title>minecraft.global</title>
 
         {/* Add favicon to tab */}
