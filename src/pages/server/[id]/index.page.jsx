@@ -48,7 +48,7 @@ function Server(props) {
           content={props.server.favicon || "/images/default_favicon.png"}
         />
 
-        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:card" content="summary" />
         <meta property="twitter:url" content="https://minecraft.global/" />
         <meta
           property="twitter:title"
