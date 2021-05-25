@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import ReactTooltip from "react-tooltip";
 import ReactMarkdown from "react-markdown";
@@ -27,6 +28,42 @@ function Server(props) {
         backgroundColor="#000"
         arrowColor="#000"
       /> */}
+      <Head>
+        <title>{props.server.name} - minecraft.global</title>
+        <meta
+          name="title"
+          content={`${props.server.name} - minecraft.global`}
+        />
+        <meta name="description" content={props.server.description} />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://minecraft.global/" />
+        <meta
+          property="og:title"
+          content={`${props.server.name} - minecraft.global`}
+        />
+        <meta property="og:description" content={props.server.description} />
+        <meta
+          property="og:image"
+          content={props.server.favicon || "/images/default_favicon.png"}
+        />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://minecraft.global/" />
+        <meta
+          property="twitter:title"
+          content={`${props.server.name} - minecraft.global`}
+        />
+        <meta
+          property="twitter:description"
+          content={props.server.description}
+        />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:image"
+          content={props.server.favicon || "/images/default_favicon.png"}
+        />
+      </Head>
       {showUpvoteModal ? (
         <UpvoteModal
           name={props.server.name}
