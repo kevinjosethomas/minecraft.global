@@ -25,17 +25,17 @@ function Progress(props) {
         <div
           className={`w-2 h-2 rounded-full ${
             firstCount >= 1 || firstBlob ? "bg-olive-70" : "bg-dark-60"
-          }`}
+          } transition duration-300`}
         />
         <div
           className={`w-2 h-2 rounded-full ${
             firstCount >= 2 || firstBlob ? "bg-olive-70" : "bg-dark-60"
-          }`}
+          } transition duration-300`}
         />
         <div
           className={`w-2 h-2 rounded-full ${
             firstCount >= 3 || firstBlob ? "bg-olive-70" : "bg-dark-60"
-          }`}
+          } transition duration-300`}
         />
       </div>
       <div
@@ -55,18 +55,18 @@ function Progress(props) {
       <div className="flex flex-col items-center justify-center space-y-2">
         <div
           className={`w-2 h-2 rounded-full ${
-            secondCount || secondBlob ? "bg-olive-70" : "bg-dark-60"
-          }`}
+            (second && secondCount) || secondBlob ? "bg-olive-70" : "bg-dark-60"
+          } transition duration-300`}
         />
         <div
           className={`w-2 h-2 rounded-full ${
-            secondCount || secondBlob ? "bg-olive-70" : "bg-dark-60"
-          }`}
+            (second && secondCount) || secondBlob ? "bg-olive-70" : "bg-dark-60"
+          } transition duration-300`}
         />
         <div
           className={`w-2 h-2 rounded-full ${
-            secondCount || secondBlob ? "bg-olive-70" : "bg-dark-60"
-          }`}
+            (second && secondCount) || secondBlob ? "bg-olive-70" : "bg-dark-60"
+          } transition duration-300`}
         />
       </div>
       <div
