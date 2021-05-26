@@ -7,6 +7,7 @@ function TextArea(props) {
       <textarea
         maxLength={props.maxLength}
         className={`${props.className} px-2 py-1 font-medium text-gray-500 bg-dark-70 focus:outline-none rounded-sm resize-none`}
+        defaultValue={props.default}
         onChange={props.onChange}
       />
     </div>

@@ -12,6 +12,7 @@ function Description(props) {
         className="w-full h-full"
         parentClassName="w-full h-full"
         maxLength="5000"
+        default={props.details.longDescription}
         onChange={updateLongDescription}
       />
     </div>

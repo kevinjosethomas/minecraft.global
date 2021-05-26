@@ -85,9 +85,21 @@ function Features(props) {
           label="Bedrock"
         />
       </div>
-      <Input label="Website" onChange={updateWebsite} />
-      <Input label="Discord" onChange={updateDiscord} />
-      <Input label="Trailer" onChange={updateTrailer} />
+      <Input
+        label="Website"
+        default={props.details.website}
+        onChange={updateWebsite}
+      />
+      <Input
+        label="Discord"
+        default={props.details.discord}
+        onChange={updateDiscord}
+      />
+      <Input
+        label="Trailer"
+        default={props.details.trailer}
+        onChange={updateTrailer}
+      />
     </div>
   );
 }
