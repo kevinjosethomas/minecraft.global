@@ -4,7 +4,7 @@ function Checkbox(props) {
       <div
         className={`flex flex-col items-center justify-center w-5 h-5 ${
           props.checked ? "bg-olive-60" : "bg-dark-60"
-        } rounded-sm`}
+        } rounded-sm transition duration-100`}
         onClick={props.toggle}
       >
         <i className="fas fa-check text-[0.6rem] text-dark-60" />

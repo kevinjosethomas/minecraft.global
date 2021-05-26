@@ -6,8 +6,13 @@ function Tag(props) {
       } flex flex-row items-center justify-center px-4 py-1 ${
         props.selected ? "bg-olive-70" : "bg-dark-60"
       } rounded-full cursor-pointer hover:brightness-125 filter duration-500`}
+      onClick={props.selected ? props.deselect : props.select}
     >
-      <span className="select-none text-gray-400 whitespace-nowrap">
+      <span
+        className={`select-none ${
+          props.selected ? "text-gray-300" : "text-gray-400"
+        } whitespace-nowrap`}
+      >
         {props.label}
       </span>
     </div>
