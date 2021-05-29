@@ -10,6 +10,6 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
+          key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          script: cd web-frontend && git pull && yarn install && yarn build && pm2 restart frontend
+          script: cd minecraft.global && git pull && yarn install && yarn build && pm2 restart minecraft.global
