@@ -1,3 +1,3 @@
-# web-frontend
+# minecraft.global
 
 ✨ Spicy frontend for minecraft.global
