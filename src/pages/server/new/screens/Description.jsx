@@ -11,9 +11,10 @@ function Description(props) {
         label="Long Description"
         className="w-full h-full"
         parentClassName="w-full h-full"
-        maxLength="5000"
+        maxLength={5000}
         default={props.details.longDescription}
         onChange={updateLongDescription}
+        counter={true}
       />
     </div>
   );

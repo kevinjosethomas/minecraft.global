@@ -23,9 +23,10 @@ function Details(props) {
       <TextArea
         label="Description"
         className="w-[30rem] !h-40"
-        maxLength="220"
+        maxLength={220}
         default={props.details.description}
         onChange={updateDescription}
+        counter={true}
       />
     </div>
   );
