@@ -2,7 +2,7 @@ import TextArea from "../components/TextArea";
 
 function Description(props) {
   const updateLongDescription = (e) => {
-    props.setDetails({ ...props.details, longDescription: e.target.value });
+    props.setDetails({ ...props.details, long_description: e.target.value });
   };
 
   return (
@@ -12,7 +12,7 @@ function Description(props) {
         className="w-full h-full"
         parentClassName="w-full h-full"
         maxLength={5000}
-        default={props.details.longDescription}
+        default={props.details.long_description}
         onChange={updateLongDescription}
         counter={true}
       />

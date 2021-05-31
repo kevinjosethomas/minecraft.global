@@ -9,13 +9,13 @@ function Features(props) {
   const [tagsModal, setTagsModal] = useState(false);
 
   const updateWebsite = (e) => {
-    props.setDetails({ ...props.details, website: e.target.value });
+    props.setDetails({ ...props.details, website_url: e.target.value });
   };
   const updateDiscord = (e) => {
-    props.setDetails({ ...props.details, discord: e.target.value });
+    props.setDetails({ ...props.details, discord_url: e.target.value });
   };
   const updateTrailer = (e) => {
-    props.setDetails({ ...props.details, trailer: e.target.value });
+    props.setDetails({ ...props.details, trailer_url: e.target.value });
   };
   const toggleWhitelisted = () => {
     props.setDetails({
@@ -26,7 +26,7 @@ function Features(props) {
   const toggleBedrock = () => {
     props.setDetails({
       ...props.details,
-      bedrock: !props.details.bedrock,
+      is_bedrock: !props.details.is_bedrock,
     });
   };
 
@@ -46,7 +46,7 @@ function Features(props) {
           setDetails={props.setDetails}
         />
       )}
-      <div className="flex flex-col items-start justify-center space-y-1">
+      <div className="flex flex-col items-start justify-center !mt-0 space-y-1">
         <span className="font-medium text-lg text-gray-400">Tags</span>
         <div className="flex flex-row items-center justify-center space-x-2">
           <div
@@ -80,24 +80,24 @@ function Features(props) {
           label="Whitelisted"
         />
         <Checkbox
-          checked={props.details.bedrock}
+          checked={props.details.is_bedrock}
           toggle={toggleBedrock}
           label="Bedrock"
         />
       </div>
       <Input
         label="Website"
-        default={props.details.website}
+        default={props.details.website_url}
         onChange={updateWebsite}
       />
       <Input
         label="Discord"
-        default={props.details.discord}
+        default={props.details.discord_url}
         onChange={updateDiscord}
       />
       <Input
         label="Trailer"
-        default={props.details.trailer}
+        default={props.details.trailer_url}
         onChange={updateTrailer}
       />
     </div>

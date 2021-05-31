@@ -1,8 +1,16 @@
+import { useToasts } from "react-toast-notifications";
+
 import Tag from "../components/Tag";
 import categories from "../../../../assets/data/tags";
 
 function Tags(props) {
+  const { addToast } = useToasts();
+
   const addTag = (tag) => {
+    if (props.details.tags.length >= 5) {
+      addToast("You cannot select more than 5 tags!", { appearance: "error" });
+      return;
+    }
     props.setDetails({
       ...props.details,
       tags: [...props.details.tags, tag],
