@@ -14,6 +14,7 @@ export async function getServerSideProps(ctx) {
   try {
     const code = ctx.query.code;
     if (!code) {
+      console.log("MISSING CODE");
       return {
         redirect: {
           destination: "/login",
@@ -34,7 +35,8 @@ export async function getServerSideProps(ctx) {
       },
     };
   } catch (e) {
-    console.error(e);
+    console.log(e);
+    console.log("FAILED LOGIN");
     return {
       redirect: {
         destination: "/login",
