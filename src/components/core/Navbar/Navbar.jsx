@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 import Logo from "./components/Logo";
 import User from "./components/User";
@@ -7,8 +6,6 @@ import Login from "./components/Login";
 import Search from "./components/Search";
 
 function Navbar(props) {
-  const router = useRouter();
-
   return (
     <div
       className={`flex flex-row items-center justify-center md:justify-between w-full px-10 lg:px-20 2xl:px-56 py-5 ${
