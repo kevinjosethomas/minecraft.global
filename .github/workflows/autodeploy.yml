@@ -12,4 +12,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          script: cd minecraft.global && git pull && yarn install && yarn build && pm2 restart minecraft.global
+          script: cd minecraft.global && git pull && npm install && npm run build && pm2 restart minecraft.global
