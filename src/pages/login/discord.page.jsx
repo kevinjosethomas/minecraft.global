@@ -34,6 +34,7 @@ export async function getServerSideProps(ctx) {
       },
     };
   } catch (e) {
+    console.error(e);
     return {
       redirect: {
         destination: "/login",
