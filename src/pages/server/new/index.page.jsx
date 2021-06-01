@@ -182,33 +182,33 @@ function NewServer(props) {
 
   return (
     <StandardLayout user={props.user} footer={false}>
-      <div className="flex flex-col items-start justify-start w-full h-full px-10 lg:px-20 2xl:px-56 py-32 bg-dark-80">
-        <div className="flex flex-col items-start justify-center w-full space-y-10">
+      <div className="flex flex-col items-start justify-start w-full h-full px-10 lg:px-20 2xl:px-56 py-14 md:py-32 bg-dark-80">
+        <div className="flex flex-col items-start justify-center w-full h-full space-y-10">
           <div className="flex flex-row items-center justify-between w-full">
-            <h1 className="font-bold text-5xl text-gray-300">
+            <h1 className="font-bold text-3xl md:text-5xl text-gray-300">
               {activeScreen.name}
             </h1>
-            <div className="flex flex-row items-center justify-center space-x-4 select-none">
+            <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4 select-none">
               {activeScreen.id != 1 && (
                 <div
-                  className="flex flex-row items-center justify-center px-3 py-1 space-x-2 bg-dark-60 hover:brightness-125 rounded cursor-pointer filter duration-500"
+                  className="flex flex-row items-center justify-center w-full md:w-auto px-3 py-1 space-x-2 bg-dark-60 hover:brightness-125 rounded cursor-pointer filter duration-500"
                   onClick={() => updateActiveScreen(activeScreen.id - 1)}
                 >
-                  <i className="fas fa-long-arrow-alt-left text-lg text-gray-400" />
-                  <span className="font-semibold text-lg text-gray-400">
+                  <i className="fas fa-long-arrow-alt-left md:text-lg text-gray-400" />
+                  <span className="font-semibold md:text-lg text-gray-400">
                     Back
                   </span>
                 </div>
               )}
               {activeScreen.id != 3 && (
                 <div
-                  className="flex flex-row items-center justify-center px-3 py-1 space-x-2 bg-olive-70 hover:brightness-125 rounded cursor-pointer filter duration-500"
+                  className="flex flex-row items-center justify-center w-full md:w-auto px-3 py-1 space-x-2 bg-olive-70 hover:brightness-125 rounded cursor-pointer filter duration-500"
                   onClick={() => updateActiveScreen(activeScreen.id + 1)}
                 >
-                  <span className="font-semibold text-lg text-gray-300">
+                  <span className="font-semibold md:text-lg text-gray-300">
                     Next
                   </span>
-                  <i className="fas fa-long-arrow-alt-right text-lg text-gray-300" />
+                  <i className="fas fa-long-arrow-alt-right md:text-lg text-gray-300" />
                 </div>
               )}
               {activeScreen.id == 3 && (
@@ -216,21 +216,21 @@ function NewServer(props) {
                   className="flex flex-row items-center justify-center px-3 py-1 space-x-2 bg-olive-70 hover:brightness-125 rounded cursor-pointer filter duration-500"
                   onClick={submit}
                 >
-                  <span className="font-semibold text-lg text-gray-300">
+                  <span className="font-semibold md:text-lg text-gray-300">
                     Submit
                   </span>
-                  <i className="fas fa-map-marker-check text-lg text-gray-300" />
+                  <i className="fas fa-map-marker-check md:text-lg text-gray-300" />
                 </div>
               )}
             </div>
           </div>
-          <div className="flex flex-row items-start justify-start w-full space-x-10">
+          <div className="flex flex-col md:flex-row items-start justify-start w-full h-full space-y-10 md:space-y-0 md:space-x-10">
             <Progress
               details={details}
               activeScreen={activeScreen}
               updateActiveScreen={updateActiveScreen}
             />
-            <activeScreen.screen details={details} setDetails={setDetails} />s{" "}
+            <activeScreen.screen details={details} setDetails={setDetails} />
           </div>
         </div>
       </div>

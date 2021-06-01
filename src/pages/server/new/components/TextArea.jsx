@@ -15,7 +15,7 @@ function TextArea(props) {
         onChange={props.onChange}
       />
       {props.counter && props.maxLength && (
-        <span className="absolute top-8 right-2 font-medium text-gray-500">
+        <span className="absolute top-8 right-4 font-medium text-gray-500">
           {props.maxLength - (props.default ? props.default.length : 0)}
         </span>
       )}

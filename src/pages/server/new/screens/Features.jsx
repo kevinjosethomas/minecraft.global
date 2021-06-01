@@ -87,16 +87,19 @@ function Features(props) {
       </div>
       <Input
         label="Website"
+        className="w-full md:w-auto"
         default={props.details.website_url}
         onChange={updateWebsite}
       />
       <Input
         label="Discord"
+        className="w-full md:w-auto"
         default={props.details.discord_url}
         onChange={updateDiscord}
       />
       <Input
         label="Trailer"
+        className="w-full md:w-auto"
         default={props.details.trailer_url}
         onChange={updateTrailer}
       />

@@ -29,15 +29,15 @@ function Tags(props) {
       onClick={() => props.setTagsModal(false)}
     >
       <div
-        className="flex flex-col items-start justify-start bg-dark-70 px-20 py-10 space-y-5 max-h-[40rem] overflow-y-scroll rounded-md"
+        className="flex flex-col items-start justify-start bg-dark-70 px-5 lg:px-20 py-5 lg:py-10 space-y-5 max-h-[40rem] overflow-y-scroll rounded-md"
         onClick={(e) => e.stopPropagation()}
       >
         {categories.map((category) => (
           <div className="flex flex-col items-start justify-center space-y-2">
-            <h1 className="font-bold text-3xl text-gray-300">
+            <h1 className="font-bold text-2xl md:text-3xl text-gray-300">
               {category.label}s
             </h1>
-            <div className="flex flex-row items-center justify-start flex-wrap max-w-2xl">
+            <div className="flex flex-row items-center justify-start flex-wrap max-w-[15rem] md:max-w-2xl">
               {category.tags.map((tag) => (
                 <Tag
                   {...tag}
