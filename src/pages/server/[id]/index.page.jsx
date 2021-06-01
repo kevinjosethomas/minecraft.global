@@ -8,9 +8,9 @@ import { useToasts } from "react-toast-notifications";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import getAuth from "../../../api/auth";
+import UpvoteModal from "./modals/Upvote";
 import getServer from "../../../api/server/[id]";
 import StandardLayout from "../../../layouts/Standard";
-import UpvoteModal from "../../../components/server/modals/upvote/Upvote";
 
 function Server(props) {
   const { addToast } = useToasts();
@@ -22,12 +22,12 @@ function Server(props) {
 
   return (
     <StandardLayout user={props.user}>
-      {/* <ReactTooltip
+      <ReactTooltip
         effect="solid"
         className="server-status-tooltip"
         backgroundColor="#000"
         arrowColor="#000"
-      /> */}
+      />
       <Head>
         <title>{props.server.name} - minecraft.global</title>
         <meta
