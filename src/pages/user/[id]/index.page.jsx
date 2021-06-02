@@ -20,7 +20,7 @@ function User(props) {
   }
 
   return (
-    <StandardLayout>
+    <StandardLayout user={props.user}>
       <div className="flex flex-col items-center justify-start w-full h-full py-32 px-10 lg:px-20 2xl:px-56 bg-dark-80">
         <div className="flex flex-row items-center justify-start w-full space-x-6">
           <div className="flex flex-col items-center justify-center">
