@@ -1,7 +1,7 @@
 function Progress(props) {
   const firstFields = [
     Boolean(props.details.name),
-    Boolean(props.details.address),
+    Boolean(props.details.host),
     Boolean(props.details.description),
   ];
   const firstCount = firstFields.filter((el) => el == true).length;
