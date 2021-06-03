@@ -4,7 +4,7 @@ function Terms(props) {
   return (
     <StandardLayout>
       <div className="flex flex-col items-start justify-start w-full py-24 px-10 lg:px-20 2xl:px-56 space-y-10 bg-dark-80">
-        <h1 className="font-bold text-6xl text-gray-300">
+        <h1 className="font-bold text-5xl md:text-6xl text-gray-300">
           Terms and Conditions
         </h1>
 
