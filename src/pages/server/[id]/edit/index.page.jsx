@@ -55,8 +55,8 @@ function NewServer(props) {
     port: props.server.port,
     description: props.server.description,
     tags: defaultTags,
-    whitelisted: props.server.whitelisted,
-    is_bedrock: props.server.is_bedrock,
+    whitelisted: props.server.whitelisted || false,
+    is_bedrock: props.server.is_bedrock || false,
     website_url: props.server.website_url,
     discord_url: props.server.discord_url,
     trailer_url: props.server.trailer_url,
@@ -183,6 +183,34 @@ function NewServer(props) {
       }
       return true;
     },
+    votifier_host: () => {
+      if (details.votifier_host.length < 2) {
+        return "Your server Votifier host must be more than 2 characters in length!";
+      }
+      if (details.votifier_host.length > 258) {
+        return "Your server host must not be more than 258 characters in length!";
+      }
+      return true;
+    },
+    votifier_port: () => {
+      if (
+        isNaN(parseInt(details.votifier_port)) ||
+        parseInt(details.votifier_port) < 0 ||
+        parseInt(details.votifier_port) > 65535
+      ) {
+        return "You must provide a valid server Votifier port!";
+      }
+      return true;
+    },
+    votifier_key: () => {
+      if (details.votifier_key.length < 15) {
+        return "Your server Votifier key must be more than 15 characters in length!";
+      }
+      if (details.votifier_key.length > 220) {
+        return "Your server Votifier key must not be more than 220 characters in length!";
+      }
+      return true;
+    },
   };
 
   const submit = () => {
@@ -217,7 +245,7 @@ function NewServer(props) {
                   </span>
                 </div>
               )}
-              {activeScreen.id != 3 && (
+              {activeScreen.id != 4 && (
                 <div
                   className="flex flex-row items-center justify-center w-full md:w-auto px-3 py-1 space-x-2 bg-olive-70 hover:brightness-125 rounded cursor-pointer filter duration-500"
                   onClick={() => updateActiveScreen(activeScreen.id + 1)}
@@ -228,7 +256,7 @@ function NewServer(props) {
                   <i className="fas fa-long-arrow-alt-right md:text-lg text-gray-300" />
                 </div>
               )}
-              {activeScreen.id == 3 && (
+              {activeScreen.id == 4 && (
                 <div
                   className="flex flex-row items-center justify-center px-3 py-1 space-x-2 bg-olive-70 hover:brightness-125 rounded cursor-pointer filter duration-500"
                   onClick={submit}
