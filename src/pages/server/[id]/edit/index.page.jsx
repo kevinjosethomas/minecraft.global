@@ -3,9 +3,11 @@ import { useToasts } from "react-toast-notifications";
 
 import Details from "./screens/Details";
 import Features from "./screens/Features";
+import Votifier from "./screens/Votifier";
 import getAuth from "../../../../api/auth";
 import Progress from "./components/Progress";
 import Description from "./screens/Description";
+
 import getServer from "../../../../api/server/[id]";
 import StandardLayout from "../../../../layouts/Standard";
 
@@ -25,6 +27,11 @@ function NewServer(props) {
       id: 3,
       name: "Server Description",
       screen: Description,
+    },
+    {
+      id: 4,
+      name: "Server Votifier",
+      screen: Votifier,
     },
   ];
   const [activeScreen, setActiveScreen] = useState(
@@ -54,6 +61,9 @@ function NewServer(props) {
     discord_url: props.server.discord_url,
     trailer_url: props.server.trailer_url,
     long_description: props.server.long_description,
+    votifier_host: props.server.votifier_host,
+    votifier_port: props.server.votifier_port,
+    votifier_key: props.server.votifier_key,
   });
 
   const validate = {
