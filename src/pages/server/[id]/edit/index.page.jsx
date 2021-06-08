@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useToasts } from "react-toast-notifications";
 
-import getAuth from "../../../../api/auth";
-import getServer from "../../../../api/server/[id]";
 import Details from "./screens/Details";
 import Features from "./screens/Features";
+import getAuth from "../../../../api/auth";
 import Progress from "./components/Progress";
 import Description from "./screens/Description";
+import getServer from "../../../../api/server/[id]";
 import StandardLayout from "../../../../layouts/Standard";
 
 function NewServer(props) {
@@ -35,19 +35,25 @@ function NewServer(props) {
   };
 
   const { addToast } = useToasts();
+  const defaultTags = [];
+  props.server.tags.forEach((tag, index) => {
+    defaultTags.push({
+      label: tag,
+    });
+  });
 
   const [details, setDetails] = useState({
-    name: null,
-    host: null,
-    port: "25565",
-    description: null,
-    tags: [],
-    whitelisted: false,
-    is_bedrock: false,
-    website_url: null,
-    discord_url: null,
-    trailer_url: null,
-    long_description: null,
+    name: props.server.name,
+    host: props.server.host,
+    port: props.server.port,
+    description: props.server.description,
+    tags: defaultTags,
+    whitelisted: props.server.whitelisted,
+    is_bedrock: props.server.is_bedrock,
+    website_url: props.server.website_url,
+    discord_url: props.server.discord_url,
+    trailer_url: props.server.trailer_url,
+    long_description: props.server.long_description,
   });
 
   const validate = {
@@ -115,10 +121,10 @@ function NewServer(props) {
         return "You must provide server tags!";
       }
       if (details.tags.length < 2) {
-        return "You must provide atleast 2 tags in length!";
+        return "You must provide atleast 2 tags!";
       }
       if (details.tags.length > 5) {
-        return "You must not provide more than 5 tags in length!";
+        return "You must not provide more than 5 tags!";
       }
       return true;
     },
@@ -240,7 +246,7 @@ function NewServer(props) {
 }
 
 export async function getServerSideProps(ctx) {
-  const [user, server] = Promise.all([
+  const [user, server] = await Promise.all([
     getAuth(ctx.req, ctx.res),
     getServer(ctx.params.id),
   ]);
@@ -253,7 +259,7 @@ export async function getServerSideProps(ctx) {
       },
     };
   } else {
-    if (user.payload.id !== server.payload.owner_id) {
+    if (user.payload.user_id !== server.payload.owner_id) {
       return {
         redirect: {
           destination: `/server/${ctx.params.id}`,

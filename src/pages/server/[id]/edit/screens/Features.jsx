@@ -33,7 +33,7 @@ function Features(props) {
   const removeTag = (tag) => {
     props.setDetails({
       ...props.details,
-      tags: props.details.tags.filter((el) => el.name !== tag.name),
+      tags: props.details.tags.filter((el) => el.label !== tag.label),
     });
   };
 
@@ -62,9 +62,10 @@ function Features(props) {
           ) : (
             <Fragment />
           )}
-          {props.details.tags.map((tag) => (
+          {props.details.tags.map((tag, index) => (
             <Tag
               {...tag}
+              key={index}
               selected={false}
               select={() => removeTag(tag)}
               deselect={() => void 0}

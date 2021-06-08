@@ -114,10 +114,10 @@ function NewServer(props) {
         return "You must provide server tags!";
       }
       if (details.tags.length < 2) {
-        return "You must provide atleast 2 tags in length!";
+        return "You must provide atleast 2 tags!";
       }
       if (details.tags.length > 5) {
-        return "You must not provide more than 5 tags in length!";
+        return "You must not provide more than 5 tags!";
       }
       return true;
     },
