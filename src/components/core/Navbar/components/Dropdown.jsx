@@ -22,21 +22,20 @@ function Dropdown(props) {
           </span>
         </a>
       </Link>
-      <Link href={`/user/${props.id}/edit`}>
-        <a className="flex flex-row items-center justify-start w-full px-5 py-2 space-x-2 hover:bg-dark-60">
-          <i className="fas fa-pencil-paintbrush w-5 text-lg text-gray-400" />
-          <span className="font-medium text-lg text-gray-400">
-            Edit Profile
-          </span>
-        </a>
-      </Link>
-      <a
-        className="flex flex-row items-center justify-start w-full px-5 py-2 space-x-2 hover:bg-dark-60"
-        // onClick={() => cookie.remove("token")}
+      <div
+        className="flex flex-row items-center justify-start w-full px-5 py-2 space-x-2 hover:bg-dark-60 cursor-pointer"
+        onClick={() => props.setEditUserModal(true)}
+      >
+        <i className="fas fa-pencil-paintbrush w-5 text-lg text-gray-400" />
+        <span className="font-medium text-lg text-gray-400">Edit Profile</span>
+      </div>
+      <div
+        className="flex flex-row items-center justify-start w-full px-5 py-2 space-x-2 hover:bg-dark-60 cursor-pointer"
+        onClick={() => cookie.remove("token")}
       >
         <i className="fas fa-sign-out w-5 text-lg text-gray-400" />
         <span className="font-medium text-lg text-gray-400">Log Out</span>
-      </a>
+      </div>
     </motion.div>
   );
 }

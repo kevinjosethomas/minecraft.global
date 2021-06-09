@@ -16,7 +16,9 @@ function User(props) {
       </span>
       <i className="fas fa-caret-down text-xs lg:text-sm xl:text-lg text-gray-300" />
       <AnimatePresence>
-        {dropdown && <Dropdown id={props.id} />}
+        {dropdown && (
+          <Dropdown id={props.id} setEditUserModal={props.setEditUserModal} />
+        )}
       </AnimatePresence>
     </div>
   );

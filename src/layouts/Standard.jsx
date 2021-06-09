@@ -1,10 +1,13 @@
+import { useState } from "react";
 import { useRouter } from "next/router";
 
 import Footer from "../components/core/Footer";
 import Navbar from "../components/core/Navbar/Navbar";
+import EditUser from "../components/core/modals/EditUser/EditUser";
 
 function Standard(props) {
   const router = useRouter();
+  const [editUserModal, setEditUserModal] = useState(false);
 
   return (
     <div
@@ -12,7 +15,12 @@ function Standard(props) {
         router.pathname == "/" ? "bg-index" : ""
       }`}
     >
-      <Navbar user={props.user} dark={router.pathname == "/" ? true : false} />
+      {editUserModal && <EditUser setEditUserModal={setEditUserModal} />}
+      <Navbar
+        user={props.user}
+        dark={router.pathname == "/" ? true : false}
+        setEditUserModal={setEditUserModal}
+      />
       {props.children}
       {(props.footer != null ? props.footer : true) && (
         <Footer dark={router.pathname == "/" ? true : false} />

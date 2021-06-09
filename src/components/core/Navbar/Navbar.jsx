@@ -43,6 +43,7 @@ function Navbar(props) {
               id={props.user.user_id}
               username={props.user.username}
               name={props.user.name}
+              setEditUserModal={props.setEditUserModal}
             />
           </div>
         ) : (
