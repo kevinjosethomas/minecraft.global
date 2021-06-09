@@ -22,8 +22,8 @@ function User(props) {
 
   return (
     <StandardLayout user={props.user}>
-      <div className="flex flex-col items-start justify-start w-full py-32 px-10 lg:px-20 2xl:px-56 space-y-16 bg-dark-80">
-        <div className="flex flex-row items-center justify-start w-full space-x-6">
+      <div className="flex flex-col items-start justify-start w-full py-16 md:py-32 md:px-10 lg:px-20 2xl:px-56 space-y-16 bg-dark-80">
+        <div className="flex flex-col md:flex-row items-center justify-start w-full space-y-4 md:space-y-0 md:space-x-6">
           <div className="flex flex-col items-center justify-center">
             {isLoading ? (
               <SkeletonTheme color="#222822" highlightColor="#2C322C">
@@ -45,7 +45,7 @@ function User(props) {
               {isLoading ? (
                 <Skeleton width={150} height={18} />
               ) : (
-                <h1 className="font-bold text-4xl text-gray-300">
+                <h1 className="font-bold text-3xl md:text-4xl text-gray-300">
                   {data.payload.name}
                 </h1>
               )}
@@ -56,7 +56,7 @@ function User(props) {
                   <Skeleton width={300} />
                 </Fragment>
               ) : (
-                <p className="max-w-xs overflow-hidden text-xl text-gray-400">
+                <p className="max-w-xs overflow-hidden md:text-xl text-gray-400">
                   {data.payload.description}
                 </p>
               )}
@@ -64,17 +64,17 @@ function User(props) {
           </SkeletonTheme>
         </div>
         {(isLoading || data.payload.servers.length) && (
-          <div className="flex flex-col items-start justify-center w-full space-y-6 p-10 bg-dark-70 bg-opacity-50 rounded-md">
+          <div className="flex flex-col items-center md:items-start justify-center w-full space-y-6 p-2 md:p-10 md:bg-dark-70 md:bg-opacity-50 rounded-md">
             {isLoading ? (
               <SkeletonTheme color="#222822" highlightColor="#2C322C">
                 <Skeleton width={300} height={30} />
               </SkeletonTheme>
             ) : (
-              <h1 className="font-bold text-4xl text-gray-300">
+              <h1 className="font-bold text-2xl md:text-4xl text-gray-300">
                 <i className="twa twa-1f389" /> {data.payload.name}'s servers
               </h1>
             )}
-            <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-2 w-full gap-10 2xl:gap-5 3xl:gap-10 place-content-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-2 w-full gap-10 2xl:gap-5 3xl:gap-10 place-items-center">
               {isLoading ? (
                 <Fragment>
                   {[...Array(6)].map((el, index) => (
