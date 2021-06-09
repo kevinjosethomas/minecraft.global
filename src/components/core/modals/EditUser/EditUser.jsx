@@ -1,6 +1,8 @@
 import { useState } from "react";
 
+import Account from "./screens/Account";
 import NavItem from "./components/NavItem";
+import Connections from "./screens/Connections";
 
 function EditUser(props) {
   const screens = [
@@ -8,11 +10,13 @@ function EditUser(props) {
       id: 1,
       name: "account",
       label: "Account",
+      screen: Account,
     },
     {
       id: 2,
       name: "connections",
       label: "Connections",
+      screen: Connections,
     },
   ];
 
@@ -54,7 +58,9 @@ function EditUser(props) {
               onClick={() => props.setEditUserModal(false)}
             />
           </div>
-          <div className="flex flex-col items-start justify-start w-full h-full p-4 bg-dark-80 bg-opacity-40"></div>
+          <div className="flex flex-col items-start justify-start w-full h-full p-6 bg-dark-80 bg-opacity-40">
+            <activeScreen.screen />
+          </div>
         </div>
       </div>
     </div>
