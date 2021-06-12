@@ -21,6 +21,10 @@ function EditUser(props) {
   ];
 
   const [activeScreen, setActiveScreen] = useState(screens[0]);
+  const [newValues, setNewValues] = useState({
+    name: "",
+    description: "",
+  });
 
   return (
     <div
@@ -59,7 +63,11 @@ function EditUser(props) {
             />
           </div>
           <div className="flex flex-col items-start justify-start w-full h-full p-6 bg-dark-80 bg-opacity-40">
-            <activeScreen.screen />
+            <activeScreen.screen
+              user={props.user}
+              newValues={newValues}
+              setNewValues={setNewValues}
+            />
           </div>
         </div>
       </div>

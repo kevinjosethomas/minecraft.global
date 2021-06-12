@@ -15,7 +15,9 @@ function Standard(props) {
         router.pathname == "/" ? "bg-index" : ""
       }`}
     >
-      {editUserModal && <EditUser setEditUserModal={setEditUserModal} />}
+      {editUserModal && (
+        <EditUser user={props.user} setEditUserModal={setEditUserModal} />
+      )}
       <Navbar
         user={props.user}
         dark={router.pathname == "/" ? true : false}
