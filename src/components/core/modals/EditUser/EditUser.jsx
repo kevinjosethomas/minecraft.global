@@ -22,8 +22,8 @@ function EditUser(props) {
 
   const [activeScreen, setActiveScreen] = useState(screens[0]);
   const [newValues, setNewValues] = useState({
-    name: "",
-    description: "",
+    name: props.user.name,
+    description: props.user.description,
   });
 
   return (

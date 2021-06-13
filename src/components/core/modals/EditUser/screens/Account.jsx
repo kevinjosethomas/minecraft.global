@@ -11,7 +11,7 @@ function Account(props) {
 
   return (
     <div className="flex flex-col items-start justify-start w-full space-y-4">
-      <Input label="Name" />
+      <Input label="Name" default={props.newValues.name} />
       <TextArea
         label="Description"
         parentClassName="w-124 h-72"
