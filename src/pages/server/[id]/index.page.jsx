@@ -66,7 +66,7 @@ function Server(props) {
       </Head>
       {showUpvoteModal ? (
         <UpvoteModal
-          name={props.server.name}
+          server={props.server}
           closeModal={() => setShowUpvoteModal(false)}
         />
       ) : (
