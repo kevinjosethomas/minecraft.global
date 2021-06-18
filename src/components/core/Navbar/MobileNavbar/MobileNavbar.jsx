@@ -1,10 +1,11 @@
 import Link from "next/link";
 import cookie from "js-cookie";
+import Router from "next/router";
 
 function MobileNavbar(props) {
   return (
     <div
-      className="absolute flex md:hidden flex-col items-start justify-center w-screen h-screen bg-black bg-opacity-70 z-50"
+      className="absolute flex md:hidden flex-col items-start justify-center w-screen h-screen bg-black bg-opacity-70 z-40"
       onClick={() => props.setMobileNavbar(false)}
     >
       <div
@@ -71,7 +72,7 @@ function MobileNavbar(props) {
               </div>
               <div
                 className="flex flex-row items-center justify-start w-full py-2 pl-4 space-x-2 hover:bg-dark-60 cursor-pointer rounded-b"
-                onClick={() => cookie.remove("token")}
+                onClick={() => cookie.remove("token") && Router.reload()}
               >
                 <i class="far fa-sign-out-alt w-6 text-xl text-gray-300" />
                 <span className="text-xl text-gray-300">Logout</span>

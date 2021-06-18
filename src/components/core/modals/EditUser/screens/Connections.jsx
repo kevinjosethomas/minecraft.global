@@ -2,7 +2,7 @@ import Connection from "../components/Connection";
 
 function Connections(props) {
   return (
-    <div className="flex flex-row items-start justify-start flex-wrap w-full space-x-6">
+    <div className="flex flex-col md:flex-row items-start justify-start md:flex-wrap w-full space-x-6">
       {props.user.discord_id && (
         <Connection type="discord" label={props.user.discord_id} />
       )}

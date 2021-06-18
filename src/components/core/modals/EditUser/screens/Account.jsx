@@ -14,7 +14,7 @@ function Account(props) {
       <Input label="Name" default={props.newValues.name} />
       <TextArea
         label="Description"
-        parentClassName="w-124 h-72"
+        parentClassName="w-full md:w-124 h-72"
         default={props.newValues.description}
         maxLength={512}
         counter={true}
