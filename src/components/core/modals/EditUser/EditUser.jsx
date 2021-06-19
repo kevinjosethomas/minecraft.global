@@ -5,6 +5,7 @@ import Router from "next/router";
 import Account from "./screens/Account";
 import NavItem from "./components/NavItem";
 import Connections from "./screens/Connections";
+import editUser from "../../../../api/user/edit";
 
 function EditUser(props) {
   const screens = [
@@ -27,11 +28,25 @@ function EditUser(props) {
     name: props.user.name,
     description: props.user.description,
   });
+  const defaultValues = {
+    name: props.user.name,
+    description: props.user.description,
+  };
+
+  const saveChanges = () => {
+    if (
+      newValues.name != defaultValues.name ||
+      newValues.description != defaultValues.description
+    ) {
+      // console.log(cookie.get("token"));
+      editUser(props.user.user_id, newValues.name, newValues.description);
+    }
+  };
 
   return (
     <div
       className="absolute flex flex-col items-center justify-center w-screen h-screen top-0 left-0 z-50 bg-black bg-opacity-70"
-      onClick={() => props.setEditUserModal(false)}
+      onClick={() => saveChanges() && props.setEditUserModal(false)}
     >
       <div
         className="flex flex-col md:flex-row items-start justify-start w-11/12 h-4/6 md:w-auto md:h-auto bg-dark-70 overflow-hidden"
@@ -56,20 +71,15 @@ function EditUser(props) {
             </span>
           </div>
           <div className="hidden md:flex flex-col items-center justify-center w-full">
-            <NavItem
-              label="Logout"
-              onClick={() => cookie.remove("token") && Router.reload()}
-            />
+            <NavItem label="Logout" onClick={() => cookie.remove("token") && Router.reload()} />
           </div>
         </div>
         <div className="flex flex-col items-start justify-start md:w-200 w-full h-full">
           <div className="hidden md:flex flex-row items-center justify-between w-full px-6 py-4 bg-dark-80 bg-opacity-70">
-            <span className="font-bold text-3xl text-gray-400">
-              {activeScreen.label}
-            </span>
+            <span className="font-bold text-3xl text-gray-400">{activeScreen.label}</span>
             <i
               className="fas fa-times-circle text-2xl text-gray-400 hover:text-olive-60 cursor-pointer"
-              onClick={() => props.setEditUserModal(false)}
+              onClick={() => saveChanges() && props.setEditUserModal(false)}
             />
           </div>
           <div className="flex flex-col items-start justify-start w-full h-full p-4 md:p-6 bg-dark-80 bg-opacity-40">
