@@ -1,9 +1,12 @@
+import moment from "moment";
 import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
+import { useToasts } from "react-toast-notifications";
 
 import upvoteServer from "../../../../api/server/vote";
 
 function Upvote(props) {
+  const { addToast } = useToasts();
   const [captcha, setCaptcha] = useState(false);
   const [playername, setPlayername] = useState("");
 
@@ -14,9 +17,37 @@ function Upvote(props) {
   };
 
   const onSubmit = async () => {
-    if (captcha && playername) {
-      const response = await upvoteServer(props.server.server_id, playername);
-      console.log(response);
+    if (captcha && playername && playername.length >= 3 && playername.length <= 16) {
+      const [response, error] = await upvoteServer(props.server.server_id, playername);
+
+      if (error) {
+        if (error?.response?.status == 429 && !error?.response?.data?.success) {
+          const lastVote = moment
+            .duration(error.response.data.payload.detail.last_vote)
+            .add(18, "hours");
+          addToast(
+            `You have already upvoted this server in the last 18 hours! You can vote again ${lastVote.humanize(
+              true
+            )}`,
+            { appearance: "error" }
+          );
+          return;
+        }
+        addToast("An unknown error occured, please contact support!", {
+          appearance: "error",
+        });
+        return;
+      } else if (error?.response?.status == 422) {
+        addToast("Invalid information provided, please try again!", {
+          appearance: "error",
+        });
+        return;
+      }
+
+      props.closeModal();
+      addToast(`Successfully upvoted ${props.server.name}!`, {
+        appearance: "success",
+      });
     }
   };
 
@@ -30,9 +61,7 @@ function Upvote(props) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex flex-row items-center justify-between w-full px-20 py-5 bg-black bg-opacity-50 rounded-t-md">
-          <h1 className="font-bold text-3xl text-gray-400">
-            Upvote {props.server.name}
-          </h1>
+          <h1 className="font-bold text-3xl text-gray-400">Upvote {props.server.name}</h1>
           <div
             className="flex flex-row items-center justify-center w-10 h-10 bg-white bg-opacity-5 hover:bg-opacity-10 rounded-full cursor-pointer transition duration-500"
             onClick={props.closeModal}
@@ -42,9 +71,7 @@ function Upvote(props) {
         </div>
         <div className="flex flex-col items-start justify-center pl-20 pr-96 py-10 space-y-8 bg-black bg-opacity-30 rounded-b-md">
           <div className="flex flex-col items-start justify-center space-y-2">
-            <span className="font-medium text-lg text-gray-400">
-              Your Minecraft username
-            </span>
+            <span className="font-medium text-lg text-gray-400">Your Minecraft username</span>
             <input
               className="w-full px-3 py-2 focus:outline-none bg-white bg-opacity-10 rounded-sm text-sm text-gray-400"
               onChange={(e) => setPlayername(e.target.value)}
@@ -58,7 +85,7 @@ function Upvote(props) {
           />
           <div
             className={`flex flex-row items-center justify-center px-10 py-3 ${
-              captcha && playername
+              captcha && playername && playername.length >= 3 && playername.length <= 16
                 ? "bg-olive-60 cursor-pointer"
                 : "bg-olive-70 cursor-not-allowed"
             } rounded-sm`}

@@ -167,11 +167,12 @@ function Server(props) {
                 </a>
               </Link>
             ) : (
-              <Link href={`/server/${props.server.server_id}/report`}>
-                <a className="font-medium text-red-700 hover:text-red-600 transition duration-300">
-                  Report Server
-                </a>
-              </Link>
+              // <Link href={`/server/${props.server.server_id}/report`}>
+              //   <a className="font-medium text-red-700 hover:text-red-600 transition duration-300">
+              //     Report Server
+              //   </a>
+              // </Link>
+              <></>
             )}
           </div>
         </div>
