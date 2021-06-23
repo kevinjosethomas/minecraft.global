@@ -188,7 +188,7 @@ function NewServer(props) {
 
     if (error) {
       if (error?.response?.status == 409) {
-        addToast("There's already a server with this hostname and port!!", {
+        addToast("There's already a server with this hostname and port!", {
           appearance: "error",
         });
       } else if (error?.response?.status == 429) {
