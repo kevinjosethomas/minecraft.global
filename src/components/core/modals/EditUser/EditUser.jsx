@@ -1,6 +1,7 @@
 import cookie from "js-cookie";
 import { useState } from "react";
 import Router from "next/router";
+import { useToasts } from "react-toast-notifications";
 
 import Account from "./screens/Account";
 import NavItem from "./components/NavItem";
@@ -23,6 +24,7 @@ function EditUser(props) {
     },
   ];
 
+  const { addToast } = useToasts();
   const [activeScreen, setActiveScreen] = useState(screens[0]);
   const [newValues, setNewValues] = useState({
     name: props.user.name,
@@ -33,20 +35,39 @@ function EditUser(props) {
     description: props.user.description,
   };
 
-  const saveChanges = () => {
+  const saveChanges = async () => {
     if (
       newValues.name != defaultValues.name ||
       newValues.description != defaultValues.description
     ) {
-      // console.log(cookie.get("token"));
-      editUser(props.user.user_id, newValues.name, newValues.description);
+      const [response, error] = await editUser(
+        props.user.user_id,
+        newValues.name,
+        newValues.description
+      );
+      if (error) {
+        if (error?.response?.status == 429) {
+          addToast("You've hit a ratelimit, please wait before you continue!", {
+            appearance: "error",
+          });
+        } else {
+          addToast("An unknown error occured, please contact support!", {
+            appearance: "error",
+          });
+        }
+        return;
+      }
+      addToast("Successfully edited your profile!", {
+        appearance: "success",
+      });
     }
+    props.setEditUserModal(false);
   };
 
   return (
     <div
       className="absolute flex flex-col items-center justify-center w-screen h-screen top-0 left-0 z-50 bg-black bg-opacity-70"
-      onClick={() => saveChanges() && props.setEditUserModal(false)}
+      onClick={saveChanges}
     >
       <div
         className="flex flex-col md:flex-row items-start justify-start w-11/12 h-4/6 md:w-auto md:h-auto bg-dark-70 overflow-hidden"
@@ -79,7 +100,7 @@ function EditUser(props) {
             <span className="font-bold text-3xl text-gray-400">{activeScreen.label}</span>
             <i
               className="fas fa-times-circle text-2xl text-gray-400 hover:text-olive-60 cursor-pointer"
-              onClick={() => saveChanges() && props.setEditUserModal(false)}
+              onClick={saveChanges}
             />
           </div>
           <div className="flex flex-col items-start justify-start w-full h-full p-4 md:p-6 bg-dark-80 bg-opacity-40">

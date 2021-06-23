@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 import { useToasts } from "react-toast-notifications";
 
 import getAuth from "../../../api/auth";
@@ -6,6 +7,7 @@ import Details from "./screens/Details";
 import Features from "./screens/Features";
 import Progress from "./components/Progress";
 import Description from "./screens/Description";
+import newServer from "../../../api/server/new";
 import StandardLayout from "../../../layouts/Standard";
 
 function NewServer(props) {
@@ -26,13 +28,12 @@ function NewServer(props) {
       screen: Description,
     },
   ];
-  const [activeScreen, setActiveScreen] = useState(
-    screens.find((screen) => (screen.id = 1))
-  );
+  const [activeScreen, setActiveScreen] = useState(screens.find((screen) => (screen.id = 1)));
   const updateActiveScreen = (id) => {
     setActiveScreen(screens.find((screen) => screen.id == id));
   };
 
+  const router = useRouter();
   const { addToast } = useToasts();
 
   const [details, setDetails] = useState({
@@ -143,8 +144,8 @@ function NewServer(props) {
       if (details.website_url == null) {
         return true;
       }
-      if (details.website_url.length > 32) {
-        return "Your server website link must not be more than 32 characters in length!";
+      if (details.website_url.length > 220) {
+        return "Your server website link must not be more than 220 characters in length!";
       }
       return true;
     },
@@ -161,14 +162,14 @@ function NewServer(props) {
       if (details.trailer_url == null) {
         return true;
       }
-      if (details.trailer_url.length > 32) {
-        return "Your server trailer link must not be more than 32 characters in length!";
+      if (details.trailer_url.length > 220) {
+        return "Your server trailer link must not be more than 220 characters in length!";
       }
       return true;
     },
   };
 
-  const submit = () => {
+  const submit = async () => {
     for (const key of Object.keys(details)) {
       const check = validate[key]();
       if (check !== true) {
@@ -178,6 +179,37 @@ function NewServer(props) {
         return;
       }
     }
+    const [response, error] = await newServer({
+      ...details,
+      owner_id: props.user.user_id,
+      port: parseInt(details.port),
+      tags: details.tags.map((tag) => tag.name),
+    });
+
+    if (error) {
+      if (error?.response?.status == 409) {
+        addToast("There's already a server with this hostname and port!!", {
+          appearance: "error",
+        });
+      } else if (error?.response?.status == 429) {
+        addToast("You've hit a ratelimit, please wait before you continue!", {
+          appearance: "error",
+        });
+      } else {
+        addToast("An unknown error occured, please contact support!", {
+          appearance: "error",
+        });
+      }
+      return;
+    }
+
+    addToast(`Successfully added your server! Redirecting you in 3 seconds!`, {
+      appearance: "success",
+    });
+
+    setTimeout(() => {
+      router.push(`/user/${props.user.user_id}`);
+    }, 3000);
   };
 
   return (
@@ -185,9 +217,7 @@ function NewServer(props) {
       <div className="flex flex-col items-start justify-start w-full h-full px-10 lg:px-20 2xl:px-56 py-14 md:py-32 bg-dark-80">
         <div className="flex flex-col items-start justify-center w-full h-full space-y-10">
           <div className="flex flex-row items-center justify-between w-full">
-            <h1 className="font-bold text-3xl md:text-5xl text-gray-300">
-              {activeScreen.name}
-            </h1>
+            <h1 className="font-bold text-3xl md:text-5xl text-gray-300">{activeScreen.name}</h1>
             <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4 select-none">
               {activeScreen.id != 1 && (
                 <div
@@ -195,9 +225,7 @@ function NewServer(props) {
                   onClick={() => updateActiveScreen(activeScreen.id - 1)}
                 >
                   <i className="fas fa-long-arrow-alt-left md:text-lg text-gray-400" />
-                  <span className="font-semibold md:text-lg text-gray-400">
-                    Back
-                  </span>
+                  <span className="font-semibold md:text-lg text-gray-400">Back</span>
                 </div>
               )}
               {activeScreen.id != 3 && (
@@ -205,9 +233,7 @@ function NewServer(props) {
                   className="flex flex-row items-center justify-center w-full md:w-auto px-3 py-1 space-x-2 bg-olive-70 hover:brightness-125 rounded cursor-pointer filter duration-500"
                   onClick={() => updateActiveScreen(activeScreen.id + 1)}
                 >
-                  <span className="font-semibold md:text-lg text-gray-300">
-                    Next
-                  </span>
+                  <span className="font-semibold md:text-lg text-gray-300">Next</span>
                   <i className="fas fa-long-arrow-alt-right md:text-lg text-gray-300" />
                 </div>
               )}
@@ -216,9 +242,7 @@ function NewServer(props) {
                   className="flex flex-row items-center justify-center px-3 py-1 space-x-2 bg-olive-70 hover:brightness-125 rounded cursor-pointer filter duration-500"
                   onClick={submit}
                 >
-                  <span className="font-semibold md:text-lg text-gray-300">
-                    Submit
-                  </span>
+                  <span className="font-semibold md:text-lg text-gray-300">Submit</span>
                   <i className="fas fa-map-marker-check md:text-lg text-gray-300" />
                 </div>
               )}

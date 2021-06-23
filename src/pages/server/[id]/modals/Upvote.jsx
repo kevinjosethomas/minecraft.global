@@ -21,7 +21,7 @@ function Upvote(props) {
       const [response, error] = await upvoteServer(props.server.server_id, playername);
 
       if (error) {
-        if (error?.response?.status == 429 && !error?.response?.data?.success) {
+        if (error?.response?.status == 429) {
           const lastVote = moment
             .duration(error.response.data.payload.detail.last_vote)
             .add(18, "hours");
@@ -32,15 +32,15 @@ function Upvote(props) {
             { appearance: "error" }
           );
           return;
+        } else if (error?.response?.status == 422) {
+          addToast("Invalid information provided, please try again!", {
+            appearance: "error",
+          });
+        } else {
+          addToast("An unknown error occured, please contact support!", {
+            appearance: "error",
+          });
         }
-        addToast("An unknown error occured, please contact support!", {
-          appearance: "error",
-        });
-        return;
-      } else if (error?.response?.status == 422) {
-        addToast("Invalid information provided, please try again!", {
-          appearance: "error",
-        });
         return;
       }
 
