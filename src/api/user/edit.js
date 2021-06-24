@@ -1,7 +1,6 @@
 import axios from "axios";
-import cookie from "js-cookie";
 
-async function editUser(id, name, description) {
+async function editUser(id, name, description, token) {
   try {
     const { data } = await axios.put(
       process.env.NEXT_PUBLIC_API_URL + `/user/${id}/edit`,
@@ -11,7 +10,7 @@ async function editUser(id, name, description) {
       },
       {
         headers: {
-          Authorization: cookie.get("token"),
+          Authorization: token,
         },
       }
     );

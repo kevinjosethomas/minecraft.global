@@ -1,11 +1,10 @@
 import axios from "axios";
-import cookie from "js-cookie";
 
-async function newServer(data) {
+async function newServer(data, token) {
   try {
     const response = await axios.post(process.env.NEXT_PUBLIC_API_URL + "/server/new", data, {
       headers: {
-        Authorization: cookie.get("token"),
+        Authorization: token,
       },
     });
     return [response, null];

@@ -1,3 +1,4 @@
+import cookie from "js-cookie";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useToasts } from "react-toast-notifications";
@@ -238,12 +239,17 @@ function NewServer(props) {
       }
     }
 
-    const [response, error] = await editServer(props.server.server_id, {
-      ...data,
-      port: parseInt(data.port),
-      votifier_port: parseInt(data.votifier_port) || null,
-      tags: details.tags.map((tag) => tag.name || tag.label),
-    });
+    const token = cookie.get("token");
+    const [response, error] = await editServer(
+      props.server.server_id,
+      {
+        ...data,
+        port: parseInt(data.port),
+        votifier_port: parseInt(data.votifier_port) || null,
+        tags: details.tags.map((tag) => tag.name || tag.label),
+      },
+      token
+    );
 
     if (error) {
       if (error?.response?.status == 409) {

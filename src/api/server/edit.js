@@ -1,11 +1,10 @@
 import axios from "axios";
-import cookie from "js-cookie";
 
-async function editServer(id, data) {
+async function editServer(id, data, token) {
   try {
     const response = await axios.put(process.env.NEXT_PUBLIC_API_URL + `/server/${id}/edit`, data, {
       headers: {
-        Authorization: cookie.get("token"),
+        Authorization: token,
       },
     });
     return [response, null];

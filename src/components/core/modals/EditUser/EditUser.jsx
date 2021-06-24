@@ -40,10 +40,12 @@ function EditUser(props) {
       newValues.name != defaultValues.name ||
       newValues.description != defaultValues.description
     ) {
+      const token = cookie.get("token");
       const [response, error] = await editUser(
         props.user.user_id,
         newValues.name,
-        newValues.description
+        newValues.description,
+        token
       );
       if (error) {
         if (error?.response?.status == 429) {

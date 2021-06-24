@@ -1,3 +1,4 @@
+import cookie from "js-cookie";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useToasts } from "react-toast-notifications";
@@ -179,12 +180,17 @@ function NewServer(props) {
         return;
       }
     }
-    const [response, error] = await newServer({
-      ...details,
-      owner_id: props.user.user_id,
-      port: parseInt(details.port),
-      tags: details.tags.map((tag) => tag.name),
-    });
+
+    const token = cookie.get("token");
+    const [response, error] = await newServer(
+      {
+        ...details,
+        owner_id: props.user.user_id,
+        port: parseInt(details.port),
+        tags: details.tags.map((tag) => tag.name),
+      },
+      token
+    );
 
     if (error) {
       if (error?.response?.status == 409) {
