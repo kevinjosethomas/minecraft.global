@@ -12,7 +12,9 @@ function Navbar(props) {
 
   return (
     <Fragment>
-      {mobileNavbar && <MobileNavbar {...props} setMobileNavbar={setMobileNavbar} />}
+      {mobileNavbar && (
+        <MobileNavbar {...props} setMobileNavbar={setMobileNavbar} />
+      )}
 
       <div
         className={`flex flex-row items-center justify-center md:justify-between w-full px-10 lg:px-20 2xl:px-56 py-5 ${
@@ -32,7 +34,10 @@ function Navbar(props) {
                 premium
               </a>
             </Link> */}
-            <a href={process.env.NEXT_PUBLIC_DISCORD_INVITE_URL} target="_blank">
+            <a
+              href={process.env.NEXT_PUBLIC_DISCORD_INVITE_URL}
+              target="_blank"
+            >
               <i className="fab fa-discord text-sm lg:text-lg xl:text-xl text-gray-400 hover:text-gray-300 transition duration-500" />
             </a>
           </div>

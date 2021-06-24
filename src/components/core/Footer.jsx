@@ -24,7 +24,10 @@ function Footer(props) {
             </a>
           </Link>
           <div className="flex flex-row items-center justify-start space-x-3">
-            <a href={process.env.NEXT_PUBLIC_DISCORD_INVITE_URL} target="_blank">
+            <a
+              href={process.env.NEXT_PUBLIC_DISCORD_INVITE_URL}
+              target="_blank"
+            >
               <i className="fab fa-discord lg:text-lg text-gray-400 hover:text-gray-300 transition duration-500" />
             </a>
             <a href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`} target="_blank">

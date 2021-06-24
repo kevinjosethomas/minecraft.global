@@ -21,7 +21,9 @@ function Login(props) {
           </div>
           <div className="w-full h-[0.1rem] bg-gray-500" />
           <div className="flex flex-col items-start justify-center w-full space-y-1">
-            <span className="font-semibold text-gray-400">Sign in or register with</span>
+            <span className="font-semibold text-gray-400">
+              Sign in or register with
+            </span>
             <div className="flex flex-row items-center justify-center w-full space-x-4">
               <a
                 href={process.env.NEXT_PUBLIC_DISCORD_LOGIN_URL}

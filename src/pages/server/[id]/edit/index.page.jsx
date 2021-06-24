@@ -36,7 +36,9 @@ function NewServer(props) {
       screen: Votifier,
     },
   ];
-  const [activeScreen, setActiveScreen] = useState(screens.find((screen) => (screen.id = 1)));
+  const [activeScreen, setActiveScreen] = useState(
+    screens.find((screen) => (screen.id = 1))
+  );
   const updateActiveScreen = (id) => {
     setActiveScreen(screens.find((screen) => screen.id == id));
   };
@@ -282,7 +284,9 @@ function NewServer(props) {
       <div className="flex flex-col items-start justify-start w-full h-full px-10 lg:px-20 2xl:px-56 py-14 md:py-32 bg-dark-80">
         <div className="flex flex-col items-start justify-center w-full h-full space-y-10">
           <div className="flex flex-row items-center justify-between w-full">
-            <h1 className="font-bold text-3xl md:text-5xl text-gray-300">{activeScreen.name}</h1>
+            <h1 className="font-bold text-3xl md:text-5xl text-gray-300">
+              {activeScreen.name}
+            </h1>
             <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4 select-none">
               {activeScreen.id != 1 && (
                 <div
@@ -290,7 +294,9 @@ function NewServer(props) {
                   onClick={() => updateActiveScreen(activeScreen.id - 1)}
                 >
                   <i className="fas fa-long-arrow-alt-left md:text-lg text-gray-400" />
-                  <span className="font-semibold md:text-lg text-gray-400">Back</span>
+                  <span className="font-semibold md:text-lg text-gray-400">
+                    Back
+                  </span>
                 </div>
               )}
               {activeScreen.id != 4 && (
@@ -298,7 +304,9 @@ function NewServer(props) {
                   className="flex flex-row items-center justify-center w-full md:w-auto px-3 py-1 space-x-2 bg-olive-70 hover:brightness-125 rounded cursor-pointer filter duration-500"
                   onClick={() => updateActiveScreen(activeScreen.id + 1)}
                 >
-                  <span className="font-semibold md:text-lg text-gray-300">Next</span>
+                  <span className="font-semibold md:text-lg text-gray-300">
+                    Next
+                  </span>
                   <i className="fas fa-long-arrow-alt-right md:text-lg text-gray-300" />
                 </div>
               )}
@@ -307,7 +315,9 @@ function NewServer(props) {
                   className="flex flex-row items-center justify-center px-3 py-1 space-x-2 bg-olive-70 hover:brightness-125 rounded cursor-pointer filter duration-500"
                   onClick={submit}
                 >
-                  <span className="font-semibold md:text-lg text-gray-300">Submit</span>
+                  <span className="font-semibold md:text-lg text-gray-300">
+                    Submit
+                  </span>
                   <i className="fas fa-map-marker-check md:text-lg text-gray-300" />
                 </div>
               )}
@@ -328,7 +338,10 @@ function NewServer(props) {
 }
 
 export async function getServerSideProps(ctx) {
-  const [user, server] = await Promise.all([getAuth(ctx.req, ctx.res), getServer(ctx.params.id)]);
+  const [user, server] = await Promise.all([
+    getAuth(ctx.req, ctx.res),
+    getServer(ctx.params.id),
+  ]);
 
   if (!user.payload) {
     return {

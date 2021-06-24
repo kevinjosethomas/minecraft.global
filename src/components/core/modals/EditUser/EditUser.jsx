@@ -94,12 +94,17 @@ function EditUser(props) {
             </span>
           </div>
           <div className="hidden md:flex flex-col items-center justify-center w-full">
-            <NavItem label="Logout" onClick={() => cookie.remove("token") && Router.reload()} />
+            <NavItem
+              label="Logout"
+              onClick={() => cookie.remove("token") && Router.reload()}
+            />
           </div>
         </div>
         <div className="flex flex-col items-start justify-start md:w-200 w-full h-full">
           <div className="hidden md:flex flex-row items-center justify-between w-full px-6 py-4 bg-dark-80 bg-opacity-70">
-            <span className="font-bold text-3xl text-gray-400">{activeScreen.label}</span>
+            <span className="font-bold text-3xl text-gray-400">
+              {activeScreen.label}
+            </span>
             <i
               className="fas fa-times-circle text-2xl text-gray-400 hover:text-olive-60 cursor-pointer"
               onClick={saveChanges}

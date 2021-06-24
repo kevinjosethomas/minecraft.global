@@ -40,7 +40,11 @@ function Features(props) {
   return (
     <div className="flex flex-col items-start justify-center w-full space-y-5">
       {tagsModal && (
-        <Tags setTagsModal={setTagsModal} details={props.details} setDetails={props.setDetails} />
+        <Tags
+          setTagsModal={setTagsModal}
+          details={props.details}
+          setDetails={props.setDetails}
+        />
       )}
       <div className="flex flex-col items-start justify-center !mt-0 space-y-1">
         <span className="font-medium text-lg text-gray-400">Tags</span>
@@ -49,11 +53,22 @@ function Features(props) {
             className="flex flex-row items-center justify-center px-5 py-1 bg-olive-70 rounded-full cursor-pointer hover:brightness-110 filter duration-500"
             onClick={() => setTagsModal(true)}
           >
-            <span className="select-none text-gray-300 whitespace-nowrap">Choose Tags</span>
+            <span className="select-none text-gray-300 whitespace-nowrap">
+              Choose Tags
+            </span>
           </div>
-          {props.details.tags.length ? <div className="w-0.5 h-5 bg-dark-60" /> : <Fragment />}
+          {props.details.tags.length ? (
+            <div className="w-0.5 h-5 bg-dark-60" />
+          ) : (
+            <Fragment />
+          )}
           {props.details.tags.map((tag) => (
-            <Tag {...tag} selected={false} select={() => removeTag(tag)} deselect={() => void 0} />
+            <Tag
+              {...tag}
+              selected={false}
+              select={() => removeTag(tag)}
+              deselect={() => void 0}
+            />
           ))}
         </div>
       </div>
@@ -64,7 +79,11 @@ function Features(props) {
           toggle={toggleWhitelisted}
           label="Whitelisted"
         />
-        <Checkbox checked={props.details.is_bedrock} toggle={toggleBedrock} label="Bedrock" />
+        <Checkbox
+          checked={props.details.is_bedrock}
+          toggle={toggleBedrock}
+          label="Bedrock"
+        />
       </div>
       <Input
         label="Website"
