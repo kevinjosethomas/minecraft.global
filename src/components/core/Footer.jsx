@@ -13,21 +13,18 @@ function Footer(props) {
           minecraft<span className="text-olive-50">.</span>global
         </h1>
         <div className="flex flex-col items-center md:items-start justify-center">
-          <Link href="/advertise">
+          <a href={process.env.NEXT_PUBLIC_DISCORD_INVITE_URL} target="_blank">
             <a className="font-medium lg:text-lg text-gray-400 hover:text-gray-300 transition duration-500">
               Buy an advertisement
             </a>
-          </Link>
+          </a>
           <Link href="/premium">
-            <a className="font-medium lg:text-lg text-gray-400 hover:text-gray-300 transition duration-500">
+            <a className="font-medium lg:text-lg text-gray-400 hover:text-gray-300 transition duration-500 line-through">
               Upgrade to premium
             </a>
           </Link>
           <div className="flex flex-row items-center justify-start space-x-3">
-            <a
-              href={process.env.NEXT_PUBLIC_DISCORD_INVITE_URL}
-              target="_blank"
-            >
+            <a href={process.env.NEXT_PUBLIC_DISCORD_INVITE_URL} target="_blank">
               <i className="fab fa-discord lg:text-lg text-gray-400 hover:text-gray-300 transition duration-500" />
             </a>
             <a href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`} target="_blank">
