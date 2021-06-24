@@ -23,16 +23,10 @@ function MobileNavbar(props) {
               className="w-7/12 select-none"
               draggable={false}
             />
-            <h1 className="font-medium text-2xl text-gray-300">
-              {props.user.name}
-            </h1>
+            <h1 className="font-medium text-2xl text-gray-300">{props.user.name}</h1>
           </div>
         ) : (
-          <img
-            src="/images/logo.svg"
-            className="w-7/12 select-none"
-            draggable={false}
-          />
+          <img src="/images/logo.svg" className="w-7/12 select-none" draggable={false} />
         )}
         <div className="flex flex-col items-start justify-center space-y-4 w-full">
           <div className="flex flex-col items-start justify-center w-5/6 bg-dark-70 rounded">
@@ -48,12 +42,12 @@ function MobileNavbar(props) {
                 <span className="text-xl text-gray-300">Servers</span>
               </div>
             </Link>
-            <Link href="/premium">
+            {/* <Link href="/premium">
               <div className="flex flex-row items-center justify-start w-full py-2 pl-4 space-x-2 hover:bg-dark-60 cursor-pointer rounded-b">
                 <i class="far fa-gem w-6 text-xl text-gray-300" />
                 <span className="text-xl text-gray-300">Premium</span>
               </div>
-            </Link>
+            </Link> */}
           </div>
           {props.user ? (
             <div className="flex flex-col items-start justify-center w-5/6 bg-dark-70 rounded">
