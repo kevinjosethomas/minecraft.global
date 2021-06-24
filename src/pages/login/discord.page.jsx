@@ -27,7 +27,6 @@ export async function getServerSideProps(ctx) {
 
     const cookies = new Cookies(ctx.req, ctx.res);
     cookies.set("token", data.payload.token, {
-      secure: true,
       httpOnly: true,
       sameSite: "strict",
     });
