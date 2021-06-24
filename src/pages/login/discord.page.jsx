@@ -26,7 +26,11 @@ export async function getServerSideProps(ctx) {
     const data = await getLoginDiscord(code);
 
     const cookies = new Cookies(ctx.req, ctx.res);
-    cookies.set("token", data.payload.token);
+    cookies.set("token", data.payload.token, {
+      secure: true,
+      httpOnly: true,
+      sameSite: "strict",
+    });
 
     return {
       redirect: {

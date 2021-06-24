@@ -13,6 +13,8 @@ async function getAuth(req, res) {
       },
     });
 
+    return [data, token];
+
     return data;
   } catch (e) {
     return { payload: null };
