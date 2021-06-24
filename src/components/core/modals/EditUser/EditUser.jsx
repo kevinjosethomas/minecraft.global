@@ -40,7 +40,7 @@ function EditUser(props) {
       newValues.name != defaultValues.name ||
       newValues.description != defaultValues.description
     ) {
-      const token = cookie.get("token");
+      const token = cookie.get("token", { domain: "minecraft.global" });
       const [response, error] = await editUser(
         props.user.user_id,
         newValues.name,

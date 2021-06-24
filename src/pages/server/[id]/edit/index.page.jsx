@@ -239,7 +239,7 @@ function NewServer(props) {
       }
     }
 
-    const token = cookie.get("token");
+    const token = cookie.get("token", { domain: "minecraft.global" });
     const [response, error] = await editServer(
       props.server.server_id,
       {
