@@ -68,7 +68,10 @@ function MobileNavbar(props) {
               </div>
               <div
                 className="flex flex-row items-center justify-start w-full py-2 pl-4 space-x-2 hover:bg-dark-60 cursor-pointer rounded-b"
-                onClick={() => cookie.remove("token") && router.reload(window.location.pathname)}
+                onClick={() => {
+                  cookie.remove("token");
+                  router.reload(window.location.pathname);
+                }}
               >
                 <i class="far fa-sign-out-alt w-6 text-xl text-gray-300" />
                 <span className="text-xl text-gray-300">Logout</span>

@@ -32,7 +32,10 @@ function Dropdown(props) {
       </div>
       <div
         className="flex flex-row items-center justify-start w-full px-5 py-2 space-x-2 hover:bg-dark-60 cursor-pointer"
-        onClick={() => cookie.remove("token") && router.reload(window.location.pathname)}
+        onClick={() => {
+          cookie.remove("token");
+          router.reload(window.location.pathname);
+        }}
       >
         <i className="fas fa-sign-out w-5 text-lg text-gray-400" />
         <span className="font-medium text-lg text-gray-400">Logout</span>

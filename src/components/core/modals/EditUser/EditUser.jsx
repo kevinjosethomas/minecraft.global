@@ -97,7 +97,10 @@ function EditUser(props) {
           <div className="hidden md:flex flex-col items-center justify-center w-full">
             <NavItem
               label="Logout"
-              onClick={() => cookie.remove("token") && router.reload(window.location.pathname)}
+              onClick={() => {
+                cookie.remove("token");
+                router.reload(window.location.pathname);
+              }}
             />
           </div>
         </div>
