@@ -34,9 +34,7 @@ function ServerCard(props) {
           <div className="flex flex-col items-start justify-center space-y-1 overflow-hidden">
             <div className="flex flex-col items-start justify-center">
               <div className="flex flex-row items-center justify-start space-x-3">
-                <h1 className="font-proxima font-bold md:text-xl text-gray-300">
-                  {props.name}
-                </h1>
+                <h1 className="font-proxima font-bold md:text-xl text-gray-300">{props.name}</h1>
                 <div
                   className="flex flex-row items-center justify-center rounded-full px-3 space-x-1 bg-dark-80 bg-opacity-[0.8]"
                   data-tip="Upvotes"
@@ -57,9 +55,7 @@ function ServerCard(props) {
                   key={index}
                   className="flex flex-row items-center justify-center px-2 py-1 bg-dark-80 select-none"
                 >
-                  <span className="font-semibold text-xs text-gray-400">
-                    {tag}
-                  </span>
+                  <span className="font-semibold text-xs text-gray-400">{tag}</span>
                 </div>
               ))}
             </div>
@@ -75,20 +71,15 @@ function ServerCard(props) {
             </div>
           ))}
         </div>
-        <p className="font-medium text-xs md:text-sm text-gray-400">
-          {props.description}
-        </p>
+        <p className="font-medium text-xs md:text-sm text-gray-400">{props.description}</p>
       </div>
       <div className="flex flex-row items-center justify-center w-full h-7/30 cursor-pointer select-none">
         <CopyToClipboard
           text={props.host + ":" + props.port}
           onCopy={() =>
-            addToast(
-              `Copied ${props.host + ":" + props.port} to your clipboard!`,
-              {
-                appearance: "success",
-              }
-            )
+            addToast(`Copied ${props.host + ":" + props.port} to your clipboard!`, {
+              appearance: "success",
+            })
           }
         >
           <div className="flex flex-row items-center justify-center w-1/2 h-full bg-white bg-opacity-[0.02]">

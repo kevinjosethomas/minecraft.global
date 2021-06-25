@@ -1,8 +1,10 @@
 import Link from "next/link";
 import cookie from "js-cookie";
-import Router from "next/router";
+import { useRouter } from "next/router";
 
 function MobileNavbar(props) {
+  const router = useRouter();
+
   return (
     <div
       className="absolute flex md:hidden flex-col items-start justify-center w-screen h-screen bg-black bg-opacity-70 z-40"
@@ -23,16 +25,10 @@ function MobileNavbar(props) {
               className="w-7/12 select-none"
               draggable={false}
             />
-            <h1 className="font-medium text-2xl text-gray-300">
-              {props.user.name}
-            </h1>
+            <h1 className="font-medium text-2xl text-gray-300">{props.user.name}</h1>
           </div>
         ) : (
-          <img
-            src="/images/logo.svg"
-            className="w-7/12 select-none"
-            draggable={false}
-          />
+          <img src="/images/logo.svg" className="w-7/12 select-none" draggable={false} />
         )}
         <div className="flex flex-col items-start justify-center space-y-4 w-full">
           <div className="flex flex-col items-start justify-center w-5/6 bg-dark-70 rounded">
@@ -72,7 +68,7 @@ function MobileNavbar(props) {
               </div>
               <div
                 className="flex flex-row items-center justify-start w-full py-2 pl-4 space-x-2 hover:bg-dark-60 cursor-pointer rounded-b"
-                onClick={() => cookie.remove("token") && Router.reload()}
+                onClick={() => cookie.remove("token") && router.reload((window.location.pathname)}
               >
                 <i class="far fa-sign-out-alt w-6 text-xl text-gray-300" />
                 <span className="text-xl text-gray-300">Logout</span>

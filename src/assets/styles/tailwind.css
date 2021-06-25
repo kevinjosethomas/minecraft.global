@@ -64,12 +64,12 @@ body,
 }
 
 .hidden-scrollbar {
-  overflow: overlay;
+  overflow: overlay !important;
 }
 
 .hidden-scrollbar::-webkit-scrollbar {
-  height: 1.5rem;
-  background: transparent;
+  height: 1.5rem !important;
+  background: transparent !important;
 }
 
 /* width */

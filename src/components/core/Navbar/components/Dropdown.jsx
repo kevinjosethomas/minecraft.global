@@ -1,11 +1,13 @@
 import Link from "next/link";
 import cookie from "js-cookie";
-import Router from "next/router";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 import { DropdownAnimation } from "../../../../assets/animations/core";
 
 function Dropdown(props) {
+  const router = useRouter();
+
   return (
     <motion.div
       className="absolute flex flex-col items-center justify-start w-full right-0 top-12 py-2 bg-dark-70 rounded cursor-default overflow-hidden"
@@ -18,9 +20,7 @@ function Dropdown(props) {
       <Link href={`/user/${props.id}`}>
         <a className="flex flex-row items-center justify-start w-full px-5 py-2 space-x-2 hover:bg-dark-60">
           <i className="fas fa-eye w-5 text-lg text-gray-400" />
-          <span className="font-medium text-lg text-gray-400">
-            View Profile
-          </span>
+          <span className="font-medium text-lg text-gray-400">View Profile</span>
         </a>
       </Link>
       <div
@@ -32,7 +32,7 @@ function Dropdown(props) {
       </div>
       <div
         className="flex flex-row items-center justify-start w-full px-5 py-2 space-x-2 hover:bg-dark-60 cursor-pointer"
-        onClick={() => cookie.remove("token") && Router.reload()}
+        onClick={() => cookie.remove("token") && router.reload((window.location.pathname)}
       >
         <i className="fas fa-sign-out w-5 text-lg text-gray-400" />
         <span className="font-medium text-lg text-gray-400">Logout</span>
