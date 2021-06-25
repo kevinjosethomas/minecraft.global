@@ -72,6 +72,10 @@ body,
   background: transparent !important;
 }
 
+.hidden-scrollbar::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
 /* width */
 .tag-filter-scroll::-webkit-scrollbar {
   height: 5px;
