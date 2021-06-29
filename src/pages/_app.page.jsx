@@ -11,10 +11,7 @@ function App({ Component, pageProps }) {
   return (
     <QueryClientProvider client={queryClient}>
       <Head>
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-QC7CZYZV5P"
-        ></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-QC7CZYZV5P"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -28,12 +25,32 @@ function App({ Component, pageProps }) {
 
         <title>minecraft.global</title>
 
-        {/* Add favicon to tab */}
-        <link
-          rel="shortcut icon"
-          type="image/svg+xml"
-          href="/images/logo.svg"
+        <meta name="title" content="minecraft.global -  Minecraft Server List" />
+        <meta
+          name="description"
+          content="minecraft.global is an advanced Minecraft server listing site that will help you find the perfect Minecraft server, or advertise yours!"
         />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://minecraft.global/" />
+        <meta property="og:title" content="minecraft.global -  Minecraft Server List" />
+        <meta
+          property="og:description"
+          content="minecraft.global is an advanced Minecraft server listing site that will help you find the perfect Minecraft server, or advertise yours!"
+        />
+        <meta property="og:image" content="/images/embed.png" />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://minecraft.global/" />
+        <meta property="twitter:title" content="minecraft.global -  Minecraft Server List" />
+        <meta
+          property="twitter:description"
+          content="minecraft.global is an advanced Minecraft server listing site that will help you find the perfect Minecraft server, or advertise yours!"
+        />
+        <meta property="twitter:image" content="/images/embed.png" />
+
+        {/* Add favicon to tab */}
+        <link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg" />
 
         {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -46,10 +63,7 @@ function App({ Component, pageProps }) {
         <link rel="stylesheet" href="https://use.typekit.net/ajr2dzo.css" />
 
         {/* FontAwesome */}
-        <link
-          rel="stylesheet"
-          href="https://pro.fontawesome.com/releases/v5.15.1/css/all.css"
-        />
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.1/css/all.css" />
 
         {/* Twmemoji Awesome */}
         <link
