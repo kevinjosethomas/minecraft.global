@@ -76,6 +76,10 @@ body,
   background: transparent !important;
 }
 
+.hidden-scrollbar::-webkit-scrollbar-thumb {
+  background: transparent !important;
+}
+
 /* width */
 .tag-filter-scroll::-webkit-scrollbar {
   height: 5px;
