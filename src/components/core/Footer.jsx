@@ -7,11 +7,11 @@ function Footer(props) {
         props.dark ? "bg-dark-80" : "bg-dark-70"
       }`}
     >
-      <img src="/images/logo.svg" className="w-32" draggable="false" />
+      <img src="/images/logo.svg" alt="logo" className="w-32" draggable="false" />
       <div className="flex flex-col items-center md:items-start justify-center space-y-2 text-center md:text-left">
-        <h1 className="font-bold text-2xl lg:text-3xl text-olive-60">
+        <span className="font-bold text-2xl lg:text-3xl text-olive-60">
           minecraft<span className="text-olive-50">.</span>global
-        </h1>
+        </span>
         <div className="flex flex-col items-center md:items-start justify-center">
           <a href={process.env.NEXT_PUBLIC_DISCORD_INVITE_URL} target="_blank">
             <a className="font-medium lg:text-lg text-gray-400 hover:text-gray-300 transition duration-500">
@@ -24,10 +24,7 @@ function Footer(props) {
             </a>
           </Link>
           <div className="flex flex-row items-center justify-start space-x-3">
-            <a
-              href={process.env.NEXT_PUBLIC_DISCORD_INVITE_URL}
-              target="_blank"
-            >
+            <a href={process.env.NEXT_PUBLIC_DISCORD_INVITE_URL} target="_blank">
               <i className="fab fa-discord lg:text-lg text-gray-400 hover:text-gray-300 transition duration-500" />
             </a>
             <a href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`} target="_blank">
@@ -37,7 +34,7 @@ function Footer(props) {
         </div>
       </div>
       <div className="flex flex-col items-center md:items-start justify-center space-y-2 text-center md:text-left">
-        <h1 className="font-bold text-2xl lg:text-3xl text-olive-60">legal</h1>
+        <span className="font-bold text-2xl lg:text-3xl text-olive-60">legal</span>
         <div className="flex flex-col items-center md:items-start justify-center">
           <Link href="/privacy">
             <a className="font-medium lg:text-lg text-gray-400 hover:text-gray-300 transition duration-500">

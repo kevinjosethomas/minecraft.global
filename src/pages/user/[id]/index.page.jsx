@@ -6,9 +6,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import getAuth from "../../../api/auth";
 import getUser from "../../../api/user/[id]";
 import StandardLayout from "../../../layouts/Standard";
-import ServerCard, {
-  ServerCardSkeleton,
-} from "../../../components/core/ServerCard";
+import ServerCard, { ServerCardSkeleton } from "../../../components/core/ServerCard";
 
 function User(props) {
   const router = useRouter();
@@ -36,6 +34,7 @@ function User(props) {
                     ? `https://crafatar.com/avatars/${data.payload.minecraft_uuid}`
                     : "/images/default_user.png"
                 }
+                alt="player"
                 className="w-32"
               />
             )}
@@ -45,9 +44,9 @@ function User(props) {
               {isLoading ? (
                 <Skeleton width={150} height={18} />
               ) : (
-                <h1 className="font-bold text-3xl md:text-4xl text-gray-300">
+                <span className="font-bold text-3xl md:text-4xl text-gray-300">
                   {data.payload.name}
-                </h1>
+                </span>
               )}
               {isLoading ? (
                 <Fragment>
@@ -70,9 +69,9 @@ function User(props) {
                 <Skeleton width={300} height={30} />
               </SkeletonTheme>
             ) : (
-              <h1 className="font-bold text-2xl md:text-4xl text-gray-300">
+              <span className="font-bold text-2xl md:text-4xl text-gray-300">
                 <i className="twa twa-1f389" /> {data.payload.name}'s servers
-              </h1>
+              </span>
             )}
             <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-2 w-full gap-10 2xl:gap-5 3xl:gap-10 place-items-center">
               {isLoading ? (

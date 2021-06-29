@@ -6,6 +6,7 @@ function Advertisement(props) {
           <div className="relative flex flex-col items-center justify-center">
             <img
               src={props.icon_url || "/images/default_favicon.png"}
+              alt={props.name}
               className="w-12 md:w-24 min-w-[3rem] md:min-w-[6rem] rounded-full"
               onError={(e) => (e.target.src = "/images/default_favicon.png")}
               draggable="false"
@@ -13,18 +14,14 @@ function Advertisement(props) {
           </div>
           <div className="flex flex-col items-start justify-center space-y-1">
             <div className="flex flex-col items-start justify-center">
-              <h1 className="font-proxima font-bold md:text-xl text-gray-300">
-                {props.name}
-              </h1>
+              <span className="font-proxima font-bold md:text-xl text-gray-300">{props.name}</span>
               <span className="font-proxima font-bold text-sm md:text-sm text-olive-60">
                 SPONSORED
               </span>
             </div>
           </div>
         </div>
-        <p className="font-medium text-xs md:text-sm text-gray-400">
-          {props.description}
-        </p>
+        <p className="font-medium text-xs md:text-sm text-gray-400">{props.description}</p>
       </div>
       <div className="flex flex-row items-center justify-center w-full h-7/30 cursor-pointer select-none">
         <a

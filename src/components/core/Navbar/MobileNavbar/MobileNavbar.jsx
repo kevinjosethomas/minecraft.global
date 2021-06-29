@@ -22,13 +22,14 @@ function MobileNavbar(props) {
                   ? `https://crafatar.com/avatars/${props.user.minecraft_uuid}`
                   : "/images/default_user.png"
               }
+              alt={props.user.name}
               className="w-7/12 select-none"
               draggable={false}
             />
-            <h1 className="font-medium text-2xl text-gray-300">{props.user.name}</h1>
+            <span className="font-medium text-2xl text-gray-300">{props.user.name}</span>
           </div>
         ) : (
-          <img src="/images/logo.svg" className="w-7/12 select-none" draggable={false} />
+          <img src="/images/logo.svg" alt="logo" className="w-7/12 select-none" draggable={false} />
         )}
         <div className="flex flex-col items-start justify-center space-y-4 w-full">
           <div className="flex flex-col items-start justify-center w-5/6 bg-dark-70 rounded">

@@ -6,12 +6,13 @@ function Logo(props) {
       <a className="flex flex-row items-center justify-center space-x-1 lg:space-x-3">
         <img
           src="/images/logo.svg"
+          alt="logo"
           className="w-4 lg:w-6 transform hover:rotate-[360deg] duration-1000"
           draggable="false"
         />
-        <h1 className="font-semibold text-md lg:text-xl xl:text-2xl text-olive-60">
+        <span className="font-semibold text-md lg:text-xl xl:text-2xl text-olive-60">
           minecraft<span className="text-olive-50">.</span>global
-        </h1>
+        </span>
       </a>
     </Link>
   );

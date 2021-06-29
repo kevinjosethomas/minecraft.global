@@ -34,9 +34,7 @@ function Tags(props) {
       >
         {categories.map((category) => (
           <div className="flex flex-col items-start justify-center space-y-2">
-            <h1 className="font-bold text-2xl md:text-3xl text-gray-300">
-              {category.label}s
-            </h1>
+            <span className="font-bold text-2xl md:text-3xl text-gray-300">{category.label}s</span>
             <div className="flex flex-row items-center justify-start flex-wrap max-w-[15rem] md:max-w-2xl">
               {category.tags.map((tag) => (
                 <Tag

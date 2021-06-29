@@ -280,7 +280,9 @@ function NewServer(props) {
       <div className="flex flex-col items-start justify-start w-full h-full px-10 lg:px-20 2xl:px-56 py-14 md:py-32 bg-dark-80">
         <div className="flex flex-col items-start justify-center w-full h-full space-y-10">
           <div className="flex flex-row items-center justify-between w-full">
-            <h1 className="font-bold text-3xl md:text-5xl text-gray-300">{activeScreen.name}</h1>
+            <span className="font-bold text-3xl md:text-5xl text-gray-300">
+              {activeScreen.name}
+            </span>
             <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4 select-none">
               {activeScreen.id != 1 && (
                 <div

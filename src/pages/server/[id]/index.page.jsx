@@ -16,9 +16,7 @@ function Server(props) {
   const { addToast } = useToasts();
   const router = useRouter();
 
-  const [showUpvoteModal, setShowUpvoteModal] = useState(
-    router.query.upvote || false
-  );
+  const [showUpvoteModal, setShowUpvoteModal] = useState(router.query.upvote || false);
 
   return (
     <StandardLayout user={props.user}>
@@ -30,34 +28,19 @@ function Server(props) {
       />
       <Head>
         <title>{props.server.name} - minecraft.global</title>
-        <meta
-          name="title"
-          content={`${props.server.name} - minecraft.global`}
-        />
+        <meta name="title" content={`${props.server.name} - minecraft.global`} />
         <meta name="description" content={props.server.description} />
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://minecraft.global/" />
-        <meta
-          property="og:title"
-          content={`${props.server.name} - minecraft.global`}
-        />
+        <meta property="og:title" content={`${props.server.name} - minecraft.global`} />
         <meta property="og:description" content={props.server.description} />
-        <meta
-          property="og:image"
-          content={props.server.favicon || "/images/default_favicon.png"}
-        />
+        <meta property="og:image" content={props.server.favicon || "/images/default_favicon.png"} />
 
         <meta property="twitter:card" content="summary" />
         <meta property="twitter:url" content="https://minecraft.global/" />
-        <meta
-          property="twitter:title"
-          content={`${props.server.name} - minecraft.global`}
-        />
-        <meta
-          property="twitter:description"
-          content={props.server.description}
-        />
+        <meta property="twitter:title" content={`${props.server.name} - minecraft.global`} />
+        <meta property="twitter:description" content={props.server.description} />
         <meta property="twitter:card" content="summary_large_image" />
         <meta
           property="twitter:image"
@@ -65,10 +48,7 @@ function Server(props) {
         />
       </Head>
       {showUpvoteModal ? (
-        <UpvoteModal
-          server={props.server}
-          closeModal={() => setShowUpvoteModal(false)}
-        />
+        <UpvoteModal server={props.server} closeModal={() => setShowUpvoteModal(false)} />
       ) : (
         <Fragment />
       )}
@@ -77,6 +57,7 @@ function Server(props) {
           <div className="relative flex flex-col items-center justify-center">
             <img
               src={props.server.favicon || "/images/default_favicon.png"}
+              alt={props.server.name}
               className="w-64 image-pixelated"
               onError={(e) => (e.target.src = "/images/default_favicon.png")}
               draggable="false"
@@ -94,17 +75,13 @@ function Server(props) {
               onClick={() => setShowUpvoteModal(true)}
             >
               <i className="fas fa-arrow-alt-up text-2xl text-olive-60" />
-              <span className="font- font-semibold text-xl text-gray-400">
-                Upvote
-              </span>
+              <span className="font- font-semibold text-xl text-gray-400">Upvote</span>
             </div>
             <CopyToClipboard
               text={props.server.host + ":" + props.server.port}
               onCopy={() =>
                 addToast(
-                  `Copied ${
-                    props.server.host + ":" + props.server.port
-                  } to your clipboard!`,
+                  `Copied ${props.server.host + ":" + props.server.port} to your clipboard!`,
                   {
                     appearance: "success",
                   }
@@ -113,9 +90,7 @@ function Server(props) {
             >
               <div className="flex flex-row items-center justify-start w-full pl-4 py-2 space-x-2 bg-dark-70 hover:bg-dark-60 select-none rounded-sm cursor-pointer transition duration-300">
                 <i className="fas fa-copy text-2xl text-olive-60" />
-                <span className="font- font-semibold text-xl text-gray-400">
-                  Copy IP
-                </span>
+                <span className="font- font-semibold text-xl text-gray-400">Copy IP</span>
               </div>
             </CopyToClipboard>
             {props.server.website_url ? (
@@ -125,9 +100,7 @@ function Server(props) {
                 target="_blank"
               >
                 <i className="fas fa-link text-2xl text-olive-60" />
-                <span className="font- font-semibold text-xl text-gray-400">
-                  Website
-                </span>
+                <span className="font- font-semibold text-xl text-gray-400">Website</span>
               </a>
             ) : (
               <Fragment />
@@ -139,9 +112,7 @@ function Server(props) {
                 target="_blank"
               >
                 <i className="fab fa-discord text-2xl text-olive-60" />
-                <span className="font- font-semibold text-xl text-gray-400">
-                  Discord
-                </span>
+                <span className="font- font-semibold text-xl text-gray-400">Discord</span>
               </a>
             ) : (
               <Fragment />
@@ -153,9 +124,7 @@ function Server(props) {
                 target="_blank"
               >
                 <i className="fas fa-film-alt text-2xl text-olive-60" />
-                <span className="font- font-semibold text-xl text-gray-400">
-                  Trailer
-                </span>
+                <span className="font- font-semibold text-xl text-gray-400">Trailer</span>
               </a>
             ) : (
               <Fragment />
@@ -180,9 +149,7 @@ function Server(props) {
           <div className="flex flex-col items-start justify-center space-y-2">
             <div className="flex flex-col items-start justify-center">
               <div className="flex flex-row items-center justify-center space-x-2">
-                <h1 className="font-bold text-4xl text-gray-300">
-                  {props.server.name}
-                </h1>
+                <span className="font-bold text-4xl text-gray-300">{props.server.name}</span>
                 <div
                   className="flex flex-row items-center justify-center rounded-full px-3 space-x-1 bg-dark-60 bg-opacity-[0.8]"
                   data-tip="Upvotes"
@@ -207,9 +174,7 @@ function Server(props) {
                 key={index}
                 className="flex flex-row items-center justify-center px-2 py-1 bg-dark-70 rounded"
               >
-                <span className="font-semibold text-sm text-gray-400">
-                  {tag}
-                </span>
+                <span className="font-semibold text-sm text-gray-400">{tag}</span>
               </div>
             ))}
           </div>
@@ -228,10 +193,7 @@ function Server(props) {
 }
 
 export async function getServerSideProps(ctx) {
-  const [user, server] = await Promise.all([
-    getAuth(ctx.req, ctx.res),
-    getServer(ctx.params.id),
-  ]);
+  const [user, server] = await Promise.all([getAuth(ctx.req, ctx.res), getServer(ctx.params.id)]);
 
   return {
     props: {

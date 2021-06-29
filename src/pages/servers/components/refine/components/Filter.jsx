@@ -15,7 +15,7 @@ function Filter(props) {
 
   return (
     <div className="flex flex-col items-start justify-center rounded-xl space-y-3">
-      <h1 className="font-semibold text-2xl text-gray-400">Filter</h1>
+      <span className="font-semibold text-2xl text-gray-400">Filter</span>
       <div className="flex flex-col items-start justify-center space-y-1 select-none">
         {props.options.filter.map((option, index) => (
           <FilterOption key={index} {...option} onClick={updateCheckedOption} />

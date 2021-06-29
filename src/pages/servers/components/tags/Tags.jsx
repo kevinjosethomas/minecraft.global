@@ -45,7 +45,7 @@ function Categories(props) {
 
   return (
     <div className="flex flex-row items-center justify-center h-full space-x-4">
-      <h1 className="font-semibold text-2xl text-gray-400">Filter by:</h1>
+      <span className="font-semibold text-2xl text-gray-400">Filter by:</span>
       {props.categories.filter((category) => category.checked).length ? (
         <Fragment>
           <div className="flex flex-row items-center justify-center space-x-4">
@@ -89,9 +89,7 @@ function Tags(props) {
     props.categories
       .filter((category) => category.checked)
       .forEach((category) => {
-        category.tags
-          .filter((tag) => tag.checked)
-          .forEach((tag) => tags.push(tag));
+        category.tags.filter((tag) => tag.checked).forEach((tag) => tags.push(tag));
       });
     if (tags.length == 10) {
       addToast("You cannot filter with more than 10 tags!", {
