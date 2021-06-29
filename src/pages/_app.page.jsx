@@ -40,7 +40,7 @@ function App({ Component, pageProps }) {
         />
         <meta property="og:image" content="/images/embed.png" />
 
-        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:card" content="summary" />
         <meta property="twitter:url" content="https://minecraft.global/" />
         <meta property="twitter:title" content="minecraft.global -  Minecraft Server List" />
         <meta
