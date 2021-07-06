@@ -76,7 +76,7 @@ body,
   background: transparent !important;
 }
 
-.hidden-scrollbar::-webkit-scrollbar-track {
+.hidden-scrollbar::-webkit-scrollbar-thumb {
   background: transparent !important;
 }
 

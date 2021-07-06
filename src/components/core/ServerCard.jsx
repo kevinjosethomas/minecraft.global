@@ -70,7 +70,7 @@ function ServerCard(props) {
               key={index}
               className="flex flex-row items-center justify-center px-2 py-1 bg-dark-80 select-none"
             >
-              <span className="font-semibold text-xs text-gray-400">{tag}</span>
+              <span className="font-semibold text-xs text-gray-400 whitespace-nowrap">{tag}</span>
             </div>
           ))}
         </div>
