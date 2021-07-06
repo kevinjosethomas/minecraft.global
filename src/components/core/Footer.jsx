@@ -18,11 +18,16 @@ function Footer(props) {
               Buy an advertisement
             </a>
           </a>
-          <Link href="/premium">
-            <a className="font-medium lg:text-lg text-gray-400 hover:text-gray-300 transition duration-500 line-through">
-              Upgrade to premium
+          <span className="font-medium lg:text-lg text-gray-400">
+            Created by{" "}
+            <a href="https://iapetus11.me/" className="text-olive-60" target="_blank">
+              Iapetus11
+            </a>{" "}
+            and{" "}
+            <a href="https://kevinthomas.codes/" className="text-olive-60" target="_blank">
+              trustedmercury
             </a>
-          </Link>
+          </span>
           <div className="flex flex-row items-center justify-start space-x-3">
             <a href={process.env.NEXT_PUBLIC_DISCORD_INVITE_URL} target="_blank">
               <i className="fab fa-discord lg:text-lg text-gray-400 hover:text-gray-300 transition duration-500" />
