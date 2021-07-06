@@ -8,8 +8,8 @@ function Votifier(props) {
   const updateVotifierPort = (e) => {
     props.setDetails({ ...props.details, votifier_port: e.target.value });
   };
-  const updateVotifierKey = (e) => {
-    props.setDetails({ ...props.details, votifier_key: e.target.value });
+  const updateVotifierToken = (e) => {
+    props.setDetails({ ...props.details, votifier_token: e.target.value });
   };
 
   return (
@@ -26,15 +26,15 @@ function Votifier(props) {
         default={props.details.votifier_port}
         onChange={updateVotifierPort}
       />
-      {/* <TextArea
-        label="Votifier Public Key"
+      <TextArea
+        label="Votifier Token"
         className="w-full md:w-[30rem] !h-40"
         parentClassName="w-full md:w-auto"
         maxLength={220}
-        default={props.details.votifier_key}
-        onChange={updateVotifierKey}
+        default={props.details.votifier_token}
+        onChange={updateVotifierToken}
         counter={true}
-      /> */}
+      />
       <span className="font-semibold text-sm text-gray-400">PS; We only support NuVotifier</span>
     </div>
   );
