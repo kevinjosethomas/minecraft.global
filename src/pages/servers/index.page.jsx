@@ -15,7 +15,7 @@ function Servers(props) {
   const [params, setParams] = useState({
     amount: 12,
     offset: page * 12 - 12,
-    query: "",
+    query: router.query?.q || "",
     sort: "players",
     online: true,
     premium: false,
@@ -37,9 +37,7 @@ function Servers(props) {
     categories
       .filter((category) => category.checked)
       .forEach((category) => {
-        category.tags
-          .filter((tag) => tag.checked)
-          .forEach((tag) => tags.push(tag.name));
+        category.tags.filter((tag) => tag.checked).forEach((tag) => tags.push(tag.name));
       });
     setParams({ ...params, tags: tags.join("+") });
   }, [categories]);
