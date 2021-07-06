@@ -1,5 +1,5 @@
 const versions = [
-  { id: 0, name: "1.17", label: "1.17", checked: false },
+  { id: 77, name: "1.17", label: "1.17", checked: false },
   { id: 1, name: "1.16.5", label: "1.16.5", checked: false },
   { id: 2, name: "1.16.4", label: "1.16.4", checked: false },
   { id: 3, name: "1.16.3", label: "1.16.3", checked: false },
@@ -55,9 +55,13 @@ const minigames = [
   { id: 61, name: "minigames", label: "Minigames", checked: false },
   { id: 62, name: "hunger games", label: "Hunger Games", checked: false },
   { id: 68, name: "zombies", label: "Zombies", checked: false },
+  { id: 79, name: "guns", label: "Guns", checked: false },
+  { id: 80, name: "magic", label: "Magic", checked: false },
+  { id: 81, name: "medieval", label: "Medieval", checked: false },
 ];
 
 const features = [
+  { id: 78, name: "cracked", label: "Cracked", checked: false },
   { id: 23, name: "puzzle", label: "Puzzle", checked: false },
   { id: 25, name: "mcmmo", label: "MCMMO", checked: false },
   { id: 27, name: "economy", label: "Economy", checked: false },
