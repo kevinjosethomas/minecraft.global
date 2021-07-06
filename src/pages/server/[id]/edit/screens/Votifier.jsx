@@ -26,7 +26,7 @@ function Votifier(props) {
         default={props.details.votifier_port}
         onChange={updateVotifierPort}
       />
-      <TextArea
+      {/* <TextArea
         label="Votifier Public Key"
         className="w-full md:w-[30rem] !h-40"
         parentClassName="w-full md:w-auto"
@@ -34,7 +34,8 @@ function Votifier(props) {
         default={props.details.votifier_key}
         onChange={updateVotifierKey}
         counter={true}
-      />
+      /> */}
+      <span className="font-semibold text-sm text-gray-400">PS; We only support NuVotifier</span>
     </div>
   );
 }

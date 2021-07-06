@@ -64,7 +64,7 @@ function NewServer(props) {
     long_description: props.server.long_description,
     votifier_host: props.server.votifier_host,
     votifier_port: props.server.votifier_port,
-    votifier_key: props.server.votifier_key,
+    // votifier_key: props.server.votifier_key,
   });
 
   const validate = {
@@ -209,18 +209,18 @@ function NewServer(props) {
       }
       return true;
     },
-    votifier_key: () => {
-      if (!details.votifier_key) {
-        return true;
-      }
-      if (details.votifier_key.length < 15) {
-        return "Your server Votifier key must be more than 15 characters in length!";
-      }
-      if (details.votifier_key.length > 220) {
-        return "Your server Votifier key must not be more than 220 characters in length!";
-      }
-      return true;
-    },
+    // votifier_key: () => {
+    //   if (!details.votifier_key) {
+    //     return true;
+    //   }
+    //   if (details.votifier_key.length < 15) {
+    //     return "Your server Votifier key must be more than 15 characters in length!";
+    //   }
+    //   if (details.votifier_key.length > 220) {
+    //     return "Your server Votifier key must not be more than 220 characters in length!";
+    //   }
+    //   return true;
+    // },
   };
 
   const submit = async () => {
