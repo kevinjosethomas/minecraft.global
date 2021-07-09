@@ -5,5 +5,7 @@
 html,
 body,
 #__next {
+  width: 100% !important;
   height: 100% !important;
+  font-family: "DM Sans", sans-serif;
 }
