@@ -2,7 +2,7 @@ import Search from "./components/Search";
 
 const Searchbox = (): JSX.Element => {
   return (
-    <div className="flex flex-row items-center justify-between w-full p-20 bg-dark-800 border-2 border-gray-800 rounded">
+    <div className="flex flex-row items-center justify-between w-full px-20 bg-dark-800 border-2 border-gray-800 rounded">
       <div className="flex flex-col items-start justify-center space-y-4">
         <div className="flex flex-col items-start justify-center">
           <span className="font-bold text-[4rem] text-gray-300">
