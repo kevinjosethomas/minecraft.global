@@ -3,7 +3,7 @@ import Searchbox from "ui/components/Searchbox/Searchbox";
 
 function Home() {
   return (
-    <Default>
+    <Default background="bg-dark-700">
       <Searchbox />
     </Default>
   );
