@@ -9,3 +9,20 @@ body,
   min-height: 100% !important;
   font-family: "DM Sans", sans-serif;
 }
+
+.fa-opacity-60 {
+  --fa-secondary-opacity: 0.6;
+}
+
+.fa-opacity-80 {
+  --fa-secondary-opacity: 0.6;
+}
+
+.premium-bg-gradient {
+  background: linear-gradient(to bottom, #141923 65%, #242932 65%);
+}
+
+.premium-icon {
+  width: 1.6875rem;
+  height: 1.75rem;
+}
