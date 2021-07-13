@@ -1,3 +1,5 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   mode: "jit",
   purge: ["./src/**/*.{ts,tsx}"],
@@ -39,6 +41,8 @@ module.exports = {
           800: "#252F3F",
           900: "#161E2E",
         },
+        teal: colors.teal,
+        orange: colors.orange,
       },
     },
   },
