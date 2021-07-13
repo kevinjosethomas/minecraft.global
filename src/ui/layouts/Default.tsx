@@ -1,7 +1,7 @@
 import Navbar from "ui/components/Navbar/Navbar";
 
 type Default = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 const Default = (props: Default): JSX.Element => {
