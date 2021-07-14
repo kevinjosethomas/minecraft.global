@@ -1,8 +1,17 @@
 import Search from "./components/Search";
+import { useEffect, useState } from "react";
 
 const Searchbox = (): JSX.Element => {
-  const mobs = ["/images/mobs/drowned.png", "/images/mobs/phantom.png", "/images/mobs/wither.png"];
-  const mob = mobs[Math.floor(Math.random() * mobs.length)];
+  const [mob, setMob] = useState("");
+
+  useEffect(() => {
+    const mobs = [
+      "/images/mobs/drowned.png",
+      "/images/mobs/phantom.png",
+      "/images/mobs/wither.png",
+    ];
+    setMob(mobs[Math.floor(Math.random() * mobs.length)]);
+  }, []);
 
   return (
     <div className="flex flex-row items-center justify-between w-full px-20 bg-dark-800 border-2 border-gray-800 rounded">
