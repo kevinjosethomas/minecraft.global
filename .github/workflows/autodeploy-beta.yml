@@ -15,4 +15,10 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          script: w && cd beta.minecraft.global && git pull && sudo npm install && sudo npm run build && pm2 restart beta.minecraft.global
+          script: |
+            w
+            cd beta.minecraft.global
+            git pull
+            sudo npm install
+            sudo npm run build
+            pm2 restart beta.minecraft.global
