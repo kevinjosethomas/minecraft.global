@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 import Login from "./components/Login";
 import Search from "./components/Search";
 import NavElement from "./components/NavElement";
@@ -25,7 +27,10 @@ const Navbar = (): JSX.Element => {
   ];
 
   return (
-    <div className="flex flex-row items-center justify-between w-full h-20 px-20 bg-dark-800">
+    <motion.div
+      className="flex flex-row items-center justify-between w-full h-20 px-20 bg-dark-800"
+      layoutId="navbar"
+    >
       <div className="flex flex-row items-center justify-start space-x-8">
         <img
           src="/images/logo.svg"
@@ -41,7 +46,7 @@ const Navbar = (): JSX.Element => {
         <Search />
         <Login />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
