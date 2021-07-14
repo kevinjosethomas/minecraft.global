@@ -44,6 +44,12 @@ module.exports = {
         teal: colors.teal,
         orange: colors.orange,
       },
+      width: {
+        100: "25rem",
+      },
+      height: {
+        87.5: "21.875rem",
+      },
     },
   },
   variants: {},
