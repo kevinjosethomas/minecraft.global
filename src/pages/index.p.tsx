@@ -1,9 +1,11 @@
 import { useQuery } from "react-query";
 
 import GetHomeResults from "api/home";
+import GetLoggedInUser from "api/auth";
 import Default from "ui/layouts/Default";
 import Listing from "./home/components/Listing";
 import Searchbox from "ui/components/Searchbox/Searchbox";
+import { GetServerSidePropsContext } from "next";
 
 function Home(): JSX.Element {
   const { isLoading, error, data } = useQuery(["HomeResults"], GetHomeResults);
@@ -29,6 +31,23 @@ function Home(): JSX.Element {
       </div>
     </Default>
   );
+}
+
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+  console.log("test");
+  const [user, error] = await GetLoggedInUser(ctx);
+
+  if (error) {
+    return {
+      props: {},
+    };
+  } else {
+    return {
+      props: {
+        user: user.payload,
+      },
+    };
+  }
 }
 
 export default Home;
