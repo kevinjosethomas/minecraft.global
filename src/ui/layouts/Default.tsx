@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
+
 import Navbar from "ui/components/Navbar/Navbar";
+import Footer from "ui/components/Footer/Footer";
 
 type Default = {
   children?: React.ReactNode;
@@ -22,6 +24,7 @@ const Default = (props: Default): JSX.Element => {
           {props.children}
         </motion.div>
       </div>
+      <Footer />
     </div>
   );
 };
