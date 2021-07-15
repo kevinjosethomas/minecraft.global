@@ -19,6 +19,7 @@
     "simplify-number": "^1.0.0"
   },
   "devDependencies": {
+    "@types/cookies": "^0.7.7",
     "@types/react": "17.0.14",
     "autoprefixer": "^10.2.6",
     "eslint": "7.30.0",
