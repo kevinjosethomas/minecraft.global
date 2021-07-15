@@ -7,11 +7,15 @@ import Listing from "./home/components/Listing";
 import Searchbox from "ui/components/Searchbox/Searchbox";
 import { GetServerSidePropsContext } from "next";
 
-function Home(): JSX.Element {
+type Home = {
+  user?: object;
+};
+
+function Home(props: Home): JSX.Element {
   const { isLoading, error, data } = useQuery(["HomeResults"], GetHomeResults);
 
   return (
-    <Default background="bg-dark-700">
+    <Default background="bg-dark-700" user={props.user}>
       <div className="flex flex-col items-center justify-center w-full space-y-20">
         <Searchbox />
         <div className="flex flex-col items-center justify-center w-full space-y-12">

@@ -1,10 +1,15 @@
 import { motion } from "framer-motion";
 
+import User from "./components/User";
 import Login from "./components/Login";
 import Search from "./components/Search";
 import NavElement from "./components/NavElement";
 
-const Navbar = (): JSX.Element => {
+type Navbar = {
+  user?: object;
+};
+
+const Navbar = (props: Navbar): JSX.Element => {
   const NavElements = [
     {
       id: 1,
@@ -44,7 +49,7 @@ const Navbar = (): JSX.Element => {
       </div>
       <div className="flex flex-row items-center justify-end space-x-4">
         <Search />
-        <Login />
+        {props.user ? <User user={props.user} /> : <Login />}
       </div>
     </motion.div>
   );

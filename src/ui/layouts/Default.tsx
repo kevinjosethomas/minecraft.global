@@ -5,13 +5,14 @@ import Footer from "ui/components/Footer/Footer";
 
 type Default = {
   children?: React.ReactNode;
+  user?: object;
   background: string;
 };
 
 const Default = (props: Default): JSX.Element => {
   return (
     <div className="flex flex-col items-start justify-start w-full overflow-x-hidden">
-      <Navbar />
+      <Navbar user={props.user} />
       <div
         className={`flex flex-col items-start justify-start w-full h-full p-20 ${props.background}`}
       >
