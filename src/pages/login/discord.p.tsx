@@ -1,3 +1,4 @@
+import Cookies from "cookies";
 import { GetServerSidePropsContext } from "next";
 
 import LoginWithDiscord from "api/discord";
@@ -35,7 +36,19 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
     };
   }
 
-  console.log(data);
+  const cookies = new Cookies(ctx.req, ctx.res);
+  cookies.set("token", data.payload.token, {
+    httpOnly: false,
+    sameSite: "strict",
+    maxAge: 2592000000,
+  });
+
+  return {
+    redirect: {
+      destination: "/",
+      permanent: true,
+    },
+  };
 }
 
 export default Discord;
