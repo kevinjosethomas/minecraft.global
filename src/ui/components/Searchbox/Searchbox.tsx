@@ -14,22 +14,20 @@ const Searchbox = (): JSX.Element => {
   }, []);
 
   return (
-    <div className="flex flex-row items-center justify-between w-full px-20 bg-dark-800 border-2 border-gray-800 rounded">
-      <div className="flex flex-col items-start justify-center space-y-4">
-        <div className="flex flex-col items-start justify-center">
-          <span className="font-bold text-[4rem] text-gray-300">
-            The y=12 for <br />
-            Minecraft Servers
+    <div className="flex flex-row items-center justify-between w-full p-6 md:px-20 md:py-0 bg-dark-800 border-2 border-gray-800 rounded overflow-hidden">
+      <div className="flex flex-col items-start justify-center w-full space-y-4">
+        <div className="flex flex-col items-start justify-center w-full space-y-2">
+          <span className="max-w-xl font-bold text-3xl md:text-6xl text-gray-300">
+            The y=12 for Minecraft Servers
           </span>
-          <span className="font-medium text-xl text-gray-400">
-            Tired of looking for a good Minecraft server?
-            <br /> Find the perfect Minecraft Server for you
-            <br /> and your friends, right now!{" "}
+          <span className="max-w-[26rem] font-medium md:text-xl text-gray-400">
+            Tired of looking for a good Minecraft server? Find the perfect Minecraft Server for you
+            and your friends, right now!
           </span>
         </div>
         <Search />
       </div>
-      <img src={mob} className="w-[32rem]" alt="Wither" />
+      <img src={mob} className="hidden md:inline w-[32rem]" alt="Wither" />
     </div>
   );
 };
