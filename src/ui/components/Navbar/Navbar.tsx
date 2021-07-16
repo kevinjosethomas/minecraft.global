@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 import User from "./components/User";
@@ -19,15 +20,15 @@ const Navbar = (props: Navbar): JSX.Element => {
     },
     {
       id: 2,
-      name: "Search",
-      icon: "far fa-search",
-      href: "/search",
-    },
-    {
-      id: 3,
       name: "Premium",
       icon: "far fa-gem",
       href: "/premium",
+    },
+    {
+      id: 3,
+      name: "Auctions",
+      icon: "far fa-heartbeat",
+      href: "/auctions",
     },
   ];
 
@@ -46,6 +47,12 @@ const Navbar = (props: Navbar): JSX.Element => {
         {NavElements.map((element) => (
           <NavElement key={element.id} {...element} />
         ))}
+        <Link href="/random">
+          <a className="flex flex-row items-center justify-center px-3 py-1 space-x-2 bg-olive-800 rounded">
+            <i className="far fa-random text-gray-300" />
+            <span className="font-medium text-gray-300">Random Server</span>
+          </a>
+        </Link>
       </div>
       <div className="flex flex-row items-center justify-end space-x-4">
         <Search />
