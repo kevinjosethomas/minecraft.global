@@ -4,46 +4,46 @@ import Column from "./components/Column";
 
 function Footer(): JSX.Element {
   return (
-    <div className="flex flex-col items-center justify-center w-full p-20 space-y-12 bg-dark-800">
-      <div className="flex flex-row items-center justify-between w-full">
-        <img src="/images/logo.svg" alt="Logo" className="w-32" />
+    <div className="flex flex-col items-center justify-center w-full p-5 md:p-20 space-y-6 md:space-y-12 bg-dark-800">
+      <div className="flex flex-col md:flex-row items-center justify-center md:justify-between w-full space-y-4 md:space-y-0">
+        <img src="/images/logo.svg" alt="Logo" className="hidden md:inline w-32" />
         <Column
           title="Community"
           rows={[
-            { label: "Partners", href: "/partners" },
-            { label: "Giveaways", href: "/giveaways" },
-            { label: "Support", href: "/support" },
+            { icon: "far fa-handshake", label: "Partners", href: "/partners" },
+            { icon: "far fa-gift", label: "Giveaways", href: "/giveaways" },
+            { icon: "far fa-question-circle", label: "Support", href: "/support" },
           ]}
         />
         <Column
           title="Invest"
           rows={[
-            { label: "Premium", href: "/premium" },
-            { label: "Auctions", href: "/auctions" },
-            { label: "Advertise", href: "/advertise" },
+            { icon: "far fa-gem", label: "Premium", href: "/premium" },
+            { icon: "far fa-heartbeat", label: "Auctions", href: "/auctions" },
+            { icon: "far fa-newspaper", label: "Advertise", href: "/advertise" },
           ]}
         />
         <Column
           title="Website"
           rows={[
-            { label: "Quick Search", href: "/search" },
-            { label: "Browse Servers", href: "/" },
-            { label: "Random Server", href: "/random" },
+            { icon: "far fa-search", label: "Quick Search", href: "/search" },
+            { icon: "far fa-sparkles", label: "Browse Servers", href: "/" },
+            { icon: "far fa-random", label: "Random Server", href: "/random" },
           ]}
         />
         <Column
           title="Legal"
           rows={[
-            { label: "Privacy Policy", href: "/privacy" },
-            { label: "Terms of Service", href: "/terms" },
-            { label: "Contact Us", href: "/contact" },
+            { icon: "far fa-user-secret", label: "Privacy Policy", href: "/privacy" },
+            { icon: "far fa-ballot-check", label: "Terms of Service", href: "/terms" },
+            { icon: "far fa-phone-alt", label: "Contact Us", href: "/contact" },
           ]}
         />
       </div>
       <div className="h-0.5 w-full bg-dark-400" />
-      <div className="flex flex-row items-center justify-between w-full">
-        <span className="font-medium text-lg text-gray-400">
-          minecraft.global | Not associated with{" "}
+      <div className="flex flex-col md:flex-row items-center justify-center md:justify-between w-full space-y-2">
+        <span className="font-medium text-lg text-center text-gray-400">
+          minecraft.global is not associated with{" "}
           <a
             href="https://minecraft.net"
             rel="noreferrer nofollow"
@@ -73,13 +73,13 @@ function Footer(): JSX.Element {
         </span>
         <div className="flex flex-row items-center justify-center space-x-4">
           <a href="https://discord.minecraft.global/" rel="noreferrer" target="_blank">
-            <i className="fab fa-discord text-lg text-gray-400 hover:text-gray-300 transition duration-300" />
+            <i className="fab fa-discord text-xl md:text-lg text-gray-400 hover:text-gray-300 transition duration-300" />
           </a>
           <a href="https://twitter.com/mcdotglobal" rel="noreferrer" target="_blank">
-            <i className="fab fa-twitter text-lg text-gray-400 hover:text-gray-300 transition duration-300" />
+            <i className="fab fa-twitter text-xl md:text-lg text-gray-400 hover:text-gray-300 transition duration-300" />
           </a>
           <a href="mailto:team@minecraft.global">
-            <i className="fas fa-envelope text-lg text-gray-400 hover:text-gray-300 transition duration-300" />
+            <i className="fas fa-envelope text-xl md:text-lg text-gray-400 hover:text-gray-300 transition duration-300" />
           </a>
         </div>
       </div>
