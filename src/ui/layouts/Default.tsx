@@ -14,7 +14,7 @@ const Default = (props: Default): JSX.Element => {
     <div className="flex flex-col items-start justify-start w-full overflow-x-hidden">
       <Navbar user={props.user} />
       <div
-        className={`flex flex-col items-start justify-start w-full h-full p-20 ${props.background}`}
+        className={`flex flex-col items-start justify-start w-full h-full p-5 md:p-20 ${props.background}`}
       >
         <motion.div
           className="flex flex-col items-start justify-start w-full h-full"
