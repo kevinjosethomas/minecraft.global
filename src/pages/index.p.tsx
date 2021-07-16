@@ -16,7 +16,7 @@ function Home(props: Home): JSX.Element {
 
   return (
     <Default background="bg-dark-700" user={props.user}>
-      <div className="flex flex-col items-center justify-center w-full space-y-20">
+      <div className="flex flex-col items-center justify-center w-full space-y-12 md:space-y-20">
         <Searchbox />
         <div className="flex flex-col items-center justify-center w-full space-y-12">
           <Listing
@@ -38,7 +38,6 @@ function Home(props: Home): JSX.Element {
 }
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
-  console.log("test");
   const [user, error] = await GetLoggedInUser(ctx);
 
   if (error) {
