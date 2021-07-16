@@ -10,6 +10,19 @@ body,
   font-family: "DM Sans", sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #141923;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #242932;
+  border-radius: 0.25rem;
+}
+
 .fa-opacity-60 {
   --fa-secondary-opacity: 0.6;
 }
