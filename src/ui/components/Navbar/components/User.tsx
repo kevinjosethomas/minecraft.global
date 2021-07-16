@@ -39,7 +39,7 @@ const User = (props: User): JSX.Element => {
                 <DropdownElement
                   icon="fas fa-info-circle fa-swap-opacity"
                   title="View Profile"
-                  href="/user"
+                  href={`/user/${props.user.user_id}`}
                   redirect
                 />
                 <DropdownElement
@@ -51,7 +51,6 @@ const User = (props: User): JSX.Element => {
                 <DropdownElement
                   icon="fas fa-sign-out-alt"
                   title="Log out"
-                  href="/server/add"
                   onClick={() => {}}
                   redirect={false}
                 />
