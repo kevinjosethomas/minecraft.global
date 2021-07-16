@@ -45,10 +45,12 @@ module.exports = {
         orange: colors.orange,
       },
       width: {
+        80: "20rem",
         100: "25rem",
       },
       height: {
         87.5: "21.875rem",
+        92: "23em",
       },
     },
   },
