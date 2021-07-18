@@ -43,7 +43,7 @@ function ServerCard(props: Server): JSX.Element {
           ))}
         </div>
         <div className="flex flex-col items-start justify-start">
-          <span className="font-medium text- text-gray-400">{props.description}</span>
+          <span className="font-medium text-gray-400">{props.description}</span>
         </div>
       </div>
       <div className="flex flex-row items-center justify-between w-full space-x-4 rounded">
