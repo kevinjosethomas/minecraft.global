@@ -1,9 +1,16 @@
+import { GetServerSidePropsContext } from "next";
+
+import GetLoggedInUser from "api/auth";
 import Default from "ui/layouts/Default";
 import Feature from "./components/Feature";
 
-function Premium(): JSX.Element {
+type Premium = {
+  user?: object;
+};
+
+function Premium(props: Premium): JSX.Element {
   return (
-    <Default background="premium-bg-gradient">
+    <Default background="premium-bg-gradient" user={props.user}>
       <div className="premium-bg-gradient flex flex-col items-center justify-center w-full space-y-10">
         <div className="flex flex-col items-center justify-center space-y-2">
           <div className="flex flex-row items-center justify-center w-full space-x-2">
@@ -96,6 +103,22 @@ function Premium(): JSX.Element {
       </div>
     </Default>
   );
+}
+
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+  const [user, error] = await GetLoggedInUser(ctx);
+
+  if (error) {
+    return {
+      props: {},
+    };
+  } else {
+    return {
+      props: {
+        user: user.payload,
+      },
+    };
+  }
 }
 
 export default Premium;

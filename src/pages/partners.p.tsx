@@ -1,6 +1,13 @@
+import { GetServerSidePropsContext } from "next";
+
+import GetLoggedInUser from "api/auth";
 import Default from "ui/layouts/Default";
 
-function Partners() {
+type Partners = {
+  user?: object;
+};
+
+function Partners(props: Partners) {
   const partners = [
     {
       name: "Villager Bot",
@@ -12,7 +19,7 @@ function Partners() {
   ];
 
   return (
-    <Default background="bg-dark-700">
+    <Default background="bg-dark-700" user={props.user}>
       <div className="flex flex-col items-start justify-center w-full space-y-6">
         <div className="flex flex-col items-start justify-center">
           <span className="font-bold text-6xl text-gray-300">Partners</span>
@@ -61,6 +68,22 @@ function Partners() {
       </div>
     </Default>
   );
+}
+
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+  const [user, error] = await GetLoggedInUser(ctx);
+
+  if (error) {
+    return {
+      props: {},
+    };
+  } else {
+    return {
+      props: {
+        user: user.payload,
+      },
+    };
+  }
 }
 
 export default Partners;

@@ -1,8 +1,15 @@
+import { GetServerSidePropsContext } from "next";
+
+import GetLoggedInUser from "api/auth";
 import Default from "ui/layouts/Default";
 
-function Privacy(): JSX.Element {
+type Terms = {
+  user?: object;
+};
+
+function Terms(props: Terms): JSX.Element {
   return (
-    <Default background="bg-dark-700">
+    <Default background="bg-dark-700" user={props.user}>
       <div className="flex flex-col items-start justify-start w-full space-y-10">
         <span className="font-bold text-6xl text-gray-300">Terms of Service</span>
         <div className="flex flex-col items-start justify-center">
@@ -130,4 +137,20 @@ function Privacy(): JSX.Element {
   );
 }
 
-export default Privacy;
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+  const [user, error] = await GetLoggedInUser(ctx);
+
+  if (error) {
+    return {
+      props: {},
+    };
+  } else {
+    return {
+      props: {
+        user: user.payload,
+      },
+    };
+  }
+}
+
+export default Terms;

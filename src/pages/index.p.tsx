@@ -1,11 +1,11 @@
 import { useQuery } from "react-query";
+import { GetServerSidePropsContext } from "next";
 
 import GetHomeResults from "api/home";
 import GetLoggedInUser from "api/auth";
 import Default from "ui/layouts/Default";
 import Listing from "./home/components/Listing";
 import Searchbox from "ui/components/Searchbox/Searchbox";
-import { GetServerSidePropsContext } from "next";
 
 type Home = {
   user?: object;
