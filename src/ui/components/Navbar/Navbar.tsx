@@ -44,12 +44,14 @@ const Navbar = (props: Navbar): JSX.Element => {
         layoutId="navbar"
       >
         <div className="flex flex-row items-center justify-start space-x-8">
-          <img
-            src="/images/logo.svg"
-            className="w-8 hover:rotate-[360deg] transform duration-1000"
-            draggable="false"
-            alt="Logo"
-          />
+          <Link href="/" passHref>
+            <img
+              src="/images/logo.svg"
+              className="w-8 hover:rotate-[360deg] transform duration-1000"
+              draggable="false"
+              alt="Logo"
+            />
+          </Link>
           <div className="hidden md:flex flex-row items-center justify-start space-x-8">
             {NavElements.map((element) => (
               <NavElement key={element.id} {...element} />
