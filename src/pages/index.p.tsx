@@ -12,7 +12,7 @@ type Home = {
 };
 
 function Home(props: Home): JSX.Element {
-  const { isLoading, error, data } = useQuery(["HomeResults"], GetHomeResults);
+  const { isLoading, data } = useQuery(["HomeResults"], GetHomeResults);
 
   return (
     <Default background="bg-dark-700" user={props.user}>
