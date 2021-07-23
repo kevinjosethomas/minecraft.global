@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SimplifyNumber from "simplify-number";
 
 import { Server } from "lib/types";
@@ -50,9 +51,11 @@ function ServerCard(props: Server): JSX.Element {
         <div className="flex flex-row items-center justify-center py-3 w-full bg-dark-200 cursor-pointer rounded hover:scale-[1.02] transform duration-300">
           <span className="font-medium text-gray-400 select-none">Copy IP</span>
         </div>
-        <div className="flex flex-row items-center justify-center py-3 w-full bg-dark-200 cursor-pointer rounded hover:scale-[1.02] transform duration-300">
-          <span className="font-medium text-gray-400 select-none">View Server</span>
-        </div>
+        <Link href={`/server/${props.server_id}`}>
+          <a className="flex flex-row items-center justify-center py-3 w-full bg-dark-200 cursor-pointer rounded hover:scale-[1.02] transform duration-300">
+            <span className="font-medium text-gray-400 select-none">View Server</span>
+          </a>
+        </Link>
       </div>
     </div>
   );
