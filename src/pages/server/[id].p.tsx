@@ -83,8 +83,13 @@ function Server(props: Server): JSX.Element {
               <div className="flex flex-col items-center justify-center w-14 h-14 bg-dark-400 rounded-l">
                 <i className="fas fa-arrow-alt-up text-2xl text-gray-400" />
               </div>
-              <div className="flex flex-row items-center justify-start flex-1 h-14 p-4 bg-dark-600 rounded-r">
+              <div className="flex flex-row items-center justify-start flex-1 h-14 p-4 space-x-4 bg-dark-600 rounded-r">
                 <span className="font-bold text-2xl text-gray-400 select-none">Upvote Server</span>
+                <div className="flex flex-row items-center justify-center px-3 py-0.5 bg-dark-200 rounded-full">
+                  <span className="font-bold text-gray-400">
+                    {SimplifyNumber(props.server.monthly_votes, { decimal: 1 })}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
