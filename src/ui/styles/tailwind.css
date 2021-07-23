@@ -39,3 +39,8 @@ body,
   width: 1.6875rem;
   height: 1.75rem;
 }
+
+.long-description a {
+  @apply text-olive-500;
+  text-decoration: underline;
+}
