@@ -13,11 +13,10 @@ type Server = {
   trailer_url: string;
   tags: string[];
   is_bedrock: boolean;
+  is_cracked: boolean;
   whitelisted: boolean;
   approved: boolean;
   premium: boolean;
-  scraped: boolean;
-  archived: boolean;
   last_updated: Date;
   created_at: Date;
   offline_since: Date;
