@@ -4,7 +4,7 @@ import GetLoggedInUser from "api/auth";
 import Default from "ui/layouts/Default";
 
 type Partners = {
-  user?: object;
+  user?: Record<string, any>;
 };
 
 function Partners(props: Partners) {

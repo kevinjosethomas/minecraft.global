@@ -8,7 +8,7 @@ import ServerCard from "ui/components/ServerCard/ServerCard";
 
 type User = {
   id: string;
-  user?: object;
+  user?: Record<string, any>;
 };
 
 function User(props: User): JSX.Element {

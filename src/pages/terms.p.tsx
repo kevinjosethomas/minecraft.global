@@ -4,7 +4,7 @@ import GetLoggedInUser from "api/auth";
 import Default from "ui/layouts/Default";
 
 type Terms = {
-  user?: object;
+  user?: Record<string, any>;
 };
 
 function Terms(props: Terms): JSX.Element {

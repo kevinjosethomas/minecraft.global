@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import SimplifyNumber from "simplify-number";
 import { GetServerSidePropsContext } from "next";
@@ -11,7 +12,7 @@ import { Server as ServerProps } from "lib/types";
 
 type Server = {
   id: string;
-  user?: object;
+  user?: Record<string, any>;
   server: ServerProps;
 };
 
@@ -92,6 +93,17 @@ function Server(props: Server): JSX.Element {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="flex flex-row items-center justify-start">
+            {props.server.owner_id === props.user?.user_id ? (
+              <Link href={`/server/${props.server.server_id}/edit`}>
+                <a className="font-medium text-gray-400">Edit Server</a>
+              </Link>
+            ) : (
+              <span className="font-medium text-red-700 hover:text-red-600 cursor-pointer">
+                Report Server
+              </span>
+            )}
           </div>
         </div>
       </div>

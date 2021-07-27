@@ -5,7 +5,7 @@ import Default from "ui/layouts/Default";
 import Feature from "./components/Feature";
 
 type Premium = {
-  user?: object;
+  user?: Record<string, any>;
 };
 
 function Premium(props: Premium): JSX.Element {

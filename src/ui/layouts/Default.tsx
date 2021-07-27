@@ -5,7 +5,7 @@ import Footer from "ui/components/Footer/Footer";
 
 type Default = {
   children?: React.ReactNode;
-  user?: object;
+  user?: Record<string, any>;
   background: string;
 };
 

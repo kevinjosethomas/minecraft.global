@@ -4,7 +4,7 @@ import GetLoggedInUser from "api/auth";
 import Default from "ui/layouts/Default";
 
 type Privacy = {
-  user?: object;
+  user?: Record<string, any>;
 };
 
 function Privacy(props: Privacy): JSX.Element {

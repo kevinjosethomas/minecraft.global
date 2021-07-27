@@ -8,7 +8,7 @@ import Listing from "./home/components/Listing";
 import Searchbox from "ui/components/Searchbox/Searchbox";
 
 type Home = {
-  user?: object;
+  user?: Record<string, any>;
 };
 
 function Home(props: Home): JSX.Element {

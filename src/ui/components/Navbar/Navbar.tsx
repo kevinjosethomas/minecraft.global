@@ -9,7 +9,7 @@ import Search from "./components/Search";
 import NavElement from "./components/NavElement";
 
 type Navbar = {
-  user?: object;
+  user?: Record<string, any>;
 };
 
 const Navbar = (props: Navbar): JSX.Element => {
