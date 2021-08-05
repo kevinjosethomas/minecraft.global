@@ -1,4 +1,5 @@
 import type { AppProps } from "next/app";
+import { Toaster } from "react-hot-toast";
 import { AnimateSharedLayout } from "framer-motion";
 import { QueryClient, QueryClientProvider } from "react-query";
 
@@ -17,6 +18,7 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <AnimateSharedLayout>
+        <Toaster position="bottom-right" />
         <Component {...pageProps} />
       </AnimateSharedLayout>
     </QueryClientProvider>
