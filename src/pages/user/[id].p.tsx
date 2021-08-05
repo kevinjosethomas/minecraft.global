@@ -3,6 +3,7 @@ import { GetServerSidePropsContext } from "next";
 
 import GetUser from "api/user";
 import GetLoggedInUser from "api/auth";
+import Header from "./components/Header";
 import Default from "ui/layouts/Default";
 import ServerCard from "ui/components/ServerCard/ServerCard";
 
@@ -26,21 +27,7 @@ function User(props: User): JSX.Element {
   return (
     <Default background="bg-dark-700" user={props.user}>
       <div className="flex flex-col items-center justify-center w-full space-y-12">
-        <div className="flex flex-row items-center justify-start w-full p-6 md:p-10 bg-dark-800 border-2 border-gray-800 rounded overflow-hidden">
-          <div className="flex flex-row items-start justify-start space-x-4">
-            {isLoading ? null : <img src={avatar} alt={user.name} draggable={false} />}
-            <div className="flex flex-col items-start justify-center">
-              {isLoading ? null : (
-                <span className="font-bold text-4xl text-gray-300">{user.name}</span>
-              )}
-              {isLoading ? null : (
-                <span className="max-w-xl font-medium text-xl text-gray-400">
-                  {user.description}
-                </span>
-              )}
-            </div>
-          </div>
-        </div>
+        <Header isLoading={isLoading} user={user} avatar={avatar} />
         <div className="flex flex-row items-center justify-start w-full p-6 md:p-10 bg-dark-800 border-2 border-gray-800 rounded overflow-hidden">
           <div className="grid grid-cols-3 w-full gap-x-5">
             {!isLoading &&
