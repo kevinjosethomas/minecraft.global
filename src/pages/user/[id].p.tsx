@@ -24,7 +24,7 @@ function User(props: User): JSX.Element {
   }
 
   return (
-    <Default background="bg-dark-700">
+    <Default background="bg-dark-700" user={props.user}>
       <div className="flex flex-col items-center justify-center w-full space-y-12">
         <div className="flex flex-row items-center justify-start w-full p-6 md:p-10 bg-dark-800 border-2 border-gray-800 rounded overflow-hidden">
           <div className="flex flex-row items-start justify-start space-x-4">
