@@ -5,7 +5,7 @@ import GetUser from "api/user";
 import GetLoggedInUser from "api/auth";
 import Header from "./components/Header";
 import Default from "ui/layouts/Default";
-import ServerCard from "ui/components/ServerCard/ServerCard";
+import Servers from "./components/Servers";
 
 type User = {
   id: string;
@@ -28,12 +28,7 @@ function User(props: User): JSX.Element {
     <Default background="bg-dark-700" user={props.user}>
       <div className="flex flex-col items-center justify-center w-full space-y-12">
         <Header isLoading={isLoading} user={user} avatar={avatar} />
-        <div className="flex flex-row items-center justify-start w-full p-6 md:p-10 bg-dark-800 border-2 border-gray-800 rounded overflow-hidden">
-          <div className="grid grid-cols-3 w-full gap-x-5">
-            {!isLoading &&
-              user.servers.map((server: any) => <ServerCard key={server.server_id} {...server} />)}
-          </div>
-        </div>
+        <Servers isLoading={isLoading} user={user} />
       </div>
     </Default>
   );
