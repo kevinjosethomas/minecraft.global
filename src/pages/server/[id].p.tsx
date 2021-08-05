@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import ReactMarkdown from "react-markdown";
+import { useEffect, useState } from "react";
 import SimplifyNumber from "simplify-number";
 import { GetServerSidePropsContext } from "next";
 
@@ -7,7 +9,9 @@ import { GetServer } from "api/server";
 import GetLoggedInUser from "api/auth";
 import Social from "./components/Social";
 import Default from "ui/layouts/Default";
+import { GetTopVoters } from "api/server";
 import Feature from "./components/Feature";
+import UpvoteModal from "./modals/upvote/Upvote";
 import { Server as ServerProps } from "lib/types";
 
 type Server = {
@@ -17,8 +21,36 @@ type Server = {
 };
 
 function Server(props: Server): JSX.Element {
+  const router = useRouter();
+  const id = router.query.id;
+
+  const [topVoters, setTopVoters] = useState();
+  const [upvoteModal, showUpvoteModal] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      const [response, error] = await GetTopVoters(id as string);
+      setTopVoters(response);
+    })();
+  }, []);
+
+  useEffect(() => {
+    if (upvoteModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [upvoteModal]);
+
   return (
     <Default background="bg-dark-700" user={props.user}>
+      {upvoteModal && (
+        <UpvoteModal
+          voters={topVoters as any}
+          server={props.server}
+          showUpvoteModal={showUpvoteModal}
+        />
+      )}
       <div className="flex flex-row items-start justify-between w-full">
         <div className="flex flex-col items-start justify-start w-[70%] space-y-6">
           <div className="flex flex-row items-start justify-between w-full">
@@ -64,7 +96,7 @@ function Server(props: Server): JSX.Element {
             </ReactMarkdown>
           </div>
         </div>
-        <div className="flex flex-col items-start justify-start w-[25%] space-y-6 overflow-x-hidden">
+        <div className="flex flex-col items-start justify-start w-[25%] space-y-6">
           <div className="flex flex-col items-start justify-start space-y-2">
             <div className="flex flex-col items-start justify-start">
               <div className="flex flex-row items-center justify-start space-x-2">
@@ -80,7 +112,10 @@ function Server(props: Server): JSX.Element {
             </div>
           </div>
           <div className="flex flex-col items-center justify-start w-full space-y-2">
-            <div className="flex flex-row items-center justify-start w-full rounded border-2 border-gray-800">
+            <div
+              className="flex flex-row items-center justify-start w-full rounded border-2 border-gray-800 transform hover:scale-[1.02] duration-300 cursor-pointer"
+              onClick={() => showUpvoteModal(true)}
+            >
               <div className="flex flex-col items-center justify-center w-14 h-14 bg-dark-400 rounded-l">
                 <i className="fas fa-arrow-alt-up text-2xl text-gray-400" />
               </div>
