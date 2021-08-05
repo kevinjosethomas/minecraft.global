@@ -2,6 +2,7 @@ import { GetServerSidePropsContext } from "next";
 
 import GetLoggedInUser from "api/auth";
 import Default from "ui/layouts/Default";
+import Partner from "./components/Partner";
 
 type Partners = {
   user?: Record<string, any>;
@@ -37,32 +38,7 @@ function Partners(props: Partners) {
         </div>
         <div className="grid grid-flow-row">
           {partners.map((partner, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-start justify-start w-80 md:w-100 h-92 md:h-87.5 p-6 space-y-6 bg-dark-600 border-2 border-gray-800 rounded"
-            >
-              <div className="flex flex-row items-center justify-start w-full space-x-4 overflow-x-hidden whitespace-nowrap">
-                <img
-                  src={partner.icon}
-                  alt={partner.name}
-                  className="w-16 h-16 min-w-[4rem] rounded"
-                />
-                <span className="font-bold text-5xl text-gray-300 tracking-tight">
-                  {partner.name}
-                </span>
-              </div>
-              <div className="flex flex-col items-start justify-start flex-1">
-                <span className="font-medium text-gray-400">{partner.description}</span>
-              </div>
-              <a
-                href={partner.href}
-                rel="noreferrer nofollow"
-                target="_blank"
-                className="flex flex-row items-center justify-center py-3 w-full bg-dark-200 cursor-pointer rounded hover:scale-[1.02] transform duration-300"
-              >
-                <span className="font-medium text-gray-400 select-none">View {partner.name}</span>
-              </a>
-            </div>
+            <Partner key={index} {...partner} />
           ))}
         </div>
       </div>
