@@ -1,9 +1,10 @@
 import Link from "next/link";
 import toast from "react-hot-toast";
-import SimplifyNumber from "simplify-number";
 
 import { Server } from "lib/types";
+import Tags from "./components/Tags";
 import Toast from "ui/components/Toast/Toast";
+import Description from "./components/Description";
 
 function ServerCard(props: Server): JSX.Element {
   function CopyIP() {
@@ -33,33 +34,12 @@ function ServerCard(props: Server): JSX.Element {
         </span>
       </div>
       <div className="flex flex-col items-start justify-start w-full h-full space-y-3 overflow-x-hidden">
-        <div className="flex flex-row items-center justify-start space-x-2">
-          <div className="flex flex-row items-center justify-center px-2 py-1 space-x-2 bg-dark-700 rounded">
-            <i className="far fa-arrow-alt-up text-sm text-gray-400" />
-            <span className="text-sm font-medium text-gray-400 select-none">
-              {SimplifyNumber(props.monthly_votes, { decimal: 1 }).toUpperCase()}
-            </span>
-          </div>
-          <div className="flex flex-row items-center justify-center px-2 py-1 space-x-2 bg-dark-700 rounded">
-            <i className="far fa-user text-sm text-gray-400" />
-            <span className="text-sm font-medium text-gray-400 select-none">
-              {SimplifyNumber(props.players_online, { decimal: 1 }).toUpperCase()}
-            </span>
-          </div>
-          {props.tags.map((tag: string) => (
-            <div
-              key={tag}
-              className="flex flex-row items-center justify-center px-2 py-1 bg-dark-700 rounded"
-            >
-              <span className="text-sm font-medium text-gray-400 select-none whitespace-nowrap">
-                {tag}
-              </span>
-            </div>
-          ))}
-        </div>
-        <div className="flex flex-col items-start justify-start">
-          <span className="font-medium text-gray-400">{props.description}</span>
-        </div>
+        <Tags
+          monthly_votes={props.monthly_votes}
+          players_online={props.players_online}
+          tags={props.tags}
+        />
+        <Description description={props.description} />
       </div>
       <div className="flex flex-row items-center justify-between w-full space-x-4 rounded">
         <div
