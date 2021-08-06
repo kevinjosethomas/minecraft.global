@@ -1,9 +1,23 @@
 import Link from "next/link";
+import toast from "react-hot-toast";
 import SimplifyNumber from "simplify-number";
 
 import { Server } from "lib/types";
+import Toast from "ui/components/Toast/Toast";
 
 function ServerCard(props: Server): JSX.Element {
+  function CopyIP() {
+    const ip = props.port === 25565 ? props.host : `${props.host}:${props.port}`;
+    navigator.clipboard.writeText(ip);
+    toast.custom((t) => (
+      <Toast
+        icon="fas fa-check-circle text-green-600"
+        title="Successfully copied IP Address!"
+        subtitle={`Copied ${ip} to your clipboard!`}
+      />
+    ));
+  }
+
   return (
     <div
       key={props.server_id}
@@ -48,7 +62,10 @@ function ServerCard(props: Server): JSX.Element {
         </div>
       </div>
       <div className="flex flex-row items-center justify-between w-full space-x-4 rounded">
-        <div className="flex flex-row items-center justify-center py-3 w-full bg-dark-200 cursor-pointer rounded hover:scale-[1.02] transform duration-300">
+        <div
+          className="flex flex-row items-center justify-center py-3 w-full bg-dark-200 cursor-pointer rounded hover:scale-[1.02] transform duration-300"
+          onClick={CopyIP}
+        >
           <span className="font-medium text-gray-400 select-none">Copy IP</span>
         </div>
         <Link href={`/server/${props.server_id}`}>
