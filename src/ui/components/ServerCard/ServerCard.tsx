@@ -1,3 +1,5 @@
+import ReactTooltip from "react-tooltip";
+
 import { Server } from "lib/types";
 import Tags from "./components/Tags";
 import Buttons from "./components/Buttons";
@@ -12,6 +14,10 @@ function ServerCard(props: Server): JSX.Element {
         props.premium ? "border-olive-700" : "border-gray-800"
       } rounded`}
     >
+      <ReactTooltip
+        effect="solid"
+        className="!bg-dark-600 !border-2 !border-gray-800 !text-gray-300 !font-medium"
+      />
       <Identity favicon={props.favicon} name={props.name} />
       <div className="flex flex-col items-start justify-start w-full h-full space-y-3 overflow-x-hidden">
         <Tags
@@ -28,7 +34,10 @@ function ServerCard(props: Server): JSX.Element {
         premium={props.premium}
       />
       {props.premium && (
-        <i className="fad fa-diamond text-3xl text-olive-500 absolute -top-2 right-4" />
+        <i
+          data-tip="Premium Server"
+          className="fad fa-diamond text-3xl text-olive-500 absolute -top-2 right-4"
+        />
       )}
     </div>
   );
