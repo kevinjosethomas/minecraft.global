@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 
 import { Server } from "lib/types";
 import Tags from "./components/Tags";
+import Identity from "./components/Identity";
 import Toast from "ui/components/Toast/Toast";
 import Description from "./components/Description";
 
@@ -24,15 +25,7 @@ function ServerCard(props: Server): JSX.Element {
       key={props.server_id}
       className="flex flex-col items-start justify-start w-80 md:w-100 h-92 md:h-87.5 p-6 space-y-6 bg-dark-600 border-2 border-gray-800 rounded"
     >
-      <div className="flex flex-row items-center justify-start w-full space-x-4 overflox-x-hidden whitespace-nowrap">
-        <div className="relative flex flex-col items-center justify-center overflow-elipsis">
-          <div className="absolute w-16 h-16 bg-dark-300 bg-opacity-30 rounded" />
-          <img src={props.favicon} alt={props.name} className="w-16 h-16 min-w-[4rem] rounded" />
-        </div>
-        <span className="font-bold text-5xl text-gray-300 tracking-tight truncate">
-          {props.name}
-        </span>
-      </div>
+      <Identity favicon={props.favicon} name={props.name} />
       <div className="flex flex-col items-start justify-start w-full h-full space-y-3 overflow-x-hidden">
         <Tags
           monthly_votes={props.monthly_votes}
