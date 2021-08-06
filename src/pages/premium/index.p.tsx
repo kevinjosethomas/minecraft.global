@@ -1,9 +1,11 @@
+import { useEffect, useState } from "react";
 import { GetServerSidePropsContext } from "next";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 import GetLoggedInUser from "api/auth";
 import Default from "ui/layouts/Default";
 import Feature from "./components/Feature";
+import PremiumModal from "./modals/Premium";
 import PayPalButton from "./components/PayPalButton";
 
 type Premium = {
@@ -11,6 +13,70 @@ type Premium = {
 };
 
 function Premium(props: Premium): JSX.Element {
+  const features = [
+    [
+      {
+        icon: "fad fa-diamond fa-swap-opacity fa-opacity-60",
+        name: "Premium Badge",
+        color: "text-olive-500",
+      },
+      {
+        icon: "fad fa-analytics fa-opacity-80 fa-swap-opacity",
+        name: "Advanced Server Analytics",
+        color: "text-indigo-700",
+      },
+      {
+        icon: "fad fa-stars fa-opacity-80 fa-swap-opacity",
+        name: "Prominent Server Card",
+        color: "text-red-700",
+      },
+    ],
+    [
+      {
+        icon: "fad fa-link fa-opacity-80",
+        name: "Custom Server URL",
+        color: "text-yellow-700",
+      },
+      {
+        icon: "fad fa-newspaper fa-opacity-80",
+        name: "$5 Monthly Auction Credit",
+        color: "text-teal-600",
+      },
+      {
+        icon: "fad fa-do-not-enter fa-opacity-60 fa-swap-opacity",
+        name: "Reduced Advertisements",
+        color: "text-pink-700",
+      },
+    ],
+    [
+      {
+        icon: "fab fa-discord",
+        name: "Exclusive Discord Role",
+        color: "text-[#5865F2]",
+      },
+      {
+        icon: "fad fa-sign fa-opacity-80 fa-swap-opacity",
+        name: "Private Discord Advertising",
+        color: "text-orange-700",
+      },
+      {
+        icon: "fad fa-heartbeat",
+        name: "Support Us",
+        color: "text-red-500",
+      },
+    ],
+  ];
+
+  const [premiumModal, showPremiumModal] = useState(false);
+
+  useEffect(() => {
+    if (premiumModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [premiumModal]);
+
   return (
     <PayPalScriptProvider
       options={{
@@ -20,6 +86,7 @@ function Premium(props: Premium): JSX.Element {
         vault: true,
       }}
     >
+      {premiumModal && <PremiumModal showPremiumModal={showPremiumModal} />}
       <Default background="premium-bg-gradient" user={props.user}>
         <div className="premium-bg-gradient flex flex-col items-center justify-center w-full space-y-10">
           <div className="flex flex-col items-center justify-center space-y-2">
@@ -47,53 +114,18 @@ function Premium(props: Premium): JSX.Element {
                 <div className="flex-1 h-1 bg-olive-600 rounded" />
               </div>
               <div className="flex flex-row justify-between items-center w-full">
-                <div className="flex flex-col items-start justify-center space-y-2">
-                  <Feature
-                    icon="fad fa-diamond fa-swap-opacity fa-opacity-60"
-                    name="Premium Badge"
-                    color="text-olive-500"
-                  />
-                  <Feature
-                    icon="fad fa-newspaper fa-opacity-80"
-                    name="Featured on Front Page"
-                    color="text-teal-600"
-                  />
-                  <Feature
-                    icon="fad fa-stars fa-opacity-80 fa-swap-opacity"
-                    name="Prominent Server Card"
-                    color="text-red-700"
-                  />
-                </div>
-                <div className="flex flex-col items-start justify-center space-y-2">
-                  <Feature
-                    icon="fad fa-link fa-opacity-80"
-                    name="Custom Server URL"
-                    color="text-yellow-700"
-                  />
-                  <Feature
-                    icon="fad fa-analytics fa-opacity-80 fa-swap-opacity"
-                    name="Advanced Server Analytics"
-                    color="text-indigo-700"
-                  />
-                  <Feature
-                    icon="fad fa-do-not-enter fa-opacity-60 fa-swap-opacity"
-                    name="Reduced Advertisements"
-                    color="text-pink-700"
-                  />
-                </div>
-                <div className="flex flex-col items-start justify-center space-y-2">
-                  <Feature
-                    icon="fab fa-discord"
-                    name="Exclusive Discord Role"
-                    color="text-[#5865F2]"
-                  />
-                  <Feature
-                    icon="fad fa-sign fa-opacity-80 fa-swap-opacity"
-                    name="Private Discord Advertising"
-                    color="text-orange-700"
-                  />
-                  <Feature icon="fad fa-heartbeat" name="Support Us" color="text-red-500" />
-                </div>
+                {features.map((group, index) => (
+                  <div key={index} className="flex flex-col items-start justify-center space-y-2">
+                    {group.map((feature, index) => (
+                      <Feature
+                        key={index}
+                        icon={feature.icon}
+                        name={feature.name}
+                        color={feature.color}
+                      />
+                    ))}
+                  </div>
+                ))}
               </div>
             </div>
             <div className="flex flex-col items-center justify-center w-1/4 p-10 space-y-8 bg-dark-700">
@@ -104,11 +136,13 @@ function Premium(props: Premium): JSX.Element {
                 </span>
                 <span className="font-medium text-lg text-gray-400 underline">for each server</span>
               </div>
-              {/* <div className="flex flex-row items-center justify-center px-12 py-3 space-x-2 bg-gradient-to-r from-[#1D3729] to-[#284D39] rounded cursor-not-allowed hover:scale-[1.02] transform duration-500">
-              <i className="fad fa-shopping-cart fa-opacity-80 text-lg text-olive-400" />
-              <span className="font-bold text-lg text-gray-300">Coming Soon</span>
-            </div> */}
-              <PayPalButton />
+              <div
+                className="flex flex-row items-center justify-center px-12 py-3 space-x-2 bg-gradient-to-r from-[#1D3729] to-[#284D39] rounded cursor-pointer hover:scale-[1.02] transform duration-500"
+                onClick={() => showPremiumModal(true)}
+              >
+                <i className="fad fa-shopping-cart fa-opacity-80 text-lg text-olive-400" />
+                <span className="font-bold text-lg text-gray-300">Subscribe</span>
+              </div>
             </div>
           </div>
         </div>
