@@ -8,18 +8,6 @@ import Identity from "./components/Identity";
 import Description from "./components/Description";
 
 function ServerCard(props: Server): JSX.Element {
-  // function CopyIP() {
-  //   const ip = props.port === 25565 ? props.host : `${props.host}:${props.port}`;
-  //   navigator.clipboard.writeText(ip);
-  //   toast.custom((t) => (
-  //     <Toast
-  //       icon="fas fa-check-circle text-green-600"
-  //       title="Successfully copied IP Address!"
-  //       subtitle={`Copied ${ip} to your clipboard!`}
-  //     />
-  //   ));
-  // }
-
   return (
     <div
       key={props.server_id}
