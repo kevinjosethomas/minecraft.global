@@ -7,6 +7,7 @@ type ButtonsProps = {
   server_id: number;
   host: string;
   port: number;
+  premium: boolean;
 };
 
 function Buttons(props: ButtonsProps): JSX.Element {
@@ -25,14 +26,30 @@ function Buttons(props: ButtonsProps): JSX.Element {
   return (
     <div className="flex flex-row items-center justify-between w-full space-x-4 rounded">
       <div
-        className="flex flex-row items-center justify-center py-3 w-full bg-dark-200 cursor-pointer rounded hover:scale-[1.02] transform duration-300"
+        className={`flex flex-row items-center justify-center py-3 w-full ${
+          props.premium ? "bg-olive-700" : "bg-dark-200"
+        } cursor-pointer rounded hover:scale-[1.02] transform duration-300`}
         onClick={CopyIP}
       >
-        <span className="font-medium text-gray-400 select-none">Copy IP</span>
+        <span
+          className={`font-medium ${props.premium ? "text-gray-300" : "text-gray-400"} select-none`}
+        >
+          Copy IP
+        </span>
       </div>
       <Link href={`/server/${props.server_id}`}>
-        <a className="flex flex-row items-center justify-center py-3 w-full bg-dark-200 cursor-pointer rounded hover:scale-[1.02] transform duration-300">
-          <span className="font-medium text-gray-400 select-none">View Server</span>
+        <a
+          className={`flex flex-row items-center justify-center py-3 w-full ${
+            props.premium ? "bg-olive-700" : "bg-dark-200"
+          } cursor-pointer rounded hover:scale-[1.02] transform duration-300`}
+        >
+          <span
+            className={`font-medium ${
+              props.premium ? "text-gray-300" : "text-gray-400"
+            } select-none`}
+          >
+            View Server
+          </span>
         </a>
       </Link>
     </div>
