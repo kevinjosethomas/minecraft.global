@@ -5,7 +5,11 @@ import {
   OnApproveActions,
 } from "@paypal/paypal-js/types/components/buttons";
 
-function PayPalButton(): JSX.Element {
+type PayPalButtonProps = {
+  onComplete: CallableFunction;
+};
+
+function PayPalButton(props: PayPalButtonProps): JSX.Element {
   return (
     <PayPalButtons
       style={{ layout: "vertical", shape: "rect", color: "blue", label: "subscribe" }}
@@ -15,11 +19,13 @@ function PayPalButton(): JSX.Element {
         });
       }}
       onApprove={(data: OnApproveData, actions: OnApproveActions) => {
-        return new Promise((resolve, reject) => {
-          console.log(data);
-          console.log(actions);
-          console.log("SUCCESS!");
-          resolve();
+        return new Promise(async (resolve, reject) => {
+          try {
+            await props.onComplete(data, actions);
+            resolve();
+          } catch (e) {
+            reject(e);
+          }
         });
       }}
     />
