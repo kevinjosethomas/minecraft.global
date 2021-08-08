@@ -6,7 +6,6 @@ import GetLoggedInUser from "api/auth";
 import Default from "ui/layouts/Default";
 import Feature from "./components/Feature";
 import PremiumModal from "./modals/Premium";
-import PayPalButton from "./components/PayPalButton";
 
 type Premium = {
   user?: Record<string, any>;
@@ -86,7 +85,12 @@ function Premium(props: Premium): JSX.Element {
         vault: true,
       }}
     >
-      {premiumModal && <PremiumModal showPremiumModal={showPremiumModal} />}
+      {premiumModal && (
+        <PremiumModal
+          showPremiumModal={showPremiumModal}
+          user={props.user as Record<string, any>}
+        />
+      )}
       <Default background="premium-bg-gradient" user={props.user}>
         <div className="premium-bg-gradient flex flex-col items-center justify-center w-full space-y-10">
           <div className="flex flex-col items-center justify-center space-y-2">
