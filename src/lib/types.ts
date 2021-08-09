@@ -27,4 +27,10 @@ type Server = {
   pinged_at: Date;
 };
 
-export type { Server };
+type Auction = {
+  favicon: string;
+  name: string;
+  usd_amount: number;
+};
+
+export type { Server, Auction };
