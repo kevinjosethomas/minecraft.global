@@ -1,10 +1,11 @@
+import { Server } from "lib/types";
 import ServerCard from "ui/components/ServerCard/ServerCard";
 
 type Listing = {
   title: string;
   subtitle: string;
   icon: string;
-  data: object[];
+  data: Server[];
 };
 
 function Listing(props: Listing): JSX.Element {
@@ -19,7 +20,7 @@ function Listing(props: Listing): JSX.Element {
       </div>
       {props.data ? (
         <div className="grid grid-flow-row md:grid-flow-col w-full gap-y-10 md:gap-y-0">
-          {props.data.map((server: any) => (
+          {props.data.map((server: Server) => (
             <ServerCard key={server.server_id} {...server} />
           ))}
         </div>
