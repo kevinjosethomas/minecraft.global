@@ -13,7 +13,7 @@ type PremiumProps = {
 };
 
 function Premium(props: PremiumProps): JSX.Element {
-  const servers: Record<string, any> = [];
+  const servers: Record<string, any>[] = [];
   props.user.servers.forEach((server: Server) => {
     !server.premium && servers.push({ value: server.server_id, label: server.name });
   });
@@ -38,8 +38,8 @@ function Premium(props: PremiumProps): JSX.Element {
         <div className="flex flex-col items-start justify-start space-y-1">
           <span className="font-medium text-2xl text-gray-400">Choose a server</span>
           <Dropdown
-            options={servers}
-            value={servers[0]}
+            options={servers as any[]}
+            value={servers[0] as any}
             className="w-96"
             controlClassName="!bg-dark-900 !rounded !border-2 !border-gray-900"
             placeholderClassName="!text-gray-400"
