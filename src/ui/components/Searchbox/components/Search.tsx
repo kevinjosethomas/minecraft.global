@@ -1,7 +1,15 @@
 import { useRef } from "react";
+import { useRouter } from "next/router";
 
 const Search = (): JSX.Element => {
+  const router = useRouter();
   const input = useRef<HTMLInputElement>(null);
+
+  const onEnter = (e: any) => {
+    if (e.key === "Enter" && e.target.value) {
+      router.push(`/search?q=${e.target.value}`);
+    }
+  };
 
   return (
     <div
@@ -13,6 +21,7 @@ const Search = (): JSX.Element => {
         ref={input}
         className="w-full md:w-64 h-full md:text-lg text-gray-400 placeholder-gray-400 focus:outline-none bg-transparent"
         placeholder="Search for a server..."
+        onKeyPress={onEnter}
       />
     </div>
   );
