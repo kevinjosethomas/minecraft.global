@@ -1,4 +1,8 @@
-import ReactTooltip from "react-tooltip";
+import dynamic from "next/dynamic";
+
+const ReactTooltip = dynamic(() => import("react-tooltip"), {
+  ssr: false,
+});
 
 import { Server } from "lib/types";
 import Tags from "./components/Tags";
