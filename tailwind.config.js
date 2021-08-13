@@ -44,6 +44,9 @@ module.exports = {
         teal: colors.teal,
         orange: colors.orange,
       },
+      screens: {
+        "3xl": "1920px",
+      },
       width: {
         80: "20rem",
         100: "25rem",
