@@ -8,7 +8,7 @@ type ServersProps = {
 function Servers(props: ServersProps): JSX.Element {
   return (
     <div className="flex flex-row items-center justify-start w-full p-6 md:p-10 bg-dark-800 border-2 border-gray-800 rounded overflow-hidden">
-      <div className="grid grid-cols-3 w-full gap-x-5">
+      <div className="grid grid-cols-3 justify-items-center w-full">
         {!props.isLoading &&
           props.user.servers.map((server: any) => (
             <ServerCard key={server.server_id} {...server} />
