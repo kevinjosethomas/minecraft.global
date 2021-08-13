@@ -14,12 +14,16 @@ function Listing(props: Listing): JSX.Element {
       <div className="flex flex-row items-center justify-start space-x-4">
         <i className={`${props.icon} text-5xl md:text-6xl text-olive-400`} />
         <div className="flex flex-col items-start justify-center">
-          <span className="font-bold text-2xl md:text-4xl text-gray-300">{props.title}</span>
-          <span className="font-medium text-sm md:text-xl text-gray-400">{props.subtitle}</span>
+          <span className="font-bold text-2xl md:text-4xl 3xl:text-5xl text-gray-300">
+            {props.title}
+          </span>
+          <span className="font-medium text-sm md:text-xl 3xl:text-2xl text-gray-400">
+            {props.subtitle}
+          </span>
         </div>
       </div>
       {props.data ? (
-        <div className="grid grid-flow-row md:grid-flow-col w-full gap-y-10 md:gap-y-0">
+        <div className="grid grid-flow-row md:grid-flow-col justify-between w-full gap-y-10 md:gap-y-0">
           {props.data.map((server: Server) => (
             <ServerCard key={server.server_id} {...server} />
           ))}
