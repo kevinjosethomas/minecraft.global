@@ -40,7 +40,7 @@ const Navbar = (props: Navbar): JSX.Element => {
     <Fragment>
       <AnimatePresence>{mobile && <Mobile {...props} setMobile={setMobile} />}</AnimatePresence>
       <motion.div
-        className="flex flex-row items-center justify-between w-full h-20 px-5 md:px-20 bg-dark-800"
+        className="flex flex-row items-center justify-between w-full h-20 px-5 md:px-20 3xl:px-56 bg-dark-800"
         layoutId="navbar"
       >
         <div className="flex flex-row items-center justify-start space-x-8">
