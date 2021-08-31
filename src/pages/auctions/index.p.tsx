@@ -1,11 +1,14 @@
+import toast from "react-hot-toast";
 import Dropdown from "react-dropdown";
 import Countdown from "react-countdown";
 import { useEffect, useState } from "react";
 import { GetServerSidePropsContext } from "next";
 
 import GetLoggedInUser from "api/auth";
+import Confirm from "./modals/Confirm";
 import Default from "ui/layouts/Default";
-import { Auction, Server } from "lib/types";
+import Toast from "ui/components/Toast/Toast";
+import { Auction, Server, AuctionsPacketType } from "lib/types";
 
 import "react-dropdown/style.css";
 
@@ -13,19 +16,15 @@ type AuctionsProps = {
   user: Record<string, any>;
 };
 
-enum AuctionsPacketType {
-  INFO = 0, // Load all data for all locations
-  NEW_BID = 1, // Sent from client to server
-  BIDDER_COUNT = 2, // Sent from server to client
-}
-
 function Auctions(props: AuctionsProps): JSX.Element {
+  const [websocket, setWebsocket] = useState<any>();
   const [bids, setBids] = useState([]);
   const [endTime, setEndTime] = useState(0);
   const [bidderCount, setBidderCount] = useState(0);
   const [bidValue, setBidValue] = useState("");
+  const [confirmModal, showConfirmModal] = useState(false);
 
-  const servers: Record<string, any> = [];
+  const servers: Record<string, any>[] = [];
   props.user.servers.forEach((server: Server) => {
     !server.premium && servers.push({ value: server.server_id, label: server.name });
   });
@@ -36,8 +35,29 @@ function Auctions(props: AuctionsProps): JSX.Element {
     setBidValue(Number(e.target.value.replace(/\D/g, "")).toLocaleString());
   };
 
+  const onBidKeyPress = (e: any) => {
+    if (e.key == "Enter") {
+      const value = Number(bidValue.replace(",", ""));
+
+      if (value < 10) {
+        toast.custom((t) => (
+          <Toast
+            icon="fas fa-times-circle text-red-500 text-opacity-75"
+            title="Minimum Bid"
+            subtitle="You must bid atleast $10"
+          />
+        ));
+      }
+
+      console.log(servers);
+
+      showConfirmModal(true);
+    }
+  };
+
   useEffect(() => {
     const ws = new WebSocket("wss://api.minecraft.global/auctions/ws");
+    setWebsocket(ws);
 
     ws.onmessage = (event: any) => {
       const data = JSON.parse(event.data);
@@ -59,6 +79,15 @@ function Auctions(props: AuctionsProps): JSX.Element {
 
   return (
     <Default background="bg-dark-700" user={props.user}>
+      {confirmModal && (
+        <Confirm
+          user={props.user}
+          websocket={websocket}
+          bidValue={bidValue}
+          selectedServer={servers.find((server: any) => server.value == selectedServer) as any}
+          showConfirmModal={showConfirmModal}
+        />
+      )}
       <div className="flex flex-col items-start justify-center w-full space-y-10">
         <span className="font-bold text-6xl text-gray-300">Auctions</span>
         <div className="flex flex-row items-start space-x-10 w-full">
@@ -71,7 +100,7 @@ function Auctions(props: AuctionsProps): JSX.Element {
             </span>
           </div>
           <div className="flex flex-col items-center justify-center h-[26rem] rounded border-2 border-gray-900">
-            <div className=W"flex flex-row items-center justify-center p-4 bg-dark-900 rounded-t">
+            <div className="flex flex-row items-center justify-center p-4 bg-dark-900 rounded-t">
               <span className="w-14 font-bold text-3xl text-gray-300">#</span>
               <span className="w-96 font-bold text-3xl text-gray-300">Server</span>
               <span className="w-60 font-bold text-3xl text-gray-300">Amount</span>
@@ -155,8 +184,9 @@ function Auctions(props: AuctionsProps): JSX.Element {
                 <input
                   className="w-full h-full px-2 font-medium text-gray-400 bg-transparent focus:outline-none"
                   maxLength={5}
-                  onChange={onBidChange}
                   value={bidValue}
+                  onChange={onBidChange}
+                  onKeyPress={onBidKeyPress}
                 />
               </div>
               <span className="text-gray-500">
