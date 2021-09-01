@@ -65,7 +65,7 @@ function System(props: SystemProps): JSX.Element {
         </div>
         <div className="flex flex-row items-center justify-start w-full p-2 bg-dark-600 rounded">
           <span className="text-lg text-gray-400">
-            Auctions end in <Countdown date={props.auctionsEndTime} />
+            Auctions end in <Countdown key={props.auctionsEndTime} date={props.auctionsEndTime} />
           </span>
         </div>
       </div>
