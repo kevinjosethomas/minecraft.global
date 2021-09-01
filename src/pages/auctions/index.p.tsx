@@ -18,7 +18,7 @@ type AuctionsProps = {
 
 function Auctions(props: AuctionsProps): JSX.Element {
   const [websocket, setWebsocket] = useState<any>();
-  const [bids, setBids] = useState([]);
+  const [bids, setBids] = useState<Record<string, any>[]>([]);
   const [endTime, setEndTime] = useState(0);
   const [bidderCount, setBidderCount] = useState(0);
   const [bidValue, setBidValue] = useState("");
@@ -47,9 +47,19 @@ function Auctions(props: AuctionsProps): JSX.Element {
             subtitle="You must bid atleast $10"
           />
         ));
+        return;
       }
 
-      console.log(servers);
+      if (value <= bids[0].usd_amount) {
+        toast.custom((t) => (
+          <Toast
+            icon="fas fa-times-circle text-red-500 text-opacity-75"
+            title="Minimum Bid"
+            subtitle="You must bid more than the #1 bid"
+          />
+        ));
+        return;
+      }
 
       showConfirmModal(true);
     }
