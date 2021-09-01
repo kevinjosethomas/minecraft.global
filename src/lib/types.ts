@@ -27,6 +27,11 @@ type Server = {
   pinged_at: Date;
 };
 
+type Dropdown = {
+  label: string;
+  value: any;
+};
+
 type Auction = {
   favicon: string;
   name: string;
@@ -44,5 +49,5 @@ enum AuctionsPacketType {
   BIDDER_COUNT = 2, // Sent from server to client
 }
 
-export type { Server, Auction, AuctionBid };
+export type { Server, Dropdown, Auction, AuctionBid };
 export { AuctionsPacketType };
