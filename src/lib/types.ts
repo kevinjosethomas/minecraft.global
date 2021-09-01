@@ -33,11 +33,17 @@ type Auction = {
   usd_amount: number;
 };
 
+type AuctionBid = {
+  user_id: number;
+  bid_usd: number;
+  server_id: number;
+};
+
 enum AuctionsPacketType {
   INFO = 0, // Load all data for all locations
   NEW_BID = 1, // Sent from client to server
   BIDDER_COUNT = 2, // Sent from server to client
 }
 
-export type { Server, Auction };
+export type { Server, Auction, AuctionBid };
 export { AuctionsPacketType };
