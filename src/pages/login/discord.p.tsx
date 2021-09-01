@@ -41,7 +41,7 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
     domain: "beta.minecraft.global",
     httpOnly: false,
     sameSite: "strict",
-    maxAge: 2592000000,
+    // maxAge: 2592000000,
   });
 
   return {
