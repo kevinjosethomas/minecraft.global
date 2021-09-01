@@ -38,10 +38,9 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
 
   const cookies = new Cookies(ctx.req, ctx.res);
   cookies.set("token", data.payload.token, {
-    domain: "beta.minecraft.global",
     httpOnly: false,
     sameSite: "strict",
-    // maxAge: 2592000000,
+    maxAge: 2592000000,
   });
 
   return {
