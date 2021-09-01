@@ -18,7 +18,7 @@ function Confirm(props: ConfirmProps): JSX.Element {
         payload: {
           authorization: cookie.get("token"),
           user_id: props.user.user_id,
-          bid_usd: parseInt(props.enteredBid),
+          bid_usd: parseInt(props.enteredBid.replace(",", "")),
           server_id: props.selectedServer.value,
         },
       })
