@@ -5,7 +5,7 @@ import { AuctionsPacketType } from "lib/types";
 type ConfirmProps = {
   user: Record<string, any>;
   websocket: WebSocket;
-  bidValue: string;
+  enteredBid: string;
   selectedServer: Record<string, any>;
   showConfirmModal: CallableFunction;
 };
@@ -18,7 +18,7 @@ function Confirm(props: ConfirmProps): JSX.Element {
         payload: {
           authorization: cookie.get("token"),
           user_id: props.user.user_id,
-          bid_usd: parseInt(props.bidValue),
+          bid_usd: parseInt(props.enteredBid),
           server_id: props.selectedServer.value,
         },
       })
@@ -34,9 +34,9 @@ function Confirm(props: ConfirmProps): JSX.Element {
         onClick={(e) => e.stopPropagation()}
       >
         <span className="text-gray-400 text-xl max-w-sm">
-          Are you sure you want to bid <span className="font-bold">${props.bidValue}</span> for{" "}
+          Are you sure you want to bid <span className="font-bold">${props.enteredBid}</span> for{" "}
           <span className="font-bold">{props.selectedServer.label}</span>? This action cannot be
-          reversed
+          reversed!
         </span>
         <div
           className="flex flex-row items-center justify-center w-full space-x-2"
