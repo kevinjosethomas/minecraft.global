@@ -43,7 +43,7 @@ function System(props: SystemProps): JSX.Element {
         toast.custom((t) => (
           <Toast
             icon="far fa-times-circle text-olive-600"
-            title="Minimum Bid"
+            title="Invalid bid amount provided"
             subtitle="You must bid more than the #1 bid"
           />
         ));
