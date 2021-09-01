@@ -34,9 +34,8 @@ type Auction = {
 };
 
 type AuctionBid = {
-  user_id: number;
-  bid_usd: number;
-  server_id: number;
+  name: string;
+  usd_amount: number;
 };
 
 enum AuctionsPacketType {
