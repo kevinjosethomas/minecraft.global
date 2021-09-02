@@ -23,6 +23,12 @@ body,
   border-radius: 0.25rem;
 }
 
+.no-scrollbar::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar-track,
+.no-scrollbar::-webkit-scrollbar-thumb {
+  display: none;
+}
+
 .fa-opacity-60 {
   --fa-secondary-opacity: 0.6;
 }

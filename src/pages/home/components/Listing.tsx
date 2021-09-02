@@ -23,7 +23,7 @@ function Listing(props: Listing): JSX.Element {
         </div>
       </div>
       {props.data ? (
-        <div className="grid grid-flow-row md:grid-flow-col justify-between w-full gap-y-10 md:gap-y-0">
+        <div className="grid grid-flow-row md:grid-flow-col justify-between w-full gap-y-10 md:gap-y-0 lg:gap-x-5 xl:gap-x-0 overflow-x-scroll no-scrollbar">
           {props.data.map((server: Server) => (
             <ServerCard key={server.server_id} {...server} />
           ))}
