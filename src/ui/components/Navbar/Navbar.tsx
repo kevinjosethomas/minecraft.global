@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import User from "./components/User";
@@ -35,6 +35,14 @@ const Navbar = (props: Navbar): JSX.Element => {
   ];
 
   const [mobile, setMobile] = useState(false);
+
+  useEffect(() => {
+    if (mobile) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [mobile]);
 
   return (
     <Fragment>
