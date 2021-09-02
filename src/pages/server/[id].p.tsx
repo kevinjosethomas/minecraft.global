@@ -151,20 +151,30 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   const [user, error] = await GetLoggedInUser(ctx);
   const [server, error2] = await GetServer(id as string);
 
-  if (error) {
+  if (error2) {
     return {
-      props: {
-        id: id,
+      redirect: {
+        destination: "/",
+        permanent: true,
       },
     };
   } else {
-    return {
-      props: {
-        user: user.payload,
-        server: server,
-        id: id,
-      },
-    };
+    if (error) {
+      return {
+        props: {
+          id: id,
+          server: server,
+        },
+      };
+    } else {
+      return {
+        props: {
+          user: user.payload,
+          server: server,
+          id: id,
+        },
+      };
+    }
   }
 }
 
