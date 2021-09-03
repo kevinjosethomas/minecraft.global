@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { MouseEventHandler } from "react";
 
 type Mobile = {
   user?: Record<string, any>;
   setMobile: CallableFunction;
+  logout: MouseEventHandler;
 };
 
 type Column = {
@@ -66,7 +68,10 @@ function Mobile(props: Mobile): JSX.Element {
                 {props.user.name}
               </span>
             </div>
-            <div className="flex flex-row items-center justify-center w-10 h-10 bg-dark-600 rounded">
+            <div
+              className="flex flex-row items-center justify-center w-10 h-10 bg-dark-600 rounded"
+              onClick={props.logout}
+            >
               <i className="far fa-sign-out-alt text-lg text-gray-400" />
             </div>
           </div>

@@ -1,4 +1,6 @@
 import Link from "next/link";
+import cookie from "js-cookie";
+import { useRouter } from "next/router";
 import { Fragment, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -34,6 +36,7 @@ const Navbar = (props: Navbar): JSX.Element => {
     },
   ];
 
+  const router = useRouter();
   const [mobile, setMobile] = useState(false);
 
   useEffect(() => {
@@ -44,9 +47,16 @@ const Navbar = (props: Navbar): JSX.Element => {
     }
   }, [mobile]);
 
+  const logout = () => {
+    cookie.remove("token");
+    router.reload();
+  };
+
   return (
     <Fragment>
-      <AnimatePresence>{mobile && <Mobile {...props} setMobile={setMobile} />}</AnimatePresence>
+      <AnimatePresence>
+        {mobile && <Mobile {...props} setMobile={setMobile} logout={logout} />}
+      </AnimatePresence>
       <motion.div
         className="flex flex-row items-center justify-between w-full h-20 px-5 md:px-20 3xl:px-56 bg-dark-800"
         layoutId="navbar"
@@ -72,7 +82,7 @@ const Navbar = (props: Navbar): JSX.Element => {
         </div>
         <div className="hidden md:flex flex-row items-center justify-end space-x-4">
           <Search />
-          {props.user ? <User user={props.user} /> : <Login />}
+          {props.user ? <User user={props.user} logout={logout} /> : <Login />}
         </div>
         <div
           className="flex md:hidden flex-row items-center justify-center"

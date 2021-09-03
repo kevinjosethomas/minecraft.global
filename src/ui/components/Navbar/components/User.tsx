@@ -5,6 +5,7 @@ import { Fragment, MouseEventHandler, useState } from "react";
 
 type User = {
   user: Record<string, any>;
+  logout: MouseEventHandler;
 };
 const User = (props: User): JSX.Element => {
   const [dropdown, setDropdown] = useState(false);
@@ -51,7 +52,7 @@ const User = (props: User): JSX.Element => {
                 <DropdownElement
                   icon="fas fa-sign-out-alt"
                   title="Log out"
-                  onClick={() => {}}
+                  onClick={props.logout}
                   redirect={false}
                 />
               </div>

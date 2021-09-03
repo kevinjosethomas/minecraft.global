@@ -1,4 +1,5 @@
 import { useQuery } from "react-query";
+import { useRouter } from "next/router";
 import { GetServerSidePropsContext } from "next";
 
 import GetHomeResults from "api/home";
