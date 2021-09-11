@@ -1,6 +1,7 @@
 import moment from "moment";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
+
 import ReCAPTCHA from "react-google-recaptcha";
 
 import { Server } from "lib/types";
@@ -135,7 +136,9 @@ function Upvote(props: UpvoteProps): JSX.Element {
         className="flex flex-col items-start justify-center p-10 space-y-2 bg-dark-800 border-2 border-gray-800 rounded"
         onClick={(e) => e.stopPropagation()}
       >
-        <span className="font-bold text-2xl text-gray-300">Aug’s top voters</span>
+        <span className="font-bold text-2xl text-gray-300">
+          {moment(new Date()).format("MMM")}’s top voters
+        </span>
         <div className="flex flex-col items-start justify-cente w-full space-y-0.5">
           {voters.map((voter, index) => (
             <div key={index} className="flex flex-row items-center justify-between w-full">
