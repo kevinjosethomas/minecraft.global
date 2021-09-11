@@ -33,6 +33,12 @@ function AddServer(props: AddServerProps): JSX.Element {
   ];
 
   const [activeScreen, setActiveScreen] = useState(screens[0]);
+  const [params, setParams] = useState({
+    name: "",
+    hostname: "",
+    port: "25565",
+    description: "",
+  });
 
   return (
     <Default background="bg-dark-700">
@@ -43,7 +49,7 @@ function AddServer(props: AddServerProps): JSX.Element {
             <span className="font-bold text-5xl text-gray-300">{activeScreen.name}</span>
             <div className="flex flex-row items-center justify-center"></div>
           </div>
-          <activeScreen.screen />
+          <activeScreen.screen params={params} setParams={setParams} />
         </div>
       </div>
     </Default>
