@@ -19,7 +19,7 @@ function Partner(props: PartnerProps): JSX.Element {
         href={props.href}
         rel="noreferrer nofollow"
         target="_blank"
-        className="flex flex-row items-center justify-center py-3 w-full bg-dark-200 cursor-pointer rounded hover:scale-[1.02] transform duration-300"
+        className="flex flex-row items-center justify-center py-3 w-full bg-dark-200 cursor-pointer rounded hover:scale-102 transform duration-300"
       >
         <span className="font-medium text-gray-400 select-none">View {props.name}</span>
       </a>

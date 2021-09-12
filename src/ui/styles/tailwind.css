@@ -47,7 +47,8 @@ body,
   height: 1.75rem;
 }
 
-.long-description a {
+.long-description a,
+.faq a {
   @apply text-olive-500;
   text-decoration: underline;
 }

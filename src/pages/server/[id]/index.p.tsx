@@ -113,7 +113,7 @@ function Server(props: Server): JSX.Element {
           </div>
           <div className="flex flex-col items-center justify-start w-full space-y-2">
             <div
-              className="flex flex-row items-center justify-start w-full rounded border-2 border-gray-800 transform hover:scale-[1.02] duration-300 cursor-pointer"
+              className="flex flex-row items-center justify-start w-full rounded border-2 border-gray-800 transform hover:scale-102 duration-300 cursor-pointer"
               onClick={() => showUpvoteModal(true)}
             >
               <div className="flex flex-col items-center justify-center w-14 h-14 bg-dark-400 rounded-l">

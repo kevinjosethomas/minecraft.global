@@ -28,7 +28,7 @@ function Buttons(props: ButtonsProps): JSX.Element {
       <div
         className={`flex flex-row items-center justify-center py-3 w-full ${
           props.premium ? "bg-olive-700" : "bg-dark-200"
-        } cursor-pointer rounded hover:scale-[1.02] transform duration-300`}
+        } cursor-pointer rounded hover:scale-102 transform duration-300`}
         onClick={CopyIP}
       >
         <span
@@ -41,7 +41,7 @@ function Buttons(props: ButtonsProps): JSX.Element {
         <a
           className={`flex flex-row items-center justify-center py-3 w-full ${
             props.premium ? "bg-olive-700" : "bg-dark-200"
-          } cursor-pointer rounded hover:scale-[1.02] transform duration-300`}
+          } cursor-pointer rounded hover:scale-102 transform duration-300`}
         >
           <span
             className={`font-medium ${

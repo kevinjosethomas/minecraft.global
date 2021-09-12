@@ -141,7 +141,7 @@ function Premium(props: Premium): JSX.Element {
                 <span className="font-medium text-lg text-gray-400 underline">for each server</span>
               </div>
               <div
-                className="flex flex-row items-center justify-center px-12 py-3 space-x-2 bg-gradient-to-r from-[#1D3729] to-[#284D39] rounded cursor-pointer hover:scale-[1.02] transform duration-500"
+                className="flex flex-row items-center justify-center px-12 py-3 space-x-2 bg-gradient-to-r from-[#1D3729] to-[#284D39] rounded cursor-pointer hover:scale-102 transform duration-500"
                 onClick={() => showPremiumModal(true)}
               >
                 <i className="fad fa-shopping-cart fa-opacity-80 text-lg text-olive-400" />
