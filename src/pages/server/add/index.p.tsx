@@ -39,6 +39,12 @@ function AddServer(props: AddServerProps): JSX.Element {
     hostname: "",
     port: "25565",
     description: "",
+    whitelisted: false,
+    bedrock: false,
+    cracked: false,
+    website_url: "",
+    discord_url: "",
+    trailer_url: "",
   });
 
   return (
