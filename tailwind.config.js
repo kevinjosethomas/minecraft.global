@@ -57,6 +57,9 @@ module.exports = {
         88: "22rem",
         92: "23rem",
       },
+      scale: {
+        102: "1.02",
+      },
     },
   },
   variants: {},
