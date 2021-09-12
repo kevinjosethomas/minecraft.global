@@ -11,8 +11,8 @@ function Footer(): JSX.Element {
           title="Community"
           rows={[
             { icon: "far fa-handshake", label: "Partners", href: "/partners" },
-            { icon: "far fa-gift", label: "Giveaways", href: "/giveaways" },
             { icon: "far fa-question-circle", label: "Support", href: "/support" },
+            { icon: "fab fa-medium-m", label: "Blog", href: "/blog" },
           ]}
         />
         <Column
