@@ -4,7 +4,7 @@ import Column from "./components/Column";
 
 function Footer(): JSX.Element {
   return (
-    <div className="flex flex-col items-center justify-center w-full p-5 md:p-20 3xl:px-56 space-y-6 md:space-y-12 bg-dark-800">
+    <div className="flex flex-col items-center justify-center w-full p-5 md:p-20 3xl:px-40 space-y-6 md:space-y-12 bg-dark-800">
       <div className="flex flex-col md:flex-row items-center justify-center md:justify-between w-full space-y-4 md:space-y-0">
         <img src="/images/logo.svg" alt="Logo" className="hidden md:inline w-32" />
         <Column

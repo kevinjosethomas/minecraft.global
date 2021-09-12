@@ -58,7 +58,7 @@ const Navbar = (props: Navbar): JSX.Element => {
         {mobile && <Mobile {...props} setMobile={setMobile} logout={logout} />}
       </AnimatePresence>
       <motion.div
-        className="flex flex-row items-center justify-between w-full h-20 px-5 md:px-20 3xl:px-56 bg-dark-800"
+        className="flex flex-row items-center justify-between w-full h-20 px-5 md:px-20 3xl:px-40 bg-dark-800"
         layoutId="navbar"
       >
         <div className="hidden md:flex flex-row items-center justify-start space-x-4 xl:space-x-8">

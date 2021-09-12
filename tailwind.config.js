@@ -55,6 +55,7 @@ module.exports = {
       height: {
         84: "21rem",
         88: "22rem",
+        90: "22.5rem",
         92: "23rem",
       },
       scale: {
