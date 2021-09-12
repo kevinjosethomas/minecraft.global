@@ -8,6 +8,7 @@ body,
   width: 100% !important;
   min-height: 100% !important;
   font-family: "DM Sans", sans-serif;
+  @apply bg-dark-800;
 }
 
 ::-webkit-scrollbar {
