@@ -61,7 +61,6 @@ const minigames = [
 ];
 
 const features = [
-  { id: 78, label: "Cracked", checked: false },
   { id: 23, label: "Puzzle", checked: false },
   { id: 25, label: "MCMMO", checked: false },
   { id: 27, label: "Economy", checked: false },
