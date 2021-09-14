@@ -1,26 +1,44 @@
-type SortProps = {};
+import Radio from "./Radio";
+
+type SortProps = {
+  parameters: Record<string, any>;
+  setParameters: CallableFunction;
+};
 
 function Sort(props: SortProps): JSX.Element {
+  const sort = [
+    {
+      id: 1,
+      label: "Players",
+      selected: props.parameters.sort == "players",
+      onClick: () => props.setParameters({ ...props.parameters, sort: "players" }),
+    },
+    {
+      id: 2,
+      label: "Upvotes",
+      selected: props.parameters.sort == "upvotes",
+      onClick: () => props.setParameters({ ...props.parameters, sort: "upvotes" }),
+    },
+    {
+      id: 3,
+      label: "Growth",
+      selected: props.parameters.sort == "growth",
+      onClick: () => props.setParameters({ ...props.parameters, sort: "growth" }),
+    },
+  ];
+
   return (
     <div className="flex flex-col items-start justify-center">
-      <span className="font-bold text-4xl text-gray-400">Sort</span>
+      <span className="font-bold text-4xl text-gray-300">Sort</span>
       <div className="flex flex-col items-start justify-center space-y-2">
-        <div className="flex flex-row items-center justify-center space-x-2">
-          <div className="w-6 h-6 bg-dark-200 rounded-full" />
-          <span className="font-medium text-2xl text-gray-400">Popularity</span>
-        </div>
-        <div className="flex flex-row items-center justify-center space-x-2">
-          <div className="w-6 h-6 bg-dark-200 rounded-full" />
-          <span className="font-medium text-2xl text-gray-400">Growth</span>
-        </div>
-        <div className="flex flex-row items-center justify-center space-x-2">
-          <div className="w-6 h-6 bg-dark-200 rounded-full" />
-          <span className="font-medium text-2xl text-gray-400">Upvotes</span>
-        </div>
-        <div className="flex flex-row items-center justify-center space-x-2">
-          <div className="w-6 h-6 bg-dark-200 rounded-full" />
-          <span className="font-medium text-2xl text-gray-400">Players</span>
-        </div>
+        {sort.map((radio) => (
+          <Radio
+            key={radio.id}
+            label={radio.label}
+            selected={radio.selected}
+            onClick={radio.onClick}
+          />
+        ))}
       </div>
     </div>
   );
