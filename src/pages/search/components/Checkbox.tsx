@@ -8,12 +8,14 @@ type CheckBoxProps = {
 
 function CheckBox(props: CheckBoxProps): JSX.Element {
   return (
-    <div className="flex flex-row items-center justify-center space-x-2">
+    <div
+      className="flex flex-row items-center justify-center space-x-2 select-none cursor-pointer"
+      onClick={props.onClick}
+    >
       <div
         className={`flex flex-col items-center justify-center w-6 h-6 ${
           props.selected ? "bg-olive-700" : "bg-dark-400"
         } rounded`}
-        onClick={props.onClick}
       >
         {props.selected && <i className="fas fa-check text-xs text-dark-400" />}
       </div>

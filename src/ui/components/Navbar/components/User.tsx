@@ -26,7 +26,7 @@ const User = (props: User): JSX.Element => {
         {dropdown && (
           <OnOutsideClick onOutsideClick={() => setDropdown(false)}>
             <motion.div
-              className="absolute flex flex-col items-center justify-start p-4 space-y-2 top-12 right-0 bg-dark-700 border-2 border-gray-800 select-none rounded overflow-y-hidden"
+              className="absolute flex flex-col items-center justify-start p-4 z-50 top-12 right-0 space-y-2 bg-dark-700 border-2 border-gray-800 select-none rounded overflow-y-hidden"
               initial={{ height: 0 }}
               animate={{ height: "auto" }}
               exit={{ height: 0, transition: { duration: 0.3 } }}
