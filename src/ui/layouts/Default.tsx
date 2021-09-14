@@ -11,7 +11,7 @@ type Default = {
 
 const Default = (props: Default): JSX.Element => {
   return (
-    <div className="flex flex-col items-start justify-start w-full overflow-x-hidden">
+    <div className="flex flex-col items-start justify-start w-full">
       <Navbar user={props.user} />
       <div
         className={`flex flex-col items-start justify-start w-full h-full p-5 md:p-20 3xl:px-40 ${props.background}`}
