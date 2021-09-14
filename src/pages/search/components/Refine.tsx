@@ -1,9 +1,11 @@
 import Sort from "./Sort";
+import Tags from "./Tags";
 import Filter from "./Filter";
 
 type RefineProps = {
   parameters: Record<string, any>;
   setParameters: CallableFunction;
+  showTagsModal: CallableFunction;
 };
 
 function Refine(props: RefineProps): JSX.Element {
@@ -13,6 +15,11 @@ function Refine(props: RefineProps): JSX.Element {
       <div className="flex flex-col items-start justify-center space-y-5">
         <Sort parameters={props.parameters} setParameters={props.setParameters} />
         <Filter parameters={props.parameters} setParameters={props.setParameters} />
+        <Tags
+          parameters={props.parameters}
+          setParameters={props.setParameters}
+          showTagsModal={props.showTagsModal}
+        />
       </div>
     </div>
   );
