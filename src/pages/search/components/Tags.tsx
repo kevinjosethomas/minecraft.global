@@ -15,6 +15,24 @@ function Tags(props: TagsProps): JSX.Element {
         >
           <span className="font-bold text-lg text-gray-300">Choose Tags</span>
         </div>
+        <div className="flex flex-row items-center justify-start flex-wrap">
+          {props.parameters.tags.map((tag: string, index: number) => (
+            <div
+              key={index}
+              className="flex flex-row items-center justify-center px-2 py-1 space-x-2 mr-2 mb-2 bg-dark-500 hover:bg-dark-200 select-none cursor-pointer rounded transition duration-300"
+              onClick={() => {
+                props.setParameters({
+                  ...props.parameters,
+                  tags: props.parameters.tags.filter((t: string) => t !== tag),
+                });
+              }}
+            >
+              <span className="text-sm font-medium text-gray-400 select-none whitespace-nowrap">
+                {tag}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
