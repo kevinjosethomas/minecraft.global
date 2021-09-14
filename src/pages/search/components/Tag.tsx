@@ -1,3 +1,6 @@
+import toast from "react-hot-toast";
+import Toast from "ui/components/Toast/Toast";
+
 type TagProps = {
   tag: Record<string, any>;
   parameters: Record<string, any>;
@@ -8,6 +11,16 @@ function Tag(props: TagProps): JSX.Element {
   const selected = props.parameters.tags.includes(props.tag.name);
 
   const selectTag = () => {
+    if (props.parameters.tags.length >= 8) {
+      toast.custom((t) => (
+        <Toast
+          icon="far fa-times-circle text-olive-600"
+          title="Too many tags selected!"
+          subtitle="You cannot select more than 8 tags!"
+        />
+      ));
+      return;
+    }
     props.setParameters({
       ...props.parameters,
       tags: [...props.parameters.tags, props.tag.name],
