@@ -9,6 +9,7 @@ import SearchServers from "api/search";
 import GetLoggedInUser from "api/auth";
 import Refine from "./components/Refine";
 import Default from "ui/layouts/Default";
+import Navigation from "./components/Navigation";
 import ServerCard from "ui/components/ServerCard/ServerCard";
 
 type SearchProps = {
@@ -31,10 +32,16 @@ function Search(props: SearchProps): JSX.Element {
     cracked: false, // filter by cracked servers
     tags: [], // stringified list of tags
   });
+
+  useEffect(() => {
+    setParameters({ ...parameters, offset: page * 12 - 12 });
+  }, [page]);
+
   const [tagsModal, showTagsModal] = useState(false);
 
-  const { isLoading, error, data } = useQuery(["SearchServers", parameters], () =>
-    SearchServers(parameters)
+  const { isLoading, error, data }: Record<string, any> = useQuery(
+    ["SearchServers", parameters],
+    () => SearchServers(parameters)
   );
 
   useEffect(() => {
@@ -50,7 +57,26 @@ function Search(props: SearchProps): JSX.Element {
       {tagsModal && (
         <Tags showTagsModal={showTagsModal} parameters={parameters} setParameters={setParameters} />
       )}
-      <div className="flex flex-col items-center justify-center w-full">
+      <div className="flex flex-col items-center justify-center w-full space-y-4">
+        {data && (
+          <div className="flex flex-row items-center justify-between w-full">
+            <div className="flex flex-row items-center justify-start space-x-4">
+              <i className="far fa-telescope text-4xl text-gray-300" />
+              <span className="font-medium text-4xl text-gray-300">
+                Showing <span className="font-bold text-olive-700">{data[0].entries.length}</span>{" "}
+                out of <span className="font-bold text-olive-700">{data[0].total_records}</span>{" "}
+                results for &quot;
+                <span className="font-bold text-olive-700">{parameters.query}</span>&quot;
+              </span>
+            </div>
+            <Navigation
+              page={page}
+              setPage={setPage}
+              records={data[0].entries.length}
+              total_records={data[0].total_records}
+            />
+          </div>
+        )}
         <div className="flex flex-row items-start justify-center w-full space-x-10">
           <Refine
             parameters={parameters}
@@ -67,6 +93,14 @@ function Search(props: SearchProps): JSX.Element {
             <></>
           )}
         </div>
+        {data && (
+          <Navigation
+            page={page}
+            setPage={setPage}
+            records={data[0].entries.length}
+            total_records={data[0].total_records}
+          />
+        )}
       </div>
     </Default>
   );
