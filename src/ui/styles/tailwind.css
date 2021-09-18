@@ -48,7 +48,8 @@ body,
 }
 
 .long-description a,
-.faq a {
+.faq a,
+.format-links {
   @apply text-olive-500;
   text-decoration: underline;
 }

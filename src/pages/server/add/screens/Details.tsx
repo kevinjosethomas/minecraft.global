@@ -1,4 +1,3 @@
-import Description from "ui/components/ServerCard/components/Description";
 import Input from "../components/Input";
 import TextArea from "../components/TextArea";
 
