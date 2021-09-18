@@ -23,7 +23,7 @@ function ServerCard(props: Server): JSX.Element {
           props.premium ? "border-olive-700" : "border-gray-800"
         } rounded`}
       >
-        <Identity favicon={props.favicon} name={props.name} />
+        <Identity favicon={props.favicon} name={props.name} online={props.online} />
         <div className="flex flex-col items-start justify-start w-full h-full space-y-3 overflow-x-hidden no-scrollbar">
           <Tags
             monthly_votes={props.monthly_votes}
