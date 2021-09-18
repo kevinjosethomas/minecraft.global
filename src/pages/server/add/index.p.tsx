@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import Tags from "./modals/Tags";
 import Details from "./screens/Details";
 import Default from "ui/layouts/Default";
 import Features from "./screens/Features";
@@ -36,16 +37,20 @@ function AddServer(props: AddServerProps): JSX.Element {
   const [activeScreen, setActiveScreen] = useState(screens[0]);
   const [params, setParams] = useState({
     name: "",
-    hostname: "",
+    host: "",
     port: "25565",
     description: "",
+    long_description: "",
     whitelisted: false,
     bedrock: false,
     cracked: false,
     website_url: "",
     discord_url: "",
     trailer_url: "",
+    tags: [],
   });
+
+  const [tagsModal, showTagsModal] = useState(false);
 
   const decrementScreen = () => {
     setActiveScreen(screens.find((screen) => screen.id === activeScreen.id - 1) as any);
@@ -56,6 +61,9 @@ function AddServer(props: AddServerProps): JSX.Element {
 
   return (
     <Default background="bg-dark-700">
+      {tagsModal && (
+        <Tags parameters={params} setParameters={setParams} showTagsModal={showTagsModal} />
+      )}
       <div className="flex flex-row items-start justify-center space-x-10 w-full">
         <Navigation
           screens={screens}
@@ -94,7 +102,11 @@ function AddServer(props: AddServerProps): JSX.Element {
               )}
             </div>
           </div>
-          <activeScreen.screen params={params} setParams={setParams} />
+          <activeScreen.screen
+            params={params}
+            setParams={setParams}
+            showTagsModal={showTagsModal}
+          />
         </div>
       </div>
     </Default>
