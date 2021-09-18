@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Tags from "./modals/Tags";
 import Details from "./screens/Details";
@@ -51,6 +51,14 @@ function AddServer(props: AddServerProps): JSX.Element {
   });
 
   const [tagsModal, showTagsModal] = useState(false);
+
+  useEffect(() => {
+    if (tagsModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [tagsModal]);
 
   const decrementScreen = () => {
     setActiveScreen(screens.find((screen) => screen.id === activeScreen.id - 1) as any);
