@@ -50,7 +50,7 @@ function Features(props: FeaturesProps): JSX.Element {
             className="flex flex-row items-center justify-center px-6 py-2 bg-olive-800 hover:bg-olive-700 rounded-full cursor-pointer select-none transition duration-300"
             onClick={() => props.showTagsModal(true)}
           >
-            <span className="font-bold text-xl text-gray-300">Choose Tags</span>
+            <span className="font-medium text-xl text-gray-300">Choose Tags</span>
           </div>
           <div className="flex flex-row items-center justify-center space-x-2">
             {props.params.tags.map((tag: string, index: number) => (

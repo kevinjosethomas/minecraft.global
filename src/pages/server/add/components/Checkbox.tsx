@@ -14,12 +14,12 @@ function Checkbox(props: CheckboxProps): JSX.Element {
     >
       <div
         className={`flex flex-col items-center justify-center w-6 h-6 ${
-          props.checked ? "bg-olive-800" : "bg-dark-300"
+          props.checked ? "bg-olive-700" : "bg-dark-200"
         } rounded`}
       >
         {props.checked && <i className="fas fa-check text-xs text-dark-400" />}
       </div>
-      <span className="font-medium text-xl text-gray-500">{props.label}</span>
+      <span className="text-xl text-gray-400">{props.label}</span>
     </div>
   );
 }
