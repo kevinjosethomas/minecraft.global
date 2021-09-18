@@ -86,7 +86,7 @@ function Search(props: SearchProps): JSX.Element {
           {data ? (
             <div className="grid grid-cols-3 place-items-center gap-10">
               {data[0].entries.map((server: Server) => (
-                <ServerCard key={server.server_id} {...server} />
+                <ServerCard key={server.server_id} {...server} user={props.user} />
               ))}
             </div>
           ) : (

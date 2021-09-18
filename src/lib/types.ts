@@ -12,8 +12,8 @@ type Server = {
   discord_url: string;
   trailer_url: string;
   tags: string[];
-  is_bedrock: boolean;
-  is_cracked: boolean;
+  bedrock: boolean;
+  cracked: boolean;
   whitelisted: boolean;
   approved: boolean;
   premium: boolean;
@@ -23,8 +23,9 @@ type Server = {
   online: boolean;
   favicon: string;
   players_online: number;
-  player_data: object[];
+  max_players: number;
   pinged_at: Date;
+  user?: Record<string, any>;
 };
 
 type Dropdown = {

@@ -4,7 +4,9 @@ import toast from "react-hot-toast";
 import Toast from "ui/components/Toast/Toast";
 
 type ButtonsProps = {
+  user?: Record<string, any>;
   server_id: number;
+  owner_id: number;
   host: string;
   port: number;
   premium: boolean;
@@ -25,18 +27,38 @@ function Buttons(props: ButtonsProps): JSX.Element {
 
   return (
     <div className="flex flex-row items-center justify-between w-full space-x-4 rounded">
-      <div
-        className={`flex flex-row items-center justify-center py-3 w-full ${
-          props.premium ? "bg-olive-700" : "bg-dark-200"
-        } cursor-pointer rounded hover:scale-102 transform duration-300`}
-        onClick={CopyIP}
-      >
-        <span
-          className={`font-medium ${props.premium ? "text-gray-300" : "text-gray-400"} select-none`}
+      {props.user?.user_id === props.owner_id ? (
+        <Link href={`/server/${props.server_id}/edit`}>
+          <a
+            className={`flex flex-row items-center justify-center py-3 w-full ${
+              props.premium ? "bg-olive-700" : "bg-dark-200"
+            } cursor-pointer rounded hover:scale-102 transform duration-300`}
+          >
+            <span
+              className={`font-medium ${
+                props.premium ? "text-gray-300" : "text-gray-400"
+              } select-none`}
+            >
+              Edit Server
+            </span>
+          </a>
+        </Link>
+      ) : (
+        <div
+          className={`flex flex-row items-center justify-center py-3 w-full ${
+            props.premium ? "bg-olive-700" : "bg-dark-200"
+          } cursor-pointer rounded hover:scale-102 transform duration-300`}
+          onClick={CopyIP}
         >
-          Copy IP
-        </span>
-      </div>
+          <span
+            className={`font-medium ${
+              props.premium ? "text-gray-300" : "text-gray-400"
+            } select-none`}
+          >
+            Copy IP
+          </span>
+        </div>
+      )}
       <Link href={`/server/${props.server_id}`}>
         <a
           className={`flex flex-row items-center justify-center py-3 w-full ${

@@ -33,7 +33,9 @@ function ServerCard(props: Server): JSX.Element {
           <Description description={props.description} />
         </div>
         <Buttons
+          user={props.user}
           server_id={props.server_id}
+          owner_id={props.owner_id}
           host={props.host}
           port={props.port}
           premium={props.premium}

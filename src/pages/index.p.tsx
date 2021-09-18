@@ -20,18 +20,21 @@ function Home(props: Home): JSX.Element {
         <Searchbox />
         <div className="flex flex-col items-center justify-center w-full space-y-12">
           <Listing
+            user={props.user}
             title="Sponsored Servers"
             subtitle="The winners of this week's auctions!"
             icon="far fa-hand-sparkles"
             data={isLoading ? null : (data as any[])[0].auctions}
           />
           <Listing
+            user={props.user}
             title="Popular Servers"
             subtitle="The most active servers right now!"
             icon="far fa-stars"
             data={isLoading ? null : (data as any[])[0].popular.entries}
           />
           <Listing
+            user={props.user}
             title="Growing Servers"
             subtitle="New and growing Minecraft servers!"
             icon="far fa-seedling"

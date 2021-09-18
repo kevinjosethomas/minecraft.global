@@ -11,7 +11,7 @@ function Servers(props: ServersProps): JSX.Element {
       <div className="grid grid-cols-3 justify-items-center w-full">
         {!props.isLoading &&
           props.user.servers.map((server: any) => (
-            <ServerCard key={server.server_id} {...server} />
+            <ServerCard key={server.server_id} {...server} user={props.user} />
           ))}
       </div>
     </div>
