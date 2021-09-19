@@ -48,6 +48,9 @@ function AddServer(props: AddServerProps): JSX.Element {
     discord_url: "",
     trailer_url: "",
     tags: [],
+    votifier_host: "",
+    votifier_port: "",
+    votifier_token: "",
   });
 
   const [tagsModal, showTagsModal] = useState(false);

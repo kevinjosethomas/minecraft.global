@@ -25,7 +25,7 @@ function Details(props: DetailsProps): JSX.Element {
     if (e.target.value < 0 || e.target.value > 65535) {
       return;
     }
-    props.setParams({ ...props.params, port: e.target.value });
+    props.setParams({ ...props.params, port: e.target.value.replace(/[^0-9]/g, "") });
   };
 
   const onDescriptionChange = (e: any) => {
