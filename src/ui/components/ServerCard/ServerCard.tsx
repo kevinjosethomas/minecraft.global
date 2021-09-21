@@ -24,7 +24,7 @@ function ServerCard(props: Server): JSX.Element {
         } rounded`}
       >
         <Identity favicon={props.favicon} name={props.name} online={props.online} />
-        <div className="flex flex-col items-start justify-start w-full h-full space-y-3 overflow-x-hidden no-scrollbar">
+        <div className="flex flex-col items-start justify-start w-full h-full space-y-3">
           <Tags
             monthly_votes={props.monthly_votes}
             players_online={props.players_online}

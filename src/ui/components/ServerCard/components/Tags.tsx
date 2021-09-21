@@ -10,7 +10,7 @@ type TagsProps = {
 
 function Tags(props: TagsProps): JSX.Element {
   return (
-    <div className="flex flex-row items-center justify-start space-x-2">
+    <div className="flex flex-row items-center justify-start w-full space-x-2 overflow-x-scroll no-scrollbar hover:cursor-grab">
       <Tag
         icon="far fa-arrow-alt-up"
         tag={SimplifyNumber(props.monthly_votes, { decimal: 1 }).toUpperCase()}

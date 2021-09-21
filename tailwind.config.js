@@ -61,6 +61,9 @@ module.exports = {
       scale: {
         102: "1.02",
       },
+      cursor: {
+        grab: "grab",
+      },
     },
   },
   variants: {},
