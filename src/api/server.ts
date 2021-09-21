@@ -18,6 +18,19 @@ async function GetRandomServer() {
   }
 }
 
+async function NewServer(data: Record<string, any>, token: string) {
+  try {
+    const response = await axios.post(process.env.NEXT_PUBLIC_API + "/server/new", data, {
+      headers: {
+        Authorization: token,
+      },
+    });
+    return [response, null];
+  } catch (e) {
+    return [null, e];
+  }
+}
+
 async function GetTopVoters(id: string) {
   try {
     const votes = await axios.get(process.env.NEXT_PUBLIC_API + `/server/${id}/votes/top`);
@@ -39,4 +52,4 @@ async function UpvoteServer(id: string, playername: string) {
   }
 }
 
-export { GetServer, GetRandomServer, GetTopVoters, UpvoteServer };
+export { GetServer, GetRandomServer, NewServer, GetTopVoters, UpvoteServer };

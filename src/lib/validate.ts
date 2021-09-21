@@ -46,18 +46,6 @@ const validate = {
     }
     return true;
   },
-  long_description: (params: any) => {
-    if (!params.long_description) {
-      return "You must provide a server description!";
-    }
-    if (params.long_description.length < 150) {
-      return "Your server's long description must be atleast 150 characters in length!";
-    }
-    if (params.long_description.length > 5000) {
-      return "Your server's long description must not be more than 5000 characters in length!";
-    }
-    return true;
-  },
   tags: (params: any) => {
     if (!params.tags) {
       return "You must provide server tags!";
@@ -124,6 +112,18 @@ const validate = {
     }
     if (params.trailer_url.length > 220) {
       return "Your server trailer url must not be more than 220 characters in length!";
+    }
+    return true;
+  },
+  long_description: (params: any) => {
+    if (!params.long_description) {
+      return "You must provide a long description!";
+    }
+    if (params.long_description.length < 150) {
+      return "Your server's long description must be atleast 150 characters in length!";
+    }
+    if (params.long_description.length > 5000) {
+      return "Your server's long description must not be more than 5000 characters in length!";
     }
     return true;
   },
