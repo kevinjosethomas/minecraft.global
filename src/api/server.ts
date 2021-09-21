@@ -11,8 +11,8 @@ async function GetServer(id: string) {
 
 async function GetRandomServer() {
   try {
-    const server = await axios.get(process.env.NEXT_PUBLIC_API + "/server/random");
-    return [server.data.payload.server_id, null];
+    const server = await axios.get(process.env.NEXT_PUBLIC_API + "/server/random/id");
+    return [server.data.payload, null];
   } catch (e) {
     return [null, e];
   }
