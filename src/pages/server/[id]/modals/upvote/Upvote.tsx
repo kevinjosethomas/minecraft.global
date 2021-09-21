@@ -93,18 +93,18 @@ function Upvote(props: UpvoteProps): JSX.Element {
 
   return (
     <div
-      className="fixed grid grid-flow-col content-center gap-x-10 justify-center w-screen h-screen top-0 left-0 bg-black bg-opacity-75 z-10 overflox-y-hidden"
+      className="fixed grid grid-flow-row md:grid-flow-col content-center gap-y-4 md:gap-y-0 md:gap-x-10 justify-center w-screen h-screen top-0 left-0 bg-black bg-opacity-75 z-10 overflox-y-hidden"
       onClick={() => props.showUpvoteModal(false)}
     >
       <div
-        className="flex flex-col items-start justify-between p-10 bg-dark-800 border-2 border-gray-800 rounded"
+        className="flex flex-col items-start justify-center md:justify-between p-4 md:p-10 bg-dark-800 border-2 border-gray-800 rounded space-y-4"
         onClick={(e) => e.stopPropagation()}
       >
         <span className="font-bold text-4xl text-gray-400">Upvote {props.server.name}</span>
-        <div className="flex flex-col items-start justify-center pr-72">
+        <div className="flex flex-col items-start justify-center w-full md:pr-72">
           <span className="font-medium text-lg text-gray-400">Your Minecraft username</span>
           <input
-            className="px-2 py-1 w-72 text-gray-400 placeholder-gray-500 bg-dark-300 rounded focus:outline-none"
+            className="px-2 py-1 w-full text-gray-400 placeholder-gray-500 bg-dark-300 rounded focus:outline-none"
             onChange={(e) => setPlayername(e.target.value)}
             value={playername}
             placeholder={placeholder}
@@ -133,7 +133,7 @@ function Upvote(props: UpvoteProps): JSX.Element {
         </div>
       </div>
       <div
-        className="flex flex-col items-start justify-center p-10 space-y-2 bg-dark-800 border-2 border-gray-800 rounded"
+        className="flex flex-col items-start justify-center p-4 space-y-2 bg-dark-800 border-2 border-gray-800 rounded"
         onClick={(e) => e.stopPropagation()}
       >
         <span className="font-bold text-2xl text-gray-300">

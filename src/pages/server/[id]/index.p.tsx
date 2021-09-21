@@ -43,7 +43,7 @@ function Server(props: Server): JSX.Element {
   }, [upvoteModal]);
 
   return (
-    <Default background="bg-dark-700" user={props.user}>
+    <Default background="px-0 bg-dark-700" user={props.user}>
       {upvoteModal && (
         <UpvoteModal
           voters={topVoters as any}
@@ -51,11 +51,11 @@ function Server(props: Server): JSX.Element {
           showUpvoteModal={showUpvoteModal}
         />
       )}
-      <div className="flex flex-row items-start justify-between w-full">
-        <div className="flex flex-col items-start justify-start w-[70%] space-y-6">
-          <div className="flex flex-row items-start justify-between w-full">
-            <div className="flex flex-col items-start justify-start space-y-6">
-              <div className="flex flex-row items-center justify-start space-x-4">
+      <div className="flex flex-row items-start justify-between scroll-snap w-full space-x-8 md:space-x-0 overflow-x-scroll md:overflow-x-hidden no-scrollbar">
+        <div className="flex flex-col items-start justify-start scroll-snap-child pl-5 max-w-[80%] md:w-[70%] space-y-6">
+          <div className="flex flex-col md:flex-row items-start justify-between space-y-3 w-full overflow-x-hidden">
+            <div className="flex flex-col items-start justify-start space-y-3 md:space-y-6 w-full">
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-start space-y-3 md:space-y-0 md:space-x-4">
                 <img src={props.server.favicon} alt={props.server.name} />
                 <div className="flex flex-col items-start justify-center">
                   <h1 className="font-bold text-4xl text-gray-300">{props.server.name}</h1>
@@ -65,7 +65,7 @@ function Server(props: Server): JSX.Element {
                   </span>
                 </div>
               </div>
-              <div className="flex flex-row items-center justify-start space-x-2 overflow-x-scroll">
+              <div className="flex flex-row items-center justify-start w-full space-x-2 overflow-x-scroll no-scrollbar">
                 {props.server.tags.map((tag: string) => (
                   <div
                     key={tag}
@@ -78,7 +78,7 @@ function Server(props: Server): JSX.Element {
                 ))}
               </div>
             </div>
-            <div className="flex flex-col items-center justify-start space-y-3">
+            <div className="flex flex-row md:flex-col items-center justify-start space-x-3 md:space-x-0 md:space-y-3">
               {props.server.website_url && (
                 <Social icon="far fa-link" href={props.server.website_url} />
               )}
@@ -90,25 +90,29 @@ function Server(props: Server): JSX.Element {
               )}
             </div>
           </div>
-          <div className="flex flex-row justify-start items-start w-full p-5 border-2 border-gray-800 rounded bg-dark-800">
+          <div className="flex flex-row justify-start items-start w-full p-3 md:p-5 border-2 border-gray-800 rounded bg-dark-800">
             <ReactMarkdown className="long-description font-medium text-gray-400 whitespace-pre-wrap">
               {props.server.long_description}
             </ReactMarkdown>
           </div>
         </div>
-        <div className="flex flex-col items-start justify-start w-[25%] space-y-6">
+        <div className="flex flex-col items-start justify-start scroll-snap-child pr-5 min-w-[80%] md:min-w-0 md:w-[25%] space-y-6">
           <div className="flex flex-col items-start justify-start space-y-2">
             <div className="flex flex-col items-start justify-start">
-              <div className="flex flex-row items-center justify-start space-x-2">
-                <i className="fas fa-info-circle text-2xl text-gray-300" />
-                <span className="font-bold text-2xl text-gray-300">Brief Description</span>
+              <div className="flex flex-row items-center justify-start space-x-2 whitespace-nowrap">
+                <i className="fas fa-info-circle text-xl md:text-lg xl:text-2xl text-gray-300" />
+                <span className="font-bold text-xl md:text-lg xl:text-2xl text-gray-300">
+                  Brief Description
+                </span>
               </div>
-              <span className="font-medium text-gray-400">{props.server.description}</span>
+              <span className="font-medium text-sm xl:text-base text-gray-400">
+                {props.server.description}
+              </span>
             </div>
             <div className="flex flex-row items-center justify-start space-x-2">
               {props.server.whitelisted && <Feature label="Whitelisted" />}
-              {props.server.is_bedrock && <Feature label="Bedrock" />}
-              {props.server.is_cracked && <Feature label="Cracked" />}
+              {props.server.bedrock && <Feature label="Bedrock" />}
+              {props.server.cracked && <Feature label="Cracked" />}
             </div>
           </div>
           <div className="flex flex-col items-center justify-start w-full space-y-2">
@@ -116,13 +120,15 @@ function Server(props: Server): JSX.Element {
               className="flex flex-row items-center justify-start w-full rounded border-2 border-gray-800 transform hover:scale-102 duration-300 cursor-pointer"
               onClick={() => showUpvoteModal(true)}
             >
-              <div className="flex flex-col items-center justify-center w-14 h-14 bg-dark-400 rounded-l">
-                <i className="fas fa-arrow-alt-up text-2xl text-gray-400" />
+              <div className="flex flex-col items-center justify-center w-10 xl:w-12 2xl:w-14 h-10 xl:h-12 2xl:h-14 bg-dark-400 rounded-l">
+                <i className="fas fa-arrow-alt-up text-base md:text-sm xl:text-lg 2xl:text-2xl text-gray-400" />
               </div>
-              <div className="flex flex-row items-center justify-start flex-1 h-14 p-4 space-x-4 bg-dark-600 rounded-r">
-                <span className="font-bold text-2xl text-gray-400 select-none">Upvote Server</span>
-                <div className="flex flex-row items-center justify-center px-3 py-0.5 bg-dark-200 rounded-full">
-                  <span className="font-bold text-gray-400">
+              <div className="flex flex-row items-center justify-start flex-1 h-10 xl:h-12 2xl:h-14 px-2 xl:px-4 space-x-4 bg-dark-600 rounded-r">
+                <span className="font-bold text-base md:text-sm xl:text-lg 2xl:text-2xl text-gray-400 select-none">
+                  Upvote <span className="hidden md:inline">Server</span>
+                </span>
+                <div className="flex flex-row items-center justify-center px-2 xl:px-3 py-0.5 bg-dark-200 rounded-full">
+                  <span className="font-bold text-base md:text-sm xl:text-base text-gray-400">
                     {SimplifyNumber(props.server.monthly_votes, { decimal: 1 })}
                   </span>
                 </div>

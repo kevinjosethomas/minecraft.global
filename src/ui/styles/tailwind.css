@@ -65,3 +65,11 @@ body,
 .Dropdown-option:hover {
   @apply !bg-dark-800 !text-gray-400;
 }
+
+.scroll-snap {
+  scroll-snap-type: x mandatory;
+}
+
+.scroll-snap-child {
+  scroll-snap-align: start;
+}
