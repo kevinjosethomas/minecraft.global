@@ -15,7 +15,7 @@ type Column = {
 function Mobile(props: Mobile): JSX.Element {
   return (
     <div
-      className="absolute flex md:hidden flex-col items-start justify-center w-screen h-screen z-30 bg-dark-900 bg-opacity-80 overflow-hidden"
+      className="absolute flex md:hidden flex-col items-start justify-center w-screen h-screen z-50 bg-dark-900 bg-opacity-80 overflow-hidden"
       onClick={() => props.setMobile(false)}
     >
       <motion.div
