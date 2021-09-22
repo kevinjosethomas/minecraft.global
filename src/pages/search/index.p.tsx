@@ -59,10 +59,10 @@ function Search(props: SearchProps): JSX.Element {
       )}
       <div className="flex flex-col items-center justify-center w-full space-y-4">
         {data && (
-          <div className="flex flex-row items-center justify-between w-full">
+          <div className="flex flex-row items-center justify-between w-full space-x-4 md:space-x-0">
             <div className="flex flex-row items-center justify-start space-x-4">
-              <i className="far fa-telescope text-4xl text-gray-300" />
-              <span className="font-medium text-4xl text-gray-300">
+              <i className="far fa-telescope text-3xl md:text-4xl text-gray-300" />
+              <span className="font-medium md:text-4xl text-gray-300">
                 Showing <span className="font-bold text-olive-700">{data[0].entries.length}</span>{" "}
                 out of <span className="font-bold text-olive-700">{data[0].total_records}</span>{" "}
                 results for &quot;
@@ -77,14 +77,14 @@ function Search(props: SearchProps): JSX.Element {
             />
           </div>
         )}
-        <div className="flex flex-row items-start justify-center w-full space-x-10">
+        <div className="flex flex-row items-start justify-start w-full xl:space-x-10">
           <Refine
             parameters={parameters}
             setParameters={setParameters}
             showTagsModal={showTagsModal}
           />
           {data ? (
-            <div className="grid grid-cols-3 place-items-center gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 3xl:grid-cols-3 place-items-center w-full gap-y-10 3xl:gap-10">
               {data[0].entries.map((server: Server) => (
                 <ServerCard key={server.server_id} {...server} user={props.user} />
               ))}
