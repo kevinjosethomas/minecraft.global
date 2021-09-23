@@ -13,7 +13,7 @@ type IdentityProps = {
 function Identity(props: IdentityProps): JSX.Element {
   return (
     <>
-      <div className="flex flex-row items-center justify-start w-full space-x-4 overflox-x-hidden whitespace-nowrap">
+      <div className="flex flex-row items-center justify-start w-full space-x-4 overflow-x-hidden whitespace-nowrap">
         <div className="relative flex flex-col items-center justify-center overflow-elipsis">
           <div
             className={`absolute -bottom-1.5 -right-1.5 w-5 h-5 z-30 rounded-full ${

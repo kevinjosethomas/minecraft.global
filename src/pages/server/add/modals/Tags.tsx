@@ -10,7 +10,7 @@ type TagsProps = {
 function Tags(props: TagsProps): JSX.Element {
   return (
     <div
-      className="fixed grid grid-flow-col content-center gap-x-10 justify-center w-screen h-screen top-0 left-0 bg-black bg-opacity-75 z-10 overflox-y-hidden"
+      className="fixed grid grid-flow-col content-center gap-x-10 justify-center w-screen h-screen top-0 left-0 bg-black bg-opacity-75 z-10 overflow-y-hidden"
       onClick={() => props.showTagsModal(false)}
     >
       <div
