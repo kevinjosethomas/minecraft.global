@@ -10,11 +10,11 @@ type TagsProps = {
 function Tags(props: TagsProps): JSX.Element {
   return (
     <div
-      className="fixed flex flex-col items-center justify-center w-screen h-screen top-0 left-0 bg-black bg-opacity-75 z-40 overflow-y-hidden"
+      className="fixed flex flex-col items-center justify-center w-screen h-screen top-0 left-0 bg-black bg-opacity-75 z-50 overflow-y-hidden"
       onClick={() => props.showTagsModal(false)}
     >
       <div
-        className="flex flex-col items-start justify-between p-10 space-y-10 max-w-6xl max-h-[40rem] bg-dark-800 border-2 border-gray-800 rounded overflow-y-scroll"
+        className="flex flex-col items-start justify-between p-10 space-y-10 max-w-xs md:max-w-3xl xl:max-w-6xl max-h-[40rem] md:max-h-[30rem] xl:max-h-[40rem] bg-dark-800 border-2 border-gray-800 rounded overflow-y-scroll"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex flex-col items-start justify-start space-y-6">

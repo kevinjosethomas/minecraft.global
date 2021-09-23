@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { GetServerSidePropsContext } from "next";
 
 import Tags from "./modals/Tags";
+import RefineModal from "./modals/Refine";
 import { Server } from "lib/types";
 import SearchServers from "api/search";
 import GetLoggedInUser from "api/auth";
@@ -38,6 +39,7 @@ function Search(props: SearchProps): JSX.Element {
   }, [page]);
 
   const [tagsModal, showTagsModal] = useState(false);
+  const [refineModal, showRefineModal] = useState(false);
 
   const { isLoading, error, data }: Record<string, any> = useQuery(
     ["SearchServers", parameters],
@@ -45,18 +47,32 @@ function Search(props: SearchProps): JSX.Element {
   );
 
   useEffect(() => {
-    if (tagsModal) {
+    if (tagsModal || refineModal) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-  }, [tagsModal]);
+  }, [tagsModal, refineModal]);
 
   return (
     <Default background="bg-dark-700" user={props.user}>
       {tagsModal && (
         <Tags showTagsModal={showTagsModal} parameters={parameters} setParameters={setParameters} />
       )}
+      {refineModal && (
+        <RefineModal
+          parameters={parameters}
+          setParameters={setParameters}
+          showRefineModal={showRefineModal}
+          showTagsModal={showTagsModal}
+        />
+      )}
+      <div
+        className="fixed flex xl:hidden flex-col items-center justify-center bottom-6 right-6 w-16 h-16 z-30 bg-olive-800 rounded-full hover:scale-105 transition duration-300 cursor-pointer"
+        onClick={() => showRefineModal(true)}
+      >
+        <i className="fas fa-sort-size-up-alt text-2xl text-gray-300" />
+      </div>
       <div className="flex flex-col items-center justify-center w-full space-y-4">
         {data && (
           <div className="flex flex-row items-center justify-between w-full space-x-4 md:space-x-0">
