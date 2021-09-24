@@ -13,7 +13,7 @@ function Description(props: DescriptionProps): JSX.Element {
 
   return (
     <div className="flex flex-col items-start justify-center w-full space-y-2">
-      <span className="font-medium text-2xl text-gray-400">
+      <span className="font-medium text-lg md:text-2xl text-gray-400">
         Long Description (supports{" "}
         <a
           href="https://commonmark.org/help/"

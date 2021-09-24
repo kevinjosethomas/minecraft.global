@@ -159,7 +159,7 @@ function AddServer(props: AddServerProps): JSX.Element {
       {tagsModal && (
         <Tags parameters={params} setParameters={setParams} showTagsModal={showTagsModal} />
       )}
-      <div className="flex flex-row items-start justify-center space-x-10 w-full">
+      <div className="flex flex-col md:flex-row items-start justify-center space-y-4 md:space-y-0 md:space-x-10 w-full">
         <Navigation
           screens={screens}
           activeScreen={activeScreen}
@@ -167,8 +167,10 @@ function AddServer(props: AddServerProps): JSX.Element {
         />
         <div className="flex flex-col items-start justify-center space-y-8 w-full">
           <div className="flex flex-row items-center justify-between w-full">
-            <span className="font-bold text-5xl text-gray-300">{activeScreen.name}</span>
-            <div className="flex flex-row items-center justify-center space-x-4">
+            <span className="font-bold text-4xl md:text-5xl text-gray-300">
+              {activeScreen.name}
+            </span>
+            <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4">
               {activeScreen.id !== 1 && (
                 <div
                   className="flex flex-row items-center justify-center px-2.5 space-x-2 bg-dark-300 hover:bg-dark-100 rounded select-none cursor-pointer transition duration-300"
