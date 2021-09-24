@@ -25,6 +25,7 @@ function Home(props: Home): JSX.Element {
             subtitle="The winners of this week's auctions!"
             icon="far fa-hand-sparkles"
             data={isLoading ? null : (data as any[])[0].auctions}
+            link="/search?filter=premium"
           />
           <Listing
             user={props.user}
@@ -32,6 +33,7 @@ function Home(props: Home): JSX.Element {
             subtitle="The most active servers right now!"
             icon="far fa-stars"
             data={isLoading ? null : (data as any[])[0].popular.entries}
+            link="/search?sort=popular"
           />
           <Listing
             user={props.user}
@@ -39,6 +41,7 @@ function Home(props: Home): JSX.Element {
             subtitle="New and growing Minecraft servers!"
             icon="far fa-seedling"
             data={isLoading ? null : (data as any[])[0].small.entries}
+            link="/search?sort=growth"
           />
         </div>
       </div>
