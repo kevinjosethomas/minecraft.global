@@ -25,7 +25,7 @@ function Identity(props: IdentityProps): JSX.Element {
             effect="solid"
             className="!bg-dark-600 !border-2 !border-gray-800 !text-gray-300 !font-medium"
           />
-          <div className="absolute w-16 h-16 z-30 bg-dark-300 bg-opacity-30 rounded" />
+          <div className="absolute w-16 h-16 z-20 bg-dark-300 bg-opacity-30 rounded" />
           <img
             src={props.favicon || "/images/default_server_favicon.png"}
             alt={props.name}
