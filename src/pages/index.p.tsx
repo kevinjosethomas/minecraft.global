@@ -33,7 +33,7 @@ function Home(props: Home): JSX.Element {
             subtitle="The most active servers right now!"
             icon="far fa-stars"
             data={isLoading ? null : (data as any[])[0].popular.entries}
-            link="/search?sort=popular"
+            link="/search?sort=players"
           />
           <Listing
             user={props.user}

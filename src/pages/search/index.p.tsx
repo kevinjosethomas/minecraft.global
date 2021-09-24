@@ -25,12 +25,12 @@ function Search(props: SearchProps): JSX.Element {
     amount: 12,
     offset: page * 12 - 12,
     query: router.query.q || null,
-    sort: "players", // sort players (default), upvotes, growth
+    sort: router.query.sort || "players", // sort players (default), upvotes, growth
     online: true, // filter by online servers
-    premium: false, // filter by premium servers
-    whitelisted: false, // filter by whitelisted servers
-    bedrock: false, // filter by bedrock servers
-    cracked: false, // filter by cracked servers
+    premium: router.query.filter?.includes("premium") ? true : false, // filter by premium servers
+    whitelisted: router.query.filter?.includes("whitelisted") ? true : false, // filter by whitelisted servers
+    bedrock: router.query.filter?.includes("bedrock") ? true : false, // filter by bedrock servers
+    cracked: router.query.filter?.includes("cracked") ? true : false, // filter by cracked servers
     tags: [], // stringified list of tags
   });
 

@@ -29,7 +29,7 @@ function Filter(props: FilterProps): JSX.Element {
     },
     {
       id: 4,
-      label: "Bedrock Edition",
+      label: "Bedrock",
       selected: props.parameters.bedrock,
       onClick: () =>
         props.setParameters({ ...props.parameters, bedrock: !props.parameters.bedrock }),
