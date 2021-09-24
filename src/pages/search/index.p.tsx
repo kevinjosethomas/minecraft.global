@@ -123,7 +123,7 @@ function Search(props: SearchProps): JSX.Element {
 }
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
-  const [user, error] = await GetLoggedInUser(ctx);
+  const [user, error]: any[] = await GetLoggedInUser(ctx);
 
   if (error) {
     return {
