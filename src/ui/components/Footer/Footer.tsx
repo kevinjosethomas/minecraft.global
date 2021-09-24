@@ -36,7 +36,7 @@ function Footer(): JSX.Element {
           rows={[
             { icon: "far fa-user-secret", label: "Privacy Policy", href: "/privacy" },
             { icon: "far fa-ballot-check", label: "Terms of Service", href: "/terms" },
-            { icon: "far fa-phone-alt", label: "Contact Us", href: "/contact" },
+            { icon: "far fa-phone-alt", label: "Contact Us", href: "/support" },
           ]}
         />
       </div>
