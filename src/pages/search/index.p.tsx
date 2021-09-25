@@ -11,7 +11,7 @@ import GetLoggedInUser from "api/auth";
 import Refine from "./components/Refine";
 import Default from "ui/layouts/Default";
 import Navigation from "./components/Navigation";
-import ServerCard from "ui/components/ServerCard/ServerCard";
+import ServerCard, { ServerCardSkeleton } from "ui/components/ServerCard/ServerCard";
 
 type SearchProps = {
   user?: Record<string, any>;
@@ -99,15 +99,21 @@ function Search(props: SearchProps): JSX.Element {
             setParameters={setParameters}
             showTagsModal={showTagsModal}
           />
-          {data ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 3xl:grid-cols-3 place-items-center w-full gap-y-10 3xl:gap-10">
-              {data[0].entries.map((server: Server) => (
-                <ServerCard key={server.server_id} {...server} user={props.user} />
-              ))}
-            </div>
-          ) : (
-            <></>
-          )}
+          <div className="grid grid-cols-1 md:grid-cols-2 3xl:grid-cols-3 place-items-center w-full gap-y-10 3xl:gap-10">
+            {data ? (
+              <>
+                {data[0].entries.map((server: Server) => (
+                  <ServerCard key={server.server_id} {...server} user={props.user} />
+                ))}
+              </>
+            ) : (
+              <>
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num: number) => (
+                  <ServerCardSkeleton key={num} />
+                ))}
+              </>
+            )}
+          </div>
         </div>
         {data && (
           <Navigation
