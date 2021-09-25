@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
 
 import { Server } from "lib/types";
-import ServerCard from "ui/components/ServerCard/ServerCard";
+import ServerCard, { ServerCardSkeleton } from "ui/components/ServerCard/ServerCard";
 
 type Listing = {
   user?: Record<string, any>;
@@ -36,15 +36,21 @@ function Listing(props: Listing): JSX.Element {
           </a>
         </Link>
       </div>
-      {props.data ? (
-        <div className="grid grid-flow-row md:grid-flow-col justify-between w-full gap-y-10 md:gap-y-0 lg:gap-x-5 xl:gap-x-0 overflow-x-scroll no-scrollbar">
-          {props.data.slice(0, is1080p ? 4 : 3).map((server: Server) => (
-            <ServerCard key={server.server_id} {...server} user={props.user} />
-          ))}
-        </div>
-      ) : (
-        <></>
-      )}
+      <div className="grid grid-flow-row md:grid-flow-col justify-between w-full gap-y-10 md:gap-y-0 lg:gap-x-5 xl:gap-x-0 overflow-x-scroll no-scrollbar">
+        {props.data ? (
+          <>
+            {props.data.slice(0, is1080p ? 4 : 3).map((server: Server) => (
+              <ServerCard key={server.server_id} {...server} user={props.user} />
+            ))}
+          </>
+        ) : (
+          <>
+            {(is1080p ? [1, 2, 3, 4] : [1, 2, 3]).map((num: number) => (
+              <ServerCardSkeleton key={num} />
+            ))}
+          </>
+        )}
+      </div>
     </div>
   );
 }
