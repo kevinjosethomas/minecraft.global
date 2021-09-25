@@ -54,6 +54,10 @@ function Search(props: SearchProps): JSX.Element {
     }
   }, [tagsModal, refineModal]);
 
+  useEffect(() => {
+    setParameters({ ...parameters, query: router.query.q || null });
+  }, [router.query.q]);
+
   return (
     <Default background="bg-dark-700" user={props.user}>
       {tagsModal && (
