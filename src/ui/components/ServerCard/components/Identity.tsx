@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import Skeleton from "react-loading-skeleton";
 
 const ReactTooltip = dynamic(() => import("react-tooltip"), {
   ssr: false,
@@ -40,4 +41,17 @@ function Identity(props: IdentityProps): JSX.Element {
   );
 }
 
+function IdentitySkeleton({ is1280p, isMobile }: any): JSX.Element {
+  return (
+    <div className="flex flex-row items-center justify-start w-full space-x-4 whitespace-nowrap">
+      <div className="relative flex flex-col items-center justify-center overflow-elipsis">
+        <Skeleton width={64} height={64} />
+      </div>
+      <Skeleton width={is1280p ? 220 : isMobile ? 192 : 256} height={40} />
+      <span className="font-bold text-5xl text-gray-300 tracking-tight truncate"></span>
+    </div>
+  );
+}
+
 export default Identity;
+export { IdentitySkeleton };

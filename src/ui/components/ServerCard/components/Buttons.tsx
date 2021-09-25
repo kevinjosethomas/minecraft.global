@@ -1,5 +1,6 @@
 import Link from "next/link";
 import toast from "react-hot-toast";
+import Skeleton from "react-loading-skeleton";
 
 import Toast from "ui/components/Toast/Toast";
 
@@ -78,4 +79,14 @@ function Buttons(props: ButtonsProps): JSX.Element {
   );
 }
 
+function ButtonsSkeleton({ is1280p, isMobile }: any): JSX.Element {
+  return (
+    <div className="flex flex-row items-center justify-between w-full space-x-4 rounded">
+      <Skeleton width={is1280p ? 142 : isMobile ? 126 : 158} height={50} />
+      <Skeleton width={is1280p ? 142 : isMobile ? 126 : 158} height={50} />
+    </div>
+  );
+}
+
 export default Buttons;
+export { ButtonsSkeleton };

@@ -1,4 +1,6 @@
 import dynamic from "next/dynamic";
+import { useMediaQuery } from "react-responsive";
+import { SkeletonTheme } from "react-loading-skeleton";
 
 const ReactTooltip = dynamic(() => import("react-tooltip"), {
   ssr: false,
@@ -6,9 +8,9 @@ const ReactTooltip = dynamic(() => import("react-tooltip"), {
 
 import { Server } from "lib/types";
 import Tags from "./components/Tags";
-import Buttons from "./components/Buttons";
-import Identity from "./components/Identity";
-import Description from "./components/Description";
+import Buttons, { ButtonsSkeleton } from "./components/Buttons";
+import Identity, { IdentitySkeleton } from "./components/Identity";
+import Description, { DescriptionSkeleton } from "./components/Description";
 
 function ServerCard(props: Server): JSX.Element {
   return (
@@ -18,7 +20,6 @@ function ServerCard(props: Server): JSX.Element {
         className="!bg-dark-600 !border-2 !border-gray-800 !text-gray-300 !font-medium"
       />
       <div
-        key={props.server_id}
         className={`relative flex flex-col items-start justify-start w-80 lg:w-96 xl:w-88 2xl:w-96 h-84 md:h-88 xl:h-84 2xl:h-90 p-6 space-y-6 bg-dark-600 border-2 ${
           props.premium ? "border-olive-700" : "border-gray-800"
         } rounded`}
@@ -51,4 +52,22 @@ function ServerCard(props: Server): JSX.Element {
   );
 }
 
+function ServerCardSkeleton(): JSX.Element {
+  const isMobile = useMediaQuery({ maxWidth: 1024 });
+  const is1280p = useMediaQuery({ minWidth: 1280, maxWidth: 1536 });
+
+  return (
+    <SkeletonTheme color="#222730" highlightColor="#20242E">
+      <div className="relative flex flex-col items-start justify-between w-80 lg:w-96 xl:w-88 2xl:w-96 h-84 md:h-88 xl:h-84 2xl:h-90 p-6 bg-dark-600 border-2 border-gray-800 rounded">
+        <div className="flex flex-col items-start justify-start space-y-8">
+          <IdentitySkeleton is1280p={is1280p} isMobile={isMobile} />
+          <DescriptionSkeleton is1280p={is1280p} isMobile={isMobile} />
+        </div>
+        <ButtonsSkeleton is1280p={is1280p} isMobile={isMobile} />
+      </div>
+    </SkeletonTheme>
+  );
+}
+
 export default ServerCard;
+export { ServerCardSkeleton };

@@ -1,4 +1,5 @@
 import SimplifyNumber from "simplify-number";
+import Skeleton from "react-loading-skeleton";
 
 import Tag from "./Tag";
 
