@@ -87,6 +87,13 @@ function Auctions(props: AuctionsProps): JSX.Element {
 }
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+  return {
+    redirect: {
+      destination: "/soon",
+      permanent: true,
+    },
+  };
+
   const [user, error] = await GetLoggedInUser(ctx);
 
   if (error) {
