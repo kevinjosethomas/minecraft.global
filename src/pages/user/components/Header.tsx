@@ -21,24 +21,33 @@ function Header(props: HeaderProps): JSX.Element {
       />
       <div className="flex flex-row items-start justify-start space-x-4">
         {props.isLoading ? null : (
-          <img src={props.avatar} alt={props.user.name} draggable={false} />
+          <img
+            src={props.avatar}
+            alt={props.user.name}
+            draggable={false}
+            className="w-20 md:w-auto"
+          />
         )}
-        <div className="flex flex-col items-start justify-center">
+        <div className="flex flex-col items-start justify-center w-full overflow-hidden">
           {props.isLoading ? null : (
-            <div className="flex flex-row items-center justify-start space-x-2">
-              <span className="font-bold text-4xl text-gray-300">{props.user.name}</span>
-              {props.user.permissions >= 8 && (
-                <i
-                  className="fad fa-tools fa-opacity-60 text-2xl text-yellow-600"
-                  data-tip="Staff"
-                />
-              )}
-              {props.user.permissions >= 6 && (
-                <i className="fad fa-badge-check text-2xl text-blue-500" data-tip="Partner" />
-              )}
-              {props.user.servers.some((server: Server) => server.premium) && (
-                <i className="fad fa-diamond text-2xl text-olive-500" data-tip="Premium" />
-              )}
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-start w-full md:space-x-2 overflow-hidden">
+              <span className="font-bold text-4xl text-gray-300 overflow-ellipsis overflow-hidden">
+                {props.user.name}
+              </span>
+              <div className="flex flex-row items-center justify-start space-x-2">
+                {props.user.permissions >= 8 && (
+                  <i
+                    className="fad fa-tools fa-opacity-60 text-2xl text-yellow-600"
+                    data-tip="Staff"
+                  />
+                )}
+                {props.user.permissions >= 6 && (
+                  <i className="fad fa-badge-check text-2xl text-blue-500" data-tip="Partner" />
+                )}
+                {props.user.servers.some((server: Server) => server.premium) && (
+                  <i className="fad fa-diamond text-2xl text-olive-500" data-tip="Premium" />
+                )}
+              </div>
             </div>
           )}
           {props.isLoading ? null : (
