@@ -47,7 +47,7 @@ function Home(props: Home): JSX.Element {
             user={props.user}
             title="New Servers"
             subtitle="Recently added Minecraft servers!"
-            icon="fas fa-comment-alt-plus"
+            icon="far fa-comment-alt-plus"
             data={data ? (data as any[])[0].newly.entries : null}
             link="/search?sort=players"
           />
