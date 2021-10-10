@@ -19,20 +19,20 @@ function Home(props: Home): JSX.Element {
       <div className="flex flex-col items-center justify-center w-full space-y-12 md:space-y-20">
         <Searchbox />
         <div className="flex flex-col items-center justify-center w-full space-y-12">
-          <Listing
+          {/* <Listing
             user={props.user}
             title="Sponsored Servers"
             subtitle="The winners of this week's auctions!"
             icon="far fa-hand-sparkles"
             data={isLoading ? null : (data as any[])[0].auctions}
             link="/search?filter=premium"
-          />
+          /> */}
           <Listing
             user={props.user}
             title="Popular Servers"
             subtitle="The most active servers right now!"
             icon="far fa-stars"
-            data={isLoading ? null : (data as any[])[0].popular.entries}
+            data={data ? (data as any[])[0].popular.entries : null}
             link="/search?sort=players"
           />
           <Listing
@@ -40,8 +40,16 @@ function Home(props: Home): JSX.Element {
             title="Growing Servers"
             subtitle="New and growing Minecraft servers!"
             icon="far fa-seedling"
-            data={isLoading ? null : (data as any[])[0].small.entries}
+            data={data ? (data as any[])[0].growing.entries : null}
             link="/search?sort=growth"
+          />
+          <Listing
+            user={props.user}
+            title="New Servers"
+            subtitle="Recently added Minecraft servers!"
+            icon="fas fa-comment-alt-plus"
+            data={data ? (data as any[])[0].newly.entries : null}
+            link="/search?sort=players"
           />
         </div>
       </div>
