@@ -65,7 +65,7 @@ const Navbar = (props: Navbar): JSX.Element => {
           <Link href="/" passHref>
             <img
               src="/images/logo.svg"
-              className="w-8 hover:rotate-[360deg] transform duration-1000"
+              className="w-8 hover:rotate-[360deg] transform duration-1000 delay-500 cursor-pointer"
               draggable="false"
               alt="Logo"
             />
