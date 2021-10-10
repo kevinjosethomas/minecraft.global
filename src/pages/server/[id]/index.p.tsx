@@ -137,8 +137,8 @@ function Server(props: Server): JSX.Element {
           </div>
           <div className="flex flex-row items-center justify-start">
             {props.server.owner_id === props.user?.user_id ? (
-              <Link href={`/server/${props.server.server_id}/edit`}>
-                <a className="font-medium text-gray-400">Edit Server</a>
+              <Link href={`/server/${props.server.server_id}/manage`}>
+                <a className="font-medium text-gray-400">Manage Server</a>
               </Link>
             ) : (
               <span className="font-medium text-red-700 hover:text-red-600 cursor-pointer">

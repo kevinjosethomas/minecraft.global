@@ -29,7 +29,7 @@ function Buttons(props: ButtonsProps): JSX.Element {
   return (
     <div className="flex flex-row items-center justify-between w-full space-x-4 rounded">
       {props.user?.user_id === props.owner_id ? (
-        <Link href={`/server/${props.server_id}/edit`}>
+        <Link href={`/server/${props.server_id}/manage`}>
           <a
             className={`flex flex-row items-center justify-center py-3 w-full ${
               props.premium ? "bg-olive-700" : "bg-dark-200"
