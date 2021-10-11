@@ -40,7 +40,7 @@ function Buttons(props: ButtonsProps): JSX.Element {
                 props.premium ? "text-gray-300" : "text-gray-400"
               } select-none`}
             >
-              Edit Server
+              Manage Server
             </span>
           </a>
         </Link>
