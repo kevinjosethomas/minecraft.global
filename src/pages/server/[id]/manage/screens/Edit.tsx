@@ -5,6 +5,7 @@ import Input from "../components/Input";
 import Checkbox from "../components/Checkbox";
 import TextArea from "../components/TextArea";
 import TagsButton from "../components/TagsButton";
+import LongDescription from "../components/LongDescription";
 
 type EditProps = {
   server: Record<string, any>;
@@ -20,10 +21,10 @@ function Edit(props: EditProps): JSX.Element {
     whitelisted: props.server.whitelisted,
     bedrock: props.server.bedrock,
     cracked: props.server.cracked,
-    website_url: "",
-    discord_url: "",
-    trailer_url: "",
-    long_description: "",
+    website_url: props.server.website_url || "",
+    discord_url: props.server.discord_url || "",
+    trailer_url: props.server.trailer_url || "",
+    long_description: props.server.long_description,
   });
 
   const [tagsModal, showTagsModal] = useState(false);
@@ -68,6 +69,34 @@ function Edit(props: EditProps): JSX.Element {
     setParameters({ ...parameters, cracked: !parameters.cracked });
   };
 
+  const onWebsiteChange = (e: any) => {
+    if (e.target.value.length >= 220) {
+      return;
+    }
+    setParameters({ ...parameters, website_url: e.target.value });
+  };
+
+  const onDiscordChange = (e: any) => {
+    if (e.target.value.length >= 32) {
+      return;
+    }
+    setParameters({ ...parameters, discord_url: e.target.value });
+  };
+
+  const onTrailerChange = (e: any) => {
+    if (e.target.value.length >= 220) {
+      return;
+    }
+    setParameters({ ...parameters, trailer_url: e.target.value });
+  };
+
+  const onLongDescriptionChange = (e: any) => {
+    if (e.target.value.length >= 5000) {
+      return;
+    }
+    setParameters({ ...parameters, long_description: e.target.value });
+  };
+
   useEffect(() => {
     if (tagsModal) {
       document.body.style.overflow = "hidden";
@@ -110,6 +139,10 @@ function Edit(props: EditProps): JSX.Element {
           />
           <Checkbox label="Cracked" checked={parameters.cracked} onClick={onCrackedChange} />
         </div>
+        <Input label="Website" value={parameters.website_url} setValue={onWebsiteChange} />
+        <Input label="Discord" value={parameters.discord_url} setValue={onDiscordChange} />
+        <Input label="Trailer" value={parameters.trailer_url} setValue={onTrailerChange} />
+        <LongDescription value={parameters.long_description} setValue={onLongDescriptionChange} />
       </div>
     </>
   );
