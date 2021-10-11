@@ -35,6 +35,15 @@ async function GetRandomServer() {
   }
 }
 
+async function GetTopVoters(id: string) {
+  try {
+    const votes = await axios.get(process.env.NEXT_PUBLIC_API + `/server/${id}/votes/top`);
+    return [votes.data.payload, null];
+  } catch (e) {
+    return [null, e];
+  }
+}
+
 async function NewServer(data: Record<string, any>, token: string) {
   try {
     const response = await axios.post(process.env.NEXT_PUBLIC_API + "/server/new", data, {
@@ -61,15 +70,6 @@ async function EditServer(id: string, data: Record<string, any>, token: string) 
   }
 }
 
-async function GetTopVoters(id: string) {
-  try {
-    const votes = await axios.get(process.env.NEXT_PUBLIC_API + `/server/${id}/votes/top`);
-    return [votes.data.payload, null];
-  } catch (e) {
-    return [null, e];
-  }
-}
-
 async function UpvoteServer(id: string, playername: string) {
   try {
     const upvote = await axios.post(process.env.NEXT_PUBLIC_API + `/server/${id}/vote`, {
@@ -82,4 +82,12 @@ async function UpvoteServer(id: string, playername: string) {
   }
 }
 
-export { GetServer, GetEditServer, GetRandomServer, NewServer, GetTopVoters, UpvoteServer };
+export {
+  GetServer,
+  GetEditServer,
+  GetRandomServer,
+  GetTopVoters,
+  NewServer,
+  EditServer,
+  UpvoteServer,
+};
