@@ -217,6 +217,16 @@ function Edit(props: EditProps): JSX.Element {
         <Tags parameters={parameters} setParameters={setParameters} showTagsModal={showTagsModal} />
       )}
       <div className="flex flex-col items-start justify-start w-full p-10 space-y-6 bg-dark-800 rounded border-2 border-gray-800">
+        <div className="flex flex-row items-center justify-between w-full">
+          <span className="font-bold text-6xl text-gray-300">Edit Server</span>
+          <div
+            className="flex flex-row items-center justify-center px-2.5 py-0.5 space-x-2 bg-olive-800 hover:bg-olive-700 rounded select-none cursor-pointer transition duration-300"
+            onClick={submit}
+          >
+            <span className="font-medium md:text-lg text-gray-300">Save Changes</span>
+            <i className="fas fa-map-marker-check md:text-lg text-gray-300" />
+          </div>
+        </div>
         <Input label="Server Name" value={parameters.name} setValue={onNameChange} />
         <Input label="Server Hostname" value={parameters.host} setValue={onHostnameChange} />
         <Input label="Server Port" value={parameters.port} setValue={onPortChange} />
