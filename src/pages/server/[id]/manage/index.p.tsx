@@ -44,7 +44,14 @@ function ManageServer(props: ManageServerProps): JSX.Element {
 
   return (
     <Default background="bg-dark-700" user={props.user}>
-      <Navigation screens={screens} activeScreen={activeScreen} setActiveScreen={setActiveScreen} />
+      <div className="flex flex-row items-center justify-center w-full">
+        <Navigation
+          screens={screens}
+          activeScreen={activeScreen}
+          setActiveScreen={setActiveScreen}
+        />
+        <div className="flex flex-row items-center justify-center w-full"></div>
+      </div>
     </Default>
   );
 }

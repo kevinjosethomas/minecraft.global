@@ -6,7 +6,7 @@ type NavigationProps = {
 
 function Navigation(props: NavigationProps): JSX.Element {
   return (
-    <div className="flex flex-col items-start justify-start w-72 rounded bg-dark-600 border-2 border-gray-800">
+    <div className="flex flex-col items-start justify-start w-80 rounded bg-dark-600 border-2 border-gray-800">
       {props.screens.map((screen, index) => (
         <div
           key={screen.id}
