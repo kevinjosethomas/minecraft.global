@@ -1,8 +1,25 @@
 import axios from "axios";
+import Cookies from "cookies";
+import { GetServerSidePropsContext } from "next";
 
 async function GetServer(id: string) {
   try {
     const server = await axios.get(process.env.NEXT_PUBLIC_API + "/server/" + id);
+    return [server.data.payload, null];
+  } catch (e) {
+    return [null, e];
+  }
+}
+async function GetEditServer(ctx: GetServerSidePropsContext, id: string) {
+  try {
+    const cookies = new Cookies(ctx.req, ctx.res);
+    const token = cookies.get("token");
+
+    const server = await axios.get(process.env.NEXT_PUBLIC_API + "/server/" + id, {
+      headers: {
+        Authorization: token,
+      },
+    });
     return [server.data.payload, null];
   } catch (e) {
     return [null, e];
@@ -52,4 +69,4 @@ async function UpvoteServer(id: string, playername: string) {
   }
 }
 
-export { GetServer, GetRandomServer, NewServer, GetTopVoters, UpvoteServer };
+export { GetServer, GetEditServer, GetRandomServer, NewServer, GetTopVoters, UpvoteServer };
