@@ -1,7 +1,12 @@
+import cookie from "js-cookie";
+import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 
 import Tags from "../modals/Tags";
+import validate from "lib/validate";
 import Input from "../components/Input";
+import { EditServer } from "api/server";
+import Toast from "ui/components/Toast/Toast";
 import Checkbox from "../components/Checkbox";
 import TextArea from "../components/TextArea";
 import TagsButton from "../components/TagsButton";
@@ -9,14 +14,15 @@ import LongDescription from "../components/LongDescription";
 
 type EditProps = {
   server: Record<string, any>;
+  user: Record<string, any>;
 };
 
 function Edit(props: EditProps): JSX.Element {
   const [parameters, setParameters] = useState({
     name: props.server.name,
     host: props.server.host,
-    port: "25565",
-    description: "",
+    port: props.server.port,
+    description: props.server.description,
     tags: [...props.server.tags],
     whitelisted: props.server.whitelisted,
     bedrock: props.server.bedrock,
@@ -104,6 +110,106 @@ function Edit(props: EditProps): JSX.Element {
       document.body.style.overflow = "auto";
     }
   }, [tagsModal]);
+
+  const submit = async () => {
+    for (const key of Object.keys(parameters)) {
+      const check = (validate as Record<string, CallableFunction>)[key](parameters);
+      if (check !== true) {
+        toast.custom((t) => (
+          <Toast
+            icon="far fa-times-circle text-olive-600"
+            title={`Invalid ${key} provided`}
+            subtitle={check}
+          />
+        ));
+        return;
+      }
+    }
+
+    const token = cookie.get("token") as string;
+    const [response, error]: any[] = await EditServer(
+      props.server.server_id,
+      {
+        ...parameters,
+        owner_id: props.user.user_id,
+        port: parseInt(parameters.port),
+      },
+      token
+    );
+
+    if (error) {
+      if (error?.response?.status === 401) {
+        toast.custom((t) => (
+          <Toast
+            icon="far fa-times-circle text-olive-600"
+            title="Invalid user access!"
+            subtitle="Please try again when you are logged in!"
+          />
+        ));
+      } else if (error?.response?.status === 409) {
+        if (error?.response?.data.payload.detail === "Duplicate servers are not allowed.") {
+          toast.custom((t) => (
+            <Toast
+              icon="far fa-times-circle text-olive-600"
+              title="Another server already uses this host and port!"
+              subtitle="Report it or contact support if you believe this is an error!"
+            />
+          ));
+        } else if (error?.response?.data.payload.detail === "Duplicate vanities are not allowed.") {
+          toast.custom((t) => (
+            <Toast
+              icon="far fa-times-circle text-olive-600"
+              title="Duplicate vanity URL provided!"
+              subtitle="This vanity URL is already taken!"
+            />
+          ));
+        } else {
+          toast.custom((t) => (
+            <Toast
+              icon="far fa-times-circle text-olive-600"
+              title="Another server already uses this host and port!"
+              subtitle="Report it or contact support if you believe this is an error!"
+            />
+          ));
+        }
+      } else if (error?.response?.status === 422) {
+        if (error?.response?.data.payload.detail === "Invalid server address.") {
+          toast.custom((t) => (
+            <Toast
+              icon="far fa-times-circle text-olive-600"
+              title="Invalid server address provided!"
+              subtitle="Please provide a valid server address!"
+            />
+          ));
+        } else if (error?.response?.data.payload.detail === "Invalid vanity.") {
+          toast.custom((t) => (
+            <Toast
+              icon="far fa-times-circle text-olive-600"
+              title="Invalid vanity URL provided!"
+              subtitle="Please make sure your vanity is valid!"
+            />
+          ));
+        } else {
+          toast.custom((t) => (
+            <Toast
+              icon="far fa-times-circle text-olive-600"
+              title="Invalid info provided!"
+              subtitle="Please make sure all provided input is valid!"
+            />
+          ));
+        }
+      }
+      return;
+    }
+
+    toast.custom((t) => (
+      <Toast
+        icon="fas fa-check-circle text-green-600"
+        title="Successfully updated your server details!"
+        subtitle="You can check it out on your server page!"
+      />
+    ));
+  };
 
   return (
     <>

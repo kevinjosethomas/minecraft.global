@@ -58,7 +58,7 @@ function ManageServer(props: ManageServerProps): JSX.Element {
           setActiveScreen={setActiveScreen}
         />
         <div className="flex flex-row items-center justify-center w-full">
-          <activeScreen.screen server={props.server} />
+          <activeScreen.screen server={props.server} user={props.user} />
         </div>
       </div>
     </Default>
