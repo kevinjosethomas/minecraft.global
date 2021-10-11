@@ -1,15 +1,52 @@
+import { useState } from "react";
 import { GetServerSidePropsContext } from "next";
 
 import { GetServer } from "api/server";
 import GetLoggedInUser from "api/auth";
 import Default from "ui/layouts/Default";
+import Navigation from "./components/Navigation";
 
 type ManageServerProps = {
   user?: Record<string, any>;
 };
 
 function ManageServer(props: ManageServerProps): JSX.Element {
-  return <Default background="bg-dark-700" user={props.user}></Default>;
+  const screens = [
+    {
+      id: 1,
+      icon: "far fa-edit",
+      name: "Edit",
+    },
+
+    {
+      id: 2,
+      icon: "far fa-box-ballot",
+      name: "Votifier",
+    },
+    {
+      id: 3,
+      icon: "far fa-analytics",
+      name: "Analytics",
+    },
+    {
+      id: 4,
+      icon: "far fa-credit-card-blank",
+      name: "Widgets",
+    },
+    {
+      id: 5,
+      icon: "far fa-trash-alt",
+      name: "Delete",
+    },
+  ];
+
+  const [activeScreen, setActiveScreen] = useState(screens[0]);
+
+  return (
+    <Default background="bg-dark-700" user={props.user}>
+      <Navigation screens={screens} activeScreen={activeScreen} setActiveScreen={setActiveScreen} />
+    </Default>
+  );
 }
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
