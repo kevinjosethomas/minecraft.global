@@ -59,7 +59,7 @@ async function NewServer(data: Record<string, any>, token: string) {
 
 async function EditServer(id: string, data: Record<string, any>, token: string) {
   try {
-    const response = await axios.post(process.env.NEXT_PUBLIC_API + `/server/${id}/edit`, data, {
+    const response = await axios.put(process.env.NEXT_PUBLIC_API + `/server/${id}/edit`, data, {
       headers: {
         Authorization: token,
       },
