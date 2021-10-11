@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Input from "../components/Input";
+import TextArea from "../components/TextArea";
 
 type EditProps = {
   server: Record<string, any>;
@@ -42,11 +43,23 @@ function Edit(props: EditProps): JSX.Element {
     setParameters({ ...parameters, port: e.target.value.replace(/[^0-9]/g, "") });
   };
 
+  const onDescriptionChange = (e: any) => {
+    if (e.target.value.length >= 150) {
+      return;
+    }
+    setParameters({ ...parameters, description: e.target.value });
+  };
+
   return (
     <div className="flex flex-col items-start justify-start w-full p-10 space-y-6 bg-dark-800 rounded border-2 border-gray-800">
       <Input label="Server Name" value={parameters.name} setValue={onNameChange} />
       <Input label="Server Hostname" value={parameters.host} setValue={onHostnameChange} />
       <Input label="Server Port" value={parameters.port} setValue={onPortChange} />
+      <TextArea
+        label="Server Description"
+        value={parameters.description}
+        setValue={onDescriptionChange}
+      />
     </div>
   );
 }
