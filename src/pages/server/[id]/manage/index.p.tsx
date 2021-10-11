@@ -79,7 +79,7 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
     };
   }
 
-  if (server.owner_id !== user.id) {
+  if (server.owner_id !== user.payload.user_id) {
     return {
       redirect: {
         destination: "/",

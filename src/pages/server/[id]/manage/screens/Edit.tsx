@@ -8,7 +8,7 @@ type EditProps = {
 function Edit(props: EditProps): JSX.Element {
   const [parameters, setParameters] = useState({
     name: props.server.name,
-    host: "",
+    host: props.server.host,
     port: "25565",
     description: "",
     tags: [],
@@ -28,9 +28,25 @@ function Edit(props: EditProps): JSX.Element {
     setParameters({ ...parameters, name: e.target.value });
   };
 
+  const onHostnameChange = (e: any) => {
+    if (e.target.value.length >= 258) {
+      return;
+    }
+    setParameters({ ...parameters, host: e.target.value });
+  };
+
+  const onPortChange = (e: any) => {
+    if (e.target.value < 0 || e.target.value > 65535) {
+      return;
+    }
+    setParameters({ ...parameters, port: e.target.value.replace(/[^0-9]/g, "") });
+  };
+
   return (
-    <div className="flex flex-col items-start justify-start w-full p-10 bg-dark-800 rounded border-2 border-gray-800">
+    <div className="flex flex-col items-start justify-start w-full p-10 space-y-6 bg-dark-800 rounded border-2 border-gray-800">
       <Input label="Server Name" value={parameters.name} setValue={onNameChange} />
+      <Input label="Server Hostname" value={parameters.host} setValue={onHostnameChange} />
+      <Input label="Server Port" value={parameters.port} setValue={onPortChange} />
     </div>
   );
 }
