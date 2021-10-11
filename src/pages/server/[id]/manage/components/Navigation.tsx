@@ -6,14 +6,14 @@ type NavigationProps = {
 
 function Navigation(props: NavigationProps): JSX.Element {
   return (
-    <div className="flex flex-col items-start justify-start w-80 rounded bg-dark-600 border-2 border-gray-800">
+    <div className="flex flex-col items-start justify-start w-80 rounded bg-dark-700 border-2 border-gray-800">
       {props.screens.map((screen, index) => (
         <div
           key={screen.id}
           className={`flex flex-row items-center justify-start w-full px-4 py-2 space-x-2 ${
             props.activeScreen.id === screen.id
-              ? "bg-dark-700"
-              : "hover:bg-dark-700 transition duration-300"
+              ? "bg-dark-800"
+              : "hover:bg-dark-800 transition duration-300"
           } select-none cursor-pointer`}
           onClick={() => props.setActiveScreen(props.screens[index])}
         >
