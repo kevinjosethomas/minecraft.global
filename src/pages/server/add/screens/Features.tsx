@@ -29,15 +29,15 @@ function Features(props: FeaturesProps): JSX.Element {
     props.setParams({ ...props.params, trailer_url: e.target.value });
   };
 
-  const onWhitelistedChange = (e: any) => {
+  const onWhitelistedChange = () => {
     props.setParams({ ...props.params, whitelisted: !props.params.whitelisted });
   };
 
-  const onBedrockChange = (e: any) => {
+  const onBedrockChange = () => {
     props.setParams({ ...props.params, bedrock: !props.params.bedrock });
   };
 
-  const onCrackedChange = (e: any) => {
+  const onCrackedChange = () => {
     props.setParams({ ...props.params, cracked: !props.params.cracked });
   };
 
