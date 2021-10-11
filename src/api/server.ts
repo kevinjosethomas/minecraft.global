@@ -48,6 +48,19 @@ async function NewServer(data: Record<string, any>, token: string) {
   }
 }
 
+async function EditServer(id: string, data: Record<string, any>, token: string) {
+  try {
+    const response = await axios.post(process.env.NEXT_PUBLIC_API + `/server/${id}/edit`, data, {
+      headers: {
+        Authorization: token,
+      },
+    });
+    return [response, null];
+  } catch (e) {
+    return [null, e];
+  }
+}
+
 async function GetTopVoters(id: string) {
   try {
     const votes = await axios.get(process.env.NEXT_PUBLIC_API + `/server/${id}/votes/top`);
