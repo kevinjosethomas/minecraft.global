@@ -84,11 +84,9 @@ const Navbar = (props: Navbar): JSX.Element => {
           <Search />
           {props.user ? <User user={props.user} logout={logout} /> : <Login />}
         </div>
-        <div
-          className="flex md:hidden flex-row items-center justify-center"
-          onClick={() => setMobile(true)}
-        >
-          <i className="far fa-bars text-2xl text-gray-300" />
+        <div className="flex md:hidden flex-row items-center justify-center w-full space-x-6">
+          <i className="far fa-bars text-2xl text-gray-300" onClick={() => setMobile(true)} />
+          <Search />
         </div>
       </motion.div>
     </Fragment>

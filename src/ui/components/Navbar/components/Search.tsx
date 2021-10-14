@@ -13,7 +13,7 @@ const Search = (): JSX.Element => {
 
   return (
     <div
-      className="flex flex-row items-center justify-center h-10 px-4 space-x-4 bg-dark-600 rounded"
+      className="flex flex-row items-center justify-start w-full md:w-auto h-8 md:h-10 px-4 space-x-4 bg-dark-600 rounded"
       onClick={() => input.current?.focus()}
     >
       <i className="far fa-search text-md text-gray-400" />
