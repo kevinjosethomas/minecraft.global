@@ -79,7 +79,7 @@ function Search(props: SearchProps): JSX.Element {
         <i className="fas fa-sort-size-up-alt text-2xl text-gray-300" />
       </div>
       <div className="flex flex-col items-center justify-center w-full space-y-4">
-        {data && (
+        {data && data[0].entries.length && (
           <div className="flex flex-row items-center justify-between w-full space-x-4 md:space-x-0">
             <div className="flex flex-row items-center justify-start space-x-4">
               <i className="far fa-telescope text-3xl md:text-4xl text-gray-300" />
@@ -99,14 +99,12 @@ function Search(props: SearchProps): JSX.Element {
                 )}
               </span>
             </div>
-            {data[0].entries.length && (
-              <Navigation
-                page={page}
-                setPage={setPage}
-                records={data[0].entries.length}
-                total_records={data[0].total_records}
-              />
-            )}
+            <Navigation
+              page={page}
+              setPage={setPage}
+              records={data[0].entries.length}
+              total_records={data[0].total_records}
+            />
           </div>
         )}
         <div className="flex flex-row items-start justify-start w-full xl:space-x-10">
@@ -115,12 +113,42 @@ function Search(props: SearchProps): JSX.Element {
             setParameters={setParameters}
             showTagsModal={showTagsModal}
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 3xl:grid-cols-3 place-items-center w-full gap-y-10 3xl:gap-10">
+          <div
+            className={`${
+              data && !data[0].entries.length
+                ? "flex flex-row items-center justify-center w-full"
+                : "grid grid-cols-1 md:grid-cols-2 3xl:grid-cols-3 place-items-center w-full gap-y-10 3xl:gap-10"
+            }`}
+          >
             {data ? (
               <>
-                {data[0].entries.map((server: Server) => (
-                  <ServerCard key={server.server_id} {...server} user={props.user} />
-                ))}
+                {data[0].entries.length ? (
+                  <>
+                    {data[0].entries.map((server: Server) => (
+                      <ServerCard key={server.server_id} {...server} user={props.user} />
+                    ))}
+                  </>
+                ) : (
+                  <div className="flex flex-col md:flex-row items-center justify-center w-full py-28 space-y-4 md:space-y-0 md:space-x-10">
+                    <img
+                      src="/images/illustration2.png"
+                      alt="error"
+                      className="w-48 filter saturate-0"
+                      draggable="false"
+                    />
+                    <div className="flex flex-col items-center md:items-start justify-center text-center md:text-left">
+                      <span className="font-bold text-4xl text-gray-300">Not Found</span>
+                      <span className="max-w-md font-medium text-xl text-gray-400">
+                        Uhh, we couldn&apos;t find any servers that match your filters{" "}
+                        {parameters.query && (
+                          <span>
+                            for <span className="text-gray-300">{parameters.query}</span>
+                          </span>
+                        )}
+                      </span>
+                    </div>
+                  </div>
+                )}
               </>
             ) : (
               <>
