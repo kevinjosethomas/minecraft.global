@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import ReactMarkdown from "react-markdown";
@@ -44,6 +45,27 @@ function Server(props: Server): JSX.Element {
 
   return (
     <Default background="px-0 bg-dark-700" user={props.user}>
+      <Head>
+        <title>{props.server.name} - minecraft.global</title>
+
+        <meta name="title" content={`${props.server.name} - minecraft.global`} />
+        <meta name="description" content={props.server.description} />
+
+        <meta property="og:title" content={`${props.server.name} - minecraft.global`} />
+        <meta property="og:description" content={props.server.description} />
+        <meta
+          property="og:image"
+          content={`https://api.minecraft.global/server/${props.server.server_id}/favicon`}
+        />
+
+        <meta property="twitter:title" content={`${props.server.name} - minecraft.global`} />
+        <meta property="twitter:description" content={props.server.description} />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:image"
+          content={`https://api.minecraft.global/server/${props.server.server_id}/favicon`}
+        />
+      </Head>
       {upvoteModal && (
         <UpvoteModal
           voters={topVoters as any}

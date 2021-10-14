@@ -26,6 +26,7 @@ function App({ Component, pageProps }: AppProps) {
         />
 
         <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="minecraft.global" />
         <meta property="og:url" content="https://minecraft.global/" />
         <meta
           property="og:description"
