@@ -84,7 +84,10 @@ function Search(props: SearchProps): JSX.Element {
             <div className="flex flex-row items-center justify-start space-x-4">
               <i className="far fa-telescope text-3xl md:text-4xl text-gray-300" />
               <span className="font-medium md:text-4xl text-gray-300">
-                Showing <span className="font-bold text-olive-700">{data[0].entries.length}</span>{" "}
+                Showing{" "}
+                <span className="font-bold text-olive-700">
+                  {parameters.offset + 1}-{parameters.offset + data[0].entries.length}
+                </span>{" "}
                 out of <span className="font-bold text-olive-700">{data[0].total_records}</span>{" "}
                 results
                 {parameters.query && (
