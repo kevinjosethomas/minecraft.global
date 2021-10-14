@@ -60,7 +60,6 @@ function Server(props: Server): JSX.Element {
 
         <meta property="twitter:title" content={`${props.server.name} - minecraft.global`} />
         <meta property="twitter:description" content={props.server.description} />
-        <meta property="twitter:card" content="summary_large_image" />
         <meta
           property="twitter:image"
           content={`https://api.minecraft.global/server/${props.server.server_id}/favicon`}
