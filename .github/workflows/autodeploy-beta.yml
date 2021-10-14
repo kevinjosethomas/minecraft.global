@@ -1,0 +1,24 @@
+name: autodeploy
+on:
+  push:
+    branches:
+      - v1
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: build & deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            w
+            cd beta.minecraft.global
+            git pull
+            sudo npm install
+            sudo npm run build
+            pm2 restart beta.minecraft.global

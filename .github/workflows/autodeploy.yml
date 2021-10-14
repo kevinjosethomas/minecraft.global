@@ -1,5 +1,8 @@
 name: autodeploy
-on: [push]
+on:
+  push:
+    branches:
+      - main
 jobs:
   build:
     name: Build
@@ -12,4 +15,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          script: whoami
+          script: cd minecraft.global && git pull && yarn install && yarn build && pm2 restart minecraft.global

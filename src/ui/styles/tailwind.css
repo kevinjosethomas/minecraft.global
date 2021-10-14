@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#__next {
+  width: 100% !important;
+  min-height: 100% !important;
+  font-family: "DM Sans", sans-serif;
+  @apply bg-dark-800;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #141923;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #242932;
+  border-radius: 0.25rem;
+}
+
+.no-scrollbar::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar-track,
+.no-scrollbar::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+.fa-opacity-60 {
+  --fa-secondary-opacity: 0.6;
+}
+
+.fa-opacity-80 {
+  --fa-secondary-opacity: 0.8;
+}
+
+.premium-bg-gradient {
+  background: linear-gradient(to bottom, #141923 65%, #242932 65%);
+}
+
+.premium-icon {
+  width: 1.6875rem;
+  height: 1.75rem;
+}
+
+.long-description a,
+.faq a,
+.format-links {
+  @apply text-olive-500;
+  text-decoration: underline;
+}
+
+.Dropdown-option {
+  @apply !text-gray-500;
+}
+
+.Dropdown-option.is-selected {
+  @apply !bg-dark-800 !text-gray-400;
+}
+
+.Dropdown-option:hover {
+  @apply !bg-dark-800 !text-gray-400;
+}
+
+.scroll-snap {
+  scroll-snap-type: x mandatory;
+}
+
+.scroll-snap-child {
+  scroll-snap-align: start;
+}
