@@ -55,6 +55,7 @@ function Search(props: SearchProps): JSX.Element {
   }, [tagsModal, refineModal]);
 
   useEffect(() => {
+    setPage(1);
     setParameters({ ...parameters, query: router.query.q || null });
   }, [router.query.q]);
 
@@ -95,12 +96,14 @@ function Search(props: SearchProps): JSX.Element {
                 )}
               </span>
             </div>
-            <Navigation
-              page={page}
-              setPage={setPage}
-              records={data[0].entries.length}
-              total_records={data[0].total_records}
-            />
+            {data[0].entries.length && (
+              <Navigation
+                page={page}
+                setPage={setPage}
+                records={data[0].entries.length}
+                total_records={data[0].total_records}
+              />
+            )}
           </div>
         )}
         <div className="flex flex-row items-start justify-start w-full xl:space-x-10">
@@ -125,7 +128,7 @@ function Search(props: SearchProps): JSX.Element {
             )}
           </div>
         </div>
-        {data && (
+        {data && data[0].entries.length && (
           <Navigation
             page={page}
             setPage={setPage}
