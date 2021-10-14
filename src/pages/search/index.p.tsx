@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useQuery } from "react-query";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -61,6 +62,12 @@ function Search(props: SearchProps): JSX.Element {
 
   return (
     <Default background="bg-dark-700" user={props.user}>
+      <Head>
+        <title>Search - minecraft.global</title>
+        <meta name="title" content="Search - minecraft.global" />
+        <meta property="og:title" content="Search - minecraft.global" />
+        <meta property="twitter:title" content="Search - minecraft.global" />
+      </Head>
       {tagsModal && (
         <Tags showTagsModal={showTagsModal} parameters={parameters} setParameters={setParameters} />
       )}

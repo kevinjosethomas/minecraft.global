@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { GetServerSidePropsContext } from "next";
 
 import GetLoggedInUser from "api/auth";
@@ -10,6 +11,12 @@ type ComingSoonProps = {
 function ComingSoon(props: ComingSoonProps): JSX.Element {
   return (
     <Default background="bg-dark-700" user={props.user}>
+      <Head>
+        <title>Coming Soon - minecraft.global</title>
+        <meta name="title" content="Coming Soon - minecraft.global" />
+        <meta property="og:title" content="Coming Soon - minecraft.global" />
+        <meta property="twitter:title" content="Coming Soon - minecraft.global" />
+      </Head>
       <div className="flex flex-col items-center justify-center w-full space-y-10">
         <img
           src="/images/illustration1.png"

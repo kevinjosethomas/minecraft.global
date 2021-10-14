@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { GetServerSidePropsContext } from "next";
 
 import GetLoggedInUser from "api/auth";
@@ -21,6 +22,12 @@ function Partners(props: Partners) {
 
   return (
     <Default background="bg-dark-700" user={props.user}>
+      <Head>
+        <title>Partners - minecraft.global</title>
+        <meta name="title" content="Partners - minecraft.global" />
+        <meta property="og:title" content="Partners - minecraft.global" />
+        <meta property="twitter:title" content="Partners - minecraft.global" />
+      </Head>
       <div className="flex flex-col items-start justify-center w-full space-y-6">
         <div className="flex flex-col items-start justify-center">
           <span className="font-bold text-6xl text-gray-300">Partners</span>

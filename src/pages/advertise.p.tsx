@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { GetServerSidePropsContext } from "next";
 
 import GetLoggedInUser from "api/auth";
@@ -8,7 +9,16 @@ type AdvertiseProps = {
 };
 
 function Advertise(props: AdvertiseProps): JSX.Element {
-  return <Default background="bg-dark-700" user={props.user}></Default>;
+  return (
+    <Default background="bg-dark-700" user={props.user}>
+      <Head>
+        <title>Advertise - minecraft.global</title>
+        <meta name="title" content="Advertise - minecraft.global" />
+        <meta property="og:title" content="Advertise - minecraft.global" />
+        <meta property="twitter:title" content="Advertise - minecraft.global" />
+      </Head>
+    </Default>
+  );
 }
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {

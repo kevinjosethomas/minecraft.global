@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useEffect, useState } from "react";
 import { GetServerSidePropsContext } from "next";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
@@ -92,6 +93,12 @@ function Premium(props: Premium): JSX.Element {
         />
       )}
       <Default background="premium-bg-gradient" user={props.user}>
+        <Head>
+          <title>Premium - minecraft.global</title>
+          <meta name="title" content="Premium - minecraft.global" />
+          <meta property="og:title" content="Premium - minecraft.global" />
+          <meta property="twitter:title" content="Premium - minecraft.global" />
+        </Head>
         <div className="premium-bg-gradient flex flex-col items-center justify-center w-full space-y-10">
           <div className="flex flex-col items-center justify-center space-y-2">
             <div className="flex flex-row items-center justify-center w-full space-x-2">

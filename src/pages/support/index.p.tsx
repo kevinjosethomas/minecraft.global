@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import { GetServerSidePropsContext } from "next";
 
@@ -94,6 +95,12 @@ function Support(props: SupportProps): JSX.Element {
 
   return (
     <Default background="bg-dark-700" user={props.user}>
+      <Head>
+        <title>Support - minecraft.global</title>
+        <meta name="title" content="Support - minecraft.global" />
+        <meta property="og:title" content="Support - minecraft.global" />
+        <meta property="twitter:title" content="Support - minecraft.global" />
+      </Head>
       <div className="flex flex-col items-start justify-start w-full space-y-10">
         <div className="flex flex-col items-start justify-start w-full space-y-5">
           <span className="font-bold text-6xl text-gray-300">Support</span>

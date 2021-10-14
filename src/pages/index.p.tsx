@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useQuery } from "react-query";
 import { GetServerSidePropsContext } from "next";
 
@@ -16,6 +17,14 @@ function Home(props: Home): JSX.Element {
 
   return (
     <Default background="bg-dark-700" user={props.user}>
+      <Head>
+        <meta name="title" content="minecraft.global - Find the best Minecraft servers" />
+        <meta property="og:title" content="minecraft.global - Find the best Minecraft servers" />
+        <meta
+          property="twitter:title"
+          content="minecraft.global - Find the best Minecraft servers"
+        />
+      </Head>
       <div className="flex flex-col items-center justify-center w-full space-y-12 md:space-y-20">
         <Searchbox />
         <div className="flex flex-col items-center justify-center w-full space-y-12">

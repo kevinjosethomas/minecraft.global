@@ -20,8 +20,6 @@ function App({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <Head>
         <title>minecraft.global</title>
-
-        <meta name="title" content="minecraft.global -  Minecraft Server List" />
         <meta
           name="description"
           content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
@@ -29,7 +27,6 @@ function App({ Component, pageProps }: AppProps) {
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://minecraft.global/" />
-        <meta property="og:title" content="minecraft.global - Find the best Minecraft servers" />
         <meta
           property="og:description"
           content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
@@ -38,10 +35,7 @@ function App({ Component, pageProps }: AppProps) {
 
         <meta property="twitter:card" content="summary" />
         <meta property="twitter:url" content="https://minecraft.global/" />
-        <meta
-          property="twitter:title"
-          content="minecraft.global - Find the best Minecraft servers"
-        />
+
         <meta
           property="twitter:description"
           content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"

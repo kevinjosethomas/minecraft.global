@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useEffect, useState } from "react";
 import { GetServerSidePropsContext } from "next";
 
@@ -55,6 +56,12 @@ function Auctions(props: AuctionsProps): JSX.Element {
 
   return (
     <Default background="bg-dark-700" user={props.user}>
+      <Head>
+        <title>Auctions - minecraft.global</title>
+        <meta name="title" content="Auctions - minecraft.global" />
+        <meta property="og:title" content="Auctions - minecraft.global" />
+        <meta property="twitter:title" content="Auctions - minecraft.global" />
+      </Head>
       {confirmModal && (
         <Confirm
           user={props.user}

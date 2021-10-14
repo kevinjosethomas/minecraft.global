@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { GetServerSidePropsContext } from "next";
 
 import GetLoggedInUser from "api/auth";
@@ -10,6 +11,12 @@ type Terms = {
 function Terms(props: Terms): JSX.Element {
   return (
     <Default background="bg-dark-700" user={props.user}>
+      <Head>
+        <title>Terms of Service - minecraft.global</title>
+        <meta name="title" content="Terms of Service - minecraft.global" />
+        <meta property="og:title" content="Terms of Service - minecraft.global" />
+        <meta property="twitter:title" content="Terms of Service - minecraft.global" />
+      </Head>
       <div className="flex flex-col items-start justify-start w-full space-y-10">
         <span className="font-bold text-6xl text-gray-300">Terms of Service</span>
         <div className="flex flex-col items-start justify-center">

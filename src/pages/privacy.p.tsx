@@ -13,6 +13,9 @@ function Privacy(props: Privacy): JSX.Element {
     <Default background="bg-dark-700" user={props.user}>
       <Head>
         <title>Privacy Policy - minecraft.global</title>
+        <meta name="title" content="Privacy Policy - minecraft.global" />
+        <meta property="og:title" content="Privacy Polcy - minecraft.global" />
+        <meta property="twitter:title" content="Privacy Policy - minecraft.global" />
       </Head>
       <div className="flex flex-col items-start justify-start w-full space-y-10">
         <span className="font-bold text-6xl text-gray-300">Privacy Policy</span>
