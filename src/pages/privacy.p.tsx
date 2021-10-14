@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { GetServerSidePropsContext } from "next";
 
 import GetLoggedInUser from "api/auth";
@@ -10,6 +11,9 @@ type Privacy = {
 function Privacy(props: Privacy): JSX.Element {
   return (
     <Default background="bg-dark-700" user={props.user}>
+      <Head>
+        <title>Privacy Policy - minecraft.global</title>
+      </Head>
       <div className="flex flex-col items-start justify-start w-full space-y-10">
         <span className="font-bold text-6xl text-gray-300">Privacy Policy</span>
         <div className="flex flex-col items-start justify-center">
