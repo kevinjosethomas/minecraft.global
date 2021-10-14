@@ -85,8 +85,14 @@ function Search(props: SearchProps): JSX.Element {
               <span className="font-medium md:text-4xl text-gray-300">
                 Showing <span className="font-bold text-olive-700">{data[0].entries.length}</span>{" "}
                 out of <span className="font-bold text-olive-700">{data[0].total_records}</span>{" "}
-                results for &quot;
-                <span className="font-bold text-olive-700">{parameters.query}</span>&quot;
+                results
+                {parameters.query && (
+                  <>
+                    {" "}
+                    for &quot;
+                    <span className="font-bold text-olive-700">{parameters.query}</span>&quot;
+                  </>
+                )}
               </span>
             </div>
             <Navigation
