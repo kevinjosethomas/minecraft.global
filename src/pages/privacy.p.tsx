@@ -14,7 +14,7 @@ function Privacy(props: Privacy): JSX.Element {
       <Head>
         <title>Privacy Policy - minecraft.global</title>
         <meta name="title" content="Privacy Policy - minecraft.global" />
-        <meta property="og:title" content="Privacy Polcy - minecraft.global" />
+        <meta property="og:title" content="Privacy Policy - minecraft.global" />
         <meta property="twitter:title" content="Privacy Policy - minecraft.global" />
       </Head>
       <div className="flex flex-col items-start justify-start w-full space-y-10">
