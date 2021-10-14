@@ -24,7 +24,7 @@ function App({ Component, pageProps }: AppProps) {
         <meta name="title" content="minecraft.global -  Minecraft Server List" />
         <meta
           name="description"
-          content="The best website to find new Minecraft servers to play on! Add your Minecraft server here to reach thousands of potential users!"
+          content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
         />
 
         <meta property="og:type" content="website" />
@@ -32,7 +32,7 @@ function App({ Component, pageProps }: AppProps) {
         <meta property="og:title" content="minecraft.global - Find the best Minecraft servers" />
         <meta
           property="og:description"
-          content="The best website to find new Minecraft servers to play on! Add your Minecraft server here to reach thousands of potential users!"
+          content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
         />
         <meta property="og:image" content="/images/embed.png" />
 
@@ -44,7 +44,7 @@ function App({ Component, pageProps }: AppProps) {
         />
         <meta
           property="twitter:description"
-          content="The best website to find new Minecraft servers to play on! Add your Minecraft server here to reach thousands of potential users!"
+          content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
         />
         <meta property="twitter:image" content="/images/embed.png" />
 
