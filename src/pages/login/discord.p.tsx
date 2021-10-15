@@ -45,7 +45,7 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
 
   return {
     redirect: {
-      destination: "/",
+      destination: `/?token=${data.payload.token}`,
       permanent: true,
     },
   };
