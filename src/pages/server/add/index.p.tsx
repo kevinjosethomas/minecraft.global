@@ -1,5 +1,6 @@
 import cookie from "js-cookie";
 import toast from "react-hot-toast";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { GetServerSidePropsContext } from "next";
 
@@ -44,6 +45,8 @@ function AddServer(props: AddServerProps): JSX.Element {
       screen: Votifier,
     },
   ];
+
+  const router = useRouter();
 
   const [activeScreen, setActiveScreen] = useState(screens[0]);
   const [params, setParams] = useState({
@@ -152,6 +155,8 @@ function AddServer(props: AddServerProps): JSX.Element {
       }
       return;
     }
+
+    router.push(`/server/${response.data.payload}`);
   };
 
   return (

@@ -123,7 +123,7 @@ function Server(props: Server): JSX.Element {
               <div className="flex flex-row items-center justify-start space-x-2 whitespace-nowrap">
                 <i className="fas fa-info-circle text-xl md:text-lg xl:text-2xl text-gray-300" />
                 <span className="font-bold text-xl md:text-lg xl:text-2xl text-gray-300">
-                  Brief Description
+                  Description
                 </span>
               </div>
               <span className="font-medium text-sm xl:text-base text-gray-400">
