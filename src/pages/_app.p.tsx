@@ -19,8 +19,6 @@ const queryClient = new QueryClient({
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
-  console.log(router.pathname);
-
   return (
     <QueryClientProvider client={queryClient}>
       <Head>

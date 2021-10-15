@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { useQuery } from "react-query";
-import { useRouter } from "next/router";
 import { GetServerSidePropsContext } from "next";
 
 import GetHomeResults from "api/home";
@@ -14,9 +13,6 @@ type Home = {
 };
 
 function Home(props: Home): JSX.Element {
-  const router = useRouter();
-  router.replace(router.pathname);
-
   const { data } = useQuery(["HomeResults"], GetHomeResults);
 
   return (
