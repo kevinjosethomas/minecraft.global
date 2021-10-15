@@ -119,8 +119,8 @@ const validate = {
     if (!params.long_description) {
       return "You must provide a long description!";
     }
-    if (params.long_description.length < 150) {
-      return "Your server's long description must be atleast 150 characters in length!";
+    if (params.long_description.length < 75) {
+      return "Your server's long description must be atleast 75 characters in length!";
     }
     if (params.long_description.length > 5000) {
       return "Your server's long description must not be more than 5000 characters in length!";
