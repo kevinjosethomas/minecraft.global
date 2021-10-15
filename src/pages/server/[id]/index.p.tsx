@@ -112,7 +112,7 @@ function Server(props: Server): JSX.Element {
             </div>
           </div>
           <div className="flex flex-row justify-start items-start w-full p-3 md:p-5 border-2 border-gray-800 rounded bg-dark-800">
-            <ReactMarkdown className="long-description font-medium text-gray-400 whitespace-pre-wrap overflow-x-hidden">
+            <ReactMarkdown className="long-description text-gray-400 whitespace-pre-wrap overflow-x-hidden">
               {props.server.long_description}
             </ReactMarkdown>
           </div>

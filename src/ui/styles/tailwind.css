@@ -73,3 +73,12 @@ body,
 .scroll-snap-child {
   scroll-snap-align: start;
 }
+
+.long-description ul,
+.long-description li {
+  list-style-type: circle !important;
+}
+
+.long-description strong {
+  font-weight: 900;
+}
