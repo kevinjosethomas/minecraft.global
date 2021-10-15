@@ -8,7 +8,7 @@ async function GetLoggedInUser(ctx: GetServerSidePropsContext) {
     const token = cookies.get("token");
 
     if (!token) {
-      console.log(ctx.req.headers);
+      console.log(ctx.res.getHeaders());
     }
 
     const { data } = await axios.get(process.env.NEXT_PUBLIC_API + "/auth", {
