@@ -51,8 +51,8 @@ const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
 
   for (const server of servers[0]) {
     fields.push({
-      loc: "https://minecraft.global/server/" + server,
-      lastmod: new Date().toISOString(),
+      loc: "https://minecraft.global/server/" + server[0],
+      lastmod: server[1],
     });
   }
 
@@ -61,4 +61,5 @@ const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
 
 export { getServerSideProps };
 
-export default () => {};
+const Default = () => {};
+export default Default;
