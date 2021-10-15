@@ -82,7 +82,8 @@ function Server(props: Server): JSX.Element {
                   <h1 className="font-bold text-4xl text-gray-300">{props.server.name}</h1>
                   <span className="font-medium text-gray-400">
                     {props.server.host} +{" "}
-                    {SimplifyNumber(props.server.players_online, { decimal: 1 })} players
+                    {SimplifyNumber(props.server.players_online, { decimal: 1 })} player
+                    {props.server.players_online === 1 ? "" : "s"}
                   </span>
                 </div>
               </div>
