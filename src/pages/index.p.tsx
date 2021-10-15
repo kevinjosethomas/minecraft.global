@@ -21,7 +21,7 @@ function Home(props: Home): JSX.Element {
 
   useEffect(() => {
     router.replace(router.pathname, undefined, { shallow: true });
-  }, [router]);
+  }, []);
 
   return (
     <Default background="bg-dark-700" user={props.user}>
