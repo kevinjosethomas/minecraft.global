@@ -15,7 +15,6 @@ type Home = {
 
 function Home(props: Home): JSX.Element {
   const router = useRouter();
-
   router.replace(router.pathname);
 
   const { data } = useQuery(["HomeResults"], GetHomeResults);

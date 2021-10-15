@@ -9,7 +9,6 @@ async function GetLoggedInUser(ctx: GetServerSidePropsContext) {
 
     if (!token && ctx.query?.token) {
       token = ctx.query.token as string;
-      ctx.query.token = "";
     } else if (!token) {
       return [null, 1];
     }
