@@ -20,7 +20,7 @@ function Home(props: Home): JSX.Element {
   const { data } = useQuery(["HomeResults"], GetHomeResults);
 
   useEffect(() => {
-    router.replace(router.pathname);
+    router.replace(router.pathname, undefined, { shallow: true });
   }, [router]);
 
   return (
