@@ -33,22 +33,23 @@ function App({ Component, pageProps }: AppProps) {
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="minecraft.global" />
         <meta property="og:url" content="https://minecraft.global/" />
-        <meta
-          property="og:description"
-          content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
-        />
 
         <meta property="twitter:card" content="summary" />
         <meta property="twitter:url" content="https://minecraft.global/" />
-        <meta
-          property="twitter:description"
-          content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
-        />
 
         {!router.pathname.toLowerCase().startsWith("/server/[id]") && (
           <>
             <meta property="og:image" content="/images/embed.png" />
+            <meta
+              property="og:description"
+              content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
+            />
+
             <meta property="twitter:image" content="/images/embed.png" />
+            <meta
+              property="twitter:description"
+              content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
+            />
           </>
         )}
 
