@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useEffect } from "react";
 import { useQuery } from "react-query";
 import { useRouter } from "next/router";
 import { GetServerSidePropsContext } from "next";
@@ -15,9 +16,12 @@ type Home = {
 
 function Home(props: Home): JSX.Element {
   const router = useRouter();
-  router.replace(router.pathname);
 
   const { data } = useQuery(["HomeResults"], GetHomeResults);
+
+  useEffect(() => {
+    router.replace(router.pathname);
+  }, [router]);
 
   return (
     <Default background="bg-dark-700" user={props.user}>
