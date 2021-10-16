@@ -22,12 +22,12 @@ function Listing(props: Listing): JSX.Element {
         <div className="flex flex-row items-center justify-start space-x-4">
           <i className={`${props.icon} text-5xl md:text-6xl text-olive-400`} />
           <div className="flex flex-col items-start justify-center">
-            <span className="font-bold text-2xl md:text-4xl 3xl:text-5xl text-gray-300">
+            <h2 className="font-bold text-2xl md:text-4xl 3xl:text-5xl text-gray-300">
               {props.title}
-            </span>
-            <span className="font-medium text-sm md:text-xl 3xl:text-2xl text-gray-400">
+            </h2>
+            <h3 className="font-medium text-sm md:text-xl 3xl:text-2xl text-gray-400">
               {props.subtitle}
-            </span>
+            </h3>
           </div>
         </div>
         <Link href={props.link}>
