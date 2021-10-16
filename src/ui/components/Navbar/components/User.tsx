@@ -11,7 +11,12 @@ const User = (props: User): JSX.Element => {
   const [dropdown, setDropdown] = useState(false);
 
   return (
-    <div className="relative flex flex-col items-center justify-center">
+    <div className="relative flex flex-row items-center justify-center">
+      <Link href="/server/add">
+        <a className="group flex flex-row items-center justify-center w-10 h-10 mr-4 bg-dark-600 rounded">
+          <i className="far fa-plus text-lg text-gray-400 group-hover:text-gray-300 transition duration-500" />
+        </a>
+      </Link>
       <div
         className="group flex flex-row items-center justify-center w-10 h-10 bg-dark-600 rounded"
         onClick={() => setDropdown(!dropdown)}
