@@ -27,6 +27,10 @@ function App({ Component, pageProps }: AppProps) {
           name="description"
           content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
         />
+        <meta
+          name="keywords"
+          content="minecraft, minecraft servers, minecraft server list, cracked minecraft servers"
+        />
 
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="minecraft.global" />
