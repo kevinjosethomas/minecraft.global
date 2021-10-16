@@ -12,6 +12,13 @@ type Partners = {
 function Partners(props: Partners) {
   const partners = [
     {
+      name: "Starlight Capes",
+      icon: "/images/partners/starlight_capes.png",
+      href: "https://discord.gg/5tDyktNXNU",
+      description:
+        "Custom Capes program releasing soon! Paid custom (non)animated capes! Friendly and helpful staff. Looking for media and server partners!",
+    },
+    {
       name: "Villager Bot",
       icon: "/images/partners/villager_bot.png",
       href: "https://top.gg/bot/639498607632056321",
@@ -43,7 +50,7 @@ function Partners(props: Partners) {
             </a>
           </span>
         </div>
-        <div className="grid grid-flow-row">
+        <div className="grid grid-flow-row grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-5 w-full">
           {partners.map((partner, index) => (
             <Partner key={index} {...partner} />
           ))}
