@@ -22,7 +22,7 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <Head>
-        <title>minecraft.global</title>
+        <title>Minecraft Server List - minecraft.global</title>
         <meta
           name="description"
           content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
