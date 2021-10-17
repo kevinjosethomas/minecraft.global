@@ -105,6 +105,11 @@ function AddServer(props: AddServerProps): JSX.Element {
         ...params,
         owner_id: props.user.user_id,
         port: parseInt(params.port),
+        votifier: {
+          votifier_host: params.votifier_host,
+          votifier_port: params.votifier_port,
+          votifier_token: params.votifier_token,
+        },
       },
       token
     );
