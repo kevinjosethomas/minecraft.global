@@ -58,7 +58,9 @@ function Edit(props: EditProps): JSX.Element {
     const [response, error]: any[] = await EditServer(
       props.server.server_id,
       {
-        ...parameters,
+        votifier: {
+          ...parameters,
+        },
         owner_id: props.user.user_id,
         port: parseInt(parameters.votifier_port),
       },
@@ -126,6 +128,14 @@ function Edit(props: EditProps): JSX.Element {
             />
           ));
         }
+      } else {
+        toast.custom((t) => (
+          <Toast
+            icon="far fa-times-circle text-olive-600"
+            title="An unknown error occurred!"
+            subtitle="Please try again later!"
+          />
+        ));
       }
       return;
     }
