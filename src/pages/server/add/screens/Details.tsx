@@ -29,7 +29,7 @@ function Details(props: DetailsProps): JSX.Element {
   return (
     <div className="flex flex-col items-start justify-center space-y-6">
       <Input label="Server Name" value={props.params.name} onChange={onNameChange} />
-      <Input label="Server Hostname" value={props.params.host} onChange={onHostnameChange} />
+      <Input label="Server Address" value={props.params.host} onChange={onHostnameChange} />
       <Input label="Server Port" value={props.params.port} onChange={onPortChange} />
       <TextArea
         label="Server Description"
