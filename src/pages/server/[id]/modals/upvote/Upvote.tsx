@@ -18,6 +18,7 @@ function Upvote(props: UpvoteProps): JSX.Element {
   const [captcha, setCaptcha] = useState(false);
   const [playername, setPlayername] = useState("");
   const [canUpvote, setCanUpvote] = useState(false);
+  const [code, setCode] = useState("");
 
   const placeholders = ["Steve", "Alex", "Dream", "DanTDM", "Creeper"];
   const placeholder = placeholders[Math.floor(Math.random() * placeholders.length)];
@@ -34,14 +35,27 @@ function Upvote(props: UpvoteProps): JSX.Element {
   const onCaptchaChange = (code: string | null) => {
     if (code) {
       setCaptcha(true);
+      setCode(code);
     }
   };
 
   const onUpvote = async () => {
-    const [response, error] = await UpvoteServer(props.server.server_id.toString(), playername);
+    const [response, error] = await UpvoteServer(
+      props.server.server_id.toString(),
+      playername,
+      code
+    );
 
     if (error) {
-      if (error?.response?.status == 422) {
+      if (error?.response?.status == 401) {
+        toast.custom((t) => (
+          <Toast
+            icon="fas fa-times-circle text-red-500 text-opacity-75"
+            title="Provided captcha is invalid"
+            subtitle="Please reload and try again!"
+          />
+        ));
+      } else if (error?.response?.status == 422) {
         toast.custom((t) => (
           <Toast
             icon="fas fa-times-circle text-red-500 text-opacity-75"

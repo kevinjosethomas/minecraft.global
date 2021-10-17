@@ -70,11 +70,11 @@ async function EditServer(id: string, data: Record<string, any>, token: string) 
   }
 }
 
-async function UpvoteServer(id: string, playername: string) {
+async function UpvoteServer(id: string, playername: string, code: string) {
   try {
     const upvote = await axios.post(process.env.NEXT_PUBLIC_API + `/server/${id}/vote`, {
-      server_id: id,
       minecraft_username: playername,
+      captcha_response: code,
     });
     return [upvote.data.payload, null];
   } catch (e) {
