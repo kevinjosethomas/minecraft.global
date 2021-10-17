@@ -82,7 +82,7 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
     };
   }
 
-  if ((server as any).owner_id !== (user as any).payload.user_id) {
+  if (server.owner_id !== user.payload.user_id) {
     return {
       redirect: {
         destination: "/",
@@ -93,7 +93,7 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
 
   return {
     props: {
-      user: (user as any).payload,
+      user: user.payload,
       server: server,
       id: id,
     },
