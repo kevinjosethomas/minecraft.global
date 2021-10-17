@@ -2,6 +2,7 @@ import { useState } from "react";
 import { GetServerSidePropsContext } from "next";
 
 import Edit from "./screens/Edit";
+import Soon from "./screens/Soon";
 import GetLoggedInUser from "api/auth";
 import Default from "ui/layouts/Default";
 import Votifier from "./screens/Votifier";
@@ -32,13 +33,13 @@ function ManageServer(props: ManageServerProps): JSX.Element {
       id: 3,
       icon: "far fa-analytics",
       name: "Analytics",
-      screen: Edit,
+      screen: Soon,
     },
     {
       id: 4,
       icon: "far fa-credit-card-blank",
       name: "Widgets",
-      screen: Edit,
+      screen: Soon,
     },
     {
       id: 5,
@@ -80,7 +81,7 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
     };
   }
 
-  if (server.owner_id !== user.payload.user_id) {
+  if ((server as any).owner_id !== (user as any).payload.user_id) {
     return {
       redirect: {
         destination: "/",
@@ -91,7 +92,7 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
 
   return {
     props: {
-      user: user.payload,
+      user: (user as any).payload,
       server: server,
       id: id,
     },
