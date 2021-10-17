@@ -3,6 +3,7 @@ import { GetServerSidePropsContext } from "next";
 
 import Edit from "./screens/Edit";
 import Soon from "./screens/Soon";
+import Delete from "./screens/Delete";
 import GetLoggedInUser from "api/auth";
 import Default from "ui/layouts/Default";
 import Votifier from "./screens/Votifier";
@@ -45,7 +46,7 @@ function ManageServer(props: ManageServerProps): JSX.Element {
       id: 5,
       icon: "far fa-trash-alt",
       name: "Delete",
-      screen: Edit,
+      screen: Delete,
     },
   ];
 
