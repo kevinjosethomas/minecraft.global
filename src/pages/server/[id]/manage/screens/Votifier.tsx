@@ -1,23 +1,19 @@
 import cookie from "js-cookie";
 import toast from "react-hot-toast";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import Tags from "../modals/Tags";
 import validate from "lib/validate";
 import Input from "../components/Input";
 import { EditServer } from "api/server";
 import Toast from "ui/components/Toast/Toast";
-import Checkbox from "../components/Checkbox";
 import TextArea from "../components/TextArea";
-import TagsButton from "../components/TagsButton";
-import LongDescription from "../components/LongDescription";
 
-type EditProps = {
+type VotifierProps = {
   server: Record<string, any>;
   user: Record<string, any>;
 };
 
-function Edit(props: EditProps): JSX.Element {
+function Votifier(props: VotifierProps): JSX.Element {
   const [parameters, setParameters] = useState({
     votifier_host: props.server.votifier_host || "",
     votifier_port: props.server.votifier_port,
@@ -186,4 +182,4 @@ function Edit(props: EditProps): JSX.Element {
   );
 }
 
-export default Edit;
+export default Votifier;
