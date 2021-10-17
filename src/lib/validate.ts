@@ -160,8 +160,8 @@ const validate = {
     if (params.votifier_token.length < 15) {
       return "Your votifier token must be atleast 15 characters in length!";
     }
-    if (params.votifier_token.length > 220) {
-      return "Your votifier token must not be more than 220 characters in length!";
+    if (params.votifier_token.length > 1000) {
+      return "Your votifier token must not be more than 1000 characters in length!";
     }
     return true;
   },

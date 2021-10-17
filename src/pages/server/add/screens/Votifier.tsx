@@ -21,7 +21,7 @@ function Votifier(props: VotifierProps): JSX.Element {
   };
 
   const onTokenChange = (e: any) => {
-    if (e.target.value.length >= 258) {
+    if (e.target.value.length >= 1000) {
       return;
     }
     props.setParams({ ...props.params, votifier_token: e.target.value });
@@ -31,7 +31,11 @@ function Votifier(props: VotifierProps): JSX.Element {
     <div className="flex flex-col items-start justify-center space-y-6">
       <Input label="Votifier Host" value={props.params.votifier_host} onChange={onHostChange} />
       <Input label="Votifier Port" value={props.params.votifier_port} onChange={onPortChange} />
-      <Input label="Votifier Token" value={props.params.votifier_token} onChange={onTokenChange} />
+      <Input
+        label="Votifier Token / Public Key"
+        value={props.params.votifier_token}
+        onChange={onTokenChange}
+      />
     </div>
   );
 }
