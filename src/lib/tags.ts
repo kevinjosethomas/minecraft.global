@@ -44,6 +44,8 @@ const gamemodes = [
   { id: 66, name: "RPG", checked: false },
   { id: 67, name: "Pokemon", checked: false },
   { id: 82, name: "Factions", checked: false },
+  { id: 85, name: "RLCraft", checked: false },
+  { id: 87, name: "Skygrid", checked: false },
 ];
 
 const minigames = [
@@ -59,6 +61,10 @@ const minigames = [
   { id: 79, name: "Guns", checked: false },
   { id: 80, name: "Magic", checked: false },
   { id: 81, name: "Medieval", checked: false },
+  { id: 89, name: "Cops and Robbers", checked: false },
+  { id: 90, name: "Battle Royale", checked: false },
+  { id: 97, name: "Laser Tag", checked: false },
+  { id: 98, name: "Capture the Flag", checked: false },
 ];
 
 const features = [
@@ -70,6 +76,14 @@ const features = [
   { id: 30, name: "PvE", checked: false },
   { id: 69, name: "Anti-Grief", checked: false },
   { id: 71, name: "Fantasy", checked: false },
+  { id: 84, name: "Jobs", checked: false },
+  { id: 86, name: "Lucky Block", checked: false },
+  { id: 88, name: "Features", checked: false },
+  { id: 91, name: "Among Us", checked: false },
+  { id: 92, name: "Adult", checked: false },
+  { id: 94, name: "War", checked: false },
+  { id: 95, name: "Vehicles", checked: false },
+  { id: 99, name: "City", checked: false },
 ];
 
 const languages = [
