@@ -59,9 +59,7 @@ function Edit(props: EditProps): JSX.Element {
       props.server.server_id,
       {
         votifier: {
-          host: parameters.votifier_host,
-          port: parameters.votifier_port,
-          token: parameters.votifier_token,
+          ...parameters,
         },
         owner_id: props.user.user_id,
         port: parseInt(parameters.votifier_port),
