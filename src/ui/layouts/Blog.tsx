@@ -34,7 +34,9 @@ const Default = (props: Default): JSX.Element => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-start justify-start blog-content">{props.children}</div>
+        <div className="flex flex-col items-start justify-start space-y-8 blog-content format-links">
+          {props.children}
+        </div>
       </div>
     </div>
   );

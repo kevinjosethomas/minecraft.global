@@ -28,6 +28,10 @@ body,
   @apply font-bold text-5xl text-gray-400;
 }
 
+.blog-content h4 {
+  @apply font-bold text-4xl text-gray-400;
+}
+
 .blog-content p {
   @apply text-xl text-gray-400;
 }
@@ -61,7 +65,7 @@ body,
 
 .long-description a,
 .faq a,
-.format-links {
+.format-links a {
   @apply text-olive-500;
   text-decoration: underline;
 }
