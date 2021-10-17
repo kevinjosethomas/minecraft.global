@@ -24,6 +24,18 @@ body,
   border-radius: 0.25rem;
 }
 
+.blog-content h3 {
+  @apply font-bold text-5xl text-gray-400;
+}
+
+.blog-content p {
+  @apply text-xl text-gray-400;
+}
+
+.blog-content div {
+  @apply flex flex-col items-start justify-start space-y-2;
+}
+
 .no-scrollbar::-webkit-scrollbar,
 .no-scrollbar::-webkit-scrollbar-track,
 .no-scrollbar::-webkit-scrollbar-thumb {
