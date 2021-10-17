@@ -77,7 +77,11 @@ function Server(props: Server): JSX.Element {
           <div className="flex flex-col md:flex-row items-start justify-between space-y-3 w-full overflow-x-hidden">
             <div className="flex flex-col items-start justify-start space-y-3 md:space-y-6 w-full">
               <div className="flex flex-col md:flex-row items-start md:items-center justify-start space-y-3 md:space-y-0 md:space-x-4">
-                <img src={props.server.favicon} alt={props.server.name} />
+                <img
+                  src={props.server.favicon || "/images/default_server_favicon.png"}
+                  className="w-16 h-16"
+                  alt={props.server.name}
+                />
                 <div className="flex flex-col items-start justify-center">
                   <h1 className="font-bold text-4xl text-gray-300">{props.server.name}</h1>
                   <span className="font-medium text-gray-400">
