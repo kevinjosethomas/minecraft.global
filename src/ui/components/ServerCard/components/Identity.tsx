@@ -33,7 +33,7 @@ function Identity(props: IdentityProps): JSX.Element {
             className="w-16 h-16 min-w-[4rem] rounded"
           />
         </div>
-        <h3 className="font-bold text-5xl text-gray-300 tracking-tight truncate">{props.name}</h3>
+        <h3 className="font-bold text-4xl text-gray-300 tracking-tight truncate">{props.name}</h3>
       </div>
     </>
   );
