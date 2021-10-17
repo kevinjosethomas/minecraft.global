@@ -152,6 +152,14 @@ function AddServer(props: AddServerProps): JSX.Element {
             />
           ));
         }
+      } else {
+        toast.custom((t) => (
+          <Toast
+            icon="far fa-times-circle text-olive-600"
+            title="An unknown error occurred!"
+            subtitle="Please try again later!"
+          />
+        ));
       }
       return;
     }
