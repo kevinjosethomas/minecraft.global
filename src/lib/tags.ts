@@ -43,6 +43,7 @@ const gamemodes = [
   { id: 49, name: "Modded", checked: false },
   { id: 66, name: "RPG", checked: false },
   { id: 67, name: "Pokemon", checked: false },
+  { id: 82, name: "Factions", checked: false },
 ];
 
 const minigames = [
