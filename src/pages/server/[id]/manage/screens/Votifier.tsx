@@ -152,41 +152,39 @@ function Edit(props: EditProps): JSX.Element {
   };
 
   return (
-    <>
-      <div className="flex flex-col items-start justify-start w-full p-10 space-y-6 bg-dark-800 rounded border-2 border-gray-800">
-        <div className="flex flex-row items-center justify-between w-full">
-          <span className="font-bold text-6xl text-gray-300">Edit Votifier</span>
-          <div
-            className="flex flex-row items-center justify-center px-2.5 py-0.5 space-x-2 bg-olive-800 hover:bg-olive-700 rounded select-none cursor-pointer transition duration-300"
-            onClick={submit}
-          >
-            <span className="font-medium md:text-lg text-gray-300">Save Changes</span>
-            <i className="fas fa-map-marker-check md:text-lg text-gray-300" />
-          </div>
+    <div className="flex flex-col items-start justify-start w-full p-10 space-y-6 bg-dark-800 rounded border-2 border-gray-800">
+      <div className="flex flex-row items-center justify-between w-full">
+        <span className="font-bold text-6xl text-gray-300">Edit Votifier</span>
+        <div
+          className="flex flex-row items-center justify-center px-2.5 py-0.5 space-x-2 bg-olive-800 hover:bg-olive-700 rounded select-none cursor-pointer transition duration-300"
+          onClick={submit}
+        >
+          <span className="font-medium md:text-lg text-gray-300">Save Changes</span>
+          <i className="fas fa-map-marker-check md:text-lg text-gray-300" />
         </div>
-        <div className="flex flex-col items-center justify-start">
-          <span className="font-medium text-xl text-gray-400 max-w-xl">
-            We only support{" "}
-            <a
-              href="https://www.spigotmc.org/resources/nuvotifier.13449/"
-              target="_blank"
-              rel="noreferrer"
-              className="underline format-links"
-            >
-              NuVotifier
-            </a>
-            . This section is optional but we recommend setting up vote rewards!
-          </span>
-        </div>
-        <Input label="Votifier Host" value={parameters.votifier_host} setValue={onHostnameChange} />
-        <Input label="Votifier Port" value={parameters.votifier_port} setValue={onPortChange} />
-        <TextArea
-          label="Votifier Token / Public Key"
-          value={parameters.votifier_token}
-          setValue={onTokenChange}
-        />
       </div>
-    </>
+      <div className="flex flex-col items-center justify-start">
+        <span className="font-medium text-xl text-gray-400 max-w-xl">
+          We only support{" "}
+          <a
+            href="https://www.spigotmc.org/resources/nuvotifier.13449/"
+            target="_blank"
+            rel="noreferrer"
+            className="underline format-links"
+          >
+            NuVotifier
+          </a>
+          . This section is optional but we recommend setting up vote rewards!
+        </span>
+      </div>
+      <Input label="Votifier Host" value={parameters.votifier_host} setValue={onHostnameChange} />
+      <Input label="Votifier Port" value={parameters.votifier_port} setValue={onPortChange} />
+      <TextArea
+        label="Votifier Token / Public Key"
+        value={parameters.votifier_token}
+        setValue={onTokenChange}
+      />
+    </div>
   );
 }
 
