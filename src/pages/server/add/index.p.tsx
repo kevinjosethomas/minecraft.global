@@ -228,7 +228,7 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   } else {
     return {
       props: {
-        user: user.payload,
+        user: (user as any).payload,
       },
     };
   }

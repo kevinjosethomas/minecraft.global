@@ -4,6 +4,7 @@ import { GetServerSidePropsContext } from "next";
 import Edit from "./screens/Edit";
 import GetLoggedInUser from "api/auth";
 import Default from "ui/layouts/Default";
+import Votifier from "./screens/Votifier";
 import { GetEditServer } from "api/server";
 import Navigation from "./components/Navigation";
 
@@ -25,7 +26,7 @@ function ManageServer(props: ManageServerProps): JSX.Element {
       id: 2,
       icon: "far fa-box-ballot",
       name: "Votifier",
-      screen: Edit,
+      screen: Votifier,
     },
     {
       id: 3,
