@@ -8,17 +8,11 @@ type DetailsProps = {
 
 function Details(props: DetailsProps): JSX.Element {
   const onNameChange = (e: any) => {
-    if (e.target.value.length >= 32) {
-      return;
-    }
-    props.setParams({ ...props.params, name: e.target.value });
+    props.setParams({ ...props.params, name: e.target.value.substring(0, 32) });
   };
 
   const onHostnameChange = (e: any) => {
-    if (e.target.value.length >= 258) {
-      return;
-    }
-    props.setParams({ ...props.params, host: e.target.value });
+    props.setParams({ ...props.params, host: e.target.value.substring(0, 258) });
   };
 
   const onPortChange = (e: any) => {
@@ -29,10 +23,7 @@ function Details(props: DetailsProps): JSX.Element {
   };
 
   const onDescriptionChange = (e: any) => {
-    if (e.target.value.length >= 150) {
-      return;
-    }
-    props.setParams({ ...props.params, description: e.target.value });
+    props.setParams({ ...props.params, description: e.target.value.substring(0, 150) });
   };
 
   return (

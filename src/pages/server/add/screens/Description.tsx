@@ -5,10 +5,7 @@ type DescriptionProps = {
 
 function Description(props: DescriptionProps): JSX.Element {
   const onLongDescriptionChange = (e: any) => {
-    if (e.target.value.length >= 5000) {
-      return;
-    }
-    props.setParams({ ...props.params, long_description: e.target.value });
+    props.setParams({ ...props.params, long_description: e.target.value.substring(0, 5000) });
   };
 
   return (

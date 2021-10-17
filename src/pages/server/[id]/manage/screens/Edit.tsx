@@ -36,17 +36,11 @@ function Edit(props: EditProps): JSX.Element {
   const [tagsModal, showTagsModal] = useState(false);
 
   const onNameChange = (e: any) => {
-    if (e.target.value.length >= 32) {
-      return;
-    }
-    setParameters({ ...parameters, name: e.target.value });
+    setParameters({ ...parameters, name: e.target.value.substring(0, 32) });
   };
 
   const onHostnameChange = (e: any) => {
-    if (e.target.value.length >= 258) {
-      return;
-    }
-    setParameters({ ...parameters, host: e.target.value });
+    setParameters({ ...parameters, host: e.target.value.substring(0, 258) });
   };
 
   const onPortChange = (e: any) => {
@@ -57,10 +51,7 @@ function Edit(props: EditProps): JSX.Element {
   };
 
   const onDescriptionChange = (e: any) => {
-    if (e.target.value.length >= 150) {
-      return;
-    }
-    setParameters({ ...parameters, description: e.target.value });
+    setParameters({ ...parameters, description: e.target.value.substring(0, 150) });
   };
 
   const onWhitelistedChange = () => {
@@ -76,31 +67,19 @@ function Edit(props: EditProps): JSX.Element {
   };
 
   const onWebsiteChange = (e: any) => {
-    if (e.target.value.length >= 220) {
-      return;
-    }
-    setParameters({ ...parameters, website_url: e.target.value });
+    setParameters({ ...parameters, website_url: e.target.value.substring(0, 220) });
   };
 
   const onDiscordChange = (e: any) => {
-    if (e.target.value.length >= 32) {
-      return;
-    }
-    setParameters({ ...parameters, discord_url: e.target.value });
+    setParameters({ ...parameters, discord_url: e.target.value.substring(0, 32) });
   };
 
   const onTrailerChange = (e: any) => {
-    if (e.target.value.length >= 220) {
-      return;
-    }
-    setParameters({ ...parameters, trailer_url: e.target.value });
+    setParameters({ ...parameters, trailer_url: e.target.value.substring(0, 220) });
   };
 
   const onLongDescriptionChange = (e: any) => {
-    if (e.target.value.length >= 5000) {
-      return;
-    }
-    setParameters({ ...parameters, long_description: e.target.value });
+    setParameters({ ...parameters, long_description: e.target.value.substring(0, 5000) });
   };
 
   useEffect(() => {

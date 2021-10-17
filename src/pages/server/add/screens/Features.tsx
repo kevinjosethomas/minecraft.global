@@ -9,24 +9,15 @@ type FeaturesProps = {
 
 function Features(props: FeaturesProps): JSX.Element {
   const onWebsiteChange = (e: any) => {
-    if (e.target.value.length >= 220) {
-      return;
-    }
-    props.setParams({ ...props.params, website_url: e.target.value });
+    props.setParams({ ...props.params, website_url: e.target.value.substring(0, 220) });
   };
 
   const onDiscordChange = (e: any) => {
-    if (e.target.value.length >= 32) {
-      return;
-    }
-    props.setParams({ ...props.params, discord_url: e.target.value });
+    props.setParams({ ...props.params, discord_url: e.target.value.substring(0, 32) });
   };
 
   const onTrailerChange = (e: any) => {
-    if (e.target.value.length >= 220) {
-      return;
-    }
-    props.setParams({ ...props.params, trailer_url: e.target.value });
+    props.setParams({ ...props.params, trailer_url: e.target.value.substring(0, 220) });
   };
 
   const onWhitelistedChange = () => {

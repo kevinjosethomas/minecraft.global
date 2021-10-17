@@ -7,10 +7,7 @@ type VotifierProps = {
 
 function Votifier(props: VotifierProps): JSX.Element {
   const onHostChange = (e: any) => {
-    if (e.target.value.length >= 258) {
-      return;
-    }
-    props.setParams({ ...props.params, votifier_host: e.target.value });
+    props.setParams({ ...props.params, votifier_host: e.target.value.substring(0, 258) });
   };
 
   const onPortChange = (e: any) => {
@@ -21,10 +18,7 @@ function Votifier(props: VotifierProps): JSX.Element {
   };
 
   const onTokenChange = (e: any) => {
-    if (e.target.value.length >= 1000) {
-      return;
-    }
-    props.setParams({ ...props.params, votifier_token: e.target.value });
+    props.setParams({ ...props.params, votifier_token: e.target.value.substring(0, 1000) });
   };
 
   return (
