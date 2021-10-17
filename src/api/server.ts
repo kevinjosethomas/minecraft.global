@@ -82,6 +82,19 @@ async function UpvoteServer(id: string, playername: string, code: string) {
   }
 }
 
+async function DeleteServer(id: string, token: string) {
+  try {
+    const response = await axios.delete(process.env.NEXT_PUBLIC_API + `/server/${id}/delete`, {
+      headers: {
+        Authorization: token,
+      },
+    });
+    return [response, null];
+  } catch (e) {
+    return [null, e];
+  }
+}
+
 export {
   GetServer,
   GetEditServer,
@@ -90,4 +103,5 @@ export {
   NewServer,
   EditServer,
   UpvoteServer,
+  DeleteServer,
 };
