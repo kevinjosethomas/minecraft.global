@@ -95,7 +95,7 @@ const languages = [
   { id: 73, name: "Türk", checked: false },
   { id: 74, name: "Pусский", checked: false },
   { id: 75, name: "Deutsche", checked: false },
-  { id: 76, name: "中国人", checked: false },
+  { id: 76, name: "中文", checked: false },
   { id: 83, name: "Indonesian", checked: false },
 ];
 
