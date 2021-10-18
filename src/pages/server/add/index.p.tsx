@@ -99,16 +99,33 @@ function AddServer(props: AddServerProps): JSX.Element {
       }
     }
 
+    const data: Record<string, any> = { ...params };
+
+    const optional = [
+      "website_url",
+      "discord_url",
+      "trailer_url",
+      "votifier_host",
+      "votifier_port",
+      "votifier_token",
+    ];
+
+    for (const element of Object.keys(data)) {
+      if (!element && optional.includes(element)) {
+        data[element] = null;
+      }
+    }
+
     const token = cookie.get("token") as string;
     const [response, error]: any[] = await NewServer(
       {
-        ...params,
+        ...data,
         owner_id: props.user.user_id,
-        port: parseInt(params.port),
+        port: parseInt(data.port),
         votifier: {
-          votifier_host: params.votifier_host,
-          votifier_port: params.votifier_port,
-          votifier_token: params.votifier_token,
+          votifier_host: data.votifier_host,
+          votifier_port: data.votifier_port,
+          votifier_token: data.votifier_token,
         },
       },
       token
