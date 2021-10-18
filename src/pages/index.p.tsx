@@ -46,8 +46,8 @@ function Home(props: Home): JSX.Element {
           /> */}
           <Listing
             user={props.user}
-            title="Popular Servers"
-            subtitle="The most active servers right now!"
+            title="Sponsored Servers"
+            subtitle="Servers that are helping minecraft.global grow!"
             icon="far fa-stars"
             data={data ? (data as any[])[0].popular.entries : null}
             link="/search?sort=players"
