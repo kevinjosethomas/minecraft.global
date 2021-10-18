@@ -57,10 +57,6 @@ const minigames = [
   { id: 34, name: "Spleef", checked: false },
   { id: 61, name: "Minigames", checked: false },
   { id: 62, name: "Hunger Games", checked: false },
-  { id: 68, name: "Zombies", checked: false },
-  { id: 79, name: "Guns", checked: false },
-  { id: 80, name: "Magic", checked: false },
-  { id: 81, name: "Medieval", checked: false },
   { id: 89, name: "Cops and Robbers", checked: false },
   { id: 90, name: "Battle Royale", checked: false },
   { id: 97, name: "Laser Tag", checked: false },
@@ -84,6 +80,10 @@ const features = [
   { id: 94, name: "War", checked: false },
   { id: 95, name: "Vehicles", checked: false },
   { id: 99, name: "City", checked: false },
+  { id: 68, name: "Zombies", checked: false },
+  { id: 79, name: "Guns", checked: false },
+  { id: 80, name: "Magic", checked: false },
+  { id: 81, name: "Medieval", checked: false },
 ];
 
 const languages = [
