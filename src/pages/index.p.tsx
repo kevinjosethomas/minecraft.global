@@ -54,12 +54,20 @@ function Home(props: Home): JSX.Element {
           />
           <Listing
             user={props.user}
+            title="Popular Servers"
+            subtitle="The most active servers right now!"
+            icon="far fa-stars"
+            data={data ? (data as any[])[0].popular.entries : null}
+            link="/search?sort=players"
+          />
+          {/* <Listing
+            user={props.user}
             title="Growing Servers"
             subtitle="New and growing Minecraft servers!"
             icon="far fa-seedling"
             data={data ? (data as any[])[0].growing.entries : null}
             link="/search?sort=growth"
-          />
+          /> */}
           <Listing
             user={props.user}
             title="New Servers"
