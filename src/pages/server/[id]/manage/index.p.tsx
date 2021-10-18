@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 import { GetServerSidePropsContext } from "next";
 
 import Edit from "./screens/Edit";
@@ -16,6 +17,8 @@ type ManageServerProps = {
 };
 
 function ManageServer(props: ManageServerProps): JSX.Element {
+  const router = useRouter();
+
   const screens = [
     {
       id: 1,
@@ -61,7 +64,11 @@ function ManageServer(props: ManageServerProps): JSX.Element {
           setActiveScreen={setActiveScreen}
         />
         <div className="flex flex-row items-center justify-center w-full">
-          <activeScreen.screen server={props.server} user={props.user} />
+          <activeScreen.screen
+            server={props.server}
+            user={props.user}
+            reload={() => router.reload()}
+          />
         </div>
       </div>
     </Default>

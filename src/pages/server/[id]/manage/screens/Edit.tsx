@@ -15,6 +15,7 @@ import LongDescription from "../components/LongDescription";
 type EditProps = {
   server: Record<string, any>;
   user: Record<string, any>;
+  reload: CallableFunction;
 };
 
 function Edit(props: EditProps): JSX.Element {
@@ -191,13 +192,7 @@ function Edit(props: EditProps): JSX.Element {
       return;
     }
 
-    toast.custom((t) => (
-      <Toast
-        icon="fas fa-check-circle text-green-600"
-        title="Successfully updated your server details!"
-        subtitle="You can check it out on your server page!"
-      />
-    ));
+    props.reload();
   };
 
   return (

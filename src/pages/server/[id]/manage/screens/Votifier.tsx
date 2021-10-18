@@ -1,6 +1,6 @@
 import cookie from "js-cookie";
-import toast from "react-hot-toast";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 import validate from "lib/validate";
 import Input from "../components/Input";
@@ -11,6 +11,7 @@ import TextArea from "../components/TextArea";
 type VotifierProps = {
   server: Record<string, any>;
   user: Record<string, any>;
+  reload: CallableFunction;
 };
 
 function Votifier(props: VotifierProps): JSX.Element {
@@ -144,13 +145,7 @@ function Votifier(props: VotifierProps): JSX.Element {
       return;
     }
 
-    toast.custom((t) => (
-      <Toast
-        icon="fas fa-check-circle text-green-600"
-        title="Successfully updated your server details!"
-        subtitle="You have changed your votifier settings!"
-      />
-    ));
+    props.reload();
   };
 
   return (
