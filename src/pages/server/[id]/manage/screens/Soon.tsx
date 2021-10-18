@@ -1,6 +1,7 @@
 type SoonProps = {
   server: Record<string, any>;
   user: Record<string, any>;
+  reload: CallableFunction;
 };
 
 function Soon(props: SoonProps): JSX.Element {

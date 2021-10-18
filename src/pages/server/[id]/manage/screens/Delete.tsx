@@ -10,6 +10,7 @@ import Toast from "ui/components/Toast/Toast";
 type EditProps = {
   server: Record<string, any>;
   user: Record<string, any>;
+  reload: CallableFunction;
 };
 
 function Edit(props: EditProps): JSX.Element {
