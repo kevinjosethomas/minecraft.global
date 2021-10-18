@@ -19,16 +19,18 @@ import { Server as ServerProps } from "lib/types";
 
 type Server = {
   id: string;
-  user?: Record<string, any>;
+  topvoters: any[];
   server: ServerProps;
+  user?: Record<string, any>;
 };
 
 function Server(props: Server): JSX.Element {
-  const router = useRouter();
-  const id = router.query.id;
+  const id = props.id;
 
-  const [topVoters, setTopVoters] = useState();
-  const [upvoteModal, showUpvoteModal] = useState(false);
+  const router = useRouter();
+  const upvoteQuery = router.query?.upvote;
+
+  const [upvoteModal, showUpvoteModal] = useState(typeof upvoteQuery == typeof "");
 
   function CopyIP() {
     const ip =
@@ -42,13 +44,6 @@ function Server(props: Server): JSX.Element {
       />
     ));
   }
-
-  useEffect(() => {
-    (async () => {
-      const [response, error] = await GetTopVoters(id as string);
-      setTopVoters(response);
-    })();
-  }, []);
 
   useEffect(() => {
     if (upvoteModal) {
@@ -82,7 +77,7 @@ function Server(props: Server): JSX.Element {
       </Head>
       {upvoteModal && (
         <UpvoteModal
-          voters={topVoters as any}
+          voters={props.topVoters}
           server={props.server}
           showUpvoteModal={showUpvoteModal}
         />
@@ -198,33 +193,27 @@ function Server(props: Server): JSX.Element {
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   const id = ctx.query.id;
-  const [user, error] = await GetLoggedInUser(ctx);
-  const [server, error2] = await GetServer(id as string);
 
-  if (error2) {
+  try {
+    const data: any[] = await Promise.all([
+      GetLoggedInUser(ctx),
+      GetServer(id as string),
+      GetTopVoters(id as string),
+    ]);
+    return {
+      props: {
+        user: data[0][0].payload,
+        server: data[1][0],
+        topVoters: data[2][0],
+      },
+    };
+  } catch (e) {
     return {
       redirect: {
         destination: "/",
         permanent: true,
       },
     };
-  } else {
-    if (error) {
-      return {
-        props: {
-          id: id,
-          server: server,
-        },
-      };
-    } else {
-      return {
-        props: {
-          user: user.payload,
-          server: server,
-          id: id,
-        },
-      };
-    }
   }
 }
 
