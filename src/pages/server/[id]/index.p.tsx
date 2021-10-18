@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import toast from "react-hot-toast";
 import { useRouter } from "next/router";
 import ReactMarkdown from "react-markdown";
 import { useEffect, useState } from "react";
@@ -12,6 +13,7 @@ import Social from "./components/Social";
 import Default from "ui/layouts/Default";
 import { GetTopVoters } from "api/server";
 import Feature from "./components/Feature";
+import Toast from "ui/components/Toast/Toast";
 import UpvoteModal from "./modals/upvote/Upvote";
 import { Server as ServerProps } from "lib/types";
 
@@ -27,6 +29,19 @@ function Server(props: Server): JSX.Element {
 
   const [topVoters, setTopVoters] = useState();
   const [upvoteModal, showUpvoteModal] = useState(false);
+
+  function CopyIP() {
+    const ip =
+      props.server.port === 25565 ? props.server.host : `${props.server.host}:${props.server.port}`;
+    navigator.clipboard.writeText(ip);
+    toast.custom((t) => (
+      <Toast
+        icon="fas fa-check-circle text-green-600"
+        title="Successfully copied IP Address!"
+        subtitle={`Copied ${ip} to your clipboard!`}
+      />
+    ));
+  }
 
   useEffect(() => {
     (async () => {
@@ -85,8 +100,11 @@ function Server(props: Server): JSX.Element {
                 <div className="flex flex-col items-start justify-center">
                   <h1 className="font-bold text-4xl text-gray-300">{props.server.name}</h1>
                   <span className="font-medium text-gray-400">
-                    {props.server.host} +{" "}
-                    {SimplifyNumber(props.server.players_online, { decimal: 1 })} player
+                    <div className="cursor-pointer inline" onClick={CopyIP}>
+                      {props.server.host}
+                      {props.server.port !== 25565 && `:${props.server.port}`}
+                    </div>{" "}
+                    + {SimplifyNumber(props.server.players_online, { decimal: 1 })} player
                     {props.server.players_online === 1 ? "" : "s"}
                   </span>
                 </div>
