@@ -105,13 +105,23 @@ function Edit(props: EditProps): JSX.Element {
       }
     }
 
+    const data: Record<string, any> = { ...parameters };
+
+    const optional = ["website_url", "discord_url", "trailer_url"];
+
+    for (const element of Object.keys(data)) {
+      if (!element && optional.includes(element)) {
+        data[element] = null;
+      }
+    }
+
     const token = cookie.get("token") as string;
     const [response, error]: any[] = await EditServer(
       props.server.server_id,
       {
-        ...parameters,
+        ...data,
         owner_id: props.user.user_id,
-        port: parseInt(parameters.port),
+        port: parseInt(data.port),
       },
       token
     );

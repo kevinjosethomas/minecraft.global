@@ -50,15 +50,23 @@ function Votifier(props: VotifierProps): JSX.Element {
       }
     }
 
+    const data: Record<string, any> = { ...parameters };
+
+    const optional = ["votifier_hostname", "votifier_port", "votifier_token"];
+
+    for (const element of Object.keys(data)) {
+      if (!element && optional.includes(element)) {
+        data[element] = null;
+      }
+    }
+
     const token = cookie.get("token") as string;
     const [response, error]: any[] = await EditServer(
       props.server.server_id,
       {
         votifier: {
-          ...parameters,
+          ...data,
         },
-        owner_id: props.user.user_id,
-        port: parseInt(parameters.votifier_port),
       },
       token
     );
