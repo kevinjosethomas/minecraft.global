@@ -200,9 +200,17 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
       GetServer(id as string),
       GetTopVoters(id as string),
     ]);
+    if (data[1][1] || data[2][1]) {
+      return {
+        redirect: {
+          destination: "/",
+          permanent: true,
+        },
+      };
+    }
     return {
       props: {
-        user: data[0][0].payload,
+        user: data[0][0] ? data[0][0].payload : null,
         server: data[1][0],
         topVoters: data[2][0],
       },
