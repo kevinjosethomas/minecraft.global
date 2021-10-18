@@ -111,7 +111,7 @@ function AddServer(props: AddServerProps): JSX.Element {
     ];
 
     for (const element of Object.keys(data)) {
-      if (!element && optional.includes(element)) {
+      if (!data[element] && optional.includes(element)) {
         data[element] = null;
       }
     }

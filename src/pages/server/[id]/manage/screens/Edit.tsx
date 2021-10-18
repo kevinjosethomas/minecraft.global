@@ -110,7 +110,7 @@ function Edit(props: EditProps): JSX.Element {
     const optional = ["website_url", "discord_url", "trailer_url"];
 
     for (const element of Object.keys(data)) {
-      if (!element && optional.includes(element)) {
+      if (!data[element] && optional.includes(element)) {
         data[element] = null;
       }
     }

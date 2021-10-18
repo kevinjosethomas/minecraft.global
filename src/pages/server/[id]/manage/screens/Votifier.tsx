@@ -15,9 +15,9 @@ type VotifierProps = {
 
 function Votifier(props: VotifierProps): JSX.Element {
   const [parameters, setParameters] = useState({
-    votifier_host: props.server.votifier.votifier_host || "",
-    votifier_port: props.server.votifier.votifier_port,
-    votifier_token: props.server.votifier.votifier_token || "",
+    votifier_host: props.server.votifier?.votifier_host || "",
+    votifier_port: props.server.votifier?.votifier_port,
+    votifier_token: props.server.votifier?.votifier_token || "",
   });
 
   const onHostnameChange = (e: any) => {
@@ -55,7 +55,7 @@ function Votifier(props: VotifierProps): JSX.Element {
     const optional = ["votifier_hostname", "votifier_port", "votifier_token"];
 
     for (const element of Object.keys(data)) {
-      if (!element && optional.includes(element)) {
+      if (!data[element] && optional.includes(element)) {
         data[element] = null;
       }
     }
