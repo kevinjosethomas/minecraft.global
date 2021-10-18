@@ -19,7 +19,7 @@ import { Server as ServerProps } from "lib/types";
 
 type Server = {
   id: string;
-  topvoters: any[];
+  topVoters: any[];
   server: ServerProps;
   user?: Record<string, any>;
 };
