@@ -6,8 +6,10 @@ type DescriptionProps = {
 
 function Description(props: DescriptionProps): JSX.Element {
   return (
-    <div className="flex flex-col items-start justify-start">
-      <span className="font-medium text-sm 2xl:text-base text-gray-400">{props.description}</span>
+    <div className="flex flex-col items-start justify-start w-full overflow-hidden">
+      <span className="font-medium text-sm 2xl:text-base text-gray-400 break-anywhere">
+        {props.description}
+      </span>
     </div>
   );
 }

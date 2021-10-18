@@ -22,7 +22,7 @@ function ServerCard(props: Server): JSX.Element {
       <div
         className={`relative flex flex-col items-start justify-start w-80 lg:w-96 xl:w-88 2xl:w-96 h-84 md:h-88 xl:h-84 2xl:h-90 p-6 space-y-6 bg-dark-600 border-2 ${
           props.premium ? "border-olive-700" : "border-gray-800"
-        } rounded`}
+        } rounded overflow-hidden`}
       >
         <Identity favicon={props.favicon} name={props.name} online={props.online} />
         <div className="flex flex-col items-start justify-start w-full h-full space-y-3">

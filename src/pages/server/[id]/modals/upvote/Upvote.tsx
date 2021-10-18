@@ -15,13 +15,11 @@ type UpvoteProps = {
 };
 
 function Upvote(props: UpvoteProps): JSX.Element {
+  const [placeholder, setPlaceholder] = useState("");
   const [captcha, setCaptcha] = useState(false);
   const [playername, setPlayername] = useState("");
   const [canUpvote, setCanUpvote] = useState(false);
   const [code, setCode] = useState("");
-
-  const placeholders = ["Steve", "Alex", "Dream", "DanTDM", "Creeper"];
-  const placeholder = placeholders[Math.floor(Math.random() * placeholders.length)];
 
   const voters = [];
   for (let i = 0; i < 10; i++) {
@@ -96,6 +94,11 @@ function Upvote(props: UpvoteProps): JSX.Element {
     ));
     props.showUpvoteModal(false);
   };
+
+  useEffect(() => {
+    const placeholders = ["Steve", "Alex", "Dream", "DanTDM", "Creeper"];
+    setPlaceholder(placeholders[Math.floor(Math.random() * placeholders.length)]);
+  }, []);
 
   useEffect(() => {
     if (captcha && playername && playername.length <= 16) {

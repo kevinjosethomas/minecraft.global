@@ -60,6 +60,7 @@ function ManageServer(props: ManageServerProps): JSX.Element {
       <div className="flex flex-row items-start justify-center w-full space-x-4">
         <Navigation
           screens={screens}
+          server={props.server}
           activeScreen={activeScreen}
           setActiveScreen={setActiveScreen}
         />

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import toast from "react-hot-toast";
 import { useRouter } from "next/router";
 import ReactMarkdown from "react-markdown";
 import { useEffect, useState } from "react";
@@ -12,28 +13,37 @@ import Social from "./components/Social";
 import Default from "ui/layouts/Default";
 import { GetTopVoters } from "api/server";
 import Feature from "./components/Feature";
+import Toast from "ui/components/Toast/Toast";
 import UpvoteModal from "./modals/upvote/Upvote";
 import { Server as ServerProps } from "lib/types";
 
 type Server = {
   id: string;
-  user?: Record<string, any>;
+  topVoters: any[];
   server: ServerProps;
+  user?: Record<string, any>;
 };
 
 function Server(props: Server): JSX.Element {
+  const id = props.id;
+
   const router = useRouter();
-  const id = router.query.id;
+  const upvoteQuery = router.query?.upvote;
 
-  const [topVoters, setTopVoters] = useState();
-  const [upvoteModal, showUpvoteModal] = useState(false);
+  const [upvoteModal, showUpvoteModal] = useState(typeof upvoteQuery == typeof "");
 
-  useEffect(() => {
-    (async () => {
-      const [response, error] = await GetTopVoters(id as string);
-      setTopVoters(response);
-    })();
-  }, []);
+  function CopyIP() {
+    const ip =
+      props.server.port === 25565 ? props.server.host : `${props.server.host}:${props.server.port}`;
+    navigator.clipboard.writeText(ip);
+    toast.custom((t) => (
+      <Toast
+        icon="fas fa-check-circle text-green-600"
+        title="Successfully copied IP Address!"
+        subtitle={`Copied ${ip} to your clipboard!`}
+      />
+    ));
+  }
 
   useEffect(() => {
     if (upvoteModal) {
@@ -67,7 +77,7 @@ function Server(props: Server): JSX.Element {
       </Head>
       {upvoteModal && (
         <UpvoteModal
-          voters={topVoters as any}
+          voters={props.topVoters}
           server={props.server}
           showUpvoteModal={showUpvoteModal}
         />
@@ -85,8 +95,11 @@ function Server(props: Server): JSX.Element {
                 <div className="flex flex-col items-start justify-center">
                   <h1 className="font-bold text-4xl text-gray-300">{props.server.name}</h1>
                   <span className="font-medium text-gray-400">
-                    {props.server.host} +{" "}
-                    {SimplifyNumber(props.server.players_online, { decimal: 1 })} player
+                    <div className="cursor-pointer inline" onClick={CopyIP}>
+                      {props.server.host}
+                      {props.server.port !== 25565 && `:${props.server.port}`}
+                    </div>{" "}
+                    + {SimplifyNumber(props.server.players_online, { decimal: 1 })} player
                     {props.server.players_online === 1 ? "" : "s"}
                   </span>
                 </div>
@@ -180,33 +193,35 @@ function Server(props: Server): JSX.Element {
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   const id = ctx.query.id;
-  const [user, error] = await GetLoggedInUser(ctx);
-  const [server, error2] = await GetServer(id as string);
 
-  if (error2) {
+  try {
+    const data: any[] = await Promise.all([
+      GetLoggedInUser(ctx),
+      GetServer(id as string),
+      GetTopVoters(id as string),
+    ]);
+    if (data[1][1] || data[2][1]) {
+      return {
+        redirect: {
+          destination: "/",
+          permanent: true,
+        },
+      };
+    }
+    return {
+      props: {
+        user: data[0][0] ? data[0][0].payload : null,
+        server: data[1][0],
+        topVoters: data[2][0],
+      },
+    };
+  } catch (e) {
     return {
       redirect: {
         destination: "/",
         permanent: true,
       },
     };
-  } else {
-    if (error) {
-      return {
-        props: {
-          id: id,
-          server: server,
-        },
-      };
-    } else {
-      return {
-        props: {
-          user: user.payload,
-          server: server,
-          id: id,
-        },
-      };
-    }
   }
 }
 
