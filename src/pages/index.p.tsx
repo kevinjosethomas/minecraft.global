@@ -44,12 +44,20 @@ function Home(props: Home): JSX.Element {
             data={isLoading ? null : (data as any[])[0].auctions}
             link="/search?filter=premium"
           /> */}
+          {/* <Listing
+            user={props.user}
+            title="Growing Servers"
+            subtitle="New and growing Minecraft servers!"
+            icon="far fa-seedling"
+            data={data ? (data as any[])[0].growing.entries : null}
+            link="/search?sort=growth"
+          /> */}
           <Listing
             user={props.user}
             title="Sponsored Servers"
             subtitle="Servers that are helping minecraft.global grow!"
             icon="far fa-stars"
-            data={data ? (data as any[])[0].popular.entries : null}
+            data={data ? (data as any[])[0].sponsored.entries : null}
             link="/search?sort=players"
           />
           <Listing
@@ -60,14 +68,7 @@ function Home(props: Home): JSX.Element {
             data={data ? (data as any[])[0].popular.entries : null}
             link="/search?sort=players"
           />
-          {/* <Listing
-            user={props.user}
-            title="Growing Servers"
-            subtitle="New and growing Minecraft servers!"
-            icon="far fa-seedling"
-            data={data ? (data as any[])[0].growing.entries : null}
-            link="/search?sort=growth"
-          /> */}
+
           <Listing
             user={props.user}
             title="New Servers"
