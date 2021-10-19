@@ -14,6 +14,7 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   const [server_id, error] = await GetRandomServer();
 
   if (error) {
+    console.log(error);
     return {
       redirect: {
         destination: "/",
