@@ -4,9 +4,9 @@ async function GetHomeResults() {
   // const auctions = axios.get(process.env.NEXT_PUBLIC_API + "/auctions/winners");
   // const growing = axios.get(process.env.NEXT_PUBLIC_API + "/search?amount=4&sort=growth");
   const sponsored = axios.get(
-    process.env.NEXT_PUBLIC_API + "/search?amount=4&sort=players&premium=true"
+    process.env.NEXT_PUBLIC_API + "/server/random/premium"
   );
-  const popular = axios.get(process.env.NEXT_PUBLIC_API + "/search?amount=4&sort=players");
+  const popular = axios.get(process.env.NEXT_PUBLIC_API + "/search?amount=4&sort=upvotes");
   const newly = axios.get(process.env.NEXT_PUBLIC_API + "/search?amount=4&sort=new");
 
   try {
