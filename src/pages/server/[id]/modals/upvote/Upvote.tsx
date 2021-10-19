@@ -62,10 +62,7 @@ function Upvote(props: UpvoteProps): JSX.Element {
           />
         ));
       } else if (error?.response?.status == 429) {
-        const lastvote = moment
-          .duration(error.response.data.payload.detail.last_vote)
-          .add(18, "hours")
-          .humanize(true);
+        const lastvote = moment(error.response.data.payload.detail.last_vote).add(18, "hours").fromNow();
         toast.custom((t) => (
           <Toast
             icon="fas fa-times-circle text-red-500 text-opacity-75"
