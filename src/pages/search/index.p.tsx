@@ -86,7 +86,7 @@ function Search(props: SearchProps): JSX.Element {
         <i className="fas fa-sort-size-up-alt text-2xl text-gray-300" />
       </div>
       <div className="flex flex-col items-center justify-center w-full space-y-4">
-        {data && data[0].entries.length && (
+        {data && data[0].entries.length ? (
           <div className="flex flex-row items-center justify-between w-full space-x-4 md:space-x-0">
             <div className="flex flex-row items-center justify-start space-x-4">
               <i className="far fa-telescope text-3xl md:text-4xl text-gray-300" />
@@ -113,6 +113,8 @@ function Search(props: SearchProps): JSX.Element {
               total_records={data[0].total_records}
             />
           </div>
+        ) : (
+          <></>
         )}
         <div className="flex flex-row items-start justify-start w-full xl:space-x-10">
           <Refine
@@ -166,13 +168,15 @@ function Search(props: SearchProps): JSX.Element {
             )}
           </div>
         </div>
-        {data && data[0].entries.length && (
+        {data && data[0].entries.length ? (
           <Navigation
             page={page}
             setPage={setPage}
             records={data[0].entries.length}
             total_records={data[0].total_records}
           />
+        ) : (
+          <></>
         )}
       </div>
     </Default>
