@@ -43,11 +43,11 @@ function Features(props: FeaturesProps): JSX.Element {
           >
             <span className="font-medium text-xl text-gray-300">Choose Tags</span>
           </div>
-          <div className="flex flex-row items-center justify-center space-x-2">
+          <div className="flex flex-row items-center justify-start flex-wrap max-w-xl">
             {props.params.tags.map((tag: string, index: number) => (
               <div
                 key={index}
-                className="px-2 py-0.5 bg-dark-400 hover:bg-dark-200 rounded select-none cursor-pointer transition duration-300"
+                className="px-2 py-0.5 mr-2 mb-2 bg-dark-400 hover:bg-dark-200 rounded select-none cursor-pointer transition duration-300"
                 onClick={() => {
                   props.setParams({
                     ...props.params,
