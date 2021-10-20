@@ -25,8 +25,6 @@ type Server = {
 };
 
 function Server(props: Server): JSX.Element {
-  const id = props.id;
-
   const router = useRouter();
   const upvoteQuery = router.query?.upvote;
 
