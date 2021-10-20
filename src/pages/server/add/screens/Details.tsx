@@ -33,6 +33,7 @@ function Details(props: DetailsProps): JSX.Element {
       {/* <Input label="Server Port" value={props.params.port} onChange={onPortChange} /> */}
       <TextArea
         label="Server Description"
+        height="h-40"
         value={props.params.description}
         onChange={onDescriptionChange}
       />

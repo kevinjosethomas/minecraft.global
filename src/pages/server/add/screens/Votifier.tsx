@@ -42,9 +42,20 @@ function Votifier(props: VotifierProps): JSX.Element {
       <Input label="Votifier Port" value={props.params.votifier_port} onChange={onPortChange} />
       <TextArea
         label="Votifier Token"
+        height="h-20"
         value={props.params.votifier_token}
         onChange={onTokenChange}
       />
+      <span className="font-medium text-gray-400 max-w-md">
+        <a
+          href="https://github.com/NuVotifier/NuVotifier/wiki/Setup-Guide#key-vs-token"
+          target="_blank"
+          rel="noreferrer"
+          className="underline format-links"
+        >
+          This is the token in your NuVotifier config.yml! Do not provide your RSA key!
+        </a>
+      </span>
     </div>
   );
 }
