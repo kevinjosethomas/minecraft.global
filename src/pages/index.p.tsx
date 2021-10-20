@@ -88,12 +88,7 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   try {
     const data: any[] = await Promise.all([GetLoggedInUser(ctx), GetHomeResults()]);
     if (data[1][1]) {
-      return {
-        redirect: {
-          destination: "/",
-          permanent: true,
-        },
-      };
+      throw new Error("Error in fetching servers!");
     }
 
     if (data[0][1]) {
