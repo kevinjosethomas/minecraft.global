@@ -19,12 +19,6 @@ function Sort(props: SortProps): JSX.Element {
       selected: props.parameters.sort == "upvotes",
       onClick: () => props.setParameters({ ...props.parameters, sort: "upvotes" }),
     },
-    {
-      id: 3,
-      label: "Growth",
-      selected: props.parameters.sort == "growth",
-      onClick: () => props.setParameters({ ...props.parameters, sort: "growth" }),
-    },
   ];
 
   return (

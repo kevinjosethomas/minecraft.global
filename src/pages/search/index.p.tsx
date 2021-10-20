@@ -26,7 +26,7 @@ function Search(props: SearchProps): JSX.Element {
     amount: 12,
     offset: page * 12 - 12,
     query: router.query.q || null,
-    sort: router.query.sort || "players", // sort players (default), upvotes, growth
+    sort: router.query.sort || "players", // sort players (default), upvotes
     online: true, // filter by online servers
     premium: router.query.filter?.includes("premium") ? true : false, // filter by premium servers
     whitelisted: router.query.filter?.includes("whitelisted") ? true : false, // filter by whitelisted servers
