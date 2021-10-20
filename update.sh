@@ -1,1 +1,1 @@
-git pull  && yarn install && yarn build && pm2 restart 15
+git pull  && yarn install && yarn build && pm2 restart minecraft.global
