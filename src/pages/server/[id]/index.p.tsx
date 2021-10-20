@@ -201,6 +201,7 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
       GetTopVoters(id as string),
     ]);
     if (data[1][1] || data[2][1]) {
+      console.log("breaks here");
       return {
         redirect: {
           destination: "/",
