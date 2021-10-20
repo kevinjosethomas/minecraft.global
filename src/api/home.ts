@@ -10,15 +10,17 @@ async function GetHomeResults() {
   const newly = axios.get(process.env.NEXT_PUBLIC_API + "/search?amount=4&sort=new");
 
   try {
-    const data = await Promise.all([sponsored, popular, newly]);
-    return [
-      {
-        sponsored: data[0].data.payload,
-        popular: data[1].data.payload,
-        newly: data[2].data.payload,
-      },
-      null,
-    ];
+    setTimeout(async () => {
+      const data = await Promise.all([sponsored, popular, newly]);
+      return [
+        {
+          sponsored: data[0].data.payload,
+          popular: data[1].data.payload,
+          newly: data[2].data.payload,
+        },
+        null,
+      ];
+    }, 100000);
   } catch (e) {
     return [null, e];
   }

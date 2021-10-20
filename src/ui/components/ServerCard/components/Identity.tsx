@@ -45,7 +45,7 @@ function IdentitySkeleton({ is1280p, isMobile }: any): JSX.Element {
       <div className="relative flex flex-col items-center justify-center overflow-elipsis">
         <Skeleton width={64} height={64} />
       </div>
-      <Skeleton width={is1280p ? 220 : isMobile ? 192 : 256} height={40} />
+      <Skeleton width={isMobile ? 192 : is1280p ? 220 : 256} height={40} />
       <span className="font-bold text-5xl text-gray-300 tracking-tight truncate"></span>
     </div>
   );

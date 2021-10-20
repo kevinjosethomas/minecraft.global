@@ -53,7 +53,7 @@ function ServerCard(props: Server): JSX.Element {
 }
 
 function ServerCardSkeleton(): JSX.Element {
-  const isMobile = useMediaQuery({ maxWidth: 1024 });
+  const isMobile = useMediaQuery({ minWidth: 0, maxWidth: 800 });
   const is1280p = useMediaQuery({ minWidth: 1280, maxWidth: 1536 });
 
   return (

@@ -17,8 +17,8 @@ function Description(props: DescriptionProps): JSX.Element {
 function DescriptionSkeleton({ is1280p, isMobile }: any): JSX.Element {
   return (
     <div className="flex flex-col items-start justify-start">
-      <Skeleton count={3} width={is1280p ? 296 : isMobile ? 268 : 332} />
-      <Skeleton width={is1280p ? 200 : isMobile ? 220 : 256} />
+      <Skeleton count={3} width={isMobile ? 268 : is1280p ? 296 : 332} />
+      <Skeleton width={isMobile ? 220 : is1280p ? 200 : 256} />
     </div>
   );
 }
