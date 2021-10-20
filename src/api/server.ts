@@ -82,6 +82,25 @@ async function UpvoteServer(id: string, playername: string, code: string) {
   }
 }
 
+async function TestUpvoteServer(id: string, playername: string, token: string) {
+  try {
+    const upvote = await axios.post(
+      process.env.NEXT_PUBLIC_API + `/server/${id}/vote/test`,
+      {
+        minecraft_username: playername,
+      },
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+    return [upvote.data, null];
+  } catch (e) {
+    return [null, e];
+  }
+}
+
 async function DeleteServer(id: string, token: string) {
   try {
     const response = await axios.delete(process.env.NEXT_PUBLIC_API + `/server/${id}/delete`, {
@@ -103,5 +122,6 @@ export {
   NewServer,
   EditServer,
   UpvoteServer,
+  TestUpvoteServer,
   DeleteServer,
 };
