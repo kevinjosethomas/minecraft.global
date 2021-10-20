@@ -15,7 +15,7 @@ type ButtonsProps = {
 
 function Buttons(props: ButtonsProps): JSX.Element {
   function CopyIP() {
-    const ip = props.port === 25565 ? props.host : `${props.host}:${props.port}`;
+    const ip = (props.port === 25565 || !props.port) ? props.host : `${props.host}:${props.port}`;
     navigator.clipboard.writeText(ip);
     toast.custom((t) => (
       <Toast
