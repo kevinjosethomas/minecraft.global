@@ -249,6 +249,7 @@ function Edit(props: EditProps): JSX.Element {
         {/* <Input label="Server Port" value={parameters.port} setValue={onPortChange} /> */}
         <TextArea
           label="Server Description"
+          height="h-40"
           value={parameters.description}
           setValue={onDescriptionChange}
         />

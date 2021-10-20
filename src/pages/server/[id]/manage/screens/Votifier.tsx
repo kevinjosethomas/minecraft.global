@@ -161,13 +161,12 @@ function Votifier(props: VotifierProps): JSX.Element {
         </div>
       </div>
       <div className="flex flex-col items-center justify-start">
-        <span className="font-medium text-xl text-gray-400 max-w-xl">
+        <span className="font-medium text-xl text-gray-400 max-w-xl format-links">
           We only support{" "}
           <a
             href="https://www.spigotmc.org/resources/nuvotifier.13449/"
             target="_blank"
             rel="noreferrer"
-            className="underline format-links"
           >
             NuVotifier
           </a>
@@ -178,9 +177,20 @@ function Votifier(props: VotifierProps): JSX.Element {
       <Input label="Votifier Port" value={parameters.votifier_port} setValue={onPortChange} />
       <TextArea
         label="Votifier Token"
+        height="h-20"
         value={parameters.votifier_token}
         setValue={onTokenChange}
       />
+      <span className="font-medium text-gray-400 max-w-md format-links">
+        <a
+          href="https://github.com/NuVotifier/NuVotifier/wiki/Setup-Guide#key-vs-token"
+          target="_blank"
+          rel="noreferrer"
+          className="underline"
+        >
+          This is the token in your NuVotifier config.yml! Do not provide your RSA key!
+        </a>
+      </span>
     </div>
   );
 }
