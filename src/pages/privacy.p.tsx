@@ -28,10 +28,7 @@ function Privacy(props: Privacy): JSX.Element {
 
           <p className="font-medium text-gray-400">
             If you have additional questions or require more information about our Privacy Policy,
-            do not hesitate to contact us. Our Privacy Policy was generated with the help of{" "}
-            <a href="https://www.gdprprivacypolicy.net/">
-              GDPR Privacy Policy Generator from GDPRPrivacyPolicy.net
-            </a>
+            do not hesitate to contact us.
           </p>
         </div>
 
@@ -128,10 +125,10 @@ function Privacy(props: Privacy): JSX.Element {
           <h2 className="font-bold text-3xl text-gray-300">Our Advertising Partners</h2>
 
           <p className="font-medium text-gray-400">
-            Some of advertisers on our site may use cookies and web beacons. Our advertising
-            partners are listed below. Each of our advertising partners has their own Privacy Policy
-            for their policies on user data. For easier access, we hyperlinked to their Privacy
-            Policies below.
+            Some advertisers on our site may use cookies and web beacons. Our advertising partners
+            are listed below. Each of our advertising partners have their own Privacy Policy for
+            their policies on user data. For easier access, we hyperlinked to their Privacy Policies
+            below.
           </p>
 
           <ol className="list-disc">
@@ -155,9 +152,9 @@ function Privacy(props: Privacy): JSX.Element {
           </p>
 
           <p className="font-medium text-gray-400">
-            Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web
+            Third-party ad servers or ad networks use technologies like cookies, JavaScript, or Web
             Beacons that are used in their respective advertisements and links that appear on
-            minecraft.global, which are sent directly to users&apos; browser. They automatically
+            minecraft.global, which are sent directly to users&apos; browsers. They automatically
             receive your IP address when this occurs. These technologies are used to measure the
             effectiveness of their advertising campaigns and/or to personalize the advertising
             content that you see on websites that you visit.
