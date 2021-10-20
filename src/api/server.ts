@@ -7,6 +7,7 @@ async function GetServer(id: string) {
     const server = await axios.get(process.env.LOCAL_API + "/server/" + id);
     return [server.data.payload, null];
   } catch (e) {
+    console.log(e);
     return [null, e];
   }
 }
