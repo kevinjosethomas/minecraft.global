@@ -24,13 +24,10 @@ const validate = {
     return true;
   },
   port: (params: any) => {
-    if (
-      !params.port ||
-      isNaN(parseInt(params.port)) ||
-      parseInt(params.port) < 0 ||
-      parseInt(params.port) > 65535
-    ) {
-      return "You must provide a valid server port!";
+    const parsedPort = parseInt(params.port);
+
+    if (params.port !== null && (isNaN(parsedPort) || parsedPort < 0 || parsedPort > 65535)) {
+      return "The provided port in the server address is invalid!";
     }
     return true;
   },
