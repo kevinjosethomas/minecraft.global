@@ -4,9 +4,9 @@ import toast from "react-hot-toast";
 
 import validate from "lib/validate";
 import Input from "../components/Input";
-import { EditServer } from "api/server";
 import Toast from "ui/components/Toast/Toast";
 import TextArea from "../components/TextArea";
+import { EditServer, TestUpvoteServer } from "api/server";
 
 type VotifierProps = {
   server: Record<string, any>;
@@ -35,6 +35,8 @@ function Votifier(props: VotifierProps): JSX.Element {
   const onTokenChange = (e: any) => {
     setParameters({ ...parameters, votifier_token: e.target.value.substring(0, 150) });
   };
+
+  const [playername, setPlayername] = useState("");
 
   const submit = async () => {
     for (const key of Object.keys(parameters)) {
@@ -148,49 +150,139 @@ function Votifier(props: VotifierProps): JSX.Element {
     props.reload();
   };
 
+  const testvote = async () => {
+    if (!playername || playername.length < 3 || playername.length > 16) {
+      toast.custom((t) => (
+        <Toast
+          icon="far fa-times-circle text-olive-600"
+          title="Invalid player name provided!"
+          subtitle="Please make sure you provide a valid Minecraft username!"
+        />
+      ));
+      return;
+    }
+
+    const token = cookie.get("token") as string;
+    const [response, error]: any[] = await TestUpvoteServer(
+      props.server.server_id,
+      playername,
+      token
+    );
+
+    if (error) {
+      if (error?.response?.status === 422) {
+        toast.custom((t) => (
+          <Toast
+            icon="far fa-times-circle text-olive-600"
+            title="No Votifier data provided!"
+            subtitle="Please add the votifier fields above and try again!"
+          />
+        ));
+      } else if (error?.response?.status === 502) {
+        if (error?.response?.data.payload.detail.reason === "timeout") {
+          toast.custom((t) => (
+            <Toast
+              icon="far fa-times-circle text-olive-600"
+              title="Your server's Votifier took to long to respond!"
+              subtitle="Please make sure you have Votifier set up and it is not being blocked by a firewall!"
+            />
+          ));
+        } else {
+          toast.custom((t) => (
+            <Toast
+              icon="far fa-times-circle text-olive-600"
+              title="Your server's Votifier provided an invalid response!"
+              subtitle="Please make sure you have NuVotifier set up correctly!"
+            />
+          ));
+        }
+      } else {
+        toast.custom((t) => (
+          <Toast
+            icon="far fa-times-circle text-olive-600"
+            title="An unknown error occurred!"
+            subtitle="Please try again later!"
+          />
+        ));
+      }
+      return;
+    }
+
+    toast.custom((t) => (
+      <Toast
+        icon="far fa-check-circle text-olive-600"
+        title="Successfully sent a test Votifier request!"
+        subtitle="Check your server console or chat to make sure it worked!"
+      />
+    ));
+  };
+
   return (
-    <div className="flex flex-col items-start justify-start w-full p-10 space-y-6 bg-dark-800 rounded border-2 border-gray-800">
-      <div className="flex flex-row items-center justify-between w-full">
-        <span className="font-bold text-6xl text-gray-300">Edit Votifier</span>
-        <div
-          className="flex flex-row items-center justify-center px-2.5 py-0.5 space-x-2 bg-olive-800 hover:bg-olive-700 rounded select-none cursor-pointer transition duration-300"
-          onClick={submit}
-        >
-          <span className="font-medium md:text-lg text-gray-300">Save Changes</span>
-          <i className="fas fa-map-marker-check md:text-lg text-gray-300" />
+    <div className="flex flex-col items-start justify-start w-full p-10 space-y-16 bg-dark-800 rounded border-2 border-gray-800">
+      <div className="flex flex-col items-start justify-start w-full space-y-6">
+        <div className="flex flex-row items-center justify-between w-full">
+          <span className="font-bold text-6xl text-gray-300">Edit Votifier</span>
+          <div
+            className="flex flex-row items-center justify-center px-2.5 py-0.5 space-x-2 bg-olive-800 hover:bg-olive-700 rounded select-none cursor-pointer transition duration-300"
+            onClick={submit}
+          >
+            <span className="font-medium md:text-lg text-gray-300">Save Changes</span>
+            <i className="fas fa-map-marker-check md:text-lg text-gray-300" />
+          </div>
         </div>
-      </div>
-      <div className="flex flex-col items-center justify-start">
-        <span className="font-medium text-xl text-gray-400 max-w-xl format-links">
-          We only support{" "}
+        <div className="flex flex-col items-center justify-start">
+          <span className="font-medium text-xl text-gray-400 max-w-xl format-links">
+            We only support{" "}
+            <a
+              href="https://www.spigotmc.org/resources/nuvotifier.13449/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              NuVotifier
+            </a>
+            . This section is optional but we recommend setting up vote rewards!
+          </span>
+        </div>
+        <Input label="Votifier Host" value={parameters.votifier_host} setValue={onHostnameChange} />
+        <Input label="Votifier Port" value={parameters.votifier_port} setValue={onPortChange} />
+        <TextArea
+          label="Votifier Token"
+          height="h-20"
+          value={parameters.votifier_token}
+          setValue={onTokenChange}
+        />
+        <span className="font-medium text-gray-400 max-w-md format-links">
           <a
-            href="https://www.spigotmc.org/resources/nuvotifier.13449/"
+            href="https://github.com/NuVotifier/NuVotifier/wiki/Setup-Guide#key-vs-token"
             target="_blank"
             rel="noreferrer"
+            className="underline"
           >
-            NuVotifier
+            This is the token in your NuVotifier config.yml! Do not provide your RSA key!
           </a>
-          . This section is optional but we recommend setting up vote rewards!
         </span>
       </div>
-      <Input label="Votifier Host" value={parameters.votifier_host} setValue={onHostnameChange} />
-      <Input label="Votifier Port" value={parameters.votifier_port} setValue={onPortChange} />
-      <TextArea
-        label="Votifier Token"
-        height="h-20"
-        value={parameters.votifier_token}
-        setValue={onTokenChange}
-      />
-      <span className="font-medium text-gray-400 max-w-md format-links">
-        <a
-          href="https://github.com/NuVotifier/NuVotifier/wiki/Setup-Guide#key-vs-token"
-          target="_blank"
-          rel="noreferrer"
-          className="underline"
+      <div className="flex flex-col items-start justify-start w-full space-y-6">
+        <div className="flex flex-row items-center justify-start w-full">
+          <span className="font-bold text-6xl text-gray-300">Test Votifier</span>
+        </div>
+        <span className="font-medium text-xl text-gray-400 max-w-xl format-links">
+          Make sure you save any changes you make before testing Votifier! We will send a test vote
+          to reward the specified user to test Votifier, this will not count as a real vote!
+        </span>
+        <Input
+          label="Minecraft Username"
+          value={playername}
+          setValue={(e: any) => setPlayername(e.target.value)}
+        />
+        <div
+          className="flex flex-row items-center justify-center px-2.5 py-0.5 space-x-2 bg-olive-800 hover:bg-olive-700 rounded select-none cursor-pointer transition duration-300"
+          onClick={testvote}
         >
-          This is the token in your NuVotifier config.yml! Do not provide your RSA key!
-        </a>
-      </span>
+          <i className="fas fa-arrow-alt-up md:text-lg text-gray-300" />
+          <span className="font-medium md:text-lg text-gray-300">Send Test Upvote</span>
+        </div>
+      </div>
     </div>
   );
 }
