@@ -177,7 +177,7 @@ function Votifier(props: VotifierProps): JSX.Element {
       <Input label="Votifier Host" value={parameters.votifier_host} setValue={onHostnameChange} />
       <Input label="Votifier Port" value={parameters.votifier_port} setValue={onPortChange} />
       <TextArea
-        label="Votifier Token / Public Key"
+        label="Votifier Token"
         value={parameters.votifier_token}
         setValue={onTokenChange}
       />
