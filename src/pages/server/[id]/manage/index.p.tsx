@@ -57,7 +57,7 @@ function ManageServer(props: ManageServerProps): JSX.Element {
 
   return (
     <Default background="bg-dark-700" user={props.user}>
-      <div className="flex flex-row items-start justify-center w-full space-x-4">
+      <div className="flex flex-col md:flex-row items-start justify-center w-full space-y-4 md:space-y-0 md:space-x-4">
         <Navigation
           screens={screens}
           server={props.server}

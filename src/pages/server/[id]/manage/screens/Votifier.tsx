@@ -218,10 +218,12 @@ function Votifier(props: VotifierProps): JSX.Element {
   };
 
   return (
-    <div className="flex flex-col items-start justify-start w-full p-10 space-y-16 bg-dark-800 rounded border-2 border-gray-800">
-      <div className="flex flex-col items-start justify-start w-full space-y-6">
-        <div className="flex flex-row items-center justify-between w-full">
-          <span className="font-bold text-6xl text-gray-300">Edit Votifier</span>
+    <div className="flex flex-col items-start justify-start w-full p-5 md:p-10 space-y-10 md:space-y-16 bg-dark-800 rounded border-2 border-gray-800">
+      <div className="flex flex-col items-start justify-start w-full space-y-4 md:space-y-6">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between w-full space-y-2 md:space-y-0">
+          <span className="font-bold text-4xl md:text-5xl xl:text-6xl text-gray-300">
+            Edit Votifier
+          </span>
           <div
             className="flex flex-row items-center justify-center px-2.5 py-0.5 space-x-2 bg-olive-800 hover:bg-olive-700 rounded select-none cursor-pointer transition duration-300"
             onClick={submit}
@@ -231,7 +233,7 @@ function Votifier(props: VotifierProps): JSX.Element {
           </div>
         </div>
         <div className="flex flex-col items-center justify-start">
-          <span className="font-medium text-xl text-gray-400 max-w-xl format-links">
+          <span className="font-medium md:text-lg xl:text-xl text-gray-400 max-w-md xl:max-w-xl format-links">
             We only support{" "}
             <a
               href="https://www.spigotmc.org/resources/nuvotifier.13449/"
@@ -262,11 +264,13 @@ function Votifier(props: VotifierProps): JSX.Element {
           </a>
         </span>
       </div>
-      <div className="flex flex-col items-start justify-start w-full space-y-6">
+      <div className="flex flex-col items-start justify-start w-full space-y-4 md:space-y-6">
         <div className="flex flex-row items-center justify-start w-full">
-          <span className="font-bold text-6xl text-gray-300">Test Votifier</span>
+          <span className="font-bold text-4xl md:text-5xl xl:text-6xl text-gray-300">
+            Test Votifier
+          </span>
         </div>
-        <span className="font-medium text-xl text-gray-400 max-w-xl format-links">
+        <span className="font-medium md:text-lg xl:text-xl text-gray-400 max-w-md xl:max-w-xl format-links">
           Make sure you save any changes you make before testing Votifier! We will send a test vote
           to reward the specified user to test Votifier, this will not count as a real vote!
         </span>

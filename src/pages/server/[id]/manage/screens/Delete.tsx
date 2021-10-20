@@ -43,12 +43,12 @@ function Edit(props: EditProps): JSX.Element {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full py-20 space-y-4 bg-dark-800 rounded border-2 border-gray-800">
+    <div className="flex flex-col items-center justify-center w-full px-5 md:px-0 py-20 space-y-2 md:space-y-4 bg-dark-800 rounded border-2 border-gray-800">
       <img src="/images/illustration3.gif" alt="Sad crying creeper" draggable="false" />
-      <span className="font-bold text-5xl text-gray-300 max-w-xl text-center">
+      <span className="font-bold text-2xl md:text-5xl text-gray-300 max-w-xl text-center">
         Are you sure you want to delete your server?
       </span>
-      <span className="font-medium text-xl text-gray-300 max-w-md text-center">
+      <span className="font-medium md:text-xl text-gray-300 max-w-md text-center">
         This is irreversible. All server data, upvotes and tokens will be deleted!
       </span>
       <div className="flex flex-row items-center justify-center space-x-4">
