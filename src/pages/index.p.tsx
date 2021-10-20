@@ -87,12 +87,23 @@ function Home(props: Home): JSX.Element {
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   try {
     const data: any[] = await Promise.all([GetLoggedInUser(ctx), GetHomeResults()]);
-
-    if (data[0][1] || data[1][1]) {
+    if (data[1][1]) {
       return {
         redirect: {
           destination: "/",
           permanent: true,
+        },
+      };
+    }
+
+    if (data[0][1]) {
+      return {
+        props: {
+          results: {
+            sponsored: data[1][0].sponsored,
+            popular: data[1][0].popular,
+            newly: data[1][0].newly,
+          },
         },
       };
     }
