@@ -55,7 +55,7 @@ function Home(props: Home): JSX.Element {
           <Listing
             user={props.user}
             title="Sponsored Servers"
-            subtitle="Servers that are helping minecraft.global grow!"
+            subtitle="The most involved servers right now!"
             icon="far fa-stars"
             data={data ? (data as any[])[0].sponsored.entries : null}
             link="/search?sort=players"
@@ -63,10 +63,10 @@ function Home(props: Home): JSX.Element {
           <Listing
             user={props.user}
             title="Popular Servers"
-            subtitle="The most active servers right now!"
+            subtitle="The most upvoted servers right now!"
             icon="far fa-stars"
             data={data ? (data as any[])[0].popular.entries : null}
-            link="/search?sort=players"
+            link="/search?sort=upvotes"
           />
 
           <Listing
@@ -75,7 +75,7 @@ function Home(props: Home): JSX.Element {
             subtitle="Recently added Minecraft servers!"
             icon="far fa-comment-alt-plus"
             data={data ? (data as any[])[0].newly.entries : null}
-            link="/search?sort=players"
+            link="/search?sort=new"
           />
         </div>
       </div>
