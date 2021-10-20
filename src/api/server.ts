@@ -4,6 +4,7 @@ import { GetServerSidePropsContext } from "next";
 
 async function GetServer(id: string) {
   try {
+    console.log(process.env);
     const server = await axios.get(process.env.LOCAL_API + "/server/" + id);
     return [server.data.payload, null];
   } catch (e) {
