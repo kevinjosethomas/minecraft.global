@@ -52,7 +52,7 @@ function AddServer(props: AddServerProps): JSX.Element {
   const [params, setParams] = useState({
     name: "",
     host: "",
-    port: "25565",
+    port: null,
     description: "",
     tags: [],
     whitelisted: false,
@@ -116,12 +116,23 @@ function AddServer(props: AddServerProps): JSX.Element {
       }
     }
 
+    const split_address = data.host.split(":");
+
+    if (split_address.length === 0) {
+      data["host"] = data.host;
+    } else if (split_address.length === 2) {
+      const host = split_address[0];
+      const port = parseInt(split_address[1]);
+
+      data["host"] = host;
+      data["port"] = isNaN(port) ? null : port;
+    }
+
     const token = cookie.get("token") as string;
     const [response, error]: any[] = await NewServer(
       {
         ...data,
         owner_id: props.user.user_id,
-        port: parseInt(data.port),
         votifier: {
           votifier_host: data.votifier_host,
           votifier_port: data.votifier_port,
