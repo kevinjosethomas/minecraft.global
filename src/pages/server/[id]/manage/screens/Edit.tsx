@@ -245,7 +245,7 @@ function Edit(props: EditProps): JSX.Element {
           </div>
         </div>
         <Input label="Server Name" value={parameters.name} setValue={onNameChange} />
-        <Input label="Server Hostname" value={parameters.host} setValue={onHostnameChange} />
+        <Input label="Server Address" value={parameters.host} setValue={onHostnameChange} />
         {/* <Input label="Server Port" value={parameters.port} setValue={onPortChange} /> */}
         <TextArea
           label="Server Description"
