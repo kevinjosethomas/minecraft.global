@@ -21,7 +21,7 @@ type EditProps = {
 function Edit(props: EditProps): JSX.Element {
   const [parameters, setParameters] = useState({
     name: props.server.name,
-    host: props.server.host + props.server.port ? props.server.port : "",
+    host: props.server.host + (props.server.port ? `:${props.server.port}` : ""),
     // port: props.server.port,
     description: props.server.description,
     tags: [...props.server.tags],
@@ -118,8 +118,9 @@ function Edit(props: EditProps): JSX.Element {
 
     const split_address = data.host.split(":");
 
-    if (split_address.length === 0) {
+    if (split_address.length === 1) {
       data["host"] = data.host;
+      data["port"] = null;
     } else if (split_address.length === 2) {
       const host = split_address[0];
       let port = parseInt(split_address[1].replace(/[^0-9]/g, ""));
