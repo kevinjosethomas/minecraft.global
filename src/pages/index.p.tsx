@@ -12,12 +12,13 @@ import Searchbox from "ui/components/Searchbox/Searchbox";
 
 type Home = {
   user?: Record<string, any>;
+  results: Record<string, any>;
 };
 
 function Home(props: Home): JSX.Element {
   const router = useRouter();
 
-  const { data } = useQuery(["HomeResults"], GetHomeResults);
+  // const { data } = useQuery(["HomeResults"], GetHomeResults);
 
   useEffect(() => {
     router.replace(router.pathname, undefined, { shallow: true });
@@ -57,7 +58,7 @@ function Home(props: Home): JSX.Element {
             title="Sponsored Servers"
             subtitle="The most involved servers right now!"
             icon="far fa-stars"
-            data={data ? (data as any[])[0].sponsored.entries : null}
+            data={props.results.sponsored}
             link="/search?sort=players"
           />
           <Listing
@@ -65,7 +66,7 @@ function Home(props: Home): JSX.Element {
             title="Popular Servers"
             subtitle="The most upvoted servers right now!"
             icon="far fa-stars"
-            data={data ? (data as any[])[0].popular.entries : null}
+            data={props.results.popular}
             link="/search?sort=upvotes"
           />
 
@@ -74,7 +75,7 @@ function Home(props: Home): JSX.Element {
             title="New Servers"
             subtitle="Recently added Minecraft servers!"
             icon="far fa-comment-alt-plus"
-            data={data ? (data as any[])[0].newly.entries : null}
+            data={props.results.newly}
             link="/search?sort=new"
           />
         </div>
@@ -84,19 +85,51 @@ function Home(props: Home): JSX.Element {
 }
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
-  const [user, error]: any[] = await GetLoggedInUser(ctx);
+  try {
+    const data: any[] = await Promise.all([GetLoggedInUser(ctx), GetHomeResults()]);
 
-  if (error) {
-    return {
-      props: {},
-    };
-  } else {
+    if (data[0][1] || data[1][1]) {
+      console.log("it broke here");
+      return {
+        redirect: {
+          destination: "/",
+          permanent: true,
+        },
+      };
+    }
+
     return {
       props: {
-        user: user.payload,
+        user: data[0][0].payload,
+        results: {
+          sponsored: data[1][0].sponsored,
+          popular: data[1][0].popular,
+          newly: data[1][0].newly,
+        },
+      },
+    };
+  } catch (e) {
+    console.log("it broke here2");
+    return {
+      redirect: {
+        destination: "/",
+        permanent: true,
       },
     };
   }
+  // const [user, error]: any[] = await GetLoggedInUser(ctx);
+
+  // if (error) {
+  //   return {
+  //     props: {},
+  //   };
+  // } else {
+  //   return {
+  //     props: {
+  //       user: user.payload,
+  //     },
+  //   };
+  // }
 }
 
 export default Home;
