@@ -89,7 +89,6 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
     const data: any[] = await Promise.all([GetLoggedInUser(ctx), GetHomeResults()]);
 
     if (data[0][1] || data[1][1]) {
-      console.log("it broke here");
       return {
         redirect: {
           destination: "/",
@@ -109,7 +108,6 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
       },
     };
   } catch (e) {
-    console.log("it broke here2");
     return {
       redirect: {
         destination: "/",
