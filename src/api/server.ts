@@ -4,7 +4,7 @@ import { GetServerSidePropsContext } from "next";
 
 async function GetServer(id: string) {
   try {
-    const server = await axios.get(process.env.NEXT_PUBLIC_API + "/server/" + id);
+    const server = await axios.get(process.env.LOCAL_API + "/server/" + id);
     return [server.data.payload, null];
   } catch (e) {
     return [null, e];
@@ -15,7 +15,7 @@ async function GetEditServer(ctx: GetServerSidePropsContext, id: string) {
     const cookies = new Cookies(ctx.req, ctx.res);
     const token = cookies.get("token");
 
-    const server = await axios.get(process.env.NEXT_PUBLIC_API + "/server/" + id, {
+    const server = await axios.get(process.env.LOCAL_API + "/server/" + id, {
       headers: {
         Authorization: token,
       },
@@ -28,7 +28,7 @@ async function GetEditServer(ctx: GetServerSidePropsContext, id: string) {
 
 async function GetRandomServer() {
   try {
-    const server = await axios.get(process.env.NEXT_PUBLIC_API + "/server/random/id");
+    const server = await axios.get(process.env.LOCAL_API + "/server/random/id");
     return [server.data.payload, null];
   } catch (e) {
     return [null, e];
@@ -37,7 +37,7 @@ async function GetRandomServer() {
 
 async function GetTopVoters(id: string) {
   try {
-    const votes = await axios.get(process.env.NEXT_PUBLIC_API + `/server/${id}/votes/top`);
+    const votes = await axios.get(process.env.LOCAL_API + `/server/${id}/votes/top`);
     return [votes.data.payload, null];
   } catch (e) {
     return [null, e];

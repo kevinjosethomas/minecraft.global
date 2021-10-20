@@ -13,7 +13,7 @@ async function GetLoggedInUser(ctx: GetServerSidePropsContext) {
       return [null, 1];
     }
 
-    const { data } = await axios.get(process.env.NEXT_PUBLIC_API + "/auth", {
+    const { data } = await axios.get(process.env.LOCAL_API + "/auth", {
       headers: {
         Authorization: token,
       },
