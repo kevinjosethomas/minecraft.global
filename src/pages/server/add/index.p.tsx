@@ -122,10 +122,30 @@ function AddServer(props: AddServerProps): JSX.Element {
       data["host"] = data.host;
     } else if (split_address.length === 2) {
       const host = split_address[0];
-      const port = parseInt(split_address[1]);
+      let port = parseInt(split_address[1].replace(/[^0-9]/g, ""));
+
+      if (isNaN(port)) {
+        toast.custom((t) => (
+          <Toast
+            icon="far fa-times-circle text-olive-600"
+            title="Invalid server address provided"
+            subtitle="Please make sure your server address is valid!"
+          />
+        ));
+        return;
+      }
 
       data["host"] = host;
-      data["port"] = isNaN(port) ? null : port;
+      data["port"] = port;
+    } else {
+      toast.custom((t) => (
+        <Toast
+          icon="far fa-times-circle text-olive-600"
+          title="Invalid server address provided"
+          subtitle="Please make sure your server address is valid!"
+        />
+      ));
+      return;
     }
 
     const token = cookie.get("token") as string;

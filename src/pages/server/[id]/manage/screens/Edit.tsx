@@ -21,8 +21,8 @@ type EditProps = {
 function Edit(props: EditProps): JSX.Element {
   const [parameters, setParameters] = useState({
     name: props.server.name,
-    host: props.server.host,
-    port: props.server.port,
+    host: props.server.host + props.server.port ? props.server.port : "",
+    // port: props.server.port,
     description: props.server.description,
     tags: [...props.server.tags],
     whitelisted: props.server.whitelisted,
@@ -44,12 +44,12 @@ function Edit(props: EditProps): JSX.Element {
     setParameters({ ...parameters, host: e.target.value.substring(0, 258) });
   };
 
-  const onPortChange = (e: any) => {
-    if (e.target.value < 0 || e.target.value > 65535) {
-      return;
-    }
-    setParameters({ ...parameters, port: e.target.value.replace(/[^0-9]/g, "") });
-  };
+  // const onPortChange = (e: any) => {
+  //   if (e.target.value < 0 || e.target.value > 65535) {
+  //     return;
+  //   }
+  //   setParameters({ ...parameters, port: e.target.value.replace(/[^0-9]/g, "") });
+  // };
 
   const onDescriptionChange = (e: any) => {
     setParameters({ ...parameters, description: e.target.value.substring(0, 150) });
@@ -114,6 +114,38 @@ function Edit(props: EditProps): JSX.Element {
       if (!data[element] && optional.includes(element)) {
         data[element] = null;
       }
+    }
+
+    const split_address = data.host.split(":");
+
+    if (split_address.length === 0) {
+      data["host"] = data.host;
+    } else if (split_address.length === 2) {
+      const host = split_address[0];
+      let port = parseInt(split_address[1].replace(/[^0-9]/g, ""));
+
+      if (isNaN(port)) {
+        toast.custom((t) => (
+          <Toast
+            icon="far fa-times-circle text-olive-600"
+            title="Invalid server address provided"
+            subtitle="Please make sure your server address is valid!"
+          />
+        ));
+        return;
+      }
+
+      data["host"] = host;
+      data["port"] = port;
+    } else {
+      toast.custom((t) => (
+        <Toast
+          icon="far fa-times-circle text-olive-600"
+          title="Invalid server address provided"
+          subtitle="Please make sure your server address is valid!"
+        />
+      ));
+      return;
     }
 
     const token = cookie.get("token") as string;
@@ -213,7 +245,7 @@ function Edit(props: EditProps): JSX.Element {
         </div>
         <Input label="Server Name" value={parameters.name} setValue={onNameChange} />
         <Input label="Server Hostname" value={parameters.host} setValue={onHostnameChange} />
-        <Input label="Server Port" value={parameters.port} setValue={onPortChange} />
+        {/* <Input label="Server Port" value={parameters.port} setValue={onPortChange} /> */}
         <TextArea
           label="Server Description"
           value={parameters.description}
