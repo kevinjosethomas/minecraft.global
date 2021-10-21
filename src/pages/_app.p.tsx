@@ -52,6 +52,13 @@ function App({ Component, pageProps }: AppProps) {
           <></>
         )}
 
+        {router.pathname.toLowerCase().startsWith("/blog") && (
+          <>
+            <meta property="og:image" content="/images/embed.png" />
+            <meta property="twitter:image" content="/images/embed.png" />
+          </>
+        )}
+
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="minecraft.global" />
         <meta property="og:url" content="https://minecraft.global/" />

@@ -18,10 +18,14 @@ const Default = (props: Default): JSX.Element => {
       <Head>
         <title>{props.metatitle}</title>
         <meta name="title" content={props.metatitle} />
-        <meta property="og:title" content={props.metatitle} />
-        <meta property="twitter:title" content={props.metatitle} />
         <meta name="description" content={props.description} />
         <meta name="keywords" content={props.keywords} />
+
+        <meta property="twitter:title" content={props.metatitle} />
+        <meta name="twitter:description" content={props.description} />
+
+        <meta property="og:title" content={props.metatitle} />
+        <meta name="og:description" content={props.description} />
       </Head>
       <div className="flex flex-col items-start justify-start max-w-5xl space-y-8">
         <div className="flex flex-col items-start justify-start space-y-2">
