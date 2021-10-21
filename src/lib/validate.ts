@@ -80,17 +80,17 @@ const validate = {
     if (!params.website_url) {
       return true;
     }
-    if (params.website_url.length < 10) {
-      return "Your server website url must be at least 10 characters in length!";
-    }
-    if (params.website_url.length > 220) {
-      return "Your server website url must not be more than 220 characters in length!";
+    if (!(params.website_url.startsWith("https://") || params.website_url.startsWith("http://"))) {
+      return "Your server website url must start with https:// or http://.";
     }
     return true;
   },
   discord_url: (params: any) => {
     if (!params.discord_url) {
       return true;
+    }
+    if (!(params.discord_url.startsWith("https://") || params.discord_url.startsWith("http://"))) {
+      return "Your server discord url must start with https:// or http://.";
     }
     if (params.discord_url.length < 10) {
       return "Your server discord url must be atleast 10 characters in length!";
@@ -104,11 +104,8 @@ const validate = {
     if (!params.trailer_url) {
       return true;
     }
-    if (params.trailer_url.length < 10) {
-      return "Your server trailer url must be atleast 10 characters in length!";
-    }
-    if (params.trailer_url.length > 220) {
-      return "Your server trailer url must not be more than 220 characters in length!";
+    if (!(params.discord_url.startsWith("https://") || params.discord_url.startsWith("http://"))) {
+      return "Your server trailer url must start with https:// or http://.";
     }
     return true;
   },
