@@ -90,7 +90,7 @@ function Server(props: Server): JSX.Element {
           name="keywords"
           content={`${props.server.name}, ${props.server.name} IP Address, ${
             props.server.name
-          } Vote, ${props.server.name} Discord, ${props.server.tags.join("minecraft servers, ")}`}
+          } Vote, ${props.server.name} Discord, ${props.server.tags.join(" minecraft servers, ")}`}
         />
       </Head>
       {upvoteModal && (
