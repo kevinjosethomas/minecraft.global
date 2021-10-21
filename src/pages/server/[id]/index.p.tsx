@@ -130,9 +130,9 @@ function Server(props: Server): JSX.Element {
                     key={tag}
                     className="flex flex-row items-center justify-center px-2 py-1 bg-dark-900 rounded"
                   >
-                    <span className="text-sm font-medium text-gray-400 select-none whitespace-nowrap">
+                    <h4 className="text-sm font-medium text-gray-400 select-none whitespace-nowrap">
                       {tag}
-                    </span>
+                    </h4>
                   </div>
                 ))}
               </div>
@@ -164,9 +164,9 @@ function Server(props: Server): JSX.Element {
                   Description
                 </span>
               </div>
-              <span className="font-medium text-sm xl:text-base text-gray-400">
+              <h3 className="font-medium text-sm xl:text-base text-gray-400">
                 {props.server.description}
-              </span>
+              </h3>
             </div>
             <div className="flex flex-row items-center justify-start space-x-2">
               {props.server.whitelisted && <Feature label="Whitelisted" />}
