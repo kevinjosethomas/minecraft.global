@@ -32,7 +32,9 @@ function Server(props: Server): JSX.Element {
 
   function CopyIP() {
     const ip =
-      (props.server.port === 25565 || !props.server.port) ? props.server.host : `${props.server.host}:${props.server.port}`;
+      props.server.port === 25565 || !props.server.port
+        ? props.server.host
+        : `${props.server.host}:${props.server.port}`;
     navigator.clipboard.writeText(ip);
     toast.custom((t) => (
       <Toast
@@ -72,6 +74,13 @@ function Server(props: Server): JSX.Element {
           property="twitter:image"
           content={`https://api.minecraft.global/server/${props.server.server_id}/favicon`}
         />
+
+        <meta
+          name="keywords"
+          content={`minecraft, minecraft servers, minecraft server list, cracked minecraft, bedrock minecraft servers, ${props.server.tags.join(
+            ", "
+          )}`}
+        />
       </Head>
       {upvoteModal && (
         <UpvoteModal
@@ -95,7 +104,7 @@ function Server(props: Server): JSX.Element {
                   <span className="font-medium text-gray-400">
                     <div className="cursor-pointer inline" onClick={CopyIP}>
                       {props.server.host}
-                      {(props.server.port !== 25565 && props.server.port) && `:${props.server.port}`}
+                      {props.server.port !== 25565 && props.server.port && `:${props.server.port}`}
                     </div>{" "}
                     + {SimplifyNumber(props.server.players_online, { decimal: 1 })} player
                     {props.server.players_online === 1 ? "" : "s"}
