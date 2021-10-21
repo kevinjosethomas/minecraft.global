@@ -81,7 +81,7 @@ const validate = {
       return true;
     }
     if (params.website_url.length < 10) {
-      return "Your server website url must be atleast 10 characters in length!";
+      return "Your server website url must be at least 10 characters in length!";
     }
     if (params.website_url.length > 220) {
       return "Your server website url must not be more than 220 characters in length!";
