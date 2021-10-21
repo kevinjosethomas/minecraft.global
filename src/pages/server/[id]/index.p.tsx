@@ -56,22 +56,31 @@ function Server(props: Server): JSX.Element {
   return (
     <Default background="px-0 bg-dark-700" user={props.user}>
       <Head>
-        <title>{props.server.name} - minecraft.global</title>
+        <title>{props.server.name} - IP, Vote, Discord</title>
 
         <link rel="canonical" href={`https://minecraft.global/server/${props.server.server_id}`} />
 
-        <meta name="title" content={`${props.server.name} - minecraft.global`} />
-        <meta name="description" content={props.server.description} />
+        <meta name="title" content={`${props.server.name} - IP, Vote, Discord`} />
+        <meta
+          name="description"
+          content={`Find ${props.server.name}'s IP Address and Discord here! ${props.server.description}`}
+        />
 
-        <meta property="og:title" content={`${props.server.name} - minecraft.global`} />
-        <meta property="og:description" content={props.server.description} />
+        <meta property="og:title" content={`${props.server.name} - IP, Vote, Discord`} />
+        <meta
+          property="og:description"
+          content={`Find ${props.server.name}'s IP Address and Discord here! ${props.server.description}`}
+        />
         <meta
           property="og:image"
           content={`https://api.minecraft.global/server/${props.server.server_id}/favicon`}
         />
 
         <meta property="twitter:title" content={`${props.server.name} - minecraft.global`} />
-        <meta property="twitter:description" content={props.server.description} />
+        <meta
+          property="twitter:description"
+          content={`Find ${props.server.name}'s IP Address and Discord here! ${props.server.description}`}
+        />
         <meta
           property="twitter:image"
           content={`https://api.minecraft.global/server/${props.server.server_id}/favicon`}
@@ -79,9 +88,9 @@ function Server(props: Server): JSX.Element {
 
         <meta
           name="keywords"
-          content={`minecraft, minecraft servers, minecraft server list, cracked minecraft, bedrock minecraft servers, ${
+          content={`${props.server.name}, ${props.server.name} IP, ${props.server.name} Vote, ${
             props.server.name
-          }, ${props.server.tags.join(", ")}`}
+          } Discord, ${props.server.tags.join("Minecraftservers, ")}`}
         />
       </Head>
       {upvoteModal && (
