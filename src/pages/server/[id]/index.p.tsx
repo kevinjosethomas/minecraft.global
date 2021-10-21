@@ -56,17 +56,17 @@ function Server(props: Server): JSX.Element {
   return (
     <Default background="px-0 bg-dark-700" user={props.user}>
       <Head>
-        <title>{props.server.name} - IP, Vote, Discord</title>
+        <title>{props.server.name} - IP Address, Vote, Discord</title>
 
         <link rel="canonical" href={`https://minecraft.global/server/${props.server.server_id}`} />
 
-        <meta name="title" content={`${props.server.name} - IP, Vote, Discord`} />
+        <meta name="title" content={`${props.server.name} - IP Address, Vote, Discord`} />
         <meta
           name="description"
           content={`Find ${props.server.name}'s IP Address and Discord here! ${props.server.description}`}
         />
 
-        <meta property="og:title" content={`${props.server.name} - IP, Vote, Discord`} />
+        <meta property="og:title" content={`${props.server.name} - IP Address, Vote, Discord`} />
         <meta
           property="og:description"
           content={`Find ${props.server.name}'s IP Address and Discord here! ${props.server.description}`}
@@ -88,9 +88,9 @@ function Server(props: Server): JSX.Element {
 
         <meta
           name="keywords"
-          content={`${props.server.name}, ${props.server.name} IP, ${props.server.name} Vote, ${
+          content={`${props.server.name}, ${props.server.name} IP Address, ${
             props.server.name
-          } Discord, ${props.server.tags.join("minecraft servers, ")}`}
+          } Vote, ${props.server.name} Discord, ${props.server.tags.join("minecraft servers, ")}`}
         />
       </Head>
       {upvoteModal && (
