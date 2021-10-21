@@ -19,7 +19,10 @@ const Default = (props: Default): JSX.Element => {
         <title>{props.metatitle}</title>
         <meta name="title" content={props.metatitle} />
         <meta name="description" content={props.description} />
-        <meta name="keywords" content={props.keywords} />
+        <meta
+          name="keywords"
+          content={`minecraft, minecraft servers, minecraft server list, cracked minecraft, bedrock minecraft servers, ${props.keywords}`}
+        />
 
         <meta property="twitter:title" content={props.metatitle} />
         <meta name="twitter:description" content={props.description} />

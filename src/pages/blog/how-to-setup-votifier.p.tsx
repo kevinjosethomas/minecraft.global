@@ -16,7 +16,7 @@ function HowToSetupVotifier(props: HowToSetupVotifierProps): JSX.Element {
         title="How to setup Votifier on a Minecraft Server?"
         metatitle="How to setup Votifier on a Minecraft Server?"
         description="In this tutorial, we go over setting up Votifier and Vote Rewards for Minecraft servers! This helps Minecraft servers rank higher on server lists and also keeps players motivated!"
-        keywords="minecraft, minecraft servers, minecraft server list, cracked minecraft, bedrock minecraft servers, votifier, minecraft servers votifier, how to setup votifier"
+        keywords="votifier, minecraft servers votifier, how to setup votifier"
         author="trustedmercury"
         uuid="268e0a03-728e-46c0-bd27-dbfc3178e617"
         date="October 17th 2021"
