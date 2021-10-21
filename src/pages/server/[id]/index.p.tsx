@@ -58,6 +58,8 @@ function Server(props: Server): JSX.Element {
       <Head>
         <title>{props.server.name} - minecraft.global</title>
 
+        <link rel="canonical" href={`https://minecraft.global/server/${props.server.server_id}`} />
+
         <meta name="title" content={`${props.server.name} - minecraft.global`} />
         <meta name="description" content={props.server.description} />
 
@@ -77,9 +79,9 @@ function Server(props: Server): JSX.Element {
 
         <meta
           name="keywords"
-          content={`minecraft, minecraft servers, minecraft server list, cracked minecraft, bedrock minecraft servers, ${props.server.tags.join(
-            ", "
-          )}`}
+          content={`minecraft, minecraft servers, minecraft server list, cracked minecraft, bedrock minecraft servers, ${
+            props.server.name
+          }, ${props.server.tags.join(", ")}`}
         />
       </Head>
       {upvoteModal && (
