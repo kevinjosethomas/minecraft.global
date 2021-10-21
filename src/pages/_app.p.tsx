@@ -23,24 +23,19 @@ function App({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <Head>
         <title>Minecraft Server List - minecraft.global</title>
-        <meta
-          name="description"
-          content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
-        />
-        <meta
-          name="keywords"
-          content="minecraft, minecraft servers, minecraft server list, cracked minecraft servers"
-        />
 
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="minecraft.global" />
-        <meta property="og:url" content="https://minecraft.global/" />
-
-        <meta property="twitter:card" content="summary" />
-        <meta property="twitter:url" content="https://minecraft.global/" />
-
-        {!router.pathname.toLowerCase().startsWith("/server/[id]") && (
+        {!router.pathname.toLowerCase().startsWith("/server/[id]") &&
+        !router.pathname.toLowerCase().startsWith("/blog") ? (
           <>
+            <meta
+              name="keywords"
+              content="minecraft, minecraft servers, minecraft server list, cracked minecraft, bedrock minecraft servers"
+            />
+            <meta
+              name="description"
+              content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
+            />
+
             <meta property="og:image" content="/images/embed.png" />
             <meta
               property="og:description"
@@ -53,7 +48,16 @@ function App({ Component, pageProps }: AppProps) {
               content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
             />
           </>
+        ) : (
+          <></>
         )}
+
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="minecraft.global" />
+        <meta property="og:url" content="https://minecraft.global/" />
+
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:url" content="https://minecraft.global/" />
 
         <link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg" />
       </Head>
