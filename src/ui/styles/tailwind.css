@@ -25,15 +25,15 @@ body,
 }
 
 .blog-content h3 {
-  @apply font-bold text-5xl text-gray-400;
+  @apply font-bold text-5xl text-gray-300;
 }
 
 .blog-content h4 {
-  @apply font-bold text-4xl text-gray-400;
+  @apply font-bold text-4xl text-gray-300 mt-6;
 }
 
 .blog-content p {
-  @apply text-xl text-gray-400;
+  @apply text-2xl text-gray-400;
 }
 
 .blog-content div {
