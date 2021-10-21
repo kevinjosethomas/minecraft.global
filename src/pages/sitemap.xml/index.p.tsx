@@ -13,10 +13,10 @@ const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
       loc: "https://minecraft.global/search",
       lastmod: new Date().toISOString(),
     },
-    {
-      loc: "https://minecraft.global/advertise",
-      lastmod: new Date().toISOString(),
-    },
+    // {
+    //   loc: "https://minecraft.global/advertise",
+    //   lastmod: new Date().toISOString(),
+    // },
     {
       loc: "https://minecraft.global/privacy",
       lastmod: new Date().toISOString(),
@@ -25,24 +25,28 @@ const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
       loc: "https://minecraft.global/terms",
       lastmod: new Date().toISOString(),
     },
-    {
-      loc: "https://minecraft.global/soon",
-      lastmod: new Date().toISOString(),
-    },
+    // {
+    //   loc: "https://minecraft.global/soon",
+    //   lastmod: new Date().toISOString(),
+    // },
     {
       loc: "https://minecraft.global/partners",
       lastmod: new Date().toISOString(),
     },
-    {
-      loc: "https://minecraft.global/premium",
-      lastmod: new Date().toISOString(),
-    },
+    // {
+    //   loc: "https://minecraft.global/premium",
+    //   lastmod: new Date().toISOString(),
+    // },
     {
       loc: "https://minecraft.global/support",
       lastmod: new Date().toISOString(),
     },
+    // {
+    //   loc: "https://minecraft.global/auctions",
+    //   lastmod: new Date().toISOString(),
+    // },
     {
-      loc: "https://minecraft.global/auctions",
+      loc: "https://minecraft.global/blog/how-to-setup-votifier",
       lastmod: new Date().toISOString(),
     },
   ];

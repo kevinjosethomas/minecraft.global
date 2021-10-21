@@ -14,7 +14,7 @@ function Blog(props: BlogProps): JSX.Element {
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   return {
     redirect: {
-      destination: "https://medium.com/minecraft-global",
+      destination: "https://minecraft.global/blog/how-to-setup-votifier",
       permanent: true,
     },
   };
