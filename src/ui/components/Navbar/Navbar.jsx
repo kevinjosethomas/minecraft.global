@@ -21,7 +21,7 @@ export default function Navbar(props) {
   ];
 
   return (
-    <div className="flex flex-row items-center justify-between w-full">
+    <div className="flex flex-row items-center justify-between py-[32px] w-full">
       <div className="flex flex-row items-center justify-start space-x-[28px]">
         <img src="/logo.svg" className="w-10 h-10" alt="Logo" />
         {elements.map((element) => (
