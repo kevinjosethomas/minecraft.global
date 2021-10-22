@@ -1,27 +1,30 @@
+import Link from "next/link";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 export default function ServerCard(props) {
   return (
-    <div className="flex flex-row items-center justify-start p-3 space-x-4 hover:bg-white hover:bg-opacity-[0.04] rounded-[6px] cursor-pointer select-none transition duration-300">
-      <img
-        src={props.favicon || "/images/default_server_favicon.png"}
-        alt={`${props.name}'s Logo`}
-        className="rounded-full w-[64px] h-[64px]"
-      />
-      <div className="flex flex-col items-start justify-start">
-        <span className="text-[24px] text-white text-opacity-80">{props.name}</span>
-        <div className="flex flex-row items-center justify-start space-x-3">
-          <div className="flex flex-row items-center justify-start space-x-1">
-            <i className="far fa-arrow-alt-up text-[16px] text-white text-olive-500" />
-            <span className="text-[16px] text-white text-opacity-80">{props.monthly_votes}</span>
-          </div>
-          <div className="flex flex-row items-center justify-start space-x-1">
-            <i className="far fa-user text-[16px] text-white text-olive-500" />
-            <span className="text-[16px] text-white text-opacity-80">{props.players_online}</span>
+    <Link href={`/server/${props.server_id}`} passHref>
+      <div className="flex flex-row items-center justify-start p-3 space-x-4 hover:bg-white hover:bg-opacity-[0.04] rounded-[6px] cursor-pointer select-none transition duration-300">
+        <img
+          src={props.favicon || "/images/default_server_favicon.png"}
+          alt={`${props.name}'s Logo`}
+          className="rounded-full w-[64px] h-[64px]"
+        />
+        <div className="flex flex-col items-start justify-start">
+          <span className="text-[24px] text-white text-opacity-80">{props.name}</span>
+          <div className="flex flex-row items-center justify-start space-x-3">
+            <div className="flex flex-row items-center justify-start space-x-1">
+              <i className="far fa-arrow-alt-up text-[16px] text-white text-olive-500" />
+              <span className="text-[16px] text-white text-opacity-80">{props.monthly_votes}</span>
+            </div>
+            <div className="flex flex-row items-center justify-start space-x-1">
+              <i className="far fa-user text-[16px] text-white text-olive-500" />
+              <span className="text-[16px] text-white text-opacity-80">{props.players_online}</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
