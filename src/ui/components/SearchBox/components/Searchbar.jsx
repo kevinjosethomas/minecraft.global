@@ -8,7 +8,7 @@ export default function Searchbar(props) {
   const [input, setInput] = useState("");
   const [query, setQuery] = useState("");
   const [popup, showPopup] = useState(false);
-  const [previewResults, setPreviewResults] = useState(null);
+  const [previewResults, setPreviewResults] = useState(props.defaultResults);
 
   const node = useRef();
 
@@ -21,6 +21,7 @@ export default function Searchbar(props) {
   useEffect(() => {
     (async () => {
       if (!query) {
+        setPreviewResults(props.defaultResults);
         return;
       }
       const [response, error] = await SearchByQuery(query, 9);
@@ -40,7 +41,9 @@ export default function Searchbar(props) {
       />
       <SearchButton />
       <AnimatePresence>
-        {popup && <Popup results={previewResults} parentNode={node} showPopup={showPopup} />}
+        {popup && (
+          <Popup query={query} results={previewResults} parentNode={node} showPopup={showPopup} />
+        )}
       </AnimatePresence>
     </div>
   );

@@ -8,7 +8,17 @@ export default function Search(props) {
       <div className="flex flex-row items-center justify-start ml-3 space-x-1.5">
         <i className="far fa-search text-[20px] text-white text-opacity-80" />
         <span className="font-medium text-[20px] text-white text-opacity-80 tracking-tight">
-          {props.results ? "SEARCH RESULTS..." : "NO SERVERS FOUND :("}
+          {props.results ? (
+            <Fragment>
+              {props.query && props.results.length
+                ? `SEARCH RESULTS FOR ${props.query}`
+                : props.results.length
+                ? "POPULAR MINECRAFT SERVERS"
+                : "SEARCHING..."}
+            </Fragment>
+          ) : (
+            "NO SERVERS FOUND :("
+          )}
         </span>
       </div>
       {props.results && <Results results={props.results} />}

@@ -31,7 +31,7 @@ export default function Popup(props) {
       exit={{ y: 5, opacity: 0 }}
       transition={{ duration: 0.2 }}
     >
-      <Search results={props.results} />
+      <Search results={props.results} query={props.query} />
     </motion.div>
   );
 }

@@ -4,7 +4,7 @@ export default function SearchBox(props) {
   return (
     <div className="flex flex-col items-start justify-start w-full">
       <Header />
-      <Searchbar />
+      <Searchbar defaultResults={props.defaultResults} />
     </div>
   );
 }
