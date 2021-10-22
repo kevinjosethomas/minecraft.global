@@ -1,20 +1,14 @@
 import Link from "next/link";
-import { useState } from "react";
-import { AnimatePresence } from "framer-motion";
-
-import Dropdown from "./Dropdown";
 
 export default function Links(props) {
-  const [dropdown, showDropdown] = useState(false);
-
   const elements = [
     {
-      icon: "far fa-stars",
-      label: "Discover",
-      href: "/",
+      icon: "far fa-badge-dollar",
+      label: "Premium",
+      href: "/premium",
     },
     {
-      icon: "far fa-badge-dollar",
+      icon: "far fa-stars",
       label: "Advertise",
       href: "/auctions",
     },
@@ -33,7 +27,13 @@ export default function Links(props) {
 
   return (
     <div className="flex flex-row items-center justify-start space-x-[28px]">
-      <img src="/logo.svg" className="w-10 h-10" alt="Logo" />
+      <Link href="/" passHref>
+        <img
+          src="/logo.svg"
+          className="w-10 h-10 hover:rotate-[360deg] transform duration-1000 delay-300 cursor-pointer"
+          alt="Logo"
+        />
+      </Link>
       {elements.map((element, index) => (
         <Element key={index} icon={element.icon} label={element.label} href={element.href} />
       ))}
@@ -41,15 +41,6 @@ export default function Links(props) {
         {socials.map((social, index) => (
           <Social key={index} icon={social.icon} href={social.href} />
         ))}
-      </div>
-      <div className="relative flex flex-col items-center justify-center">
-        <i
-          className={`${
-            dropdown ? "far fa-angle-up" : "far fa-angle-down"
-          } text-[24px] text-white text-opacity-80 cursor-pointer`}
-          onClick={() => showDropdown((dd) => !dd)}
-        />
-        <AnimatePresence>{dropdown && <Dropdown />}</AnimatePresence>
       </div>
     </div>
   );
