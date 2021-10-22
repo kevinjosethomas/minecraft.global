@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { AnimatePresence } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
@@ -5,12 +6,26 @@ import Popup from "./Popup";
 import { SearchByQuery } from "api/search";
 
 export default function Searchbar(props) {
+  const router = useRouter();
+
   const [input, setInput] = useState("");
   const [query, setQuery] = useState("");
   const [popup, showPopup] = useState(false);
   const [previewResults, setPreviewResults] = useState(props.defaultResults);
 
   const node = useRef();
+
+  const onSearch = (e) => {
+    if (e.key) {
+      if (e.key === "Enter" && input) {
+        router.push(`/search?q=${input}`);
+      }
+    } else {
+      if (input) {
+        router.push(`/search?q=${input}`);
+      }
+    }
+  };
 
   useEffect(() => {
     input && setPreviewResults([]);
@@ -37,9 +52,9 @@ export default function Searchbar(props) {
         placeholder="Search for Minecraft servers..."
         onChange={(e) => setInput(e.target.value)}
         onFocus={() => showPopup(true)}
-        // onBlur={(e) => showPopup(false)}
+        onKeyPress={onSearch}
       />
-      <SearchButton />
+      <SearchButton onClick={onSearch} />
       <AnimatePresence>
         {popup && (
           <Popup query={query} results={previewResults} parentNode={node} showPopup={showPopup} />
@@ -49,9 +64,12 @@ export default function Searchbar(props) {
   );
 }
 
-function SearchButton() {
+function SearchButton(props) {
   return (
-    <div className="flex flex-row items-center justify-center min-w-[75px] min-h-[75px] ml-[8px] bg-olive-700 hover:bg-olive-800 rounded-[12px] transition duration-300 cursor-pointer">
+    <div
+      className="flex flex-row items-center justify-center min-w-[75px] min-h-[75px] ml-[8px] bg-olive-700 hover:bg-olive-800 rounded-[12px] transition duration-300 cursor-pointer"
+      onClick={props.onClick}
+    >
       <i className="far fa-search text-[24px] text-white text-opacity-90" />
     </div>
   );
