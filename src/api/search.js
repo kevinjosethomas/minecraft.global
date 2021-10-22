@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const SearchByQuery = async (query, limit) => {
+const SearchByQuery = async (query, amount) => {
   try {
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/search?query=${query}&limit=${limit}`
+      `${process.env.NEXT_PUBLIC_API_URL}/search?query=${query}&amount=${amount}`
     );
 
     return [response.data.payload, null];
