@@ -8,6 +8,7 @@ const Default = (props) => {
   return (
     <div className="flex flex-col items-center justify-start w-full">
       {/* <Navbar user={props.user} /> */}
+      <div className="absolute top-0 left-0 bg-gradient w-screen h-full"></div>
       <div className="flex flex-col items-start justify-start w-1200 h-full">
         <motion.div
           className="flex flex-col items-start justify-start w-full h-full"

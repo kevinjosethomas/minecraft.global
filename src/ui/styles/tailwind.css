@@ -8,5 +8,9 @@ body,
   width: 100% !important;
   min-height: 100% !important;
   font-family: "DM Sans", sans-serif;
-  @apply bg-dark-800;
+  @apply bg-dark-900;
+}
+
+.bg-gradient {
+  background: linear-gradient(175deg, #0b1610 11.52%, #0c0f15 47.72%);
 }
