@@ -1,5 +1,10 @@
 import Default from "ui/layouts/Default";
+import SearchBox from "ui/components/SearchBox/SearchBox";
 
 export default function Home() {
-  return <Default></Default>;
+  return (
+    <Default>
+      <SearchBox />
+    </Default>
+  );
 }
