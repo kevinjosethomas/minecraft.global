@@ -61,6 +61,9 @@ module.exports = {
       scale: {
         102: "1.02",
       },
+      spacing: {
+        1200: "1200px",
+      },
       cursor: {
         grab: "grab",
       },

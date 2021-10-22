@@ -1,3 +1,5 @@
+import Default from "ui/layouts/Default";
+
 export default function Home() {
-  return <div></div>;
+  return <Default></Default>;
 }
