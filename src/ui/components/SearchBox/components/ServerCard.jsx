@@ -2,7 +2,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 export default function ServerCard(props) {
   return (
-    <div className="flex flex-row items-center justify-start p-3 space-x-4 hover:bg-white hover:bg-opacity-[0.04] rounded-[6px] cursor-pointer select-none">
+    <div className="flex flex-row items-center justify-start p-3 space-x-4 hover:bg-white hover:bg-opacity-[0.04] rounded-[6px] cursor-pointer select-none transition duration-300">
       <img
         src={props.favicon || "/images/default_server_favicon.png"}
         alt={`${props.name}'s Logo`}
