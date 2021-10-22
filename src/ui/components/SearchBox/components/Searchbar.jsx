@@ -1,7 +1,8 @@
-import { SearchByQuery } from "api/search";
+import { AnimatePresence } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
 import Popup from "./Popup";
+import { SearchByQuery } from "api/search";
 
 export default function Searchbar(props) {
   const [input, setInput] = useState("");
@@ -13,7 +14,7 @@ export default function Searchbar(props) {
 
   useEffect(() => {
     input && setPreviewResults([]);
-    const id = setTimeout(() => setQuery(input), 250);
+    const id = setTimeout(() => setQuery(input), 400);
     return () => clearTimeout(id);
   }, [input]);
 
@@ -38,7 +39,9 @@ export default function Searchbar(props) {
         // onBlur={(e) => showPopup(false)}
       />
       <SearchButton />
-      {popup && <Popup results={previewResults} parentNode={node} showPopup={showPopup} />}
+      <AnimatePresence>
+        {popup && <Popup results={previewResults} parentNode={node} showPopup={showPopup} />}
+      </AnimatePresence>
     </div>
   );
 }

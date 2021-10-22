@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 
 import Search from "./Search";
@@ -22,12 +23,15 @@ export default function Popup(props) {
   }, []);
 
   return (
-    <div
+    <motion.div
       ref={node}
       className="absolute top-[85px] left-0 flex flex-col items-start justify-start w-full p-6 rounded-[12px] bg-olive-940 bg-opacity-50 border-2 border-olive-940"
-      // onClick={() => props.inputRef.current.focus()}
+      initial={{ y: 5, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: 5, opacity: 0 }}
+      transition={{ duration: 0.2 }}
     >
       <Search results={props.results} />
-    </div>
+    </motion.div>
   );
 }
