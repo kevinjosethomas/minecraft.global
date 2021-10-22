@@ -13,9 +13,3 @@ body {
 .bg-gradient {
   background: linear-gradient(175deg, #0b1610 20%, #0c0f15 50%);
 }
-
-.input-focus-outline:focus {
-  outline-style: solid;
-  outline-color: rgba(255, 255, 255, 0.7);
-  outline-width: 2px;
-}
