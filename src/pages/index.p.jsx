@@ -1,4 +1,5 @@
 import Default from "ui/layouts/Default";
+import { GetHomeResults } from "api/home";
 import SearchBox from "ui/components/SearchBox/SearchBox";
 
 export default function Home() {
@@ -12,3 +13,20 @@ export default function Home() {
     </Default>
   );
 }
+
+export const getServerSideProps = async () => {
+  const results = await GetHomeResults();
+
+  if (results[1]) {
+    console.log(results[1]);
+    return {
+      props: {
+        error: results[1].response.status,
+      },
+    };
+  }
+
+  return {
+    props: { ...results[0] },
+  };
+};
