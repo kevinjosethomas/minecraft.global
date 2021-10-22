@@ -55,7 +55,7 @@ export default function Dropdown(props) {
     },
   ];
   return (
-    <div className="absolute top-10 flex flex-col items-start justify-start bg-olive-940 bg-opacity-50 border-2 border-olive-900 rounded-[4px]">
+    <div className="absolute top-10 flex flex-col items-start justify-start select-none bg-olive-950 bg-opacity-50 border-[1px] border-olive-900 rounded-[4px]">
       {categories.map((category, index) => (
         <DropdownCategory key={index} {...category} />
       ))}
@@ -81,7 +81,7 @@ function DropdownCategory(props) {
 function DropdownLink(props) {
   const children = (
     <div className="group flex flex-row items-center justify-start select-none w-full pl-2 py-0.5 hover:bg-olive-920 transition duration-300 cursor-pointer rounded-[4px]">
-      <span className="text-[22px] text-white text-opacity-50 group-hover:text-opacity-70 transition duration-300">
+      <span className="text-[22px] text-white text-opacity-60 group-hover:text-opacity-70 transition duration-300">
         {props.label}
       </span>
     </div>
