@@ -11,7 +11,7 @@ export default function Searchbar(props) {
   const [previewResults, setPreviewResults] = useState([]);
 
   useEffect(() => {
-    const id = setTimeout(() => setQuery(input), 500);
+    const id = setTimeout(() => setQuery(input), 250);
     return () => clearTimeout(id);
   }, [input]);
 
@@ -30,7 +30,7 @@ export default function Searchbar(props) {
     <div className="relative flex flex-row items-center justify-start w-full">
       <input
         value={input}
-        className="flex flex-row items-center justify-start w-full h-[75px] px-6 mr-[8px] text-[24px] text-white text-opacity-60 placeholder-white placeholder-opacity-60 bg-white bg-opacity-[0.06] rounded-[12px]"
+        className="flex flex-row items-center justify-start w-full h-[75px] px-6 mr-[8px] text-[24px] text-white text-opacity-60 placeholder-white placeholder-opacity-60 bg-white bg-opacity-[0.06] rounded-[12px] focus:outline-none"
         placeholder="Search for Minecraft servers..."
         onChange={(e) => setInput(e.target.value)}
         onFocus={() => showPopup(true)}
