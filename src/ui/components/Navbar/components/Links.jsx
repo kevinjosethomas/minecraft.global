@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 import Dropdown from "./Dropdown";
 
@@ -45,10 +46,10 @@ export default function Links(props) {
         <i
           className={`${
             dropdown ? "far fa-angle-up" : "far fa-angle-down"
-          } text-[24px] text-white text-opacity-80`}
+          } text-[24px] text-white text-opacity-80 cursor-pointer`}
           onClick={() => showDropdown((dd) => !dd)}
         />
-        {dropdown && <Dropdown />}
+        <AnimatePresence>{dropdown && <Dropdown />}</AnimatePresence>
       </div>
     </div>
   );

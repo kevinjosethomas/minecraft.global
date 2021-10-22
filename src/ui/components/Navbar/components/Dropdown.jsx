@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Dropdown(props) {
   const categories = [
@@ -55,11 +56,17 @@ export default function Dropdown(props) {
     },
   ];
   return (
-    <div className="absolute top-10 flex flex-col items-start justify-start select-none bg-olive-950 bg-opacity-50 border-[1px] border-olive-900 rounded-[4px]">
+    <motion.div
+      className="absolute top-10 flex flex-col items-start justify-start select-none bg-olive-950 bg-opacity-50 border-[1px] border-olive-900 rounded-[4px]"
+      initial={{ x: -10, opacity: 0.3 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: -10, opacity: 0.3 }}
+      transition={{ duration: 0.3 }}
+    >
       {categories.map((category, index) => (
         <DropdownCategory key={index} {...category} />
       ))}
-    </div>
+    </motion.div>
   );
 }
 
