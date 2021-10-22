@@ -7,10 +7,10 @@ export default function Searchbar(props) {
   const [input, setInput] = useState("");
   const [query, setQuery] = useState("");
   const [popup, showPopup] = useState(false);
-
-  const [previewResults, setPreviewResults] = useState([]);
+  const [previewResults, setPreviewResults] = useState(null);
 
   useEffect(() => {
+    input && setPreviewResults([]);
     const id = setTimeout(() => setQuery(input), 250);
     return () => clearTimeout(id);
   }, [input]);
@@ -20,9 +20,8 @@ export default function Searchbar(props) {
       if (!query) {
         return;
       }
-
       const [response, error] = await SearchByQuery(query, 9);
-      setPreviewResults(response.entries);
+      setPreviewResults(response.entries.length ? response.entries : null);
     })();
   }, [query]);
 
@@ -34,7 +33,7 @@ export default function Searchbar(props) {
         placeholder="Search for Minecraft servers..."
         onChange={(e) => setInput(e.target.value)}
         onFocus={() => showPopup(true)}
-        onBlur={() => showPopup(false)}
+        // onBlur={() => showPopup(false)}
       />
       <SearchButton />
       {popup && <Popup results={previewResults} />}
