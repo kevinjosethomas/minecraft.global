@@ -4,7 +4,7 @@ import Default from "ui/layouts/Default";
 export default function Premium(props) {
   return (
     <Default>
-      <div className="flex flex-row items-center justify-between w-full py-5">
+      <div className="flex flex-row items-center justify-between w-full py-2">
         <div className="flex flex-col items-start justify-start w-[700px] space-y-4">
           <h1 className="font-bold text-[48px] text-white text-opacity-90 max-w-xl leading-tight">
             Everything you need to grow your server. For only{" "}
@@ -33,6 +33,9 @@ export default function Premium(props) {
                 win the auction. Auctions Credit also carries over to the following month!
               </p>
             </div>
+            <p className="text-[20px] text-white text-opacity-90">
+              *Premium only applies to one Minecraft Server!
+            </p>
           </div>
         </div>
         <Card />
