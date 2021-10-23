@@ -1,12 +1,10 @@
 import Link from "next/link";
 import { Fragment } from "react";
 
+import Info from "./Info";
+
 export default function User(props) {
-  return (
-    <div className="flex flex-row items-center justify-end space-x-[28px]">
-      {props.user ? <Fragment /> : <Login />}
-    </div>
-  );
+  return <Fragment>{props.user ? <Info user={props.user} /> : <Login />}</Fragment>;
 }
 
 function Login() {

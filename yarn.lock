@@ -2904,6 +2904,11 @@ react-loading-skeleton@^3.0.1:
   resolved "https://registry.yarnpkg.com/react-loading-skeleton/-/react-loading-skeleton-3.0.1.tgz#b1ccd07d18ade80ce5d5b1563f4232331efedf46"
   integrity sha512-YL9tSV7w53HLd5aAPPjUGp9iqUJ5+yj8ZI//E1ES1OHrWy2mSCHTRPSc37u77Di+jWph6evGVNKBr3rpAnKwDQ==
 
+react-outclick@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/react-outclick/-/react-outclick-0.0.4.tgz#54a6ea12bcedebe0c793672337fc032e29381f1f"
+  integrity sha512-OL5s4sGWvC6ZwqfzsXfpn2axMyURe7cKX0qlCPHrun3O/x5dOTf7ATIyNuhB9LbK11m3yMFrjIGPx+oRb12Ijw==
+
 react-parallax-tilt@^1.5.71:
   version "1.5.71"
   resolved "https://registry.yarnpkg.com/react-parallax-tilt/-/react-parallax-tilt-1.5.71.tgz#b536d8efac110b9c217f8405606ae2bbe7dc8663"
