@@ -1,4 +1,28 @@
 import axios from "axios";
+import Cookies from "cookies";
+
+const GetLoggedInUser = async (ctx) => {
+  try {
+    const cookies = new Cookies(ctx.req, ctx.res);
+    let token = cookies.get("token");
+
+    if (!token && ctx.query?.token) {
+      token = ctx.query.token;
+    } else if (!token) {
+      return [null, 1];
+    }
+
+    const response = await axios.get(`${process.env.LOCAL_API}/auth`, {
+      headers: {
+        Authorization: token,
+      },
+    });
+
+    return [response.data.payload, null];
+  } catch (e) {
+    return [null, e];
+  }
+};
 
 const LoginWithDiscord = async (code) => {
   try {
@@ -11,4 +35,4 @@ const LoginWithDiscord = async (code) => {
   }
 };
 
-export { LoginWithDiscord };
+export { GetLoggedInUser, LoginWithDiscord };
