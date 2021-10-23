@@ -21,7 +21,7 @@ export default function Card(props) {
         className="flex flex-col items-start justify-start w-[450px] rounded-[12px] border-2 border-olive-940 overflow-hidden"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, delay: 1 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
       >
         <div className="flex flex-col items-start justify-center w-full h-48 px-5 bg-gradient-to-br from-olive-800 to-olive-930">
           <div className="flex flex-row items-center justify-center py-1 px-4 space-x-1.5 bg-white rounded-full">

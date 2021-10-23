@@ -23,7 +23,7 @@ export default function Premium(props) {
               className="flex flex-col items-start justify-center"
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.3, delay: 0.4 }}
+              transition={{ duration: 0.3, delay: 0.3 }}
             >
               <div className="flex flex-row items-center justify-start space-x-2">
                 <i className="fal fa-chart-bar w-[32px] text-teal-500 text-[32px] text-center" />
@@ -39,7 +39,7 @@ export default function Premium(props) {
               className="flex flex-col items-start justify-center"
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.3, delay: 0.6 }}
+              transition={{ duration: 0.3, delay: 0.4 }}
             >
               <div className="flex flex-row items-center justify-start space-x-2">
                 <i className="fal fa-sack-dollar w-[32px] text-orange-700 text-[32px] text-center" />
@@ -55,7 +55,7 @@ export default function Premium(props) {
               className="text-[20px] text-white text-opacity-90"
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.3, delay: 0.8 }}
+              transition={{ duration: 0.3, delay: 0.5 }}
             >
               *Premium only applies to one Minecraft Server!
             </motion.p>
