@@ -15,7 +15,7 @@ export default function ServerCard(props) {
             name={props.name}
             host={props.host}
             port={props.port}
-            monthly_upvotes={props.monthly_upvotes}
+            monthly_votes={props.monthly_votes}
             players_online={props.players_online}
           />
         </div>
