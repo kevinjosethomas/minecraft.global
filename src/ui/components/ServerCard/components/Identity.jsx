@@ -2,9 +2,9 @@ import SimplifyNumber from "simplify-number";
 
 export default function Identity(props) {
   return (
-    <div className="flex flex-row items-center justify-between w-full h-[78px] ">
+    <div className="flex flex-row items-center justify-between w-full h-[66px] ">
       <div className="flex flex-col items-start justify-start">
-        <span className="font-medium text-[32px] text-white text-opacity-90">{props.name}</span>
+        <h3 className="text-[28px] text-white text-opacity-90">{props.name}</h3>
         <Meta monthly_votes={props.monthly_votes} players_online={props.players_online} />
       </div>
       <CopyButton host={props.host} port={props.port} />
@@ -16,14 +16,14 @@ function Meta(props) {
   return (
     <div className="flex flex-row items-center justify-start space-x-4 select-none">
       <div className="flex flex-row items-center justify-start space-x-1">
-        <i className="far fa-arrow-alt-up text-[20px] text-olive-500" />
-        <span className="text-[20px] text-white text-opacity-80">
+        <i className="far fa-arrow-alt-up text-[16px] text-olive-500" />
+        <span className="text-[16px] text-white text-opacity-80">
           {SimplifyNumber(props.monthly_votes, { decimal: 1 })}
         </span>
       </div>
       <div className="flex flex-row items-center justify-start space-x-1">
-        <i className="far fa-user text-[20px] text-olive-500" />
-        <span className="text-[20px] text-white text-opacity-80">
+        <i className="far fa-user text-[16px] text-olive-500" />
+        <span className="text-[16px] text-white text-opacity-80">
           {SimplifyNumber(props.players_online, { decimal: 1 })}
         </span>
       </div>
