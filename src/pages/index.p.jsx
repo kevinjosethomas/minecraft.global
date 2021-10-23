@@ -43,7 +43,7 @@ export async function getServerSideProps(ctx) {
     console.log(results[1]);
     return {
       props: {
-        error: results[1].response.status,
+        error: results[1].response.status || 500,
       },
     };
   }
