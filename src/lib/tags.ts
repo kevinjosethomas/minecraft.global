@@ -50,29 +50,21 @@ const languages = [
 
 const categories = [
   {
-    id: 1,
-    name: "versions",
     label: "Versions",
     checked: false,
     tags: versions,
   },
   {
-    id: 2,
-    name: "minigames",
     label: "Minigames",
     checked: false,
     tags: minigames,
   },
   {
-    id: 3,
-    name: "features",
     label: "Features",
     checked: false,
     tags: features,
   },
   {
-    id: 4,
-    name: "languages",
     label: "Languages",
     checked: false,
     tags: languages,
