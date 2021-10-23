@@ -1,4 +1,5 @@
 import Default from "ui/layouts/Default";
+import { GetLoggedInUser } from "api/login";
 
 export default function Login(props) {
   return (
@@ -21,4 +22,21 @@ export default function Login(props) {
       </div>
     </Default>
   );
+}
+
+export async function getServerSideProps(ctx) {
+  const [response, error] = await GetLoggedInUser(ctx);
+
+  if (error) {
+    return {
+      props: {},
+    };
+  }
+
+  return {
+    redirect: {
+      destination: "/",
+      permanent: true,
+    },
+  };
 }

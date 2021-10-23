@@ -2,10 +2,11 @@ import { motion } from "framer-motion";
 
 import Card from "./components/Card";
 import Default from "ui/layouts/Default";
+import { GetLoggedInUser } from "api/login";
 
 export default function Premium(props) {
   return (
-    <Default>
+    <Default user={props.user}>
       <div className="flex flex-row items-center justify-between w-full py-2">
         <div className="flex flex-col items-start justify-start w-[700px] space-y-4">
           <motion.h1
@@ -64,4 +65,20 @@ export default function Premium(props) {
       </div>
     </Default>
   );
+}
+
+export async function getServerSideProps(ctx) {
+  const [response, error] = await GetLoggedInUser(ctx);
+
+  if (error) {
+    return {
+      props: {},
+    };
+  }
+
+  return {
+    props: {
+      user: response.payload,
+    },
+  };
 }
