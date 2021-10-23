@@ -2,6 +2,7 @@ import { GetUserByID } from "api/user";
 import Header from "./components/Header";
 import Default from "ui/layouts/Default";
 import { GetDefaultData } from "api/core";
+import Servers from "./components/Servers";
 import { GetLoggedInUser } from "api/login";
 
 export default function User(props) {
@@ -11,8 +12,9 @@ export default function User(props) {
 
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search>
-      <div className="flex flex-col items-center justify-center w-full">
+      <div className="flex flex-col items-center justify-center w-full space-y-8">
         <Header avatar={avatar} {...props.userinfo} user={props.user} />
+        <Servers name={props.userinfo.name} servers={props.userinfo.servers} />
       </div>
     </Default>
   );
