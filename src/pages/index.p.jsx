@@ -21,7 +21,7 @@ export default function Home(props) {
   );
 }
 
-export const getServerSideProps = async () => {
+export async function getServerSideProps() {
   const results = await GetHomeResults();
 
   if (results[1]) {
@@ -36,4 +36,4 @@ export const getServerSideProps = async () => {
   return {
     props: { ...results[0] },
   };
-};
+}
