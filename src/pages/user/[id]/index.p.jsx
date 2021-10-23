@@ -14,7 +14,12 @@ export default function User(props) {
     <Default user={props.user} defaultResults={props.defaultResults} search>
       <div className="flex flex-col items-center justify-center w-full space-y-8">
         <Header avatar={avatar} {...props.userinfo} user={props.user} />
-        <Servers name={props.userinfo.name} servers={props.userinfo.servers} />
+        <Servers
+          name={props.userinfo.name}
+          created_at={props.userinfo.created_at}
+          minecraft_uuid={props.userinfo.minecraft_uuid}
+          servers={props.userinfo.servers}
+        />
       </div>
     </Default>
   );
