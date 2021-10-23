@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Error from "next/error";
 import toast from "react-hot-toast";
 import { useRouter } from "next/router";
 import ReactMarkdown from "react-markdown";
@@ -18,13 +19,18 @@ import UpvoteModal from "./modals/upvote/Upvote";
 import { Server as ServerProps } from "lib/types";
 
 type Server = {
-  id: string;
-  topVoters: any[];
-  server: ServerProps;
+  id?: string;
+  topVoters?: any[];
+  server?: ServerProps;
   user?: Record<string, any>;
+  error?: number;
 };
 
 function Server(props: Server): JSX.Element {
+  if (props.error) {
+    return <Error statusCode={props.error} />;
+  }
+
   const router = useRouter();
   const upvoteQuery = router.query?.upvote;
 
@@ -222,9 +228,8 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
     ]);
     if (data[1][1] || data[2][1]) {
       return {
-        redirect: {
-          destination: "/",
-          permanent: true,
+        props: {
+          error: 404,
         },
       };
     }
