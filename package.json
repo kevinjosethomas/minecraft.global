@@ -3,9 +3,10 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "yarn tags && next dev",
     "build": "next build",
     "start": "next start -p 10981",
+    "tags": "cd src/lib && node update_tag_count.mjs",
     "lint": "next lint"
   },
   "dependencies": {
