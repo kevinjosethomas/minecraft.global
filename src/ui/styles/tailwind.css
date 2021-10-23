@@ -10,6 +10,19 @@ body {
   @apply bg-dark-900;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #141923;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #242932;
+  border-radius: 0.25rem;
+}
+
 .bg-gradient {
   background: linear-gradient(175deg, #0b1610 20%, #0c0f15 50%);
 }
