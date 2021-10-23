@@ -30,7 +30,7 @@ export default function Links(props) {
       <Link href="/" passHref>
         <img
           src="/logo.svg"
-          className="w-10 h-10 hover:rotate-[360deg] transform duration-1000 delay-300 cursor-pointer"
+          className="w-10 h-10 hover:rotate-[360deg] transform duration-1000 cursor-pointer"
           alt="Logo"
         />
       </Link>
