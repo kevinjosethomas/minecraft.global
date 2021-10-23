@@ -14,7 +14,7 @@ export default function Premium(props) {
             className="font-bold text-[48px] text-white text-opacity-90 max-w-xl leading-tight"
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0.3 }}
           >
             Everything you need to grow your server. For only{" "}
             <span className="bg-gradient-to-r from-olive-700 to-olive-900 text-transparent bg-clip-text">
@@ -27,7 +27,7 @@ export default function Premium(props) {
               className="flex flex-col items-start justify-center"
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.3, delay: 0.3 }}
+              transition={{ duration: 0.3, delay: 0.4 }}
             >
               <div className="flex flex-row items-center justify-start space-x-2">
                 <i className="fal fa-chart-bar w-[32px] text-teal-500 text-[32px] text-center" />
@@ -43,7 +43,7 @@ export default function Premium(props) {
               className="flex flex-col items-start justify-center"
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.3, delay: 0.4 }}
+              transition={{ duration: 0.3, delay: 0.5 }}
             >
               <div className="flex flex-row items-center justify-start space-x-2">
                 <i className="fal fa-sack-dollar w-[32px] text-orange-800 text-[32px] text-center" />
@@ -59,7 +59,7 @@ export default function Premium(props) {
               className="text-[20px] text-white text-opacity-90"
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.3, delay: 0.5 }}
+              transition={{ duration: 0.3, delay: 0.6 }}
             >
               *Premium only applies to one Minecraft Server!
             </motion.p>
