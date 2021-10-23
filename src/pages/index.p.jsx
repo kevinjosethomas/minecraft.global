@@ -10,7 +10,7 @@ export default function Home(props) {
         <SearchBox defaultResults={props.popular} />
         <div className="flex flex-row items-start justify-center w-full space-x-8">
           <div className="flex flex-col items-start justify-start w-full space-y-0.5 rounded-[12px] overflow-hidden">
-            {props.popular.map((server) => (
+            {props.popular.slice(0, 4).map((server) => (
               <ServerCard key={server.server_id} {...server} />
             ))}
           </div>
