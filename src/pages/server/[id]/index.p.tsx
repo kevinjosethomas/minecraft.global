@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Link from "next/link";
-import Error from "next/error";
 import toast from "react-hot-toast";
 import { useRouter } from "next/router";
 import ReactMarkdown from "react-markdown";
@@ -23,14 +22,9 @@ type Server = {
   topVoters: any[];
   server: ServerProps;
   user?: Record<string, any>;
-  error?: number;
 };
 
 function Server(props: Server): JSX.Element {
-  if (props.error) {
-    return <Error statusCode={props.error} />;
-  }
-
   const router = useRouter();
   const upvoteQuery = router.query?.upvote;
 

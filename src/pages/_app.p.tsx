@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Error from "next/error";
 import { useRouter } from "next/router";
 import type { AppProps } from "next/app";
 import { Toaster } from "react-hot-toast";
@@ -17,6 +18,10 @@ const queryClient = new QueryClient({
 });
 
 function App({ Component, pageProps }: AppProps) {
+  if (pageProps.error) {
+    return <Error statusCode={pageProps.error} />;
+  }
+
   const router = useRouter();
 
   return (
