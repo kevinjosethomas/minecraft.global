@@ -19,9 +19,9 @@ import UpvoteModal from "./modals/upvote/Upvote";
 import { Server as ServerProps } from "lib/types";
 
 type Server = {
-  id?: string;
-  topVoters?: any[];
-  server?: ServerProps;
+  id: string;
+  topVoters: any[];
+  server: ServerProps;
   user?: Record<string, any>;
   error?: number;
 };
@@ -230,6 +230,8 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
       return {
         props: {
           error: 404,
+          server: null,
+          topVoters: null,
         },
       };
     }
