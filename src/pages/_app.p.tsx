@@ -18,11 +18,11 @@ const queryClient = new QueryClient({
 });
 
 function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
   if (pageProps.error) {
     return <Error statusCode={pageProps.error} />;
   }
-
-  const router = useRouter();
 
   return (
     <QueryClientProvider client={queryClient}>
