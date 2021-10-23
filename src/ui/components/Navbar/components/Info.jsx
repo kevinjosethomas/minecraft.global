@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
-import UserDropdown from "./UserDropdown";
+import Dropdown from "./Dropdown";
 
 export default function Info(props) {
   const [dropdown, showDropdown] = useState(false);
@@ -15,11 +15,7 @@ export default function Info(props) {
         />
         <AnimatePresence>
           {dropdown && (
-            <UserDropdown
-              id={props.user.user_id}
-              name={props.user.name}
-              showDropdown={showDropdown}
-            />
+            <Dropdown id={props.user.user_id} name={props.user.name} showDropdown={showDropdown} />
           )}
         </AnimatePresence>
       </div>
