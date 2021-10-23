@@ -21,8 +21,8 @@ export default function Home(props) {
   );
 }
 
-export async function getServerSideProps() {
-  const results = await GetHomeResults();
+export async function getServerSideProps(ctx) {
+  const results = await GetHomeResults(ctx);
 
   if (results[1]) {
     console.log(results[1]);
@@ -33,7 +33,22 @@ export async function getServerSideProps() {
     };
   }
 
+  console.log(results[0].user);
+
+  if (results[0].user[1]) {
+    return {
+      props: {
+        popular: results[0].popular,
+        active: results[0].active,
+      },
+    };
+  }
+
   return {
-    props: { ...results[0] },
+    props: {
+      user: results[0].user[0].payload,
+      popular: results[0].popular,
+      active: results[0].active,
+    },
   };
 }

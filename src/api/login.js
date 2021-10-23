@@ -12,13 +12,13 @@ const GetLoggedInUser = async (ctx) => {
       return [null, 1];
     }
 
-    const response = await axios.get(`${process.env.LOCAL_API}/auth`, {
+    const response = await axios.get(`${process.env.API_URL}/auth`, {
       headers: {
         Authorization: token,
       },
     });
 
-    return [response.data.payload, null];
+    return [response.data, null];
   } catch (e) {
     return [null, e];
   }
