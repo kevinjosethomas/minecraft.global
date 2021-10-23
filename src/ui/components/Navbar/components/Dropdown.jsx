@@ -43,12 +43,22 @@ function Links(props) {
           </span>
         </a>
       </Link>
+      <Link href="/server/add">
+        <a className="flex flex-row items-center justify-start w-full py-1 pl-4 pr-14 space-x-2 hover:bg-black hover:bg-opacity-30 select-none cursor-pointer transition duration-300 rounded">
+          <i className="fas fa-plus-circle w-[30px] text-[24px] text-white text-opacity-60" />
+          <span className="text-[24px] text-white text-opacity-60 whitespace-nowrap">
+            Add Server
+          </span>
+        </a>
+      </Link>
+
       <div className="flex flex-row items-center justify-start w-full py-1 pl-4 pr-14 space-x-2 hover:bg-black hover:bg-opacity-30 select-none cursor-pointer transition duration-300 rounded">
         <i className="far fa-pencil-paintbrush w-[30px] text-[24px] text-white text-opacity-60" />
         <span className="text-[24px] text-white text-opacity-60 whitespace-nowrap">
           Edit Profile
         </span>
       </div>
+
       <div className="flex flex-row items-center justify-start w-full py-1 pl-4 pr-14 space-x-2 hover:bg-black hover:bg-opacity-30 select-none cursor-pointer transition duration-300 rounded">
         <i className="far fa-sign-out w-[30px] text-[24px] text-white text-opacity-60" />
         <span className="text-[24px] text-white text-opacity-60 whitespace-nowrap">Log Out</span>
