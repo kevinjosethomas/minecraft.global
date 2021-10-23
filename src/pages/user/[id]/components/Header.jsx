@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Fragment } from "react";
 import dynamic from "next/dynamic";
+import { motion } from "framer-motion";
 
 const ReactTooltip = dynamic(() => import("react-tooltip"), {
   ssr: false,
@@ -13,7 +14,12 @@ export default function Header(props) {
         effect="solid"
         className="!bg-olive-800 !border-2 !border-olive-930 !text-white !text-opacity-90 !rounded-md"
       />
-      <div className="flex flex-row items-center justify-between w-full p-10 bg-olive-940 bg-opacity-75 rounded-[8px] border-2 border-olive-930">
+      <motion.div
+        className="flex flex-row items-center justify-between w-full p-10 bg-olive-940 bg-opacity-75 rounded-[8px] border-2 border-olive-930"
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.3, delay: 0.2 }}
+      >
         <div className="flex flex-row items-start justify-start space-x-5">
           <img
             src={props.avatar}
@@ -32,7 +38,7 @@ export default function Header(props) {
           </div>
         </div>
         <Buttons user_id={props.user_id} user={props.user} />
-      </div>
+      </motion.div>
     </Fragment>
   );
 }
