@@ -11,7 +11,7 @@ const GetUserResults = async (ctx, id) => {
     return [
       {
         user: responses[0],
-        userinfo: responses[1].data,
+        userinfo: responses[1].data.payload,
       },
       null,
     ];

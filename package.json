@@ -19,6 +19,7 @@
     "react-loading-skeleton": "^3.0.1",
     "react-outclick": "^0.0.4",
     "react-parallax-tilt": "^1.5.71",
+    "react-tooltip": "^4.2.21",
     "simplify-number": "^1.0.0"
   },
   "devDependencies": {

@@ -1,8 +1,19 @@
-import { GetUserResults } from "api/user";
+import Header from "./components/Header";
 import Default from "ui/layouts/Default";
+import { GetUserResults } from "api/user";
 
 export default function User(props) {
-  return <Default user={props.user}></Default>;
+  const avatar = props.userinfo.minecraft_uuid
+    ? `https://crafatar.com/avatars/${props.userinfo.minecraft_uuid}?size=128`
+    : "/images/steve.png";
+
+  return (
+    <Default user={props.user}>
+      <div className="flex flex-col items-center justify-center w-full">
+        <Header avatar={avatar} {...props.userinfo} user={props.user} />
+      </div>
+    </Default>
+  );
 }
 
 export async function getServerSideProps(ctx) {
