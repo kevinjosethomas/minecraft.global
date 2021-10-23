@@ -1,6 +1,8 @@
+import { GetUserByID } from "api/user";
 import Header from "./components/Header";
 import Default from "ui/layouts/Default";
-import { GetUserResults } from "api/user";
+import { GetDefaultData } from "api/core";
+import { GetLoggedInUser } from "api/login";
 
 export default function User(props) {
   const avatar = props.userinfo.minecraft_uuid
@@ -8,7 +10,7 @@ export default function User(props) {
     : "/images/steve.png";
 
   return (
-    <Default user={props.user}>
+    <Default user={props.user} defaultResults={props.defaultResults} search>
       <div className="flex flex-col items-center justify-center w-full">
         <Header avatar={avatar} {...props.userinfo} user={props.user} />
       </div>
@@ -17,48 +19,64 @@ export default function User(props) {
 }
 
 export async function getServerSideProps(ctx) {
-  const id = ctx.query.id;
+  try {
+    const id = ctx.query.id;
 
-  if (!id) {
+    if (!id) {
+      return {
+        props: {
+          error: 404,
+        },
+      };
+    }
+
+    const user = GetLoggedInUser(ctx);
+    const page = GetUserByID(id);
+    const data = GetDefaultData(ctx);
+
+    const responses = await Promise.all([user, page, data]);
+
+    const userdata = responses[0];
+    const pagedata = responses[1];
+    const defaultdata = responses[2];
+
+    if (pagedata[1]) {
+      return {
+        props: {
+          error: pagedata[1].response?.status || 500,
+        },
+      };
+    }
+
+    if (defaultdata[1]) {
+      return {
+        props: {
+          error: defaultdata[1].response?.status || 500,
+        },
+      };
+    }
+
+    if (userdata[1]) {
+      return {
+        props: {
+          userinfo: pagedata[0],
+          defaultResults: defaultdata[0],
+        },
+      };
+    } else {
+      return {
+        props: {
+          user: userdata[0],
+          userinfo: pagedata[0],
+          defaultResults: defaultdata[0],
+        },
+      };
+    }
+  } catch (e) {
     return {
       props: {
-        error: 404,
+        error: 500,
       },
     };
   }
-
-  const [response, error] = await GetUserResults(ctx, id);
-
-  if (error) {
-    console.log(error);
-    return {
-      props: {
-        error: error?.response.status || 500,
-      },
-    };
-  }
-
-  if (response[1]) {
-    console.log(response[1]);
-    return {
-      props: {
-        error: response[1]?.response.status || 500,
-      },
-    };
-  }
-
-  if (response.user[1]) {
-    return {
-      props: {
-        userinfo: response[0].userinfo,
-      },
-    };
-  }
-
-  return {
-    props: {
-      user: response.user[0].payload,
-      userinfo: response.userinfo,
-    },
-  };
 }

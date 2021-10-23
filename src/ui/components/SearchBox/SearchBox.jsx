@@ -10,7 +10,6 @@ export default function SearchBox(props) {
       transition={{ duration: 0.3 }}
     >
       {props.header && <Header />}
-
       <Searchbar defaultResults={props.defaultResults} />
     </motion.div>
   );

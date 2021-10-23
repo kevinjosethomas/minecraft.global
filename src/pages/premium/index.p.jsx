@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Card from "./components/Card";
 import Default from "ui/layouts/Default";
 import { GetDefaultData } from "api/core";
+import { GetLoggedInUser } from "api/login";
 
 export default function Premium(props) {
   return (
@@ -71,29 +72,43 @@ export default function Premium(props) {
 }
 
 export async function getServerSideProps(ctx) {
-  const response = await GetDefaultData(ctx);
+  try {
+    const user = GetLoggedInUser(ctx);
+    const data = GetDefaultData(ctx);
 
-  if (response[1]) {
-    console.log(response[1]);
+    const responses = await Promise.all([user, data]);
+
+    const userdata = responses[0];
+    const defaultdata = responses[1];
+
+    if (defaultdata[1]) {
+      return {
+        props: {
+          error: defaultdata[1].response?.status || 500,
+        },
+      };
+    }
+
+    if (userdata[1]) {
+      return {
+        props: {
+          defaultResults: defaultdata[0],
+        },
+      };
+    } else {
+      return {
+        props: {
+          user: userdata[0],
+          defaultResults: defaultdata[0],
+        },
+      };
+    }
+  } catch (e) {
+    console.log(e);
     return {
       props: {
-        error: response[1].response.status || 500,
+        error: 500,
       },
     };
   }
-
-  if (response[0].user[1]) {
-    return {
-      props: {
-        defaultResults: response[0].popular,
-      },
-    };
-  }
-
-  return {
-    props: {
-      user: response[0].user[0].payload,
-      defaultResults: response[0].popular,
-    },
-  };
 }

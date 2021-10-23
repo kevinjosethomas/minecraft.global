@@ -18,7 +18,7 @@ const GetLoggedInUser = async (ctx) => {
       },
     });
 
-    return [response.data, null];
+    return [response.data.payload, null];
   } catch (e) {
     return [null, e];
   }
