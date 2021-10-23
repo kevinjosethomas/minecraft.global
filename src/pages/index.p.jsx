@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import Default from "ui/layouts/Default";
 import { GetHomeResults } from "api/home";
 import SearchBox from "ui/components/SearchBox/SearchBox";
@@ -14,7 +16,20 @@ export default function Home(props) {
               <ServerCard key={server.server_id} index={index} {...server} animate />
             ))}
           </div>
-          <div className="flex flex-col items-start justify-start min-w-[300px] h-96 bg-white bg-opacity-[0.06] rounded-[12px]"></div>
+          <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px]">
+            <div className="flex flex-col items-start justify-start w-full p-5 space-y-4 bg-white bg-opacity-[0.06] rounded-[12px]">
+              <h3 className="text-[24px] text-white text-opacity-80 leading-tight">
+                Get thousands of page views everyday by renting an ad spot on the front page!
+              </h3>
+              <Link href="/advertise">
+                <a className="flex flex-row items-center justify-center w-full py-2 bg-olive-800 bg-opacity-50 hover:bg-opacity-70 transition duration-300 rounded">
+                  <span className="text-[24px] text-white text-opacity-90 leading-tight">
+                    See Options
+                  </span>
+                </a>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </Default>
