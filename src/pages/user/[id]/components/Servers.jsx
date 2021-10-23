@@ -56,12 +56,24 @@ function Info(props) {
   return (
     <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px] space-y-2">
       <div className="flex flex-row items-center justify-start">
-        <h3 className="font-medium text-[40px] text-white text-opacity-90">User Info</h3>
+        <motion.h3
+          className="font-medium text-[40px] text-white text-opacity-90"
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.4 }}
+        >
+          User Info
+        </motion.h3>
       </div>
-      <div className="flex flex-col items-start justify-start">
+      <motion.div
+        className="flex flex-col items-start justify-start"
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.3, delay: 0.6 }}
+      >
         <Field label="Joined" value={moment(props.created_at).format("MMM Do YYYY")} />
         <Field label="IGN" value={username} />
-      </div>
+      </motion.div>
     </div>
   );
 }
