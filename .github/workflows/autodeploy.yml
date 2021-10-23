@@ -15,4 +15,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          script: exec bash && cd v2.minecraft.global && ./update.sh
+          script: . ~/.bashrc && cd v2.minecraft.global && ./update.sh
