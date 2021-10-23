@@ -33,8 +33,6 @@ export async function getServerSideProps(ctx) {
     };
   }
 
-  console.log(results[0].user);
-
   if (results[0].user[1]) {
     return {
       props: {
