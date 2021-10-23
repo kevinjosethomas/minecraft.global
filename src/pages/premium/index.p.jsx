@@ -16,7 +16,10 @@ export default function Premium(props) {
             transition={{ duration: 0.3, delay: 0.2 }}
           >
             Everything you need to grow your server. For only{" "}
-            <span className="text-olive-400">$4.99</span> a month!
+            <span className="bg-gradient-to-r from-olive-700 to-olive-900 text-transparent bg-clip-text">
+              $4.99
+            </span>{" "}
+            a month!
           </motion.h1>
           <div className="flex flex-col items-start justify-center space-y-4">
             <motion.div
@@ -42,8 +45,8 @@ export default function Premium(props) {
               transition={{ duration: 0.3, delay: 0.4 }}
             >
               <div className="flex flex-row items-center justify-start space-x-2">
-                <i className="fal fa-sack-dollar w-[32px] text-orange-700 text-[32px] text-center" />
-                <span className="text-[32px] text-orange-700">Monthly Auction Credit</span>
+                <i className="fal fa-sack-dollar w-[32px] text-orange-800 text-[32px] text-center" />
+                <span className="text-[32px] text-orange-800">Monthly Auction Credit</span>
               </div>
               <p className="text-[24px] text-white text-opacity-70">
                 All Premium users get $5 worth of Auctions Credit every month! This credit can be
