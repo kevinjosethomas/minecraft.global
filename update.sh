@@ -1,1 +1,1 @@
-git pull && yarn install && yarn build && pm2 restart v2.minecraft.global
+git pull && /home/ubuntu/.nvm/versions/node/v16.2.0/bin/yarn install && /home/ubuntu/.nvm/versions/node/v16.2.0/bin/yarn build && pm2 restart v2.minecraft.global
