@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 import Default from "ui/layouts/Default";
 import { GetDefaultData } from "api/core";
@@ -6,6 +8,12 @@ import { GetLoggedInUser } from "api/login";
 import ServerCard from "ui/components/ServerCard/ServerCard";
 
 export default function Home(props) {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.replace(router.pathname, undefined, { shallow: true });
+  }, []);
+
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search header>
       <div className="flex flex-col items-start justify-start w-full space-y-8">

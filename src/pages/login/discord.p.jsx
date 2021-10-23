@@ -33,7 +33,7 @@ export async function getServerSideProps(ctx) {
   }
 
   const cookies = new Cookies(ctx.req, ctx.res);
-  cookies.set("token", data.payload.token, {
+  cookies.set("token", response.payload.token, {
     httpOnly: false,
     sameSite: "strict",
     maxAge: 60 * 60 * 24 * 30,
@@ -41,7 +41,7 @@ export async function getServerSideProps(ctx) {
 
   return {
     redirect: {
-      destination: `/?token=${data.payload.token}`,
+      destination: `/?token=${response.payload.token}`,
       permanent: true,
     },
   };
