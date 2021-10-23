@@ -18,7 +18,7 @@ export default function SearchBox(props) {
 function Header() {
   return (
     <h1 className="font-bold text-[56px] text-white text-opacity-90">
-      The y=12 for Minecraft Servers
+      The y=12 for Minecraft Servers!!!!!!!!!!!!!
     </h1>
   );
 }
