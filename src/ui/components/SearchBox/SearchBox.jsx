@@ -9,7 +9,8 @@ export default function SearchBox(props) {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
-      <Header />
+      {props.header && <Header />}
+
       <Searchbar defaultResults={props.defaultResults} />
     </motion.div>
   );

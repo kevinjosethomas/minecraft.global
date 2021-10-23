@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 
 import Card from "./components/Card";
 import Default from "ui/layouts/Default";
-import { GetLoggedInUser } from "api/login";
+import { GetDefaultData } from "api/core";
 
 export default function Premium(props) {
   return (
-    <Default user={props.user}>
+    <Default user={props.user} defaultResults={props.defaultResults} search>
       <div className="flex flex-row items-center justify-between w-full py-2">
         <div className="flex flex-col items-start justify-start w-[700px] space-y-4">
           <motion.h1
@@ -71,17 +71,29 @@ export default function Premium(props) {
 }
 
 export async function getServerSideProps(ctx) {
-  const [response, error] = await GetLoggedInUser(ctx);
+  const response = await GetDefaultData(ctx);
 
-  if (error) {
+  if (response[1]) {
+    console.log(response[1]);
     return {
-      props: {},
+      props: {
+        error: response[1].response.status || 500,
+      },
+    };
+  }
+
+  if (response[0].user[1]) {
+    return {
+      props: {
+        defaultResults: response[0].popular,
+      },
     };
   }
 
   return {
     props: {
-      user: response.payload,
+      user: response[0].user[0].payload,
+      defaultResults: response[0].popular,
     },
   };
 }

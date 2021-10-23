@@ -1,18 +1,16 @@
 import Link from "next/link";
 
 import Default from "ui/layouts/Default";
-import { GetHomeResults } from "api/home";
-import SearchBox from "ui/components/SearchBox/SearchBox";
+import { GetDefaultData } from "api/core";
 import ServerCard from "ui/components/ServerCard/ServerCard";
 
 export default function Home(props) {
   return (
-    <Default user={props.user}>
+    <Default user={props.user} defaultResults={props.defaultResults} search header>
       <div className="flex flex-col items-start justify-start w-full space-y-8">
-        <SearchBox defaultResults={props.popular} />
         <div className="flex flex-row items-start justify-center w-full space-x-8">
           <div className="flex flex-col items-start justify-start w-full space-y-0.5 rounded-[12px] overflow-hidden">
-            {props.popular.slice(0, 4).map((server, index) => (
+            {props.defaultResults.slice(0, 4).map((server, index) => (
               <ServerCard key={server.server_id} index={index} {...server} animate />
             ))}
           </div>
@@ -37,31 +35,29 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps(ctx) {
-  const results = await GetHomeResults(ctx);
+  const response = await GetDefaultData(ctx);
 
-  if (results[1]) {
-    console.log(results[1]);
+  if (response[1]) {
+    console.log(response[1]);
     return {
       props: {
-        error: results[1].response.status || 500,
+        error: response[1].response.status || 500,
       },
     };
   }
 
-  if (results[0].user[1]) {
+  if (response[0].user[1]) {
     return {
       props: {
-        popular: results[0].popular,
-        active: results[0].active,
+        defaultResults: response[0].popular,
       },
     };
   }
 
   return {
     props: {
-      user: results[0].user[0].payload,
-      popular: results[0].popular,
-      active: results[0].active,
+      user: response[0].user[0].payload,
+      defaultResults: response[0].popular,
     },
   };
 }
