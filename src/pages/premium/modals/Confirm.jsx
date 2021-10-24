@@ -1,11 +1,26 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
+import { useRouter } from "next/router";
 
 import Modal from "ui/layouts/Modal";
+import { CreatePremiumSession } from "api/premium";
 
 export default function Confirm(props) {
+  const router = useRouter();
+
   const servers = props.user.servers.filter((server) => !server.premium);
   const [selected, setSelected] = useState(servers[0]);
   const [dropdown, setDropdown] = useState(false);
+
+  const onClick = async () => {
+    const [response, error] = await CreatePremiumSession();
+    if (error) {
+      toast.error("Failed to redirect you! Please try again later!");
+      return;
+    }
+
+    router.push(response);
+  };
 
   return (
     <Modal showModal={props.showModal}>
@@ -36,14 +51,17 @@ export default function Confirm(props) {
             )}
           </div>
         </div>
-        <div
-          className="flex flex-row items-center justify-start w-full space-x-4"
-          onClick={() => props.showModal(false)}
-        >
-          <div className="flex flex-row items-center justify-center w-full py-2 bg-white bg-opacity-5 hover:bg-opacity-[0.08] cursor-pointer rounded transition duration-300">
+        <div className="flex flex-row items-center justify-start w-full space-x-4">
+          <div
+            className="flex flex-row items-center justify-center w-full py-2 bg-white bg-opacity-5 hover:bg-opacity-[0.08] cursor-pointer rounded transition duration-300"
+            onClick={() => props.showModal(false)}
+          >
             <span className="text-[24px] text-white text-opacity-80 select-none">Cancel</span>
           </div>
-          <div className="flex flex-row items-center justify-center w-full py-2 bg-olive-900 bg-opacity-80 hover:bg-opacity-100 cursor-pointer rounded transition duration-300">
+          <div
+            className="flex flex-row items-center justify-center w-full py-2 bg-olive-900 bg-opacity-80 hover:bg-opacity-100 cursor-pointer rounded transition duration-300"
+            onClick={onClick}
+          >
             <span className="text-[24px] text-white text-opacity-80 select-none">Subscribe</span>
           </div>
         </div>
