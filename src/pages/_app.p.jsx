@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }) {
   if (pageProps.error) {
     return <Error statusCode={pageProps.error || 500} />;
   }
+
   return (
     <Fragment>
       <Toaster position="bottom-right" />
