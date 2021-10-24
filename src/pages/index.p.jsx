@@ -1,10 +1,10 @@
-import Link from "next/link";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 import Default from "ui/layouts/Default";
 import { GetDefaultData } from "api/core";
 import { GetLoggedInUser } from "api/login";
+import TopTags from "./home/components/TopTags";
 import ServerCard from "ui/components/ServerCard/ServerCard";
 
 export default function Home(props) {
@@ -24,18 +24,7 @@ export default function Home(props) {
             ))}
           </div>
           <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px]">
-            <div className="flex flex-col items-start justify-start w-full p-5 space-y-4 bg-white bg-opacity-[0.06] rounded-[12px]">
-              <h3 className="text-[24px] text-white text-opacity-80 leading-tight">
-                Get thousands of page views everyday by renting an ad spot on the front page!
-              </h3>
-              <Link href="/advertise">
-                <a className="flex flex-row items-center justify-center w-full py-2 bg-olive-800 bg-opacity-50 hover:bg-opacity-70 transition duration-300 rounded">
-                  <span className="text-[24px] text-white text-opacity-90 leading-tight">
-                    See Options
-                  </span>
-                </a>
-              </Link>
-            </div>
+            <TopTags />
           </div>
         </div>
       </div>
