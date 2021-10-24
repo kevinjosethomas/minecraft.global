@@ -7,6 +7,7 @@ import { SearchByTag } from "api/search";
 import ServerCard from "ui/components/ServerCard/ServerCard";
 
 export default function Servers(props) {
+  const [canFetchmore, setCanFetchmore] = useState(true);
   const [results, setResults] = useState([
     {
       tag: null,
@@ -43,12 +44,23 @@ export default function Servers(props) {
       return;
     }
 
+    if (!response.payload.entries.length) {
+      resultsCopy.slice(page, 1);
+      setResults(results);
+      setCanFetchmore(false);
+      return;
+    }
+
     resultsCopy[page].results = response.payload.entries;
     setResults(resultsCopy);
+
+    if (page + 1 === results.length) {
+      setCanFetchmore(false);
+    }
   };
 
   return (
-    <InfiniteScroll pageStart={0} loadMore={loadMore} hasMore={true} loader={<Loading />}>
+    <InfiniteScroll pageStart={0} loadMore={loadMore} hasMore={canFetchmore} loader={<Loading />}>
       <div className="flex flex-col items-start justify-start w-full space-y-8 rounded-[12px] overflow-hidden">
         {results
           .filter((result) => result.results.length)
@@ -69,7 +81,7 @@ function ServerCollection(props) {
       </div>
       <div className="flex flex-col items-start justify-start w-full space-y-0.5 rounded-[12px] overflow-hidden">
         {props.results.map((server, serverindex) => (
-          <ServerCard key={server.server_id} index={serverindex} {...server} animate />
+          <ServerCard key={server.server_id} index={serverindex + 3} {...server} animate />
         ))}
       </div>
     </div>
