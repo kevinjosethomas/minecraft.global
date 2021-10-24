@@ -36,6 +36,9 @@ export default function Servers(props) {
   }, []);
 
   const loadMore = async (page) => {
+    if (!results[page]) {
+      return;
+    }
     const tag = results[page].tag;
     const resultsCopy = [...results];
 
