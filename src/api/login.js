@@ -35,4 +35,16 @@ const LoginWithDiscord = async (code) => {
   }
 };
 
-export { GetLoggedInUser, LoginWithDiscord };
+const LoginWithGoogle = async (token) => {
+  try {
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/login/google`, {
+      headers: {
+        Authorization: token,
+      },
+    });
+  } catch (e) {
+    return [null, e];
+  }
+};
+
+export { GetLoggedInUser, LoginWithGoogle, LoginWithDiscord };

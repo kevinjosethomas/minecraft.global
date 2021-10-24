@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
+import GoogleLogin from "react-google-login";
 
 import Default from "ui/layouts/Default";
-import { GetLoggedInUser } from "api/login";
+import { GetLoggedInUser, LoginWithGoogle } from "api/login";
 
 export default function Login(props) {
   return (
@@ -16,26 +17,53 @@ export default function Login(props) {
           How would you like to login or sign up?
         </motion.h1>
         <div className="flex flex-row items-center justify-center space-x-6">
-          <motion.a
-            className="google-gradient flex flex-row items-center justify-center w-96 h-96 hover:scale-[1.01] border-2 border-olive-950 rounded-[12px] transform duration-300"
-            initial={{ y: 10, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.3, delay: 0.1 }}
-          >
-            <i className="fab fa-google text-[96px] text-white" />
-          </motion.a>
-          <motion.a
-            href={process.env.NEXT_PUBLIC_DISCORD_LOGIN_URL}
-            className="discord-gradient flex flex-row items-center justify-center w-96 h-96 hover:scale-[1.01] border-2 border-olive-950 rounded-[12px] transform duration-300"
-            initial={{ y: 10, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
-          >
-            <i className="fab fa-discord text-[96px] text-white" />
-          </motion.a>
+          <Google />
+          <Discord />
         </div>
       </div>
     </Default>
+  );
+}
+
+function Google() {
+  const onSuccess = async (response) => {
+    if (response.tokenId) {
+      await LoginWithGoogle(response.tokenId);
+    }
+  };
+  const onFailure = async (error) => {};
+
+  return (
+    <GoogleLogin
+      clientId={process.env.NEXT_PUBLIC_GOOGLE_LOGIN_CLIENT_ID}
+      onSuccess={onSuccess}
+      onFailure={onFailure}
+      render={(renderProps) => (
+        <motion.div
+          className="google-gradient flex flex-row items-center justify-center w-96 h-96 hover:scale-[1.01] border-2 border-olive-950 rounded-[12px] transform duration-300 cursor-pointer"
+          onClick={renderProps.onClick}
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
+        >
+          <i className="fab fa-google text-[96px] text-white" />
+        </motion.div>
+      )}
+    />
+  );
+}
+
+function Discord() {
+  return (
+    <motion.a
+      href={process.env.NEXT_PUBLIC_DISCORD_LOGIN_URL}
+      className="discord-gradient flex flex-row items-center justify-center w-96 h-96 hover:scale-[1.01] border-2 border-olive-950 rounded-[12px] transform duration-300"
+      initial={{ y: 10, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.3, delay: 0.2 }}
+    >
+      <i className="fab fa-discord text-[96px] text-white" />
+    </motion.a>
   );
 }
 
