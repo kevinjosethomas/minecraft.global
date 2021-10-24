@@ -1,4 +1,5 @@
 import moment from "moment";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -9,7 +10,12 @@ export default function Servers(props) {
   return (
     <div className="flex flex-row items-start justify-center w-full space-x-8">
       <ServerList name={props.name} servers={props.servers} />
-      <Info created_at={props.created_at} minecraft_uuid={props.minecraft_uuid} />
+      <Info
+        user_id={props.user_id}
+        user={props.user}
+        created_at={props.created_at}
+        minecraft_uuid={props.minecraft_uuid}
+      />
     </div>
   );
 }
@@ -54,26 +60,43 @@ function Info(props) {
   }, []);
 
   return (
-    <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px] space-y-2">
-      <div className="flex flex-row items-center justify-start">
-        <motion.h3
-          className="font-medium text-[40px] text-white text-opacity-90"
+    <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px] space-y-6">
+      <div className="flex flex-col items-start justify-start w-full">
+        <div className="flex flex-row items-center justify-start">
+          <motion.h3
+            className="font-medium text-[40px] text-white text-opacity-90"
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.4 }}
+          >
+            User Info
+          </motion.h3>
+        </div>
+        <motion.div
+          className="flex flex-col items-start justify-start"
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.3, delay: 0.4 }}
+          transition={{ duration: 0.3, delay: 0.6 }}
         >
-          User Info
-        </motion.h3>
+          <Field label="Joined" value={moment(props.created_at).format("MMM Do YYYY")} />
+          <Field label="IGN" value={username} />
+        </motion.div>
       </div>
-      <motion.div
-        className="flex flex-col items-start justify-start"
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.3, delay: 0.6 }}
-      >
-        <Field label="Joined" value={moment(props.created_at).format("MMM Do YYYY")} />
-        <Field label="IGN" value={username} />
-      </motion.div>
+      {props.user.user_id === props.user_id && (
+        <motion.div
+          className="flex flex-col items-start justify-start w-full p-5 space-y-2 bg-olive-940 rounded-[8px]"
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.7 }}
+        >
+          <h3 className="font-medium text-[32px] text-white text-opacity-90">Manage Billing</h3>
+          <Link href={`/user/${props.user.user_id}/billing`}>
+            <a className="flex flex-row items-center justify-center w-full py-1 bg-olive-900 hover:bg-olive-800 transition duration-300 rounded-[8px]">
+              <span className="text-[24px] text-white text-opacity-90">View Payments</span>
+            </a>
+          </Link>
+        </motion.div>
+      )}
     </div>
   );
 }

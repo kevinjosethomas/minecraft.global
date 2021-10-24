@@ -15,6 +15,8 @@ export default function User(props) {
       <div className="flex flex-col items-center justify-center w-full space-y-8">
         <Header avatar={avatar} {...props.userinfo} user={props.user} />
         <Servers
+          {...props.userinfo}
+          user={props.user}
           name={props.userinfo.name}
           created_at={props.userinfo.created_at}
           minecraft_uuid={props.userinfo.minecraft_uuid}
