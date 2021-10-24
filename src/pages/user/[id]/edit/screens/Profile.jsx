@@ -24,7 +24,14 @@ export default function Profile(props) {
 
   return (
     <div className="flex flex-col items-start justify-start w-full p-10 bg-olive-950 rounded border-2 border-olive-940">
-      <h1 className="font-medium text-[50px] text-white text-opacity-90">Edit Profile</h1>
+      <div className="flex flex-row items-center justify-between w-full">
+        <h1 className="font-medium text-[50px] text-white text-opacity-90">Edit Profile</h1>
+        <div className="flex flex-row items-center justify-center px-3 py-1 bg-olive-800 rounded cursor-pointer">
+          <span className="font-medium text-[20px] text-white text-opacity-80 select-none">
+            Save Changes
+          </span>
+        </div>
+      </div>
       <div className="flex flex-row items-center justify-between w-full">
         <div className="flex flex-col items-start justify-start space-y-4">
           <Input label="Username" value={parameters.name} onChange={onNameChange} />
