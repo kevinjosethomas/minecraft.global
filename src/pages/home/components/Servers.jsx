@@ -105,8 +105,13 @@ function ServerCollection(props) {
 
 function Loading() {
   return (
-    <div className="flex flex-row items-center justify-center w-full py-3 mt-4 space-x-2 rounded-[12px]">
+    <motion.div
+      className="flex flex-row items-center justify-center w-full py-3 mt-4 space-x-2 rounded-[12px]"
+      initial={{ y: 10, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.2 }}
+    >
       <img src="/images/clock.gif" alt="Minecraft Clock" draggable="false" className="w-16 h-16" />
-    </div>
+    </motion.div>
   );
 }
