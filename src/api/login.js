@@ -27,7 +27,7 @@ const GetLoggedInUser = async (ctx) => {
 const LoginWithDiscord = async (code) => {
   try {
     const response = await axios.get(
-      `${process.env.API_URL}/login/discord?code=${code}&dev=${process.env.DEV}`
+      `${process.env.API_URL}/login/discord?code=${code}&dev=${process.env.NEXT_PUBLIC_DEV}`
     );
     return [response.data, null];
   } catch (e) {
