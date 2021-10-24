@@ -1,4 +1,7 @@
+import cookies from "js-cookie";
+import toast from "react-hot-toast";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 import GoogleLogin from "react-google-login";
 
 import Default from "ui/layouts/Default";
@@ -26,12 +29,26 @@ export default function Login(props) {
 }
 
 function Google() {
+  const router = useRouter();
+
   const onSuccess = async (response) => {
     if (response.tokenId) {
-      await LoginWithGoogle(response.tokenId);
+      const [data, error] = await LoginWithGoogle(response.tokenId);
+
+      if (error) {
+        toast.error("Failed to log you in!");
+        return;
+      }
+
+      cookies.set("token", data.payload.token);
+      router.push("/");
     }
   };
-  const onFailure = async (error) => {};
+
+  const onFailure = (error) => {
+    toast.error("Failed to log you in!");
+    return;
+  };
 
   return (
     <GoogleLogin

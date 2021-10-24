@@ -42,6 +42,7 @@ const LoginWithGoogle = async (token) => {
         Authorization: token,
       },
     });
+    return [response.data, null];
   } catch (e) {
     return [null, e];
   }

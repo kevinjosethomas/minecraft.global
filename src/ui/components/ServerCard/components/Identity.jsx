@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import SimplifyNumber from "simplify-number";
 
 export default function Identity(props) {
@@ -36,6 +37,7 @@ function CopyButton(props) {
     e.preventDefault();
     const ip = !props.port || props.port === 25565 ? props.host : `${props.host}:${props.port}`;
     navigator.clipboard.writeText(ip);
+    toast.success("Successfully copied IP!");
   };
 
   return (
