@@ -5,7 +5,6 @@ import tags from "lib/tags.json";
 import Searchbar from "./components/Searchbar";
 
 export default function SearchBox(props) {
-  console.log(tags);
   return (
     <motion.div
       className="flex flex-col items-start justify-start w-full"
