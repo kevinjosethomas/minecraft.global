@@ -36,6 +36,7 @@ function Google() {
       const [data, error] = await LoginWithGoogle(response.tokenId);
 
       if (error) {
+        console.log(error);
         toast.error("Failed to log you in!");
         return;
       }
@@ -46,6 +47,7 @@ function Google() {
   };
 
   const onFailure = (error) => {
+    console.log(error);
     toast.error("Failed to log you in!");
     return;
   };
