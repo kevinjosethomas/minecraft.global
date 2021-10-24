@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import Profile from "./screens/Profile";
 import Default from "ui/layouts/Default";
 import { GetLoggedInUser } from "api/login";
 import Navigation from "./components/Navigation";
@@ -24,7 +25,14 @@ export default function EditUser(props) {
 
   return (
     <Default user={props.user}>
-      <Navigation screens={screens} activeScreen={activeScreen} setActiveScreen={setActiveScreen} />
+      <div className="flex flex-col items-start justify-center w-full space-y-4">
+        <Navigation
+          screens={screens}
+          activeScreen={activeScreen}
+          setActiveScreen={setActiveScreen}
+        />
+        {activeScreen.id === 1 ? <Profile user={props.user} /> : <Profile />}
+      </div>
     </Default>
   );
 }
