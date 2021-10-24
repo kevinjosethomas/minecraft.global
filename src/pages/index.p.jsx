@@ -4,8 +4,8 @@ import { useRouter } from "next/router";
 import Default from "ui/layouts/Default";
 import { GetDefaultData } from "api/core";
 import { GetLoggedInUser } from "api/login";
+import Servers from "./home/components/Servers";
 import TopTags from "./home/components/TopTags";
-import ServerCard from "ui/components/ServerCard/ServerCard";
 
 export default function Home(props) {
   const router = useRouter();
@@ -18,11 +18,7 @@ export default function Home(props) {
     <Default user={props.user} defaultResults={props.defaultResults} search header>
       <div className="flex flex-col items-start justify-start w-full space-y-8">
         <div className="flex flex-row items-start justify-center w-full space-x-8">
-          <div className="flex flex-col items-start justify-start w-full space-y-0.5 rounded-[12px] overflow-hidden">
-            {props.defaultResults.slice(0, 4).map((server, index) => (
-              <ServerCard key={server.server_id} index={index} {...server} animate />
-            ))}
-          </div>
+          <Servers defaultResults={props.defaultResults} />
           <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px]">
             <TopTags />
           </div>
