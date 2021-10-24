@@ -41,7 +41,9 @@ function Google() {
         return;
       }
 
-      cookies.set("token", data.payload.token);
+      cookies.set("token", data.payload.token, {
+        expires: 30,
+      });
       router.push("/");
     }
   };
