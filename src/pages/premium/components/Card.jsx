@@ -1,3 +1,5 @@
+import Link from "next/link";
+import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
 
@@ -14,6 +16,15 @@ export default function Card(props) {
     },
     { icon: "fal fa-heartbeat text-red-700", label: "Support Us" },
   ];
+
+  const openModal = () => {
+    if (!props.user.servers.length) {
+      toast.error("You don't have any servers :(");
+      return;
+    }
+
+    props.showModal(true);
+  };
 
   return (
     <Tilt tiltMaxAngleX={2} tiltMaxAngleY={2} tiltReverse>
@@ -39,10 +50,22 @@ export default function Card(props) {
               <Feature key={index} {...feature} />
             ))}
           </div>
-          <div className="flex flex-row items-center justify-center w-full py-3 space-x-2 bg-white bg-opacity-[0.08] hover:bg-opacity-10 rounded cursor-pointer transition duration-300">
-            <i className="fad fa-shopping-cart text-[20px] text-olive-400" />
-            <span className="font-bold text-[20px] text-olive-400">SUBSCRIBE</span>
-          </div>
+          {props.user ? (
+            <div
+              className="flex flex-row items-center justify-center w-full py-3 space-x-2 bg-white bg-opacity-[0.08] hover:bg-opacity-10 rounded cursor-pointer transition duration-300"
+              onClick={openModal}
+            >
+              <i className="fad fa-shopping-cart text-[20px] text-olive-400" />
+              <span className="font-bold text-[20px] text-olive-400">SUBSCRIBE</span>
+            </div>
+          ) : (
+            <Link href="/login">
+              <a className="flex flex-row items-center justify-center w-full py-3 space-x-2 bg-white bg-opacity-[0.08] hover:bg-opacity-10 rounded cursor-pointer transition duration-300">
+                <i className="fad fa-sign-in text-[20px] text-olive-400" />
+                <span className="font-bold text-[20px] text-olive-400">LOGIN</span>
+              </a>
+            </Link>
+          )}
         </div>
       </motion.div>
     </Tilt>

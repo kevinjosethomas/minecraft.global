@@ -1,13 +1,18 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 import Card from "./components/Card";
+import Confirm from "./modals/Confirm";
 import Default from "ui/layouts/Default";
 import { GetDefaultData } from "api/core";
 import { GetLoggedInUser } from "api/login";
 
 export default function Premium(props) {
+  const [modal, showModal] = useState(false);
+
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search>
+      {modal && <Confirm user={props.user} showModal={showModal} />}
       <div className="flex flex-row items-center justify-between w-full py-2">
         <div className="flex flex-col items-start justify-start w-[700px] space-y-4">
           <motion.h1
@@ -65,7 +70,7 @@ export default function Premium(props) {
             </motion.p>
           </div>
         </div>
-        <Card />
+        <Card user={props.user} showModal={showModal} />
       </div>
     </Default>
   );
