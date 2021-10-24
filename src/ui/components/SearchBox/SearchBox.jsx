@@ -7,6 +7,7 @@ import Searchbar from "./components/Searchbar";
 export default function SearchBox(props) {
   return (
     <motion.div
+      layoutId="headerSearch"
       className="flex flex-col items-start justify-start w-full"
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
