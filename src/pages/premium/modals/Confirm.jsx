@@ -1,3 +1,4 @@
+import cookies from "js-cookie";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/router";
@@ -13,7 +14,8 @@ export default function Confirm(props) {
   const [dropdown, setDropdown] = useState(false);
 
   const onClick = async () => {
-    const [response, error] = await CreatePremiumSession();
+    const token = cookies.get("token");
+    const [response, error] = await CreatePremiumSession(selected.server_id, token);
     if (error) {
       toast.error("Failed to redirect you! Please try again later!");
       return;
