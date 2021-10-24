@@ -1,3 +1,4 @@
+import Link from "next/link";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -76,23 +77,36 @@ export default function Servers(props) {
 function ServerCollection(props) {
   return (
     <div className="flex flex-col items-start justify-start w-full space-y-2">
-      <div className="flex flex-col items-start justify-start">
-        <motion.h2
-          className="text-[40px] text-white text-opacity-80 leading-tight"
-          initial={{ y: 10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.3 }}
-        >
-          {props.name}
-        </motion.h2>
-        <motion.p
-          className="text-[20px] text-white text-opacity-60 leading-tight"
-          initial={{ y: 10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.3, delay: 0.2 }}
-        >
-          {props.description}
-        </motion.p>
+      <div className="flex flex-row items-center justify-between w-full">
+        <div className="flex flex-col items-start justify-start">
+          <motion.h2
+            className="text-[40px] text-white text-opacity-80 leading-tight"
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            {props.name}
+          </motion.h2>
+          <motion.p
+            className="text-[20px] text-white text-opacity-60 leading-tight"
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
+          >
+            {props.description}
+          </motion.p>
+        </div>
+        <Link href={`/tag/${props.tag}`} passHref>
+          <motion.a
+            className="group flex flex-row items-center justify-center px-4 py-2 space-x-2 bg-olive-600 bg-opacity-25 hover:bg-opacity-50 rounded-[6px] select-none transition duration-300"
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            <span className="font-medium text-[18px] text-white">See More</span>
+            <i className="far fa-angle-right text-[18px] text-white group-hover:translate-x-0.5 transform duration-300" />
+          </motion.a>
+        </Link>
       </div>
       <div className="flex flex-col items-start justify-start w-full space-y-0.5 rounded-[12px] overflow-hidden">
         {props.results.map((server, serverindex) => (
