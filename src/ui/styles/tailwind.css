@@ -15,11 +15,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #141923;
+  background-color: #1d3729;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #242932;
+  background-color: #2e5841;
   border-radius: 0.25rem;
 }
 
