@@ -1,4 +1,5 @@
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
 
@@ -76,8 +77,22 @@ function ServerCollection(props) {
   return (
     <div className="flex flex-col items-start justify-start w-full space-y-2">
       <div className="flex flex-col items-start justify-start">
-        <h2 className="text-[40px] text-white text-opacity-80 leading-tight">{props.name}</h2>
-        <p className="text-[20px] text-white text-opacity-60 leading-tight">{props.description}</p>
+        <motion.h2
+          className="text-[40px] text-white text-opacity-80 leading-tight"
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          {props.name}
+        </motion.h2>
+        <motion.p
+          className="text-[20px] text-white text-opacity-60 leading-tight"
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.2 }}
+        >
+          {props.description}
+        </motion.p>
       </div>
       <div className="flex flex-col items-start justify-start w-full space-y-0.5 rounded-[12px] overflow-hidden">
         {props.results.map((server, serverindex) => (
