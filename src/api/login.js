@@ -20,6 +20,7 @@ const GetLoggedInUser = async (ctx) => {
 
     return [response.data.payload, null];
   } catch (e) {
+    console.log(e);
     return [null, e];
   }
 };
@@ -31,6 +32,7 @@ const LoginWithDiscord = async (code) => {
     );
     return [response.data, null];
   } catch (e) {
+    console.log(e);
     return [null, e];
   }
 };
@@ -44,6 +46,7 @@ const LoginWithGoogle = async (token) => {
     });
     return [response.data, null];
   } catch (e) {
+    console.log(e);
     return [null, e];
   }
 };

@@ -2,10 +2,11 @@ import axios from "axios";
 
 const GetUserByID = async (id) => {
   try {
-    const user = await axios.get(`${process.env.API_URL}/user/${id}`);
+    const response = await axios.get(`${process.env.API_URL}/user/${id}`);
 
-    return [user.data.payload, null];
+    return [response.data.payload, null];
   } catch (e) {
+    console.log(e);
     return [null, e];
   }
 };
@@ -16,6 +17,7 @@ const GetUserTransactions = async (id, token) => {
 
     return [response.data, null];
   } catch (e) {
+    console.log(e);
     return [null, e];
   }
 };

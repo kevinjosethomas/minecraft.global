@@ -22,8 +22,6 @@ export async function getServerSideProps(ctx) {
   const [response, error] = await LoginWithDiscord(code);
 
   if (error) {
-    console.log("\n\nError with Discord Login");
-    console.log(error);
     return {
       redirect: {
         destination: "/",
