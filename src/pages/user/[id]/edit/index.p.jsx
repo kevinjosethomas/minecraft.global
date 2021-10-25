@@ -3,6 +3,7 @@ import { useState } from "react";
 import Profile from "./screens/Profile";
 import Default from "ui/layouts/Default";
 import { GetLoggedInUser } from "api/login";
+import Connections from "./screens/Connections";
 import Navigation from "./components/Navigation";
 
 export default function EditUser(props) {
@@ -31,7 +32,13 @@ export default function EditUser(props) {
           activeScreen={activeScreen}
           setActiveScreen={setActiveScreen}
         />
-        {activeScreen.id === 1 ? <Profile user={props.user} /> : <Profile />}
+        {activeScreen.id === 1 ? (
+          <Profile user={props.user} />
+        ) : activeScreen.id === 2 ? (
+          <Connections {...props.user} />
+        ) : (
+          <Profile />
+        )}
       </div>
     </Default>
   );
