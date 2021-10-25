@@ -55,7 +55,9 @@ export async function getServerSideProps(ctx) {
 
     if (!token) {
       return {
-        error: 401,
+        props: {
+          error: 401,
+        },
       };
     }
 
@@ -76,6 +78,14 @@ export async function getServerSideProps(ctx) {
       return {
         props: {
           error: responses[1][1].response?.status || 500,
+        },
+      };
+    }
+
+    if (responses[0][0].user_id != id) {
+      return {
+        props: {
+          error: 401,
         },
       };
     }
