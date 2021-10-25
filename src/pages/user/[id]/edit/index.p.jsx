@@ -1,8 +1,10 @@
+import Cookies from "cookies";
 import { useState } from "react";
 
 import Profile from "./screens/Profile";
 import Default from "ui/layouts/Default";
 import { GetLoggedInUser } from "api/login";
+import { GetUserTransactions } from "api/user";
 import Connections from "./screens/Connections";
 import Navigation from "./components/Navigation";
 
@@ -46,19 +48,38 @@ export default function EditUser(props) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const [response, error] = await GetLoggedInUser(ctx);
+    const id = ctx.params.id;
 
-    if (error) {
-      return {
-        props: {},
-      };
-    } else {
+    const cookies = new Cookies(ctx.req, ctx.res);
+    const token = cookies.get("token");
+
+    const user = GetLoggedInUser(ctx);
+    const billing = GetUserTransactions(id, token);
+
+    const responses = await Promise.all([user, billing]);
+
+    if (responses[0][1]) {
       return {
         props: {
-          user: response,
+          error: responses[0][1].response?.status || 500,
         },
       };
     }
+
+    if (responses[1][1]) {
+      return {
+        props: {
+          error: responses[1][1].response?.status || 500,
+        },
+      };
+    }
+
+    return {
+      props: {
+        user: responses[0][0],
+        billing: responses[1][0],
+      },
+    };
   } catch (e) {
     console.log(e);
     return {
