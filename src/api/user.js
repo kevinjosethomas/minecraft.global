@@ -10,6 +10,16 @@ const GetUserByID = async (id) => {
   }
 };
 
+const GetUserTransactions = async (id, token) => {
+  try {
+    const response = await axios.get(`${process.env.API_URL}/user/${id}/transactions`);
+
+    return [response.data, null];
+  } catch (e) {
+    return [null, e];
+  }
+};
+
 const EditUser = async (id, parameters, token) => {
   try {
     const response = await axios.put(
@@ -29,4 +39,4 @@ const EditUser = async (id, parameters, token) => {
   }
 };
 
-export { GetUserByID, EditUser };
+export { GetUserByID, GetUserTransactions, EditUser };
