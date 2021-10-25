@@ -5,7 +5,7 @@ export default function TextArea(props) {
       <textarea
         value={props.value}
         onChange={props.onChange}
-        className="w-[500px] h-56 px-2 py-1 bg-white bg-opacity-10 resize-none focus:outline-none rounded text-[22px] text-white text-opacity-80 border-2 border-olive-920"
+        className="w-[500px] h-56 px-2 py-1 bg-white bg-opacity-5 resize-none focus:outline-none rounded text-[22px] text-white text-opacity-80 border-2 border-olive-920"
       />
     </div>
   );

@@ -5,7 +5,7 @@ export default function Input(props) {
       <input
         value={props.value}
         onChange={props.onChange}
-        className="w-72 px-2 py-1 bg-white bg-opacity-10 focus:outline-none rounded text-[22px] text-white text-opacity-80 border-2 border-olive-920"
+        className="w-72 px-2 py-1 bg-white bg-opacity-5 focus:outline-none rounded text-[22px] text-white text-opacity-80 border-2 border-olive-920"
       />
     </div>
   );
