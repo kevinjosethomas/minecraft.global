@@ -78,7 +78,7 @@ export default function Premium(props) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const user = GetLoggedInUser(ctx);
+    const user = GetLoggedInUser(ctx, true);
     const data = GetDefaultData(ctx);
 
     const responses = await Promise.all([user, data]);
