@@ -53,7 +53,13 @@ export async function getServerSideProps(ctx) {
     const cookies = new Cookies(ctx.req, ctx.res);
     const token = cookies.get("token");
 
-    const user = GetLoggedInUser(ctx);
+    if (!token) {
+      return {
+        error: 401,
+      };
+    }
+
+    const user = GetLoggedInUser(ctx, true);
     const billing = GetUserTransactions(id, token);
 
     const responses = await Promise.all([user, billing]);

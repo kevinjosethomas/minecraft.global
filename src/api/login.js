@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "cookies";
 
-const GetLoggedInUser = async (ctx) => {
+const GetLoggedInUser = async (ctx, full) => {
   try {
     const cookies = new Cookies(ctx.req, ctx.res);
     let token = cookies.get("token");
@@ -12,7 +12,7 @@ const GetLoggedInUser = async (ctx) => {
       return [null, 1];
     }
 
-    const response = await axios.get(`${process.env.API_URL}/auth`, {
+    const response = await axios.get(`${process.env.API_URL}/auth?full=${full || false}`, {
       headers: {
         Authorization: token,
       },
