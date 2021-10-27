@@ -3,7 +3,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-import { GetUsernameFromUUID } from "api/mojang";
+import { GetUsernameFromUUID } from "api/minecraft";
 import ServerCard from "ui/components/ServerCard/ServerCard";
 
 export default function Servers(props) {
