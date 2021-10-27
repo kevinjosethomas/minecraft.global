@@ -34,7 +34,7 @@ export async function getServerSideProps(ctx) {
   cookies.set("token", response.payload.token, {
     httpOnly: false,
     sameSite: "strict",
-    maxAge: 60 * 60 * 24 * 30,
+    maxAge: 1000 * 60 * 60 * 24 * 30,
   });
 
   return {
