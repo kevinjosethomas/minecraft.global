@@ -57,7 +57,7 @@ export default function Premium(props) {
               <p className="text-[24px] text-white text-opacity-70">
                 All Premium users get $5 worth of Auctions Credit every month! This credit can be
                 used to bid for advertisements in any tag! Credit will only be used if you actually
-                win the auction. Auctions Credit also carries over to the following month!
+                win an auction. Auctions Credit also carries over to the following month!
               </p>
             </motion.div>
             <motion.p
