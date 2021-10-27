@@ -1,6 +1,7 @@
 import Cookies from "cookies";
 import { useState } from "react";
 
+import Billing from "./screens/Billing";
 import Profile from "./screens/Profile";
 import Default from "ui/layouts/Default";
 import { GetLoggedInUser } from "api/login";
@@ -39,7 +40,7 @@ export default function EditUser(props) {
         ) : activeScreen.id === 2 ? (
           <Connections {...props.user} />
         ) : (
-          <Profile />
+          <Billing billing={props.billing} />
         )}
       </div>
     </Default>
