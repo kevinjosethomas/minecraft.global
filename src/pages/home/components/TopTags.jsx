@@ -20,7 +20,7 @@ export default function TopTags(props) {
 
 function Tag(props) {
   return (
-    <Link href={`/tag/${props.name.toLowerCase()}`}>
+    <Link href={`/tag/${props.name}`}>
       <a className="flex flex-row items-center justify-start w-full py-1 space-x-2 hover:bg-white hover:bg-opacity-5 transition duration-300 rounded">
         <span className="w-8 text-center text-[24px] text-white text-opacity-60">
           {props.index}
