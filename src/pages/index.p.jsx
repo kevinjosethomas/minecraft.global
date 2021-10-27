@@ -16,12 +16,10 @@ export default function Home(props) {
 
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search header>
-      <div className="flex flex-col items-start justify-start w-full space-y-8">
-        <div className="flex flex-row items-start justify-center w-full space-x-8">
-          <Servers defaultResults={props.defaultResults} />
-          <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px]">
-            <TopTags />
-          </div>
+      <div className="flex flex-row items-start justify-center w-full space-x-8">
+        <Servers defaultResults={props.defaultResults} />
+        <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px]">
+          <TopTags />
         </div>
       </div>
     </Default>
