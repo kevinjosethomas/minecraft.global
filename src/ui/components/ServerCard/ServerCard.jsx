@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Fragment } from "react";
 import { motion } from "framer-motion";
 
 import Tags from "./components/Tags";

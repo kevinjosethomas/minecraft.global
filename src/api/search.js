@@ -12,10 +12,12 @@ const SearchByQuery = async (query, amount) => {
   }
 };
 
-const SearchByTag = async (tag, amount) => {
+const SearchByTag = async (tag, amount, offset) => {
   try {
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/search?tags=${tag}&amount=${amount}`
+      `${process.env.NEXT_PUBLIC_API_URL}/search?tags=${encodeURIComponent(
+        tag
+      )}&amount=${amount}&offset=${offset || 0}`
     );
 
     return [response.data, null];
