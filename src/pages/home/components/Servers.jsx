@@ -99,7 +99,7 @@ function ServerCollection(props) {
             {props.description}
           </motion.p>
         </div>
-        <Link href={`/tag/${props.tag}`} passHref>
+        <Link href={`/tag/${props.tag}`}>
           <motion.a
             className="group flex flex-row items-center justify-center px-4 py-2 space-x-2 bg-olive-600 bg-opacity-25 hover:bg-opacity-50 rounded-[6px] select-none transition duration-300"
             initial={{ y: 10, opacity: 0 }}
