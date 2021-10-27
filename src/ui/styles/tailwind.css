@@ -23,6 +23,12 @@ body {
   border-radius: 0.25rem;
 }
 
+code {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 8px;
+  border-radius: 4px;
+}
+
 .bg-gradient {
   background: linear-gradient(175deg, #0b1610 20%, #0c0f15 50%);
 }
