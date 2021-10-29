@@ -14,7 +14,6 @@ const SearchByQuery = async (query, amount) => {
 
 const SearchByTag = async (tag, amount, offset, sort) => {
   try {
-    console.log(sort);
     const response = await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/search?tags=${encodeURIComponent(
         tag
