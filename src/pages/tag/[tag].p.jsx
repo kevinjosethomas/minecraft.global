@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 import tags from "lib/tags.json";
+import Sort from "./components/Sort";
 import { SearchByTag } from "api/search";
 import Default from "ui/layouts/Default";
 import { GetDefaultData } from "api/core";
@@ -6,11 +9,15 @@ import Servers from "./components/Servers";
 import { GetLoggedInUser } from "api/login";
 
 export default function Tag(props) {
+  const [sort, setSort] = useState("upvotes");
+
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search>
-      <div className="flex flex-row items-start justify-center w-full space-x-8">
+      <div className="flex flex-row items-start j+ustify-center w-full space-x-8">
         <Servers tag={props.tag} results={props.results} />
-        <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px]"></div>
+        <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px]">
+          <Sort sort={sort} setSort={setSort} />
+        </div>
       </div>
     </Default>
   );
