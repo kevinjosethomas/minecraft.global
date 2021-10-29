@@ -1,6 +1,6 @@
-import { useState } from "react";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
 
 import { SearchByTag } from "api/search";
@@ -10,7 +10,7 @@ export default function Servers(props) {
   const [results, setResults] = useState([...props.results.entries]);
 
   const loadMore = async (page) => {
-    const [response, error] = await SearchByTag(props.tag, 12, 12, page * 12, props.sort);
+    const [response, error] = await SearchByTag(props.tag, 12, page * 12, props.sort);
 
     if (error) {
       toast.error("Failed to fetch servers :(");
@@ -19,6 +19,19 @@ export default function Servers(props) {
 
     setResults((results) => [...results, ...response.payload.entries]);
   };
+
+  useEffect(() => {
+    (async () => {
+      const [response, error] = await SearchByTag(props.tag, 12, 0, props.sort);
+
+      if (error) {
+        toast.error("Failed to fetch servers :(");
+        return;
+      }
+
+      setResults([...response.payload.entries]);
+    })();
+  }, [props.sort]);
 
   return (
     <InfiniteScroll

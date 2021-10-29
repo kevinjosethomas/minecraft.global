@@ -1,11 +1,9 @@
 import axios from "axios";
 
-const SearchByQuery = async (query, amount, sort) => {
+const SearchByQuery = async (query, amount) => {
   try {
     const response = await axios.get(
-      `${
-        process.env.NEXT_PUBLIC_API_URL
-      }/search?query=${query}&sort=upvotes&amount=${amount}&sort=${sort || "upvotes"}`
+      `${process.env.NEXT_PUBLIC_API_URL}/search?query=${query}&sort=upvotes&amount=${amount}`
     );
 
     return [response.data.payload, null];
@@ -14,12 +12,13 @@ const SearchByQuery = async (query, amount, sort) => {
   }
 };
 
-const SearchByTag = async (tag, amount, offset) => {
+const SearchByTag = async (tag, amount, offset, sort) => {
   try {
+    console.log(sort);
     const response = await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/search?tags=${encodeURIComponent(
         tag
-      )}&amount=${amount}&offset=${offset || 0}`
+      )}&amount=${amount}&offset=${offset || 0}&sort=${sort || "upvotes"}`
     );
 
     return [response.data, null];
