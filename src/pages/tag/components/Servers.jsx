@@ -10,7 +10,7 @@ export default function Servers(props) {
   const [results, setResults] = useState([...props.results.entries]);
 
   const loadMore = async (page) => {
-    const [response, error] = await SearchByTag(props.tag, 12, 12, page * 12);
+    const [response, error] = await SearchByTag(props.tag, 12, 12, page * 12, props.sort);
 
     if (error) {
       toast.error("Failed to fetch servers :(");
