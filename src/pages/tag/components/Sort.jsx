@@ -3,8 +3,20 @@ import { motion, AnimateSharedLayout } from "framer-motion";
 export default function Sort(props) {
   return (
     <div className="flex flex-col items-start justify-start space-y-1">
-      <span className="font-medium text-[32px] text-white text-opacity-90">Sort By</span>
-      <div className="flex flex-row items-center justify-center bg-white bg-opacity-5 hover:bg-opacity-10 rounded-full transition duration-500">
+      <motion.span
+        className="font-medium text-[32px] text-white text-opacity-90"
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.3, delay: 0.2 }}
+      >
+        Sort By
+      </motion.span>
+      <motion.div
+        className="flex flex-row items-center justify-center bg-white bg-opacity-5 hover:bg-opacity-10 rounded-full transition duration-500"
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.3, delay: 0.4 }}
+      >
         <AnimateSharedLayout>
           <Option
             label="Upvotes"
@@ -19,7 +31,7 @@ export default function Sort(props) {
             active={props.sort === "players"}
           />
         </AnimateSharedLayout>
-      </div>
+      </motion.div>
     </div>
   );
 }
