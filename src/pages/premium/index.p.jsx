@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 import Card from "./components/Card";
 import Confirm from "./modals/Confirm";
@@ -10,9 +10,19 @@ import { GetLoggedInUser } from "api/login";
 export default function Premium(props) {
   const [modal, showModal] = useState(false);
 
+  useEffect(() => {
+    if (modal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [modal]);
+
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search>
-      {modal && <Confirm user={props.user} showModal={showModal} />}
+      <AnimatePresence>
+        {modal && <Confirm user={props.user} showModal={showModal} />}
+      </AnimatePresence>
       <div className="flex flex-row items-center justify-between w-full py-2">
         <div className="flex flex-col items-start justify-start w-[700px] space-y-4">
           <motion.h1

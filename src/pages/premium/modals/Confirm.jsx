@@ -1,6 +1,7 @@
 import cookies from "js-cookie";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 
 import Modal from "ui/layouts/Modal";
@@ -26,9 +27,13 @@ export default function Confirm(props) {
 
   return (
     <Modal showModal={props.showModal}>
-      <div
+      <motion.div
         className="flex flex-col items-start justify-between w-[800px] h-[400px] p-8 space-y-8 bg-olive-950 border-2 border-olive-930 rounded-md"
         onClick={(e) => e.stopPropagation()}
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 10, opacity: 0 }}
+        transition={{ duration: 0.3, delay: 0.2 }}
       >
         <div className="flex flex-col items-start justify-start w-full space-y-4">
           <span className="text-[32px] text-white text-opacity-90 max-w-lg leading-tight">
@@ -67,7 +72,7 @@ export default function Confirm(props) {
             <span className="text-[24px] text-white text-opacity-80 select-none">Subscribe</span>
           </div>
         </div>
-      </div>
+      </motion.div>
     </Modal>
   );
 }

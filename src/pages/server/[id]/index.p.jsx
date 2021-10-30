@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 import Report from "./modals/Report";
 import Default from "ui/layouts/Default";
@@ -24,7 +25,7 @@ export default function Server(props) {
 
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search>
-      {reportModal && <Report showModal={showReportModal} />}
+      <AnimatePresence>{reportModal && <Report showModal={showReportModal} />}</AnimatePresence>
       <div className="flex flex-col items-start justify-start w-full mt-6 space-y-16">
         <Header
           server_id={props.server.server_id}
