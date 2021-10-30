@@ -32,7 +32,7 @@ export default function Premium(props) {
             transition={{ duration: 0.3, delay: 0.3 }}
           >
             Everything you need to grow your server. For only{" "}
-            <span className="bg-gradient-to-r from-olive-700 to-olive-900 text-transparent bg-clip-text">
+            <span className="bg-gradient-to-r from-olive-600 to-olive-800 text-transparent bg-clip-text">
               $4.99
             </span>{" "}
             a month!
@@ -50,8 +50,8 @@ export default function Premium(props) {
               </div>
               <p className="text-[24px] text-white text-opacity-70">
                 Premium users get a plugin that regularly transmits data from your Minecraft server
-                to our website! This allows you to track various statistics like player count,
-                upvote count, memory usage and CPU usage for up to 30 days!
+                to our website! This allows you to track various statistics including players,
+                upvotes, chat messages, pageviews, impressions and more for up to 30 days!
               </p>
             </motion.div>
             <motion.div
@@ -62,12 +62,12 @@ export default function Premium(props) {
             >
               <div className="flex flex-row items-center justify-start space-x-2">
                 <i className="fal fa-sack-dollar w-[32px] text-orange-800 text-[32px] text-center" />
-                <span className="text-[32px] text-orange-800">Monthly Auction Credit</span>
+                <span className="text-[32px] text-orange-800">Monthly Advertising Credit</span>
               </div>
               <p className="text-[24px] text-white text-opacity-70">
-                All Premium users get $5 worth of Auctions Credit every month! This credit can be
-                used to bid for advertisements in any tag! Credit will only be used if you actually
-                win an auction. Auctions Credit also carries over to the following month!
+                All Premium users get $5 worth of Advertising Credit every month! This credit can be
+                used to pay for advertisements on the website via our auction system! Advertising
+                Credit also carries over to the following month!
               </p>
             </motion.div>
             <motion.p
