@@ -8,7 +8,7 @@ export default function Navigation(props) {
       className="flex flex-col items-start justify-start w-full select-none"
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.3, delay: 0.6 }}
+      transition={{ duration: 0.3, delay: 0.2 }}
     >
       <div className="flex flex-row items-center justify-between w-full">
         <div className="flex flex-row items-center justify-start space-x-10">

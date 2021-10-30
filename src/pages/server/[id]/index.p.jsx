@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import Report from "./modals/Report";
 import Default from "ui/layouts/Default";
 import Header from "./components/Header";
+import Comments from "./screens/Comments";
 import Overview from "./screens/Overview";
 import { GetDefaultData } from "api/core";
 import Sidebar from "./components/Sidebar";
@@ -42,10 +43,10 @@ export default function Server(props) {
           <Navigation screen={screen} setScreen={setScreen} showReportModal={showReportModal} />
           <div className="flex flex-row items-start justify-start w-full space-x-8">
             <div className="flex flex-col items-start justify-start w-full">
-              {props.screen === "overview" ? (
+              {screen === "overview" ? (
                 <Overview long_description={props.server.long_description} />
               ) : (
-                <Overview long_description={props.server.long_description} />
+                <Comments />
               )}
             </div>
             <Sidebar {...props.server} />

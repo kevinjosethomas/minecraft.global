@@ -40,7 +40,7 @@ function Details(props) {
       className="flex flex-col items-start justify-start space-y-2"
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.3, delay: 0.9 }}
+      transition={{ duration: 0.3, delay: 0.2 }}
     >
       <div className="flex flex-row items-center justify-start space-x-2">
         <i className="far fa-gamepad-alt text-[32px] text-white text-opacity-90" />
@@ -71,7 +71,7 @@ function Socials(props) {
       className="flex flex-col items-start justify-start space-y-2"
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.3, delay: 1 }}
+      transition={{ duration: 0.3, delay: 0.2 }}
     >
       <div className="flex flex-row items-center justify-start space-x-2">
         <i className="far fa-share-alt text-[32px] text-white text-opacity-90" />

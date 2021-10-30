@@ -9,7 +9,7 @@ export default function Upvote(props) {
         className="flex flex-row items-center justify-center h-[72px] px-8 space-x-2 bg-olive-900 rounded-[12px] hover:bg-olive-910 transition duration-300 select-none"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.3, delay: 0.4 }}
+        transition={{ duration: 0.3, delay: 0.2 }}
       >
         <i className="fas fa-arrow-alt-up text-[28px] text-white text-opacity-90" />
         <h5 className="font-medium text-[28px] text-white text-opacity-90">
