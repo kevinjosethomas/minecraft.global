@@ -12,7 +12,37 @@ const GetServerByID = async (id) => {
 
 const GetServerCommentsByID = async (id) => {
   try {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/server/${id}/comments`);
+    const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/server/${id}/comments`);
+
+    return [response.data, null];
+  } catch (e) {
+    return [null, e];
+  }
+};
+
+const EditServerComment = async (comment_id, server_id, content, token) => {
+  try {
+    const response = await axios.put(
+      `${process.env.NEXT_PUBLIC_API_URL}/server/${server_id}/comment/${comment_id}/edit`,
+      { content: content },
+      { headers: { Authorization: token } }
+    );
+
+    return [response.data, null];
+  } catch (e) {
+    return [null, e];
+  }
+};
+
+const PostComment = async (id, content, token) => {
+  try {
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_API_URL}/server/${id}/comment`,
+      {
+        content: content,
+      },
+      { headers: { Authorization: token } }
+    );
 
     return [response.data.payload, null];
   } catch (e) {
@@ -36,4 +66,4 @@ const ReportServer = async (id, parameters, token) => {
   }
 };
 
-export { GetServerByID, ReportServer };
+export { GetServerByID, GetServerCommentsByID, PostComment, EditServerComment, ReportServer };
