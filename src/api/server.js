@@ -10,6 +10,16 @@ const GetServerByID = async (id) => {
   }
 };
 
+const GetServerCommentsByID = async (id) => {
+  try {
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/server/${id}/comments`);
+
+    return [response.data.payload, null];
+  } catch (e) {
+    return [null, e];
+  }
+};
+
 const ReportServer = async (id, parameters, token) => {
   try {
     const response = await axios.post(

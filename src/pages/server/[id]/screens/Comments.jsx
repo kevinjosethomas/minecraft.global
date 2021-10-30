@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import ReactMarkdown from "react-markdown";
 
-export default function Overview(props) {
+export default function Comments(props) {
   return (
     <motion.div
       className="flex flex-col items-start justify-start w-full"
