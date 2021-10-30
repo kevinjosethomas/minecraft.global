@@ -3,6 +3,7 @@ import { useState } from "react";
 import Default from "ui/layouts/Default";
 import Header from "./components/Header";
 import { GetDefaultData } from "api/core";
+import Sidebar from "./components/Sidebar";
 import { GetServerByID } from "api/server";
 import { GetLoggedInUser } from "api/login";
 import Navigation from "./components/Navigation";
@@ -21,7 +22,13 @@ export default function Server(props) {
           description={props.server.description}
           monthly_votes={props.server.monthly_votes}
         />
-        <Navigation screen={screen} setScreen={setScreen} />
+        <div className="flex flex-col items-start justify-start w-full space-y-8">
+          <Navigation screen={screen} setScreen={setScreen} />
+          <div className="flex flex-row items-start justify-start w-full space-x-8">
+            <div className="flex flex-col items-start justify-start w-full"></div>
+            <Sidebar {...props.server} />
+          </div>
+        </div>
       </div>
     </Default>
   );
