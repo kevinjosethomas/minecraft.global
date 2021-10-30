@@ -1,10 +1,15 @@
-import Options from "./Options";
-
 import { motion, AnimateSharedLayout } from "framer-motion";
+
+import Options from "./Options";
 
 export default function Navigation(props) {
   return (
-    <div className="flex flex-col items-start justify-start w-full select-none">
+    <motion.div
+      className="flex flex-col items-start justify-start w-full select-none"
+      initial={{ y: 10, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.3, delay: 0.6 }}
+    >
       <div className="flex flex-row items-center justify-between w-full">
         <div className="flex flex-row items-center justify-start space-x-10">
           <AnimateSharedLayout>
@@ -23,7 +28,7 @@ export default function Navigation(props) {
         <Options showReportModal={props.showReportModal} />
       </div>
       <div className="w-full h-[3px] bg-white bg-opacity-10" />
-    </div>
+    </motion.div>
   );
 }
 

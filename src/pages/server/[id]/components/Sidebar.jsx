@@ -1,10 +1,11 @@
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import SimplifyNumber from "simplify-number";
 
 export default function Sidebar(props) {
   return (
-    <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px] space-y-8 overflow-x-hidden">
+    <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px] space-y-8 overflow-hidden">
       <Details
         port={props.port}
         host={props.host}
@@ -35,7 +36,12 @@ function Details(props) {
   };
 
   return (
-    <div className="flex flex-col items-start justify-start space-y-2">
+    <motion.div
+      className="flex flex-col items-start justify-start space-y-2"
+      initial={{ y: 10, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.3, delay: 0.9 }}
+    >
       <div className="flex flex-row items-center justify-start space-x-2">
         <i className="far fa-gamepad-alt text-[32px] text-white text-opacity-90" />
         <span className="text-[32px] text-white text-opacity-90">Details</span>
@@ -55,13 +61,18 @@ function Details(props) {
           onClick={() => router.push(`/user/${props.owner_id}`)}
         />
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 function Socials(props) {
   return (
-    <div className="flex flex-col items-start justify-start space-y-2">
+    <motion.div
+      className="flex flex-col items-start justify-start space-y-2"
+      initial={{ y: 10, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.3, delay: 1 }}
+    >
       <div className="flex flex-row items-center justify-start space-x-2">
         <i className="far fa-share-alt text-[32px] text-white text-opacity-90" />
         <span className="text-[32px] text-white text-opacity-90">Socials</span>
@@ -77,7 +88,7 @@ function Socials(props) {
           <SocialElement icon="fab fa-youtube" label="Server Trailer" href={props.trailer_url} />
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
