@@ -15,6 +15,7 @@ export default function ServerCard(props) {
           name={props.name}
           host={props.host}
           port={props.port}
+          premium={props.premium}
           monthly_votes={props.monthly_votes}
           players_online={props.players_online}
         />

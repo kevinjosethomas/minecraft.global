@@ -23,6 +23,11 @@ body {
   border-radius: 0.25rem;
 }
 
+.__react_component_tooltip {
+  transition: opacity 0.5s ease !important;
+  visibility: visible;
+}
+
 code {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 5px 8px;
