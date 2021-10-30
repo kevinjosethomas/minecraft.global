@@ -4,7 +4,7 @@ import { motion, AnimateSharedLayout } from "framer-motion";
 
 export default function Navigation(props) {
   return (
-    <div className="flex flex-col items-start justify-start w-full">
+    <div className="flex flex-col items-start justify-start w-full select-none">
       <div className="flex flex-row items-center justify-between w-full">
         <div className="flex flex-row items-center justify-start space-x-10">
           <AnimateSharedLayout>
