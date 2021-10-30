@@ -8,7 +8,7 @@ import { GetLoggedInUser } from "api/login";
 import Navigation from "./components/Navigation";
 
 export default function Server(props) {
-  const [screen, setScreen] = useState("information");
+  const [screen, setScreen] = useState("overview");
 
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search>

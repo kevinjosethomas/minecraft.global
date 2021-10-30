@@ -6,9 +6,9 @@ export default function Navigation(props) {
       <div className="flex flex-row items-center justify-start space-x-10">
         <AnimateSharedLayout>
           <Screen
-            label="Information"
-            active={props.screen === "information"}
-            onClick={() => props.setScreen("information")}
+            label="Overview"
+            active={props.screen === "overview"}
+            onClick={() => props.setScreen("overview")}
           />
           <Screen
             label="Comments"
