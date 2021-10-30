@@ -29,6 +29,16 @@ code {
   border-radius: 4px;
 }
 
+.format-links a {
+  @apply text-olive-600;
+  text-decoration: underline;
+}
+
+.long-description ul {
+  list-style-type: disc !important;
+  list-style-position: inside;
+}
+
 .bg-gradient {
   background: linear-gradient(175deg, #0b1610 20%, #0c0f15 50%);
 }

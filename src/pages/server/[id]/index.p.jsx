@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import Default from "ui/layouts/Default";
 import Header from "./components/Header";
+import Overview from "./screens/Overview";
 import { GetDefaultData } from "api/core";
 import Sidebar from "./components/Sidebar";
 import { GetServerByID } from "api/server";
@@ -25,7 +26,13 @@ export default function Server(props) {
         <div className="flex flex-col items-start justify-start w-full space-y-8">
           <Navigation screen={screen} setScreen={setScreen} />
           <div className="flex flex-row items-start justify-start w-full space-x-8">
-            <div className="flex flex-col items-start justify-start w-full"></div>
+            <div className="flex flex-col items-start justify-start w-full">
+              {props.screen === "overview" ? (
+                <Overview long_description={props.server.long_description} />
+              ) : (
+                <Overview long_description={props.server.long_description} />
+              )}
+            </div>
             <Sidebar {...props.server} />
           </div>
         </div>
