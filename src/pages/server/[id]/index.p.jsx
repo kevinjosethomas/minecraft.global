@@ -36,6 +36,7 @@ export default function Server(props) {
           favicon={props.server.favicon}
           description={props.server.description}
           monthly_votes={props.server.monthly_votes}
+          premium={props.server.premium}
         />
         <div className="flex flex-col items-start justify-start w-full space-y-8">
           <Navigation screen={screen} setScreen={setScreen} showReportModal={showReportModal} />

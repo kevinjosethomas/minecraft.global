@@ -9,6 +9,7 @@ export default function Header(props) {
         tags={props.tags}
         favicon={props.favicon}
         description={props.description}
+        premium={props.premium}
       />
       <Upvote server_id={props.server_id} monthly_votes={props.monthly_votes} />
     </div>
