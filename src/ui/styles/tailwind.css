@@ -44,3 +44,7 @@ code {
 .break-anywhere {
   overflow-wrap: anywhere;
 }
+
+.highlight-underline {
+  bottom: -3px;
+}

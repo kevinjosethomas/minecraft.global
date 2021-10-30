@@ -1,13 +1,18 @@
+import { useState } from "react";
+
 import Default from "ui/layouts/Default";
 import Header from "./components/Header";
 import { GetDefaultData } from "api/core";
 import { GetServerByID } from "api/server";
 import { GetLoggedInUser } from "api/login";
+import Navigation from "./components/Navigation";
 
 export default function Server(props) {
+  const [screen, setScreen] = useState("information");
+
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search>
-      <div className="flex flex-col items-start justify-start w-full">
+      <div className="flex flex-col items-start justify-start w-full mt-6 space-y-16">
         <Header
           server_id={props.server.server_id}
           name={props.server.name}
@@ -16,6 +21,7 @@ export default function Server(props) {
           description={props.server.description}
           monthly_votes={props.server.monthly_votes}
         />
+        <Navigation screen={screen} setScreen={setScreen} />
       </div>
     </Default>
   );
