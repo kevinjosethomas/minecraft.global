@@ -20,7 +20,7 @@ export default function Navigation(props) {
             />
           </AnimateSharedLayout>
         </div>
-        <Options />
+        <Options showReportModal={props.showReportModal} />
       </div>
       <div className="w-full h-[3px] bg-white bg-opacity-10" />
     </div>

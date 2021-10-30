@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
+import Report from "./modals/Report";
 import Default from "ui/layouts/Default";
 import Header from "./components/Header";
 import Overview from "./screens/Overview";
@@ -11,9 +12,19 @@ import Navigation from "./components/Navigation";
 
 export default function Server(props) {
   const [screen, setScreen] = useState("overview");
+  const [reportModal, showReportModal] = useState(false);
+
+  useEffect(() => {
+    if (reportModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [reportModal]);
 
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search>
+      {reportModal && <Report showModal={showReportModal} />}
       <div className="flex flex-col items-start justify-start w-full mt-6 space-y-16">
         <Header
           server_id={props.server.server_id}
@@ -24,7 +35,7 @@ export default function Server(props) {
           monthly_votes={props.server.monthly_votes}
         />
         <div className="flex flex-col items-start justify-start w-full space-y-8">
-          <Navigation screen={screen} setScreen={setScreen} />
+          <Navigation screen={screen} setScreen={setScreen} showReportModal={showReportModal} />
           <div className="flex flex-row items-start justify-start w-full space-x-8">
             <div className="flex flex-col items-start justify-start w-full">
               {props.screen === "overview" ? (

@@ -13,7 +13,11 @@ export default function Options(props) {
       >
         <i className="far fa-ellipsis-h text-[32px] text-white text-opacity-80" />
       </div>
-      <AnimatePresence>{dropdown && <Dropdown showDropdown={showDropdown} />}</AnimatePresence>
+      <AnimatePresence>
+        {dropdown && (
+          <Dropdown showDropdown={showDropdown} showReportModal={props.showReportModal} />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -28,7 +32,7 @@ function Dropdown(props) {
         exit={{ y: 10, opacity: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <DropdownItem label="Report Server" onClick={() => {}} />
+        <DropdownItem label="Report Server" onClick={() => props.showReportModal(true)} />
       </motion.div>
     </OnOutsideClick>
   );
@@ -36,7 +40,10 @@ function Dropdown(props) {
 
 function DropdownItem(props) {
   return (
-    <div className="flex flex-row items-center justify-start pl-2 pr-10 py-1.5 hover:bg-white hover:bg-opacity-[0.03] cursor-pointer transition duration-300">
+    <div
+      className="flex flex-row items-center justify-start pl-2 pr-10 py-1.5 hover:bg-white hover:bg-opacity-[0.03] cursor-pointer transition duration-300"
+      onClick={props.onClick}
+    >
       <span className="text-[20px] text-white text-opacity-80 whitespace-nowrap select-none">
         {props.label}
       </span>
