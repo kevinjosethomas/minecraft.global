@@ -1,3 +1,4 @@
+import Tags from "./Tags";
 import Favicon from "./Favicon";
 
 export default function Identity(props) {
@@ -12,6 +13,7 @@ export default function Identity(props) {
           {props.description}
         </h4>
       </div>
+      <Tags tags={props.tags} />
     </div>
   );
 }

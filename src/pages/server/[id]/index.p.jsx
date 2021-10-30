@@ -1,22 +1,21 @@
-import Upvote from "./components/Upvote";
 import Default from "ui/layouts/Default";
+import Header from "./components/Header";
 import { GetDefaultData } from "api/core";
 import { GetServerByID } from "api/server";
 import { GetLoggedInUser } from "api/login";
-import Identity from "./components/Identity";
 
 export default function Server(props) {
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search>
       <div className="flex flex-col items-start justify-start w-full">
-        <div className="flex flex-row items-center justify-between w-full">
-          <Identity
-            name={props.server.name}
-            favicon={props.server.favicon}
-            description={props.server.description}
-          />
-          <Upvote server_id={props.server.server_id} monthly_votes={props.server.monthly_votes} />
-        </div>
+        <Header
+          server_id={props.server.server_id}
+          name={props.server.name}
+          tags={props.server.tags}
+          favicon={props.server.favicon}
+          description={props.server.description}
+          monthly_votes={props.server.monthly_votes}
+        />
       </div>
     </Default>
   );
