@@ -25,7 +25,9 @@ export default function Server(props) {
 
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search>
-      <AnimatePresence>{reportModal && <Report showModal={showReportModal} />}</AnimatePresence>
+      <AnimatePresence>
+        {reportModal && <Report showModal={showReportModal} id={props.server.server_id} />}
+      </AnimatePresence>
       <div className="flex flex-col items-start justify-start w-full mt-6 space-y-16">
         <Header
           server_id={props.server.server_id}

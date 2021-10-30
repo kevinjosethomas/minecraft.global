@@ -10,14 +10,11 @@ const GetServerByID = async (id) => {
   }
 };
 
-const ReportServer = async (id, report, proof, token) => {
+const ReportServer = async (id, parameters, token) => {
   try {
     const response = await axios.post(
-      `${process.env.API_URL}/server/${id}/report`,
-      {
-        report: report,
-        proof: proof,
-      },
+      `${process.env.NEXT_PUBLIC_API_URL}/server/${id}/report`,
+      parameters,
       {
         headers: { Authorization: token },
       }
@@ -29,4 +26,4 @@ const ReportServer = async (id, report, proof, token) => {
   }
 };
 
-export { GetServerByID };
+export { GetServerByID, ReportServer };
