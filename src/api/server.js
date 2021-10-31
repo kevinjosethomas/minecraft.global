@@ -20,6 +20,16 @@ const GetServerCommentsByID = async (id) => {
   }
 };
 
+const GetServerTopVoters = async (id) => {
+  try {
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/server/${id}/votes/top`);
+
+    return [response.data.payload, null];
+  } catch (e) {
+    return [null, e];
+  }
+};
+
 const EditServerComment = async (comment_id, server_id, content, token) => {
   try {
     const response = await axios.put(
@@ -66,4 +76,11 @@ const ReportServer = async (id, parameters, token) => {
   }
 };
 
-export { GetServerByID, GetServerCommentsByID, PostComment, EditServerComment, ReportServer };
+export {
+  GetServerByID,
+  GetServerCommentsByID,
+  GetServerTopVoters,
+  PostComment,
+  EditServerComment,
+  ReportServer,
+};
