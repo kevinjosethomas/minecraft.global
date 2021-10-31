@@ -4,6 +4,7 @@ import { GetDefaultData } from "api/core";
 import { GetServerByID } from "api/server";
 import { GetLoggedInUser } from "api/login";
 import Identity from "./components/Identity";
+import TopVoters from "./components/TopVoters";
 
 export default function UpvoteServer(props) {
   return (
@@ -11,8 +12,12 @@ export default function UpvoteServer(props) {
       <div className="flex flex-col items-start justify-start w-full space-y-6">
         <Identity name={props.server.name} favicon={props.server.favicon} />
         <div className="flex flex-row items-start justify-start w-full space-x-8">
-          <Upvote />
-          <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px] space-y-8 overflow-hidden"></div>
+          <div className="flex flex-col items-start justify-start w-full">
+            <Upvote server_id={props.server.server_id} />
+          </div>
+          <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px] space-y-8 overflow-hidden">
+            <TopVoters server_id={props.server.server_id} />
+          </div>
         </div>
       </div>
     </Default>
