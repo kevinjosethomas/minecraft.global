@@ -31,7 +31,7 @@ export default function Upvote(props) {
       />
       <div className="flex flex-row items-center justify-center w-full space-x-4">
         <Link href={`/server/${props.server_id}`}>
-          <a className="flex flex-row items-center justify-center w-full py-2 bg-black bg-opacity-30 cursor-pointer rounded hover:bg-opacity-50 transition duration-300">
+          <a className="flex flex-row items-center justify-center w-full py-2 bg-white bg-opacity-10 cursor-pointer rounded hover:bg-opacity-[0.15] transition duration-300">
             <span className="text-[24px] text-white text-opacity-80 select-none">Go Back</span>
           </a>
         </Link>
