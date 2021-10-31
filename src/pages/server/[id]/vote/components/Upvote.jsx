@@ -17,7 +17,7 @@ export default function Upvote(props) {
   };
 
   return (
-    <div className="flex flex-col items-start justify-start w-full p-8 space-y-6 bg-olive-950 rounded border-2 border-olive-920">
+    <div className="flex flex-col items-start justify-between w-full h-[416px] p-8 bg-olive-950 rounded border-2 border-olive-920">
       <Identity name={props.name} favicon={props.favicon} />
       <div className="flex flex-col items-start justify-start">
         <span className="text-[24px] text-white text-opacity-80">Your Minecraft Username</span>

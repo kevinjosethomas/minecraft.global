@@ -22,7 +22,7 @@ export default function TopVoters(props) {
   }, []);
 
   return (
-    <div className="flex flex-col items-start justify-start w-full p-8 bg-olive-950 rounded border-2 border-olive-920">
+    <div className="flex flex-col items-start justify-start w-full h-[416px] p-8 bg-olive-950 rounded border-2 border-olive-920">
       <span className="font-medium text-[32px] text-white text-opacity-90">
         {moment(new Date()).format("MMM")}'s top voters
       </span>
