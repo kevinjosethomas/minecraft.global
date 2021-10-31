@@ -2,6 +2,8 @@ import Link from "next/link";
 import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
+import Identity from "../components/Identity";
+
 export default function Upvote(props) {
   const [captchaCode, setCaptchaCode] = useState(null);
   const [username, setUsername] = useState("");
@@ -16,6 +18,7 @@ export default function Upvote(props) {
 
   return (
     <div className="flex flex-col items-start justify-start w-full p-8 space-y-6 bg-olive-950 rounded border-2 border-olive-920">
+      <Identity name={props.name} favicon={props.favicon} />
       <div className="flex flex-col items-start justify-start">
         <span className="text-[24px] text-white text-opacity-80">Your Minecraft Username</span>
         <input
