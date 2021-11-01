@@ -14,6 +14,7 @@ export default function Sidebar(props) {
         whitelisted={props.whitelisted}
         cracked={props.cracked}
         owner_id={props.owner_id}
+        owner_name={props.owner_name}
       />
       {(props.discord_url || props.website_url || props.trailer_url) && (
         <Socials
@@ -57,7 +58,7 @@ function Details(props) {
         <Element label="Cracked" content={props.cracked ? "Enabled" : "Disabled"} />
         <Element
           label="Owner"
-          content={props.owner_id}
+          content={props.owner_name}
           onClick={() => router.push(`/user/${props.owner_id}`)}
         />
       </div>
