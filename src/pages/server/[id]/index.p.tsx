@@ -221,6 +221,11 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
       GetTopVoters(id as string),
     ]);
     if (data[1][1] || data[2][1]) {
+
+      return {
+        notFound: true
+      }
+
       return {
         props: {
           error: 404,
