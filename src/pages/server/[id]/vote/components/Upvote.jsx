@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import ReCAPTCHA from "react-google-recaptcha";
 
 import Identity from "../components/Identity";
@@ -17,7 +18,12 @@ export default function Upvote(props) {
   };
 
   return (
-    <div className="flex flex-col items-start justify-between w-full h-[416px] p-8 bg-olive-950 rounded border-2 border-olive-920">
+    <motion.div
+      className="flex flex-col items-start justify-between w-full h-[416px] p-8 bg-olive-950 rounded border-2 border-olive-920"
+      initial={{ y: 10, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.3, delay: 0.2 }}
+    >
       <Identity name={props.name} favicon={props.favicon} />
       <div className="flex flex-col items-start justify-start">
         <span className="text-[24px] text-white text-opacity-80">Your Minecraft Username</span>
@@ -42,6 +48,6 @@ export default function Upvote(props) {
           <span className="text-[24px] text-white text-opacity-80 select-none">Upvote</span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

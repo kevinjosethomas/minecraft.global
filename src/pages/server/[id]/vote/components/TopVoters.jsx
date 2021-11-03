@@ -1,5 +1,6 @@
 import moment from "moment";
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 import { GetServerTopVoters } from "api/server";
@@ -22,7 +23,12 @@ export default function TopVoters(props) {
   }, []);
 
   return (
-    <div className="flex flex-col items-start justify-start w-full h-[416px] p-8 bg-olive-950 rounded border-2 border-olive-920">
+    <motion.div
+      className="flex flex-col items-start justify-start w-full h-[416px] p-8 bg-olive-950 rounded border-2 border-olive-920"
+      initial={{ y: 10, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.3, delay: 0.4 }}
+    >
       <span className="font-medium text-[32px] text-white text-opacity-90">
         {moment(new Date()).format("MMM")}'s top voters
       </span>
@@ -38,6 +44,6 @@ export default function TopVoters(props) {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
