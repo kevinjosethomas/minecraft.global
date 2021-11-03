@@ -1,3 +1,4 @@
+import Back from "./components/Back";
 import Default from "ui/layouts/Default";
 import Upvote from "./components/Upvote";
 import { GetDefaultData } from "api/core";
@@ -10,6 +11,7 @@ export default function UpvoteServer(props) {
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search>
       <div className="flex flex-col items-start justify-start w-full space-y-6">
+        <Back server_id={props.server.server_id} />
         <div className="flex flex-row items-start justify-start w-full space-x-8">
           <div className="flex flex-col items-start justify-start w-full">
             <Upvote
