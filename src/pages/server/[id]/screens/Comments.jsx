@@ -1,6 +1,8 @@
+import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
+import CommentsList from "../components/Comments";
 import { GetServerCommentsByID } from "api/server";
 import PostComment from "../components/PostComment";
 
@@ -8,7 +10,16 @@ export default function Comments(props) {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    (async () => {})();
+    (async () => {
+      const [response, error] = await GetServerCommentsByID(props.server_id);
+
+      if (error) {
+        toast.error("Could not fetch comments, please try again later!");
+        return;
+      }
+
+      setComments(response.payload);
+    })();
   }, []);
 
   return (
@@ -21,6 +32,7 @@ export default function Comments(props) {
       <div className="flex flex-col items-start justify-start w-full space-y-4">
         <PostComment id={props.server_id} />
         <div className="w-full h-[3px] bg-white bg-opacity-10" />
+        <CommentsList comments={comments} />
       </div>
     </motion.div>
   );
