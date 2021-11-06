@@ -22,6 +22,11 @@ export default function Servers(props) {
   };
 
   useEffect(() => {
+    setResults([...props.results.entries]);
+    setResultCount(props.results.total_records);
+  }, [props.results]);
+
+  useEffect(() => {
     (async () => {
       const [response, error] = await SearchByTag(props.tag, 12, 0, props.sort);
 
