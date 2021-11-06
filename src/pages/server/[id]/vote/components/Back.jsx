@@ -10,7 +10,7 @@ export default function Back(props) {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
-        <i className="far fa-arrow-left text-[24px] text-white text-opacity-80 group-hover:-translate-x-0.5 transition duration-300" />
+        <i className="far fa-arrow-left text-[20px] text-white text-opacity-80 group-hover:-translate-x-0.5 transition duration-300" />
         <span className="font-medium text-[24px] text-white text-opacity-80">Go Back</span>
       </motion.a>
     </Link>

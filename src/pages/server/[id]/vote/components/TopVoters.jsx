@@ -18,7 +18,12 @@ export default function TopVoters(props) {
         toast.error("Could not fetch top voters :(");
       }
 
-      setVoters(response);
+      console.log(response);
+
+      setVoters([
+        ...response,
+        ...Array(10 - response.length).fill({ minecraft_username: ". . .", vote_count: "." }),
+      ]);
     })();
   }, []);
 
