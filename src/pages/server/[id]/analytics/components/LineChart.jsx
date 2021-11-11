@@ -34,6 +34,7 @@ export default function Chart(props) {
             ticks: {
               color: "#82B398",
             },
+            beginAtZero: !props.negative,
           },
         },
         hover: {

@@ -6,11 +6,11 @@ import Default from "ui/layouts/Default";
 import { GetLoggedInUser } from "api/login";
 import { GetServerByID, GetServerAnalytics } from "api/server";
 
-export default function Server(props) {
+export default function ServerAnalytics(props) {
   const durations = [1, 7, 15, 30];
 
   const labels = {
-    1: props.analytics.records.slice(-1 * 1 * 24).map((x) => moment(x.checked_at).format("hh:mm")),
+    1: props.analytics.records.slice(-1 * 1 * 24).map((x) => moment(x.checked_at).format("H:mm")),
     7: props.analytics.records.slice(-1 * 7 * 24).map((x) => moment(x.checked_at).format("DD/MM")),
     15: props.analytics.records
       .slice(-1 * 15 * 24)
@@ -21,7 +21,16 @@ export default function Server(props) {
   };
 
   const fetch = (property, duration) => {
-    return props.analytics.records.slice(-1 * duration * 24).map((x) => x[property]);
+    const sliced = props.analytics.records.slice(-1 * duration * 24);
+    const values = sliced.map((x) => {
+      if (property === "mem_usage_bytes" || property === "world_size_bytes") {
+        return Math.ceil(x[property] / 1000000);
+      }
+
+      return x[property];
+    });
+
+    return values;
   };
 
   return (
@@ -30,6 +39,7 @@ export default function Server(props) {
         <Chart
           label="Player Count"
           value="players_total"
+          negative={false}
           labels={labels}
           durations={durations}
           fetch={fetch}
@@ -37,6 +47,95 @@ export default function Server(props) {
         <Chart
           label="Player Count Change"
           value="players_since"
+          negative={true}
+          labels={labels}
+          durations={durations}
+          fetch={fetch}
+        />
+        <Chart
+          label="Upvote Count"
+          value="upvotes_total"
+          negative={false}
+          labels={labels}
+          durations={durations}
+          fetch={fetch}
+        />
+        <Chart
+          label="Upvote Count Change"
+          value="upvotes_since"
+          negative={true}
+          labels={labels}
+          durations={durations}
+          fetch={fetch}
+        />
+        <Chart
+          label="View Count"
+          value="views_total"
+          negative={false}
+          labels={labels}
+          durations={durations}
+          fetch={fetch}
+        />
+        <Chart
+          label="View Count Change"
+          value="views_since"
+          negative={true}
+          labels={labels}
+          durations={durations}
+          fetch={fetch}
+        />
+        <Chart
+          label="Impression Count"
+          value="impressions_total"
+          negative={false}
+          labels={labels}
+          durations={durations}
+          fetch={fetch}
+        />
+        <Chart
+          label="Impression Count Change"
+          value="impressions_since"
+          negative={true}
+          labels={labels}
+          durations={durations}
+          fetch={fetch}
+        />
+        <Chart
+          label="Memory Usage"
+          value="mem_usage_bytes"
+          negative={false}
+          labels={labels}
+          durations={durations}
+          fetch={fetch}
+        />
+        <Chart
+          label="CPU Usage"
+          value="cpu_percent"
+          negative={false}
+          labels={labels}
+          durations={durations}
+          fetch={fetch}
+        />
+        <Chart
+          label="TPS"
+          value="ticks_per_second"
+          negative={false}
+          labels={labels}
+          durations={durations}
+          fetch={fetch}
+        />
+        <Chart
+          label="Chat Messages"
+          value="chat_msgs_since"
+          negative={false}
+          labels={labels}
+          durations={durations}
+          fetch={fetch}
+        />
+        <Chart
+          label="World Size (mb)"
+          value="world_size_bytes"
+          negative={false}
           labels={labels}
           durations={durations}
           fetch={fetch}

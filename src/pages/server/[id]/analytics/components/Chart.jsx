@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 import LineChart from "../components/LineChart";
 
-export default function PlayersTotal(props) {
+export default function ChartLayout(props) {
   const [active, setActive] = useState(7);
   const [open, setOpen] = useState(false);
 
@@ -14,27 +15,54 @@ export default function PlayersTotal(props) {
   };
 
   return (
-    <div className="flex flex-col items-start justify-start w-full p-8 space-y-4 bg-olive-950 rounded-lg border-2 border-olive-920">
-      <div className="flex flex-row items-center justify-between w-full">
-        <p className="font-medium text-3xl text-white text-opacity-80">{props.label}</p>
+    <div
+      className={`flex flex-col items-start justify-start w-full p-8 space-y-8 bg-olive-950 rounded-lg border-2 border-olive-920 ${
+        !open && "cursor-pointer"
+      } select-none`}
+      onClick={() => !open && setOpen(true)}
+    >
+      <Header
+        open={open}
+        active={active}
+        setOpen={setOpen}
+        label={props.label}
+        setActive={setActive}
+        durations={props.durations}
+      />
+      <AnimatePresence>
+        {open && (
+          <Chart
+            duration={active}
+            negative={props.negative}
+            labels={props.labels[active]}
+            data={data[active]}
+          />
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
-        <div className="flex flex-row items-center justify-center space-x-4 rounded overflow-hidden">
-          {open && (
-            <div className="flex flex-row items-center justify-center space-x-1">
-              {props.durations.map((time, index) => (
-                <Time key={index} time={time} active={active} setActive={setActive} />
-              ))}
-            </div>
-          )}
-          <div
-            className="flex flex-row items-center justify-center"
-            onClick={() => setOpen((x) => !x)}
-          >
-            <i className="far fa-angle-down text-3xl text-white text-opacity-80" />
+function Header(props) {
+  return (
+    <div
+      className="flex flex-row items-center justify-between w-full cursor-pointer"
+      onClick={() => props.setOpen((x) => !x)}
+    >
+      <p className="font-medium text-3xl text-white text-opacity-80">{props.label}</p>
+
+      <div className="flex flex-row items-center justify-center space-x-4 rounded overflow-hidden">
+        {props.open && (
+          <div className="flex flex-row items-center justify-center space-x-1">
+            {props.durations.map((time, index) => (
+              <Time key={index} time={time} active={props.active} setActive={props.setActive} />
+            ))}
           </div>
+        )}
+        <div className="flex flex-row items-center justify-center">
+          <i className="far fa-angle-down text-3xl text-white text-opacity-80" />
         </div>
       </div>
-      {open && <Chart duration={active} labels={props.labels[active]} data={data[active]} />}
     </div>
   );
 }
@@ -45,7 +73,10 @@ function Time(props) {
       className={`flex flex-row items-center justify-center px-3 ${
         props.active === props.time ? "bg-olive-920" : "bg-olive-940"
       } cursor-pointer select-none`}
-      onClick={() => props.setActive(props.time)}
+      onClick={(e) => {
+        e.stopPropagation();
+        props.setActive(props.time);
+      }}
     >
       <p className="text-lg text-white text-opacity-70">{props.time}d</p>
     </div>
@@ -54,19 +85,28 @@ function Time(props) {
 
 function Chart(props) {
   return (
-    <LineChart
-      precision={0}
-      duration={props.duration}
-      data={{
-        labels: props.labels,
-        datasets: [
-          {
-            backgroundColor: "#448361",
-            borderColor: "#2E5841",
-            data: props.data,
-          },
-        ],
-      }}
-    />
+    <motion.div
+      className="flex flex-col items-start justify-start w-full overflow-hidden"
+      initial={{ height: 0 }}
+      animate={{ height: "auto" }}
+      exit={{ height: 0 }}
+      transition={{ duration: 0.3 }}
+    >
+      <LineChart
+        precision={0}
+        negative={props.negative}
+        duration={props.duration}
+        data={{
+          labels: props.labels,
+          datasets: [
+            {
+              backgroundColor: "#448361",
+              borderColor: "#2E5841",
+              data: props.data,
+            },
+          ],
+        }}
+      />
+    </motion.div>
   );
 }
