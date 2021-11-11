@@ -24,7 +24,7 @@ const GetServerAnalytics = async (id) => {
   try {
     const response = await axios.get(`${process.env.API_URL}/server/${id}/stats`);
 
-    return [response.data];
+    return [response.data, null];
   } catch (e) {
     return [null, e];
   }
