@@ -34,6 +34,13 @@ export default function Server(props) {
           durations={durations}
           fetch={fetch}
         />
+        <Chart
+          label="Player Count Change"
+          value="players_since"
+          labels={labels}
+          durations={durations}
+          fetch={fetch}
+        />
       </div>
     </Default>
   );

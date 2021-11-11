@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import LineChart from "./LineChart";
+import LineChart from "../components/LineChart";
 
 export default function PlayersTotal(props) {
   const [active, setActive] = useState(7);
