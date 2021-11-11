@@ -1,6 +1,6 @@
 import Navbar from "ui/components/Navbar/Navbar";
+import Footer from "ui/components/Footer/Footer";
 import SearchBox from "ui/components/SearchBox/SearchBox";
-// import Footer from "ui/components/Footer/Footer";
 
 const Default = (props) => {
   return (
@@ -12,7 +12,7 @@ const Default = (props) => {
         <div className="flex flex-col items-start justify-start w-full h-full">
           {props.children}
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </div>
   );
