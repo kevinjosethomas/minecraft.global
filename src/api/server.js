@@ -20,9 +20,13 @@ const GetServerCommentsByID = async (id) => {
   }
 };
 
-const GetServerAnalytics = async (id) => {
+const GetServerAnalytics = async (id, token) => {
   try {
-    const response = await axios.get(`${process.env.API_URL}/server/${id}/stats`);
+    const response = await axios.get(`${process.env.API_URL}/server/${id}/stats`, {
+      headers: {
+        Authorization: token,
+      },
+    });
 
     return [response.data, null];
   } catch (e) {
