@@ -1,10 +1,9 @@
 import moment from "moment";
 import Cookies from "cookies";
 
+import Chart from "./components/Chart";
 import Default from "ui/layouts/Default";
 import { GetLoggedInUser } from "api/login";
-import PlayersTotal from "./charts/PlayersTotal";
-import PlayersChange from "./charts/PlayersChange";
 import { GetServerByID, GetServerAnalytics } from "api/server";
 
 export default function Server(props) {
@@ -28,8 +27,13 @@ export default function Server(props) {
   return (
     <Default user={props.user}>
       <div className="flex flex-col items-start justify-start w-full space-y-4">
-        <PlayersTotal labels={labels} durations={durations} fetch={fetch} />
-        <PlayersChange labels={labels} durations={durations} fetch={fetch} />
+        <Chart
+          label="Player Count"
+          value="players_total"
+          labels={labels}
+          durations={durations}
+          fetch={fetch}
+        />
       </div>
     </Default>
   );
