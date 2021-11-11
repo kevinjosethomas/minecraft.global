@@ -18,19 +18,24 @@ export default function PlayersTotal(props) {
         <p className="font-medium text-3xl text-white text-opacity-80">Player Count</p>
         <div className="flex flex-row items-center justify-center space-x-1  rounded overflow-hidden">
           {props.durations.map((time, index) => (
-            <div
-              key={index}
-              className={`flex flex-row items-center justify-center px-3 ${
-                active === time ? "bg-olive-920" : "bg-olive-940"
-              } cursor-pointer select-none`}
-              onClick={() => setActive(time)}
-            >
-              <p className="text-lg text-white text-opacity-70">{time}d</p>
-            </div>
+            <Time key={index} time={time} active={active} setActive={setActive} />
           ))}
         </div>
       </div>
       <Chart duration={active} labels={props.labels[active]} data={data[active]} />
+    </div>
+  );
+}
+
+function Time(props) {
+  return (
+    <div
+      className={`flex flex-row items-center justify-center px-3 ${
+        props.active === props.time ? "bg-olive-920" : "bg-olive-940"
+      } cursor-pointer select-none`}
+      onClick={() => props.setActive(props.time)}
+    >
+      <p className="text-lg text-white text-opacity-70">{props.time}d</p>
     </div>
   );
 }

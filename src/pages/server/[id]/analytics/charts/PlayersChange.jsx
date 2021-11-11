@@ -30,7 +30,6 @@ export default function PlayersChange(props) {
 function Time(props) {
   return (
     <div
-      key={index}
       className={`flex flex-row items-center justify-center px-3 ${
         props.active === props.time ? "bg-olive-920" : "bg-olive-940"
       } cursor-pointer select-none`}
