@@ -35,6 +35,7 @@ export default function ChartLayout(props) {
             duration={active}
             negative={props.negative}
             labels={props.labels[active]}
+            tickYCallback={props.tickYCallback}
             data={data[active]}
           />
         )}
@@ -106,6 +107,7 @@ function Chart(props) {
             },
           ],
         }}
+        tickYCallback={props.tickYCallback}
       />
     </motion.div>
   );

@@ -25,6 +25,8 @@ export default function ServerAnalytics(props) {
     const values = sliced.map((x) => {
       if (property === "mem_usage_bytes" || property === "world_size_bytes") {
         return Math.ceil(x[property] / 1000000);
+      } else if (property === "cpu_percent") {
+        return x[property] * 100;
       }
 
       return x[property];
@@ -107,6 +109,7 @@ export default function ServerAnalytics(props) {
           labels={labels}
           durations={durations}
           fetch={fetch}
+          tickYCallback={(label) => `${label}mb`}
         />
         <Chart
           label="CPU Usage"
@@ -115,6 +118,7 @@ export default function ServerAnalytics(props) {
           labels={labels}
           durations={durations}
           fetch={fetch}
+          tickYCallback={(label) => `${label}%`}
         />
         <Chart
           label="TPS"
@@ -133,12 +137,13 @@ export default function ServerAnalytics(props) {
           fetch={fetch}
         />
         <Chart
-          label="World Size (mb)"
+          label="World Size"
           value="world_size_bytes"
           negative={false}
           labels={labels}
           durations={durations}
           fetch={fetch}
+          tickYCallback={(label) => `${label}mb`}
         />
       </div>
     </Default>
