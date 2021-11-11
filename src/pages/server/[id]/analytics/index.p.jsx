@@ -1,11 +1,30 @@
+import moment from "moment";
 import Cookies from "cookies";
 
 import Default from "ui/layouts/Default";
 import { GetLoggedInUser } from "api/login";
+import PlayersTotal from "./charts/PlayersTotal";
 import { GetServerByID, GetServerAnalytics } from "api/server";
 
 export default function Server(props) {
-  return <Default user={props.user}></Default>;
+  const durations = [1, 7, 15, 30];
+
+  const labels = {
+    1: props.analytics.records.slice(0, 1 * 24).map((x) => moment(x.checked_at).format("DD/MM")),
+    7: props.analytics.records.slice(0, 7 * 24).map((x) => moment(x.checked_at).format("DD/MM")),
+    15: props.analytics.records.slice(0, 15 * 24).map((x) => moment(x.checked_at).format("DD/MM")),
+    30: props.analytics.records.slice(0, 30 * 24).map((x) => moment(x.checked_at).format("DD/MM")),
+  };
+
+  const fetch = (property, duration) => {
+    return props.analytics.records.slice(0, duration * 24).map((x) => x[property]);
+  };
+
+  return (
+    <Default user={props.user}>
+      <PlayersTotal labels={labels} durations={durations} fetch={fetch} />
+    </Default>
+  );
 }
 
 export async function getServerSideProps(ctx) {
