@@ -44,8 +44,8 @@ function Chart(props) {
   return (
     <LineChart
       precision={0}
+      duration={props.duration}
       data={{
-        duration: props.duration,
         labels: props.labels,
         datasets: [
           {
