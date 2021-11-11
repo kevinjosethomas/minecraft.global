@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
-import Report from "./modals/Report";
+import Report from "./index/modals/Report";
 import Default from "ui/layouts/Default";
-import Header from "./components/Header";
-import Comments from "./screens/Comments";
-import Overview from "./screens/Overview";
+import Header from "./index/components/Header";
+import Comments from "./index/screens/Comments";
+import Overview from "./index/screens/Overview";
 import { GetDefaultData } from "api/core";
-import Sidebar from "./components/Sidebar";
+import Sidebar from "./index/components/Sidebar";
 import { GetServerByID } from "api/server";
 import { GetLoggedInUser } from "api/login";
-import Navigation from "./components/Navigation";
+import Navigation from "./index/components/Navigation";
 
 export default function Server(props) {
   const [screen, setScreen] = useState("overview");

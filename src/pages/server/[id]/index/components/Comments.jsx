@@ -1,4 +1,4 @@
-import Comment from "../components/Comment";
+import Comment from "./Comment";
 
 export default function Comments(props) {
   return (
