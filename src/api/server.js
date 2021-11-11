@@ -20,6 +20,16 @@ const GetServerCommentsByID = async (id) => {
   }
 };
 
+const GetServerAnalytics = async (id) => {
+  try {
+    const response = await axios.get(`${process.env.API_URL}/server/${id}/stats`);
+
+    return [response.data];
+  } catch (e) {
+    return [null, e];
+  }
+};
+
 const GetServerTopVoters = async (id) => {
   try {
     const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/server/${id}/votes/top`);
@@ -79,6 +89,7 @@ const ReportServer = async (id, parameters, token) => {
 export {
   GetServerByID,
   GetServerCommentsByID,
+  GetServerAnalytics,
   GetServerTopVoters,
   PostComment,
   EditServerComment,
