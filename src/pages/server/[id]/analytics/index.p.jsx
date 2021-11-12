@@ -3,6 +3,7 @@ import Cookies from "cookies";
 
 import Chart from "./components/Chart";
 import Default from "ui/layouts/Default";
+import Players from "./components/Players";
 import { GetLoggedInUser } from "api/login";
 import { GetServerByID, GetServerAnalytics } from "api/server";
 
@@ -37,7 +38,7 @@ export default function ServerAnalytics(props) {
 
   return (
     <Default user={props.user}>
-      <div className="flex flex-col items-start justify-start w-full space-y-4">
+      <div className="flex flex-col items-start justify-start w-full space-y-5">
         <div className="flex flex-row items-center justify-start space-x-4">
           <img
             className="w-16 h-16 rounded"
@@ -50,8 +51,17 @@ export default function ServerAnalytics(props) {
           </h1>
           <i className="fad fa-diamond text-4xl text-olive-500" />
         </div>
+        <div className="w-full h-0.5 bg-white bg-opacity-10" />
         <div className="flex flex-col items-start justify-start w-full space-y-4">
-          <Chart
+          <Players
+            analytics={props.analytics.records}
+            value="players_total"
+            negative={false}
+            labels={labels}
+            durations={durations}
+            fetch={fetch}
+          />
+          {/* <Chart
             label="Player Count"
             value="players_total"
             negative={false}
@@ -157,7 +167,7 @@ export default function ServerAnalytics(props) {
             durations={durations}
             fetch={fetch}
             tickYCallback={(label) => `${label}mb`}
-          />
+          /> */}
         </div>
       </div>
     </Default>
