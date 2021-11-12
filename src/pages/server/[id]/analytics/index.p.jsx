@@ -38,113 +38,127 @@ export default function ServerAnalytics(props) {
   return (
     <Default user={props.user}>
       <div className="flex flex-col items-start justify-start w-full space-y-4">
-        <Chart
-          label="Player Count"
-          value="players_total"
-          negative={false}
-          labels={labels}
-          durations={durations}
-          fetch={fetch}
-        />
-        <Chart
-          label="Player Count Change"
-          value="players_since"
-          negative={true}
-          labels={labels}
-          durations={durations}
-          fetch={fetch}
-        />
-        <Chart
-          label="Upvote Count"
-          value="upvotes_total"
-          negative={false}
-          labels={labels}
-          durations={durations}
-          fetch={fetch}
-        />
-        <Chart
-          label="Upvote Count Change"
-          value="upvotes_since"
-          negative={true}
-          labels={labels}
-          durations={durations}
-          fetch={fetch}
-        />
-        <Chart
-          label="View Count"
-          value="views_total"
-          negative={false}
-          labels={labels}
-          durations={durations}
-          fetch={fetch}
-        />
-        <Chart
-          label="View Count Change"
-          value="views_since"
-          negative={true}
-          labels={labels}
-          durations={durations}
-          fetch={fetch}
-        />
-        <Chart
-          label="Impression Count"
-          value="impressions_total"
-          negative={false}
-          labels={labels}
-          durations={durations}
-          fetch={fetch}
-        />
-        <Chart
-          label="Impression Count Change"
-          value="impressions_since"
-          negative={true}
-          labels={labels}
-          durations={durations}
-          fetch={fetch}
-        />
-        <Chart
-          label="Memory Usage"
-          value="mem_usage_bytes"
-          negative={false}
-          labels={labels}
-          durations={durations}
-          fetch={fetch}
-          tickYCallback={(label) => `${label}mb`}
-        />
-        <Chart
-          label="CPU Usage"
-          value="cpu_percent"
-          negative={false}
-          labels={labels}
-          durations={durations}
-          fetch={fetch}
-          tickYCallback={(label) => `${label}%`}
-        />
-        <Chart
-          label="TPS"
-          value="ticks_per_second"
-          negative={false}
-          labels={labels}
-          durations={durations}
-          fetch={fetch}
-        />
-        <Chart
-          label="Chat Messages"
-          value="chat_msgs_since"
-          negative={false}
-          labels={labels}
-          durations={durations}
-          fetch={fetch}
-        />
-        <Chart
-          label="World Size"
-          value="world_size_bytes"
-          negative={false}
-          labels={labels}
-          durations={durations}
-          fetch={fetch}
-          tickYCallback={(label) => `${label}mb`}
-        />
+        <div className="flex flex-row items-center justify-start space-x-4">
+          <img
+            className="w-16 h-16 rounded"
+            src={props.analytics.favicon || "/images/default_server_favicon.png"}
+            alt={`${props.analytics.name}'s favicon'`}
+            draggable="false"
+          />
+          <h1 className="font-medium text-4xl text-white text-opacity-80">
+            {props.analytics.name} Server Analytics
+          </h1>
+          <i className="fad fa-diamond text-4xl text-olive-500" />
+        </div>
+        <div className="flex flex-col items-start justify-start w-full space-y-4">
+          <Chart
+            label="Player Count"
+            value="players_total"
+            negative={false}
+            labels={labels}
+            durations={durations}
+            fetch={fetch}
+          />
+          <Chart
+            label="Player Count Change"
+            value="players_since"
+            negative={true}
+            labels={labels}
+            durations={durations}
+            fetch={fetch}
+          />
+          <Chart
+            label="Upvote Count"
+            value="upvotes_total"
+            negative={false}
+            labels={labels}
+            durations={durations}
+            fetch={fetch}
+          />
+          <Chart
+            label="Upvote Count Change"
+            value="upvotes_since"
+            negative={true}
+            labels={labels}
+            durations={durations}
+            fetch={fetch}
+          />
+          <Chart
+            label="View Count"
+            value="views_total"
+            negative={false}
+            labels={labels}
+            durations={durations}
+            fetch={fetch}
+          />
+          <Chart
+            label="View Count Change"
+            value="views_since"
+            negative={true}
+            labels={labels}
+            durations={durations}
+            fetch={fetch}
+          />
+          <Chart
+            label="Impression Count"
+            value="impressions_total"
+            negative={false}
+            labels={labels}
+            durations={durations}
+            fetch={fetch}
+          />
+          <Chart
+            label="Impression Count Change"
+            value="impressions_since"
+            negative={true}
+            labels={labels}
+            durations={durations}
+            fetch={fetch}
+          />
+          <Chart
+            label="Memory Usage"
+            value="mem_usage_bytes"
+            negative={false}
+            labels={labels}
+            durations={durations}
+            fetch={fetch}
+            tickYCallback={(label) => `${label}mb`}
+          />
+          <Chart
+            label="CPU Usage"
+            value="cpu_percent"
+            negative={false}
+            labels={labels}
+            durations={durations}
+            fetch={fetch}
+            tickYCallback={(label) => `${label}%`}
+          />
+          <Chart
+            label="TPS"
+            value="ticks_per_second"
+            negative={false}
+            labels={labels}
+            durations={durations}
+            fetch={fetch}
+          />
+          <Chart
+            label="Chat Messages"
+            value="chat_msgs_since"
+            negative={false}
+            labels={labels}
+            durations={durations}
+            fetch={fetch}
+          />
+          <Chart
+            label="World Size"
+            value="world_size_bytes"
+            negative={false}
+            labels={labels}
+            durations={durations}
+            fetch={fetch}
+            tickYCallback={(label) => `${label}mb`}
+          />
+        </div>
       </div>
     </Default>
   );
