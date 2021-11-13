@@ -8,8 +8,8 @@ export default function PostServerComment(props) {
   const [content, setContent] = useState("");
 
   const submit = async () => {
-    if (content.length < 50) {
-      toast.error("Your comment must be over 50 characters!");
+    if (content.length < 5) {
+      toast.error("Your comment must be over 5 characters!");
       return;
     }
     if (content.length > 500) {
