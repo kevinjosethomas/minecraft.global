@@ -13,6 +13,8 @@ export default function Players(props) {
     30: props.fetch("players_total", 30),
   };
 
+  const sorted = props.analytics.sort((a, b) => a.players_total - b.players_total);
+
   return (
     <div className="flex flex-col items-start justify-start w-full space-y-4">
       <h3 className="font-medium text-4xl text-white text-opacity-80"> Player Analytics</h3>
@@ -25,11 +27,14 @@ export default function Players(props) {
           />
           <Card title="Player Growth" subtitle="Last 1 hour" value={latest.players_since} />
           <Card
-            title="Avg. Players"
-            subtitle="Last 1 day"
-            value={Math.round(
-              players_total["1"].reduce((a, b) => a + b) / players_total["1"].length
-            )}
+            title="Lowest Peak"
+            subtitle={`On ${moment(sorted[0].checked_at).format("DD MMM h:MMa")}`}
+            value={sorted[0].players_total}
+          />
+          <Card
+            title="Highest Peak"
+            subtitle={`On ${moment(sorted[sorted.length - 1].checked_at).format("DD MMM h:MMa")}`}
+            value={sorted[sorted.length - 1].players_total}
           />
           <Card
             title="Avg. Players"
@@ -43,13 +48,6 @@ export default function Players(props) {
             subtitle="Last 15 days"
             value={Math.round(
               players_total["15"].reduce((a, b) => a + b) / players_total["15"].length
-            )}
-          />
-          <Card
-            title="Avg. Players"
-            subtitle="Last 30 days"
-            value={Math.round(
-              players_total["30"].reduce((a, b) => a + b) / players_total["30"].length
             )}
           />
         </div>

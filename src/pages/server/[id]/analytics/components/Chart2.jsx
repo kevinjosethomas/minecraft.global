@@ -22,15 +22,13 @@ export default function ChartLayout(props) {
         durations={props.durations}
       />
       <AnimatePresence>
-        {open && (
-          <Chart
-            duration={active}
-            negative={props.negative}
-            labels={props.labels[active]}
-            tickYCallback={props.tickYCallback}
-            data={data[active]}
-          />
-        )}
+        <Chart
+          duration={active}
+          negative={props.negative}
+          labels={props.labels[active]}
+          tickYCallback={props.tickYCallback}
+          data={data[active]}
+        />
       </AnimatePresence>
     </div>
   );
