@@ -2,7 +2,7 @@ import moment from "moment";
 import Cookies from "cookies";
 
 import Default from "ui/layouts/Default";
-import Players from "./components/Players";
+import Players from "./analytics/Players";
 import { GetLoggedInUser } from "api/login";
 import { GetServerByID, GetServerAnalytics } from "api/server";
 

@@ -1,6 +1,6 @@
 import moment from "moment";
 
-import Layout from "./Layout";
+import Layout from "../components/Layout";
 
 export default function Players(props) {
   const players_total = {
