@@ -68,7 +68,7 @@ export default function Players(props) {
 
   return (
     <Layout
-      title="Player Analytics"
+      title="Upvote Analytics"
       cards={cards}
       types={types}
       labels={props.labels}

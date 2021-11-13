@@ -2,11 +2,14 @@ import moment from "moment";
 import Cookies from "cookies";
 
 import Default from "ui/layouts/Default";
+import Upvotes from "./analytics/Upvotes";
 import Players from "./analytics/Players";
 import { GetLoggedInUser } from "api/login";
 import { GetServerByID, GetServerAnalytics } from "api/server";
 
 export default function ServerAnalytics(props) {
+  const analytics = [Players, Upvotes];
+
   const labels = {
     1: props.analytics.records.slice(-1 * 1 * 24).map((x) => moment(x.checked_at).format("H:mm")),
     7: props.analytics.records.slice(-1 * 7 * 24).map((x) => moment(x.checked_at).format("DD/MM")),
@@ -49,8 +52,16 @@ export default function ServerAnalytics(props) {
           <i className="fad fa-diamond text-4xl text-olive-500" />
         </div>
         <div className="w-full h-0.5 bg-white bg-opacity-10" />
-        <div className="flex flex-col items-start justify-start w-full space-y-4">
-          <Players labels={labels} fetch={fetch} analytics={props.analytics.records} />
+        <div className="flex flex-col items-start justify-start w-full space-y-8">
+          {analytics.map((Analytic, i) => (
+            <Analytic
+              key={i}
+              index={i}
+              fetch={fetch}
+              labels={labels}
+              analytics={props.analytics.records}
+            />
+          ))}
           {/* <Chart
             label="Player Count"
             value="players_total"
