@@ -2,9 +2,9 @@ import moment from "moment";
 
 import Layout from "../components/Layout";
 
-export default function Players(props) {
-  const p1 = "upvotes_total";
-  const p2 = "upvotes_since";
+export default function Pageviews(props) {
+  const p1 = "views_total";
+  const p2 = "views_since";
 
   const total = {
     1: props.fetch(p1, 1),
@@ -22,12 +22,12 @@ export default function Players(props) {
 
   const types = [
     {
-      name: "Upvote Count",
+      name: "Pageview Count",
       data: total,
       negative: false,
     },
     {
-      name: "Upvote Count Growth",
+      name: "Pageview Count Change",
       data: since,
       negative: true,
     },
@@ -38,12 +38,12 @@ export default function Players(props) {
 
   const cards = [
     {
-      title: "Total Upvotes",
+      title: "Total Pageviews",
       subtitle: `at ${moment(latest.checked_at).format("DD MMM h:MMa")}`,
       value: latest[p1],
     },
     {
-      title: "New Upvotes",
+      title: "New Pageviews",
       subtitle: "Last 1 hour",
       value: latest[p2],
     },
@@ -58,12 +58,12 @@ export default function Players(props) {
       value: sorted[sorted.length - 1][p2],
     },
     {
-      title: "Avg. Upvotes",
+      title: "Avg. Pageviews",
       subtitle: "Every hour (last 15d)",
       value: Math.round(since["15"].reduce((a, b) => a + b) / total["15"].length),
     },
     {
-      title: "Avg. Upvotes",
+      title: "Avg. Pageviews",
       subtitle: "Every hour (last 30d)",
       value: Math.round(since["30"].reduce((a, b) => a + b) / total["30"].length),
     },
@@ -71,7 +71,7 @@ export default function Players(props) {
 
   return (
     <Layout
-      title="Upvote Analytics"
+      title="Pageviews"
       cards={cards}
       types={types}
       labels={props.labels}
