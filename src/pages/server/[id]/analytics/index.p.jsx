@@ -50,13 +50,7 @@ export default function ServerAnalytics(props) {
         </div>
         <div className="w-full h-0.5 bg-white bg-opacity-10" />
         <div className="flex flex-col items-start justify-start w-full space-y-4">
-          <Players
-            analytics={props.analytics.records}
-            value="players_total"
-            negative={false}
-            labels={labels}
-            fetch={fetch}
-          />
+          <Players labels={labels} fetch={fetch} analytics={props.analytics.records} />
           {/* <Chart
             label="Player Count"
             value="players_total"
