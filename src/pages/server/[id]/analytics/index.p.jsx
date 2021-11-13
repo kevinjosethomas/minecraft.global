@@ -1,15 +1,12 @@
 import moment from "moment";
 import Cookies from "cookies";
 
-import Chart from "./components/Chart";
 import Default from "ui/layouts/Default";
 import Players from "./components/Players";
 import { GetLoggedInUser } from "api/login";
 import { GetServerByID, GetServerAnalytics } from "api/server";
 
 export default function ServerAnalytics(props) {
-  const durations = [1, 7, 15, 30];
-
   const labels = {
     1: props.analytics.records.slice(-1 * 1 * 24).map((x) => moment(x.checked_at).format("H:mm")),
     7: props.analytics.records.slice(-1 * 7 * 24).map((x) => moment(x.checked_at).format("DD/MM")),
@@ -58,7 +55,6 @@ export default function ServerAnalytics(props) {
             value="players_total"
             negative={false}
             labels={labels}
-            durations={durations}
             fetch={fetch}
           />
           {/* <Chart
