@@ -1,8 +1,6 @@
 import moment from "moment";
-import { useState } from "react";
 
-import Card from "./Card";
-import Chart from "./Chart";
+import Layout from "./Layout";
 
 export default function Players(props) {
   const players_total = {
@@ -19,9 +17,6 @@ export default function Players(props) {
     30: props.fetch("players_since", 30),
   };
 
-  const latest = props.analytics[props.analytics.length - 1];
-  const sorted = props.analytics.sort((a, b) => a.players_total - b.players_total);
-
   const types = [
     {
       name: "Player Count",
@@ -34,6 +29,9 @@ export default function Players(props) {
       negative: true,
     },
   ];
+
+  const latest = props.analytics[props.analytics.length - 1];
+  const sorted = props.analytics.sort((a, b) => a.players_total - b.players_total);
 
   const cards = [
     {
@@ -68,27 +66,5 @@ export default function Players(props) {
     },
   ];
 
-  const [type, setType] = useState(0);
-  const [duration, setDuration] = useState(7);
-
-  return (
-    <div className="flex flex-col items-start justify-start w-full space-y-4">
-      <h3 className="font-medium text-4xl text-white text-opacity-80">Player Analytics</h3>
-      <div className="flex flex-row items-center items-stretch w-full space-x-3">
-        <div className="grid grid-cols-2 gap-3 w-full">
-          {cards.map((card, index) => (
-            <Card key={index} title={card.title} subtitle={card.subtitle} value={card.value} />
-          ))}
-        </div>
-        <Chart
-          type={type}
-          types={types}
-          setType={setType}
-          duration={duration}
-          labels={props.labels}
-          setDuration={setDuration}
-        />
-      </div>
-    </div>
-  );
+  return <Layout title="Player Analytics" cards={cards} types={types} labels={props.labels} />;
 }
