@@ -11,7 +11,7 @@ export default function Home(props) {
   const router = useRouter();
 
   useEffect(() => {
-    router.replace(router.pathname, undefined, { shallow: true });
+    router.replace("/", undefined, { shallow: true });
   }, []);
 
   return (
@@ -28,6 +28,16 @@ export default function Home(props) {
 
 export async function getServerSideProps(ctx) {
   try {
+    // if (ctx.query.token) {
+    //   console.log("boom!");
+    //   return {
+    //     redirect: {
+    //       destination: "/",
+    //       permanent: false,
+    //     },
+    //   };
+    // }
+
     const user = GetLoggedInUser(ctx);
     const data = GetDefaultData(ctx);
 
