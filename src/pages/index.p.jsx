@@ -10,9 +10,9 @@ import TopTags from "./home/components/TopTags";
 export default function Home(props) {
   const router = useRouter();
 
-  useEffect(() => {
-    router.replace("/", undefined, { shallow: true });
-  }, []);
+  // useEffect(() => {
+  //   router.replace("/", undefined, { shallow: true });
+  // }, []);
 
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search header>
