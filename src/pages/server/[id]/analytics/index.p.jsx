@@ -15,13 +15,9 @@ export default function ServerAnalytics(props) {
 
   const labels = {
     1: props.analytics.records.slice(-1 * 1 * 24).map((x) => moment(x.checked_at).format("H:mm")),
-    7: props.analytics.records.slice(-1 * 7 * 24).map((x) => moment(x.checked_at).format("DD/MM")),
-    15: props.analytics.records
-      .slice(-1 * 15 * 24)
-      .map((x) => moment(x.checked_at).format("DD/MM")),
-    30: props.analytics.records
-      .slice(-1 * 30 * 24)
-      .map((x) => moment(x.checked_at).format("DD/MM")),
+    7: props.analytics.records.slice(-1 * 7 * 24).map((x) => moment(x.checked_at).format("D/MM")),
+    15: props.analytics.records.slice(-1 * 15 * 24).map((x) => moment(x.checked_at).format("D/MM")),
+    30: props.analytics.records.slice(-1 * 30 * 24).map((x) => moment(x.checked_at).format("D/MM")),
   };
 
   const fetch = (property, duration) => {

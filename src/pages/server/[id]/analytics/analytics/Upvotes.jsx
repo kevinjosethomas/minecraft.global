@@ -34,7 +34,7 @@ export default function Players(props) {
   ];
 
   const latest = props.analytics[props.analytics.length - 1];
-  const sorted = props.analytics.sort((a, b) => a[p2] - b[p2]);
+  const sorted = [...props.analytics].sort((a, b) => a[p2] - b[p2]);
 
   const cards = [
     {
