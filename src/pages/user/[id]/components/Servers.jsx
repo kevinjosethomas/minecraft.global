@@ -82,7 +82,7 @@ function Info(props) {
           <Field label="IGN" value={username} />
         </motion.div>
       </div>
-      {props.user.user_id === props.user_id && (
+      {props.user?.user_id === props.user_id && (
         <motion.div
           className="flex flex-col items-start justify-start w-full p-5 space-y-2 bg-olive-940 rounded-[8px]"
           initial={{ y: 10, opacity: 0 }}
