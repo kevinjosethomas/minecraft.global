@@ -2,6 +2,7 @@ import moment from "moment";
 import Cookies from "cookies";
 
 import CPU from "./analytics/CPU";
+import TPS from "./analytics/TPS";
 import Memory from "./analytics/Memory";
 import Default from "ui/layouts/Default";
 import Upvotes from "./analytics/Upvotes";
@@ -12,7 +13,7 @@ import Impressions from "./analytics/Impressions";
 import { GetServerByID, GetServerAnalytics } from "api/server";
 
 export default function ServerAnalytics(props) {
-  const analytics = [Players, Upvotes, Pageviews, Impressions, Memory, CPU];
+  const analytics = [Players, Upvotes, Pageviews, Impressions, Memory, CPU, TPS];
 
   const labels = {
     1: props.analytics.records.slice(-1 * 1 * 24).map((x) => moment(x.checked_at).format("H:mm")),
