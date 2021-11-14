@@ -60,12 +60,12 @@ export default function Pageviews(props) {
     {
       title: "Avg. Pageviews",
       subtitle: "Every hour (last 15d)",
-      value: Math.round(since["15"].reduce((a, b) => a + b) / total["15"].length),
+      value: Math.round(since["15"].reduce((a, b) => a + b) / since["15"].length),
     },
     {
       title: "Avg. Pageviews",
       subtitle: "Every hour (last 30d)",
-      value: Math.round(since["30"].reduce((a, b) => a + b) / total["30"].length),
+      value: Math.round(since["30"].reduce((a, b) => a + b) / since["30"].length),
     },
   ];
 

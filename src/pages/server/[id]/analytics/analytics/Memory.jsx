@@ -52,8 +52,6 @@ export default function Memory(props) {
     }
   }
 
-  console.log(highest);
-
   const cards = [
     {
       title: "Current Usage",
