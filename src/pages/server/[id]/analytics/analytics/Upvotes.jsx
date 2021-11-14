@@ -36,6 +36,35 @@ export default function Players(props) {
   const latest = props.analytics[props.analytics.length - 1];
   const sorted = [...props.analytics].sort((a, b) => a[p2] - b[p2]);
 
+  const hours = {};
+  for (const hour of props.analytics) {
+    const t = new Date(hour.checked_at).getHours() + 1;
+    if (hour[p1] == 0) {
+      continue;
+    }
+
+    const upv = parseInt(hour[p1]);
+
+    if (hours[t]) {
+      hours[t].push(upv);
+    } else {
+      hours[t] = [upv];
+    }
+  }
+
+  let highest = [1, 0];
+
+  for (const hour of Object.keys(hours)) {
+    const val = hours[hour];
+    const avg = val.reduce((a, b) => a + b) / val.length;
+
+    hours[hour] = avg;
+
+    if (avg > highest[1]) {
+      highest = [hour, avg];
+    }
+  }
+
   const cards = [
     {
       title: "Total Upvotes",
@@ -43,9 +72,9 @@ export default function Players(props) {
       value: latest[p1],
     },
     {
-      title: "New Upvotes",
-      subtitle: "Last 1 hour",
-      value: latest[p2],
+      title: "Most Upvotes",
+      subtitle: `Avg. ${highest[1]} votes daily`,
+      value: `${highest[0] > 12 ? `${highest[0] - 12}pm` : `${highest[0]}am`} UTC`,
     },
     {
       title: "Lowest Peak",

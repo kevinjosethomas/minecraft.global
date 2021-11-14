@@ -38,12 +38,12 @@ export default function Impressions(props) {
 
   const cards = [
     {
-      title: "Total Impressions",
+      title: "Total Impress.",
       subtitle: `at ${moment(latest.checked_at).format("DD MMM h:MMa")}`,
       value: latest[p1],
     },
     {
-      title: "New Impressions",
+      title: "New Impress.",
       subtitle: "Last 1 hour",
       value: latest[p2],
     },
