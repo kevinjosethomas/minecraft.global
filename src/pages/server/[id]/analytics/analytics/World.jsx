@@ -23,35 +23,6 @@ export default function World(props) {
   const latest = props.analytics[props.analytics.length - 1];
   const sorted = props.analytics.filter((x) => x).sort((a, b) => a[p1] - b[p1]);
 
-  const hours = {};
-  for (const hour of props.analytics) {
-    const t = new Date(hour.checked_at).getHours() + 1;
-    if (hour[p1] == 0) {
-      continue;
-    }
-
-    const mem = Math.ceil(parseInt(hour[p1]) / 1000000);
-
-    if (hours[t]) {
-      hours[t].push(mem);
-    } else {
-      hours[t] = [mem];
-    }
-  }
-
-  let highest = [1, 0];
-
-  for (const hour of Object.keys(hours)) {
-    const val = hours[hour];
-    const avg = val.reduce((a, b) => a + b) / val.length;
-
-    hours[hour] = avg;
-
-    if (avg > highest[1]) {
-      highest = [hour, avg];
-    }
-  }
-
   const cards = [
     {
       title: "Current Size",
