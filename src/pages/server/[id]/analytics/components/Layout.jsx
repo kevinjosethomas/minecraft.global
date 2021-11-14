@@ -22,6 +22,7 @@ export default function Layout(props) {
           duration={props.duration}
           labels={props.labels}
           setDuration={props.setDuration}
+          Ycallback={props.Ycallback}
         />
       </div>
     </div>

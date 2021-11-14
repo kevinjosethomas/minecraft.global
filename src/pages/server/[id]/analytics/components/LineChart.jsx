@@ -33,7 +33,7 @@ export default function Chart(props) {
             },
             ticks: {
               color: "#82B398",
-              callback: props.tickYCallback,
+              callback: props.Ycallback,
             },
             beginAtZero: !props.negative,
           },

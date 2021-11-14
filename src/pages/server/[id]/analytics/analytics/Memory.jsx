@@ -96,6 +96,7 @@ export default function Memory(props) {
       types={types}
       labels={props.labels}
       index={props.index}
+      Ycallback={(label) => `${label}mb`}
     />
   );
 }

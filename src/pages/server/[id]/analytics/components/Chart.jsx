@@ -15,10 +15,11 @@ export default function Chart(props) {
         <Duration active={duration} setActive={setDuration} />
       </div>
       <ChartView
-        data={props.types[type].data[duration]}
-        labels={props.labels[duration]}
         duration={duration}
+        labels={props.labels[duration]}
+        data={props.types[type].data[duration]}
         negative={props.types[type].negative}
+        Ycallback={props.Ycallback}
       />
       {props.children}
     </div>
