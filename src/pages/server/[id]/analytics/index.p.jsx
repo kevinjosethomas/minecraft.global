@@ -6,10 +6,11 @@ import Upvotes from "./analytics/Upvotes";
 import Players from "./analytics/Players";
 import { GetLoggedInUser } from "api/login";
 import Pageviews from "./analytics/Pageviews";
+import Impressions from "./analytics/Impressions";
 import { GetServerByID, GetServerAnalytics } from "api/server";
 
 export default function ServerAnalytics(props) {
-  const analytics = [Players, Upvotes, Pageviews];
+  const analytics = [Players, Upvotes, Pageviews, Impressions];
 
   const labels = {
     1: props.analytics.records.slice(-1 * 1 * 24).map((x) => moment(x.checked_at).format("H:mm")),
