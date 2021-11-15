@@ -6,7 +6,7 @@ export default function Identity(props) {
   return (
     <div className="flex flex-row items-center justify-start space-x-4">
       <Favicon name={props.name} favicon={props.favicon} />
-      <h1 className="font-medium text-[32px] text-white text-opacity-90">Upvote {props.name}</h1>
+      <h1 className="font-medium text-3xl text-white text-opacity-90">Upvote {props.name}</h1>
       {props.premium && (
         <Link href="/premium" passHref>
           <i

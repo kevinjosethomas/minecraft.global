@@ -7,11 +7,11 @@ export default function Billing(props) {
       <h1 className="font-medium text-[50px] text-white text-opacity-90">Billing</h1>
       <div className="flex flex-col items-start justify-start w-full">
         <div className="flex flex-row items-center justify-start w-full px-4 py-2 bg-black bg-opacity-20">
-          <span className="w-[10%] font-medium text-[32px] text-white text-opacity-80">Index</span>
-          <span className="w-[10%] font-medium text-[32px] text-white text-opacity-80">Price</span>
-          <span className="w-[40%] font-medium text-[32px] text-white text-opacity-80">Label</span>
-          <span className="w-[20%] font-medium text-[32px] text-white text-opacity-80">Server</span>
-          <span className="w-[20%] font-medium text-[32px] text-white text-opacity-80">Date</span>
+          <span className="w-[10%] font-medium text-3xl text-white text-opacity-80">Index</span>
+          <span className="w-[10%] font-medium text-3xl text-white text-opacity-80">Price</span>
+          <span className="w-[40%] font-medium text-3xl text-white text-opacity-80">Label</span>
+          <span className="w-[20%] font-medium text-3xl text-white text-opacity-80">Server</span>
+          <span className="w-[20%] font-medium text-3xl text-white text-opacity-80">Date</span>
         </div>
         {props.billing.length ? (
           <Fragment>

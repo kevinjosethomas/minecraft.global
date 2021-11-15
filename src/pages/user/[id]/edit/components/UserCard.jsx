@@ -7,7 +7,7 @@ export default function UserCard(props) {
           alt={`${props.name}'s skinhead'`}
           className="w-[64px] h-[64px] rounded"
         />
-        <span className="text-[32px] text-white text-opacity-80">{props.name}</span>
+        <span className="text-3xl text-white text-opacity-80">{props.name}</span>
       </div>
       <span className="text-2xl text-white text-opacity-50 break-anywhere">
         {props.description}

@@ -39,7 +39,7 @@ function Screen(props) {
       onClick={props.onClick}
     >
       <span
-        className={`px-2 text-[32px] text-white ${
+        className={`px-2 text-3xl text-white ${
           props.active
             ? "text-opacity-80"
             : "text-opacity-60 hover:text-opacity-80 transition duration-300"

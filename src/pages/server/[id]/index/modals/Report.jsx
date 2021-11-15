@@ -79,13 +79,13 @@ export default function Report(props) {
             className="flex flex-row items-center justify-center w-full py-2 bg-black bg-opacity-20 rounded hover:bg-opacity-30 transition duration-500 cursor-pointer"
             onClick={() => props.showModal(false)}
           >
-            <span className="text-[32px] text-white text-opacity-80">Cancel</span>
+            <span className="text-3xl text-white text-opacity-80">Cancel</span>
           </div>
           <div
             className="flex flex-row items-center justify-center w-full py-2 bg-olive-800 rounded hover:bg-olive-900 transition duration-500 cursor-pointer"
             onClick={submit}
           >
-            <span className="text-[32px] text-white text-opacity-80">Submit</span>
+            <span className="text-3xl text-white text-opacity-80">Submit</span>
           </div>
         </div>
       </motion.div>

@@ -23,7 +23,7 @@ function Title(props) {
       } rounded select-none`}
       onClick={() => props.setActiveScreen(props.screen)}
     >
-      <span className="text-[32px] text-white text-opacity-90">{props.screen.label}</span>
+      <span className="text-3xl text-white text-opacity-90">{props.screen.label}</span>
     </div>
   );
 }

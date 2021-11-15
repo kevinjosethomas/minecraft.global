@@ -89,7 +89,7 @@ function Info(props) {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.3, delay: 0.7 }}
         >
-          <h3 className="font-medium text-[32px] text-white text-opacity-90">Manage Billing</h3>
+          <h3 className="font-medium text-3xl text-white text-opacity-90">Manage Billing</h3>
           <Link href={`/user/${props.user.user_id}/edit`}>
             <a className="flex flex-row items-center justify-center w-full py-1 bg-olive-900 hover:bg-olive-800 transition duration-300 rounded-[8px]">
               <span className="text-2xl text-white text-opacity-90">View Payments</span>

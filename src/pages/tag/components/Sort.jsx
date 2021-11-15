@@ -4,7 +4,7 @@ export default function Sort(props) {
   return (
     <div className="flex flex-col items-start justify-start space-y-1">
       <motion.span
-        className="font-medium text-[32px] text-white text-opacity-90"
+        className="font-medium text-3xl text-white text-opacity-90"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3, delay: 0.2 }}

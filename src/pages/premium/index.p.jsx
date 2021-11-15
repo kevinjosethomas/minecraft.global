@@ -45,8 +45,8 @@ export default function Premium(props) {
               transition={{ duration: 0.3, delay: 0.4 }}
             >
               <div className="flex flex-row items-center justify-start space-x-2">
-                <i className="fal fa-chart-bar w-[32px] text-teal-500 text-[32px] text-center" />
-                <span className="text-[32px] text-teal-500">Server Analytics</span>
+                <i className="fal fa-chart-bar w-[32px] text-teal-500 text-3xl text-center" />
+                <span className="text-3xl text-teal-500">Server Analytics</span>
               </div>
               <p className="text-2xl text-white text-opacity-70">
                 Premium users get a plugin that regularly transmits data from your Minecraft server
@@ -61,8 +61,8 @@ export default function Premium(props) {
               transition={{ duration: 0.3, delay: 0.5 }}
             >
               <div className="flex flex-row items-center justify-start space-x-2">
-                <i className="fal fa-sack-dollar w-[32px] text-orange-800 text-[32px] text-center" />
-                <span className="text-[32px] text-orange-800">Monthly Advertising Credit</span>
+                <i className="fal fa-sack-dollar w-[32px] text-orange-800 text-3xl text-center" />
+                <span className="text-3xl text-orange-800">Monthly Advertising Credit</span>
               </div>
               <p className="text-2xl text-white text-opacity-70">
                 All Premium users get $5 worth of Advertising Credit every month! This credit can be

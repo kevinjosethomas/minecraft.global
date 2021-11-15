@@ -11,7 +11,7 @@ export default function Options(props) {
         className="flex flex-col items-center justify-center w-[40px] h-[40px] hover:bg-white hover:bg-opacity-10 transition duration-300 rounded cursor-pointer"
         onClick={() => showDropdown((dd) => !dd)}
       >
-        <i className="far fa-ellipsis-h text-[32px] text-white text-opacity-80" />
+        <i className="far fa-ellipsis-h text-3xl text-white text-opacity-80" />
       </div>
       <AnimatePresence>
         {dropdown && (

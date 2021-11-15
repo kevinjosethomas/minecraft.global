@@ -42,9 +42,7 @@ export default function Servers(props) {
   return (
     <div className="flex flex-col items-start justify-start w-full space-y-3">
       <div className="flex flex-col items-start justify-start">
-        <span className="text-[32px] text-white text-opacity-90">
-          {props.tag} Minecraft Servers
-        </span>
+        <span className="text-3xl text-white text-opacity-90">{props.tag} Minecraft Servers</span>
         <span className="text-xl text-white text-opacity-80">
           Showing about {resultCount} results...
         </span>

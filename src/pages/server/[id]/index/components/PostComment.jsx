@@ -41,8 +41,8 @@ export default function PostServerComment(props) {
   return (
     <div className="flex flex-col items-start justify-start w-full space-y-2">
       <div className="flex flex-row items-center justify-start space-x-2">
-        <i className="fas fa-comment-edit text-[32px] text-white" />
-        <span className="text-[32px] text-white">Write a Comment</span>
+        <i className="fas fa-comment-edit text-3xl text-white" />
+        <span className="text-3xl text-white">Write a Comment</span>
       </div>
       <textarea
         className="w-full h-[150px] p-2 text-xl text-white text-opacity-80 bg-olive-940 resize-none border-2 border-olive-920 rounded focus:outline-none"

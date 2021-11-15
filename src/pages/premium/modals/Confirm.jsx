@@ -36,7 +36,7 @@ export default function Confirm(props) {
         transition={{ duration: 0.3, delay: 0.2 }}
       >
         <div className="flex flex-col items-start justify-start w-full space-y-4">
-          <span className="text-[32px] text-white text-opacity-90 max-w-lg leading-tight">
+          <span className="text-3xl text-white text-opacity-90 max-w-lg leading-tight">
             Select the server you want to purchase Premium for:
           </span>
           <div className="relative flex flex-col items-start justify-start w-[400px] space-y-1">

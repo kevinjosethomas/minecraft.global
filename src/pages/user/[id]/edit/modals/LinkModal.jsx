@@ -19,7 +19,7 @@ export default function LinkModal(props) {
         exit={{ y: 10, opacity: 0 }}
         transition={{ duration: 0.3, delay: 0.2 }}
       >
-        <span className="text-[32px] text-white text-opacity-90 leading-tight">
+        <span className="text-3xl text-white text-opacity-90 leading-tight">
           Connect your Minecraft Java Account:
         </span>
         <ul className="space-y-6">

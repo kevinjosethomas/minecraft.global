@@ -45,7 +45,7 @@ export default function Card(props) {
         </div>
         <div className="flex flex-col items-start justify-start w-full p-6 space-y-5 bg-olive-980">
           <div className="flex flex-col items-start justify-start space-y-1 select-none">
-            <span className="font-bold text-[32px] text-white text-opacity-90">Features</span>
+            <span className="font-bold text-3xl text-white text-opacity-90">Features</span>
             {features.map((feature, index) => (
               <Feature key={index} {...feature} />
             ))}

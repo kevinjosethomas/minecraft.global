@@ -10,7 +10,7 @@ export default function Comment(props) {
       <div className="flex flex-row items-center justify-between w-full">
         <div className="flex flex-row items-center justify-start space-x-2">
           <img src={avatar} alt={`${props.name}'s' Name`} className="w-10 h-10 rounded-sm" />
-          <span className="text-[32px] text-white text-opacity-90">{props.name}</span>
+          <span className="text-3xl text-white text-opacity-90">{props.name}</span>
         </div>
         <div className="flex flex-row items-center justify-start">
           <span className="text-xl text-white text-opacity-80">

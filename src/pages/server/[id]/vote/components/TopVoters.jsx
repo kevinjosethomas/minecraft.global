@@ -34,7 +34,7 @@ export default function TopVoters(props) {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3, delay: 0.4 }}
     >
-      <span className="font-medium text-[32px] text-white text-opacity-90">
+      <span className="font-medium text-3xl text-white text-opacity-90">
         {moment(new Date()).format("MMM")}'s top voters
       </span>
       <div className="flex flex-col items-start justify-start w-full">
