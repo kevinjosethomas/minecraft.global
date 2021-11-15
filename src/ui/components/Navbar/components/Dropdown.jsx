@@ -22,7 +22,7 @@ export default function Dropdown(props) {
 function Identity(props) {
   return (
     <div className="flex flex-col items-start justify-start w-full pl-7 pr-10 py-4 bg-olive-980">
-      <span className="text-[18px] text-white text-opacity-60 whitespace-nowrap leading-tight">
+      <span className="text-lg text-white text-opacity-60 whitespace-nowrap leading-tight">
         Logged in as
       </span>
       <span className="text-2xl font-medium text-white text-opacity-80 whitespace-nowrap leading-tight">

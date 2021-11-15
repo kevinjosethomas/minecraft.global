@@ -29,8 +29,8 @@ export default function Similar(props) {
         </div>
         <Link href={`/tag/${props.tag}`}>
           <a className="group flex flex-row items-center justify-center px-4 py-2 space-x-2 bg-olive-600 bg-opacity-25 hover:bg-opacity-50 rounded-[6px] select-none transition duration-300">
-            <span className="font-medium text-[18px] text-white">See More</span>
-            <i className="far fa-angle-right text-[18px] text-white group-hover:translate-x-0.5 transform duration-300" />
+            <span className="font-medium text-lg text-white">See More</span>
+            <i className="far fa-angle-right text-lg text-white group-hover:translate-x-0.5 transform duration-300" />
           </a>
         </Link>
       </div>

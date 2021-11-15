@@ -66,7 +66,7 @@ function CopyButton(props) {
       className="flex flex-row items-center justify-center px-4 py-2 bg-olive-600 bg-opacity-25 hover:bg-opacity-50 rounded-[6px] select-none transition duration-300"
       onClick={onClick}
     >
-      <span className="font-medium text-[18px] text-white">Copy IP</span>
+      <span className="font-medium text-lg text-white">Copy IP</span>
     </div>
   );
 }
