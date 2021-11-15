@@ -24,7 +24,7 @@ function ServerList(props) {
   return (
     <div className="flex flex-col items-start justify-start w-full space-y-4">
       <motion.h2
-        className="font-medium text-[40px] text-white text-opacity-90"
+        className="font-medium text-4xl text-white text-opacity-90"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3, delay: 0.4 }}
@@ -64,7 +64,7 @@ function Info(props) {
       <div className="flex flex-col items-start justify-start w-full">
         <div className="flex flex-row items-center justify-start">
           <motion.h3
-            className="font-medium text-[40px] text-white text-opacity-90"
+            className="font-medium text-4xl text-white text-opacity-90"
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.4 }}

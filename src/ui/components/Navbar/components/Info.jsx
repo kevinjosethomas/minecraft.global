@@ -10,7 +10,7 @@ export default function Info(props) {
     <div className="flex flex-row items-center justify-center">
       <div className="relative flex flex-row items-center justify-center">
         <i
-          className="fas fa-user-circle text-[40px] text-white text-opacity-80 cursor-pointer"
+          className="fas fa-user-circle text-4xl text-white text-opacity-80 cursor-pointer"
           onClick={() => showDropdown((dd) => !dd)}
         />
         <AnimatePresence>

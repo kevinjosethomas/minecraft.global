@@ -22,7 +22,7 @@ export default function Header(props) {
         <img src={props.avatar} alt={`${props.name}'s skinhead'`} className="w-[128px] h-[128px]" />
         <div className="flex flex-col items-start justify-start">
           <div className="flex flex-row items-center justify-start space-x-4">
-            <h1 className="text-[40px] text-white text-opacity-90">{props.name}</h1>
+            <h1 className="text-4xl text-white text-opacity-90">{props.name}</h1>
             <Badges permissions={props.permissions} servers={props.servers} />
           </div>
           <p className="text-[20px] text-white text-opacity-80 max-w-xl leading-tight">

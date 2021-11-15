@@ -83,7 +83,7 @@ function ServerCollection(props) {
       <div className="flex flex-row items-center justify-between w-full">
         <div className="flex flex-col items-start justify-start">
           <motion.h2
-            className="text-[40px] text-white text-opacity-80 leading-tight"
+            className="text-4xl text-white text-opacity-80 leading-tight"
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
