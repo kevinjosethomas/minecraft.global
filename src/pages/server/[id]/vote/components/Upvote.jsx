@@ -26,7 +26,7 @@ export default function Upvote(props) {
     >
       <Identity name={props.name} favicon={props.favicon} />
       <div className="flex flex-col items-start justify-start">
-        <span className="text-[24px] text-white text-opacity-80">Your Minecraft Username</span>
+        <span className="text-2xl text-white text-opacity-80">Your Minecraft Username</span>
         <input
           value={username}
           onChange={onUsernameChange}
@@ -41,11 +41,11 @@ export default function Upvote(props) {
       <div className="flex flex-row items-center justify-center w-full space-x-4">
         <Link href={`/server/${props.server_id}`}>
           <a className="flex flex-row items-center justify-center w-full py-2 bg-white bg-opacity-10 cursor-pointer rounded hover:bg-opacity-[0.15] transition duration-300">
-            <span className="text-[24px] text-white text-opacity-80 select-none">Go Back</span>
+            <span className="text-2xl text-white text-opacity-80 select-none">Go Back</span>
           </a>
         </Link>
         <div className="flex flex-row items-center justify-center w-full py-2 bg-olive-900 cursor-pointer rounded hover:bg-olive-800 transition duration-300">
-          <span className="text-[24px] text-white text-opacity-80 select-none">Upvote</span>
+          <span className="text-2xl text-white text-opacity-80 select-none">Upvote</span>
         </div>
       </div>
     </motion.div>

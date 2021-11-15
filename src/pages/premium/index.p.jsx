@@ -48,7 +48,7 @@ export default function Premium(props) {
                 <i className="fal fa-chart-bar w-[32px] text-teal-500 text-[32px] text-center" />
                 <span className="text-[32px] text-teal-500">Server Analytics</span>
               </div>
-              <p className="text-[24px] text-white text-opacity-70">
+              <p className="text-2xl text-white text-opacity-70">
                 Premium users get a plugin that regularly transmits data from your Minecraft server
                 to our website! This allows you to track various statistics including players,
                 upvotes, chat messages, pageviews, impressions and more for up to 30 days!
@@ -64,7 +64,7 @@ export default function Premium(props) {
                 <i className="fal fa-sack-dollar w-[32px] text-orange-800 text-[32px] text-center" />
                 <span className="text-[32px] text-orange-800">Monthly Advertising Credit</span>
               </div>
-              <p className="text-[24px] text-white text-opacity-70">
+              <p className="text-2xl text-white text-opacity-70">
                 All Premium users get $5 worth of Advertising Credit every month! This credit can be
                 used to pay for advertisements on the website via our auction system! Advertising
                 Credit also carries over to the following month!

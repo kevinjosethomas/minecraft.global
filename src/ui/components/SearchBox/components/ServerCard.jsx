@@ -12,7 +12,7 @@ export default function ServerCard(props) {
           className="rounded-full w-[64px] h-[64px]"
         />
         <div className="flex flex-col items-start justify-start">
-          <span className="text-[24px] text-white text-opacity-80">{props.name}</span>
+          <span className="text-2xl text-white text-opacity-80">{props.name}</span>
           <div className="flex flex-row items-center justify-start space-x-3">
             <div className="flex flex-row items-center justify-start space-x-1">
               <i className="far fa-arrow-alt-up text-[16px] text-white text-olive-500" />

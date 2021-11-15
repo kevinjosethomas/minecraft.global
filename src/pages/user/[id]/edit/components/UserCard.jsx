@@ -9,7 +9,7 @@ export default function UserCard(props) {
         />
         <span className="text-[32px] text-white text-opacity-80">{props.name}</span>
       </div>
-      <span className="text-[24px] text-white text-opacity-50 break-anywhere">
+      <span className="text-2xl text-white text-opacity-50 break-anywhere">
         {props.description}
       </span>
     </div>

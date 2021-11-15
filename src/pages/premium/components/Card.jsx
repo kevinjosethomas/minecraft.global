@@ -75,8 +75,8 @@ export default function Card(props) {
 function Feature(props) {
   return (
     <div className="flex flex-row items-center justify-start space-x-2">
-      <i className={`${props.icon} w-[32px] text-[24px] text-center`} />
-      <span className="text-[24px] text-white text-opacity-70">{props.label}</span>
+      <i className={`${props.icon} w-[32px] text-2xl text-center`} />
+      <span className="text-2xl text-white text-opacity-70">{props.label}</span>
     </div>
   );
 }

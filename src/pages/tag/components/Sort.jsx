@@ -43,8 +43,8 @@ function Option(props) {
       onClick={props.onClick}
     >
       <div className="z-20 flex flex-row items-center justify-center w-full select-none space-x-2">
-        <i className={`${props.icon} text-[24px] text-white text-opacity-80`} />
-        <span className="text-[24px] text-white text-opacity-80">{props.label}</span>
+        <i className={`${props.icon} text-2xl text-white text-opacity-80`} />
+        <span className="text-2xl text-white text-opacity-80">{props.label}</span>
       </div>
       {props.active && (
         <motion.div

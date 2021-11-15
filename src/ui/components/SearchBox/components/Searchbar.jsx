@@ -70,7 +70,7 @@ export default function Searchbar(props) {
       <div ref={node} className="relative flex flex-row items-center justify-start w-full">
         <input
           value={input}
-          className="z-30 flex flex-row items-center justify-start w-full h-[75px] px-6 mr-[8px] text-[24px] text-white text-opacity-60 placeholder-white placeholder-opacity-60 bg-white bg-opacity-[0.06] rounded-[12px] focus:outline-none"
+          className="z-30 flex flex-row items-center justify-start w-full h-[75px] px-6 mr-[8px] text-2xl text-white text-opacity-60 placeholder-white placeholder-opacity-60 bg-white bg-opacity-[0.06] rounded-[12px] focus:outline-none"
           placeholder="Search for Minecraft servers..."
           onChange={(e) => setInput(e.target.value)}
           onFocus={() => showPopup(true)}
@@ -93,7 +93,7 @@ function SearchButton(props) {
       className="z-30 flex flex-row items-center justify-center min-w-[75px] min-h-[75px] ml-[8px] bg-olive-700 hover:bg-olive-800 rounded-[12px] transition duration-300 cursor-pointer"
       onClick={props.onClick}
     >
-      <i className="far fa-search text-[24px] text-white text-opacity-90" />
+      <i className="far fa-search text-2xl text-white text-opacity-90" />
     </div>
   );
 }

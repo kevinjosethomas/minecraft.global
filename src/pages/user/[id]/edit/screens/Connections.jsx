@@ -48,28 +48,28 @@ export default function Connections(props) {
         <div className="flex flex-col items-start justify-start space-y-2">
           {props.google_id && (
             <div className="flex flex-row items-center justify-start w-[500px] px-4 py-1.5 space-x-2 bg-[#DCA504] hover:bg-opacity-80 rounded-lg transition duration-300 cursor-default">
-              <i className="fab fa-google w-[30px] text-[24px] text-white" />
-              <span className="text-[24px] text-white">{props.google_name}</span>
+              <i className="fab fa-google w-[30px] text-2xl text-white" />
+              <span className="text-2xl text-white">{props.google_name}</span>
             </div>
           )}
           {props.discord_id && (
             <div className="flex flex-row items-center justify-start w-[500px] px-4 py-1.5 space-x-2 bg-[#5865F2] hover:bg-opacity-70 rounded-lg transition duration-300 cursor-default">
-              <i className="fab fa-discord w-[30px] text-[24px] text-white" />
-              <span className="text-[24px] text-white">{props.discord_username}</span>
+              <i className="fab fa-discord w-[30px] text-2xl text-white" />
+              <span className="text-2xl text-white">{props.discord_username}</span>
             </div>
           )}
           {props.minecraft_uuid ? (
             <div className="flex flex-row items-center justify-start w-[40500px0px] px-4 py-1.5 space-x-2 bg-olive-800 hover:bg-opacity-80 rounded-lg transition duration-300 cursor-default">
-              <i className="far fa-cube w-[30px] text-[24px] text-white" />
-              <span className="text-[24px] text-white">{props.minecraft_username}</span>
+              <i className="far fa-cube w-[30px] text-2xl text-white" />
+              <span className="text-2xl text-white">{props.minecraft_username}</span>
             </div>
           ) : (
             <div
               className="flex flex-row items-center justify-start w-[500px] px-4 py-1.5 space-x-2 bg-olive-800 hover:bg-opacity-80 rounded-lg transition duration-300 cursor-default"
               onClick={() => showLinkModal(true)}
             >
-              <i className="far fa-cube w-[30px] text-[24px] text-white" />
-              <span className="text-[24px] text-white">Connect your Minecraft Java Account</span>
+              <i className="far fa-cube w-[30px] text-2xl text-white" />
+              <span className="text-2xl text-white">Connect your Minecraft Java Account</span>
             </div>
           )}
         </div>

@@ -44,13 +44,13 @@ export default function Confirm(props) {
               className="flex flex-row items-center justify-between w-full px-5 py-2 bg-white bg-opacity-10 rounded cursor-pointer"
               onClick={() => setDropdown((dd) => !dd)}
             >
-              <span className="text-[24px] text-white text-opacity-80 select-none">
+              <span className="text-2xl text-white text-opacity-80 select-none">
                 {selected.name}
               </span>
               <i
                 className={`far ${
                   props.dropdown ? "fa-angle-up" : "fa-angle-down"
-                } text-[24px] text-white text-opacity-80`}
+                } text-2xl text-white text-opacity-80`}
               />
             </div>
             {dropdown && (
@@ -63,13 +63,13 @@ export default function Confirm(props) {
             className="flex flex-row items-center justify-center w-full py-2 bg-white bg-opacity-5 hover:bg-opacity-[0.08] cursor-pointer rounded transition duration-300"
             onClick={() => props.showModal(false)}
           >
-            <span className="text-[24px] text-white text-opacity-80 select-none">Cancel</span>
+            <span className="text-2xl text-white text-opacity-80 select-none">Cancel</span>
           </div>
           <div
             className="flex flex-row items-center justify-center w-full py-2 bg-olive-900 bg-opacity-80 hover:bg-opacity-100 cursor-pointer rounded transition duration-300"
             onClick={onClick}
           >
-            <span className="text-[24px] text-white text-opacity-80 select-none">Subscribe</span>
+            <span className="text-2xl text-white text-opacity-80 select-none">Subscribe</span>
           </div>
         </div>
       </motion.div>
