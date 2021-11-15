@@ -105,7 +105,7 @@ function DropdownElement(props) {
       onClick={onClick}
       className="flex flex-row items-center justify-start w-full pl-5 py-1 hover:bg-black hover:bg-opacity-10 cursor-pointer"
     >
-      <span className="text-[22px] text-white text-opacity-60 select-none">{props.label}</span>
+      <span className="text-xl text-white text-opacity-60 select-none">{props.label}</span>
     </div>
   );
 }

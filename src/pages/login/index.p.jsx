@@ -12,7 +12,7 @@ export default function Login(props) {
     <Default user={props.user}>
       <div className="flex flex-col items-center justify-center w-full 2xl:py-12 3xl:py-28 space-y-6">
         <motion.h1
-          className="font-bold text-[48px] text-white text-opacity-90 leading-tight"
+          className="font-bold text-5xl text-white text-opacity-90 leading-tight"
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.3 }}
@@ -66,7 +66,7 @@ function Google() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.3, delay: 0.1 }}
         >
-          <i className="fab fa-google text-[96px] text-white" />
+          <i className="fab fa-google text-8xl text-white" />
         </motion.div>
       )}
     />
@@ -82,7 +82,7 @@ function Discord() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3, delay: 0.2 }}
     >
-      <i className="fab fa-discord text-[96px] text-white" />
+      <i className="fab fa-discord text-8xl text-white" />
     </motion.a>
   );
 }

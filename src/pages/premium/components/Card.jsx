@@ -39,7 +39,7 @@ export default function Card(props) {
             <i className="fad fa-diamond text-base text-olive-500" />
             <span className="font-medium text-base text-olive-500 select-none">MONTHLY</span>
           </div>
-          <span className="font-bold text-[80px] text-white tracking-tight leading-tight select-none">
+          <span className="font-bold text-7xl text-white tracking-tight leading-tight select-none">
             $4.99
           </span>
         </div>

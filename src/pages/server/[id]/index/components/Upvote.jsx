@@ -11,8 +11,8 @@ export default function Upvote(props) {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3, delay: 0.2 }}
       >
-        <i className="fas fa-arrow-alt-up text-[28px] text-white text-opacity-90" />
-        <h5 className="font-medium text-[28px] text-white text-opacity-90">
+        <i className="fas fa-arrow-alt-up text-3xl text-white text-opacity-90" />
+        <h5 className="font-medium text-3xl text-white text-opacity-90">
           Upvote ({SimplifyNumber(props.monthly_votes, { decimal: 1 })})
         </h5>
       </motion.a>

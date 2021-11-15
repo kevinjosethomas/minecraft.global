@@ -10,7 +10,7 @@ export default function Identity(props) {
       {props.premium && (
         <Link href="/premium" passHref>
           <i
-            className="fad fa-diamond text-[42px] text-olive-500 cursor-pointer"
+            className="fad fa-diamond text-4xl text-olive-500 cursor-pointer"
             data-tip="Premium Server"
           />
         </Link>

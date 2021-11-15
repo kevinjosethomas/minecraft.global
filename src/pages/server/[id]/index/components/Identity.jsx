@@ -25,11 +25,11 @@ export default function Identity(props) {
       >
         <div className="flex flex-row items-center justify-start space-x-4">
           <Favicon name={props.name} favicon={props.favicon} />
-          <h1 className="font-medium text-[42px] text-white text-opacity-90">{props.name}</h1>
+          <h1 className="font-medium text-4xl text-white text-opacity-90">{props.name}</h1>
           {props.premium && (
             <Link href="/premium" passHref>
               <i
-                className="fad fa-diamond text-[42px] text-olive-500 cursor-pointer"
+                className="fad fa-diamond text-4xl text-olive-500 cursor-pointer"
                 data-tip="Premium Server"
               />
             </Link>

@@ -4,7 +4,7 @@ import { Fragment } from "react";
 export default function Billing(props) {
   return (
     <div className="flex flex-col items-start justify-start w-full p-10 bg-olive-950 rounded border-2 border-olive-940">
-      <h1 className="font-medium text-[50px] text-white text-opacity-90">Billing</h1>
+      <h1 className="font-medium text-5xl text-white text-opacity-90">Billing</h1>
       <div className="flex flex-col items-start justify-start w-full">
         <div className="flex flex-row items-center justify-start w-full px-4 py-2 bg-black bg-opacity-20">
           <span className="w-[10%] font-medium text-3xl text-white text-opacity-80">Index</span>

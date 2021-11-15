@@ -26,7 +26,7 @@ export default function Premium(props) {
       <div className="flex flex-row items-center justify-between w-full py-2">
         <div className="flex flex-col items-start justify-start w-[700px] space-y-4">
           <motion.h1
-            className="font-bold text-[48px] text-white text-opacity-90 max-w-xl leading-tight"
+            className="font-bold text-5xl text-white text-opacity-90 max-w-xl leading-tight"
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.3 }}

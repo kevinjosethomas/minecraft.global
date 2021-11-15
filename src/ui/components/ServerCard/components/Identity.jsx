@@ -16,11 +16,11 @@ export default function Identity(props) {
       />
       <div className="flex flex-col items-start justify-start">
         <div className="flex flex-row items-center justify-start space-x-2">
-          <h3 className="text-[28px] text-white text-opacity-90">{props.name}</h3>
+          <h3 className="text-3xl text-white text-opacity-90">{props.name}</h3>
           {props.premium && (
             <Link href="/premium" passHref>
               <i
-                className="fad fa-diamond text-[28px] text-olive-500 cursor-pointer"
+                className="fad fa-diamond text-3xl text-olive-500 cursor-pointer"
                 data-tip="Premium Server"
               />
             </Link>

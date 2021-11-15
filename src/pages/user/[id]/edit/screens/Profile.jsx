@@ -66,7 +66,7 @@ export default function Profile(props) {
   return (
     <div className="flex flex-col items-start justify-start w-full p-10 bg-olive-950 rounded border-2 border-olive-940">
       <div className="flex flex-row items-center justify-between w-full">
-        <h1 className="font-medium text-[50px] text-white text-opacity-90">Edit Profile</h1>
+        <h1 className="font-medium text-5xl text-white text-opacity-90">Edit Profile</h1>
         <div
           className="flex flex-row items-center justify-center px-3 py-1 bg-olive-800 rounded cursor-pointer hover:bg-olive-700 transition duration-300"
           onClick={submit}

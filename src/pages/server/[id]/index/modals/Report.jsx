@@ -71,7 +71,7 @@ export default function Report(props) {
         exit={{ y: 10, opacity: 0 }}
         transition={{ duration: 0.3, delay: 0.2 }}
       >
-        <span className="font-medium text-[56px] text-white text-opacity-90">Report Server</span>
+        <span className="font-medium text-5xl text-white text-opacity-90">Report Server</span>
         <TextArea label="Reason" value={parameters.report} onChange={onReportChange} />
         <TextArea label="Proof (links/images)" value={parameters.proof} onChange={onProofChange} />
         <div className="flex flex-row items-center justify-center w-full space-x-4">
