@@ -71,7 +71,7 @@ export default function Premium(props) {
               </p>
             </motion.div>
             <motion.p
-              className="text-[20px] text-white text-opacity-90"
+              className="text-xl text-white text-opacity-90"
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.3, delay: 0.6 }}

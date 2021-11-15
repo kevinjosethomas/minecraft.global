@@ -40,10 +40,8 @@ export default function TopVoters(props) {
       <div className="flex flex-col items-start justify-start w-full">
         {voters.map((voter, index) => (
           <div key={index} className="flex flex-row items-center justify-between w-full">
-            <span className="text-[20px] text-white text-opacity-80">
-              {voter.minecraft_username}
-            </span>
-            <span className="w-[20px] text-center text-[20px] text-white text-opacity-80">
+            <span className="text-xl text-white text-opacity-80">{voter.minecraft_username}</span>
+            <span className="w-[20px] text-center text-xl text-white text-opacity-80">
               {voter.vote_count}
             </span>
           </div>

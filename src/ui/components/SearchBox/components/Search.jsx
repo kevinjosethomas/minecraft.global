@@ -6,8 +6,8 @@ export default function Search(props) {
   return (
     <div className="flex flex-col items-start justify-start w-full space-y-2">
       <div className="flex flex-row items-center justify-start ml-3 space-x-1.5">
-        <i className="far fa-search text-[20px] text-white text-opacity-80" />
-        <span className="font-medium text-[20px] text-white text-opacity-80 tracking-tight">
+        <i className="far fa-search text-xl text-white text-opacity-80" />
+        <span className="font-medium text-xl text-white text-opacity-80 tracking-tight">
           {props.results ? (
             <Fragment>
               {props.query && props.results.length

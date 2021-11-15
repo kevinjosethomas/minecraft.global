@@ -55,14 +55,14 @@ export default function Card(props) {
               className="flex flex-row items-center justify-center w-full py-3 space-x-2 bg-white bg-opacity-[0.08] hover:bg-opacity-10 rounded cursor-pointer transition duration-300"
               onClick={openModal}
             >
-              <i className="fad fa-shopping-cart text-[20px] text-olive-400" />
-              <span className="font-bold text-[20px] text-olive-400">SUBSCRIBE</span>
+              <i className="fad fa-shopping-cart text-xl text-olive-400" />
+              <span className="font-bold text-xl text-olive-400">SUBSCRIBE</span>
             </div>
           ) : (
             <Link href="/login">
               <a className="flex flex-row items-center justify-center w-full py-3 space-x-2 bg-white bg-opacity-[0.08] hover:bg-opacity-10 rounded cursor-pointer transition duration-300">
-                <i className="fad fa-sign-in text-[20px] text-olive-400" />
-                <span className="font-bold text-[20px] text-olive-400">LOGIN</span>
+                <i className="fad fa-sign-in text-xl text-olive-400" />
+                <span className="font-bold text-xl text-olive-400">LOGIN</span>
               </a>
             </Link>
           )}

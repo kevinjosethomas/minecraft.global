@@ -45,7 +45,7 @@ export default function Servers(props) {
         <span className="text-[32px] text-white text-opacity-90">
           {props.tag} Minecraft Servers
         </span>
-        <span className="text-[20px] text-white text-opacity-80">
+        <span className="text-xl text-white text-opacity-80">
           Showing about {resultCount} results...
         </span>
       </div>

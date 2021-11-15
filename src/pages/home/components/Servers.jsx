@@ -91,7 +91,7 @@ function ServerCollection(props) {
             {props.name}
           </motion.h2>
           <motion.p
-            className="text-[20px] text-white text-opacity-60 leading-tight"
+            className="text-xl text-white text-opacity-60 leading-tight"
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.2 }}

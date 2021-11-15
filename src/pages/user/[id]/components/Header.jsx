@@ -25,7 +25,7 @@ export default function Header(props) {
             <h1 className="text-4xl text-white text-opacity-90">{props.name}</h1>
             <Badges permissions={props.permissions} servers={props.servers} />
           </div>
-          <p className="text-[20px] text-white text-opacity-80 max-w-xl leading-tight">
+          <p className="text-xl text-white text-opacity-80 max-w-xl leading-tight">
             {props.description || "This user was too lazy to write a description for themselves :/"}
           </p>
         </div>
@@ -57,16 +57,16 @@ function Buttons(props) {
       {props.user_id === props.user?.user_id && (
         <Link href={`/user/${props.user?.user_id}/edit`}>
           <a className="flex flex-row items-center justify-center w-full px-5 py-2 space-x-3 bg-blue-700 bg-opacity-40 rounded-lg border-2 border-blue-900 cursor-pointer hover:scale-[1.01] transition duration-300">
-            <i className="fad fa-pencil-paintbrush text-[20px] text-white" />
-            <span className="text-[20px] text-white text-opacity-90">Edit Profile</span>
+            <i className="fad fa-pencil-paintbrush text-xl text-white" />
+            <span className="text-xl text-white text-opacity-90">Edit Profile</span>
           </a>
         </Link>
       )}
       {props.user_id === props.user?.user_id && (
         <Link href="/server/add">
           <a className="flex flex-row items-center justify-center w-full px-5 py-2 space-x-3 bg-yellow-700 bg-opacity-50 rounded-lg border-2 border-yellow-900 cursor-pointer hover:scale-[1.01] transition duration-300">
-            <i className="fad fa-plus-circle text-[20px] text-white" />
-            <span className="text-[20px] text-white text-opacity-90">Add server</span>
+            <i className="fad fa-plus-circle text-xl text-white" />
+            <span className="text-xl text-white text-opacity-90">Add server</span>
           </a>
         </Link>
       )}

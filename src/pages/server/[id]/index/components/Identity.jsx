@@ -36,7 +36,7 @@ export default function Identity(props) {
           )}
         </div>
         <div className="flex flex-col items-start justify-center">
-          <h4 className="text-[20px] text-white text-opacity-70 max-w-2xl leading-tight">
+          <h4 className="text-xl text-white text-opacity-70 max-w-2xl leading-tight">
             {props.description}
           </h4>
         </div>

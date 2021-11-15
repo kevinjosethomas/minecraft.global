@@ -13,7 +13,7 @@ export default function Comment(props) {
           <span className="text-[32px] text-white text-opacity-90">{props.name}</span>
         </div>
         <div className="flex flex-row items-center justify-start">
-          <span className="text-[20px] text-white text-opacity-80">
+          <span className="text-xl text-white text-opacity-80">
             Posted on{" "}
             <span className="font-medium text-opacity-90">
               {moment(props.created_at).format("MMM Do YYYY")}
@@ -22,7 +22,7 @@ export default function Comment(props) {
         </div>
       </div>
       <div className="flex flex-row items-start justify-start w-full">
-        <p className="text-[20px] text-white text-opacity-70">{props.content}</p>
+        <p className="text-xl text-white text-opacity-70">{props.content}</p>
       </div>
     </div>
   );

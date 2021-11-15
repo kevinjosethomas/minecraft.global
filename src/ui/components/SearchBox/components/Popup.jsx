@@ -44,8 +44,8 @@ function Tags() {
   return (
     <div className="flex flex-col items-start justify-start w-full space-y-2">
       <div className="flex flex-row items-center justify-start ml-3 space-x-1.5">
-        <i className="far fa-tags text-[20px] text-white text-opacity-80" />
-        <span className="font-medium text-[20px] text-white text-opacity-80 tracking-tight">
+        <i className="far fa-tags text-xl text-white text-opacity-80" />
+        <span className="font-medium text-xl text-white text-opacity-80 tracking-tight">
           FILTER BY CATEGORIES
         </span>
       </div>
@@ -54,7 +54,7 @@ function Tags() {
           <Link key={index} href={`/tag/${tag.name}`}>
             <a className="group flex flex-row items-center justify-start space-x-1 px-3 py-0.5 bg-white bg-opacity-[0.06] hover:bg-opacity-10 rounded-[4px] cursor-pointer transition duration-300">
               <i className="far fa-hashtag text-[16px] text-olive-600" />
-              <span className="text-[20px] text-white text-opacity-70 group-hover:text-opacity-80 transition duration-300">
+              <span className="text-xl text-white text-opacity-70 group-hover:text-opacity-80 transition duration-300">
                 {tag.name}
               </span>
             </a>

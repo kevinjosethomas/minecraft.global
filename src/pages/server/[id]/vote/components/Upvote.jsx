@@ -30,7 +30,7 @@ export default function Upvote(props) {
         <input
           value={username}
           onChange={onUsernameChange}
-          className="w-full px-2 py-1 bg-white bg-opacity-10 text-[20px] text-white text-opacity-90 rounded focus:outline-none"
+          className="w-full px-2 py-1 bg-white bg-opacity-10 text-xl text-white text-opacity-90 rounded focus:outline-none"
         />
       </div>
       <ReCAPTCHA

@@ -45,7 +45,7 @@ export default function PostServerComment(props) {
         <span className="text-[32px] text-white">Write a Comment</span>
       </div>
       <textarea
-        className="w-full h-[150px] p-2 text-[20px] text-white text-opacity-80 bg-olive-940 resize-none border-2 border-olive-920 rounded focus:outline-none"
+        className="w-full h-[150px] p-2 text-xl text-white text-opacity-80 bg-olive-940 resize-none border-2 border-olive-920 rounded focus:outline-none"
         value={content}
         onChange={onContentChange}
       />
@@ -54,7 +54,7 @@ export default function PostServerComment(props) {
           className="flex flex-row items-center justify-center px-6 py-2 bg-olive-800 rounded cursor-pointer hover:bg-olive-900 transition duration-300"
           onClick={submit}
         >
-          <span className="text-[20px] text-white">Post</span>
+          <span className="text-xl text-white">Post</span>
         </div>
       </div>
     </div>

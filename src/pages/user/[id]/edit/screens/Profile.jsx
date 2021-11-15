@@ -71,7 +71,7 @@ export default function Profile(props) {
           className="flex flex-row items-center justify-center px-3 py-1 bg-olive-800 rounded cursor-pointer hover:bg-olive-700 transition duration-300"
           onClick={submit}
         >
-          <span className="font-medium text-[20px] text-white text-opacity-80 select-none">
+          <span className="font-medium text-xl text-white text-opacity-80 select-none">
             Save Changes
           </span>
         </div>
