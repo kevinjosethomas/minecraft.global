@@ -66,8 +66,7 @@ export default function Searchbar(props) {
           />
         )}
       </AnimatePresence>
-
-      <div ref={node} className="relative flex flex-row items-center justify-start w-full">
+      <div ref={node} className="relative flex flex-row items-center justify-start w-full mt-2">
         <input
           value={input}
           className="z-30 flex flex-row items-center justify-start w-full h-[75px] px-6 mr-[8px] text-2xl text-white text-opacity-60 placeholder-white placeholder-opacity-60 bg-white bg-opacity-[0.06] rounded-[12px] focus:outline-none"
