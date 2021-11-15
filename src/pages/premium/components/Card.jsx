@@ -36,8 +36,8 @@ export default function Card(props) {
       >
         <div className="flex flex-col items-start justify-center w-full h-48 px-5 bg-gradient-to-br from-olive-800 to-olive-930">
           <div className="flex flex-row items-center justify-center py-1 px-4 space-x-1.5 bg-white rounded-full">
-            <i className="fad fa-diamond text-[16px] text-olive-500" />
-            <span className="font-medium text-[16px] text-olive-500 select-none">MONTHLY</span>
+            <i className="fad fa-diamond text-base text-olive-500" />
+            <span className="font-medium text-base text-olive-500 select-none">MONTHLY</span>
           </div>
           <span className="font-bold text-[80px] text-white tracking-tight leading-tight select-none">
             $4.99

@@ -15,14 +15,14 @@ export default function ServerCard(props) {
           <span className="text-2xl text-white text-opacity-80">{props.name}</span>
           <div className="flex flex-row items-center justify-start space-x-3">
             <div className="flex flex-row items-center justify-start space-x-1">
-              <i className="far fa-arrow-alt-up text-[16px] text-white text-olive-500" />
-              <span className="text-[16px] text-white text-opacity-80">
+              <i className="far fa-arrow-alt-up text-base text-white text-olive-500" />
+              <span className="text-base text-white text-opacity-80">
                 {SimplifyNumber(props.monthly_votes, { decimal: 1 })}
               </span>
             </div>
             <div className="flex flex-row items-center justify-start space-x-1">
-              <i className="far fa-user text-[16px] text-white text-olive-500" />
-              <span className="text-[16px] text-white text-opacity-80">
+              <i className="far fa-user text-base text-white text-olive-500" />
+              <span className="text-base text-white text-opacity-80">
                 {SimplifyNumber(props.players_online, { decimal: 1 })}
               </span>
             </div>
