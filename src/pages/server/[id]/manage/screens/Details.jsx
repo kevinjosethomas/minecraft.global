@@ -51,12 +51,12 @@ export default function Details(props) {
         <Input
           label="Server Trailer"
           description="A video that represents your server"
-          value={props.details.discord_url}
-          onChange={(e) => onValueChange("discord_url", e.target.value, 258)}
+          value={props.details.trailer_url}
+          onChange={(e) => onValueChange("trailer_url", e.target.value, 258)}
         />
         <LongDescription
           value={props.details.long_description}
-          onChange={(e) => onValueChange("discord_url", e.target.value, 5000)}
+          onChange={(e) => onValueChange("long_description", e.target.value, 5000)}
         />
       </div>
     </div>
