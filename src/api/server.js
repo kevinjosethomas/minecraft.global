@@ -10,6 +10,20 @@ const GetServerByID = async (id) => {
   }
 };
 
+const GetEditServerByID = async (id, token) => {
+  try {
+    const response = await axios.get(`${process.env.API_URL}/server/${id}`, {
+      headers: {
+        Authorization: token,
+      },
+    });
+
+    return [response.data.payload, null];
+  } catch (e) {
+    return [null, e];
+  }
+};
+
 const GetServerCommentsByID = async (id) => {
   try {
     const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/server/${id}/comments`);
@@ -92,6 +106,7 @@ const ReportServer = async (id, parameters, token) => {
 
 export {
   GetServerByID,
+  GetEditServerByID,
   GetServerCommentsByID,
   GetServerAnalytics,
   GetServerTopVoters,
