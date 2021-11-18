@@ -1,0 +1,174 @@
+[
+  {
+    "label": "Versions",
+    "tags": [
+      {
+        "id": 40,
+        "name": "1.18"
+      },
+      {
+        "id": 39,
+        "name": "1.17"
+      },
+      {
+        "id": 38,
+        "name": "1.16"
+      },
+      {
+        "id": 37,
+        "name": "1.15"
+      },
+      {
+        "id": 36,
+        "name": "1.14"
+      },
+      {
+        "id": 35,
+        "name": "1.13"
+      },
+      {
+        "id": 34,
+        "name": "1.12"
+      },
+      {
+        "id": 33,
+        "name": "1.11"
+      },
+      {
+        "id": 32,
+        "name": "1.10"
+      },
+      {
+        "id": 31,
+        "name": "1.9"
+      },
+      {
+        "id": 30,
+        "name": "1.8"
+      },
+      {
+        "id": 29,
+        "name": "1.7"
+      }
+    ]
+  },
+  {
+    "label": "Minigames",
+    "tags": [
+      {
+        "id": 1,
+        "name": "Parkour"
+      },
+      {
+        "id": 2,
+        "name": "Skywars"
+      },
+      {
+        "id": 3,
+        "name": "Bedwars"
+      },
+      {
+        "id": 4,
+        "name": "Spleef"
+      },
+      {
+        "id": 5,
+        "name": "Party Games"
+      },
+      {
+        "id": 7,
+        "name": "Build Battle"
+      }
+    ]
+  },
+  {
+    "label": "Features",
+    "tags": [
+      {
+        "id": 7,
+        "name": "Anti-Grief"
+      },
+      {
+        "id": 8,
+        "name": "Vanilla"
+      },
+      {
+        "id": 9,
+        "name": "Creative"
+      },
+      {
+        "id": 10,
+        "name": "Survival"
+      },
+      {
+        "id": 12,
+        "name": "Plots"
+      },
+      {
+        "id": 13,
+        "name": "Towny"
+      },
+      {
+        "id": 14,
+        "name": "Pixelmon"
+      },
+      {
+        "id": 15,
+        "name": "Tekkit"
+      },
+      {
+        "id": 16,
+        "name": "Roleplay"
+      },
+      {
+        "id": 17,
+        "name": "MCMMO"
+      },
+      {
+        "id": 18,
+        "name": "Economy"
+      },
+      {
+        "id": 19,
+        "name": "SkyBlock"
+      },
+      {
+        "id": 20,
+        "name": "PvP"
+      },
+      {
+        "id": 21,
+        "name": "Factions"
+      }
+    ]
+  },
+  {
+    "label": "Languages",
+    "tags": [
+      {
+        "id": 23,
+        "name": "English"
+      },
+      {
+        "id": 24,
+        "name": "Española"
+      },
+      {
+        "id": 25,
+        "name": "Türk"
+      },
+      {
+        "id": 26,
+        "name": "bahasa Indonesia"
+      },
+      {
+        "id": 27,
+        "name": "Ngôn ngữ tiếng Việt"
+      },
+      {
+        "id": 28,
+        "name": "Tagalog"
+      }
+    ]
+  }
+]

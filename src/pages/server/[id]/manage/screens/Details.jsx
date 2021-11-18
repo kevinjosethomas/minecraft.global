@@ -1,3 +1,4 @@
+import Tags from "../components/Tags";
 import Input from "../components/Input";
 import TextArea from "../components/TextArea";
 import Properties from "../components/Properties";
@@ -33,6 +34,7 @@ export default function Details(props) {
           onChange={(e) => onValueChange("description", e.target.value, 150)}
           required
         />
+        <Tags tags={props.details.tags} setDetails={props.setDetails} />
         <Properties details={props.details} setDetails={props.setDetails} />
         <Input
           label="Server Website"

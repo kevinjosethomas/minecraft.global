@@ -1,7 +1,7 @@
 import fs from "fs";
 import axios from "axios";
 
-import categories from "./tags.mjs";
+const categories = JSON.parse(await fs.readFileSync("./categories.json"));
 
 (async () => {
   try {
