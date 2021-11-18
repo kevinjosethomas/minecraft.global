@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
 import TagsModal from "ui/components/TagsModal/Tags";
 
 export default function Tags(props) {
   const [modal, showModal] = useState(false);
+
+  useEffect(() => {
+    if (modal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [modal]);
 
   return (
     <div className="flex flex-row items-center justify-between w-full space-x-8">
