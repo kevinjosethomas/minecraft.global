@@ -11,7 +11,7 @@ export default function TextArea(props) {
       <textarea
         value={props.value}
         onChange={props.onChange}
-        className="min-w-[450px] min-h-[175px] p-3 text-lg text-white text-opacity-80 resize-none bg-white bg-opacity-5 border-2 border-white border-opacity-10 focus:outline-none rounded-md"
+        className="min-w-[450px] min-h-[200px] p-3 text-lg text-white text-opacity-80 resize-none bg-white bg-opacity-5 border-2 border-white border-opacity-10 focus:outline-none rounded-md"
       />
     </div>
   );
