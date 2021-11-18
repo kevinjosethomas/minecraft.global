@@ -1,7 +1,14 @@
+import toast from "react-hot-toast";
+
 export default function Tag(props) {
   const selected = props.tags.includes(props.name);
 
   const select = () => {
+    if (props.tags.length >= props.limit) {
+      toast.error(`You can only select ${props.limit} tag${props.limit !== 1 && "s"}!`);
+      return;
+    }
+
     props.setTags((d) => ({ ...d, tags: [...d.tags, props.name] }));
   };
 

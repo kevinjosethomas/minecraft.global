@@ -31,7 +31,13 @@ export default function TagsModal(props) {
               <p className="text-4xl text-white text-opacity-80">{category.label}</p>
               <div className="flex flex-row items-center justify-start w-full flex-wrap">
                 {category.tags.map((tag, index) => (
-                  <Tag key={index} tags={props.tags} setTags={props.setTags} {...tag} />
+                  <Tag
+                    key={index}
+                    limit={props.limit}
+                    tags={props.tags}
+                    setTags={props.setTags}
+                    {...tag}
+                  />
                 ))}
               </div>
             </div>

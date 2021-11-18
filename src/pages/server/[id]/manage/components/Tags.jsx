@@ -17,7 +17,12 @@ export default function Tags(props) {
       <div className="flex flex-col items-start justify-start min-w-[450px]">
         <AnimatePresence>
           {modal && (
-            <TagsModal showModal={showModal} tags={props.tags} setTags={props.setDetails} />
+            <TagsModal
+              showModal={showModal}
+              tags={props.tags}
+              setTags={props.setDetails}
+              limit={5}
+            />
           )}
         </AnimatePresence>
         <div
