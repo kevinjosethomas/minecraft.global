@@ -1,5 +1,7 @@
 import Input from "../components/Input";
 import TextArea from "../components/TextArea";
+import Properties from "../components/Properties";
+import LongDescription from "../components/LongDescription";
 
 export default function Details(props) {
   function onValueChange(key, value, max) {
@@ -9,7 +11,7 @@ export default function Details(props) {
 
   return (
     <div className="flex flex-col items-start justify-start w-full">
-      <div className="flex flex-col items-start justify-start w-full space-y-6">
+      <div className="flex flex-col items-start justify-start w-full space-y-8">
         <Input
           label="Server Name"
           description="Your server's name"
@@ -31,6 +33,7 @@ export default function Details(props) {
           onChange={(e) => onValueChange("description", e.target.value, 150)}
           required
         />
+        <Properties details={props.details} setDetails={props.setDetails} />
         <Input
           label="Server Website"
           description="Your server's website (prefix with https://)"
@@ -48,6 +51,10 @@ export default function Details(props) {
           description="A video that represents your server"
           value={props.details.discord_url}
           onChange={(e) => onValueChange("discord_url", e.target.value, 258)}
+        />
+        <LongDescription
+          value={props.details.long_description}
+          onChange={(e) => onValueChange("discord_url", e.target.value, 5000)}
         />
       </div>
     </div>
