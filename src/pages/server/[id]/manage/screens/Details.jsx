@@ -1,4 +1,5 @@
 import Input from "../components/Input";
+import TextArea from "../components/TextArea";
 
 export default function Details(props) {
   function onValueChange(key, value, max) {
@@ -13,13 +14,40 @@ export default function Details(props) {
           label="Server Name"
           description="Your server's name"
           value={props.details.name}
-          onChange={(e) => onChange("name", e.target.value, 32)}
+          onChange={(e) => onValueChange("name", e.target.value, 32)}
+          required
         />
         <Input
           label="Server Address"
           description="Your server's IP address + port"
           value={props.details.host}
-          onChange={(e) => onChange("host", e.target.value, 258)}
+          onChange={(e) => onValueChange("host", e.target.value, 258)}
+          required
+        />
+        <TextArea
+          label="Server Description"
+          description="Brief description about your server"
+          value={props.details.description}
+          onChange={(e) => onValueChange("description", e.target.value, 150)}
+          required
+        />
+        <Input
+          label="Server Website"
+          description="Your server's website (prefix with https://)"
+          value={props.details.website_url}
+          onChange={(e) => onValueChange("website_url", e.target.value, 258)}
+        />
+        <Input
+          label="Server Discord"
+          description="Invite to your server's Discord community"
+          value={props.details.discord_url}
+          onChange={(e) => onValueChange("discord_url", e.target.value, 258)}
+        />
+        <Input
+          label="Server Trailer"
+          description="A video that represents your server"
+          value={props.details.discord_url}
+          onChange={(e) => onValueChange("discord_url", e.target.value, 258)}
         />
       </div>
     </div>

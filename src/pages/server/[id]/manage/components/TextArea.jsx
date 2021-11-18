@@ -1,4 +1,4 @@
-export default function Input(props) {
+export default function TextArea(props) {
   return (
     <div className="flex flex-row items-start justify-between w-full space-x-8">
       <div className="flex flex-col items-start justify-start">
@@ -8,10 +8,10 @@ export default function Input(props) {
         </p>
         <p className="text-lg text-white text-opacity-60 leading-tight">{props.description}</p>
       </div>
-      <input
+      <textarea
         value={props.value}
         onChange={props.onChange}
-        className="min-w-[450px] min-h-[50px] p-3 text-lg text-white text-opacity-80 bg-white bg-opacity-5 border-2 border-white border-opacity-10 focus:outline-none rounded-md"
+        className="min-w-[450px] min-h-[175px] p-3 text-lg text-white text-opacity-80 resize-none bg-white bg-opacity-5 border-2 border-white border-opacity-10 focus:outline-none rounded-md"
       />
     </div>
   );
