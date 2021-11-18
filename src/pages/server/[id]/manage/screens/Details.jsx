@@ -28,7 +28,7 @@ export default function Details(props) {
         />
         <TextArea
           label="Server Description"
-          description="Brief description about your server"
+          description="Brief description about your server! Make it attractive enough so players fall for your server in the few seconds they take to read it!"
           value={props.details.description}
           onChange={(e) => onValueChange("description", e.target.value, 150)}
           required

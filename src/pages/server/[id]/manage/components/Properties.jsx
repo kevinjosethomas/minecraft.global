@@ -3,7 +3,9 @@ export default function Properties(props) {
     <div className="flex flex-row items-start justify-between w-full space-x-8">
       <div className="flex flex-col items-start justify-start">
         <p className="text-2xl text-white text-opacity-80">Server Properties</p>
-        <p className="text-lg text-white text-opacity-60 leading-tight">{props.description}</p>
+        <p className="text-lg text-white text-opacity-60 leading-tight">
+          Select the options that apply to your server
+        </p>
       </div>
       <div className="flex flex-col items-start justify-start min-w-[450px]">
         <Checkbox
