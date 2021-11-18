@@ -8,12 +8,17 @@ import { GetEditServerByID } from "api/server";
 import Navigation from "./components/Navigation";
 
 export default function ManageServer(props) {
-  const [screen, setScreen] = useState("information");
+  const [screen, setScreen] = useState("details");
 
   return (
     <Default user={props.user}>
       <div className="flex flex-row items-start justify-start w-full space-x-6">
-        <Navigation name={props.server.name} favicon={props.server.favicon} />
+        <Navigation
+          screen={screen}
+          setScreen={setScreen}
+          name={props.server.name}
+          favicon={props.server.favicon}
+        />
       </div>
     </Default>
   );

@@ -37,9 +37,15 @@ export default function Navigation(props) {
       <Identity name={props.name} favicon={props.favicon} />
       <div className="flex flex-col items-start justify-start w-full px-2 space-y-1.5">
         {screens.map((screen, index) => (
-          <div key={index} className="flex flex-row items-center justify-start w-full space-x-2.5">
+          <div
+            key={index}
+            className="flex flex-row items-center justify-start w-full space-x-2.5 cursor-pointer"
+            onClick={() => props.setScreen(screen.name)}
+          >
             <i
-              className={`${screen.icon} w-[25px] text-xl text-center text-white text-opacity-90`}
+              className={`${screen.icon} w-[25px] text-xl text-center ${
+                props.screen === screen.name ? "text-olive-500" : "text-white text-opacity-90"
+              }`}
             />
             <span className="text-xl text-white text-opacity-90">{screen.label}</span>
           </div>
