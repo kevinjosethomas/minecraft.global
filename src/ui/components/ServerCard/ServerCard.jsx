@@ -17,10 +17,13 @@ export default function ServerCard(props) {
       <div className="flex flex-row items-start justify-start space-x-3 w-full">
         <Favicon favicon={props.favicon} name={props.name} />
         <Identity
+          user={props.user}
           name={props.name}
           host={props.host}
           port={props.port}
           premium={props.premium}
+          owner_id={props.owner_id}
+          server_id={props.server_id}
           monthly_votes={props.monthly_votes}
           players_online={props.players_online}
         />

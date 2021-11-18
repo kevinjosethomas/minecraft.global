@@ -55,7 +55,7 @@ export default function Servers(props) {
       >
         <div className="flex flex-col items-start justify-start w-full space-y-0.5 rounded-[12px] overflow-hidden">
           {results.map((server, index) => (
-            <ServerCard key={index} index={index} {...server} animate />
+            <ServerCard key={index} index={index} user={props.user} {...server} animate />
           ))}
         </div>
       </InfiniteScroll>

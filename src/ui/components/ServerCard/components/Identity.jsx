@@ -26,10 +26,12 @@ export default function Identity(props) {
             </Link>
           )}
         </div>
-
         <Meta monthly_votes={props.monthly_votes} players_online={props.players_online} />
       </div>
-      <CopyButton host={props.host} port={props.port} />
+      <div className="flex flex-row items-center justify-start space-x-2">
+        {props.owner_id === props.user.user_id && <ManageServer server_id={props.server_id} />}
+        <CopyButton host={props.host} port={props.port} />
+      </div>
     </div>
   );
 }
@@ -50,6 +52,16 @@ function Meta(props) {
         </span>
       </div>
     </div>
+  );
+}
+
+function ManageServer(props) {
+  return (
+    <Link href={`/server/${props.server_id}/manage`}>
+      <a className="flex flex-row items-center justify-center px-3 py-2 bg-olive-600 bg-opacity-25 hover:bg-opacity-50 rounded-[6px] select-none transition duration-300">
+        <i className="far fa-tools text-lg text-white" />
+      </a>
+    </Link>
   );
 }
 

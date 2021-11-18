@@ -70,7 +70,7 @@ export default function Servers(props) {
         {results
           .filter((result) => result.results.length)
           .map((result, index) => (
-            <ServerCollection key={index} {...result} />
+            <ServerCollection key={index} user={props.user} {...result} />
           ))}
       </div>
     </InfiniteScroll>
@@ -113,7 +113,13 @@ function ServerCollection(props) {
       </div>
       <div className="flex flex-col items-start justify-start w-full space-y-0.5 rounded-[12px] overflow-hidden">
         {props.results.map((server, serverindex) => (
-          <ServerCard key={server.server_id} index={serverindex + 3} {...server} animate />
+          <ServerCard
+            key={server.server_id}
+            user={props.user}
+            index={serverindex + 3}
+            {...server}
+            animate
+          />
         ))}
       </div>
     </div>

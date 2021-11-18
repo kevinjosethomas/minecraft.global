@@ -9,7 +9,7 @@ import ServerCard from "ui/components/ServerCard/ServerCard";
 export default function Servers(props) {
   return (
     <div className="flex flex-row items-start justify-center w-full space-x-8">
-      <ServerList name={props.name} servers={props.servers} />
+      <ServerList name={props.name} servers={props.servers} user={props.user} />
       <Info
         user_id={props.user_id}
         user={props.user}
@@ -33,7 +33,7 @@ function ServerList(props) {
       </motion.h2>
       <div className="flex flex-col items-start justify-start w-full space-y-0.5 rounded-[12px] overflow-hidden">
         {props.servers.map((server, index) => (
-          <ServerCard key={index} index={index + 3} {...server} animate />
+          <ServerCard key={index} index={index + 3} user={props.user} {...server} animate />
         ))}
       </div>
     </div>
