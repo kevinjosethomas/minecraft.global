@@ -116,6 +116,18 @@ const EditServer = async (id, data, token) => {
   }
 };
 
+const DeleteServer = async (id, token) => {
+  try {
+    const response = await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/server/${id}/delete`, {
+      headers: { Authorization: token },
+    });
+
+    return [response, null];
+  } catch (e) {
+    return [null, e];
+  }
+};
+
 export {
   GetServerByID,
   GetEditServerByID,
@@ -126,4 +138,5 @@ export {
   EditServerComment,
   ReportServer,
   EditServer,
+  DeleteServer,
 };
