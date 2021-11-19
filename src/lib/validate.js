@@ -192,7 +192,7 @@ const validate = {
 
     return true;
   },
-  votifier_host: (v) => {
+  votifier_port: (v) => {
     if (!v) {
       return true;
     }
