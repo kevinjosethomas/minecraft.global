@@ -58,20 +58,6 @@ const GetServerTopVoters = async (id) => {
   }
 };
 
-const EditServerComment = async (comment_id, server_id, content, token) => {
-  try {
-    const response = await axios.put(
-      `${process.env.NEXT_PUBLIC_API_URL}/server/${server_id}/comment/${comment_id}/edit`,
-      { content: content },
-      { headers: { Authorization: token } }
-    );
-
-    return [response.data, null];
-  } catch (e) {
-    return [null, e];
-  }
-};
-
 const PostComment = async (id, content, token) => {
   try {
     const response = await axios.post(
@@ -83,6 +69,20 @@ const PostComment = async (id, content, token) => {
     );
 
     return [response.data.payload, null];
+  } catch (e) {
+    return [null, e];
+  }
+};
+
+const EditServerComment = async (comment_id, server_id, content, token) => {
+  try {
+    const response = await axios.put(
+      `${process.env.NEXT_PUBLIC_API_URL}/server/${server_id}/comment/${comment_id}/edit`,
+      { content: content },
+      { headers: { Authorization: token } }
+    );
+
+    return [response.data, null];
   } catch (e) {
     return [null, e];
   }
@@ -104,6 +104,18 @@ const ReportServer = async (id, parameters, token) => {
   }
 };
 
+const EditServer = async (id, data, token) => {
+  try {
+    const response = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/server/${id}/edit`, data, {
+      headers: { Authorization: token },
+    });
+
+    return [response, null];
+  } catch (e) {
+    return [null, e];
+  }
+};
+
 export {
   GetServerByID,
   GetEditServerByID,
@@ -113,4 +125,5 @@ export {
   PostComment,
   EditServerComment,
   ReportServer,
+  EditServer,
 };
