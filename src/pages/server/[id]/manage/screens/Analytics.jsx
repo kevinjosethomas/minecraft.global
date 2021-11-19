@@ -1,21 +1,8 @@
 import { useState } from "react";
 
-import Input from "../components/Input";
+import Link from "next/link";
 
 export default function Votifier(props) {
-  const [username, setUsername] = useState("");
-
-  function onValueChange(key, value, max) {
-    let formatted = max ? value.substring(0, max) : value;
-    if (key === "votifier_port") {
-      formatted = formatted.replace(/[^0-9]/g, "");
-      if (formatted < 0 || formatted > 65535) {
-        return;
-      }
-    }
-    props.setDetails((d) => ({ ...d, votifier: { ...d.votifier, [key]: formatted } }));
-  }
-
   return (
     <div className="flex flex-col items-start justify-start w-full space-y-10">
       <div className="flex flex-row items-center justify-between w-full space-x-8">
@@ -56,9 +43,11 @@ export default function Votifier(props) {
           <p className="text-xl text-center text-white text-opacity-90 select-none">
             Unlock Server Analytics and dozens of other features and grow your server immediately!
           </p>
-          <div className="flex flex-row items-center justify-center px-6 py-2 space-x-2 bg-olive-800 hover:bg-olive-900 rounded transition duration-300 cursor-pointer">
-            <p className="text-2xl text-white select-none">See Other Perks</p>
-          </div>
+          <Link href="/premium">
+            <a className="flex flex-row items-center justify-center px-6 py-2 space-x-2 bg-olive-800 hover:bg-olive-900 rounded transition duration-300 cursor-pointer">
+              <p className="text-2xl text-white select-none">See Other Perks</p>
+            </a>
+          </Link>
         </div>
       </div>
     </div>

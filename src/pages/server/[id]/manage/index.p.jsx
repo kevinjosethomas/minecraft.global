@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import Details from "./screens/Details";
 import Default from "ui/layouts/Default";
+import Webhooks from "./screens/Webhooks";
 import { GetDefaultData } from "api/core";
 import Votifier from "./screens/Votifier";
 import Analytics from "./screens/Analytics";
@@ -86,6 +87,8 @@ export default function ManageServer(props) {
             <Votifier details={details} setDetails={setDetails} />
           ) : screen.name === "analytics" ? (
             <Analytics />
+          ) : screen.name === "webhooks" ? (
+            <Webhooks details={details} setDetails={setDetails} />
           ) : (
             <></>
           )}
