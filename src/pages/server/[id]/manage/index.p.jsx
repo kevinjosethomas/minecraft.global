@@ -4,6 +4,7 @@ import { useState } from "react";
 import Details from "./screens/Details";
 import Default from "ui/layouts/Default";
 import { GetDefaultData } from "api/core";
+import Votifier from "./screens/Votifier";
 import { GetLoggedInUser } from "api/login";
 import { GetEditServerByID } from "api/server";
 import Navigation from "./components/Navigation";
@@ -80,6 +81,8 @@ export default function ManageServer(props) {
           </div>
           {screen.name === "details" ? (
             <Details details={details} setDetails={setDetails} />
+          ) : screen.name === "votifier" ? (
+            <Votifier details={details} setDetails={setDetails} />
           ) : (
             <></>
           )}
