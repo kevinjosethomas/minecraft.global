@@ -29,7 +29,7 @@ export default function Identity(props) {
         <Meta monthly_votes={props.monthly_votes} players_online={props.players_online} />
       </div>
       <div className="flex flex-row items-center justify-start space-x-2">
-        {props.owner_id === props.user.user_id && <ManageServer server_id={props.server_id} />}
+        {props.owner_id === props.user?.user_id && <ManageServer server_id={props.server_id} />}
         <CopyButton host={props.host} port={props.port} />
       </div>
     </div>
