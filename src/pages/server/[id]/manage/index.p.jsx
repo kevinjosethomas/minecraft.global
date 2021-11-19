@@ -55,6 +55,13 @@ export default function ManageServer(props) {
     discord_url: props.server.discord_url || "",
     trailer_url: props.server.trailer_url || "",
     long_description: props.server.long_description,
+    dsc_webhook_url: props.server.dsc_webhook_url || "",
+    dsc_webhook_msg: props.server.dsc_webhook_msg || "",
+    votifier: {
+      votifier_host: props.server.votifier_host || "",
+      votifier_port: props.server.votifier_port || "",
+      votifier_token: props.server.votifier_token || "",
+    },
   });
 
   return (
