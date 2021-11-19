@@ -1,6 +1,7 @@
 import Cookies from "cookies";
 import { useState } from "react";
 
+import Delete from "./screens/Delete";
 import Details from "./screens/Details";
 import Default from "ui/layouts/Default";
 import Webhooks from "./screens/Webhooks";
@@ -33,11 +34,11 @@ export default function ManageServer(props) {
       label: "Webhooks",
       icon: "fab fa-discord",
     },
-    {
-      name: "rcon",
-      label: "RCON Console",
-      icon: "far fa-tools",
-    },
+    // {
+    //   name: "rcon",
+    //   label: "RCON Console",
+    //   icon: "far fa-tools",
+    // },
     {
       name: "delete",
       label: "Delete",
@@ -78,9 +79,11 @@ export default function ManageServer(props) {
           favicon={props.server.favicon}
         />
         <div className="flex flex-col items-start justify-start w-full p-8 space-y-4 bg-olive-950 border-2 border-olive-930 rounded-lg">
-          <div className="flex flex-row items-center justify-start w-full">
-            <h1 className="font-medium text-4xl text-white text-opacity-90">{screen.label}</h1>
-          </div>
+          {screen.name != "delete" && (
+            <div className="flex flex-row items-center justify-start w-full">
+              <h1 className="font-medium text-4xl text-white text-opacity-90">{screen.label}</h1>
+            </div>
+          )}
           {screen.name === "details" ? (
             <Details details={details} setDetails={setDetails} />
           ) : screen.name === "votifier" ? (
@@ -89,6 +92,8 @@ export default function ManageServer(props) {
             <Analytics />
           ) : screen.name === "webhooks" ? (
             <Webhooks details={details} setDetails={setDetails} />
+          ) : screen.name === "delete" ? (
+            <Delete />
           ) : (
             <></>
           )}

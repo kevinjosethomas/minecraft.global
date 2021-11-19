@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import Link from "next/link";
 
-export default function Votifier(props) {
+export default function Analytics(props) {
   return (
     <div className="flex flex-col items-start justify-start w-full space-y-10">
       <div className="flex flex-row items-center justify-between w-full space-x-8">

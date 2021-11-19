@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import Input from "../components/Input";
 
-export default function Votifier(props) {
+export default function Webhooks(props) {
   const [username, setUsername] = useState("");
 
   function onValueChange(key, value, max) {
