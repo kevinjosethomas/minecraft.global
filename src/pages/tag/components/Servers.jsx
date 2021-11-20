@@ -48,6 +48,7 @@ export default function Servers(props) {
         </span>
       </div>
       <InfiniteScroll
+        className="w-full"
         pageStart={0}
         loadMore={loadMore}
         hasMore={props.results.total_records > results.length}

@@ -8,7 +8,7 @@ import ServerCard from "ui/components/ServerCard/ServerCard";
 
 export default function Servers(props) {
   return (
-    <div className="flex flex-row items-start justify-center w-full space-x-8">
+    <div className="flex flex-col md:flex-row items-start justify-center w-full space-y-6 md:space-y-0 md:space-x-8">
       <ServerList name={props.name} servers={props.servers} user={props.user} />
       <Info
         user_id={props.user_id}
@@ -22,14 +22,14 @@ export default function Servers(props) {
 
 function ServerList(props) {
   return (
-    <div className="flex flex-col items-start justify-start w-full space-y-4">
+    <div className="flex flex-col items-start justify-start w-full space-y-2 md:space-y-4">
       <motion.h2
-        className="font-medium text-4xl text-white text-opacity-90"
+        className="font-medium text-3xl md:text-4xl text-white text-opacity-90"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3, delay: 0.4 }}
       >
-        {props.name}&apos;s servers
+        Servers
       </motion.h2>
       <div className="flex flex-col items-start justify-start w-full space-y-0.5 rounded-[12px] overflow-hidden">
         {props.servers.map((server, index) => (
@@ -60,11 +60,11 @@ function Info(props) {
   }, []);
 
   return (
-    <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px] space-y-6">
-      <div className="flex flex-col items-start justify-start w-full">
+    <div className="flex flex-col items-start justify-start w-full md:min-w-[400px] md:w-[400px] md:max-w-[400px] space-y-4">
+      <div className="flex flex-col items-start justify-start w-full space-y-1 md:space-y-2">
         <div className="flex flex-row items-center justify-start">
           <motion.h3
-            className="font-medium text-4xl text-white text-opacity-90"
+            className="font-medium text-3xl md:text-4xl text-white text-opacity-90"
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.4 }}
@@ -84,14 +84,14 @@ function Info(props) {
       </div>
       {props.user?.user_id === props.user_id && (
         <motion.div
-          className="flex flex-col items-start justify-start w-full p-5 space-y-2 bg-olive-940 rounded-[8px]"
+          className="flex flex-col items-start justify-start w-full p-5 space-y-2 bg-olive-950 rounded"
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.3, delay: 0.7 }}
         >
-          <h3 className="font-medium text-3xl text-white text-opacity-90">Manage Billing</h3>
+          <h3 className="text-3xl text-white text-opacity-80">Manage Billing</h3>
           <Link href={`/user/${props.user.user_id}/edit`}>
-            <a className="flex flex-row items-center justify-center w-full py-1 bg-olive-900 hover:bg-olive-800 transition duration-300 rounded-[8px]">
+            <a className="flex flex-row items-center justify-center w-full py-2 bg-olive-900 hover:bg-olive-800 transition duration-300 rounded">
               <span className="text-2xl text-white text-opacity-90">View Payments</span>
             </a>
           </Link>
@@ -104,7 +104,7 @@ function Info(props) {
 function Field(props) {
   return (
     <div className="flex flex-row items-center justify-start">
-      <h3 className="font-medium text-2xl text-white text-opacity-90">
+      <h3 className="font-medium text-xl md:text-2xl text-white text-opacity-90">
         {props.label} <span className="font-normal text-white text-opacity-60">{props.value}</span>
       </h3>
     </div>

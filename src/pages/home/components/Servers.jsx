@@ -89,7 +89,7 @@ function ServerCollection(props) {
       <div className="flex flex-row items-center justify-between w-full">
         <div className="flex flex-col items-start justify-start">
           <motion.h2
-            className="text-2xl md:text-4xl text-white text-opacity-80 leading-tight"
+            className="text-xl md:text-4xl text-white text-opacity-80 leading-tight"
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
@@ -97,7 +97,7 @@ function ServerCollection(props) {
             {props.name}
           </motion.h2>
           <motion.p
-            className="md:text-xl text-white text-opacity-60 leading-tight"
+            className="text-xs md:text-xl text-white text-opacity-60 leading-tight"
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.2 }}
@@ -107,12 +107,14 @@ function ServerCollection(props) {
         </div>
         <Link href={props.tag ? `/tag/${props.tag}` : "/search?sort=popular"} passHref>
           <motion.a
-            className="group flex flex-row items-center justify-center px-3 md:px-4 py-1 md:py-2 space-x-2 bg-olive-600 bg-opacity-25 hover:bg-opacity-50 rounded-[6px] select-none transition duration-300"
+            className="group flex flex-row items-center justify-center px-2.5 md:px-3 md:px-4 py-0.5 md:py-1 md:py-2 space-x-2 bg-olive-600 bg-opacity-25 hover:bg-opacity-50 rounded-[6px] select-none transition duration-300"
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
           >
-            <span className="font-medium md:text-lg text-white">See More</span>
+            <span className="font-medium text-sm md:text-lg text-white whitespace-nowrap">
+              See More
+            </span>
             <i className="far fa-angle-right text-lg text-white group-hover:translate-x-0.5 transform duration-300" />
           </motion.a>
         </Link>
