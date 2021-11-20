@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (min-width: 1024px) and (max-width: 1279px) {
+  body {
+    zoom: 80%;
+  }
+}
+
 html,
 body {
   width: 100% !important;
