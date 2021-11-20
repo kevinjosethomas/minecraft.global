@@ -16,6 +16,12 @@ body {
   @apply bg-dark-900;
 }
 
+code {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 8px;
+  border-radius: 4px;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -34,10 +40,10 @@ body {
   visibility: visible;
 }
 
-code {
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 5px 8px;
-  border-radius: 4px;
+.no-scrollbar::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar-track,
+.no-scrollbar::-webkit-scrollbar-thumb {
+  display: none;
 }
 
 .format-links a {

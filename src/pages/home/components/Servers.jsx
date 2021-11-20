@@ -65,7 +65,13 @@ export default function Servers(props) {
   };
 
   return (
-    <InfiniteScroll pageStart={0} loadMore={loadMore} hasMore={canFetchmore} loader={<Loading />}>
+    <InfiniteScroll
+      className="w-full"
+      pageStart={0}
+      loadMore={loadMore}
+      hasMore={canFetchmore}
+      loader={<Loading />}
+    >
       <div className="flex flex-col items-start justify-start w-full space-y-8 rounded-[12px] overflow-hidden">
         {results
           .filter((result) => result.results.length)
@@ -79,11 +85,11 @@ export default function Servers(props) {
 
 function ServerCollection(props) {
   return (
-    <div className="flex flex-col items-start justify-start w-full space-y-2">
+    <div className="flex flex-col items-start justify-start w-full space-y-2 overflow-x-hidden">
       <div className="flex flex-row items-center justify-between w-full">
         <div className="flex flex-col items-start justify-start">
           <motion.h2
-            className="text-4xl text-white text-opacity-80 leading-tight"
+            className="text-2xl md:text-4xl text-white text-opacity-80 leading-tight"
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
@@ -91,7 +97,7 @@ function ServerCollection(props) {
             {props.name}
           </motion.h2>
           <motion.p
-            className="text-xl text-white text-opacity-60 leading-tight"
+            className="md:text-xl text-white text-opacity-60 leading-tight"
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.2 }}
@@ -101,12 +107,12 @@ function ServerCollection(props) {
         </div>
         <Link href={props.tag ? `/tag/${props.tag}` : "/search?sort=popular"} passHref>
           <motion.a
-            className="group flex flex-row items-center justify-center px-4 py-2 space-x-2 bg-olive-600 bg-opacity-25 hover:bg-opacity-50 rounded-[6px] select-none transition duration-300"
+            className="group flex flex-row items-center justify-center px-3 md:px-4 py-1 md:py-2 space-x-2 bg-olive-600 bg-opacity-25 hover:bg-opacity-50 rounded-[6px] select-none transition duration-300"
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
           >
-            <span className="font-medium text-lg text-white">See More</span>
+            <span className="font-medium md:text-lg text-white">See More</span>
             <i className="far fa-angle-right text-lg text-white group-hover:translate-x-0.5 transform duration-300" />
           </motion.a>
         </Link>

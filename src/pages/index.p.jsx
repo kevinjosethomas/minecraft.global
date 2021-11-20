@@ -18,7 +18,7 @@ export default function Home(props) {
 
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search header>
-      <div className="flex flex-row items-start justify-center w-full space-x-8">
+      <div className="flex flex-row items-start justify-center w-full md:space-x-8">
         <Servers user={props.user} defaultResults={props.defaultResults} />
         <Sidebar />
       </div>

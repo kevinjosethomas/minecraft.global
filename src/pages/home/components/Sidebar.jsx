@@ -4,7 +4,7 @@ import TopTags from "./TopTags";
 
 export default function Sidebar() {
   return (
-    <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px] space-y-8">
+    <div className="hidden md:flex flex-col items-start justify-start min-w-[400px] max-w-[400px] space-y-8">
       <Discord />
       <Advertising />
       <Premium />

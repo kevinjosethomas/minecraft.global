@@ -14,7 +14,7 @@ export default function ServerCard(props) {
       server_id={props.server_id}
       premium={props.premium}
     >
-      <div className="flex flex-row items-start justify-start space-x-3 w-full">
+      <div className="flex flex-row items-center justify-start space-x-3 w-full overflow-x-hidden">
         <Favicon favicon={props.favicon} name={props.name} />
         <Identity
           user={props.user}
@@ -43,7 +43,7 @@ const Container = (props) => {
     <Link href={`/server/${props.server_id}`} passHref>
       {props.animate ? (
         <motion.div
-          className={`flex flex-col items-start justify-start w-full p-6 space-y-2 ${background} transition duration-300 cursor-pointer`}
+          className={`flex flex-col items-start justify-start w-full p-4 md:p-6 space-y-1 md:space-y-2 ${background} transition duration-300 cursor-pointer overflow-x-hidden`}
           initial={{ x: -10, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.2, delay: props.index * 0.1 }}
@@ -52,7 +52,7 @@ const Container = (props) => {
         </motion.div>
       ) : (
         <div
-          className={`flex flex-col items-start justify-start w-full p-6 space-y-2 ${background} transition duration-300 cursor-pointer`}
+          className={`flex flex-col items-start justify-start w-full p-4 md:p-6 space-y-1 md:space-y-2 ${background} transition duration-300 cursor-pointer overflow-x-hidden`}
         >
           {props.children}
         </div>
