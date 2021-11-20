@@ -5,7 +5,7 @@ import Default from "ui/layouts/Default";
 import { GetDefaultData } from "api/core";
 import { GetLoggedInUser } from "api/login";
 import Servers from "./home/components/Servers";
-import TopTags from "./home/components/TopTags";
+import Sidebar from "./home/components/Sidebar";
 
 export default function Home(props) {
   const router = useRouter();
@@ -20,9 +20,7 @@ export default function Home(props) {
     <Default user={props.user} defaultResults={props.defaultResults} search header>
       <div className="flex flex-row items-start justify-center w-full space-x-8">
         <Servers user={props.user} defaultResults={props.defaultResults} />
-        <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px]">
-          <TopTags />
-        </div>
+        <Sidebar />
       </div>
     </Default>
   );
