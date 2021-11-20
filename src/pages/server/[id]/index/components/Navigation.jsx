@@ -25,7 +25,7 @@ export default function Navigation(props) {
             />
           </AnimateSharedLayout>
         </div>
-        <Options showReportModal={props.showReportModal} />
+        <Options user={props.user} server={props.server} showReportModal={props.showReportModal} />
       </div>
       <div className="w-full h-[3px] bg-white bg-opacity-10" />
     </motion.div>

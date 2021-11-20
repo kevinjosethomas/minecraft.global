@@ -40,7 +40,13 @@ export default function Server(props) {
           premium={props.server.premium}
         />
         <div className="flex flex-col items-start justify-start w-full space-y-8">
-          <Navigation screen={screen} setScreen={setScreen} showReportModal={showReportModal} />
+          <Navigation
+            screen={screen}
+            user={props.user}
+            server={props.server}
+            setScreen={setScreen}
+            showReportModal={showReportModal}
+          />
           <div className="flex flex-row items-start justify-start w-full space-x-8">
             <div className="flex flex-col items-start justify-start w-full">
               {screen === "overview" ? (

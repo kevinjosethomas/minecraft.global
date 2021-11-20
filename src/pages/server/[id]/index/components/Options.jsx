@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 import OnOutsideClick from "react-outclick";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -15,7 +16,12 @@ export default function Options(props) {
       </div>
       <AnimatePresence>
         {dropdown && (
-          <Dropdown showDropdown={showDropdown} showReportModal={props.showReportModal} />
+          <Dropdown
+            user={props.user}
+            server={props.server}
+            showDropdown={showDropdown}
+            showReportModal={props.showReportModal}
+          />
         )}
       </AnimatePresence>
     </div>
@@ -23,6 +29,8 @@ export default function Options(props) {
 }
 
 function Dropdown(props) {
+  const router = useRouter();
+
   return (
     <OnOutsideClick onOutsideClick={() => props.showDropdown(false)}>
       <motion.div
@@ -32,6 +40,12 @@ function Dropdown(props) {
         exit={{ y: 10, opacity: 0 }}
         transition={{ duration: 0.3 }}
       >
+        {props.server.owner_id === props.user?.user_id && (
+          <DropdownItem
+            label="Manage Server"
+            onClick={() => router.push(`/server/${props.server.server_id}/manage`)}
+          />
+        )}
         <DropdownItem label="Report Server" onClick={() => props.showReportModal(true)} />
       </motion.div>
     </OnOutsideClick>
