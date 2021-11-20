@@ -58,7 +58,7 @@ function Badges(props) {
 
 function Buttons(props) {
   return (
-    <div className="flex flex-row md:flex-col items-center justify-center w-full space-x-2 md:space-x-0 md:space-y-2">
+    <div className="flex flex-row md:flex-col items-center justify-center w-full md:w-auto space-x-2 md:space-x-0 md:space-y-2">
       {props.user_id === props.user?.user_id && (
         <Link href={`/user/${props.user?.user_id}/edit`}>
           <a className="flex flex-row items-center justify-center w-full px-2 md:px-5 py-2 space-x-2 md:space-x-3 bg-blue-700 bg-opacity-40 rounded md:rounded-lg border-2 border-blue-900 cursor-pointer hover:scale-[1.01] transition duration-300">
