@@ -198,7 +198,7 @@ export default function ManageServer(props) {
           ) : screen.name === "webhooks" ? (
             <Webhooks details={details} setDetails={setDetails} />
           ) : screen.name === "delete" ? (
-            <Delete />
+            <Delete user={props.user} server={props.server} />
           ) : (
             <></>
           )}

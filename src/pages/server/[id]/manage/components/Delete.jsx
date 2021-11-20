@@ -29,7 +29,10 @@ export default function Delete(props) {
           <div className="flex flex-row items-center justify-center px-8 py-3 bg-olive-900 hover:bg-olive-800 rounded cursor-pointer transition duration-300">
             <p className="font-medium text-3xl text-white text-opacity-90 select-none">Go Back</p>
           </div>
-          <div className="flex flex-row items-center justify-center px-8 py-3 bg-red-900 hover:bg-red-800 rounded cursor-pointer transition duration-300">
+          <div
+            className="flex flex-row items-center justify-center px-8 py-3 bg-red-900 hover:bg-red-800 rounded cursor-pointer transition duration-300"
+            onClick={props.submit}
+          >
             <p className="font-medium text-3xl text-white text-opacity-90 select-none">Confirm</p>
           </div>
         </div>
