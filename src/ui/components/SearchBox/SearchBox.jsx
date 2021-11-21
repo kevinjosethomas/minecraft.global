@@ -7,7 +7,9 @@ import Searchbar from "./components/Searchbar";
 export default function SearchBox(props) {
   return (
     <motion.div
-      className="hidden md:flex flex-col items-start justify-start w-full"
+      className={`hidden md:flex flex-col items-start justify-start w-full ${
+        !props.header && "!mt-0"
+      }`}
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3 }}

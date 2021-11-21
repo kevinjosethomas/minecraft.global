@@ -18,7 +18,7 @@ export default function Navbar(props) {
   }, [mobile]);
 
   return (
-    <Fragment>
+    <div className="flex flex-row items-center justify-center w-full">
       <div className="hidden md:flex flex-row items-center justify-between py-[32px] w-full">
         <Links />
         <User user={props.user} />
@@ -38,6 +38,6 @@ export default function Navbar(props) {
       <AnimatePresence>
         {mobile && <MobileNavbar user={props.user} setMobile={setMobile} />}
       </AnimatePresence>
-    </Fragment>
+    </div>
   );
 }
