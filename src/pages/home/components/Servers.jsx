@@ -42,7 +42,7 @@ export default function Servers(props) {
     const tag = results[page].tag;
     const resultsCopy = [...results];
 
-    const [response, error] = await SearchByTag(tag, 4);
+    const [response, error] = await SearchByTag(tag, { amount: 4 });
 
     if (error) {
       toast.error("Failed to fetch servers :(");

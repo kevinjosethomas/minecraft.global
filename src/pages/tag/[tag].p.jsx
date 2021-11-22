@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import tags from "lib/tags.json";
 import Sort from "./components/Sort";
+import Filter from "./components/Filter";
 import { SearchByTag } from "api/search";
 import Default from "ui/layouts/Default";
 import { GetDefaultData } from "api/core";
@@ -9,14 +10,27 @@ import Servers from "./components/Servers";
 import { GetLoggedInUser } from "api/login";
 
 export default function Tag(props) {
-  const [sort, setSort] = useState("upvotes");
+  const [parameters, setParameters] = useState({
+    sort: "upvotes",
+    online: true,
+    premium: false,
+    whitelisted: false,
+    bedrock: false,
+    cracked: false,
+  });
 
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search>
       <div className="flex flex-row items-start j+ustify-center w-full space-x-8">
-        <Servers tag={props.tag} results={props.results} sort={sort} user={props.user} />
-        <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px]">
-          <Sort sort={sort} setSort={setSort} />
+        <Servers
+          tag={props.tag}
+          user={props.user}
+          results={props.results}
+          parameters={parameters}
+        />
+        <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px] space-y-6">
+          <Sort parameters={parameters} setParameters={setParameters} />
+          <Filter parameters={parameters} setParameters={setParameters} />
         </div>
       </div>
     </Default>
@@ -39,7 +53,7 @@ export async function getServerSideProps(ctx) {
 
     const user = GetLoggedInUser(ctx);
     const data = GetDefaultData(ctx);
-    const results = SearchByTag(tag, 12, 0);
+    const results = SearchByTag(tag, { amount: 12 });
 
     const [userdata, defaultdata, resultsdata] = await Promise.all([user, data, results]);
 

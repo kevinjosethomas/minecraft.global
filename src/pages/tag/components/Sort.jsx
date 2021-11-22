@@ -2,7 +2,7 @@ import { motion, AnimateSharedLayout } from "framer-motion";
 
 export default function Sort(props) {
   return (
-    <div className="flex flex-col items-start justify-start space-y-1">
+    <div className="flex flex-col items-start justify-start w-full space-y-1">
       <motion.span
         className="font-medium text-3xl text-white text-opacity-90"
         initial={{ y: 10, opacity: 0 }}
@@ -21,14 +21,14 @@ export default function Sort(props) {
           <Option
             label="Upvotes"
             icon="far fa-arrow-alt-up"
-            onClick={() => props.setSort("upvotes")}
-            active={props.sort === "upvotes"}
+            onClick={() => props.setParameters((p) => ({ ...p, sort: "upvotes" }))}
+            active={props.parameters.sort === "upvotes"}
           />
           <Option
             label="Players"
             icon="far fa-stars"
-            onClick={() => props.setSort("players")}
-            active={props.sort === "players"}
+            onClick={() => props.setParameters((p) => ({ ...p, sort: "players" }))}
+            active={props.parameters.sort === "players"}
           />
         </AnimateSharedLayout>
       </motion.div>

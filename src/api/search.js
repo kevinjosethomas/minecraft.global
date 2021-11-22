@@ -12,12 +12,15 @@ const SearchByQuery = async (query, amount) => {
   }
 };
 
-const SearchByTag = async (tag, amount, offset, sort) => {
+const SearchByTag = async (tag, parameters) => {
   try {
+    const params = new URLSearchParams({
+      ...parameters,
+      tags: encodeURIComponent(tag),
+    });
+
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/search?tags=${encodeURIComponent(
-        tag
-      )}&amount=${amount}&offset=${offset || 0}&sort=${sort || "upvotes"}`
+      `${process.env.NEXT_PUBLIC_API_URL}/search?${params.toString()}`
     );
 
     return [response.data, null];

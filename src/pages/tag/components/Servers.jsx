@@ -11,7 +11,11 @@ export default function Servers(props) {
   const [resultCount, setResultCount] = useState(props.results.total_records);
 
   const loadMore = async (page) => {
-    const [response, error] = await SearchByTag(props.tag, 12, page * 12, props.sort);
+    const [response, error] = await SearchByTag(props.tag, {
+      amount: 12,
+      offset: page * 12,
+      ...props.parameters,
+    });
 
     if (error) {
       toast.error("Failed to fetch servers :(");
@@ -28,7 +32,10 @@ export default function Servers(props) {
 
   useEffect(() => {
     (async () => {
-      const [response, error] = await SearchByTag(props.tag, 12, 0, props.sort);
+      const [response, error] = await SearchByTag(props.tag, {
+        ...props.parameters,
+        amount: 12,
+      });
 
       if (error) {
         toast.error("Failed to fetch servers :(");
@@ -37,7 +44,7 @@ export default function Servers(props) {
 
       setResults([...response.payload.entries]);
     })();
-  }, [props.sort]);
+  }, [props.parameters]);
 
   return (
     <div className="flex flex-col items-start justify-start w-full space-y-3">
