@@ -11,6 +11,7 @@ export default function Servers(props) {
   const [resultCount, setResultCount] = useState(props.results.total_records);
 
   const loadMore = async (page) => {
+    console.log("kai");
     const [response, error] = await SearchByTag(props.tag, {
       amount: 12,
       offset: page * 12,
@@ -26,12 +27,14 @@ export default function Servers(props) {
   };
 
   useEffect(() => {
+    console.log("bye");
     setResults([...props.results.entries]);
     setResultCount(props.results.total_records);
   }, [props.results]);
 
   useEffect(() => {
     (async () => {
+      console.log("hi");
       const [response, error] = await SearchByTag(props.tag, {
         ...props.parameters,
         amount: 12,
@@ -54,19 +57,36 @@ export default function Servers(props) {
           Showing about {resultCount} results...
         </span>
       </div>
-      <InfiniteScroll
-        className="w-full"
-        pageStart={0}
-        loadMore={loadMore}
-        hasMore={props.results.total_records > results.length}
-        loading={<Loading />}
-      >
-        <div className="flex flex-col items-start justify-start w-full space-y-0.5 rounded-[12px] overflow-hidden">
-          {results.map((server, index) => (
-            <ServerCard key={index} index={index} user={props.user} {...server} animate />
-          ))}
+      {results.length !== 0 ? (
+        <InfiniteScroll
+          className="w-full"
+          pageStart={0}
+          loadMore={loadMore}
+          hasMore={props.results.total_records > results.length}
+          loading={<Loading />}
+        >
+          <div className="flex flex-col items-start justify-start w-full space-y-0.5 rounded-[12px] overflow-hidden">
+            {results.map((server, index) => (
+              <ServerCard key={index} index={index} user={props.user} {...server} animate />
+            ))}
+          </div>
+        </InfiniteScroll>
+      ) : (
+        <div className="flex flex-row items-center justify-center w-full !mt-10 space-x-4">
+          <img
+            src="/images/creeper.png"
+            alt="Not Found Creeper Illustration"
+            className="w-48 filter saturate-0"
+            draggable="false"
+          />
+          <div className="flex flex-col items-start justify-start">
+            <p className="font-medium text-4xl text-white text-opacity-90">No Results Found...</p>
+            <p className="max-w-sm text-2xl text-white text-opacity-60">
+              We couldn't find any servers that match your filters :(
+            </p>
+          </div>
         </div>
-      </InfiniteScroll>
+      )}
     </div>
   );
 }
