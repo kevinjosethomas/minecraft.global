@@ -11,7 +11,10 @@ export default function Servers(props) {
   const [resultCount, setResultCount] = useState(props.results.total_records);
 
   const loadMore = async (page) => {
-    console.log("kai");
+    if (results.length < page * 12) {
+      return;
+    }
+
     const [response, error] = await SearchByTag(props.tag, {
       amount: 12,
       offset: page * 12,
@@ -27,7 +30,6 @@ export default function Servers(props) {
   };
 
   useEffect(() => {
-    console.log("bye");
     setResults([...props.results.entries]);
     setResultCount(props.results.total_records);
   }, [props.results]);
