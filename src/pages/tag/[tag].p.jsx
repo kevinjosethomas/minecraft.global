@@ -3,11 +3,11 @@ import { useState } from "react";
 import tags from "lib/tags.json";
 import Sort from "./components/Sort";
 import Filter from "./components/Filter";
-import { SearchByTag } from "api/search";
 import Default from "ui/layouts/Default";
 import { GetDefaultData } from "api/core";
 import Servers from "./components/Servers";
 import { GetLoggedInUser } from "api/login";
+import { GetSearchResults } from "api/search";
 
 export default function Tag(props) {
   const [parameters, setParameters] = useState({
@@ -51,43 +51,45 @@ export async function getServerSideProps(ctx) {
       };
     }
 
-    const user = GetLoggedInUser(ctx);
-    const data = GetDefaultData(ctx);
-    const results = SearchByTag(tag, { amount: 12 });
+    const [user, data, results] = await Promise.all([
+      GetLoggedInUser(ctx),
+      GetDefaultData(ctx),
+      GetSearchResults({ tag: encodeURIComponent(tag), amount: 12 }),
+    ]);
 
-    const [userdata, defaultdata, resultsdata] = await Promise.all([user, data, results]);
-
-    if (defaultdata[1]) {
+    if (data[1]) {
       return {
         props: {
-          error: defaultdata[1].response?.status || 500,
+          error: data[1].response?.status || 500,
         },
       };
     }
 
-    if (resultsdata[1]) {
+    if (results[1]) {
       return {
         props: {
-          error: resultsdata[1].response?.status || 500,
+          error: results[1].response?.status || 500,
         },
       };
     }
 
-    if (userdata[1]) {
+    console.log(results[0].payload.entries[0].name);
+
+    if (user[1]) {
       return {
         props: {
           tag: tag,
-          results: resultsdata[0].payload,
-          defaultResults: defaultdata[0],
+          results: results[0].payload,
+          defaultResults: data[0],
         },
       };
     } else {
       return {
         props: {
           tag: tag,
-          user: userdata[0],
-          results: resultsdata[0].payload,
-          defaultResults: defaultdata[0],
+          user: user[0],
+          results: results[0].payload,
+          defaultResults: data[0],
         },
       };
     }

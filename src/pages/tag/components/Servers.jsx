@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
 
-import { SearchByTag } from "api/search";
+import { GetSearchResults } from "api/search";
 import ServerCard from "ui/components/ServerCard/ServerCard";
 
 export default function Servers(props) {
@@ -15,7 +15,8 @@ export default function Servers(props) {
       return;
     }
 
-    const [response, error] = await SearchByTag(props.tag, {
+    const [response, error] = await GetSearchResults({
+      tag: encodeURIComponent(props.tag),
       amount: 12,
       offset: page * 12,
       ...props.parameters,
@@ -37,8 +38,9 @@ export default function Servers(props) {
   useEffect(() => {
     (async () => {
       console.log("hi");
-      const [response, error] = await SearchByTag(props.tag, {
+      const [response, error] = await GetSearchResults({
         ...props.parameters,
+        tag: encodeURIComponent(props.tag),
         amount: 12,
       });
 

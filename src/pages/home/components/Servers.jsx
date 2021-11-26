@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
 
 import tags from "lib/tags.json";
-import { SearchByTag } from "api/search";
+import { GetSearchResults } from "api/search";
 import ServerCard from "ui/components/ServerCard/ServerCard";
 
 export default function Servers(props) {
@@ -42,7 +42,9 @@ export default function Servers(props) {
     const tag = results[page].tag;
     const resultsCopy = [...results];
 
-    const [response, error] = await SearchByTag(tag, { amount: 4 });
+    const [response, error] = await GetSearchResults({ tags: tag, amount: 4 });
+
+    console.log(response);
 
     if (error) {
       toast.error("Failed to fetch servers :(");

@@ -4,7 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import { useRef, useEffect, useState, Fragment } from "react";
 
 import Popup from "./Popup";
-import { SearchByQuery } from "api/search";
+import { GetSearchResults } from "api/search";
 
 export default function Searchbar(props) {
   const router = useRouter();
@@ -40,8 +40,13 @@ export default function Searchbar(props) {
         setPreviewResults(props.defaultResults);
         return;
       }
-      const [response, error] = await SearchByQuery(query, 9);
-      setPreviewResults(response.entries.length ? response.entries : null);
+
+      const [response, error] = await GetSearchResults({
+        query: query,
+        sort: "upvotes",
+        amount: 9,
+      });
+      setPreviewResults(response.payload.entries.length ? response.payload.entries : null);
     })();
   }, [query]);
 
