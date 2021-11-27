@@ -52,7 +52,7 @@ export default function Server(props) {
               {screen === "overview" ? (
                 <Overview long_description={props.server.long_description} />
               ) : (
-                <Comments server_id={props.server.server_id} />
+                <Comments server_id={props.server.server_id} user={props.user} />
               )}
             </div>
             <Sidebar {...props.server} />
