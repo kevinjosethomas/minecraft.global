@@ -20,6 +20,7 @@ export default function Searchbar(props) {
     if (e.key) {
       if (e.key === "Enter" && input) {
         router.push(`/search?q=${input}`);
+        showPopup(false);
       }
     } else {
       if (input) {
