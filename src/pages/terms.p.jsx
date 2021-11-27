@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import Default from "ui/layouts/Default";
 import { GetDefaultData } from "api/core";
 import { GetLoggedInUser } from "api/login";
@@ -26,7 +28,7 @@ export default function Terms(props) {
             This is the grant of a license, not a transfer of title, and under this license you may
             not:
           </p>
-          <ol className="list-disc">
+          <ol className="list-disc list-inside">
             <li className="tracking-wide text-white text-opacity-60">
               modify or copy the materials;
             </li>
@@ -110,8 +112,12 @@ export default function Terms(props) {
 
         <div className="flex flex-col items-start justify-center">
           <h2 className="font-bold text-4xl text-white text-opacity-80">8. Your Privacy</h2>
-          <p className="tracking-wide text-white text-opacity-60">
-            Please read our Privacy Policy.
+          <p className="tracking-wide text-white text-opacity-60 format-links">
+            Please read our{" "}
+            <Link href="/privacy">
+              <a>Privacy Policy</a>
+            </Link>
+            .
           </p>
         </div>
 

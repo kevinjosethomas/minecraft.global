@@ -58,7 +58,7 @@ export default function Links(props) {
       links: [
         {
           name: "Privacy Policy",
-          href: "/partners",
+          href: "/privacy",
         },
         {
           name: "Terms of Service",

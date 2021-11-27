@@ -47,7 +47,7 @@ code {
 }
 
 .format-links a {
-  @apply text-olive-600;
+  @apply text-olive-500;
   text-decoration: underline;
 }
 
