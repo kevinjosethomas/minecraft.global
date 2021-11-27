@@ -6,7 +6,7 @@ export default function Privacy(props) {
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search>
       <div className="flex flex-col items-start justify-start w-full space-y-10">
-        <span className="font-bold text-6xl text-white text-opacity-80">Privacy Policy</span>
+        <h1 className="font-bold text-6xl text-white text-opacity-80">Privacy Policy</h1>
 
         <div className="flex flex-col items-start justify-center">
           <p className="tracking-wide text-white text-opacity-60">

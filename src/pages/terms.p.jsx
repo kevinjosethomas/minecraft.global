@@ -8,7 +8,7 @@ export default function Terms(props) {
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search>
       <div className="flex flex-col items-start justify-start w-full space-y-10">
-        <span className="font-bold text-6xl text-white text-opacity-80">Terms of Service</span>
+        <h1 className="font-bold text-6xl text-white text-opacity-80">Terms of Service</h1>
         <div className="flex flex-col items-start justify-center">
           <h2 className="font-bold text-4xl text-white text-opacity-80">1. Terms</h2>
           <p className="tracking-wide text-white text-opacity-60">
