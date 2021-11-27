@@ -5,7 +5,10 @@ import Properties from "../components/Properties";
 import LongDescription from "../components/LongDescription";
 
 export default function Details(props) {
-  function onValueChange(key, value, max) {
+  function onValueChange(key, value, max, premium) {
+    if (premium && !props.server.premium) {
+      return;
+    }
     let formatted = max ? value.substring(0, max) : value;
     props.setDetails((d) => ({ ...d, [key]: formatted }));
   }
@@ -26,6 +29,14 @@ export default function Details(props) {
           value={props.details.host}
           onChange={(e) => onValueChange("host", e.target.value, 258)}
           required
+        />
+        <Input
+          label="Server Vanity URL"
+          description="A custom URL for your server"
+          value={props.details.vanity}
+          onChange={(e) => onValueChange("vanity", e.target.value, 258, true)}
+          server={props.server}
+          premium
         />
         <TextArea
           label="Server Description"

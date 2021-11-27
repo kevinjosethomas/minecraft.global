@@ -1,10 +1,23 @@
+import dynamic from "next/dynamic";
+
+const ReactTooltip = dynamic(() => import("react-tooltip"), {
+  ssr: false,
+});
+
 export default function Input(props) {
   return (
     <div className="flex flex-row items-start justify-between w-full space-x-8">
-      <div className="flex flex-col items-start justify-start">
+      <ReactTooltip
+        effect="solid"
+        className="!bg-olive-800 !border-2 !border-olive-930 !text-white !text-opacity-90 !rounded-md"
+      />
+      <div className="flex flex-col items-start justify-start !ml-0">
         <p className="text-2xl text-white text-opacity-80">
           {props.label}
           {props.required && <span className="ml-1 text-xl text-red-800 select-none">*</span>}
+          {props.premium && (
+            <i className="fad fa-diamond ml-2 text-2xl text-olive-500" data-tip="Premium Feature" />
+          )}
         </p>
         <p className="text-lg text-white text-opacity-60 leading-tight">{props.description}</p>
       </div>

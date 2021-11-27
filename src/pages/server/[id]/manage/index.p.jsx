@@ -54,6 +54,7 @@ export default function ManageServer(props) {
   const [details, setDetails] = useState({
     name: props.server.name,
     host: props.server.host + (props.server.port ? `:${props.server.port}` : ""),
+    vanity: props.server.vanity || "",
     description: props.server.description,
     tags: [...props.server.tags],
     whitelisted: props.server.whitelisted,
@@ -94,6 +95,7 @@ export default function ManageServer(props) {
     const data = { ...details };
 
     const optional = [
+      "vanity",
       "website_url",
       "discord_url",
       "trailer_url",
@@ -190,7 +192,7 @@ export default function ManageServer(props) {
             </div>
           )}
           {screen.name === "details" ? (
-            <Details details={details} setDetails={setDetails} />
+            <Details server={props.server} details={details} setDetails={setDetails} />
           ) : screen.name === "votifier" ? (
             <Votifier details={details} setDetails={setDetails} />
           ) : screen.name === "analytics" ? (

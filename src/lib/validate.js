@@ -25,6 +25,19 @@ const validate = {
 
     return true;
   },
+  vanity: (v) => {
+    if (!v) {
+      return true;
+    }
+
+    if (v.length < 3) {
+      return "Server vanity URL must be atleast 3 characters";
+    } else if (v.length > 32) {
+      return "Server vanity URL must be under 32 characters";
+    }
+
+    return true;
+  },
   description: (v) => {
     if (!v) {
       return "Server description is a required field";
