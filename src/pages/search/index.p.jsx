@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Sort from "./components/Sort";
 import Servers from "./components/Servers";
@@ -18,6 +18,10 @@ export default function Search(props) {
     bedrock: false,
     cracked: false,
   });
+
+  useEffect(() => {
+    setParameters((p) => ({ ...p, query: props.query }));
+  }, [props.query]);
 
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search header>
