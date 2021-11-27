@@ -44,8 +44,6 @@ export default function Servers(props) {
 
     const [response, error] = await GetSearchResults({ tags: tag, amount: 4 });
 
-    console.log(response);
-
     if (error) {
       toast.error("Failed to fetch servers :(");
       return;

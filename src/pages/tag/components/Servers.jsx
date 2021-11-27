@@ -37,7 +37,6 @@ export default function Servers(props) {
 
   useEffect(() => {
     (async () => {
-      console.log("hi");
       const [response, error] = await GetSearchResults({
         ...props.parameters,
         tag: encodeURIComponent(props.tag),
