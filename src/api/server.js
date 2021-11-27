@@ -58,6 +58,16 @@ const GetServerTopVoters = async (id) => {
   }
 };
 
+const GetRandomServerID = async () => {
+  try {
+    const response = await axios.get(`${process.env.API_URL}/server/random/id`);
+
+    return [response.data.payload, null];
+  } catch (e) {
+    return [null, e];
+  }
+};
+
 const PostComment = async (id, content, token) => {
   try {
     const response = await axios.post(
@@ -134,6 +144,7 @@ export {
   GetServerCommentsByID,
   GetServerAnalytics,
   GetServerTopVoters,
+  GetRandomServerID,
   PostComment,
   EditServerComment,
   ReportServer,
