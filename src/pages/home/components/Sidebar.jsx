@@ -6,7 +6,7 @@ export default function Sidebar() {
   return (
     <div className="hidden md:flex flex-col items-start justify-start min-w-[400px] max-w-[400px] space-y-8">
       <Discord />
-      <Advertising />
+      {/* <Advertising /> */}
       <Premium />
       <TopTags />
     </div>

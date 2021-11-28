@@ -41,7 +41,7 @@ function Default() {
       <Element icon="far fa-home-alt" label="Discover" href="/" />
       <Element icon="far fa-search" label="Search" href="/search" />
       <Element icon="far fa-badge-dollar" label="Premium" href="/premium" />
-      <Element icon="far fa-stars" label="Advertise" href="/auctions" />
+      {/* <Element icon="far fa-stars" label="Advertise" href="/auctions" /> */}
     </div>
   );
 }

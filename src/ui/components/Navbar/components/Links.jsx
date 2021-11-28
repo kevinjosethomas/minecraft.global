@@ -7,11 +7,11 @@ export default function Links(props) {
       label: "Premium",
       href: "/premium",
     },
-    {
-      icon: "far fa-stars",
-      label: "Advertise",
-      href: "/auctions",
-    },
+    // {
+    //   icon: "far fa-stars",
+    //   label: "Advertise",
+    //   href: "/auctions",
+    // },
   ];
 
   const socials = [
