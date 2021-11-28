@@ -1,5 +1,7 @@
 import Link from "next/link";
+import cookie from "js-cookie";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 import OnOutsideClick from "react-outclick";
 
 export default function Dropdown(props) {
@@ -33,6 +35,8 @@ function Identity(props) {
 }
 
 function Links(props) {
+  const router = useRouter();
+
   return (
     <div className="flex flex-col items-start justify-start w-full py-2 px-3">
       <Link href={`/user/${props.id}`}>
@@ -57,7 +61,13 @@ function Links(props) {
           </span>
         </a>
       </Link>
-      <div className="flex flex-row items-center justify-start w-full py-1 pl-4 pr-14 space-x-2 hover:bg-black hover:bg-opacity-30 select-none cursor-pointer transition duration-300 rounded">
+      <div
+        className="flex flex-row items-center justify-start w-full py-1 pl-4 pr-14 space-x-2 hover:bg-black hover:bg-opacity-30 select-none cursor-pointer transition duration-300 rounded"
+        onClick={() => {
+          cookie.remove("token");
+          router.reload();
+        }}
+      >
         <i className="far fa-sign-out w-[30px] text-2xl text-white text-opacity-60" />
         <span className="text-2xl text-white text-opacity-60 whitespace-nowrap">Log Out</span>
       </div>

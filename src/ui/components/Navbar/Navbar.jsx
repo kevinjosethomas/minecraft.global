@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import User from "./components/User";
 import Links from "./components/Links";
