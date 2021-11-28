@@ -128,6 +128,18 @@ const ReportServer = async (id, parameters, token) => {
   }
 };
 
+async function UpvoteServer(server_id, username, captcha) {
+  try {
+    const upvote = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/server/${server_id}/vote`, {
+      minecraft_username: username,
+      captcha_response: captcha,
+    });
+    return [upvote.data.payload, null];
+  } catch (e) {
+    return [null, e];
+  }
+}
+
 const EditServer = async (id, data, token) => {
   try {
     const response = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/server/${id}/edit`, data, {
@@ -163,6 +175,7 @@ export {
   PostComment,
   EditServerComment,
   ReportServer,
+  UpvoteServer,
   EditServer,
   DeleteServer,
 };

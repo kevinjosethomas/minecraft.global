@@ -1,8 +1,11 @@
+import moment from "moment";
 import Link from "next/link";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import ReCAPTCHA from "react-google-recaptcha";
 
+import { UpvoteServer } from "api/server";
 import Identity from "../components/Identity";
 
 export default function Upvote(props) {
@@ -15,6 +18,32 @@ export default function Upvote(props) {
 
   const onChange = (code) => {
     setCaptchaCode(code);
+  };
+
+  const submit = async () => {
+    const [response, error] = await UpvoteServer(props.server_id, username, captchaCode);
+
+    if (error) {
+      switch (error.response?.status) {
+        case 401:
+          toast.error("Invalid captcha, please reload and try again!");
+          break;
+        case 422:
+          toast.error("Invalid username, please try again!");
+          break;
+        case 429:
+          const vote = moment(error.response.data.payload.detail.last_vote)
+            .add(18, "hours")
+            .fromNow();
+          toast.error(`Too early! You can vote again in ${vote}`);
+          break;
+        default:
+          toast.error("An unknown error occured, please try again later!");
+      }
+      return;
+    }
+
+    toast.success("Successfully upvoted the server! Check out other servers in the meantime!");
   };
 
   return (
@@ -44,7 +73,14 @@ export default function Upvote(props) {
             <span className="text-2xl text-white text-opacity-80 select-none">Go Back</span>
           </a>
         </Link>
-        <div className="flex flex-row items-center justify-center w-full py-2 bg-olive-900 cursor-pointer rounded hover:bg-olive-800 transition duration-300">
+        <div
+          className={`flex flex-row items-center justify-center w-full py-2 ${
+            username && captchaCode
+              ? "bg-olive-900 hover:bg-olive-800 cursor-pointer transition duration-300"
+              : "bg-olive-940 cursor-not-allowed"
+          } rounded`}
+          onClick={() => (username && captchaCode ? submit() : void 0)}
+        >
           <span className="text-2xl text-white text-opacity-80 select-none">Upvote</span>
         </div>
       </div>
