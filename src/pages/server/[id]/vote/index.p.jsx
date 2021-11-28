@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import Back from "./components/Back";
 import Default from "ui/layouts/Default";
 import Upvote from "./components/Upvote";
@@ -10,6 +12,49 @@ import TopVoters from "./components/TopVoters";
 export default function UpvoteServer(props) {
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search>
+      <Head>
+        <title>Vote for {props.server.name} - Minecraft Server List</title>
+
+        <link
+          rel="canonical"
+          href={`https://minecraft.global/server/${props.server.server_id}/vote`}
+        />
+
+        <meta name="title" content={`Vote - ${props.server.name}`} />
+        <meta
+          name="description"
+          content={`Vote for ${props.server.name}! ${props.server.description}`}
+        />
+
+        <meta property="og:title" content={`Vote - ${props.server.name}`} />
+        <meta
+          property="og:description"
+          content={`Vote for ${props.server.name} here! ${props.server.description}`}
+        />
+        <meta
+          property="og:image"
+          content={`https://api.minecraft.global/server/${props.server.server_id}/favicon`}
+        />
+
+        <meta property="twitter:title" content={`Vote - ${props.server.name}`} />
+        <meta
+          property="twitter:description"
+          content={`Vote for ${props.server.name}! ${props.server.description}`}
+        />
+        <meta
+          property="twitter:image"
+          content={`https://api.minecraft.global/server/${props.server.server_id}/favicon`}
+        />
+
+        <meta
+          name="keywords"
+          content={`${props.server.name}, ${props.server.name} IP Address, ${
+            props.server.name
+          } Vote, ${props.server.name} Discord, ${props.server.tags.join(
+            " minecraft servers, "
+          )} minecraft servers`}
+        />
+      </Head>
       <div className="flex flex-col items-start justify-start w-full space-y-6">
         <Back server_id={props.server.server_id} />
         <div className="flex flex-row items-start justify-start w-full space-x-8">

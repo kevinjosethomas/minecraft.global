@@ -19,7 +19,12 @@ export default function Premium(props) {
   }, [modal]);
 
   return (
-    <Default user={props.user} defaultResults={props.defaultResults} search>
+    <Default
+      user={props.user}
+      defaultResults={props.defaultResults}
+      title="Premium - Minecraft Server List"
+      search
+    >
       <AnimatePresence>
         {modal && <Confirm user={props.user} showModal={showModal} />}
       </AnimatePresence>

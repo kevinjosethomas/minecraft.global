@@ -11,7 +11,12 @@ export default function User(props) {
     : "/images/steve.png";
 
   return (
-    <Default user={props.user} defaultResults={props.defaultResults} search>
+    <Default
+      user={props.user}
+      defaultResults={props.defaultResults}
+      title={`${props.userinfo.name} - Minecraft Server List`}
+      search
+    >
       <div className="flex flex-col items-center justify-center w-full space-y-8">
         <Header avatar={avatar} {...props.userinfo} user={props.user} />
         <Servers

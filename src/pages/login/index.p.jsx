@@ -9,7 +9,7 @@ import { GetLoggedInUser, LoginWithGoogle } from "api/login";
 
 export default function Login(props) {
   return (
-    <Default user={props.user}>
+    <Default user={props.user} title="Login - Minecraft Server List">
       <div className="flex flex-col items-center justify-center w-full 2xl:py-12 3xl:py-28 space-y-6">
         <motion.h1
           className="font-bold text-5xl text-white text-opacity-90 leading-tight"

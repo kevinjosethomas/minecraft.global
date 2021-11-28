@@ -175,7 +175,7 @@ export default function ManageServer(props) {
   };
 
   return (
-    <Default user={props.user}>
+    <Default user={props.user} title={`${props.server.name} - Minecraft Server List`}>
       <div className="flex flex-row items-start justify-start w-full space-x-6">
         <Navigation
           screen={screen}

@@ -20,7 +20,12 @@ export default function Tag(props) {
   });
 
   return (
-    <Default user={props.user} defaultResults={props.defaultResults} search>
+    <Default
+      user={props.user}
+      defaultResults={props.defaultResults}
+      title={`${props.tag} Servers - Minecraft Server List`}
+      search
+    >
       <div className="flex flex-row items-start j+ustify-center w-full space-x-8">
         <Servers
           tag={props.tag}

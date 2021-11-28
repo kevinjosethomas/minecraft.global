@@ -4,7 +4,12 @@ import { GetLoggedInUser } from "api/login";
 
 export default function Privacy(props) {
   return (
-    <Default user={props.user} defaultResults={props.defaultResults} search>
+    <Default
+      user={props.user}
+      defaultResults={props.defaultResults}
+      title="Privacy Policy - Minecraft Server List"
+      search
+    >
       <div className="flex flex-col items-start justify-start w-full space-y-10">
         <h1 className="font-bold text-6xl text-white text-opacity-80">Privacy Policy</h1>
 

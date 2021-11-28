@@ -18,9 +18,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <Fragment>
       <Head>
-        <title>Minecraft Server List - minecraft.global</title>
-
-        {!router.pathname.toLowerCase().startsWith("/server/[id]") ? (
+        {!router.pathname.toLowerCase().startsWith("/server/[id]") && (
           <Fragment>
             <meta
               name="keywords"
@@ -43,8 +41,6 @@ function MyApp({ Component, pageProps }) {
               content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
             />
           </Fragment>
-        ) : (
-          <Fragment></Fragment>
         )}
 
         <meta property="og:type" content="website" />

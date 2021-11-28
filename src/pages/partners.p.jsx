@@ -21,7 +21,12 @@ export default function Partners(props) {
   ];
 
   return (
-    <Default user={props.user} defaultResults={props.defaultResults} search>
+    <Default
+      user={props.user}
+      defaultResults={props.defaultResults}
+      title="Partners - Minecraft Server List"
+      search
+    >
       <div className="flex flex-col items-start justify-start w-full space-y-2">
         <h1 className="font-bold text-6xl text-white text-opacity-90">Partners</h1>
         <div className="grid grid-cols-3 w-full">

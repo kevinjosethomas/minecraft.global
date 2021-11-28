@@ -154,7 +154,11 @@ export default function AddServer(props) {
   };
 
   return (
-    <Default user={props.user} defaultResults={props.defaultResults}>
+    <Default
+      user={props.user}
+      defaultResults={props.defaultResults}
+      title="Add Server - Minecraft Server List"
+    >
       <div className="flex flex-row items-start justify-start w-full space-x-6">
         <Navigation
           submit={submit}

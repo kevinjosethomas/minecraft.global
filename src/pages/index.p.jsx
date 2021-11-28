@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
@@ -17,7 +18,13 @@ export default function Home(props) {
   }, []);
 
   return (
-    <Default user={props.user} defaultResults={props.defaultResults} search header>
+    <Default
+      user={props.user}
+      defaultResults={props.defaultResults}
+      title="Home - Minecraft Server List"
+      search
+      header
+    >
       <div className="flex flex-row items-start justify-center w-full md:space-x-8">
         <Servers user={props.user} defaultResults={props.defaultResults} />
         <Sidebar />
