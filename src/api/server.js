@@ -68,6 +68,20 @@ const GetRandomServerID = async () => {
   }
 };
 
+const NewServer = async (data, token) => {
+  try {
+    const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/server/new`, data, {
+      headers: {
+        Authorization: token,
+      },
+    });
+
+    return [response, null];
+  } catch (e) {
+    return [null, e];
+  }
+};
+
 const PostComment = async (id, content, token) => {
   try {
     const response = await axios.post(
@@ -145,6 +159,7 @@ export {
   GetServerAnalytics,
   GetServerTopVoters,
   GetRandomServerID,
+  NewServer,
   PostComment,
   EditServerComment,
   ReportServer,
