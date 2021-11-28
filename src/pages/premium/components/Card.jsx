@@ -18,7 +18,7 @@ export default function Card(props) {
   ];
 
   const openModal = () => {
-    if (!props.user.servers.length) {
+    if (!props.user.servers.filter((s) => !s.premium).length) {
       toast.error("You don't have any servers :(");
       return;
     }
