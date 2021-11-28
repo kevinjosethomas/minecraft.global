@@ -15,6 +15,8 @@ export default function UpvoteServer(props) {
       <Head>
         <title>Vote for {props.server.name} - Minecraft Server List</title>
 
+        <meta name="robots" content="noindex" />
+
         <link
           rel="canonical"
           href={`https://minecraft.global/server/${props.server.server_id}/vote`}

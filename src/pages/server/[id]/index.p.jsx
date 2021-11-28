@@ -28,17 +28,17 @@ export default function Server(props) {
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search>
       <Head>
-        <title>{props.server.name} - IP Address, Vote, Discord</title>
+        <title>{props.server.name} - Minecraft Server List</title>
 
         <link rel="canonical" href={`https://minecraft.global/server/${props.server.server_id}`} />
 
-        <meta name="title" content={`${props.server.name} - IP Address, Vote, Discord`} />
+        <meta name="title" content={`${props.server.name} - Minecraft Server List`} />
         <meta
           name="description"
           content={`Find ${props.server.name}'s IP Address and Discord here! ${props.server.description}`}
         />
 
-        <meta property="og:title" content={`${props.server.name} - IP Address, Vote, Discord`} />
+        <meta property="og:title" content={`${props.server.name} - Minecraft Server List`} />
         <meta
           property="og:description"
           content={`Find ${props.server.name}'s IP Address and Discord here! ${props.server.description}`}
@@ -48,10 +48,7 @@ export default function Server(props) {
           content={`https://api.minecraft.global/server/${props.server.server_id}/favicon`}
         />
 
-        <meta
-          property="twitter:title"
-          content={`${props.server.name} - IP Address, Vote, Discord`}
-        />
+        <meta property="twitter:title" content={`${props.server.name} - Minecraft Server List`} />
         <meta
           property="twitter:description"
           content={`Find ${props.server.name}'s IP Address and Discord here! ${props.server.description}`}
