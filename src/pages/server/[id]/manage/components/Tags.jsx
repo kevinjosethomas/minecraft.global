@@ -19,7 +19,7 @@ export default function Tags(props) {
       <div className="flex flex-col items-start justify-start">
         <p className="text-2xl text-white text-opacity-80">Server Tags</p>
         <p className="text-lg text-white text-opacity-60 leading-tight">
-          Select up to 5 tags that apply to your server
+          Select up to 5 tags that apply
         </p>
       </div>
       <div className="flex flex-col items-start justify-start min-w-[450px] max-w-[450px]">

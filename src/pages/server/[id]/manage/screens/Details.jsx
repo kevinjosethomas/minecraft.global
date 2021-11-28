@@ -49,13 +49,13 @@ export default function Details(props) {
         <Properties details={props.details} setDetails={props.setDetails} />
         <Input
           label="Server Website"
-          description="Your server's website (prefix with https://)"
+          description="Your server's website (with https://)"
           value={props.details.website_url}
           onChange={(e) => onValueChange("website_url", e.target.value, 258)}
         />
         <Input
           label="Server Discord"
-          description="Invite to your server's Discord community"
+          description="Invite to your server's Discord server"
           value={props.details.discord_url}
           onChange={(e) => onValueChange("discord_url", e.target.value, 258)}
         />

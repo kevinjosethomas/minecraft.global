@@ -4,7 +4,7 @@ export default function Properties(props) {
       <div className="flex flex-col items-start justify-start">
         <p className="text-2xl text-white text-opacity-80">Server Properties</p>
         <p className="text-lg text-white text-opacity-60 leading-tight">
-          Select the options that apply to your server
+          Select the options that apply
         </p>
       </div>
       <div className="flex flex-col items-start justify-start min-w-[450px]">
