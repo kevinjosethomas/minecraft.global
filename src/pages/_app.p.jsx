@@ -1,9 +1,10 @@
 import Head from "next/head";
-import Error from "next/error";
 import Script from "next/script";
 import { Fragment } from "react";
 import { useRouter } from "next/router";
 import { Toaster } from "react-hot-toast";
+
+import _404 from "pages/404.p.jsx";
 
 import "ui/styles/tailwind.css";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -12,7 +13,7 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   if (pageProps.error) {
-    return <Error statusCode={pageProps.error || 500} />;
+    return <_404 error={404} />;
   }
 
   return (
