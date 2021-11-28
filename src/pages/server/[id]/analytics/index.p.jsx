@@ -40,7 +40,11 @@ export default function ServerAnalytics(props) {
   };
 
   return (
-    <Default user={props.user} title={`${props.analytics.name} Analytics - Minecraft Server List`}>
+    <Default
+      user={props.user}
+      title={`${props.analytics.name} Analytics - Minecraft Server List`}
+      noindex
+    >
       <div className="flex flex-col items-start justify-start w-full space-y-5">
         <div className="flex flex-row items-center justify-start space-x-4">
           <img

@@ -11,11 +11,9 @@ import TopVoters from "./components/TopVoters";
 
 export default function UpvoteServer(props) {
   return (
-    <Default user={props.user} defaultResults={props.defaultResults} search>
+    <Default user={props.user} defaultResults={props.defaultResults} search noindex>
       <Head>
         <title>Vote for {props.server.name} - Minecraft Server List</title>
-
-        <meta name="robots" content="noindex" />
 
         <link
           rel="canonical"

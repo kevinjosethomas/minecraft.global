@@ -28,7 +28,7 @@ export default function EditUser(props) {
   const [activeScreen, setActiveScreen] = useState(screens[0]);
 
   return (
-    <Default user={props.user} title={`${props.user.name} - Minecraft Server List`}>
+    <Default user={props.user} title={`${props.user.name} - Minecraft Server List`} noindex>
       <div className="flex flex-col items-start justify-center w-full space-y-4">
         <Navigation
           screens={screens}
