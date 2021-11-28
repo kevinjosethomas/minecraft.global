@@ -249,6 +249,15 @@ export async function getServerSideProps(ctx) {
       };
     }
 
+    if (server[0].owner_id !== user[0].user_id) {
+      return {
+        redirect: {
+          destination: `/server/${server[0].server_id}`,
+          permanent: true,
+        },
+      };
+    }
+
     return {
       props: {
         user: user[0],
