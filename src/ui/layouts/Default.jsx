@@ -13,18 +13,14 @@ const Default = (props) => {
     <Fragment>
       {!router.pathname.toLowerCase().startsWith("/server/[id]") && (
         <Head>
-          <title>{props.title || "Minecraft Server List - Find the best Minecraft servers"}</title>
-          <meta
-            name="title"
-            content="minecraft.global - Find the best Minecraft Servers on the leading Minecraft Server List"
-          />
-          <meta
-            property="og:title"
-            content="minecraft.global - Find the best Minecraft Servers on the leading Minecraft Server List"
-          />
+          <title>
+            {props.title || "Minecraft Server List - Discover the best Minecraft Servers"}
+          </title>
+          <meta name="title" content="minecraft.global - Find the best Minecraft Servers" />
+          <meta property="og:title" content="minecraft.global - Find the best Minecraft Servers" />
           <meta
             property="twitter:title"
-            content="minecraft.global - Find the best Minecraft Servers on the leading Minecraft Server List"
+            content="minecraft.global - Find the best Minecraft Servers"
           />
         </Head>
       )}
