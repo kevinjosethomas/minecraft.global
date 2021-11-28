@@ -1,4 +1,5 @@
 import Error from "next/error";
+import Script from "next/script";
 import { Fragment } from "react";
 import { Toaster } from "react-hot-toast";
 
@@ -12,6 +13,19 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <Fragment>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-QC7CZYZV5P"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-QC7CZYZV5P');
+        `}
+      </Script>
       <Toaster position="bottom-right" />
       <Component {...pageProps} />
     </Fragment>
