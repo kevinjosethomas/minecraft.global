@@ -59,7 +59,7 @@ export default function Connections(props) {
             </div>
           )}
           {props.minecraft_uuid ? (
-            <div className="flex flex-row items-center justify-start w-[40500px0px] px-4 py-1.5 space-x-2 bg-olive-800 hover:bg-opacity-80 rounded-lg transition duration-300 cursor-default">
+            <div className="flex flex-row items-center justify-start w-[500px] px-4 py-1.5 space-x-2 bg-olive-800 hover:bg-opacity-80 rounded-lg transition duration-300 cursor-default">
               <i className="far fa-cube w-[30px] text-2xl text-white" />
               <span className="text-2xl text-white">{props.minecraft_username}</span>
             </div>
