@@ -48,6 +48,7 @@ export default function Servers(props) {
         return;
       }
 
+      setResultCount(response.payload.total_records);
       setResults([...response.payload.entries]);
     })();
   }, [props.parameters]);
