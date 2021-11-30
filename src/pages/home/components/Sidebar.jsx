@@ -64,7 +64,7 @@ function Premium() {
         <div className="flex flex-col items-start justify-start w-full p-5 space-y-4 bg-olive-960">
           <div className="flex flex-col items-start justify-start w-full space-y-1">
             <p className="font-medium text-2xl text-white text-opacity-80">
-              Understand your players
+              Server Analytics
             </p>
             <p className="text-lg text-white text-opacity-60 leading-snug">
               Subscribe to premium to get in-depth analytics about your server&apos;s players! Gain
