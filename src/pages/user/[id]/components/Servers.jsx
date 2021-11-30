@@ -14,7 +14,7 @@ export default function Servers(props) {
         user_id={props.user_id}
         user={props.user}
         created_at={props.created_at}
-        minecraft_uuid={props.minecraft_uuid}
+        minecraft_username={props.minecraft_username}
       />
     </div>
   );
@@ -45,17 +45,7 @@ function Info(props) {
 
   useEffect(() => {
     (async () => {
-      if (props.minecraft_uuid) {
-        const [response, error] = await GetUsernameFromUUID(props.minecraft_uuid);
-
-        if (error) {
-          return;
-        }
-
-        setUsername(response.name);
-      } else {
-        setUsername("Not Linked");
-      }
+      setUsername(props.minecraft_username || "Not Linked");
     })();
   }, []);
 
