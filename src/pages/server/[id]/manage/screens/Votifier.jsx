@@ -39,7 +39,7 @@ export default function Votifier(props) {
           label="Votifier Token"
           description="Your Votifier token or key (in config.yml, or the public RSA key file)"
           value={props.details.votifier.votifier_token}
-          onChange={(e) => onValueChange("votifier_token", e.target.value, 32)}
+          onChange={(e) => onValueChange("votifier_token", e.target.value, 256)}
         />
       </div>
       <div className="w-full h-0.5 bg-white bg-opacity-20" />
