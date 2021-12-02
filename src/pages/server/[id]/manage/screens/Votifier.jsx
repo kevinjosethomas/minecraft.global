@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import Input from "../components/Input";
 
+import { TestUpvoteServer } from "api/server";
+
 export default function Votifier(props) {
   const [username, setUsername] = useState("");
 
@@ -56,7 +58,10 @@ export default function Votifier(props) {
           value={username}
           onChange={(e) => setUsername(e.target.value.substring(0, 16))}
         />
-        <div className="flex flex-row items-center justify-center px-4 py-2 space-x-2 bg-olive-800 hover:bg-olive-900 rounded cursor-pointer transition duration-300">
+        <div
+          className="flex flex-row items-center justify-center px-4 py-2 space-x-2 bg-olive-800 hover:bg-olive-900 rounded cursor-pointer transition duration-300"
+          onClick={() => TestUpvoteServer(props.server_id, username, props.authorization)}
+        >
           <i className="fas fa-arrow-alt-up text-xl text-white text-opacity-80" />
           <p className="font-medium text-xl text-white text-opacity-80 select-none">
             Send Test Upvote

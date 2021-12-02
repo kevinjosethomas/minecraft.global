@@ -194,7 +194,7 @@ export default function ManageServer(props) {
           {screen.name === "details" ? (
             <Details server={props.server} details={details} setDetails={setDetails} />
           ) : screen.name === "votifier" ? (
-            <Votifier details={details} setDetails={setDetails} />
+            <Votifier details={details} setDetails={setDetails} server_id={props.server.server_id} authorization={cookie.get("token")}/>
           ) : screen.name === "analytics" ? (
             <Analytics />
           ) : screen.name === "webhooks" ? (
