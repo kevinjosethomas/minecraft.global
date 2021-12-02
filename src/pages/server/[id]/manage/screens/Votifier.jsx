@@ -20,7 +20,7 @@ export default function Votifier(props) {
     <div className="flex flex-col items-start justify-start w-full space-y-10">
       <div className="flex flex-col items-start justify-start w-full space-y-8">
         <p className="max-w-lg text-lg text-white text-opacity-80">
-          We support Votifier and NuVotifier. This section is optional. However, we recommend setting up vote rewards.
+          We support Votifier and NuVotifier. This section is optional, however, we recommend setting up vote rewards.
         </p>
         <Input
           label="Votifier Host"
