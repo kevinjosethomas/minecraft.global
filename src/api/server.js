@@ -150,6 +150,18 @@ async function UpvoteServer(server_id, username, captcha) {
   }
 }
 
+async function TestUpvoteServer(server_id, username, authorization) {
+  try {
+    const upvote = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/server/${server_id}/vote/test`,
+      {minecraft_username: username},
+      {headers: {Authorization: authorization}}
+    );
+    return [upvote.data.payload, null];
+  } catch (e) {
+    return [null, e];
+  }
+}
+
 const EditServer = async (id, data, token) => {
   try {
     const response = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/server/${id}/edit`, data, {
@@ -187,6 +199,7 @@ export {
   EditServerComment,
   ReportServer,
   UpvoteServer,
+  TestUpvoteServer,
   EditServer,
   DeleteServer,
 };
