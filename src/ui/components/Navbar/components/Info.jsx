@@ -10,8 +10,6 @@ export default function Info(props) {
   ? `https://crafatar.com/avatars/${props.user.minecraft_uuid}?size=128`
   : null
 
-  console.log(props.user);
-
   return (
     <div className="flex flex-row items-center justify-center">
       <div className="relative flex flex-row items-center justify-center">
