@@ -215,15 +215,11 @@ export async function getServerSideProps(ctx) {
     const cookies = new Cookies(ctx.req, ctx.res);
     const token = cookies.get("token");
 
-    const responses = await Promise.all([
+    const [user, data, server] = await Promise.all([
       GetLoggedInUser(ctx),
       GetDefaultData(ctx),
       GetEditServerByID(ctx.params.id, token),
     ]);
-
-    const user = responses[0];
-    const data = responses[1];
-    const server = responses[2];
 
     if (user[1]) {
       return {
