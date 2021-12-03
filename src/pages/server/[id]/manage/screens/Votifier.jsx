@@ -38,31 +38,6 @@ export default function Votifier(props) {
             "Your server doesn't have any votifier data. Make sure you save changes first!"
           );
           break;
-        case 502:
-          switch (error.response.data.payload.detail.reason) {
-            case "timeout":
-              toast.error("Your server took too long to respond! (check your firewall)");
-              break;
-            case "connection_refused":
-              toast.error("Your server refused our connection! (check your firewall)");
-              break;
-            case "invalid_header":
-              toast.error("Your server provided an invalid response!");
-              break;
-            case "not_ok_response":
-              toast.error("Your server provided an invalid response!");
-              break;
-            case "unsupported_votifier_version":
-              toast.error("We don't support the version of Votifier that your server uses!");
-              break;
-            case "get_addr_info_failure":
-              toast.error("Your votifier address is invalid!");
-              break;
-            default:
-              toast.error("Your server provided an invalid response!");
-              break;
-          }
-          break;
         default:
           toast.error("An unknown error occurred, please try again later!");
           break;
@@ -70,7 +45,29 @@ export default function Votifier(props) {
       return;
     }
 
-    toast.success("Successfully sent a test upvote!");
+    switch (response.data.payload.detail.reason) {
+      case "timeout":
+        toast.error("Your server took too long to respond! (check your firewall)");
+        break;
+      case "connection_refused":
+        toast.error("Your server refused our connection! (check your firewall)");
+        break;
+      case "invalid_header":
+        toast.error("Your server provided an invalid response!");
+        break;
+      case "not_ok_response":
+        toast.error("Your server provided an invalid response!");
+        break;
+      case "unsupported_votifier_version":
+        toast.error("We don't support the version of Votifier that your server uses!");
+        break;
+      case "get_addr_info_failure":
+        toast.error("Your votifier address is invalid!");
+        break;
+      default:
+        toast.success("Successfully sent a test upvote!");
+        break;
+    }
   };
 
   return (
