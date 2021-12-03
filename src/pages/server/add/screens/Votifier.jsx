@@ -21,7 +21,7 @@ export default function Details(props) {
         </p>
         <Input
           label="Votifier Host"
-          description="Your Votifier address or IP (probably the same as your server's address)"
+          description="Your Votifier server IP (probably the same as your server's IP)"
           value={props.details.votifier.votifier_host || props.details.host}
           onChange={(e) => onValueChange("votifier_host", e.target.value, 32)}
         />
