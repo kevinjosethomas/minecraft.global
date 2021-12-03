@@ -67,9 +67,9 @@ export default function ManageServer(props) {
     dsc_webhook_url: props.server.dsc_webhook_url || "",
     dsc_webhook_msg: props.server.dsc_webhook_msg || "",
     votifier: {
-      votifier_host: props.server.votifier.votifier_host || "",
-      votifier_port: props.server.votifier.votifier_port || "",
-      votifier_token: props.server.votifier.votifier_token || "",
+      votifier_host: (props.server.votifier || {}).votifier_host || "",
+      votifier_port: (props.server.votifier || {}).votifier_port || "",
+      votifier_token: (props.server.votifier || {}).votifier_token || "",
     },
   });
 
