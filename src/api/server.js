@@ -159,7 +159,7 @@ async function TestUpvoteServer(server_id, username, token) {
       { headers: { Authorization: token } }
     );
 
-    return [response.data.payload, null];
+    return [response.data, null];
   } catch (e) {
     return [null, e];
   }

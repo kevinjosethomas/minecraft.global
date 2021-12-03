@@ -45,7 +45,12 @@ export default function Votifier(props) {
       return;
     }
 
-    switch (response.data.payload.detail.reason) {
+    if (response.payload.success) {
+      toast.success("Successfully sent a test upvote!");
+      return;
+    }
+
+    switch (response.payload.reason) {
       case "timeout":
         toast.error("Your server took too long to respond! (check your firewall)");
         break;
@@ -53,10 +58,12 @@ export default function Votifier(props) {
         toast.error("Your server refused our connection! (check your firewall)");
         break;
       case "invalid_header":
-        toast.error("Your server provided an invalid response!");
+        toast.error("Your server provided an invalid response! Check console (Ctrl+Shift+I)");
+        console.error(response.payload.message);
         break;
       case "not_ok_response":
-        toast.error("Your server provided an invalid response!");
+        toast.error("Your server provided an invalid response! Check console (Ctrl+Shift+I)");
+        console.error(response.payload.message);
         break;
       case "unsupported_votifier_version":
         toast.error("We don't support the version of Votifier that your server uses!");
@@ -65,7 +72,7 @@ export default function Votifier(props) {
         toast.error("Your votifier address is invalid!");
         break;
       default:
-        toast.success("Successfully sent a test upvote!");
+        toast.error("Your server provided an invalid response!");
         break;
     }
   };
