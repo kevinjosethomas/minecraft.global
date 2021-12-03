@@ -144,19 +144,22 @@ async function UpvoteServer(server_id, username, captcha) {
       minecraft_username: username,
       captcha_response: captcha,
     });
+
     return [upvote.data.payload, null];
   } catch (e) {
     return [null, e];
   }
 }
 
-async function TestUpvoteServer(server_id, username, authorization) {
+async function TestUpvoteServer(server_id, username, token) {
   try {
-    const upvote = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/server/${server_id}/vote/test`,
-      {minecraft_username: username},
-      {headers: {Authorization: authorization}}
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_API_URL}/server/${server_id}/vote/test`,
+      { minecraft_username: username },
+      { headers: { Authorization: token } }
     );
-    return [upvote.data.payload, null];
+
+    return [response.data.payload, null];
   } catch (e) {
     return [null, e];
   }

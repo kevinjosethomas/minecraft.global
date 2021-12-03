@@ -1,7 +1,7 @@
 import Cookies from "cookies";
 import cookie from "js-cookie";
-import { useState } from "react";
 import toast from "react-hot-toast";
+import { Fragment, useState } from "react";
 
 import validate from "lib/validate";
 import Delete from "./screens/Delete";
@@ -38,11 +38,6 @@ export default function ManageServer(props) {
       label: "Webhooks",
       icon: "fab fa-discord",
     },
-    // {
-    //   name: "rcon",
-    //   label: "RCON Console",
-    //   icon: "far fa-tools",
-    // },
     {
       name: "delete",
       label: "Delete",
@@ -67,9 +62,9 @@ export default function ManageServer(props) {
     dsc_webhook_url: props.server.dsc_webhook_url || "",
     dsc_webhook_msg: props.server.dsc_webhook_msg || "",
     votifier: {
-      votifier_host: (props.server.votifier || {}).votifier_host || "",
-      votifier_port: (props.server.votifier || {}).votifier_port || "",
-      votifier_token: (props.server.votifier || {}).votifier_token || "",
+      votifier_host: props.server.votifier?.votifier_host || "",
+      votifier_port: props.server.votifier?.votifier_port || "",
+      votifier_token: props.server.votifier?.votifier_token || "",
     },
   });
 
@@ -194,7 +189,11 @@ export default function ManageServer(props) {
           {screen.name === "details" ? (
             <Details server={props.server} details={details} setDetails={setDetails} />
           ) : screen.name === "votifier" ? (
-            <Votifier details={details} setDetails={setDetails} server_id={props.server.server_id} authorization={cookie.get("token")}/>
+            <Votifier
+              details={details}
+              setDetails={setDetails}
+              server_id={props.server.server_id}
+            />
           ) : screen.name === "analytics" ? (
             <Analytics />
           ) : screen.name === "webhooks" ? (
@@ -202,7 +201,7 @@ export default function ManageServer(props) {
           ) : screen.name === "delete" ? (
             <Delete user={props.user} server={props.server} />
           ) : (
-            <></>
+            <Fragment />
           )}
         </div>
       </div>
