@@ -225,8 +225,8 @@ const validate = {
 
     if (v.length < 1) {
       return "Server Votifier token must be at least 1 character";
-    } else if (v.length > 1000) {
-      return "Server Votifier token must be under 1000 characters";
+    } else if (v.length > 1024) {
+      return "Server Votifier token must be under 1024 characters";
     }
 
     return true;

@@ -35,7 +35,7 @@ export default function Details(props) {
           label="Votifier Token"
           description="Your Votifier token or key (in config.yml, or the public RSA key file)"
           value={props.details.votifier.votifier_token}
-          onChange={(e) => onValueChange("votifier_token", e.target.value, 256)}
+          onChange={(e) => onValueChange("votifier_token", e.target.value, 1024)}
         />
       </div>
     </div>
