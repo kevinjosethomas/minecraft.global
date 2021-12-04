@@ -29,7 +29,7 @@ export default function Navigation(props) {
                     : "text-white text-opacity-90"
                 }`}
               />
-              <p className="text-xl text-white text-opacity-90">{screen.label}</p>
+              <p className="text-xl text-white text-opacity-90 select-none">{screen.label}</p>
             </div>
           ))}
         </div>

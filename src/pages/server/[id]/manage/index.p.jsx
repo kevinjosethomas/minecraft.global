@@ -178,6 +178,7 @@ export default function ManageServer(props) {
           setScreen={setScreen}
           name={props.server.name}
           favicon={props.server.favicon}
+          server={props.server}
           submit={submit}
         />
         <div className="flex flex-col items-start justify-start w-full p-8 space-y-4 bg-olive-950 border-2 border-olive-930 rounded-lg">
