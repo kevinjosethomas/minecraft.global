@@ -43,8 +43,8 @@ export default function Connections(props) {
       <AnimatePresence>
         {linkModal && <LinkModal showModal={showLinkModal} code={linkCode} />}
       </AnimatePresence>
-      <div className="flex flex-col items-start justify-start space-y-2">
-        <h1 className="font-medium text-5xl text-white text-opacity-90">Connections</h1>
+      <div className="flex flex-col items-start justify-start space-y-6">
+        <h1 className="font-medium text-5xl text-white text-opacity-90">Accounts</h1>
         <div className="flex flex-col items-start justify-start space-y-2">
           {props.google_id && (
             <div className="flex flex-row items-center justify-start w-[500px] px-4 py-1.5 space-x-2 bg-[#DCA504] hover:bg-opacity-80 rounded-lg transition duration-300 cursor-default">

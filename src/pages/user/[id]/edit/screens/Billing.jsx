@@ -3,7 +3,7 @@ import { Fragment } from "react";
 
 export default function Billing(props) {
   return (
-    <div className="flex flex-col items-start justify-start w-full p-10 space-y-4 bg-olive-950 rounded border-2 border-olive-940">
+    <div className="flex flex-col items-start justify-start w-full p-10 space-y-6 bg-olive-950 rounded border-2 border-olive-940">
       <h1 className="font-medium text-5xl text-white text-opacity-90">Billing</h1>
       <div className="flex flex-col items-start justify-start w-full rounded overflow-hidden">
         <div className="flex flex-row items-center justify-between w-full px-4 py-2 bg-black bg-opacity-20">
