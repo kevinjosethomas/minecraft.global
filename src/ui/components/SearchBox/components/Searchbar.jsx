@@ -64,7 +64,7 @@ export default function Searchbar(props) {
       <AnimatePresence>
         {popup && (
           <motion.div
-            className="absolute top-0 left-0 z-20 flex flex-col items-center justify-center w-screen h-screen bg-black bg-opacity-60"
+            className="fixed top-0 left-0 z-20 flex flex-col items-center justify-center w-screen h-screen bg-black bg-opacity-60"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
