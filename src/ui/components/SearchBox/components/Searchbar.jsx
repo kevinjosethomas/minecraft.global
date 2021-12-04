@@ -59,6 +59,10 @@ export default function Searchbar(props) {
     }
   }, [popup]);
 
+  useEffect(() => {
+    showPopup(false);
+  }, [router.asPath]);
+
   return (
     <Fragment>
       <AnimatePresence>
