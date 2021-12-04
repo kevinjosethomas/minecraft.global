@@ -27,7 +27,7 @@ export default function LinkModal(props) {
             • Launch Minecraft Java Edition (not cracked)
           </li>
           <li className="text-xl text-white text-opacity-90 leading-tight">
-            • Join our verification server at <code>verify.minecraft.global</code> (1.8-1.17.1)
+            • Join our verification server at <code>verify.minecraft.global</code> (1.8 - 1.18)
           </li>
           <li className="flex flex-row items-center text-xl text-white text-opacity-90 leading-tight">
             • Copy and paste the command - <code>/link {props.code}</code>{" "}
@@ -39,7 +39,7 @@ export default function LinkModal(props) {
             </div>
           </li>
           <li className="text-xl text-white text-opacity-90 leading-tight">
-            • Reload the page once it is complete!
+            • Reload the page once you&apos;re done!
           </li>
         </ul>
       </motion.div>
