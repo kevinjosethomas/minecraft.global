@@ -3,6 +3,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 
 import Input from "../components/Input";
+import TextArea from "../components/TextArea";
 import { TestUpvoteServer } from "api/server";
 
 export default function Votifier(props) {
@@ -96,9 +97,9 @@ export default function Votifier(props) {
           value={props.details.votifier.votifier_port}
           onChange={(e) => onValueChange("votifier_port", e.target.value, 32)}
         />
-        <Input
+        <TextArea
           label="Votifier Token"
-          description="Your Votifier token or key (in config.yml, or the public RSA key file)"
+          description="Your Votifier token or key (in config.yml, or the public RSA key file"
           value={props.details.votifier.votifier_token}
           onChange={(e) => onValueChange("votifier_token", e.target.value, 1024)}
         />
