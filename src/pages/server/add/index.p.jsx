@@ -13,31 +13,31 @@ import { GetLoggedInUser } from "api/login";
 import Description from "./screens/Description";
 import Navigation from "./components/Navigation";
 
+const screens = [
+  {
+    name: "details",
+    label: "Details",
+    icon: "far fa-pencil-paintbrush",
+  },
+  {
+    name: "features",
+    label: "Features",
+    icon: "far fa-list",
+  },
+  {
+    name: "description",
+    label: "Description",
+    icon: "far fa-align-left",
+  },
+  {
+    name: "votifier",
+    label: "Votifier",
+    icon: "far fa-bell",
+  },
+];
+
 export default function AddServer(props) {
   const router = useRouter();
-
-  const screens = [
-    {
-      name: "details",
-      label: "Details",
-      icon: "far fa-pencil-paintbrush",
-    },
-    {
-      name: "features",
-      label: "Features",
-      icon: "far fa-list",
-    },
-    {
-      name: "description",
-      label: "Description",
-      icon: "far fa-align-left",
-    },
-    {
-      name: "votifier",
-      label: "Votifier",
-      icon: "far fa-bell",
-    },
-  ];
   const [screen, setScreen] = useState(screens[0]);
 
   const [details, setDetails] = useState({
@@ -58,6 +58,26 @@ export default function AddServer(props) {
       votifier_token: "",
     },
   });
+
+  const incrementScreen = () => {
+    const index = screens.findIndex((s) => s.name === screen.name);
+
+    if (isNaN(index) || index + 1 >= screens.length) {
+      return;
+    }
+
+    setScreen(screens[index + 1]);
+  };
+
+  const decrementScreen = () => {
+    const index = screens.findIndex((s) => s.name === screen.name);
+
+    if (isNaN(index) || index - 1 < 0) {
+      return;
+    }
+
+    setScreen(screens[index - 1]);
+  };
 
   const submit = async () => {
     for (const key of Object.keys(details)) {
@@ -167,21 +187,47 @@ export default function AddServer(props) {
           screens={screens}
           setScreen={setScreen}
         />
-        <div className="flex flex-col items-start justify-start w-full p-8 space-y-4 bg-olive-950 border-2 border-olive-930 rounded-lg">
-          <div className="flex flex-row items-center justify-start w-full">
-            <h1 className="font-medium text-4xl text-white text-opacity-90">{screen.label}</h1>
+        <div className="flex flex-col items-start justify-start w-full space-y-4">
+          <div className="flex flex-col items-start justify-start w-full p-8 space-y-4 bg-olive-950 border-2 border-olive-930 rounded-lg">
+            <div className="flex flex-row items-center justify-start w-full">
+              <h1 className="font-medium text-4xl text-white text-opacity-90">{screen.label}</h1>
+            </div>
+            {screen.name === "details" ? (
+              <Details details={details} setDetails={setDetails} />
+            ) : screen.name === "features" ? (
+              <Features details={details} setDetails={setDetails} />
+            ) : screen.name === "description" ? (
+              <Description details={details} setDetails={setDetails} />
+            ) : screen.name === "votifier" ? (
+              <Votifier details={details} setDetails={setDetails} />
+            ) : (
+              <Fragment />
+            )}
           </div>
-          {screen.name === "details" ? (
-            <Details details={details} setDetails={setDetails} />
-          ) : screen.name === "features" ? (
-            <Features details={details} setDetails={setDetails} />
-          ) : screen.name === "description" ? (
-            <Description details={details} setDetails={setDetails} />
-          ) : screen.name === "votifier" ? (
-            <Votifier details={details} setDetails={setDetails} />
-          ) : (
-            <Fragment />
-          )}
+          <div
+            className={`flex flex-row items-center justify-end w-full ${
+              screen.name !== "details" && screen.name !== "votifier" && "space-x-2"
+            }`}
+          >
+            {screen.name !== "details" && (
+              <div
+                className="flex flex-row items-center justify-center px-4 py-0.5 space-x-2.5 bg-olive-930 hover:bg-olive-910 cursor-pointer rounded transition duration-300"
+                onClick={decrementScreen}
+              >
+                <i className="far fa-arrow-left text-lg text-white" />
+                <p className="text-lg text-white select-none">Back</p>
+              </div>
+            )}
+            {screen.name !== "votifier" && (
+              <div
+                className="flex flex-row items-center justify-center px-4 py-0.5 space-x-2.5 bg-olive-930 hover:bg-olive-910 cursor-pointer rounded transition duration-300"
+                onClick={incrementScreen}
+              >
+                <p className="text-lg text-white select-none">Next</p>
+                <i className="far fa-arrow-right text-lg text-white" />
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </Default>
