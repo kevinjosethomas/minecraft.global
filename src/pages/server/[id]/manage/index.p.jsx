@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Cookies from "cookies";
 import cookie from "js-cookie";
 import toast from "react-hot-toast";
@@ -170,7 +171,10 @@ export default function ManageServer(props) {
   };
 
   return (
-    <Default user={props.user} title={`${props.server.name} - Minecraft Server List`} noindex>
+    <Default user={props.user} noindex>
+      <Head>
+        <title>{`${props.server.name} - Minecraft Server List`}</title>
+      </Head>
       <div className="flex flex-row items-start justify-start w-full space-x-6">
         <Navigation
           screen={screen}
