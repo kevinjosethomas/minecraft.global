@@ -8,7 +8,7 @@ export default function Dropdown(props) {
   return (
     <OnOutsideClick onOutsideClick={() => props.showDropdown(false)}>
       <motion.div
-        className="z-40 absolute top-12 right-0 flex flex-col items-start justify-start space-y-2 bg-olive-960 border-2 border-olive-940 rounded-md overflow-hidden"
+        className="z-40 absolute top-16 right-0 flex flex-col items-start justify-start space-y-2 bg-olive-960 border-2 border-olive-940 rounded-md overflow-hidden"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 10, opacity: 0 }}
