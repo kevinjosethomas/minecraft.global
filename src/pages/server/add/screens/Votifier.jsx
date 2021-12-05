@@ -1,4 +1,5 @@
 import Input from "../components/Input";
+import TextArea from "../components/TextArea";
 
 export default function Details(props) {
   function onValueChange(key, value, max) {
@@ -31,7 +32,7 @@ export default function Details(props) {
           value={props.details.votifier.votifier_port}
           onChange={(e) => onValueChange("votifier_port", e.target.value, 32)}
         />
-        <Input
+        <TextArea
           label="Votifier Token"
           description="Your Votifier token or key (in config.yml, or the public RSA key file)"
           value={props.details.votifier.votifier_token}
