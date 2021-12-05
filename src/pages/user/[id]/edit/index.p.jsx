@@ -1,7 +1,8 @@
 import Cookies from "cookies";
 import cookies from "js-cookie";
 import toast from "react-hot-toast";
-import { Fragment, useState } from "react";
+import { useRouter } from "next/router";
+import { Fragment, useEffect, useState } from "react";
 
 import { EditUser } from "api/user";
 import Billing from "./screens/Billing";
@@ -12,26 +13,41 @@ import { GetUserTransactions } from "api/user";
 import Connections from "./screens/Connections";
 import Navigation from "./components/Navigation";
 
+const screens = [
+  {
+    name: "profile",
+    label: "Profile",
+    icon: "far fa-user",
+  },
+  {
+    name: "accounts",
+    label: "Accounts",
+    icon: "far fa-plug",
+  },
+  {
+    name: "billing",
+    label: "Billing",
+    icon: "far fa-file-invoice-dollar",
+  },
+];
+
 export default function EditUserPage(props) {
-  const screens = [
-    {
-      name: "profile",
-      label: "Profile",
-      icon: "far fa-user",
-    },
-    {
-      name: "accounts",
-      label: "Accounts",
-      icon: "far fa-plug",
-    },
-    {
-      name: "billing",
-      label: "Billing",
-      icon: "far fa-file-invoice-dollar",
-    },
-  ];
+  const router = useRouter();
 
   const [screen, setScreen] = useState(screens[0]);
+
+  useEffect(() => {
+    if (!router.query.screen) {
+      return;
+    }
+
+    const q = router.query.screen.toLowerCase();
+    const s = screens.find((x) => x.name === q);
+
+    if (s) {
+      setScreen(s);
+    }
+  }, []);
 
   const [parameters, setParameters] = useState({
     name: props.user.name || "",
