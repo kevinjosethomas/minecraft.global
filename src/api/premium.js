@@ -20,4 +20,16 @@ const CreatePremiumSession = async (server_id, token) => {
   }
 };
 
-export { CreatePremiumSession };
+const GetAnalyticsPlugin = async () => {
+  try {
+    const response = await axios.get(
+      "https://api.github.com/repos/minecraft-global/minecraft-global-analytics/releases/latest"
+    );
+
+    return [response.data.assets[0].browser_download_url, null];
+  } catch (e) {
+    return [null, e];
+  }
+};
+
+export { CreatePremiumSession, GetAnalyticsPlugin };

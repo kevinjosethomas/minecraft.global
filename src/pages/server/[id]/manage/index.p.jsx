@@ -10,7 +10,6 @@ import { EditServer } from "api/server";
 import Details from "./screens/Details";
 import Default from "ui/layouts/Default";
 import Webhooks from "./screens/Webhooks";
-import { GetDefaultData } from "api/core";
 import Votifier from "./screens/Votifier";
 import Analytics from "./screens/Analytics";
 import { GetLoggedInUser } from "api/login";
@@ -185,7 +184,7 @@ export default function ManageServer(props) {
           server={props.server}
           submit={submit}
         />
-        <div className="flex flex-col items-start justify-start w-full p-8 space-y-4 bg-olive-950 border-2 border-olive-930 rounded-lg">
+        <div className="flex flex-col items-start justify-start w-full p-8 space-y-4 bg-olive-950 border-2 border-olive-930 rounded-lg overflow-hidden">
           {screen.name != "delete" && (
             <div className="flex flex-row items-center justify-start w-full">
               <h1 className="font-medium text-4xl text-white text-opacity-90">{screen.label}</h1>
@@ -200,7 +199,7 @@ export default function ManageServer(props) {
               server_id={props.server.server_id}
             />
           ) : screen.name === "analytics" ? (
-            <Analytics />
+            <Analytics server={props.server} />
           ) : screen.name === "webhooks" ? (
             <Webhooks details={details} setDetails={setDetails} />
           ) : screen.name === "delete" ? (
@@ -219,9 +218,8 @@ export async function getServerSideProps(ctx) {
     const cookies = new Cookies(ctx.req, ctx.res);
     const token = cookies.get("token");
 
-    const [user, data, server] = await Promise.all([
+    const [user, server] = await Promise.all([
       GetLoggedInUser(ctx),
-      GetDefaultData(ctx),
       GetEditServerByID(ctx.params.id, token),
     ]);
 
@@ -229,14 +227,6 @@ export async function getServerSideProps(ctx) {
       return {
         props: {
           error: user[1].response?.status || 500,
-        },
-      };
-    }
-
-    if (data[1]) {
-      return {
-        props: {
-          error: data[1].response?.status || 500,
         },
       };
     }
@@ -262,7 +252,6 @@ export async function getServerSideProps(ctx) {
       props: {
         user: user[0],
         server: server[0],
-        defaultResults: data[0],
       },
     };
   } catch (e) {

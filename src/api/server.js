@@ -78,6 +78,22 @@ const GetServers = async () => {
   }
 };
 
+const RegenToken = async (id, token) => {
+  try {
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_API_URL}/server/${id}/regentoken`,
+      {},
+      {
+        headers: { Authorization: token },
+      }
+    );
+
+    return [response.data, null];
+  } catch (e) {
+    return [null, e];
+  }
+};
+
 const NewServer = async (data, token) => {
   try {
     const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/server/new`, data, {
@@ -197,6 +213,7 @@ export {
   GetServerTopVoters,
   GetRandomServerID,
   GetServers,
+  RegenToken,
   NewServer,
   PostComment,
   EditServerComment,
