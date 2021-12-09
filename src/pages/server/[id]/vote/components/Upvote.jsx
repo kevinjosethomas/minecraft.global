@@ -1,8 +1,8 @@
 import moment from "moment";
 import Link from "next/link";
-import { useState } from "react";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
 import { UpvoteServer } from "api/server";
@@ -19,6 +19,15 @@ export default function Upvote(props) {
   const onChange = (code) => {
     setCaptchaCode(code);
   };
+
+  useEffect(() => {
+    if (username) return;
+
+    const stored = localStorage.getItem("upvote_playername");
+    if (stored) {
+      setUsername(stored);
+    }
+  }, []);
 
   const submit = async () => {
     const [response, error] = await UpvoteServer(props.server_id, username, captchaCode);
@@ -44,6 +53,8 @@ export default function Upvote(props) {
     }
 
     toast.success("Successfully upvoted the server! Check out other servers in the meantime!");
+    localStorage.set("upvote_playername", username);
+    props.setUpvoted(true);
   };
 
   return (
