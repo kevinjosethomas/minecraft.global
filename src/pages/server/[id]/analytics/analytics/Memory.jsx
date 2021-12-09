@@ -56,36 +56,46 @@ export default function Memory(props) {
     {
       title: "Current Usage",
       subtitle: `at ${moment(latest.checked_at).format("DD MMM h:MMa")}`,
-      value: `${Math.round(latest[p1] / 1000000)}mb`,
+      value: `${Math.round(latest[p1] / 10000000) / 100}gb`,
     },
     {
       title: "Highest Usage",
-      subtitle: `Avg. ${highest[1]}mb daily at -`,
+      subtitle: `Avg. ${Math.round(highest[1] / 10) / 100}gb daily at -`,
       value: `${highest[0] > 12 ? `${highest[0] - 12}pm` : `${highest[0]}am`} UTC`,
     },
     {
       title: "Lowest Peak",
       subtitle: `On ${moment(sorted[0].checked_at).format("DD MMM h:MMa")}`,
-      value: sorted[0][p1],
+      value: `${Math.round(sorted[0][p1] / 10000000) / 100}gb`,
     },
     {
       title: "Highest Peak",
       subtitle: `On ${moment(sorted[sorted.length - 1].checked_at).format("DD MMM h:MMa")}`,
-      value: `${Math.ceil(sorted[sorted.length - 1][p1] / 1000000)}mb`,
+      value: `${Math.ceil(sorted[sorted.length - 1][p1] / 10000000) / 100}gb`,
     },
     {
       title: "Avg. Memory",
       subtitle: "Every hour (last 15d)",
-      value: `${Math.round(
-        total["15"].filter((x) => x).reduce((a, b) => a + b) / total["15"].filter((x) => x).length
-      )}mb`,
+      value: `${
+        Math.round(
+          Math.round(
+            total["15"].filter((x) => x).reduce((a, b) => a + b) /
+              total["15"].filter((x) => x).length
+          ) / 10
+        ) / 100
+      }gb`,
     },
     {
       title: "Avg. Memory",
       subtitle: "Every hour (last 30d)",
-      value: `${Math.round(
-        total["30"].filter((x) => x).reduce((a, b) => a + b) / total["30"].filter((x) => x).length
-      )}mb`,
+      value: `${
+        Math.round(
+          Math.round(
+            total["30"].filter((x) => x).reduce((a, b) => a + b) /
+              total["30"].filter((x) => x).length
+          ) / 10
+        ) / 100
+      }gb`,
     },
   ];
 

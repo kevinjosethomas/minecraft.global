@@ -110,6 +110,15 @@ export async function getServerSideProps(ctx) {
       };
     }
 
+    if (!server[0].premium) {
+      return {
+        redirect: {
+          destination: "/premium",
+          permanent: true,
+        },
+      };
+    }
+
     if (analytics[1]) {
       return {
         props: {

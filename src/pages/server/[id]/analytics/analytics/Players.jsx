@@ -73,7 +73,7 @@ export default function Players(props) {
     },
     {
       title: "Most Active",
-      subtitle: `Avg. ${highest[1]} players daily`,
+      subtitle: `Avg. ${Math.round(highest[1])} players daily`,
       value: `${highest[0] > 12 ? `${highest[0] - 12}pm` : `${highest[0]}am`} UTC`,
     },
     {

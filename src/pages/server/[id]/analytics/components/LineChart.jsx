@@ -6,6 +6,10 @@ export default function Chart(props) {
       data={props.data}
       options={{
         ...props.options,
+        tooltips: {
+          mode: "index",
+          intersect: false,
+        },
         elements: {
           line: {
             tension: 0,

@@ -60,7 +60,7 @@ export default function CPU(props) {
     },
     {
       title: "Highest Usage",
-      subtitle: `Avg. ${highest[1]}% daily at -`,
+      subtitle: `Avg. ${Math.round(highest[1])}% daily at -`,
       value: `${highest[0] > 12 ? `${highest[0] - 12}pm` : `${highest[0]}am`} UTC`,
     },
     {

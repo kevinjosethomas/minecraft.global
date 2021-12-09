@@ -60,7 +60,7 @@ export default function TPS(props) {
     },
     {
       title: "Highest TPS",
-      subtitle: `Avg. ${highest[1]}tps daily at -`,
+      subtitle: `Avg. ${Math.round(highest[1])}tps daily at -`,
       value: `${highest[0] > 12 ? `${highest[0] - 12}pm` : `${highest[0]}am`} UTC`,
     },
     {
