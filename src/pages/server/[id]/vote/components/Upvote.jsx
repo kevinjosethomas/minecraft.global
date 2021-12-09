@@ -53,7 +53,7 @@ export default function Upvote(props) {
     }
 
     toast.success("Successfully upvoted the server! Check out other servers in the meantime!");
-    localStorage.set("upvote_playername", username);
+    localStorage.setItem("upvote_playername", username);
     props.setUpvoted(true);
   };
 
