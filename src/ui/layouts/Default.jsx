@@ -36,7 +36,7 @@ const Default = (props) => {
           {props.search && (
             <SearchBox header={props.header} defaultResults={props.defaultResults} />
           )}
-          <div className="flex flex-col items-start justify-start w-full h-full overflow-x-hidden">
+          <div className="flex flex-col items-start justify-start w-full h-full overflow-hidden ">
             {props.children}
           </div>
           <Footer />

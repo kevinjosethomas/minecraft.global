@@ -49,12 +49,12 @@ export default function Servers(props) {
       return;
     }
 
-    if (!response.payload.entries.length) {
-      resultsCopy.slice(page, 1);
-      setResults(results);
-      setCanFetchmore(false);
-      return;
-    }
+    // if (!response.payload.entries.length) {
+    //   resultsCopy.slice(page, 1);
+    //   setResults(results);
+    //   setCanFetchmore(false);
+    //   return;
+    // }
 
     resultsCopy[page].results = response.payload.entries;
     setResults(resultsCopy);
