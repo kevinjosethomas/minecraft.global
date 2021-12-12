@@ -9,7 +9,7 @@ import { GetSearchResults } from "api/search";
 export default function Searchbar(props) {
   const router = useRouter();
 
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(router.query.q || "");
   const [query, setQuery] = useState("");
   const [popup, showPopup] = useState(false);
   const [previewResults, setPreviewResults] = useState(props.defaultResults);
