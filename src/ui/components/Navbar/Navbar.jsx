@@ -24,11 +24,11 @@ export default function Navbar(props) {
         <User user={props.user} />
       </div>
       <div className="flex md:hidden flex-row items-center justify-between w-full py-6 !mt-0">
-        <Link href="/" passHref>
-          <div className="flex flex-row items-center justify-start space-x-3">
+        <Link href="/">
+          <a className="flex flex-row items-center justify-start space-x-3">
             <img src="/logo.svg" className="w-8 h-8 cursor-pointer" alt="Logo" />
             <p className="text-2xl text-olive-300 text-opacity-90">minecraft.global</p>
-          </div>
+          </a>
         </Link>
         <i
           className="far fa-bars text-2xl text-white text-opacity-80"

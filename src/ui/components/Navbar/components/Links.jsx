@@ -27,12 +27,14 @@ export default function Links(props) {
 
   return (
     <div className="flex flex-row items-center justify-start space-x-[28px]">
-      <Link href="/" passHref>
-        <img
-          src="/logo.svg"
-          className="w-10 h-10 hover:rotate-[360deg] transform duration-1000 cursor-pointer"
-          alt="Logo"
-        />
+      <Link href="/">
+        <a>
+          <img
+            src="/logo.svg"
+            className="w-10 h-10 hover:rotate-[360deg] transform duration-1000 cursor-pointer"
+            alt="Logo"
+          />
+        </a>
       </Link>
       {elements.map((element, index) => (
         <Element key={index} icon={element.icon} label={element.label} href={element.href} />
