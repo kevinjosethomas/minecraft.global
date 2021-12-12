@@ -86,8 +86,15 @@ export default function Links(props) {
 
   return (
     <div className="flex flex-col md:flex-row items-center justify-between w-full md:space-x-16">
-      <Link href="/" passHref>
-        <img src="/logo.svg" className="hidden md:inline w-32 h-32 cursor-pointer" alt="Logo" />
+      <Link href="/">
+        <a>
+          <img
+            src="/logo.svg"
+            draggable="false"
+            className="hidden md:inline w-32 h-32 cursor-pointer"
+            alt="Logo"
+          />
+        </a>
       </Link>
       <div className="flex flex-col md:flex-row items-start justify-start md:justify-between w-full space-y-2 md:space-y-0">
         {footer.map((element, index) => (
