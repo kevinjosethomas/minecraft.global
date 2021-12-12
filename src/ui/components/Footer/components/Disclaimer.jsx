@@ -27,8 +27,8 @@ function Legal() {
         className="hover:text-white hover:text-opacity-80 transition duration-300"
       >
         Mojang
-      </a>
-      ,{" "}
+      </a>{" "}
+      or{" "}
       <a
         target="_blank"
         rel="noreferrer nofollow"
