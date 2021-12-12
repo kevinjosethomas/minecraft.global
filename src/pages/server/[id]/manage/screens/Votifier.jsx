@@ -55,8 +55,8 @@ export default function Votifier(props) {
       case "timeout":
         toast.error("Your server took too long to respond! (check your firewall)");
         break;
-      case "connection_refused":
-        toast.error("Your server refused our connection! (check your firewall)");
+      case "connection_error":
+        toast.error("Couldn't connect to your server! (check your firewall)");
         break;
       case "invalid_header":
         toast.error("Your server provided an invalid response! Check console (Ctrl+Shift+I)");
