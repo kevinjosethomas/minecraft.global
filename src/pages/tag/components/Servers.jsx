@@ -31,7 +31,7 @@ export default function Servers(props) {
   };
 
   useEffect(() => {
-    setResults([...props.results.entries]);
+    setResults(props.results.entries);
     setResultCount(props.results.total_records);
   }, [props.results]);
 
