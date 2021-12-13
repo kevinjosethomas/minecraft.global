@@ -2,16 +2,12 @@ import Input from "../components/Input";
 import TextArea from "../components/TextArea";
 
 export default function Profile(props) {
-  const avatar = props.user.minecraft_uuid
-    ? `https://crafatar.com/avatars/${props.user.minecraft_uuid}?size=128`
-    : "/images/steve.png";
-
   const onNameChange = (e) => {
     props.setParameters((p) => ({ ...p, name: e.target.value.slice(0, 32) }));
   };
 
   const onDescriptionChange = (e) => {
-    props.setParameters((p) => ({ ...p, description: e.target.value.slice(0, 200) }));
+    props.setParameters((p) => ({ ...p, description: e.target.value.slice(0, 128) }));
   };
 
   return (
