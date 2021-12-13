@@ -7,6 +7,11 @@ export default function Links(props) {
       label: "Premium",
       href: "/premium",
     },
+    {
+      icon: "far fa-question-circle",
+      label: "Why Us?",
+      href: "/why",
+    },
     // {
     //   icon: "far fa-stars",
     //   label: "Advertise",

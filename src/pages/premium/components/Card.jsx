@@ -34,7 +34,7 @@ export default function Card(props) {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
       >
-        <div className="flex flex-col items-start justify-center w-full h-40 md:h-48 px-5 bg-gradient-to-br from-olive-800 to-olive-930">
+        <div className="flex flex-col items-start justify-center w-full h-40 md:h-48 px-5 space-y-2 bg-gradient-to-br from-olive-800 to-olive-930">
           <div className="flex flex-row items-center justify-center py-1 px-4 space-x-1.5 bg-white rounded-full">
             <i className="fad fa-diamond text-base text-olive-500" />
             <span className="font-medium text-base text-olive-500 select-none">MONTHLY</span>
