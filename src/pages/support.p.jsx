@@ -59,9 +59,9 @@ export default function Support(props) {
     >
       <div className="flex flex-col items-start justify-start w-full space-y-10">
         <div className="flex flex-col items-start justify-start w-full space-y-3">
-          <h3 className="font-bold text-5xl text-white text-opacity-90 tracking-tight">
+          <h1 className="font-bold text-5xl text-white text-opacity-90 tracking-tight">
             Contact us <i className="fas fa-caret-down ml-2 text-4xl" />
-          </h3>
+          </h1>
           <div className="grid grid-cols-3 items-start justify-start w-full gap-x-10">
             {socials.map((social, index) => (
               <div
@@ -74,9 +74,9 @@ export default function Support(props) {
           </div>
         </div>
         <div className="flex flex-col items-start justify-start w-full space-y-3">
-          <h3 className="font-bold text-5xl text-white text-opacity-90 tracking-tight">
+          <h1 className="font-bold text-5xl text-white text-opacity-90 tracking-tight">
             FAQ <i className="fas fa-caret-down ml-2 text-4xl" />
-          </h3>
+          </h1>
           <div className="flex flex-col items-start justify-start w-full space-y-2">
             {questions.map((question, index) => (
               <Question key={index} {...question} />
