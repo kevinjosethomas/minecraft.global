@@ -7,7 +7,7 @@ export default function Search(props) {
     <div className="flex flex-col items-start justify-start w-full space-y-2">
       <div className="flex flex-row items-center justify-start ml-3 space-x-1.5">
         <i className="far fa-search text-xl text-white text-opacity-80" />
-        <span className="font-medium text-xl text-white text-opacity-80 tracking-tight">
+        <p className="font-medium text-xl text-white text-opacity-80 tracking-tight">
           {props.results ? (
             <Fragment>
               {props.query && props.results.length
@@ -19,7 +19,7 @@ export default function Search(props) {
           ) : (
             "NO SERVERS FOUND :("
           )}
-        </span>
+        </p>
       </div>
       {props.results && <Results results={props.results} />}
     </div>

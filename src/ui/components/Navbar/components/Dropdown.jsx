@@ -24,12 +24,12 @@ export default function Dropdown(props) {
 function Identity(props) {
   return (
     <div className="flex flex-col items-start justify-start w-full pl-7 pr-10 py-4 bg-olive-980">
-      <span className="text-lg text-white text-opacity-60 whitespace-nowrap leading-tight">
+      <p className="text-lg text-white text-opacity-60 whitespace-nowrap leading-tight">
         Logged in as
-      </span>
-      <span className="text-2xl font-medium text-white text-opacity-80 whitespace-nowrap leading-tight">
+      </p>
+      <p className="text-2xl font-medium text-white text-opacity-80 whitespace-nowrap leading-tight">
         {props.name}
-      </span>
+      </p>
     </div>
   );
 }
@@ -42,23 +42,19 @@ function Links(props) {
       <Link href={`/user/${props.id}`}>
         <a className="flex flex-row items-center justify-start w-full py-1 pl-4 pr-14 space-x-2 hover:bg-black hover:bg-opacity-30 select-none cursor-pointer transition duration-300 rounded">
           <i className="fas fa-info-circle w-[30px] text-2xl text-white text-opacity-60" />
-          <span className="text-2xl text-white text-opacity-60 whitespace-nowrap">
-            View Profile
-          </span>
+          <p className="text-2xl text-white text-opacity-60 whitespace-nowrap">View Profile</p>
         </a>
       </Link>
       <Link href="/server/add">
         <a className="flex flex-row items-center justify-start w-full py-1 pl-4 pr-14 space-x-2 hover:bg-black hover:bg-opacity-30 select-none cursor-pointer transition duration-300 rounded">
           <i className="fas fa-plus-circle w-[30px] text-2xl text-white text-opacity-60" />
-          <span className="text-2xl text-white text-opacity-60 whitespace-nowrap">Add Server</span>
+          <p className="text-2xl text-white text-opacity-60 whitespace-nowrap">Add Server</p>
         </a>
       </Link>
       <Link href={`/user/${props.id}/edit`}>
         <a className="flex flex-row items-center justify-start w-full py-1 pl-4 pr-14 space-x-2 hover:bg-black hover:bg-opacity-30 select-none cursor-pointer transition duration-300 rounded">
           <i className="far fa-pencil-paintbrush w-[30px] text-2xl text-white text-opacity-60" />
-          <span className="text-2xl text-white text-opacity-60 whitespace-nowrap">
-            Edit Profile
-          </span>
+          <p className="text-2xl text-white text-opacity-60 whitespace-nowrap">Edit Profile</p>
         </a>
       </Link>
       <div
@@ -69,7 +65,7 @@ function Links(props) {
         }}
       >
         <i className="far fa-sign-out w-[30px] text-2xl text-white text-opacity-60" />
-        <span className="text-2xl text-white text-opacity-60 whitespace-nowrap">Log Out</span>
+        <p className="text-2xl text-white text-opacity-60 whitespace-nowrap">Log Out</p>
       </div>
     </div>
   );

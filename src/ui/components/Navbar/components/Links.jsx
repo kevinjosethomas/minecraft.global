@@ -60,9 +60,9 @@ function Element(props) {
         <i
           className={`${props.icon} text-2xl text-white text-opacity-80 group-hover:text-opacity-90 transition duration-300`}
         />
-        <span className="text-2xl text-white text-opacity-80 group-hover:text-opacity-90 transition duration-300">
+        <p className="text-2xl text-white text-opacity-80 group-hover:text-opacity-90 transition duration-300">
           {props.label}
-        </span>
+        </p>
       </a>
     </Link>
   );
