@@ -76,7 +76,7 @@
         "name": "Party Games"
       },
       {
-        "id": 7,
+        "id": 6,
         "name": "Build Battle"
       }
     ]
@@ -139,6 +139,10 @@
       {
         "id": 21,
         "name": "Factions"
+      },
+      {
+        "id": 22,
+        "name": "Minigames"
       },
       { "id": 41, "name": "Modded" }
     ]
