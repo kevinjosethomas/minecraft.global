@@ -19,9 +19,9 @@ export default function LinkModal(props) {
         exit={{ y: 10, opacity: 0 }}
         transition={{ duration: 0.3, delay: 0.2 }}
       >
-        <span className="text-3xl text-white text-opacity-90 leading-tight">
+        <p className="text-3xl text-white text-opacity-90 leading-tight">
           Connect your Minecraft Java Account:
-        </span>
+        </p>
         <ul className="space-y-6">
           <li className="text-xl text-white text-opacity-90 leading-tight">
             • Launch Minecraft Java Edition (not cracked)

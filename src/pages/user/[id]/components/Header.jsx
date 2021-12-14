@@ -63,7 +63,7 @@ function Buttons(props) {
         <Link href={`/user/${props.user?.user_id}/edit`}>
           <a className="flex flex-row items-center justify-center w-full px-2 md:px-5 py-2 space-x-2 md:space-x-3 bg-blue-700 bg-opacity-40 rounded md:rounded-lg border-2 border-blue-900 cursor-pointer hover:scale-[1.01] transition duration-300">
             <i className="fad fa-pencil-paintbrush md:text-xl text-white" />
-            <span className="md:text-xl text-white text-opacity-90">Edit Profile</span>
+            <p className="md:text-xl text-white text-opacity-90">Edit Profile</p>
           </a>
         </Link>
       )}
@@ -71,7 +71,7 @@ function Buttons(props) {
         <Link href="/server/add">
           <a className="flex flex-row items-center justify-center w-full px-2 md:px-5 py-2 space-x-2 md:space-x-3 bg-yellow-700 bg-opacity-50 rounded md:rounded-lg border-2 border-yellow-900 cursor-pointer hover:scale-[1.01] transition duration-300">
             <i className="fad fa-plus-circle md:text-xl text-white" />
-            <span className="md:text-xl text-white text-opacity-90">Add server</span>
+            <p className="md:text-xl text-white text-opacity-90">Add server</p>
           </a>
         </Link>
       )}

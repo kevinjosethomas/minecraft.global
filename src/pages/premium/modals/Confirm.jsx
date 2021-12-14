@@ -36,17 +36,15 @@ export default function Confirm(props) {
         transition={{ duration: 0.3, delay: 0.2 }}
       >
         <div className="flex flex-col items-start justify-start w-full space-y-4">
-          <span className="text-3xl text-white text-opacity-90 max-w-lg leading-tight">
+          <p className="text-3xl text-white text-opacity-90 max-w-lg leading-tight">
             Select the server you want to purchase Premium for:
-          </span>
+          </p>
           <div className="relative flex flex-col items-start justify-start w-[400px] space-y-1">
             <div
               className="flex flex-row items-center justify-between w-full px-5 py-2 bg-white bg-opacity-10 rounded cursor-pointer"
               onClick={() => setDropdown((dd) => !dd)}
             >
-              <span className="text-2xl text-white text-opacity-80 select-none">
-                {selected.name}
-              </span>
+              <p className="text-2xl text-white text-opacity-80 select-none">{selected.name}</p>
               <i
                 className={`far ${
                   props.dropdown ? "fa-angle-up" : "fa-angle-down"
@@ -63,13 +61,13 @@ export default function Confirm(props) {
             className="flex flex-row items-center justify-center w-full py-2 bg-white bg-opacity-5 hover:bg-opacity-[0.08] cursor-pointer rounded transition duration-300"
             onClick={() => props.showModal(false)}
           >
-            <span className="text-2xl text-white text-opacity-80 select-none">Cancel</span>
+            <p className="text-2xl text-white text-opacity-80 select-none">Cancel</p>
           </div>
           <div
             className="flex flex-row items-center justify-center w-full py-2 bg-olive-900 bg-opacity-80 hover:bg-opacity-100 cursor-pointer rounded transition duration-300"
             onClick={onClick}
           >
-            <span className="text-2xl text-white text-opacity-80 select-none">Subscribe</span>
+            <p className="text-2xl text-white text-opacity-80 select-none">Subscribe</p>
           </div>
         </div>
       </motion.div>
@@ -105,7 +103,7 @@ function DropdownElement(props) {
       onClick={onClick}
       className="flex flex-row items-center justify-start w-full pl-5 py-1 hover:bg-black hover:bg-opacity-10 cursor-pointer"
     >
-      <span className="text-xl text-white text-opacity-60 select-none">{props.label}</span>
+      <p className="text-xl text-white text-opacity-60 select-none">{props.label}</p>
     </div>
   );
 }

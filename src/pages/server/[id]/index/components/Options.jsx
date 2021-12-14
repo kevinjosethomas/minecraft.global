@@ -58,9 +58,9 @@ function DropdownItem(props) {
       className="flex flex-row items-center justify-start pl-2 pr-10 py-1.5 hover:bg-white hover:bg-opacity-[0.03] cursor-pointer transition duration-300"
       onClick={props.onClick}
     >
-      <span className="text-xl text-white text-opacity-80 whitespace-nowrap select-none">
+      <p className="text-xl text-white text-opacity-80 whitespace-nowrap select-none">
         {props.label}
-      </span>
+      </p>
     </div>
   );
 }

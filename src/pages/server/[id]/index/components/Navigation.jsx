@@ -38,7 +38,7 @@ function Screen(props) {
       className="relative flex flex-row items-center justify-start cursor-pointer"
       onClick={props.onClick}
     >
-      <span
+      <p
         className={`px-2 text-3xl text-white ${
           props.active
             ? "text-opacity-80"
@@ -46,7 +46,7 @@ function Screen(props) {
         }`}
       >
         {props.label}
-      </span>
+      </p>
       {props.active && (
         <motion.div
           layoutId="underline"

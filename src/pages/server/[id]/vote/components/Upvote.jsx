@@ -66,7 +66,7 @@ export default function Upvote(props) {
     >
       <Identity name={props.name} favicon={props.favicon} />
       <div className="flex flex-col items-start justify-start">
-        <span className="text-2xl text-white text-opacity-80">Your Minecraft Username</span>
+        <p className="text-2xl text-white text-opacity-80">Your Minecraft Username</p>
         <input
           value={username}
           onChange={onUsernameChange}
@@ -81,7 +81,7 @@ export default function Upvote(props) {
       <div className="flex flex-row items-center justify-center w-full space-x-4">
         <Link href={`/server/${props.server_id}`}>
           <a className="flex flex-row items-center justify-center w-full py-2 bg-white bg-opacity-10 cursor-pointer rounded hover:bg-opacity-[0.15] transition duration-300">
-            <span className="text-2xl text-white text-opacity-80 select-none">Go Back</span>
+            <p className="text-2xl text-white text-opacity-80 select-none">Go Back</p>
           </a>
         </Link>
         <div
@@ -92,7 +92,7 @@ export default function Upvote(props) {
           } rounded`}
           onClick={() => (username && captchaCode ? submit() : void 0)}
         >
-          <span className="text-2xl text-white text-opacity-80 select-none">Upvote</span>
+          <p className="text-2xl text-white text-opacity-80 select-none">Upvote</p>
         </div>
       </div>
     </motion.div>

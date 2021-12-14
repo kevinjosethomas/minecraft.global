@@ -41,15 +41,15 @@ function Meta(props) {
     <div className="flex flex-row items-center justify-start space-x-4 select-none">
       <div className="flex flex-row items-center justify-start space-x-1">
         <i className="far fa-arrow-alt-up text-sm md:text-base text-olive-500" />
-        <span className="text-sm md:text-base text-white text-opacity-80">
+        <p className="text-sm md:text-base text-white text-opacity-80">
           {SimplifyNumber(props.monthly_votes, { decimal: 1 })}
-        </span>
+        </p>
       </div>
       <div className="flex flex-row items-center justify-start space-x-1">
         <i className="far fa-user text-sm md:text-base text-olive-500" />
-        <span className="text-sm md:text-base text-white text-opacity-80">
+        <p className="text-sm md:text-base text-white text-opacity-80">
           {SimplifyNumber(props.players_online, { decimal: 1 })}
-        </span>
+        </p>
       </div>
     </div>
   );
@@ -78,7 +78,7 @@ function CopyButton(props) {
       className="hidden md:flex flex-row items-center justify-center px-4 py-2 bg-olive-600 bg-opacity-25 hover:bg-opacity-50 rounded-[6px] select-none transition duration-300"
       onClick={onClick}
     >
-      <span className="font-medium text-lg text-white">Copy IP</span>
+      <p className="font-medium text-lg text-white">Copy IP</p>
     </div>
   );
 }

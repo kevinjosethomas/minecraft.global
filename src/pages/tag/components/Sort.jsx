@@ -3,14 +3,14 @@ import { motion, AnimateSharedLayout } from "framer-motion";
 export default function Sort(props) {
   return (
     <div className="flex flex-col items-start justify-start w-full space-y-1">
-      <motion.span
+      <motion.p
         className="font-medium text-3xl text-white text-opacity-90"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3, delay: 0.2 }}
       >
         Sort By
-      </motion.span>
+      </motion.p>
       <motion.div
         className="flex flex-row items-center justify-center bg-white bg-opacity-5 hover:bg-opacity-10 rounded-full transition duration-500"
         initial={{ y: 10, opacity: 0 }}
@@ -44,7 +44,7 @@ function Option(props) {
     >
       <div className="z-20 flex flex-row items-center justify-center w-full select-none space-x-2">
         <i className={`${props.icon} text-2xl text-white text-opacity-80`} />
-        <span className="text-2xl text-white text-opacity-80">{props.label}</span>
+        <p className="text-2xl text-white text-opacity-80">{props.label}</p>
       </div>
       {props.active && (
         <motion.div

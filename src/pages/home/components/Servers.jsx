@@ -112,9 +112,7 @@ function ServerCollection(props) {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
           >
-            <span className="font-medium text-sm md:text-lg text-white whitespace-nowrap">
-              See More
-            </span>
+            <p className="font-medium text-sm md:text-lg text-white whitespace-nowrap">See More</p>
             <i className="far fa-angle-right text-lg text-white group-hover:translate-x-0.5 transform duration-300" />
           </motion.a>
         </Link>

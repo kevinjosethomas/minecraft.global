@@ -54,12 +54,10 @@ export default function Servers(props) {
   return (
     <div className="flex flex-col items-start justify-start w-full space-y-3">
       <div className="flex flex-col items-start justify-start">
-        <span className="max-w-xl text-3xl text-white text-opacity-90 overflow-hidden">
+        <h1 className="max-w-xl text-3xl text-white text-opacity-90 overflow-hidden">
           Search Results{props.parameters.query && ` for ${props.parameters.query}`}
-        </span>
-        <span className="text-xl text-white text-opacity-80">
-          Showing about {resultCount} results...
-        </span>
+        </h1>
+        <p className="text-xl text-white text-opacity-80">Showing about {resultCount} results...</p>
       </div>
       {results.length !== 0 ? (
         <InfiniteScroll

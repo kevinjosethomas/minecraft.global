@@ -71,7 +71,7 @@ export default function Report(props) {
         exit={{ y: 10, opacity: 0 }}
         transition={{ duration: 0.3, delay: 0.2 }}
       >
-        <span className="font-medium text-5xl text-white text-opacity-90">Report Server</span>
+        <p className="font-medium text-5xl text-white text-opacity-90">Report Server</p>
         <TextArea label="Reason" value={parameters.report} onChange={onReportChange} />
         <TextArea label="Proof (links/images)" value={parameters.proof} onChange={onProofChange} />
         <div className="flex flex-row items-center justify-center w-full space-x-4">
@@ -79,13 +79,13 @@ export default function Report(props) {
             className="flex flex-row items-center justify-center w-full py-2 bg-black bg-opacity-20 rounded hover:bg-opacity-30 transition duration-500 cursor-pointer"
             onClick={() => props.showModal(false)}
           >
-            <span className="text-3xl text-white text-opacity-80">Cancel</span>
+            <p className="text-3xl text-white text-opacity-80">Cancel</p>
           </div>
           <div
             className="flex flex-row items-center justify-center w-full py-2 bg-olive-800 rounded hover:bg-olive-900 transition duration-500 cursor-pointer"
             onClick={submit}
           >
-            <span className="text-3xl text-white text-opacity-80">Submit</span>
+            <p className="text-3xl text-white text-opacity-80">Submit</p>
           </div>
         </div>
       </motion.div>

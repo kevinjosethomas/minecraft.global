@@ -12,19 +12,19 @@ export default function ServerCard(props) {
           className="rounded-full w-[64px] h-[64px]"
         />
         <div className="flex flex-col items-start justify-start">
-          <span className="text-2xl text-white text-opacity-80">{props.name}</span>
+          <h2 className="text-2xl text-white text-opacity-80">{props.name}</h2>
           <div className="flex flex-row items-center justify-start space-x-3">
             <div className="flex flex-row items-center justify-start space-x-1">
               <i className="far fa-arrow-alt-up text-base text-white text-olive-500" />
-              <span className="text-base text-white text-opacity-80">
+              <p className="text-base text-white text-opacity-80">
                 {SimplifyNumber(props.monthly_votes, { decimal: 1 })}
-              </span>
+              </p>
             </div>
             <div className="flex flex-row items-center justify-start space-x-1">
               <i className="far fa-user text-base text-white text-olive-500" />
-              <span className="text-base text-white text-opacity-80">
+              <p className="text-base text-white text-opacity-80">
                 {SimplifyNumber(props.players_online, { decimal: 1 })}
-              </span>
+              </p>
             </div>
           </div>
         </div>

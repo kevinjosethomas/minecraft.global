@@ -10,15 +10,15 @@ export default function Comment(props) {
       <div className="flex flex-row items-center justify-between w-full">
         <div className="flex flex-row items-center justify-start space-x-2">
           <img src={avatar} alt={`${props.name}'s' Name`} className="w-10 h-10 rounded-sm" />
-          <span className="text-3xl text-white text-opacity-90">{props.name}</span>
+          <p className="text-3xl text-white text-opacity-90">{props.name}</p>
         </div>
         <div className="flex flex-row items-center justify-start">
-          <span className="text-xl text-white text-opacity-80">
+          <p className="text-xl text-white text-opacity-80">
             Posted on{" "}
-            <span className="font-medium text-opacity-90">
+            <p className="font-medium text-opacity-90">
               {moment(props.created_at).format("MMM Do YYYY")}
-            </span>
-          </span>
+            </p>
+          </p>
         </div>
       </div>
       <div className="flex flex-row items-start justify-start w-full">

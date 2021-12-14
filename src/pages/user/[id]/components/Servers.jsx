@@ -82,7 +82,7 @@ function Info(props) {
           <h3 className="text-3xl text-white text-opacity-80">Manage Billing</h3>
           <Link href={`/user/${props.user.user_id}/edit?screen=billing`}>
             <a className="flex flex-row items-center justify-center w-full py-2 bg-olive-900 hover:bg-olive-800 transition duration-300 rounded">
-              <span className="text-2xl text-white text-opacity-90">View Payments</span>
+              <p className="text-2xl text-white text-opacity-90">View Payments</p>
             </a>
           </Link>
         </motion.div>
@@ -95,7 +95,7 @@ function Field(props) {
   return (
     <div className="flex flex-row items-center justify-start">
       <h3 className="font-medium text-xl md:text-2xl text-white text-opacity-90">
-        {props.label} <span className="font-normal text-white text-opacity-60">{props.value}</span>
+        {props.label} <p className="font-normal text-white text-opacity-60">{props.value}</p>
       </h3>
     </div>
   );

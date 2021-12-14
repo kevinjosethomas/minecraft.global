@@ -45,7 +45,7 @@ function Details(props) {
     >
       <div className="flex flex-row items-center justify-start space-x-2">
         <i className="far fa-gamepad-alt text-3xl text-white text-opacity-90" />
-        <span className="text-3xl text-white text-opacity-90">Details</span>
+        <p className="text-3xl text-white text-opacity-90">Details</p>
       </div>
       <div className="flex flex-col items-start justify-start space-y-2">
         <Element label="IP Address" content={ip} onClick={copyIP} column />
@@ -76,7 +76,7 @@ function Socials(props) {
     >
       <div className="flex flex-row items-center justify-start space-x-2">
         <i className="far fa-share-alt text-3xl text-white text-opacity-90" />
-        <span className="text-3xl text-white text-opacity-90">Socials</span>
+        <p className="text-3xl text-white text-opacity-90">Socials</p>
       </div>
       <div className="flex flex-col items-start justify-start space-y-2">
         {props.discord_url && (

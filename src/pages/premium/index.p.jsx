@@ -37,9 +37,9 @@ export default function Premium(props) {
             transition={{ duration: 0.3, delay: 0.3 }}
           >
             Everything you need to grow your server. For only{" "}
-            <span className="bg-gradient-to-r from-olive-600 to-olive-800 text-transparent bg-clip-text">
+            <p className="bg-gradient-to-r from-olive-600 to-olive-800 text-transparent bg-clip-text">
               $4.99
-            </span>{" "}
+            </p>{" "}
             a month!
           </motion.h1>
           <div className="flex flex-col items-start items-start md:justify-center space-y-4">
@@ -51,7 +51,7 @@ export default function Premium(props) {
             >
               <div className="flex flex-row items-center justify-start space-x-2">
                 <i className="fal fa-chart-bar w-[32px] text-teal-500 text-3xl text-center" />
-                <span className="text-2xl md:text-3xl text-teal-500">Server Analytics</span>
+                <p className="text-2xl md:text-3xl text-teal-500">Server Analytics</p>
               </div>
               <p className="text-lg md:text-2xl text-white text-opacity-70">
                 Premium users get a plugin that regularly transmits data from your Minecraft server

@@ -32,16 +32,16 @@ export default function TopVoters(props) {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3, delay: 0.4 }}
     >
-      <span className="font-medium text-3xl text-white text-opacity-90">
+      <p className="font-medium text-3xl text-white text-opacity-90">
         {moment(new Date()).format("MMM")}'s top voters
-      </span>
+      </p>
       <div className="flex flex-col items-start justify-start w-full space-y-0.5">
         {voters.map((voter, index) => (
           <div key={index} className="flex flex-row items-center justify-between w-full">
-            <span className="text-xl text-white text-opacity-80">{voter.minecraft_username}</span>
-            <span className="w-[20px] text-center text-xl text-white text-opacity-80">
+            <p className="text-xl text-white text-opacity-80">{voter.minecraft_username}</p>
+            <p className="w-[20px] text-center text-xl text-white text-opacity-80">
               {voter.vote_count}
-            </span>
+            </p>
           </div>
         ))}
       </div>
