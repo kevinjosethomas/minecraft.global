@@ -6,7 +6,7 @@ const categories = JSON.parse(await fs.readFileSync("./categories.json"));
 (async () => {
   try {
     let tags;
-    const { data } = await axios.get("https://v2api.minecraft.global/tags");
+    const { data } = await axios.get("https://api.minecraft.global/tags");
     const servercount = data.payload;
 
     const sortedTags = [];
