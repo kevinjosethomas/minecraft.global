@@ -37,15 +37,13 @@ export default function Comments(props) {
       transition={{ duration: 0.3, delay: 0.2 }}
     >
       <div className="flex flex-col items-start justify-start w-full space-y-4">
-        {commented ? (
-          <Fragment />
-        ) : (
+        {!commented && props.user && (
           <Fragment>
             <PostComment id={props.server_id} />
             <div className="w-full h-[3px] bg-white bg-opacity-10" />
           </Fragment>
         )}
-        <CommentsList comments={comments} />
+        <CommentsList comments={comments} user={props.user} />
       </div>
     </motion.div>
   );
