@@ -37,7 +37,7 @@ function Results(props) {
         </Fragment>
       ) : (
         <Fragment>
-          {[...Array(9)].map((el, index) => (
+          {[...Array(6)].map((el, index) => (
             <ServerCardSkeleton key={index} />
           ))}
         </Fragment>

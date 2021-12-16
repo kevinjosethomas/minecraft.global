@@ -45,7 +45,7 @@ export default function Searchbar(props) {
       const [response, error] = await GetSearchResults({
         query: query,
         sort: "upvotes",
-        amount: 9,
+        amount: 6,
       });
       setPreviewResults(response.payload.entries.length ? response.payload.entries : null);
     })();
