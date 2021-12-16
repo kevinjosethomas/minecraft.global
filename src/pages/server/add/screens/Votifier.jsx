@@ -23,7 +23,7 @@ export default function Details(props) {
         <Input
           label="Votifier Host"
           description="Your Votifier server IP (probably the same as your server's IP)"
-          value={props.details.votifier.votifier_host || props.details.host}
+          value={props.details.votifier.votifier_host}
           onChange={(e) => onValueChange("votifier_host", e.target.value, 32)}
         />
         <Input
