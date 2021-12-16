@@ -6,10 +6,10 @@ function Random() {
   );
 }
 
-export async function getServerSideProps(ctx) {
+export async function getServerSideProps() {
   const [server_id, error] = await GetRandomServerID();
-
   if (error) {
+    console.log(error);
     return {
       redirect: {
         destination: "/",
