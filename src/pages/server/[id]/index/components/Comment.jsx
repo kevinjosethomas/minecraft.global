@@ -56,10 +56,10 @@ export default function Comment(props) {
               className="far fa-edit text-xl text-olive-600 cursor-pointer"
               onClick={() => showEditModal(true)}
             />
-            <i
+            {/* <i
               className="far fa-trash-alt text-xl text-red-900 cursor-pointer"
               onClick={() => showDeleteModal(true)}
-            />
+            /> */}
           </div>
         )}
       </div>
