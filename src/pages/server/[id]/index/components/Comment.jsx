@@ -20,7 +20,14 @@ export default function Comment(props) {
     >
       <div className="!m-0">
         <AnimatePresence>
-          {editModal && <EditModal showModal={showEditModal} content={props.content} />}
+          {editModal && (
+            <EditModal
+              content={props.content}
+              showModal={showEditModal}
+              server_id={props.server_id}
+              comment_id={props.comment_id}
+            />
+          )}
         </AnimatePresence>
       </div>
       <div className="flex flex-row items-center justify-between w-full">

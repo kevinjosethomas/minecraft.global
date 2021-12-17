@@ -43,7 +43,7 @@ export default function Comments(props) {
             <div className="w-full h-[3px] bg-white bg-opacity-10" />
           </Fragment>
         )}
-        <CommentsList comments={comments} user={props.user} />
+        <CommentsList server_id={props.server_id} comments={comments} user={props.user} />
       </div>
     </motion.div>
   );
