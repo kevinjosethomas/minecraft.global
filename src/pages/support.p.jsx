@@ -13,11 +13,11 @@ const socials = [
   },
   {
     icon: "fab fa-twitter",
-    href: "https://discord.minecraft.global",
+    href: "https://twitter.com/mcdotglobal",
   },
   {
     icon: "far fa-envelope",
-    href: "https://discord.minecraft.global",
+    href: "mailto:team@minecraft.global",
   },
 ];
 
@@ -64,12 +64,14 @@ export default function Support(props) {
           </h1>
           <div className="grid grid-cols-3 items-start justify-start w-full gap-x-10">
             {socials.map((social, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center justify-center py-16 bg-olive-940 hover:bg-olive-930 border-2 border-olive-920 cursor-pointer rounded-md transition duration-500"
-              >
-                <i className={`${social.icon} text-5xl text-white text-opacity-90`} />
-              </div>
+              <Link href={social.href} passHref>
+                <a target="_blank"
+                  key={index}
+                  className="flex flex-col items-center justify-center py-16 bg-olive-940 hover:bg-olive-930 border-2 border-olive-920 cursor-pointer rounded-md transition duration-500"
+                >
+                  <i className={`${social.icon} text-5xl text-white text-opacity-90`} />
+                </a>
+              </Link>
             ))}
           </div>
         </div>
