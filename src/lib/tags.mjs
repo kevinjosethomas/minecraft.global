@@ -37,6 +37,8 @@ const features = [
   { id: 19, name: "SkyBlock", checked: false },
   { id: 20, name: "PvP", checked: false },
   { id: 21, name: "Factions", checked: false },
+  { id: 43, name: "HCF", checked: false },
+  { id: 44, name: "Practice", checked: false },
 ];
 
 const languages = [
