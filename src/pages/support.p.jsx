@@ -38,7 +38,7 @@ const questions = [
     question: "Someone else added my server to the site! What can I do about it?",
     answer: (
       <Fragment>
-        Unfortunately, there is no way to determine who actually owns a server :( To claim
+        Unfortunately, there is no easy way to determine who actually owns a server :( To claim
         ownership, you can report the server on the server page or join our{" "}
         <a href="https://discord.minecraft.global" target="_blank" rel="noreferrer nofollow">
           Discord server
