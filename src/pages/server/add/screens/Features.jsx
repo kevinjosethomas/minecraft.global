@@ -1,20 +1,13 @@
 import Tags from "../components/Tags";
 import Input from "../components/Input";
 import Properties from "../components/Properties";
-import filterInvalidChars from "api/filterText";
 
 export default function Features(props) {
   function onValueChange(key, value, max, premium) {
     if (premium && !props.server.premium) {
       return;
     }
-
     let formatted = max ? value.substring(0, max) : value;
-
-    if (key === "name" || key === "description" || key === "long_description") {
-      formatted = filterInvalidChars(formatted);
-    }
-    
     props.setDetails((d) => ({ ...d, [key]: formatted }));
   }
 

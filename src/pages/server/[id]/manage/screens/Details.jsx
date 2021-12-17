@@ -3,7 +3,7 @@ import Input from "../components/Input";
 import TextArea from "../components/TextArea";
 import Properties from "../components/Properties";
 import LongDescription from "../components/LongDescription";
-import filterInvalidChars from "api/filterText";
+import filterInvalidChars from "lib/filterText";
 
 export default function Details(props) {
   function onValueChange(key, value, max, premium) {

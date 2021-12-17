@@ -1,12 +1,19 @@
 import Input from "../components/Input";
 import TextArea from "../components/TextArea";
+import filterInvalidChars from "lib/filterText";
 
 export default function Details(props) {
   function onValueChange(key, value, max, premium) {
     if (premium && !props.server.premium) {
       return;
     }
+
     let formatted = max ? value.substring(0, max) : value;
+
+    if (key === "name" || key === "description" || key === "long_description") {
+      formatted = filterInvalidChars(formatted);
+    }
+
     props.setDetails((d) => ({ ...d, [key]: formatted }));
   }
 
