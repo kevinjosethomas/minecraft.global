@@ -13,9 +13,9 @@ export default function Details(props) {
 
     let formatted = max ? value.substring(0, max) : value;
 
-    if (key === "name" || key === "description" || key === "long_description") {
-      formatted = filterInvalidChars(formatted);
-    }
+    // if (key === "name" || key === "description" || key === "long_description") {
+    //   formatted = filterInvalidChars(formatted);
+    // }
 
     props.setDetails((d) => ({ ...d, [key]: formatted }));
   }
