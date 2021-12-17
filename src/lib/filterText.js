@@ -8,7 +8,8 @@ function charRange(start, stop) {
     return chars.join("");
 }
 
-const INVALID_CHARS = Set([
+const INVALID_CHARS = new Set([
+    ...
     // invisible characters
     "\u00A0\u2028\u205F\u3000\uFEFF"
     + charRange(0x2000, 0x200F)
@@ -25,10 +26,10 @@ const INVALID_CHARS = Set([
     + "\u2E3A\u2E3B"
 ]);
 
-function filterInvalidChars(string) {
+function filterInvalidChars(text) {
     chars = [];
 
-    string.forEach((c) => {
+    [...text].forEach((c) => {
         if (!INVALID_CHARS.has(c)) chars.push(c);
     });
 
