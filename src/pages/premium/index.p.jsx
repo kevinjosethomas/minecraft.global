@@ -37,9 +37,9 @@ export default function Premium(props) {
             transition={{ duration: 0.3, delay: 0.3 }}
           >
             Everything you need to grow your server. For only{" "}
-            <p className="bg-gradient-to-r from-olive-600 to-olive-800 text-transparent bg-clip-text">
+            <span className="bg-gradient-to-r from-olive-600 to-olive-800 text-transparent bg-clip-text">
               $4.99
-            </p>{" "}
+            </span>{" "}
             a month!
           </motion.h1>
           <div className="flex flex-col items-start items-start md:justify-center space-y-4">
