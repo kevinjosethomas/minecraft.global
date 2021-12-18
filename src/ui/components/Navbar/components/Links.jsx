@@ -3,14 +3,14 @@ import Link from "next/link";
 export default function Links(props) {
   const elements = [
     {
+      icon: "far fa-stars",
+      label: "Discover",
+      href: "/search",
+    },
+    {
       icon: "far fa-badge-dollar",
       label: "Premium",
       href: "/premium",
-    },
-    {
-      icon: "far fa-question-circle",
-      label: "Why Us?",
-      href: "/why",
     },
     // {
     //   icon: "far fa-stars",
@@ -27,6 +27,10 @@ export default function Links(props) {
     {
       icon: "fab fa-twitter",
       href: "https://twitter.com/mcdotglobal",
+    },
+    {
+      icon: "far fa-question-circle",
+      href: "/why",
     },
   ];
 
@@ -69,11 +73,27 @@ function Element(props) {
 }
 
 function Social(props) {
+  const Container = ({ children }) => {
+    if (props.href.startsWith("/")) {
+      return (
+        <Link href={props.href}>
+          <a>{children}</a>
+        </Link>
+      );
+    } else {
+      return (
+        <a href={props.href} target="_blank" rel="noreferrer">
+          {children}
+        </a>
+      );
+    }
+  };
+
   return (
-    <a href={props.href} target="_blank" rel="noreferrer">
+    <Container>
       <i
         className={`${props.icon} text-xl text-white text-opacity-80 hover:text-opacity-90 transition duration-300`}
       />
-    </a>
+    </Container>
   );
 }
