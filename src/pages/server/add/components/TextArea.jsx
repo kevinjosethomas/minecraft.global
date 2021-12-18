@@ -4,7 +4,7 @@ export default function TextArea(props) {
       <div className="flex flex-col items-start justify-start">
         <p className="text-2xl text-white text-opacity-80">
           {props.label}
-          {props.required && <p className="ml-1 text-xl text-red-800 select-none">*</p>}
+          {props.required && <span className="ml-1 text-xl text-red-800 select-none">*</span>}
         </p>
         <p className="text-lg text-white text-opacity-60 leading-tight">{props.description}</p>
       </div>

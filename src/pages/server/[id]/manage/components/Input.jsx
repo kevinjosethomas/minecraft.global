@@ -14,7 +14,7 @@ export default function Input(props) {
       <div className="flex flex-col items-start justify-start !ml-0">
         <p className="text-2xl text-white text-opacity-80">
           {props.label}
-          {props.required && <p className="ml-1 text-xl text-red-800 select-none">*</p>}
+          {props.required && <span className="ml-1 text-xl text-red-800 select-none">*</span>}
           {props.premium && (
             <i className="fad fa-diamond ml-2 text-2xl text-olive-500" data-tip="Premium Feature" />
           )}
