@@ -36,28 +36,30 @@ export default function Comment(props) {
             src={avatar}
             alt={`${props.name}'s' Name`}
             draggable="false"
-            className="w-10 h-10 rounded-sm"
+            className="w-6 md:w-10 h-6 md:h-10 rounded-sm"
           />
-          <p className="text-3xl text-white text-opacity-90">{props.name}</p>
+          <p className="text-xl md:text-3xl text-white text-opacity-90">{props.name}</p>
         </div>
       </div>
       <div className="flex flex-row items-start justify-start w-full">
-        <p className="text-xl text-white text-opacity-70">{props.content}</p>
+        <p className="md:text-xl text-white text-opacity-70">{props.content}</p>
       </div>
-      <div className="flex flex-row items-center justify-end w-full space-x-4">
-        <p className="text-xl text-white text-opacity-80 select-none">
+      <div className="flex flex-row items-center justify-end w-full space-x-2 md:space-x-4">
+        <p className="text-sm md:text-xl text-white text-opacity-80 select-none">
           -{" "}
           <span className="text-opacity-90">{moment(props.created_at).format("MMM Do YYYY")}</span>
         </p>
-        {props.edited && <p className="text-xl text-white text-opacity-60 select-none">(edited)</p>}
+        {props.edited && (
+          <p className="text-sm md:text-xl text-white text-opacity-60 select-none">(edited)</p>
+        )}
         {props.user.user_id === props.user_id && (
-          <div className="flex flex-row items-center justify-center space-x-2">
+          <div className="flex flex-row items-center justify-center space-x-1 md:space-x-2">
             <i
-              className="far fa-edit text-xl text-olive-600 cursor-pointer"
+              className="far fa-edit text-sm md:text-xl text-olive-600 cursor-pointer"
               onClick={() => showEditModal(true)}
             />
             {/* <i
-              className="far fa-trash-alt text-xl text-red-900 cursor-pointer"
+              className="far fa-trash-alt text-sm md:text-xl text-red-900 cursor-pointer"
               onClick={() => showDeleteModal(true)}
             /> */}
           </div>

@@ -70,7 +70,7 @@ export default function Server(props) {
       <AnimatePresence>
         {reportModal && <Report showModal={showReportModal} id={props.server.server_id} />}
       </AnimatePresence>
-      <div className="flex flex-col items-start justify-start w-full mt-6 space-y-16">
+      <div className="flex flex-col items-start justify-start w-full md:mt-6 space-y-10 md:space-y-16">
         <Header
           server_id={props.server.server_id}
           name={props.server.name}
@@ -80,7 +80,7 @@ export default function Server(props) {
           monthly_votes={props.server.monthly_votes}
           premium={props.server.premium}
         />
-        <div className="flex flex-col items-start justify-start w-full space-y-8">
+        <div className="flex flex-col items-start justify-start w-full space-y-4 md:space-y-8">
           <Navigation
             screen={screen}
             user={props.user}
@@ -88,7 +88,7 @@ export default function Server(props) {
             setScreen={setScreen}
             showReportModal={showReportModal}
           />
-          <div className="flex flex-row items-start justify-start w-full space-x-8">
+          <div className="flex flex-col md:flex-row items-start justify-start w-full space-y-8 md:space-y-0 md:space-x-8">
             <div className="flex flex-col items-start justify-start w-full">
               {screen === "overview" ? (
                 <Overview long_description={props.server.long_description} />

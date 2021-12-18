@@ -9,7 +9,7 @@ export default function Overview(props) {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3, delay: 0.2 }}
     >
-      <ReactMarkdown className="long-description format-links w-full text-xl text-white text-opacity-80 whitespace-pre-wrap overflow-x-hidden">
+      <ReactMarkdown className="long-description format-links w-full text-lg md:text-xl text-white text-opacity-80 whitespace-pre-wrap overflow-x-hidden">
         {props.long_description}
       </ReactMarkdown>
     </motion.div>

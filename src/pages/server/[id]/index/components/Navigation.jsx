@@ -11,7 +11,7 @@ export default function Navigation(props) {
       transition={{ duration: 0.3, delay: 0.2 }}
     >
       <div className="flex flex-row items-center justify-between w-full">
-        <div className="flex flex-row items-center justify-start space-x-10">
+        <div className="flex flex-row items-center justify-start space-x-4 md:space-x-10">
           <AnimateSharedLayout>
             <Screen
               label="Overview"
@@ -39,7 +39,7 @@ function Screen(props) {
       onClick={props.onClick}
     >
       <p
-        className={`px-2 text-3xl text-white ${
+        className={`px-1 md:px-2 text-2xl md:text-3xl text-white ${
           props.active
             ? "text-opacity-80"
             : "text-opacity-60 hover:text-opacity-80 transition duration-300"
@@ -50,7 +50,7 @@ function Screen(props) {
       {props.active && (
         <motion.div
           layoutId="underline"
-          className="highlight-underline absolute w-full h-[3px] bg-olive-600"
+          className="bottom-[-3px] md:bottom-[-4.5px] absolute w-full h-[3px] bg-olive-600"
         />
       )}
     </div>

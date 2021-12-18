@@ -103,10 +103,12 @@ function Element(props) {
       } whitespace-nowrap ${props.onClick && "cursor-pointer"}`}
       onClick={props.onClick}
     >
-      <h3 className="font-medium text-2xl text-white text-opacity-80 leading-tight">
+      <h3 className="font-medium text-xl md:text-2xl text-white text-opacity-80 leading-tight">
         {props.label}
       </h3>
-      <h4 className="text-2xl text-white text-opacity-60 leading-tight">{props.content}</h4>
+      <h4 className="text-xl md:text-2xl text-white text-opacity-60 leading-tight">
+        {props.content}
+      </h4>
     </div>
   );
 }
@@ -120,9 +122,9 @@ function SocialElement(props) {
       target="_blank"
     >
       <i
-        className={`${props.icon} w-[30px] text-2xl text-white text-opacity-60 text-center group-hover:text-opacity-70 transition duration-300`}
+        className={`${props.icon} w-[25px] md:w-[30px] text-xl md:text-2xl text-white text-opacity-60 text-center group-hover:text-opacity-70 transition duration-300`}
       />
-      <h3 className="text-2xl text-white text-opacity-60 leading-tight group-hover:text-opacity-70 transition duration-300 select-none">
+      <h3 className="text-xl md:text-2xl text-white text-opacity-60 leading-tight group-hover:text-opacity-70 transition duration-300 select-none">
         {props.label}
       </h3>
     </a>

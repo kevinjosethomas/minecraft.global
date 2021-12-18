@@ -9,10 +9,10 @@ export default function Options(props) {
   return (
     <div className="relative flex flex-col items-start justify-center">
       <div
-        className="flex flex-col items-center justify-center w-[40px] h-[40px] hover:bg-white hover:bg-opacity-10 transition duration-300 rounded cursor-pointer"
+        className="flex flex-col items-center justify-center w-[32px] md:w-[40px] h-[32px] md:h-[40px] hover:bg-white hover:bg-opacity-10 transition duration-300 rounded cursor-pointer"
         onClick={() => showDropdown((dd) => !dd)}
       >
-        <i className="far fa-ellipsis-h text-3xl text-white text-opacity-80" />
+        <i className="far fa-ellipsis-h text-2xl md:text-3xl text-white text-opacity-80" />
       </div>
       <AnimatePresence>
         {dropdown && (
@@ -34,7 +34,7 @@ function Dropdown(props) {
   return (
     <OnOutsideClick onOutsideClick={() => props.showDropdown(false)}>
       <motion.div
-        className="absolute top-[42px] right-0 flex flex-col items-center justify-start bg-olive-950 rounded border-2 border-olive-930"
+        className="absolute top-[38px] md:top-[42px] right-0 flex flex-col items-center justify-start bg-olive-950 rounded border-2 border-olive-930"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 10, opacity: 0 }}
@@ -58,7 +58,7 @@ function DropdownItem(props) {
       className="flex flex-row items-center justify-start pl-2 pr-10 py-1.5 hover:bg-white hover:bg-opacity-[0.03] cursor-pointer transition duration-300"
       onClick={props.onClick}
     >
-      <p className="text-xl text-white text-opacity-80 whitespace-nowrap select-none">
+      <p className="text-lg md:text-xl text-white text-opacity-80 whitespace-nowrap select-none">
         {props.label}
       </p>
     </div>
