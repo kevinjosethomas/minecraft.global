@@ -8,6 +8,7 @@ import { GetDefaultData } from "api/core";
 import Servers from "./components/Servers";
 import { GetLoggedInUser } from "api/login";
 import { GetSearchResults } from "api/search";
+import Sidebar from "ui/components/Sidebar/Sidebar";
 
 export default function Tag(props) {
   const [parameters, setParameters] = useState({
@@ -36,6 +37,7 @@ export default function Tag(props) {
         <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px] space-y-6">
           <Sort parameters={parameters} setParameters={setParameters} />
           <Filter parameters={parameters} setParameters={setParameters} />
+          <Sidebar addServer />
         </div>
       </div>
     </Default>
