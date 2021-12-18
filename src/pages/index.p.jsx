@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
@@ -6,7 +5,7 @@ import Default from "ui/layouts/Default";
 import { GetDefaultData } from "api/core";
 import { GetLoggedInUser } from "api/login";
 import Servers from "./home/components/Servers";
-import Sidebar from "./home/components/Sidebar";
+import Sidebar from "ui/components/Sidebar/Sidebar";
 
 export default function Home(props) {
   const router = useRouter();
