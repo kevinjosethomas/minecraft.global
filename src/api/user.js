@@ -11,21 +11,6 @@ const GetUserByID = async (id) => {
   }
 };
 
-const GetUserTransactions = async (id, token) => {
-  try {
-    const response = await axios.get(`${process.env.API_URL}/user/${id}/transactions`, {
-      headers: {
-        Authorization: token,
-      },
-    });
-
-    return [response.data.payload, null];
-  } catch (e) {
-    console.log(e);
-    return [null, e];
-  }
-};
-
 const EditUser = async (id, parameters, token) => {
   try {
     const response = await axios.put(
@@ -45,4 +30,4 @@ const EditUser = async (id, parameters, token) => {
   }
 };
 
-export { GetUserByID, GetUserTransactions, EditUser };
+export { GetUserByID, EditUser };

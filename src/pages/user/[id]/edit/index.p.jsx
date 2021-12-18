@@ -5,11 +5,9 @@ import { useRouter } from "next/router";
 import { Fragment, useEffect, useState } from "react";
 
 import { EditUser } from "api/user";
-import Billing from "./screens/Billing";
 import Profile from "./screens/Profile";
 import Default from "ui/layouts/Default";
 import { GetLoggedInUser } from "api/login";
-import { GetUserTransactions } from "api/user";
 import Connections from "./screens/Connections";
 import Navigation from "./components/Navigation";
 
@@ -23,11 +21,6 @@ const screens = [
     name: "accounts",
     label: "Accounts",
     icon: "far fa-plug",
-  },
-  {
-    name: "billing",
-    label: "Billing",
-    icon: "far fa-file-invoice-dollar",
   },
 ];
 
@@ -106,8 +99,6 @@ export default function EditUserPage(props) {
           <Profile user={props.user} parameters={parameters} setParameters={setParameters} />
         ) : screen.name === "accounts" ? (
           <Connections {...props.user} />
-        ) : screen.name === "billing" ? (
-          <Billing billing={props.billing} />
         ) : (
           <Fragment />
         )}
@@ -131,28 +122,17 @@ export async function getServerSideProps(ctx) {
       };
     }
 
-    const user = GetLoggedInUser(ctx, true);
-    const billing = GetUserTransactions(id, token);
+    const user = await GetLoggedInUser(ctx, true);
 
-    const responses = await Promise.all([user, billing]);
-
-    if (responses[0][1]) {
+    if (user[1]) {
       return {
         props: {
-          error: responses[0][1].response?.status || 500,
+          error: user[0][1].response?.status || 500,
         },
       };
     }
 
-    if (responses[1][1]) {
-      return {
-        props: {
-          error: responses[1][1].response?.status || 500,
-        },
-      };
-    }
-
-    if (responses[0][0].user_id != id) {
+    if (user[0].user_id != id) {
       return {
         props: {
           error: 401,
@@ -162,8 +142,7 @@ export async function getServerSideProps(ctx) {
 
     return {
       props: {
-        user: responses[0][0],
-        billing: responses[1][0],
+        user: user[0],
       },
     };
   } catch (e) {
