@@ -95,7 +95,7 @@ function Field(props) {
   return (
     <div className="flex flex-row items-center justify-start">
       <h3 className="font-medium text-xl md:text-2xl text-white text-opacity-90">
-        {props.label} <p className="font-normal text-white text-opacity-60">{props.value}</p>
+        {props.label} <span className="font-normal text-white text-opacity-60">{props.value}</span>
       </h3>
     </div>
   );
