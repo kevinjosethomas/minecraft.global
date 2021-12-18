@@ -6,7 +6,7 @@ export default function Upvote(props) {
   return (
     <Link href={`/server/${props.server_id}/vote`} passHref>
       <motion.a
-        className="flex flex-row items-center justify-center h-[72px] px-8 space-x-2 bg-olive-900 rounded-[12px] hover:bg-olive-910 transition duration-300 select-none"
+        className="flex flex-row items-center justify-center w-full md:w-auto py-5 px-8 space-x-2 bg-olive-900 rounded-xl hover:bg-olive-910 transition duration-300 select-none"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3, delay: 0.2 }}
