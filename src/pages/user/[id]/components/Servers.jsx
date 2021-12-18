@@ -72,21 +72,6 @@ function Info(props) {
           <Field label="IGN" value={username} />
         </motion.div>
       </div>
-      {props.user?.user_id === props.user_id && (
-        <motion.div
-          className="flex flex-col items-start justify-start w-full p-5 space-y-2 bg-olive-950 rounded"
-          initial={{ y: 10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.3, delay: 0.7 }}
-        >
-          <h3 className="text-3xl text-white text-opacity-80">Manage Billing</h3>
-          <Link href={`/user/${props.user.user_id}/edit?screen=billing`}>
-            <a className="flex flex-row items-center justify-center w-full py-2 bg-olive-900 hover:bg-olive-800 transition duration-300 rounded">
-              <p className="text-2xl text-white text-opacity-90">View Payments</p>
-            </a>
-          </Link>
-        </motion.div>
-      )}
     </div>
   );
 }
