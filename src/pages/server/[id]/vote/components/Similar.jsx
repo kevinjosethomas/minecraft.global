@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export default function Similar(props) {
   return (
     <motion.div
-      className="flex flex-row items-center justify-between w-full h-[220px] bg-olive-950 overflow-hidden rounded border-2 border-olive-920"
+      className="hidden md:flex flex-row items-center justify-between w-full h-[220px] bg-olive-950 overflow-hidden rounded border-2 border-olive-920"
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3, delay: 0.6 }}

@@ -27,7 +27,7 @@ export default function TopVoters(props) {
 
   return (
     <motion.div
-      className="flex flex-col items-start justify-between w-full h-[416px] p-8 bg-olive-950 rounded border-2 border-olive-920"
+      className="flex flex-col items-start justify-between w-full max-w-full md:h-[416px] p-4 md:p-8 space-y-4 md:space-y-0 bg-olive-950 rounded border-2 border-olive-920"
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3, delay: 0.4 }}

@@ -61,7 +61,7 @@ export default function UpvoteServer(props) {
       </Head>
       <div className="flex flex-col items-start justify-start w-full space-y-6">
         <Back server_id={props.server.server_id} />
-        <div className="flex flex-row items-start justify-start w-full space-x-8">
+        <div className="flex flex-col md:flex-row items-start justify-start w-full space-y-4 md:space-y-0 md:space-x-8">
           <div className="flex flex-col items-start justify-start w-full">
             {upvoted ? (
               <Advertise tags={props.server.tags} name={props.server.name} />
@@ -75,7 +75,7 @@ export default function UpvoteServer(props) {
               />
             )}
           </div>
-          <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px] space-y-8 overflow-hidden">
+          <div className="flex flex-col items-start justify-start w-full md:min-w-[400px] md:w-[400px] md:max-w-[400px] space-y-8 overflow-hidden">
             <TopVoters server_id={props.server.server_id} />
           </div>
         </div>
