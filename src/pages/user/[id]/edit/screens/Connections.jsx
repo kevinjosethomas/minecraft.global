@@ -3,8 +3,8 @@ import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
+import { GetLinkCode } from "api/user";
 import LinkModal from "../modals/LinkModal";
-import { GenerateLinkCode } from "api/minecraft";
 
 export default function Connections(props) {
   const [linkCode, setLinkCode] = useState("...");
@@ -23,7 +23,7 @@ export default function Connections(props) {
       if (linkCode !== "...") return;
 
       const token = cookies.get("token");
-      const [response, error] = await GenerateLinkCode(token);
+      const [response, error] = await GetLinkCode(token);
 
       if (error) {
         if (error.response?.status === 404) {

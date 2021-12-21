@@ -11,6 +11,21 @@ const GetUserByID = async (id) => {
   }
 };
 
+const GetLinkCode = async (token) => {
+  try {
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/mc/link/generate`, {
+      headers: {
+        Authorization: token,
+      },
+    });
+
+    return [response.data, null];
+  } catch (e) {
+    console.log(e);
+    return [null, e];
+  }
+};
+
 const EditUser = async (id, parameters, token) => {
   try {
     const response = await axios.put(
@@ -30,4 +45,4 @@ const EditUser = async (id, parameters, token) => {
   }
 };
 
-export { GetUserByID, EditUser };
+export { GetUserByID, GetLinkCode, EditUser };
