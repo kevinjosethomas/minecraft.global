@@ -42,7 +42,7 @@ export default function Navigation(props) {
 
 function Identity(props) {
   const avatar = props.user.minecraft_uuid
-    ? `https://crafatar.com/avatars/${props.user.minecraft_uuid}?size=128`
+    ? `https://crafatar.com/avatars/${props.user.minecraft_uuid}?size=128&overlay`
     : "/images/steve.png";
 
   return (

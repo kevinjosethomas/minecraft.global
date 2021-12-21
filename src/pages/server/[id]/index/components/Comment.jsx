@@ -9,7 +9,7 @@ export default function Comment(props) {
   const [deleteModal, showDeleteModal] = useState(false);
 
   const avatar = props.minecraft_uuid
-    ? `https://crafatar.com/avatars/${props.minecraft_uuid}?size=128`
+    ? `https://crafatar.com/avatars/${props.minecraft_uuid}?size=128&overlay`
     : "/images/steve.png";
 
   return (
