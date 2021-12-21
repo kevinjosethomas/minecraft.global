@@ -13,7 +13,7 @@ export default function Billing(props) {
           <p className="font-medium bold text-3xl text-white text-opacity-80">No billing logs</p>
         </div>
       )}
-      <CancelPremium server={props.server} />
+      {props.server.premium && <CancelPremium server={props.server} />}
     </div>
   );
 }
