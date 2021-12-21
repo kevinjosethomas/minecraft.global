@@ -1,14 +1,17 @@
-import axios from "axios";
+import GetSearchResults from "./search";
 
 const GetDefaultData = async (ctx) => {
-  try {
-    const response = await axios.get(
-      `${process.env.API_URL}/servers/search?sort=upvotes&amount=6&track_tags=false`
-    );
+  const response = await GetSearchResults({
+    amount: 6,
+    sort: "upvotes",
 
-    return [response.data.payload.entries, null];
-  } catch (e) {
-    return [null, e];
+    track_tahgs: false,
+  });
+
+  if (response[1]) {
+    return response;
+  } else {
+    return [response[0].data.payload.entries, null];
   }
 };
 
