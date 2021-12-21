@@ -6,15 +6,15 @@ import { Fragment, useState } from "react";
 
 import validate from "lib/validate";
 import Delete from "./screens/Delete";
-import { EditServer } from "api/server";
 import Details from "./screens/Details";
+import Billing from "./screens/Billing";
 import Default from "ui/layouts/Default";
 import Webhooks from "./screens/Webhooks";
 import Votifier from "./screens/Votifier";
 import Analytics from "./screens/Analytics";
 import { GetLoggedInUser } from "api/login";
-import { GetEditServerByID } from "api/server";
 import Navigation from "./components/Navigation";
+import { EditServer, GetEditServerByID, GetServerTransactions } from "api/server";
 
 export default function ManageServer(props) {
   const screens = [
@@ -37,6 +37,11 @@ export default function ManageServer(props) {
       name: "webhooks",
       label: "Webhooks",
       icon: "fab fa-discord",
+    },
+    {
+      name: "billing",
+      label: "Billing",
+      icon: "far fa-badge-dollar",
     },
     {
       name: "delete",
@@ -185,11 +190,12 @@ export default function ManageServer(props) {
           submit={submit}
         />
         <div className="flex flex-col items-start justify-start w-full p-8 space-y-4 bg-olive-950 border-2 border-olive-930 rounded-lg overflow-hidden">
-          {screen.name != "delete" && (
-            <div className="flex flex-row items-center justify-start w-full">
-              <h1 className="font-medium text-4xl text-white text-opacity-90">{screen.label}</h1>
-            </div>
-          )}
+          {screen.name != "delete" ||
+            (screen.name === "billing" && (
+              <div className="flex flex-row items-center justify-start w-full">
+                <h1 className="font-medium text-4xl text-white text-opacity-90">{screen.label}</h1>
+              </div>
+            ))}
           {screen.name === "details" ? (
             <Details server={props.server} details={details} setDetails={setDetails} />
           ) : screen.name === "votifier" ? (
@@ -202,6 +208,8 @@ export default function ManageServer(props) {
             <Analytics server={props.server} />
           ) : screen.name === "webhooks" ? (
             <Webhooks details={details} setDetails={setDetails} />
+          ) : screen.name === "billing" ? (
+            <Billing server={props.server} billing={props.billing} />
           ) : screen.name === "delete" ? (
             <Delete user={props.user} server={props.server} />
           ) : (
@@ -218,9 +226,10 @@ export async function getServerSideProps(ctx) {
     const cookies = new Cookies(ctx.req, ctx.res);
     const token = cookies.get("token");
 
-    const [user, server] = await Promise.all([
+    const [user, server, billing] = await Promise.all([
       GetLoggedInUser(ctx),
       GetEditServerByID(ctx.params.id, token),
+      GetServerTransactions(ctx.params.id, token),
     ]);
 
     if (user[1]) {
@@ -239,6 +248,14 @@ export async function getServerSideProps(ctx) {
       };
     }
 
+    if (billing[1]) {
+      return {
+        props: {
+          error: billing[1].response?.status || 500,
+        },
+      };
+    }
+
     if (server[0].owner_id !== user[0].user_id) {
       return {
         redirect: {
@@ -252,6 +269,7 @@ export async function getServerSideProps(ctx) {
       props: {
         user: user[0],
         server: server[0],
+        billing: billing[0].payload,
       },
     };
   } catch (e) {

@@ -5,7 +5,7 @@ const GetSearchResults = async (parameters) => {
     const params = new URLSearchParams(parameters);
 
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/search?${params.toString()}`
+      `${process.env.NEXT_PUBLIC_API_URL}/servers/search?${params.toString()}`
     );
 
     return [response.data, null];

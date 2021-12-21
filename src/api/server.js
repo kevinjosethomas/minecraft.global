@@ -78,6 +78,20 @@ const GetServers = async () => {
   }
 };
 
+const GetServerTransactions = async (server_id, token) => {
+  try {
+    const response = await axios.get(`${process.env.API_URL}/server/${server_id}/transactions`, {
+      headers: {
+        Authorization: token,
+      },
+    });
+
+    return [response.data, null];
+  } catch (e) {
+    return [null, e];
+  }
+};
+
 const RegenToken = async (id, token) => {
   try {
     const response = await axios.post(
@@ -195,7 +209,7 @@ const EditServer = async (id, data, token) => {
 
 const DeleteServer = async (id, token) => {
   try {
-    const response = await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/server/${id}/delete`, {
+    const response = await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/server/${id}`, {
       headers: { Authorization: token },
     });
 
@@ -212,6 +226,7 @@ export {
   GetServerAnalytics,
   GetServerTopVoters,
   GetRandomServerID,
+  GetServerTransactions,
   GetServers,
   RegenToken,
   NewServer,
