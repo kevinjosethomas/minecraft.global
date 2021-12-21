@@ -21,8 +21,8 @@ export default function Edit(props) {
       return;
     }
 
-    if (content.length < 15) {
-      toast.error("Your comment must be at least 15 characters!");
+    if (content.length < 5) {
+      toast.error("Your comment must be at least 5 characters!");
       return;
     }
     if (content.length > 500) {
