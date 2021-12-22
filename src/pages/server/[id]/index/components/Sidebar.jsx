@@ -10,6 +10,7 @@ export default function Sidebar(props) {
         port={props.port}
         host={props.host}
         bedrock={props.bedrock}
+        supports_bedrock={props.supports_bedrock}
         players_online={props.players_online}
         whitelisted={props.whitelisted}
         cracked={props.cracked}
@@ -36,6 +37,15 @@ function Details(props) {
     toast.success("Successfully copied IP!");
   };
 
+  const platform =
+    !props.bedrock && !props.supports_bedrock
+      ? "Java Edition"
+      : props.bedrock && !props.supports_bedrock
+      ? "Bedrock Edition"
+      : !props.bedrock && props.supports_bedrock
+      ? "Java & Bedrock"
+      : "Java Edition";
+
   return (
     <motion.div
       className="flex flex-col items-start justify-start space-y-2"
@@ -53,7 +63,7 @@ function Details(props) {
           label="Online Players"
           content={SimplifyNumber(props.players_online, { decimal: 1 })}
         />
-        <Element label="Platform" content={props.bedrock ? "Bedrock Edition" : "Java Edition"} />
+        <Element label="Platform" content={platform} />
         <Element label="Whitelist" content={props.whitelisted ? "Enabled" : "Disabled"} />
         <Element label="Cracked" content={props.cracked ? "Enabled" : "Disabled"} />
         <Element
