@@ -24,7 +24,7 @@ export default function Input(props) {
       <input
         value={props.value}
         onChange={props.onChange}
-        className="min-w-[450px] min-h-[50px] p-3 text-lg text-white text-opacity-80 bg-white bg-opacity-5 border-2 border-white border-opacity-10 focus:outline-none rounded-md"
+        className="min-w-[450px] min-h-[60px] px-4 text-lg text-white text-opacity-80 bg-white bg-opacity-5 border-2 border-white border-opacity-10 focus:outline-none rounded-md"
       />
     </div>
   );

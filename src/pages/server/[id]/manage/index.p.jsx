@@ -59,6 +59,7 @@ export default function ManageServer(props) {
     tags: [...props.server.tags],
     whitelisted: props.server.whitelisted,
     bedrock: props.server.bedrock,
+    supports_bedrock: props.server.supports_bedrock,
     cracked: props.server.cracked,
     website_url: props.server.website_url || "",
     discord_url: props.server.discord_url || "",

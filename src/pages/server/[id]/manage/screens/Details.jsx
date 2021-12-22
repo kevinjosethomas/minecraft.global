@@ -1,11 +1,35 @@
+import { useEffect, useState } from "react";
+
 import Tags from "../components/Tags";
 import Input from "../components/Input";
+import Dropdown from "../components/Dropdown";
 import TextArea from "../components/TextArea";
 import Properties from "../components/Properties";
 import LongDescription from "../components/LongDescription";
 import filterInvalidChars from "lib/filterText";
 
 export default function Details(props) {
+  const platforms = [
+    { id: 1, label: "Java Edition Only" },
+    { id: 2, label: "Bedrock Edition Only" },
+    { id: 3, label: "Java & Bedrock Edition" },
+  ];
+  const [platform, setPlatform] = useState(platforms[0]);
+
+  useEffect(() => {
+    switch (platform.id) {
+      case 1:
+        props.setDetails((d) => ({ ...d, bedrock: false, supports_bedrock: false }));
+        break;
+      case 2:
+        props.setDetails((d) => ({ ...d, bedrock: true, supports_bedrock: false }));
+        break;
+      case 3:
+        props.setDetails((d) => ({ ...d, bedrock: false, supports_bedrock: true }));
+        break;
+    }
+  }, [platform]);
+
   function onValueChange(key, value, max, premium) {
     if (premium && !props.server.premium) {
       return;
@@ -51,6 +75,13 @@ export default function Details(props) {
           value={props.details.description}
           onChange={(e) => onValueChange("description", e.target.value, 150)}
           required
+        />
+        <Dropdown
+          label="Server Platform"
+          description="Select the platform your server runs on"
+          value={platform}
+          setValue={setPlatform}
+          options={platforms}
         />
         <Tags tags={props.details.tags} setDetails={props.setDetails} />
         <Properties details={props.details} setDetails={props.setDetails} />
