@@ -49,7 +49,7 @@ function DropdownElement(props) {
           <div
             key={index}
             className={`flex flex-row items-center justify-start w-full px-4 py-1  ${
-              props.value === option
+              props.value.id === option.id
                 ? "bg-black bg-opacity-[0.15]"
                 : "cursor-pointer hover:bg-black hover:bg-opacity-[0.15] transition duration-300"
             }`}
