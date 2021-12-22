@@ -47,6 +47,7 @@ export default function AddServer(props) {
     tags: [],
     whitelisted: false,
     bedrock: false,
+    supports_bedrock: false,
     cracked: false,
     website_url: "",
     discord_url: "",
