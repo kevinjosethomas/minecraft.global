@@ -14,7 +14,16 @@ export default function Details(props) {
     { id: 2, label: "Bedrock Edition Only" },
     { id: 3, label: "Java & Bedrock Edition" },
   ];
-  const [platform, setPlatform] = useState(platforms[0]);
+
+  const [platform, setPlatform] = useState(
+    !props.details.bedrock && !props.details.supports_bedrock
+      ? platforms[0]
+      : props.details.bedrock && !props.details.supports_bedrock
+      ? platforms[1]
+      : !props.details.bedrock && props.details.supports_bedrock
+      ? platforms[2]
+      : platforms[0]
+  );
 
   useEffect(() => {
     switch (platform.id) {
