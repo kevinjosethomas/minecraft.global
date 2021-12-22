@@ -103,6 +103,12 @@ export default function Details(props) {
           value={props.details.trailer_url}
           onChange={(e) => onValueChange("trailer_url", e.target.value, 258)}
         />
+        <Input
+          label="Server Store"
+          description="Your server's store (with https://)"
+          value={props.details.store_url}
+          onChange={(e) => onValueChange("store_url", e.target.value, 258)}
+        />
         <LongDescription
           value={props.details.long_description}
           onChange={(e) => onValueChange("long_description", e.target.value, 5000)}

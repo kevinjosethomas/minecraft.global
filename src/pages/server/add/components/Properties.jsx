@@ -14,11 +14,6 @@ export default function Properties(props) {
           toggle={() => props.setDetails((d) => ({ ...d, whitelisted: !d.whitelisted }))}
         />
         <Checkbox
-          label="Bedrock Edition"
-          value={props.details.bedrock}
-          toggle={() => props.setDetails((d) => ({ ...d, bedrock: !d.bedrock }))}
-        />
-        <Checkbox
           label="Cracked"
           value={props.details.cracked}
           toggle={() => props.setDetails((d) => ({ ...d, cracked: !d.cracked }))}

@@ -78,6 +78,13 @@ const validate = {
 
     return true;
   },
+  supports_bedrock: (v) => {
+    if (v === null || (v !== true && v !== false)) {
+      return "Invalid input for supports bedrock";
+    }
+
+    return true;
+  },
   cracked: (v) => {
     if (v === null || (v !== true && v !== false)) {
       return "Invalid input for cracked";
@@ -132,6 +139,23 @@ const validate = {
       return "Server trailer URL must be atleast 3 characters";
     } else if (v.length > 258) {
       return "Server trailer must be under 258 characters";
+    }
+
+    return true;
+  },
+  store_url: (v) => {
+    if (!v) {
+      return true;
+    }
+
+    if (!(v.startsWith("http://") || v.startsWith("https://"))) {
+      return "Server store URL must start with http:// or https://";
+    }
+
+    if (v.length < 3) {
+      return "Server store URL must be atleast 3 characters";
+    } else if (v.length > 258) {
+      return "Server store URL must be under 258 characters";
     }
 
     return true;

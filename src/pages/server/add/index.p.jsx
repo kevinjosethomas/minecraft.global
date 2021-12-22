@@ -52,6 +52,7 @@ export default function AddServer(props) {
     website_url: "",
     discord_url: "",
     trailer_url: "",
+    store_url: "",
     long_description: "",
     votifier: {
       votifier_host: "",
@@ -105,6 +106,7 @@ export default function AddServer(props) {
       "website_url",
       "discord_url",
       "trailer_url",
+      "store_url",
       "votifier_host",
       "votifier_port",
       "votifier_token",

@@ -65,6 +65,12 @@ export default function Features(props) {
           value={props.details.trailer_url}
           onChange={(e) => onValueChange("trailer_url", e.target.value, 258)}
         />
+        <Input
+          label="Server Store"
+          description="Your server's store (with https://)"
+          value={props.details.store_url}
+          onChange={(e) => onValueChange("store_url", e.target.value, 258)}
+        />
       </div>
     </div>
   );
