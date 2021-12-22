@@ -48,7 +48,11 @@ export async function getServerSideProps(ctx) {
 
   for (const server of servers) {
     fields.push({
-      loc: "https://minecraft.global/server/" + server[0],
+      loc: `https://minecraft.global/server/${server[0]}`,
+      lastmod: server[1],
+    });
+    fields.push({
+      loc: `https://minecraft.global/server/${server[0]}/vote`,
       lastmod: server[1],
     });
   }
