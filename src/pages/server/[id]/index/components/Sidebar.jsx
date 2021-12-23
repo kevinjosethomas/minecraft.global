@@ -17,11 +17,12 @@ export default function Sidebar(props) {
         owner_id={props.owner_id}
         owner_name={props.owner_name}
       />
-      {(props.discord_url || props.website_url || props.trailer_url) && (
+      {(props.discord_url || props.website_url || props.trailer_url || props.store_url) && (
         <Socials
           discord_url={props.discord_url}
           website_url={props.website_url}
           trailer_url={props.trailer_url}
+          store_url={props.store_url}
         />
       )}
     </div>
@@ -97,6 +98,9 @@ function Socials(props) {
         )}
         {props.trailer_url && (
           <SocialElement icon="fab fa-youtube" label="Server Trailer" href={props.trailer_url} />
+        )}
+        {props.store_url && (
+          <SocialElement icon="fas fa-shopping-cart" label="Server Store" href={props.store_url} />
         )}
       </div>
     </motion.div>
