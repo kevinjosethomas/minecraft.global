@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useState } from "react";
 
 import tags from "lib/tags.json";
@@ -27,6 +28,33 @@ export default function Tag(props) {
       title={`${props.tag} Servers - Minecraft Server List`}
       search
     >
+      <Head>
+        <meta
+          name="keywords"
+          content={`${props.tag} servers, ${props.tag} minecraft servers, minecraft, minecraft servers, minecraft server list, cracked minecraft, bedrock minecraft servers`}
+        />
+        <meta
+          name="description"
+          content={`The best ${props.tag} minecraft servers! ${props.results.entries
+            .map((s) => s.name)
+            .join(", ")}`}
+        />
+
+        <meta property="og:image" content="/images/embed.png" />
+        <meta
+          name="og:description"
+          content={`The best ${props.tag} minecraft servers! ${props.results.entries
+            .map((s) => s.name)
+            .join(", ")}`}
+        />
+        <meta property="twitter:image" content="/images/embed.png" />
+        <meta
+          name="twitter:description"
+          content={`The best ${props.tag} minecraft servers! ${props.results.entries
+            .map((s) => s.name)
+            .join(", ")}`}
+        />
+      </Head>
       <div className="flex flex-row items-start j+ustify-center w-full space-x-8">
         <Servers
           tag={props.tag}

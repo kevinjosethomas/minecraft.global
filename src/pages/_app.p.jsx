@@ -19,30 +19,31 @@ function MyApp({ Component, pageProps }) {
   return (
     <Fragment>
       <Head>
-        {!router.pathname.toLowerCase().startsWith("/server/[id]") && (
-          <Fragment>
-            <meta
-              name="keywords"
-              content="minecraft, minecraft servers, minecraft server list, cracked minecraft, bedrock minecraft servers"
-            />
-            <meta
-              name="description"
-              content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
-            />
+        {!router.pathname.toLowerCase().startsWith("/server/[id]") &&
+          !router.pathname.toLowerCase().startsWith("/tag/[tag]") && (
+            <Fragment>
+              <meta
+                name="keywords"
+                content="minecraft, minecraft servers, minecraft server list, cracked minecraft, bedrock minecraft servers"
+              />
+              <meta
+                name="description"
+                content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
+              />
 
-            <meta property="og:image" content="/images/embed.png" />
-            <meta
-              property="og:description"
-              content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
-            />
+              <meta property="og:image" content="/images/embed.png" />
+              <meta
+                property="og:description"
+                content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
+              />
 
-            <meta property="twitter:image" content="/images/embed.png" />
-            <meta
-              property="twitter:description"
-              content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
-            />
-          </Fragment>
-        )}
+              <meta property="twitter:image" content="/images/embed.png" />
+              <meta
+                property="twitter:description"
+                content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
+              />
+            </Fragment>
+          )}
 
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="minecraft.global" />
