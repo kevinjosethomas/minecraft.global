@@ -2,15 +2,15 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
-import Report from "./index/modals/Report";
 import Default from "ui/layouts/Default";
+import { GetDefaultData } from "api/core";
+import Report from "./index/modals/Report";
+import { GetServerByID } from "api/server";
+import { GetLoggedInUser } from "api/login";
 import Header from "./index/components/Header";
 import Comments from "./index/screens/Comments";
 import Overview from "./index/screens/Overview";
-import { GetDefaultData } from "api/core";
 import Sidebar from "./index/components/Sidebar";
-import { GetServerByID } from "api/server";
-import { GetLoggedInUser } from "api/login";
 import Navigation from "./index/components/Navigation";
 
 export default function Server(props) {
@@ -35,13 +35,13 @@ export default function Server(props) {
         <meta name="title" content={`${props.server.name} - Minecraft Server List`} />
         <meta
           name="description"
-          content={`Find ${props.server.name}'s IP Address and Discord here! ${props.server.description}`}
+          content={`${props.server.name} IP, Vote, Store & Discord- ${props.server.description}`}
         />
 
         <meta property="og:title" content={`${props.server.name} - Minecraft Server List`} />
         <meta
           property="og:description"
-          content={`Find ${props.server.name}'s IP Address and Discord here! ${props.server.description}`}
+          content={`${props.server.name} IP, Vote, Store & Discord- ${props.server.description}`}
         />
         <meta
           property="og:image"
@@ -51,7 +51,7 @@ export default function Server(props) {
         <meta property="twitter:title" content={`${props.server.name} - Minecraft Server List`} />
         <meta
           property="twitter:description"
-          content={`Find ${props.server.name}'s IP Address and Discord here! ${props.server.description}`}
+          content={`${props.server.name} IP, Vote, Store & Discord- ${props.server.description}`}
         />
         <meta
           property="twitter:image"
@@ -62,9 +62,9 @@ export default function Server(props) {
           name="keywords"
           content={`${props.server.name}, ${props.server.name} IP Address, ${
             props.server.name
-          } Vote, ${props.server.name} Discord, ${props.server.tags.join(
-            " minecraft servers, "
-          )} minecraft servers`}
+          } Store, ${props.server.name} Vote, ${
+            props.server.name
+          } Discord, ${props.server.tags.join(" minecraft servers, ")} minecraft servers`}
         />
       </Head>
       <AnimatePresence>
