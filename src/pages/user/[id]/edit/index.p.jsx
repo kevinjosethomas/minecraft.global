@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { Fragment, useEffect, useState } from "react";
 
 import { EditUser } from "api/user";
+import Credit from "./screens/Credit";
 import Profile from "./screens/Profile";
 import Default from "ui/layouts/Default";
 import { GetLoggedInUser } from "api/login";
@@ -21,6 +22,11 @@ const screens = [
     name: "accounts",
     label: "Accounts",
     icon: "far fa-plug",
+  },
+  {
+    name: "credit",
+    label: "Credit",
+    icon: "far fa-badge-dollar",
   },
 ];
 
@@ -99,6 +105,8 @@ export default function EditUserPage(props) {
           <Profile user={props.user} parameters={parameters} setParameters={setParameters} />
         ) : screen.name === "accounts" ? (
           <Connections {...props.user} />
+        ) : screen.name === "credit" ? (
+          <Credit user={props.user} />
         ) : (
           <Fragment />
         )}
