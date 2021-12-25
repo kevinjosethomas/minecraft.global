@@ -35,13 +35,13 @@ export default function Server(props) {
         <meta name="title" content={`${props.server.name} - Minecraft Server List`} />
         <meta
           name="description"
-          content={`${props.server.name} IP, Vote, Store & Discord- ${props.server.description}`}
+          content={`${props.server.name} IP, Vote, Store & Discord - ${props.server.description}`}
         />
 
         <meta property="og:title" content={`${props.server.name} - Minecraft Server List`} />
         <meta
           property="og:description"
-          content={`${props.server.name} IP, Vote, Store & Discord- ${props.server.description}`}
+          content={`${props.server.name} IP, Vote, Store & Discord - ${props.server.description}`}
         />
         <meta
           property="og:image"
@@ -51,7 +51,7 @@ export default function Server(props) {
         <meta property="twitter:title" content={`${props.server.name} - Minecraft Server List`} />
         <meta
           property="twitter:description"
-          content={`${props.server.name} IP, Vote, Store & Discord- ${props.server.description}`}
+          content={`${props.server.name} IP, Vote, Store & Discord - ${props.server.description}`}
         />
         <meta
           property="twitter:image"
