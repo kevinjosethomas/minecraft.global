@@ -54,6 +54,7 @@ export default function Upvote(props) {
 
     toast.success("Successfully upvoted the server! Check out other servers in the meantime!");
     props.setUpvoted(true);
+    props.setCanVoteAt(moment().add(18, "hours").toDate());
     localStorage.setItem("upvote_playername", username);
   };
 

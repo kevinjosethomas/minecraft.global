@@ -181,6 +181,21 @@ async function UpvoteServer(server_id, username, captcha) {
   }
 }
 
+async function GetTimeUntilUpvote(server_id, username) {
+  try {
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_API_URL}/server/${server_id}/vote/time`,
+      {
+        minecraft_username: username,
+      }
+    );
+
+    return [response.data, null];
+  } catch (e) {
+    return [null, e];
+  }
+}
+
 async function TestUpvoteServer(server_id, username, token) {
   try {
     const response = await axios.post(
@@ -234,6 +249,7 @@ export {
   EditServerComment,
   ReportServer,
   UpvoteServer,
+  GetTimeUntilUpvote,
   TestUpvoteServer,
   EditServer,
   DeleteServer,

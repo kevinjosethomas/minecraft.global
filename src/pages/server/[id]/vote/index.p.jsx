@@ -1,18 +1,39 @@
+import moment from "moment";
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Back from "./components/Back";
 import Default from "ui/layouts/Default";
 import Upvote from "./components/Upvote";
 import { GetDefaultData } from "api/core";
 import Similar from "./components/Similar";
-import { GetServerByID } from "api/server";
 import { GetLoggedInUser } from "api/login";
 import Advertise from "./components/Advertise";
 import TopVoters from "./components/TopVoters";
+import { GetServerByID, GetTimeUntilUpvote } from "api/server";
 
 export default function UpvoteServer(props) {
   const [upvoted, setUpvoted] = useState(false);
+  const [canVoteAt, setCanVoteAt] = useState();
+  const [previouslyVoted, setPreviouslyVoted] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      const stored = localStorage.getItem("upvote_playername");
+
+      if (!stored) return;
+
+      const [response, error] = await GetTimeUntilUpvote(props.server.server_id, stored);
+
+      if (error || !response.payload.can_vote_at) {
+        return;
+      }
+
+      setUpvoted(true);
+      setPreviouslyVoted(true);
+      setCanVoteAt(moment(response.payload.can_vote_at).local().toDate());
+    })();
+  }, []);
 
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search>
@@ -64,7 +85,12 @@ export default function UpvoteServer(props) {
         <div className="flex flex-col md:flex-row items-start justify-start w-full space-y-4 md:space-y-0 md:space-x-8">
           <div className="flex flex-col items-start justify-start w-full">
             {upvoted ? (
-              <Advertise tags={props.server.tags} name={props.server.name} />
+              <Advertise
+                canVoteAt={canVoteAt}
+                tags={props.server.tags}
+                name={props.server.name}
+                previouslyVoted={previouslyVoted}
+              />
             ) : (
               <Upvote
                 upvoted={upvoted}
@@ -72,6 +98,7 @@ export default function UpvoteServer(props) {
                 name={props.server.name}
                 favicon={props.server.favicon}
                 server_id={props.server.server_id}
+                setCanVoteAt={setCanVoteAt}
               />
             )}
           </div>
