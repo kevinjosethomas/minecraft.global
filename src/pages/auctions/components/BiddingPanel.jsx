@@ -30,12 +30,17 @@ export default function BiddingPanel(props) {
         </p>
       </div>
       <div className="flex flex-col items-start justify-start w-full">
-        <div className="flex flex-row items-center justify-start w-full py-2 px-3 mb-2 space-x-2 bg-white bg-opacity-5 rounded">
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href={props.page.link || null}
+          className="flex flex-row items-center justify-start w-full py-2 px-3 mb-2 space-x-2 bg-white bg-opacity-5 rounded"
+        >
           <i className="fas fa-tag text-lg text-white text-opacity-80" />
           <p className="text-lg text-white text-opacity-80 select-none">
             {props.page?.name || "Loading..."}
           </p>
-        </div>
+        </a>
         <div className="flex flex-row items-center justify-start space-x-2 mb-1">
           <i className="far fa-badge-dollar w-[20.5px] text-center text-lg text-white text-opacity-80" />
           <p className="text-lg text-white text-opacity-80">
