@@ -75,3 +75,19 @@ code {
 .highlight-underline {
   bottom: -3px;
 }
+
+.auctions-red-dot {
+  animation: auctions-red-dot 2s infinite;
+}
+
+@keyframes auctions-red-dot {
+  0% {
+    @apply bg-red-600;
+  }
+  50% {
+    @apply bg-red-900;
+  }
+  100% {
+    @apply bg-red-600;
+  }
+}

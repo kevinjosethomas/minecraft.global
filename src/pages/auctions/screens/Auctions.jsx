@@ -12,15 +12,17 @@ const OPCODES = {
 };
 
 export default function Auctions(props) {
-  const [ws, setWs] = useState();
+  const [websocket, setWebsocket] = useState();
 
-  const [endsAt, setEndsAt] = useState();
-  const [pages, setPages] = useState();
   const [page, setPage] = useState();
+  const [bids, setBids] = useState();
+  const [pages, setPages] = useState();
+  const [endsAt, setEndsAt] = useState();
+  const [startingBid, setStartingBid] = useState();
 
   useEffect(() => {
     const ws = new WebSocket("wss://api.minecraft.global/auctions/live");
-    setWs(ws);
+    setWebsocket(ws);
 
     ws.onmessage = (msg) => {
       const { op, payload } = JSON.parse(msg.data);
@@ -32,16 +34,31 @@ export default function Auctions(props) {
         setPages(payload.rooms);
         setPage(payload.rooms[0]);
       } else if (op == OPCODES.ROOM_DATA) {
+        setBids(payload.bids);
+        setStartingBid(payload.starting_bid);
       } else if (op == OPCODES.ERROR) {
       }
     };
   }, []);
 
+  useEffect(() => {
+    if (!websocket || !page) return;
+
+    websocket.send(
+      JSON.stringify({
+        op: OPCODES.JOIN,
+        payload: {
+          location: page.name,
+        },
+      })
+    );
+  }, [page]);
+
   return (
     <div className="flex flex-col items-start justify-start w-full">
       <div className="flex flex-row items-start justify-start w-full space-x-6">
         <AuctionsPanel pages={pages} page={page} setPage={setPage} />
-        <BiddingPanel />
+        <BiddingPanel page={page} bids={bids} endsAt={endsAt} startingBid={startingBid} />
       </div>
     </div>
   );

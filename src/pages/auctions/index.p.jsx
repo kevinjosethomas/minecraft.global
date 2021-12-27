@@ -12,8 +12,8 @@ const screens = [
     icon: "far fa-info-circle",
   },
   {
-    name: "auctions",
-    label: "Auctions",
+    name: "bidding",
+    label: "Bidding",
     icon: "far fa-badge-dollar",
   },
 ];
@@ -25,7 +25,7 @@ export default function Auctions(props) {
     <Default user={props.user}>
       <div className="flex flex-col items-start justify-start w-full space-y-6">
         <Navigation screen={screen} screens={screens} setScreen={setScreen} />
-        {screen.name === "auctions" ? <AuctionsScreen user={props.user} /> : <Fragment />}
+        {screen.name === "bidding" ? <AuctionsScreen user={props.user} /> : <Fragment />}
       </div>
     </Default>
   );
