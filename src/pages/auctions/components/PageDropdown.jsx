@@ -17,7 +17,15 @@ export default function PageDropdown(props) {
         onClick={() => showDropdown(!dropdown)}
       >
         <p className="text-xl text-white text-opacity-80">{props.page?.name}</p>
-        <i className="far fa-chevron-down text-white text-opacity-80" />
+        <div className="flex flex-row items-center justify-start space-x-4">
+          <div className="flex items-center justify-center px-2 py-1 space-x-1 bg-olive-920 rounded">
+            <i className="far fa-eye text-sm text-white text-opacity-80" />
+            <p className="text-sm text-white text-opacity-80">
+              {SimplifyNumber(props.page?.views, { decimal: 1 })}
+            </p>
+          </div>
+          <i className="far fa-angle-down text-xl text-white text-opacity-80" />
+        </div>
       </div>
       <AnimatePresence>
         {dropdown && (

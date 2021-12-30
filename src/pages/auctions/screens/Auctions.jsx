@@ -58,7 +58,13 @@ export default function Auctions(props) {
     <div className="flex flex-col items-start justify-start w-full">
       <div className="flex flex-row items-start justify-start w-full space-x-6">
         <AuctionsPanel pages={pages} page={page} setPage={setPage} />
-        <BiddingPanel page={page} bids={bids} endsAt={endsAt} startingBid={startingBid} />
+        <BiddingPanel
+          page={page}
+          bids={bids}
+          endsAt={endsAt}
+          user={props.user}
+          startingBid={startingBid}
+        />
       </div>
     </div>
   );

@@ -33,7 +33,7 @@ export default function Auctions(props) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const user = await GetLoggedInUser(ctx);
+    const user = await GetLoggedInUser(ctx, true);
 
     if (user[1]) {
       return {
