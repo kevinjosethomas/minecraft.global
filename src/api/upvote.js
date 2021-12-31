@@ -1,11 +1,14 @@
 async function UpvoteServer(server_id, username, captcha) {
   try {
-    const upvote = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/server/${server_id}/vote`, {
-      minecraft_username: username,
-      captcha_response: captcha,
-    });
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_API_URL}/server/${server_id}/vote`,
+      {
+        minecraft_username: username,
+        captcha_response: captcha,
+      }
+    );
 
-    return [upvote.data, null];
+    return [response.data, null];
   } catch (e) {
     return [null, e];
   }
