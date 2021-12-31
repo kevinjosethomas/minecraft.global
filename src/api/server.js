@@ -163,9 +163,6 @@ export {
   RegenToken,
   NewServer,
   ReportServer,
-  UpvoteServer,
-  GetTimeUntilUpvote,
-  TestUpvoteServer,
   EditServer,
   DeleteServer,
 };
