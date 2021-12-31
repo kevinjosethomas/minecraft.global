@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 
 import Input from "../components/Input";
 import TextArea from "../components/TextArea";
-import { TestUpvoteServer } from "api/server";
+import { TestUpvoteServer } from "api/upvote";
 
 export default function Votifier(props) {
   const [username, setUsername] = useState("");

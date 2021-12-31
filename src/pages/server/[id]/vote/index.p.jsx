@@ -6,11 +6,12 @@ import Back from "./components/Back";
 import Default from "ui/layouts/Default";
 import Upvote from "./components/Upvote";
 import { GetDefaultData } from "api/core";
+import { GetServerByID } from "api/server";
 import Similar from "./components/Similar";
 import { GetLoggedInUser } from "api/login";
 import Advertise from "./components/Advertise";
 import TopVoters from "./components/TopVoters";
-import { GetServerByID, GetTimeUntilUpvote } from "api/server";
+import { FetchTimeTillUpvote } from "api/upvote";
 
 export default function UpvoteServer(props) {
   const [upvoted, setUpvoted] = useState(false);
@@ -23,7 +24,7 @@ export default function UpvoteServer(props) {
 
       if (!stored) return;
 
-      const [response, error] = await GetTimeUntilUpvote(props.server.server_id, stored);
+      const [response, error] = await FetchTimeTillUpvote(props.server.server_id, stored);
 
       if (error || !response.payload.can_vote_at) {
         return;

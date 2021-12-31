@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
-import { UpvoteServer } from "api/server";
+import { UpvoteServer } from "api/upvote";
 import Identity from "../components/Identity";
 
 export default function Upvote(props) {
