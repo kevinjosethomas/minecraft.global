@@ -14,7 +14,7 @@ import Votifier from "./screens/Votifier";
 import Analytics from "./screens/Analytics";
 import { GetLoggedInUser } from "api/login";
 import Navigation from "./components/Navigation";
-import { EditServer, GetServerByID, GetServerTransactions } from "api/server";
+import { EditServer, FetchServer, GetServerTransactions } from "api/server";
 
 export default function ManageServer(props) {
   const screens = [
@@ -231,7 +231,7 @@ export async function getServerSideProps(ctx) {
 
     const [user, server, billing] = await Promise.all([
       GetLoggedInUser(ctx),
-      GetServerByID(ctx.params.id, token),
+      FetchServer(ctx.params.id, token),
       GetServerTransactions(ctx.params.id, token),
     ]);
 
@@ -259,7 +259,7 @@ export async function getServerSideProps(ctx) {
       };
     }
 
-    if (server[0].owner_id !== user[0].user_id) {
+    if (server[0].payload.owner_id !== user[0].user_id) {
       return {
         redirect: {
           destination: `/server/${server[0].server_id}`,

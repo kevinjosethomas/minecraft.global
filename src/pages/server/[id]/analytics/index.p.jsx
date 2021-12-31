@@ -12,7 +12,7 @@ import Messages from "./analytics/Messages";
 import { GetLoggedInUser } from "api/login";
 import Pageviews from "./analytics/Pageviews";
 import Impressions from "./analytics/Impressions";
-import { GetServerByID, GetServerAnalytics } from "api/server";
+import { FetchServer, GetServerAnalytics } from "api/server";
 
 export default function ServerAnalytics(props) {
   const analytics = [Players, Upvotes, Pageviews, Impressions, Memory, CPU, TPS, Messages, World];
@@ -80,17 +80,9 @@ export async function getServerSideProps(ctx) {
     const cookies = new Cookies(ctx.req, ctx.res);
     const token = cookies.get("token");
 
-    if (!token) {
-      return {
-        props: {
-          error: 401,
-        },
-      };
-    }
-
     const [user, server, analytics] = await Promise.all([
       GetLoggedInUser(ctx),
-      GetServerByID(ctx.params.id),
+      FetchServer(ctx.params.id),
       GetServerAnalytics(ctx.params.id, token),
     ]);
 
@@ -110,7 +102,7 @@ export async function getServerSideProps(ctx) {
       };
     }
 
-    if (!server[0].premium) {
+    if (!server[0].payload.premium) {
       return {
         redirect: {
           destination: "/premium",
@@ -127,7 +119,7 @@ export async function getServerSideProps(ctx) {
       };
     }
 
-    if (user[0].user_id != server[0].owner_id) {
+    if (user[0].user_id != server[0].payload.owner_id) {
       return {
         props: {
           error: 401,
@@ -138,7 +130,7 @@ export async function getServerSideProps(ctx) {
     return {
       props: {
         user: user[0],
-        server: server[0],
+        server: server[0].payload,
         analytics: analytics[0].payload,
       },
     };

@@ -2,10 +2,10 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
+import { FetchServer } from "api/server";
 import Default from "ui/layouts/Default";
 import { GetDefaultData } from "api/core";
 import Report from "./index/modals/Report";
-import { GetServerByID } from "api/server";
 import { GetLoggedInUser } from "api/login";
 import Header from "./index/components/Header";
 import Comments from "./index/screens/Comments";
@@ -106,41 +106,41 @@ export default function Server(props) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const user = GetLoggedInUser(ctx);
-    const data = GetDefaultData(ctx);
-    const server = GetServerByID(ctx.params.id);
+    const [user, data, server] = await Promise.all([
+      GetLoggedInUser(ctx),
+      GetDefaultData(ctx),
+      FetchServer(ctx.params.id),
+    ]);
 
-    const [userdata, defaultdata, serverdata] = await Promise.all([user, data, server]);
-
-    if (defaultdata[1]) {
+    if (data[1]) {
       return {
         props: {
-          error: defaultdata[1].response?.status || 500,
+          error: data[1].response?.status || 500,
         },
       };
     }
 
-    if (serverdata[1]) {
+    if (server[1]) {
       return {
         props: {
-          error: serverdata[1].response?.status || 500,
+          error: server[1].response?.status || 500,
         },
       };
     }
 
-    if (userdata[1]) {
+    if (user[1]) {
       return {
         props: {
-          server: serverdata[0],
-          defaultResults: defaultdata[0],
+          server: server[0].payload,
+          defaultResults: data[0],
         },
       };
     } else {
       return {
         props: {
-          user: userdata[0],
-          server: serverdata[0],
-          defaultResults: defaultdata[0],
+          user: user[0],
+          server: server[0].payload,
+          defaultResults: data[0],
         },
       };
     }

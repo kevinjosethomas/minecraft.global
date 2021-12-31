@@ -1,14 +1,14 @@
 import axios from "axios";
 
-const GetServerByID = async (id, token) => {
+const FetchServer = async (identifier, token) => {
   try {
-    const response = await axios.get(`${process.env.API_URL}/server/${id}`, {
+    const response = await axios.get(`${process.env.API_URL}/server/${identifier}`, {
       header: {
         Authorization: token,
       },
     });
 
-    return [response.data.payload, null];
+    return [response.data, null];
   } catch (e) {
     return [null, e];
   }
@@ -133,7 +133,7 @@ const DeleteServer = async (id, token) => {
 };
 
 export {
-  GetServerByID,
+  FetchServer,
   GetServerAnalytics,
   GetRandomServerID,
   GetServerTransactions,
