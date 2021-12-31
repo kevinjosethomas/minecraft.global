@@ -38,4 +38,4 @@ const EditServerComment = async (comment_id, server_id, content, token) => {
   }
 };
 
-return { FetchServerComments, PostServerComment, EditServerComment };
+export { FetchServerComments, PostServerComment, EditServerComment };

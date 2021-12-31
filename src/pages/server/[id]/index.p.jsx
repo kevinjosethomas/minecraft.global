@@ -108,7 +108,7 @@ export async function getServerSideProps(ctx) {
   try {
     const [user, data, server] = await Promise.all([
       GetLoggedInUser(ctx),
-      GetDefaultData(ctx),
+      GetDefaultData(),
       FetchServer(ctx.params.id),
     ]);
 

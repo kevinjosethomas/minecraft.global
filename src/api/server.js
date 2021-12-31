@@ -14,7 +14,7 @@ const FetchServer = async (identifier, token) => {
   }
 };
 
-const GetServerAnalytics = async (id, token) => {
+const FetchServerAnalytics = async (id, token) => {
   try {
     const response = await axios.get(`${process.env.API_URL}/server/${id}/stats`, {
       headers: {
@@ -28,33 +28,9 @@ const GetServerAnalytics = async (id, token) => {
   }
 };
 
-const GetRandomServerID = async () => {
+const FetchRandomServerID = async () => {
   try {
     const response = await axios.get(`${process.env.API_URL}/server/random/id`);
-
-    return [response.data.payload, null];
-  } catch (e) {
-    return [null, e];
-  }
-};
-
-const GetServers = async () => {
-  try {
-    const response = await axios.get(`${process.env.API_URL}/servers`);
-
-    return [response.data.payload, null];
-  } catch (e) {
-    return [null, e];
-  }
-};
-
-const GetServerTransactions = async (server_id, token) => {
-  try {
-    const response = await axios.get(`${process.env.API_URL}/server/${server_id}/transactions`, {
-      headers: {
-        Authorization: token,
-      },
-    });
 
     return [response.data, null];
   } catch (e) {
@@ -62,15 +38,23 @@ const GetServerTransactions = async (server_id, token) => {
   }
 };
 
-const RegenToken = async (id, token) => {
+const FetchServers = async () => {
   try {
-    const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/server/${id}/regentoken`,
-      {},
-      {
-        headers: { Authorization: token },
-      }
-    );
+    const response = await axios.get(`${process.env.API_URL}/servers`);
+
+    return [response.data, null];
+  } catch (e) {
+    return [null, e];
+  }
+};
+
+const FetchServerTransactions = async (server_id, token) => {
+  try {
+    const response = await axios.get(`${process.env.API_URL}/server/${server_id}/transactions`, {
+      headers: {
+        Authorization: token,
+      },
+    });
 
     return [response.data, null];
   } catch (e) {
@@ -132,15 +116,31 @@ const DeleteServer = async (id, token) => {
   }
 };
 
+const RegenToken = async (id, token) => {
+  try {
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_API_URL}/server/${id}/regentoken`,
+      {},
+      {
+        headers: { Authorization: token },
+      }
+    );
+
+    return [response.data, null];
+  } catch (e) {
+    return [null, e];
+  }
+};
+
 export {
   FetchServer,
-  GetServerAnalytics,
-  GetRandomServerID,
-  GetServerTransactions,
-  GetServers,
-  RegenToken,
+  FetchRandomServerID,
+  FetchServerAnalytics,
+  FetchServerTransactions,
+  FetchServers,
   NewServer,
   ReportServer,
   EditServer,
   DeleteServer,
+  RegenToken,
 };

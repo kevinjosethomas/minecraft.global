@@ -35,7 +35,7 @@ export default function Home(props) {
 export async function getServerSideProps(ctx) {
   try {
     const user = GetLoggedInUser(ctx);
-    const data = GetDefaultData(ctx);
+    const data = GetDefaultData();
 
     const responses = await Promise.all([user, data]);
 

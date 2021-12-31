@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const GetUserByID = async (id) => {
+const FetchUser = async (id) => {
   try {
     const response = await axios.get(`${process.env.API_URL}/user/${id}`);
 
@@ -45,4 +45,4 @@ const EditUser = async (id, parameters, token) => {
   }
 };
 
-export { GetUserByID, GetLinkCode, EditUser };
+export { FetchUser, GetLinkCode, EditUser };

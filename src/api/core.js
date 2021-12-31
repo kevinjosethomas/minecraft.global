@@ -1,6 +1,6 @@
 import { GetSearchResults } from "./search";
 
-const GetDefaultData = async (ctx) => {
+const GetDefaultData = async () => {
   const response = await GetSearchResults({
     amount: 6,
     sort: "upvotes",

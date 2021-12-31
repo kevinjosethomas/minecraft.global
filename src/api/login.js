@@ -30,6 +30,7 @@ const LoginWithDiscord = async (code) => {
     const response = await axios.get(
       `${process.env.API_URL}/login/discord?code=${code}&dev=${process.env.NEXT_PUBLIC_DEV}`
     );
+
     return [response.data, null];
   } catch (e) {
     console.log(e);
@@ -44,6 +45,7 @@ const LoginWithGoogle = async (token) => {
         Authorization: token,
       },
     });
+
     return [response.data, null];
   } catch (e) {
     console.log(e);

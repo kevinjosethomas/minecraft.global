@@ -65,7 +65,8 @@ export default function Support(props) {
           <div className="grid grid-cols-3 items-start justify-start w-full gap-x-10">
             {socials.map((social, index) => (
               <Link href={social.href} passHref>
-                <a target="_blank"
+                <a
+                  target="_blank"
                   key={index}
                   className="flex flex-col items-center justify-center py-16 bg-olive-940 hover:bg-olive-930 border-2 border-olive-920 cursor-pointer rounded-md transition duration-500"
                 >
@@ -139,7 +140,7 @@ function Question(props) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const [user, data] = await Promise.all([GetLoggedInUser(ctx), GetDefaultData(ctx)]);
+    const [user, data] = await Promise.all([GetLoggedInUser(ctx), GetDefaultData()]);
 
     if (data[1]) {
       return {

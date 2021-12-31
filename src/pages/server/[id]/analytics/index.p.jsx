@@ -12,7 +12,7 @@ import Messages from "./analytics/Messages";
 import { GetLoggedInUser } from "api/login";
 import Pageviews from "./analytics/Pageviews";
 import Impressions from "./analytics/Impressions";
-import { FetchServer, GetServerAnalytics } from "api/server";
+import { FetchServer, FetchServerAnalytics } from "api/server";
 
 export default function ServerAnalytics(props) {
   const analytics = [Players, Upvotes, Pageviews, Impressions, Memory, CPU, TPS, Messages, World];
@@ -83,7 +83,7 @@ export async function getServerSideProps(ctx) {
     const [user, server, analytics] = await Promise.all([
       GetLoggedInUser(ctx),
       FetchServer(ctx.params.id),
-      GetServerAnalytics(ctx.params.id, token),
+      FetchServerAnalytics(ctx.params.id, token),
     ]);
 
     if (user[1]) {

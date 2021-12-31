@@ -50,7 +50,7 @@ export async function getServerSideProps(ctx) {
 
     const [user, data, search] = await Promise.all([
       GetLoggedInUser(ctx),
-      GetDefaultData(ctx),
+      GetDefaultData(),
       GetSearchResults({ query: query, amount: 12 }),
     ]);
 

@@ -1,7 +1,7 @@
 import { getServerSideSitemap } from "next-sitemap";
 
 import tags from "lib/tags.json";
-import { GetServers } from "api/server";
+import { FetchServers } from "api/server";
 
 const Default = () => {};
 
@@ -40,13 +40,13 @@ export async function getServerSideProps(ctx) {
     });
   }
 
-  const [servers, error] = await GetServers();
+  const [servers, error] = await FetchServers();
 
   if (error) {
     return getServerSideSitemap(ctx, fields);
   }
 
-  for (const server of servers) {
+  for (const server of servers.payload) {
     fields.push({
       loc: `https://minecraft.global/server/${server[0]}`,
       lastmod: server[1],

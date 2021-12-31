@@ -1,4 +1,4 @@
-import { GetRandomServerID } from "api/server";
+import { FetchRandomServerID } from "api/server";
 
 function Random() {
   return (
@@ -7,7 +7,8 @@ function Random() {
 }
 
 export async function getServerSideProps() {
-  const [server_id, error] = await GetRandomServerID();
+  const [response, error] = await FetchRandomServerID();
+
   if (error) {
     console.log(error);
     return {
@@ -16,14 +17,14 @@ export async function getServerSideProps() {
         permanent: true,
       },
     };
-  } else {
-    return {
-      redirect: {
-        destination: `/server/${server_id}`,
-        permanent: true,
-      },
-    };
   }
+
+  return {
+    redirect: {
+      destination: `/server/${response.payload}`,
+      permanent: true,
+    },
+  };
 }
 
 export default Random;

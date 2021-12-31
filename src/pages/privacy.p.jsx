@@ -214,7 +214,7 @@ export default function Privacy(props) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const [user, data] = await Promise.all([GetLoggedInUser(ctx), GetDefaultData(ctx)]);
+    const [user, data] = await Promise.all([GetLoggedInUser(ctx), GetDefaultData()]);
 
     if (data[1]) {
       return {

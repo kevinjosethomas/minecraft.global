@@ -1,4 +1,4 @@
-import { GetUserByID } from "api/user";
+import { FetchUser } from "api/user";
 import Header from "./components/Header";
 import Default from "ui/layouts/Default";
 import { GetDefaultData } from "api/core";
@@ -34,55 +34,43 @@ export default function User(props) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const id = ctx.query.id;
+    const id = ctx.params.id;
 
-    if (!id) {
+    const [user, page, data] = await Promise.all([
+      GetLoggedInUser(ctx),
+      FetchUser(id),
+      GetDefaultData(),
+    ]);
+
+    if (data[1]) {
       return {
         props: {
-          error: 404,
+          error: data[1].response?.status || 500,
         },
       };
     }
 
-    const user = GetLoggedInUser(ctx);
-    const page = GetUserByID(id);
-    const data = GetDefaultData(ctx);
-
-    const responses = await Promise.all([user, page, data]);
-
-    const userdata = responses[0];
-    const pagedata = responses[1];
-    const defaultdata = responses[2];
-
-    if (pagedata[1]) {
+    if (page[1]) {
       return {
         props: {
-          error: pagedata[1].response?.status || 500,
+          error: page[1].response?.status || 500,
         },
       };
     }
 
-    if (defaultdata[1]) {
+    if (user[1]) {
       return {
         props: {
-          error: defaultdata[1].response?.status || 500,
-        },
-      };
-    }
-
-    if (userdata[1]) {
-      return {
-        props: {
-          userinfo: pagedata[0],
-          defaultResults: defaultdata[0],
+          userinfo: page[0],
+          defaultResults: data[0],
         },
       };
     } else {
       return {
         props: {
-          user: userdata[0],
-          userinfo: pagedata[0],
-          defaultResults: defaultdata[0],
+          user: user[0],
+          userinfo: page[0],
+          defaultResults: data[0],
         },
       };
     }
