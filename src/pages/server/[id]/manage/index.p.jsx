@@ -271,7 +271,7 @@ export async function getServerSideProps(ctx) {
     return {
       props: {
         user: user[0],
-        server: server[0],
+        server: server[0].payload,
         billing: billing[0].payload,
       },
     };
