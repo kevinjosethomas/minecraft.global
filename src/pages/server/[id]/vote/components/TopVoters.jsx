@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-import { GetServerTopVoters } from "api/server";
+import { FetchServerTopVoters } from "api/upvote";
 
 export default function TopVoters(props) {
   const [voters, setVoters] = useState(
@@ -12,15 +12,18 @@ export default function TopVoters(props) {
 
   useEffect(() => {
     (async () => {
-      const [response, error] = await GetServerTopVoters(props.server_id);
+      const [response, error] = await FetchServerTopVoters(props.server_id);
 
       if (error) {
         toast.error("Could not fetch top voters :(");
       }
 
       setVoters([
-        ...response,
-        ...Array(10 - response.length).fill({ minecraft_username: ". . .", vote_count: "." }),
+        ...response.payload,
+        ...Array(10 - response.payload.length).fill({
+          minecraft_username: ". . .",
+          vote_count: ".",
+        }),
       ]);
     })();
   }, []);

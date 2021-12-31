@@ -28,16 +28,6 @@ const GetServerAnalytics = async (id, token) => {
   }
 };
 
-const GetServerTopVoters = async (id) => {
-  try {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/server/${id}/votes/top`);
-
-    return [response.data.payload, null];
-  } catch (e) {
-    return [null, e];
-  }
-};
-
 const GetRandomServerID = async () => {
   try {
     const response = await axios.get(`${process.env.API_URL}/server/random/id`);
@@ -145,7 +135,6 @@ const DeleteServer = async (id, token) => {
 export {
   GetServerByID,
   GetServerAnalytics,
-  GetServerTopVoters,
   GetRandomServerID,
   GetServerTransactions,
   GetServers,
