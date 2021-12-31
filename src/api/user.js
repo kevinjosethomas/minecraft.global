@@ -11,7 +11,7 @@ const FetchUser = async (id) => {
   }
 };
 
-const GetLinkCode = async (token) => {
+const FetchLinkCode = async (token) => {
   try {
     const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/mc/link/generate`, {
       headers: {
@@ -45,4 +45,4 @@ const EditUser = async (id, parameters, token) => {
   }
 };
 
-export { FetchUser, GetLinkCode, EditUser };
+export { FetchUser, FetchLinkCode, EditUser };

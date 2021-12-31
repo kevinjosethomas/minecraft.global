@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
-import { GetLinkCode } from "api/user";
+import { FetchLinkCode } from "api/user";
 import LinkModal from "../modals/LinkModal";
 
 export default function Connections(props) {
@@ -23,7 +23,7 @@ export default function Connections(props) {
       if (linkCode !== "...") return;
 
       const token = cookies.get("token");
-      const [response, error] = await GetLinkCode(token);
+      const [response, error] = await FetchLinkCode(token);
 
       if (error) {
         if (error.response?.status === 404) {
