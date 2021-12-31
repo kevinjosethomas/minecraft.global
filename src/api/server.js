@@ -1,19 +1,9 @@
 import axios from "axios";
 
-const GetServerByID = async (id) => {
-  try {
-    const response = await axios.get(`${process.env.API_URL}/server/${id}`);
-
-    return [response.data.payload, null];
-  } catch (e) {
-    return [null, e];
-  }
-};
-
-const GetEditServerByID = async (id, token) => {
+const GetServerByID = async (id, token) => {
   try {
     const response = await axios.get(`${process.env.API_URL}/server/${id}`, {
-      headers: {
+      header: {
         Authorization: token,
       },
     });
@@ -154,7 +144,6 @@ const DeleteServer = async (id, token) => {
 
 export {
   GetServerByID,
-  GetEditServerByID,
   GetServerAnalytics,
   GetServerTopVoters,
   GetRandomServerID,

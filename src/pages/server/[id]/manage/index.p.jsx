@@ -14,7 +14,7 @@ import Votifier from "./screens/Votifier";
 import Analytics from "./screens/Analytics";
 import { GetLoggedInUser } from "api/login";
 import Navigation from "./components/Navigation";
-import { EditServer, GetEditServerByID, GetServerTransactions } from "api/server";
+import { EditServer, GetServerByID, GetServerTransactions } from "api/server";
 
 export default function ManageServer(props) {
   const screens = [
@@ -231,7 +231,7 @@ export async function getServerSideProps(ctx) {
 
     const [user, server, billing] = await Promise.all([
       GetLoggedInUser(ctx),
-      GetEditServerByID(ctx.params.id, token),
+      GetServerByID(ctx.params.id, token),
       GetServerTransactions(ctx.params.id, token),
     ]);
 
