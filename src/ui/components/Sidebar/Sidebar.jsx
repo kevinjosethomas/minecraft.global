@@ -8,7 +8,7 @@ export default function Sidebar(props) {
       {/* <div className="flex flex-col items-start justify-start w-full space-y-2"></div> */}
       {!props.addServer && <AddServer />}
       {/* <Premium /> */}
-      <Tags />
+      <Tags servers={props.servers} />
     </div>
   );
 }

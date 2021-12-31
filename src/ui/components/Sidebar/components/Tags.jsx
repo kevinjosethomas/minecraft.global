@@ -1,11 +1,34 @@
 import Link from "next/link";
-import { useState } from "react";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
 
 import storedTags from "lib/tags.json";
 
 export default function Tags(props) {
+  const [maximum, setMaximum] = useState(
+    props.servers != null
+      ? (props.servers - 1) * 4 > storedTags.length
+        ? storedTags.length
+        : (props.servers - 1) * 4
+      : storedTags.length
+  );
+
+  useEffect(() => {
+    const newMax =
+      props.servers != null
+        ? (props.servers - 1) * 4 > storedTags.length
+          ? storedTags.length
+          : (props.servers - 1) * 4
+        : storedTags.length;
+
+    setMaximum(newMax);
+
+    if (tags.length > newMax) {
+      setTags(storedTags.slice(0, newMax < 5 ? 5 : newMax));
+    }
+  }, [props.servers]);
+
   const [tags, setTags] = useState(storedTags.slice(0, 5));
 
   const loadMore = (page) => {
@@ -24,7 +47,7 @@ export default function Tags(props) {
         <InfiniteScroll
           pageStart={5}
           loadMore={loadMore}
-          hasMore={tags.length !== storedTags.length}
+          hasMore={tags.length < maximum}
           className="w-full"
         >
           {tags.map((tag, index) => (
