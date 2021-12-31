@@ -128,48 +128,6 @@ const ReportServer = async (id, parameters, token) => {
   }
 };
 
-async function UpvoteServer(server_id, username, captcha) {
-  try {
-    const upvote = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/server/${server_id}/vote`, {
-      minecraft_username: username,
-      captcha_response: captcha,
-    });
-
-    return [upvote.data.payload, null];
-  } catch (e) {
-    return [null, e];
-  }
-}
-
-async function GetTimeUntilUpvote(server_id, username) {
-  try {
-    const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/server/${server_id}/vote/time`,
-      {
-        minecraft_username: username,
-      }
-    );
-
-    return [response.data, null];
-  } catch (e) {
-    return [null, e];
-  }
-}
-
-async function TestUpvoteServer(server_id, username, token) {
-  try {
-    const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/server/${server_id}/vote/test`,
-      { minecraft_username: username },
-      { headers: { Authorization: token } }
-    );
-
-    return [response.data, null];
-  } catch (e) {
-    return [null, e];
-  }
-}
-
 const EditServer = async (id, data, token) => {
   try {
     const response = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/server/${id}/edit`, data, {
