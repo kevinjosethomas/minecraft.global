@@ -89,7 +89,11 @@ export async function getServerSideProps(ctx) {
     const [user, data, results] = await Promise.all([
       GetLoggedInUser(ctx),
       GetDefaultData(),
-      GetSearchResults({ tags: encodeURIComponent(tag), amount: 12 }),
+      GetSearchResults({
+        // tags: encodeURIComponent(tag),
+        tags: tag,
+        amount: 12,
+      }),
     ]);
 
     if (data[1]) {

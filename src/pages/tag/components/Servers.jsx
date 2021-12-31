@@ -16,7 +16,8 @@ export default function Servers(props) {
     }
 
     const [response, error] = await GetSearchResults({
-      tag: encodeURIComponent(props.tag),
+      // tag: encodeURIComponent(props.tag),
+      tag: props.tag,
       amount: 12,
       offset: page * 12,
       ...props.parameters,
@@ -39,7 +40,8 @@ export default function Servers(props) {
     (async () => {
       const [response, error] = await GetSearchResults({
         ...props.parameters,
-        tags: encodeURIComponent(props.tag),
+        tags: props.tag,
+        // tags: encodeURIComponent(props.tag),
         amount: 12,
       });
 
