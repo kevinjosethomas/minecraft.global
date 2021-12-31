@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 
 import Modal from "ui/layouts/Modal";
-import { EditServerComment } from "api/server";
+import { EditServerComment } from "api/comment";
 
 export default function Edit(props) {
   const router = useRouter();

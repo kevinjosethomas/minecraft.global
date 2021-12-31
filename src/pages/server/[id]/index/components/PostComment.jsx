@@ -2,9 +2,9 @@ import cookies from "js-cookie";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-import { PostComment } from "api/server";
+import { PostServerComment } from "api/comment";
 
-export default function PostServerComment(props) {
+export default function PosComment(props) {
   const [content, setContent] = useState("");
 
   const submit = async () => {
@@ -18,7 +18,7 @@ export default function PostServerComment(props) {
     }
 
     const token = cookies.get("token");
-    const [response, error] = await PostComment(props.id, content, token);
+    const [response, error] = await PostServerComment(props.id, content, token);
 
     if (error) {
       if (error.response?.status === 401) {

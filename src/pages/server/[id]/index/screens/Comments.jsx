@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Fragment, useEffect, useState } from "react";
 
 import CommentsList from "../components/Comments";
-import { GetServerCommentsByID } from "api/server";
+import { FetchServerComments } from "api/comment";
 import PostComment from "../components/PostComment";
 
 export default function Comments(props) {
@@ -12,7 +12,7 @@ export default function Comments(props) {
 
   useEffect(() => {
     (async () => {
-      const [response, error] = await GetServerCommentsByID(props.server_id);
+      const [response, error] = await FetchServerComments(props.server_id);
 
       if (error) {
         toast.error("Could not fetch comments, please try again later!");
