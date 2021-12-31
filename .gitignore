@@ -33,3 +33,6 @@ yarn-error.log*
 # vercel
 .vercel
 src/lib/tags.json
+
+# Sentry
+.sentryclirc
