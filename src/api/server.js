@@ -24,16 +24,6 @@ const GetEditServerByID = async (id, token) => {
   }
 };
 
-const GetServerCommentsByID = async (id) => {
-  try {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/server/${id}/comments`);
-
-    return [response.data, null];
-  } catch (e) {
-    return [null, e];
-  }
-};
-
 const GetServerAnalytics = async (id, token) => {
   try {
     const response = await axios.get(`${process.env.API_URL}/server/${id}/stats`, {
@@ -117,36 +107,6 @@ const NewServer = async (data, token) => {
     });
 
     return [response, null];
-  } catch (e) {
-    return [null, e];
-  }
-};
-
-const PostComment = async (id, content, token) => {
-  try {
-    const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/server/${id}/comment`,
-      {
-        content: content,
-      },
-      { headers: { Authorization: token } }
-    );
-
-    return [response.data.payload, null];
-  } catch (e) {
-    return [null, e];
-  }
-};
-
-const EditServerComment = async (comment_id, server_id, content, token) => {
-  try {
-    const response = await axios.put(
-      `${process.env.NEXT_PUBLIC_API_URL}/server/${server_id}/comment/${comment_id}/edit`,
-      { content: content },
-      { headers: { Authorization: token } }
-    );
-
-    return [response.data, null];
   } catch (e) {
     return [null, e];
   }
@@ -237,7 +197,6 @@ const DeleteServer = async (id, token) => {
 export {
   GetServerByID,
   GetEditServerByID,
-  GetServerCommentsByID,
   GetServerAnalytics,
   GetServerTopVoters,
   GetRandomServerID,
@@ -245,8 +204,6 @@ export {
   GetServers,
   RegenToken,
   NewServer,
-  PostComment,
-  EditServerComment,
   ReportServer,
   UpvoteServer,
   GetTimeUntilUpvote,
