@@ -9,6 +9,7 @@ export default function Sidebar(props) {
       <Details
         port={props.port}
         host={props.host}
+        name={props.name}
         bedrock={props.bedrock}
         supports_bedrock={props.supports_bedrock}
         players_online={props.players_online}
@@ -59,7 +60,7 @@ function Details(props) {
         <p className="text-3xl text-white text-opacity-90">Details</p>
       </div>
       <div className="flex flex-col items-start justify-start space-y-2">
-        <Element label="IP Address" content={ip} onClick={copyIP} column />
+        <Element label={`${props.name}'s IP Address`} content={ip} onClick={copyIP} column />
         <Element
           label="Online Players"
           content={SimplifyNumber(props.players_online, { decimal: 1 })}
