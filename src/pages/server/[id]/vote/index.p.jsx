@@ -107,7 +107,15 @@ export default function UpvoteServer(props) {
             <TopVoters server_id={props.server.server_id} />
           </div>
         </div>
-        <Similar tag={props.tag} />
+        <a href="https://discord.minecraft.global/" target="_blank" rel="noreferrer">
+          <img
+            src="/images/votepage-ad.png"
+            draggable="false"
+            alt="Rent this advertisement spot"
+            className="rounded"
+          />
+        </a>
+        {/* <Similar tag={props.tag} /> */}
       </div>
     </Default>
   );
