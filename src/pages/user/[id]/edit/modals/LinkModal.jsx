@@ -20,7 +20,7 @@ export default function LinkModal(props) {
         transition={{ duration: 0.3, delay: 0.2 }}
       >
         <p className="text-3xl text-white text-opacity-90 leading-tight">
-          Connect your Minecraft Java Account:
+          Link your Minecraft Java Account:
         </p>
         <ul className="space-y-6">
           <li className="text-xl text-white text-opacity-90 leading-tight">

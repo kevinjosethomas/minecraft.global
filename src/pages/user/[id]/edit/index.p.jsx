@@ -8,8 +8,8 @@ import { EditUser } from "api/user";
 import Credit from "./screens/Credit";
 import Profile from "./screens/Profile";
 import Default from "ui/layouts/Default";
+import Accounts from "./screens/Accounts";
 import { GetLoggedInUser } from "api/login";
-import Connections from "./screens/Connections";
 import Navigation from "./components/Navigation";
 
 const screens = [
@@ -104,7 +104,7 @@ export default function EditUserPage(props) {
         {screen.name === "profile" ? (
           <Profile user={props.user} parameters={parameters} setParameters={setParameters} />
         ) : screen.name === "accounts" ? (
-          <Connections {...props.user} />
+          <Accounts {...props.user} />
         ) : screen.name === "credit" ? (
           <Credit user={props.user} />
         ) : (
