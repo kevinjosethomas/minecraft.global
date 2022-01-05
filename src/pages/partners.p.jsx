@@ -5,13 +5,6 @@ import { GetLoggedInUser } from "api/login";
 export default function Partners(props) {
   const partners = [
     {
-      name: "Starlight Capes",
-      icon: "/partners/starlight_capes.png",
-      href: "https://discord.gg/5tDyktNXNU",
-      description:
-        "Custom Capes program releasing soon! Paid custom (non) animated capes! Friendly and helpful staff. Looking for media and server partners!",
-    },
-    {
       name: "Villager Bot",
       icon: "/partners/villager_bot.png",
       href: "https://top.gg/bot/639498607632056321",
