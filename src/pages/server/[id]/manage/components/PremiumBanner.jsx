@@ -29,9 +29,11 @@ function Subscribe(props) {
 function Renews(props) {
   return (
     <div className="flex flex-col items-start justify-start py-2 px-4 bg-white bg-opacity-90 rounded">
-      <p className="font-bold text-olive-900 leading-snug tracking-tight select-none">RENEWS ON</p>
+      <p className="font-bold text-olive-900 leading-snug tracking-tight select-none">
+        {props.server.premium_cancelling ? "ENDS" : "RENEWS"} ON
+      </p>
       <p className="font-bold text-lg text-olive-400 leading-tight select-none">
-        {moment(props.server.premium_expires).format("MMMM Do YYYY")}
+        {moment(props.server.premium_expires).local().format("MMMM Do YYYY")}
       </p>
     </div>
   );

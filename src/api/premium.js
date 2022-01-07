@@ -32,4 +32,24 @@ const GetAnalyticsPlugin = async () => {
   }
 };
 
-export { CreatePremiumSession, GetAnalyticsPlugin };
+const CancelPremiumSubscription = async (id, token) => {
+  try {
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_API_URL}/premium/cancel`,
+      {
+        server_id: id,
+      },
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+
+    return [response.data, null];
+  } catch (e) {
+    return [null, e];
+  }
+};
+
+export { CreatePremiumSession, GetAnalyticsPlugin, CancelPremiumSubscription };
