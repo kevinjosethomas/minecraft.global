@@ -75,7 +75,8 @@ function ManageServer(props) {
 function CopyButton(props) {
   const router = useRouter();
 
-  const onClick = async () => {
+  const onClick = async (e) => {
+    e.preventDefault();
     const ip = !props.port || props.port === 25565 ? props.host : `${props.host}:${props.port}`;
     navigator.clipboard.writeText(ip);
     toast.success("Successfully copied IP!");
