@@ -1,6 +1,8 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import toast from "react-hot-toast";
+import { useRouter } from "next/router";
+import { PostEvent } from "api/analytics";
 import SimplifyNumber from "simplify-number";
 
 const ReactTooltip = dynamic(() => import("react-tooltip"), {
@@ -30,7 +32,12 @@ export default function Identity(props) {
       </div>
       <div className="flex flex-row items-center justify-start space-x-2">
         {props.owner_id === props.user?.user_id && <ManageServer server_id={props.server_id} />}
-        <CopyButton host={props.host} port={props.port} />
+        <CopyButton
+          host={props.host}
+          port={props.port}
+          server_id={props.server_id}
+          user_id={props.user?.user_id}
+        />
       </div>
     </div>
   );
@@ -66,11 +73,22 @@ function ManageServer(props) {
 }
 
 function CopyButton(props) {
-  const onClick = (e) => {
+  const router = useRouter();
+
+  const onClick = async (e) => {
     e.preventDefault();
     const ip = !props.port || props.port === 25565 ? props.host : `${props.host}:${props.port}`;
     navigator.clipboard.writeText(ip);
     toast.success("Successfully copied IP!");
+
+    await PostEvent("COPY-IP", {
+      user_id: props.user_id,
+      server_id: props.server_id,
+      metadata: {
+        type: "Server Card",
+        loc: router.asPath,
+      },
+    });
   };
 
   return (

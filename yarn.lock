@@ -1173,6 +1173,11 @@ crypto-browserify@3.12.0:
     randombytes "^2.0.0"
     randomfill "^1.0.3"
 
+crypto-js@~3.1.2-1:
+  version "3.1.8"
+  resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-3.1.8.tgz#715f070bf6014f2ae992a98b3929258b713f08d5"
+  integrity sha1-cV8HC/YBTyrpkqmLOSkli3E/CNU=
+
 css-color-names@^0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
@@ -1729,6 +1734,14 @@ fastq@^1.6.0:
   integrity sha512-YpkpUnK8od0o1hmeSc7UUs/eB/vIPWJYjKck2QKIzAf71Vm1AAQ3EbuZB3g2JIy+pg+ERD0vqI79KyZiB2e2Nw==
   dependencies:
     reusify "^1.0.4"
+
+fernet@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/fernet/-/fernet-0.4.0.tgz#95d10a3660bf1ccfb4964687508ec2e2ba5eda25"
+  integrity sha512-FJgmKoMeG4eoM+bEbMyTzPx9US4W+sw4D0i6jSWSKHFYlFZv92UIWi6a/w6MEf2JNSO+Mth/T+u+d/ye1zwN9A==
+  dependencies:
+    crypto-js "~3.1.2-1"
+    urlsafe-base64 "1.0.0"
 
 file-entry-cache@^6.0.1:
   version "6.0.1"
@@ -4405,6 +4418,11 @@ uri-js@^4.2.2:
   integrity sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
   dependencies:
     punycode "^2.1.0"
+
+urlsafe-base64@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/urlsafe-base64/-/urlsafe-base64-1.0.0.tgz#23f89069a6c62f46cf3a1d3b00169cefb90be0c6"
+  integrity sha1-I/iQaabGL0bPOh07ABac77kL4MY=
 
 use-subscription@1.5.1:
   version "1.5.1"
