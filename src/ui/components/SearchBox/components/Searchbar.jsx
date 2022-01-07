@@ -68,7 +68,7 @@ export default function Searchbar(props) {
       <AnimatePresence>
         {popup && (
           <motion.div
-            className="fixed top-0 left-0 z-20 flex flex-col items-center justify-center w-screen h-screen bg-black bg-opacity-60"
+            className="fixed top-0 left-0 z-20 hidden md:flex flex-col items-center justify-center w-screen h-screen bg-black bg-opacity-60"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -79,7 +79,7 @@ export default function Searchbar(props) {
       <div ref={node} className="relative flex flex-row items-center justify-start w-full mt-2">
         <input
           value={input}
-          className="z-30 flex flex-row items-center justify-start w-full h-[75px] px-6 mr-[8px] text-2xl text-white text-opacity-60 placeholder-white placeholder-opacity-60 bg-white bg-opacity-[0.06] rounded-[12px] focus:outline-none"
+          className="z-30 flex flex-row items-center justify-start w-full h-[50px] md:h-[75px] px-4 md:px-6 md:text-2xl text-white text-opacity-60 placeholder-white placeholder-opacity-60 bg-white bg-opacity-[0.06] rounded md:rounded-xl focus:outline-none"
           placeholder="Search for Minecraft servers..."
           onChange={(e) => setInput(e.target.value)}
           onFocus={() => showPopup(true)}
@@ -99,10 +99,10 @@ export default function Searchbar(props) {
 function SearchButton(props) {
   return (
     <div
-      className="z-30 flex flex-row items-center justify-center min-w-[75px] min-h-[75px] ml-[8px] bg-olive-700 hover:bg-olive-800 rounded-[12px] transition duration-300 cursor-pointer"
+      className="z-30 flex flex-row items-center justify-center min-w-[50px] md:min-w-[75px] min-h-[50px] md:min-h-[75px] ml-[8px] md:ml-[16px] bg-olive-700 hover:bg-olive-800 rounded md:rounded-xl transition duration-300 cursor-pointer"
       onClick={props.onClick}
     >
-      <i className="far fa-search text-2xl text-white text-opacity-90" />
+      <i className="far fa-search text-lg md:text-2xl text-white text-opacity-90" />
     </div>
   );
 }

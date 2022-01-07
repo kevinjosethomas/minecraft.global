@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function MobileNavbar(props) {
   return (
     <motion.div
-      className="absolute top-0 left-0 z-30 flex flex-col items-start justify-start !mt-0 w-screen h-screen bg-black bg-opacity-60"
+      className="absolute top-0 left-0 z-40 flex flex-col items-start justify-start !mt-0 w-screen h-screen bg-black bg-opacity-60"
       onClick={() => props.setMobile(false)}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

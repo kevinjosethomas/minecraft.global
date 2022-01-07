@@ -31,7 +31,7 @@ const Default = (props) => {
       )}
       <div className="flex flex-col items-center justify-start w-full overflow-x-hidden">
         <div className="absolute top-0 left-0 bg-gradient w-full h-full" />
-        <div className="z-[1] flex flex-col items-center justify-start w-full md:w-1200 h-full space-y-4 md:space-y-10 px-4 md:px-0 pb-20">
+        <div className="z-[1] flex flex-col items-center justify-start w-full md:w-1200 h-full space-y-6 md:space-y-10 px-4 md:px-0 pb-20">
           <Navbar user={props.user} />
           {props.search && (
             <SearchBox header={props.header} defaultResults={props.defaultResults} />
