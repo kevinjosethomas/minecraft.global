@@ -96,7 +96,7 @@ export default function Server(props) {
                 <Comments server_id={props.server.server_id} user={props.user} />
               )}
             </div>
-            <Sidebar {...props.server} />
+            <Sidebar {...props.server} user_id={props.user?.user_id} />
           </div>
         </div>
       </div>

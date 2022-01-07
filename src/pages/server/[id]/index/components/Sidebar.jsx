@@ -1,6 +1,7 @@
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
+import { PostEvent } from "api/analytics";
 import SimplifyNumber from "simplify-number";
 
 export default function Sidebar(props) {
@@ -10,6 +11,7 @@ export default function Sidebar(props) {
         port={props.port}
         host={props.host}
         name={props.name}
+        server_id={props.server_id}
         bedrock={props.bedrock}
         supports_bedrock={props.supports_bedrock}
         players_online={props.players_online}
@@ -17,6 +19,7 @@ export default function Sidebar(props) {
         cracked={props.cracked}
         owner_id={props.owner_id}
         owner_name={props.owner_name}
+        user_id={props.user_id}
       />
       {(props.discord_url || props.website_url || props.trailer_url || props.store_url) && (
         <Socials
@@ -34,9 +37,18 @@ function Details(props) {
   const router = useRouter();
   const ip = !props.port || props.port === 25565 ? props.host : `${props.host}:${props.port}`;
 
-  const copyIP = () => {
+  const copyIP = async () => {
     navigator.clipboard.writeText(ip);
     toast.success("Successfully copied IP!");
+
+    await PostEvent("COPY-IP", {
+      user_id: props.user_id,
+      server_id: props.server_id,
+      metadata: {
+        type: "Server Page",
+        loc: router.asPath,
+      },
+    });
   };
 
   const platform =
