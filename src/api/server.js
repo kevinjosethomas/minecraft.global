@@ -1,10 +1,9 @@
 import axios from "axios";
 
 const FetchServer = async (identifier, token) => {
-  console.log(`amogus 2: ${token}`)
   try {
     const response = await axios.get(`${process.env.API_URL}/server/${identifier}`, {
-      header: {
+      headers: {
         Authorization: token,
       },
     });

@@ -110,8 +110,6 @@ export async function getServerSideProps(ctx) {
     const cookies = new Cookies(ctx.req, ctx.res);
     const token = cookies.get("token");
 
-    console.log(`amogus: ${token}`);
-
     const [user, data, server] = await Promise.all([
       GetLoggedInUser(ctx),
       GetDefaultData(),
