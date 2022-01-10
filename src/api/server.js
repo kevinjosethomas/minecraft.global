@@ -4,7 +4,7 @@ const FetchServer = async (identifier, token) => {
   try {
     const response = await axios.get(`${process.env.API_URL}/server/${identifier}`, {
       headers: {
-        Authorization: token,
+        Authorization: token || "",
       },
     });
 
