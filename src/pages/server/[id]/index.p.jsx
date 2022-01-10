@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
+import Cookies from "cookies";
 
 import { FetchServer } from "api/server";
 import Default from "ui/layouts/Default";
@@ -106,10 +107,13 @@ export default function Server(props) {
 
 export async function getServerSideProps(ctx) {
   try {
+    const cookies = new Cookies(ctx.req, ctx.res);
+    const token = cookies.get("token");
+
     const [user, data, server] = await Promise.all([
       GetLoggedInUser(ctx),
       GetDefaultData(),
-      FetchServer(ctx.params.id),
+      FetchServer(ctx.params.id, token),
     ]);
 
     if (data[1]) {
