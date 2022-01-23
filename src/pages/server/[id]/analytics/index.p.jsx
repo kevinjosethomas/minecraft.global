@@ -106,7 +106,7 @@ export async function getServerSideProps(ctx) {
       return {
         redirect: {
           destination: "/premium",
-          permanent: true,
+          permanent: false,
         },
       };
     }

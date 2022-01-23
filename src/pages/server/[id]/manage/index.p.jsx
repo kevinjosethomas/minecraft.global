@@ -263,7 +263,7 @@ export async function getServerSideProps(ctx) {
       return {
         redirect: {
           destination: `/server/${server[0].server_id}`,
-          permanent: true,
+          permanent: false,
         },
       };
     }

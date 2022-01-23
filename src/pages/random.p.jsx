@@ -14,7 +14,7 @@ export async function getServerSideProps() {
     return {
       redirect: {
         destination: "/",
-        permanent: true,
+        permanent: false,
       },
     };
   }
@@ -22,7 +22,7 @@ export async function getServerSideProps() {
   return {
     redirect: {
       destination: `/server/${response.payload}`,
-      permanent: true,
+      permanent: false,
     },
   };
 }

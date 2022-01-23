@@ -245,7 +245,7 @@ export async function getServerSideProps(ctx) {
       return {
         redirect: {
           destination: "/login",
-          permanent: true,
+          permanent: false,
         },
       };
     }

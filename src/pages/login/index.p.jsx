@@ -99,7 +99,7 @@ export async function getServerSideProps(ctx) {
   return {
     redirect: {
       destination: "/",
-      permanent: true,
+      permanent: false,
     },
   };
 }

@@ -14,7 +14,7 @@ export async function getServerSideProps(ctx) {
     return {
       redirect: {
         destination: "/",
-        permanent: true,
+        permanent: false,
       },
     };
   }
@@ -25,7 +25,7 @@ export async function getServerSideProps(ctx) {
     return {
       redirect: {
         destination: "/",
-        permanent: true,
+        permanent: false,
       },
     };
   }
@@ -40,7 +40,7 @@ export async function getServerSideProps(ctx) {
   return {
     redirect: {
       destination: `/?token=${response.payload.token}`,
-      permanent: true,
+      permanent: false,
     },
   };
 }
