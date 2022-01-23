@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-import BiddingPanel from "../components/BiddingPanel";
-import AuctionsPanel from "../components/AuctionsPanel";
+import Form from "./components/Form";
+import Bids from "./components/Bids";
 
 const OPCODES = {
   INITIALIZE: 0, // b > c | list of tags/rooms
@@ -57,14 +57,8 @@ export default function Auctions(props) {
   return (
     <div className="flex flex-col items-start justify-start w-full">
       <div className="flex flex-row items-start justify-start w-full space-x-6">
-        <AuctionsPanel pages={pages} page={page} setPage={setPage} />
-        <BiddingPanel
-          page={page}
-          bids={bids}
-          endsAt={endsAt}
-          user={props.user}
-          startingBid={startingBid}
-        />
+        <Bids pages={pages} page={page} setPage={setPage} />
+        <Form page={page} bids={bids} endsAt={endsAt} user={props.user} startingBid={startingBid} />
       </div>
     </div>
   );

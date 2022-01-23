@@ -13,7 +13,7 @@ export default function PageDropdown(props) {
         <p className="text-lg text-white text-opacity-80">Select a spot that you want to bid for</p>
       </div>
       <div
-        className="flex items-center justify-between w-full px-4 py-2 bg-olive-940 select-none rounded-lg"
+        className="flex items-center justify-between w-full px-4 py-2 bg-olive-940 select-none rounded-lg cursor-pointer"
         onClick={() => showDropdown(!dropdown)}
       >
         <p className="text-xl text-white text-opacity-80">{props.page?.name}</p>

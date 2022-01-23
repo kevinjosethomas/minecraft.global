@@ -2,7 +2,7 @@ import { useState, Fragment } from "react";
 
 import Default from "ui/layouts/Default";
 import { GetLoggedInUser } from "api/login";
-import AuctionsScreen from "./screens/Auctions";
+import Bidding from "./screens/Bidding/Bidding";
 import Navigation from "./components/Navigation";
 
 const screens = [
@@ -25,7 +25,7 @@ export default function Auctions(props) {
     <Default user={props.user}>
       <div className="flex flex-col items-start justify-start w-full space-y-6">
         <Navigation screen={screen} screens={screens} setScreen={setScreen} />
-        {screen.name === "bidding" ? <AuctionsScreen user={props.user} /> : <Fragment />}
+        {screen.name === "bidding" ? <Bidding user={props.user} /> : <Fragment />}
       </div>
     </Default>
   );
