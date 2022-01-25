@@ -5,7 +5,7 @@ import ServerCard, { ServerCardSkeleton } from "./ServerCard";
 export default function Search(props) {
   return (
     <div className="flex w-full flex-col items-start justify-start space-y-2">
-      <div className="ml-3 flex flex-row items-center justify-start space-x-1.5">
+      <div className="ml-3 flex items-center justify-start space-x-1.5">
         <i className="far fa-search text-xl text-white text-opacity-80" />
         <p className="text-xl font-medium tracking-tight text-white text-opacity-80">
           {props.results ? (

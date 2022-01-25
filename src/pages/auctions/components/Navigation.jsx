@@ -3,7 +3,7 @@ import { AnimateSharedLayout, motion } from "framer-motion";
 export default function Navigation(props) {
   return (
     <div className="flex w-full flex-col items-start justify-start space-y-2">
-      <div className="flex w-full flex-row items-start justify-start space-x-8">
+      <div className="flex w-full items-start justify-start space-x-8">
         <AnimateSharedLayout>
           {props.screens.map((screen, index) => (
             <Screen
@@ -25,7 +25,7 @@ function Screen(props) {
 
   return (
     <div
-      className="relative flex cursor-pointer select-none flex-row items-center justify-center space-x-2 px-2"
+      className="relative flex cursor-pointer select-none items-center justify-center space-x-2 px-2"
       onClick={props.onClick}
     >
       <i

@@ -141,7 +141,7 @@ export default function Votifier(props) {
           onChange={(e) => setUsername(e.target.value.substring(0, 16))}
         />
         <div
-          className="flex cursor-pointer flex-row items-center justify-center space-x-2 rounded bg-olive-800 px-4 py-2 transition duration-300 hover:bg-olive-900"
+          className="flex cursor-pointer items-center justify-center space-x-2 rounded bg-olive-800 px-4 py-2 transition duration-300 hover:bg-olive-900"
           onClick={testUpvote}
         >
           <i className="fas fa-arrow-alt-up text-xl text-white text-opacity-80" />

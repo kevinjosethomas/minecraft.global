@@ -56,7 +56,7 @@ export default function Players(props) {
 
 function Line(props) {
   return (
-    <div className="flex flex-row items-start justify-start space-x-2 md:items-center">
+    <div className="flex items-start justify-start space-x-2 md:items-center">
       <i className={`${props.icon} w-[30px] text-center text-xl md:text-2xl`} />
       <p className="select-none text-xl text-white text-opacity-80 md:text-2xl">
         {props.content}

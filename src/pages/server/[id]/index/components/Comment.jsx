@@ -30,8 +30,8 @@ export default function Comment(props) {
           )}
         </AnimatePresence>
       </div>
-      <div className="flex w-full flex-row items-center justify-between">
-        <div className="flex flex-row items-center justify-start space-x-2">
+      <div className="flex w-full items-center justify-between">
+        <div className="flex items-center justify-start space-x-2">
           <img
             src={avatar}
             alt={`${props.name}'s' Name`}
@@ -43,10 +43,10 @@ export default function Comment(props) {
           </p>
         </div>
       </div>
-      <div className="flex w-full flex-row items-start justify-start">
+      <div className="flex w-full items-start justify-start">
         <p className="text-white text-opacity-70 md:text-xl">{props.content}</p>
       </div>
-      <div className="flex w-full flex-row items-center justify-end space-x-2 md:space-x-4">
+      <div className="flex w-full items-center justify-end space-x-2 md:space-x-4">
         <p className="select-none text-sm text-white text-opacity-80 md:text-xl">
           -{" "}
           <span className="text-opacity-90">
@@ -59,7 +59,7 @@ export default function Comment(props) {
           </p>
         )}
         {props.user.user_id === props.user_id && (
-          <div className="flex flex-row items-center justify-center space-x-1 md:space-x-2">
+          <div className="flex items-center justify-center space-x-1 md:space-x-2">
             <i
               className="far fa-edit cursor-pointer text-sm text-olive-600 md:text-xl"
               onClick={() => showEditModal(true)}

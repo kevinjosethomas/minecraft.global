@@ -10,8 +10,8 @@ export default function Navigation(props) {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3, delay: 0.2 }}
     >
-      <div className="flex w-full flex-row items-center justify-between">
-        <div className="flex flex-row items-center justify-start space-x-4 md:space-x-10">
+      <div className="flex w-full items-center justify-between">
+        <div className="flex items-center justify-start space-x-4 md:space-x-10">
           <AnimateSharedLayout>
             <Screen
               label="Overview"
@@ -39,7 +39,7 @@ export default function Navigation(props) {
 function Screen(props) {
   return (
     <div
-      className="relative flex cursor-pointer flex-row items-center justify-start"
+      className="relative flex cursor-pointer items-center justify-start"
       onClick={props.onClick}
     >
       <p

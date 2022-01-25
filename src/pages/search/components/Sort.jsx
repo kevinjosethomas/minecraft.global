@@ -12,7 +12,7 @@ export default function Sort(props) {
         Sort By
       </motion.p>
       <motion.div
-        className="flex flex-row items-center justify-center rounded-full bg-white bg-opacity-5 transition duration-500 hover:bg-opacity-10"
+        className="flex items-center justify-center rounded-full bg-white bg-opacity-5 transition duration-500 hover:bg-opacity-10"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3, delay: 0.4 }}
@@ -43,10 +43,10 @@ export default function Sort(props) {
 function Option(props) {
   return (
     <div
-      className="relative flex flex h-[48px] w-[160px] cursor-pointer flex-row items-center justify-center rounded-full"
+      className="relative flex flex h-[48px] w-[160px] cursor-pointer items-center justify-center rounded-full"
       onClick={props.onClick}
     >
-      <div className="z-20 flex w-full select-none flex-row items-center justify-center space-x-2">
+      <div className="z-20 flex w-full select-none items-center justify-center space-x-2">
         <i className={`${props.icon} text-2xl text-white text-opacity-80`} />
         <p className="text-2xl text-white text-opacity-80">{props.label}</p>
       </div>

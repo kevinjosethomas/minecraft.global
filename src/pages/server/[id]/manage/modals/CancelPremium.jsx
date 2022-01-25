@@ -70,9 +70,9 @@ export default function CancelPremium(props) {
             </p>
           </div>
         </div>
-        <div className="flex w-full flex-row items-center justify-start space-x-4">
+        <div className="flex w-full items-center justify-start space-x-4">
           <div
-            className="flex w-full cursor-pointer flex-row items-center justify-center rounded-md bg-white bg-opacity-5 py-2 transition duration-300 hover:bg-opacity-10"
+            className="flex w-full cursor-pointer items-center justify-center rounded-md bg-white bg-opacity-5 py-2 transition duration-300 hover:bg-opacity-10"
             onClick={() => props.showModal(false)}
           >
             <p className="select-none text-xl text-white text-opacity-80">
@@ -80,7 +80,7 @@ export default function CancelPremium(props) {
             </p>
           </div>
           <div
-            className="flex w-full cursor-pointer flex-row items-center justify-center rounded-md bg-red-900 py-2 transition duration-300 hover:bg-red-800"
+            className="flex w-full cursor-pointer items-center justify-center rounded-md bg-red-900 py-2 transition duration-300 hover:bg-red-800"
             onClick={submit}
           >
             <p className="select-none text-xl text-white text-opacity-80">

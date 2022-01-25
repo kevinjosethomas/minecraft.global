@@ -1,6 +1,6 @@
 export default function TextArea(props) {
   return (
-    <div className="flex w-full flex-row items-start justify-between space-x-8">
+    <div className="flex w-full items-start justify-between space-x-8">
       <div className="flex flex-col items-start justify-start">
         <p className="text-2xl text-white text-opacity-80">
           {props.label}

@@ -80,11 +80,11 @@ export default function Searchbar(props) {
       </AnimatePresence>
       <div
         ref={node}
-        className="relative mt-2 flex w-full flex-row items-center justify-start"
+        className="relative mt-2 flex w-full items-center justify-start"
       >
         <input
           value={input}
-          className="focus:outline-none z-30 flex h-[50px] w-full flex-row items-center justify-start rounded bg-white bg-opacity-[0.06] px-4 text-white text-opacity-60 placeholder-white placeholder-opacity-60 md:h-[75px] md:rounded-xl md:px-6 md:text-2xl"
+          className="focus:outline-none z-30 flex h-[50px] w-full items-center justify-start rounded bg-white bg-opacity-[0.06] px-4 text-white text-opacity-60 placeholder-white placeholder-opacity-60 md:h-[75px] md:rounded-xl md:px-6 md:text-2xl"
           placeholder="Search for Minecraft servers..."
           onChange={(e) => setInput(e.target.value)}
           onFocus={() => showPopup(true)}
@@ -109,7 +109,7 @@ export default function Searchbar(props) {
 function SearchButton(props) {
   return (
     <div
-      className="z-30 ml-[8px] flex min-h-[50px] min-w-[50px] cursor-pointer flex-row items-center justify-center rounded bg-olive-700 transition duration-300 hover:bg-olive-800 md:ml-[16px] md:min-h-[75px] md:min-w-[75px] md:rounded-xl"
+      className="z-30 ml-[8px] flex min-h-[50px] min-w-[50px] cursor-pointer items-center justify-center rounded bg-olive-700 transition duration-300 hover:bg-olive-800 md:ml-[16px] md:min-h-[75px] md:min-w-[75px] md:rounded-xl"
       onClick={props.onClick}
     >
       <i className="far fa-search text-lg text-white text-opacity-90 md:text-2xl" />

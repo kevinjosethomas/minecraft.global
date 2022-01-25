@@ -186,7 +186,7 @@ export default function AddServer(props) {
       defaultResults={props.defaultResults}
       title="Add Server - Minecraft Server List"
     >
-      <div className="flex w-full flex-row items-start justify-start space-x-6">
+      <div className="flex w-full items-start justify-start space-x-6">
         <Navigation
           submit={submit}
           screen={screen}
@@ -196,7 +196,7 @@ export default function AddServer(props) {
         />
         <div className="flex w-full flex-col items-start justify-start space-y-4">
           <div className="flex w-full flex-col items-start justify-start space-y-4 rounded-lg border-2 border-olive-930 bg-olive-950 p-8">
-            <div className="flex w-full flex-row items-center justify-start">
+            <div className="flex w-full items-center justify-start">
               <h1 className="text-4xl font-medium text-white text-opacity-90">
                 {screen.label}
               </h1>
@@ -214,7 +214,7 @@ export default function AddServer(props) {
             )}
           </div>
           <div
-            className={`flex w-full flex-row items-center justify-end ${
+            className={`flex w-full items-center justify-end ${
               screen.name !== "details" &&
               screen.name !== "votifier" &&
               "space-x-2"
@@ -222,7 +222,7 @@ export default function AddServer(props) {
           >
             {screen.name !== "details" && (
               <div
-                className="flex cursor-pointer flex-row items-center justify-center space-x-2.5 rounded bg-olive-930 px-4 py-0.5 transition duration-300 hover:bg-olive-910"
+                className="flex cursor-pointer items-center justify-center space-x-2.5 rounded bg-olive-930 px-4 py-0.5 transition duration-300 hover:bg-olive-910"
                 onClick={decrementScreen}
               >
                 <i className="far fa-arrow-left text-lg text-white" />
@@ -231,7 +231,7 @@ export default function AddServer(props) {
             )}
             {screen.name !== "votifier" && (
               <div
-                className="flex cursor-pointer flex-row items-center justify-center space-x-2.5 rounded bg-olive-930 px-4 py-0.5 transition duration-300 hover:bg-olive-910"
+                className="flex cursor-pointer items-center justify-center space-x-2.5 rounded bg-olive-930 px-4 py-0.5 transition duration-300 hover:bg-olive-910"
                 onClick={incrementScreen}
               >
                 <p className="select-none text-lg text-white">Next</p>

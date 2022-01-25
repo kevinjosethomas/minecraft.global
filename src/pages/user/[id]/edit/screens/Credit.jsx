@@ -4,7 +4,7 @@ export default function Credit(props) {
       <h1 className="text-5xl font-medium text-white text-opacity-90">
         Credit
       </h1>
-      <div className="flex w-full flex-row items-start justify-start space-x-4">
+      <div className="flex w-full items-start justify-start space-x-4">
         <div className="flex min-w-[16rem] select-none flex-col items-start justify-start space-y-1.5 rounded border-2 border-olive-930 bg-olive-940 p-5">
           <p className="text-xl text-white text-opacity-80">You have</p>
           <p className="text-4xl font-medium tracking-wide text-white text-opacity-90">

@@ -84,15 +84,15 @@ export default function Report(props) {
           value={parameters.proof}
           onChange={onProofChange}
         />
-        <div className="flex w-full flex-row items-center justify-center space-x-4">
+        <div className="flex w-full items-center justify-center space-x-4">
           <div
-            className="flex w-full cursor-pointer flex-row items-center justify-center rounded bg-black bg-opacity-20 py-2 transition duration-500 hover:bg-opacity-30"
+            className="flex w-full cursor-pointer items-center justify-center rounded bg-black bg-opacity-20 py-2 transition duration-500 hover:bg-opacity-30"
             onClick={() => props.showModal(false)}
           >
             <p className="text-3xl text-white text-opacity-80">Cancel</p>
           </div>
           <div
-            className="flex w-full cursor-pointer flex-row items-center justify-center rounded bg-olive-800 py-2 transition duration-500 hover:bg-olive-900"
+            className="flex w-full cursor-pointer items-center justify-center rounded bg-olive-800 py-2 transition duration-500 hover:bg-olive-900"
             onClick={submit}
           >
             <p className="text-3xl text-white text-opacity-80">Submit</p>

@@ -40,10 +40,7 @@ export default function TopVoters(props) {
       </p>
       <div className="flex w-full flex-col items-start justify-start space-y-0.5">
         {voters.map((voter, index) => (
-          <div
-            key={index}
-            className="flex w-full flex-row items-center justify-between"
-          >
+          <div key={index} className="flex w-full items-center justify-between">
             <p className="text-xl text-white text-opacity-80">
               {voter.minecraft_username}
             </p>

@@ -19,7 +19,7 @@ export default function Login(props) {
         >
           How would you like to login or sign up?
         </motion.h1>
-        <div className="flex flex-row items-center justify-center space-x-6">
+        <div className="flex items-center justify-center space-x-6">
           <Google />
           <Discord />
         </div>
@@ -60,7 +60,7 @@ function Google() {
       onFailure={onFailure}
       render={(renderProps) => (
         <motion.div
-          className="google-gradient flex h-96 w-96 transform cursor-pointer flex-row items-center justify-center rounded-[12px] border-2 border-olive-950 duration-300 hover:scale-[1.01]"
+          className="google-gradient flex h-96 w-96 transform cursor-pointer items-center justify-center rounded-[12px] border-2 border-olive-950 duration-300 hover:scale-[1.01]"
           onClick={renderProps.onClick}
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -77,7 +77,7 @@ function Discord() {
   return (
     <motion.a
       href={process.env.NEXT_PUBLIC_DISCORD_LOGIN_URL}
-      className="discord-gradient flex h-96 w-96 transform flex-row items-center justify-center rounded-[12px] border-2 border-olive-950 duration-300 hover:scale-[1.01]"
+      className="discord-gradient flex h-96 w-96 transform items-center justify-center rounded-[12px] border-2 border-olive-950 duration-300 hover:scale-[1.01]"
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3, delay: 0.2 }}

@@ -19,7 +19,7 @@ export default function Advertise(props) {
         {props.tags.map((tag, index) => (
           <Link key={index} href={`/tag/${tag}`}>
             <a
-              className={`flex w-full cursor-pointer flex-row items-center justify-between bg-olive-940 py-2.5 pl-4 pr-8 transition duration-300 hover:bg-olive-930`}
+              className={`flex w-full cursor-pointer items-center justify-between bg-olive-940 py-2.5 pl-4 pr-8 transition duration-300 hover:bg-olive-930`}
             >
               <p className="select-none text-xl text-white text-opacity-80">
                 {tag}

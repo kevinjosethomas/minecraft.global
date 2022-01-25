@@ -83,7 +83,7 @@ export default function Servers(props) {
           </div>
         </InfiniteScroll>
       ) : (
-        <div className="!mt-10 flex w-full flex-row items-center justify-center space-x-4">
+        <div className="!mt-10 flex w-full items-center justify-center space-x-4">
           <img
             src="/images/creeper.png"
             alt="Not Found Creeper Illustration"
@@ -107,7 +107,7 @@ export default function Servers(props) {
 function Loading() {
   return (
     <motion.div
-      className="mt-4 flex w-full flex-row items-center justify-center space-x-2 rounded-[12px] py-3"
+      className="mt-4 flex w-full items-center justify-center space-x-2 rounded-[12px] py-3"
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.2 }}

@@ -90,7 +90,7 @@ export default function Servers(props) {
 function ServerCollection(props) {
   return (
     <div className="flex w-full flex-col items-start justify-start space-y-2 overflow-x-hidden">
-      <div className="flex w-full flex-row items-center justify-between">
+      <div className="flex w-full items-center justify-between">
         <div className="flex flex-col items-start justify-start">
           <motion.h2
             className="text-xl leading-tight text-white text-opacity-80 md:text-4xl"
@@ -114,7 +114,7 @@ function ServerCollection(props) {
           passHref
         >
           <motion.a
-            className="group flex select-none flex-row items-center justify-center space-x-2 rounded-[6px] bg-olive-600 bg-opacity-25 px-2.5 py-0.5 transition duration-300 hover:bg-opacity-50 md:px-3 md:px-4 md:py-1 md:py-2"
+            className="group flex select-none items-center justify-center space-x-2 rounded-[6px] bg-olive-600 bg-opacity-25 px-2.5 py-0.5 transition duration-300 hover:bg-opacity-50 md:px-3 md:px-4 md:py-1 md:py-2"
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
@@ -144,7 +144,7 @@ function ServerCollection(props) {
 function Loading() {
   return (
     <motion.div
-      className="mt-4 flex w-full flex-row items-center justify-center space-x-2 rounded-[12px] py-3"
+      className="mt-4 flex w-full items-center justify-center space-x-2 rounded-[12px] py-3"
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.2 }}

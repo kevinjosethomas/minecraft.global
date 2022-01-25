@@ -116,7 +116,7 @@ function Question(props) {
   return (
     <div className="flex w-full flex-col items-start justify-start space-y-0.5">
       <div
-        className={`flex w-full cursor-pointer flex-row items-center justify-between bg-olive-920 p-5 ${
+        className={`flex w-full cursor-pointer items-center justify-between bg-olive-920 p-5 ${
           open ? "rounded-t-lg" : "rounded-lg"
         }`}
         onClick={() => setOpen((o) => !o)}
@@ -132,7 +132,7 @@ function Question(props) {
       <AnimatePresence>
         {open && (
           <motion.div
-            className={`flex w-full flex-row items-start justify-start rounded-b-lg bg-olive-950`}
+            className={`flex w-full items-start justify-start rounded-b-lg bg-olive-950`}
             initial={{ height: 0 }}
             animate={{ height: "auto" }}
             exit={{ height: 0 }}

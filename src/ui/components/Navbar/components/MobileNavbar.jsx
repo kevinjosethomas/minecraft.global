@@ -118,7 +118,7 @@ function Element(props) {
 
   return (
     <Container href={props.href}>
-      <a className="flex w-full flex-row items-center justify-start space-x-3 px-4 py-2">
+      <a className="flex w-full items-center justify-start space-x-3 px-4 py-2">
         <i
           className={`${props.icon} w-[24px] text-center text-xl text-white text-opacity-60`}
         />

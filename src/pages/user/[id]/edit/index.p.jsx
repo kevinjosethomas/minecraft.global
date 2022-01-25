@@ -97,7 +97,7 @@ export default function EditUserPage(props) {
       title={`${props.user.name} - Minecraft Server List`}
       noindex
     >
-      <div className="flex w-full flex-row items-start justify-start space-x-6">
+      <div className="flex w-full items-start justify-start space-x-6">
         <Navigation
           submit={submit}
           user={props.user}

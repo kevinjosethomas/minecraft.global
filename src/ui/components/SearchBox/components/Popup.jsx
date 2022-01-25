@@ -46,16 +46,16 @@ export default function Popup(props) {
 function Tags() {
   return (
     <div className="flex w-full flex-col items-start justify-start space-y-2">
-      <div className="ml-3 flex flex-row items-center justify-start space-x-1.5">
+      <div className="ml-3 flex items-center justify-start space-x-1.5">
         <i className="far fa-tags text-xl text-white text-opacity-80" />
         <p className="text-xl font-medium tracking-tight text-white text-opacity-80">
           FILTER BY CATEGORIES
         </p>
       </div>
-      <div className="mt-2 flex flex-row items-center justify-center space-x-2">
+      <div className="mt-2 flex items-center justify-center space-x-2">
         {tags.slice(0, 8).map((tag, index) => (
           <Link key={index} href={`/tag/${tag.name}`}>
-            <a className="group flex cursor-pointer flex-row items-center justify-start space-x-1 rounded-[4px] bg-white bg-opacity-[0.04] px-3 py-0.5 transition duration-300 hover:bg-opacity-[0.08]">
+            <a className="group flex cursor-pointer items-center justify-start space-x-1 rounded-[4px] bg-white bg-opacity-[0.04] px-3 py-0.5 transition duration-300 hover:bg-opacity-[0.08]">
               <i className="far fa-hashtag text-sm text-olive-600" />
               <h3 className="text-lg text-white text-opacity-70 transition duration-300 group-hover:text-opacity-80">
                 {tag.name}

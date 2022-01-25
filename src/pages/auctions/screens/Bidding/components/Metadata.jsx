@@ -23,7 +23,7 @@ export default function Metadata(props) {
 
   return (
     <Fragment>
-      <div className="flex flex-row items-center justify-start space-x-2">
+      <div className="flex items-center justify-start space-x-2">
         <div className="auctions-red-dot h-3 w-3 rounded-full" />
         <p className="text-lg text-white text-opacity-80">
           Ends on {moment(props.endsAt).format("ddd, Do MMM")} at{" "}
@@ -35,9 +35,9 @@ export default function Metadata(props) {
           target="_blank"
           rel="noreferrer"
           href={props.page?.link || null}
-          className="mb-2 flex w-full flex-row items-center justify-between rounded bg-white bg-opacity-5 py-2 px-3"
+          className="mb-2 flex w-full items-center justify-between rounded bg-white bg-opacity-5 py-2 px-3"
         >
-          <div className="flex flex-row items-center justify-start space-x-2">
+          <div className="flex items-center justify-start space-x-2">
             <i className="fas fa-tag text-lg text-white text-opacity-80" />
             <p className="select-none text-lg text-white text-opacity-80">
               {props.page?.name || "Loading..."}
@@ -78,7 +78,7 @@ export default function Metadata(props) {
 
 function Value(props) {
   return (
-    <div className="mb-1 flex flex-row items-center justify-start space-x-2">
+    <div className="mb-1 flex items-center justify-start space-x-2">
       <i
         className={`${props.icon} w-[20.5px] text-center text-lg text-white text-opacity-80`}
       />

@@ -24,7 +24,7 @@ export default function Home(props) {
       search
       header
     >
-      <div className="flex w-full flex-row items-start justify-center md:space-x-8">
+      <div className="flex w-full items-start justify-center md:space-x-8">
         <Servers user={props.user} defaultResults={props.defaultResults} />
         <Sidebar />
       </div>

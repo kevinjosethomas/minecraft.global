@@ -9,7 +9,7 @@ export default function Billing(props) {
       {props.billing.length ? (
         <BillingTable billing={props.billing} />
       ) : (
-        <div className="flex flex-row items-center justify-center">
+        <div className="flex items-center justify-center">
           <p className="bold text-3xl font-medium text-white text-opacity-80">
             No billing logs
           </p>

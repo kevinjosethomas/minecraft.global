@@ -19,7 +19,7 @@ export default function Navigation(props) {
           {props.screens.map((screen, index) => (
             <div
               key={index}
-              className="flex w-full cursor-pointer flex-row items-center justify-start space-x-2.5"
+              className="flex w-full cursor-pointer items-center justify-start space-x-2.5"
               onClick={() => props.setScreen(screen)}
             >
               <i

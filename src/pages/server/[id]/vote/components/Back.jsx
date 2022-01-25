@@ -5,7 +5,7 @@ export default function Back(props) {
   return (
     <Link href={`/server/${props.server_id}`}>
       <motion.a
-        className="group flex cursor-pointer flex-row items-center justify-center space-x-3 rounded-lg bg-white bg-opacity-[0.08] px-4 py-1 transition duration-300 hover:bg-opacity-10"
+        className="group flex cursor-pointer items-center justify-center space-x-3 rounded-lg bg-white bg-opacity-[0.08] px-4 py-1 transition duration-300 hover:bg-opacity-10"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}

@@ -123,7 +123,7 @@ function Column(props) {
 function Row(props) {
   return (
     <Link href={props.href}>
-      <a className="flex flex-row items-center justify-start space-x-4 md:space-x-0">
+      <a className="flex items-center justify-start space-x-4 md:space-x-0">
         <i
           className={`${props.icon} w-[25px] text-center text-xl text-white text-opacity-60 md:hidden`}
         />

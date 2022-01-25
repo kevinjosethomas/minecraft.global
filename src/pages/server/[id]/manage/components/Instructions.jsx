@@ -55,8 +55,8 @@ export default function Instructions(props) {
 function Download(props) {
   return (
     <div className="flex flex-col items-start justify-start space-y-2">
-      <div className="flex flex-row items-center justify-start space-x-3">
-        <div className="flex h-10 w-10 flex-row items-center justify-center rounded-full bg-olive-900">
+      <div className="flex items-center justify-start space-x-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-olive-900">
           <p className="select-none text-xl text-white text-opacity-90">1</p>
         </div>
         <p className="text-3xl text-white text-opacity-90">
@@ -71,7 +71,7 @@ function Download(props) {
         </p>
         <a
           href={props.url}
-          className="flex cursor-pointer flex-row items-center justify-center rounded bg-olive-800 px-4 py-2 transition duration-300 hover:bg-olive-900"
+          className="flex cursor-pointer items-center justify-center rounded bg-olive-800 px-4 py-2 transition duration-300 hover:bg-olive-900"
           download
         >
           <p className="select-none text-xl text-white text-opacity-90">
@@ -91,8 +91,8 @@ function Token(props) {
 
   return (
     <div className="flex flex-col items-start justify-start space-y-2">
-      <div className="flex flex-row items-center justify-start space-x-3">
-        <div className="flex h-10 w-10 flex-row items-center justify-center rounded-full bg-olive-900">
+      <div className="flex items-center justify-start space-x-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-olive-900">
           <p className="select-none text-xl text-white text-opacity-90">2</p>
         </div>
         <p className="text-3xl text-white text-opacity-90">Set Server Token</p>
@@ -103,9 +103,9 @@ function Token(props) {
           to use your server&apos;s token to initialize plugin. If your token is
           compromised, regenerate it via the button below -
         </p>
-        <div className="flex flex-row items-center justify-start space-x-4">
+        <div className="flex items-center justify-start space-x-4">
           <div
-            className="flex cursor-pointer flex-row items-center justify-center rounded bg-olive-800 px-4 py-2 transition duration-300 hover:bg-olive-900"
+            className="flex cursor-pointer items-center justify-center rounded bg-olive-800 px-4 py-2 transition duration-300 hover:bg-olive-900"
             onClick={copyCommand}
           >
             <p className="select-none text-xl text-white text-opacity-90">
@@ -113,7 +113,7 @@ function Token(props) {
             </p>
           </div>
           <div
-            className="flex cursor-pointer flex-row items-center justify-center rounded bg-olive-800 px-4 py-2 transition duration-300 hover:bg-olive-900"
+            className="flex cursor-pointer items-center justify-center rounded bg-olive-800 px-4 py-2 transition duration-300 hover:bg-olive-900"
             onClick={props.regen}
           >
             <p className="select-none text-xl text-white text-opacity-90">
@@ -129,8 +129,8 @@ function Token(props) {
 function Analytics(props) {
   return (
     <div className="flex flex-col items-start justify-start space-y-2">
-      <div className="flex flex-row items-center justify-start space-x-3">
-        <div className="flex h-10 w-10 flex-row items-center justify-center rounded-full bg-olive-900">
+      <div className="flex items-center justify-start space-x-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-olive-900">
           <p className="select-none text-xl text-white text-opacity-90">3</p>
         </div>
         <p className="text-3xl text-white text-opacity-90">
@@ -150,9 +150,9 @@ function Analytics(props) {
           </a>{" "}
           if you have any questions, suggestions or issues regarding analytics!
         </p>
-        <div className="flex flex-row items-center justify-start">
+        <div className="flex items-center justify-start">
           <Link href={`/server/${props.server_id}/analytics`}>
-            <a className="flex cursor-pointer flex-row items-center justify-center rounded bg-olive-800 px-4 py-2 transition duration-300 hover:bg-olive-900">
+            <a className="flex cursor-pointer items-center justify-center rounded bg-olive-800 px-4 py-2 transition duration-300 hover:bg-olive-900">
               <p className="select-none text-xl text-white text-opacity-90">
                 View Analytics
               </p>

@@ -21,7 +21,7 @@ export default function PageDropdown(props) {
         onClick={() => showDropdown(!dropdown)}
       >
         <p className="text-xl text-white text-opacity-80">{props.page?.name}</p>
-        <div className="flex flex-row items-center justify-start space-x-4">
+        <div className="flex items-center justify-start space-x-4">
           <div className="flex items-center justify-center space-x-1 rounded bg-olive-920 px-2 py-1">
             <i className="far fa-eye text-sm text-white text-opacity-80" />
             <p className="text-sm text-white text-opacity-80">
@@ -65,7 +65,7 @@ function Dropdown(props) {
         transition={{ duration: 0.3 }}
       >
         <div className="flex w-full flex-col items-start justify-start space-y-3 px-4">
-          <div className="flex w-full flex-row items-center justify-start space-x-3 rounded bg-black bg-opacity-20 px-3 py-1.5">
+          <div className="flex w-full items-center justify-start space-x-3 rounded bg-black bg-opacity-20 px-3 py-1.5">
             <i className="far fa-search text-lg text-white text-opacity-80" />
             <input
               className="focus:outline-none w-full bg-transparent text-lg text-white text-opacity-80 placeholder:text-black"
@@ -79,7 +79,7 @@ function Dropdown(props) {
           {pages.map((page, index) => (
             <div
               key={index}
-              className="flex w-full cursor-pointer select-none flex-row items-center justify-between px-4 py-1 transition duration-300 hover:bg-black hover:bg-opacity-20"
+              className="flex w-full cursor-pointer select-none items-center justify-between px-4 py-1 transition duration-300 hover:bg-black hover:bg-opacity-20"
               onClick={() => {
                 props.setPage(page);
                 props.showDropdown(false);

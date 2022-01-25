@@ -1,6 +1,6 @@
 export default function Disclaimer(props) {
   return (
-    <div className="flex w-full flex-row items-center justify-between">
+    <div className="flex w-full items-center justify-between">
       <Legal />
       <Socials />
     </div>

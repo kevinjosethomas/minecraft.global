@@ -32,7 +32,7 @@ export default function Search(props) {
       search
       header
     >
-      <div className="flex w-full flex-row items-start justify-center space-x-8">
+      <div className="flex w-full items-start justify-center space-x-8">
         <Servers
           user={props.user}
           results={props.results}

@@ -3,7 +3,7 @@ import { AnimateSharedLayout, motion } from "framer-motion";
 export default function Toggle(props) {
   return (
     <AnimateSharedLayout>
-      <div className="flex flex-row items-center justify-start space-x-4">
+      <div className="flex items-center justify-start space-x-4">
         {props.types.map((t, i) => (
           <Type
             key={i}

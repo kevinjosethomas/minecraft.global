@@ -50,7 +50,7 @@ export default function Filter(props) {
 function Option(props) {
   return (
     <div
-      className="flex cursor-pointer flex-row items-center justify-start space-x-2"
+      className="flex cursor-pointer items-center justify-start space-x-2"
       onClick={props.onClick}
     >
       <div

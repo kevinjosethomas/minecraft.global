@@ -3,7 +3,7 @@ import moment from "moment";
 export default function Billing(props) {
   return (
     <div className="flex w-full flex-col items-start justify-start overflow-hidden rounded-lg">
-      <div className="flex w-full select-none flex-row items-center justify-start bg-olive-910 py-3 px-4">
+      <div className="flex w-full select-none items-center justify-start bg-olive-910 py-3 px-4">
         <p className="w-[40%] text-2xl font-bold tracking-wide text-white text-opacity-90">
           Item
         </p>
@@ -27,7 +27,7 @@ function Bill(props) {
   return (
     <div
       key={props.index}
-      className={`flex w-full flex-row items-center justify-start bg-white py-1.5 px-4 ${
+      className={`flex w-full items-center justify-start bg-white py-1.5 px-4 ${
         props.index % 2 === 0 ? "bg-opacity-[0.03]" : "bg-opacity-5"
       } select-none`}
     >

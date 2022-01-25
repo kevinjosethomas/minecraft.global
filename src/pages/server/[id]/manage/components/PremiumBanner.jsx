@@ -5,7 +5,7 @@ export default function PremiumBanner(props) {
   return (
     <div className="relative flex w-full flex-col items-start justify-start overflow-hidden rounded-lg bg-olive-800">
       <Background />
-      <div className="z-20 flex h-32 w-full flex-row items-center justify-between px-10">
+      <div className="z-20 flex h-32 w-full items-center justify-between px-10">
         <div className="flex flex-col items-start justify-start">
           <p className="select-none text-5xl font-bold text-white text-opacity-90">
             Premium
@@ -24,7 +24,7 @@ export default function PremiumBanner(props) {
 function Subscribe(props) {
   return (
     <Link href="/premium">
-      <a className="flex cursor-pointer flex-row items-center justify-start space-x-2 rounded bg-white bg-opacity-90 py-2 px-5 transition duration-300 hover:bg-opacity-80">
+      <a className="flex cursor-pointer items-center justify-start space-x-2 rounded bg-white bg-opacity-90 py-2 px-5 transition duration-300 hover:bg-opacity-80">
         <i className="far fa-badge-dollar text-xl text-olive-600" />
         <p className="select-none text-xl font-medium tracking-tight text-olive-600">
           Subscribe

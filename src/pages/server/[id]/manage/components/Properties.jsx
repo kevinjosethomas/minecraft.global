@@ -1,6 +1,6 @@
 export default function Properties(props) {
   return (
-    <div className="flex w-full flex-row items-start justify-between space-x-8">
+    <div className="flex w-full items-start justify-between space-x-8">
       <div className="flex flex-col items-start justify-start">
         <p className="text-2xl text-white text-opacity-80">Server Properties</p>
         <p className="text-lg leading-tight text-white text-opacity-60">
@@ -29,7 +29,7 @@ export default function Properties(props) {
 
 function Checkbox(props) {
   return (
-    <div className="flex flex-row items-center justify-between space-x-2">
+    <div className="flex items-center justify-between space-x-2">
       <div
         className={`flex h-6 w-6 flex-col items-center justify-center ${
           props.value

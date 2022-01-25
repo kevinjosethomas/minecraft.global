@@ -24,7 +24,7 @@ export default function Identity(props) {
       />
       <div className="!mt-0 flex flex-col items-start justify-start space-y-2 md:flex-row md:items-center md:space-y-0 md:space-x-4">
         <Favicon name={props.name} favicon={props.favicon} />
-        <div className="flex flex-row items-center justify-start space-x-2 md:space-x-4">
+        <div className="flex items-center justify-start space-x-2 md:space-x-4">
           <h1 className="text-3xl font-medium text-white text-opacity-90 md:text-4xl">
             {props.name}
           </h1>

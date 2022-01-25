@@ -15,7 +15,7 @@ export default function ChartLayout(props) {
 function Time(props) {
   return (
     <div
-      className={`flex flex-row items-center justify-center px-3 ${
+      className={`flex items-center justify-center px-3 ${
         props.active === props.time ? "bg-olive-920" : "bg-olive-940"
       } cursor-pointer select-none`}
       onClick={(e) => {

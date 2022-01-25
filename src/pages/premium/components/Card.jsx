@@ -43,7 +43,7 @@ export default function Card(props) {
         transition={{ duration: 0.5, delay: 0.6 }}
       >
         <div className="flex h-40 w-full flex-col items-start justify-center space-y-2 bg-gradient-to-br from-olive-800 to-olive-930 px-5 md:h-48">
-          <div className="flex flex-row items-center justify-center space-x-1.5 rounded-full bg-white py-1 px-4">
+          <div className="flex items-center justify-center space-x-1.5 rounded-full bg-white py-1 px-4">
             <i className="fad fa-diamond text-base text-olive-500" />
             <p className="select-none text-base font-medium text-olive-500">
               MONTHLY
@@ -64,7 +64,7 @@ export default function Card(props) {
           </div>
           {props.user ? (
             <div
-              className="flex w-full cursor-pointer flex-row items-center justify-center space-x-2 rounded bg-white bg-opacity-[0.08] py-3 transition duration-300 hover:bg-opacity-10"
+              className="flex w-full cursor-pointer items-center justify-center space-x-2 rounded bg-white bg-opacity-[0.08] py-3 transition duration-300 hover:bg-opacity-10"
               onClick={openModal}
             >
               <i className="fad fa-shopping-cart text-lg text-olive-400 md:text-xl" />
@@ -74,7 +74,7 @@ export default function Card(props) {
             </div>
           ) : (
             <Link href="/login">
-              <a className="flex w-full cursor-pointer flex-row items-center justify-center space-x-2 rounded bg-white bg-opacity-[0.08] py-3 transition duration-300 hover:bg-opacity-10">
+              <a className="flex w-full cursor-pointer items-center justify-center space-x-2 rounded bg-white bg-opacity-[0.08] py-3 transition duration-300 hover:bg-opacity-10">
                 <i className="fad fa-sign-in text-lg text-olive-400 md:text-xl" />
                 <p className="text-lg font-bold text-olive-400 md:text-xl">
                   LOGIN
@@ -90,7 +90,7 @@ export default function Card(props) {
 
 function Feature(props) {
   return (
-    <div className="flex flex-row items-center justify-start space-x-2">
+    <div className="flex items-center justify-start space-x-2">
       <i
         className={`${props.icon} w-[23px] text-center text-lg md:w-[32px] md:text-2xl`}
       />

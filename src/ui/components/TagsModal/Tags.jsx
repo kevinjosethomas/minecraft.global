@@ -15,12 +15,12 @@ export default function TagsModal(props) {
         exit={{ y: 10, opacity: 0 }}
         transition={{ duration: 0.3, delay: 0.2 }}
       >
-        <div className="flex w-full flex-row items-center justify-between">
+        <div className="flex w-full items-center justify-between">
           <p className="text-5xl font-medium text-white text-opacity-90">
             Choose Tags
           </p>
           <div
-            className="flex cursor-pointer flex-row items-center justify-center rounded bg-olive-930 px-4 py-1 transition duration-300 hover:bg-olive-920"
+            className="flex cursor-pointer items-center justify-center rounded bg-olive-930 px-4 py-1 transition duration-300 hover:bg-olive-920"
             onClick={() => props.showModal(false)}
           >
             <p className="select-none text-xl font-medium text-white text-opacity-90">
@@ -38,7 +38,7 @@ export default function TagsModal(props) {
               <p className="text-4xl text-white text-opacity-80">
                 {category.label}
               </p>
-              <div className="flex w-full flex-row flex-wrap items-center justify-start">
+              <div className="flex w-full flex-wrap items-center justify-start">
                 {category.tags.map((tag, index) => (
                   <Tag
                     key={index}

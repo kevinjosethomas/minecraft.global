@@ -94,7 +94,7 @@ function Dropdown(props) {
         {props.servers.map((server, index) => (
           <div
             key={index}
-            className="flex w-full flex-row items-center justify-start px-3 py-1 transition duration-300 hover:bg-black hover:bg-opacity-20"
+            className="flex w-full items-center justify-start px-3 py-1 transition duration-300 hover:bg-black hover:bg-opacity-20"
             onClick={() => props.setServer(server)}
           >
             <p className="text-lg text-white text-opacity-80">{server.name}</p>

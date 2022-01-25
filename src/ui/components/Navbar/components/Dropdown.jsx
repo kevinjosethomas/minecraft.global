@@ -40,7 +40,7 @@ function Links(props) {
   return (
     <div className="flex w-full flex-col items-start justify-start py-2 px-3">
       <Link href={`/user/${props.id}`}>
-        <a className="flex w-full cursor-pointer select-none flex-row items-center justify-start space-x-2 rounded py-1 pl-4 pr-14 transition duration-300 hover:bg-black hover:bg-opacity-30">
+        <a className="flex w-full cursor-pointer select-none items-center justify-start space-x-2 rounded py-1 pl-4 pr-14 transition duration-300 hover:bg-black hover:bg-opacity-30">
           <i className="fas fa-info-circle w-[30px] text-2xl text-white text-opacity-60" />
           <p className="whitespace-nowrap text-2xl text-white text-opacity-60">
             View Profile
@@ -48,7 +48,7 @@ function Links(props) {
         </a>
       </Link>
       <Link href="/server/add">
-        <a className="flex w-full cursor-pointer select-none flex-row items-center justify-start space-x-2 rounded py-1 pl-4 pr-14 transition duration-300 hover:bg-black hover:bg-opacity-30">
+        <a className="flex w-full cursor-pointer select-none items-center justify-start space-x-2 rounded py-1 pl-4 pr-14 transition duration-300 hover:bg-black hover:bg-opacity-30">
           <i className="fas fa-plus-circle w-[30px] text-2xl text-white text-opacity-60" />
           <p className="whitespace-nowrap text-2xl text-white text-opacity-60">
             Add Server
@@ -56,7 +56,7 @@ function Links(props) {
         </a>
       </Link>
       <Link href={`/user/${props.id}/edit`}>
-        <a className="flex w-full cursor-pointer select-none flex-row items-center justify-start space-x-2 rounded py-1 pl-4 pr-14 transition duration-300 hover:bg-black hover:bg-opacity-30">
+        <a className="flex w-full cursor-pointer select-none items-center justify-start space-x-2 rounded py-1 pl-4 pr-14 transition duration-300 hover:bg-black hover:bg-opacity-30">
           <i className="far fa-pencil-paintbrush w-[30px] text-2xl text-white text-opacity-60" />
           <p className="whitespace-nowrap text-2xl text-white text-opacity-60">
             Edit Profile
@@ -64,7 +64,7 @@ function Links(props) {
         </a>
       </Link>
       <div
-        className="flex w-full cursor-pointer select-none flex-row items-center justify-start space-x-2 rounded py-1 pl-4 pr-14 transition duration-300 hover:bg-black hover:bg-opacity-30"
+        className="flex w-full cursor-pointer select-none items-center justify-start space-x-2 rounded py-1 pl-4 pr-14 transition duration-300 hover:bg-black hover:bg-opacity-30"
         onClick={() => {
           cookie.remove("token");
           router.reload();

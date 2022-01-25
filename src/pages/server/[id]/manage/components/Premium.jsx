@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Premium(props) {
   return (
-    <div className="flex w-full flex-row items-center justify-between space-x-8">
+    <div className="flex w-full items-center justify-between space-x-8">
       <div className="flex flex-col items-start justify-start space-y-2">
         <p className="max-w-md text-lg text-white text-opacity-90">
           Server Analytics provides you with a Bukkit plugin to add to your
@@ -38,7 +38,7 @@ export default function Premium(props) {
         </ul>
       </div>
       <div className="flex max-w-xs flex-col items-center justify-center space-y-6 rounded-lg border-2 border-olive-800 bg-olive-940 px-3 py-12">
-        <div className="flex flex-row items-center justify-center space-x-2">
+        <div className="flex items-center justify-center space-x-2">
           <i className="fad fa-diamond text-4xl text-olive-600" />
           <p className="select-none text-4xl font-medium text-white text-opacity-90">
             Premium
@@ -49,7 +49,7 @@ export default function Premium(props) {
           server immediately!
         </p>
         <Link href="/premium">
-          <a className="flex cursor-pointer flex-row items-center justify-center space-x-2 rounded bg-olive-800 px-6 py-2 transition duration-300 hover:bg-olive-900">
+          <a className="flex cursor-pointer items-center justify-center space-x-2 rounded bg-olive-800 px-6 py-2 transition duration-300 hover:bg-olive-900">
             <p className="select-none text-2xl text-white">See Other Perks</p>
           </a>
         </Link>

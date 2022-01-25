@@ -64,7 +64,7 @@ export default function ServerAnalytics(props) {
       noindex
     >
       <div className="flex w-full flex-col items-start justify-start space-y-5">
-        <div className="flex flex-row items-center justify-start space-x-4">
+        <div className="flex items-center justify-start space-x-4">
           <img
             className="h-16 w-16 rounded"
             src={

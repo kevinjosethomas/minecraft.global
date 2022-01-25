@@ -11,13 +11,13 @@ const ReactTooltip = dynamic(() => import("react-tooltip"), {
 
 export default function Identity(props) {
   return (
-    <div className="flex h-[66px] w-full flex-row items-center justify-between">
+    <div className="flex h-[66px] w-full items-center justify-between">
       <ReactTooltip
         effect="solid"
         className="!rounded-md !border-2 !border-olive-930 !bg-olive-800 !text-white !text-opacity-90"
       />
       <div className="flex flex-col items-start justify-start">
-        <div className="flex flex-row items-center justify-start space-x-2">
+        <div className="flex items-center justify-start space-x-2">
           <h3 className="text-xl text-white text-opacity-90 md:text-3xl">
             {props.name}
           </h3>
@@ -35,7 +35,7 @@ export default function Identity(props) {
           players_online={props.players_online}
         />
       </div>
-      <div className="flex flex-row items-center justify-start space-x-2">
+      <div className="flex items-center justify-start space-x-2">
         {props.owner_id === props.user?.user_id && (
           <ManageServer server_id={props.server_id} />
         )}
@@ -52,14 +52,14 @@ export default function Identity(props) {
 
 function Meta(props) {
   return (
-    <div className="flex select-none flex-row items-center justify-start space-x-4">
-      <div className="flex flex-row items-center justify-start space-x-1">
+    <div className="flex select-none items-center justify-start space-x-4">
+      <div className="flex items-center justify-start space-x-1">
         <i className="far fa-arrow-alt-up text-sm text-olive-500 md:text-base" />
         <p className="text-sm text-white text-opacity-80 md:text-base">
           {SimplifyNumber(props.monthly_votes, { decimal: 1 })}
         </p>
       </div>
-      <div className="flex flex-row items-center justify-start space-x-1">
+      <div className="flex items-center justify-start space-x-1">
         <i className="far fa-user text-sm text-olive-500 md:text-base" />
         <p className="text-sm text-white text-opacity-80 md:text-base">
           {SimplifyNumber(props.players_online, { decimal: 1 })}
@@ -72,7 +72,7 @@ function Meta(props) {
 function ManageServer(props) {
   return (
     <Link href={`/server/${props.server_id}/manage`}>
-      <a className="flex select-none flex-row items-center justify-center rounded-[6px] bg-olive-600 bg-opacity-25 px-3 py-2 transition duration-300 hover:bg-opacity-50">
+      <a className="flex select-none items-center justify-center rounded-[6px] bg-olive-600 bg-opacity-25 px-3 py-2 transition duration-300 hover:bg-opacity-50">
         <i className="far fa-tools text-lg text-white" />
       </a>
     </Link>
@@ -103,7 +103,7 @@ function CopyButton(props) {
 
   return (
     <div
-      className="hidden select-none flex-row items-center justify-center rounded-[6px] bg-olive-600 bg-opacity-25 px-4 py-2 transition duration-300 hover:bg-opacity-50 md:flex"
+      className="hidden select-none items-center justify-center rounded-[6px] bg-olive-600 bg-opacity-25 px-4 py-2 transition duration-300 hover:bg-opacity-50 md:flex"
       onClick={onClick}
     >
       <p className="text-lg font-medium text-white">Copy IP</p>

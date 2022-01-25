@@ -73,7 +73,7 @@ function Details(props) {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3, delay: 0.2 }}
     >
-      <div className="flex flex-row items-center justify-start space-x-2">
+      <div className="flex items-center justify-start space-x-2">
         <i className="far fa-gamepad-alt text-3xl text-white text-opacity-90" />
         <p className="text-3xl text-white text-opacity-90">Details</p>
       </div>
@@ -115,7 +115,7 @@ function Socials(props) {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3, delay: 0.2 }}
     >
-      <div className="flex flex-row items-center justify-start space-x-2">
+      <div className="flex items-center justify-start space-x-2">
         <i className="far fa-share-alt text-3xl text-white text-opacity-90" />
         <p className="text-3xl text-white text-opacity-90">Socials</p>
       </div>
@@ -176,7 +176,7 @@ function Element(props) {
 function SocialElement(props) {
   return (
     <a
-      className="group flex flex-row items-center justify-start space-x-2 whitespace-nowrap"
+      className="group flex items-center justify-start space-x-2 whitespace-nowrap"
       rel="noreferrer nofollow"
       href={props.href}
       target="_blank"

@@ -18,14 +18,14 @@ export default function Navbar(props) {
   }, [mobile]);
 
   return (
-    <div className="flex w-full flex-row items-center justify-center">
-      <div className="hidden w-full flex-row items-center justify-between py-[32px] md:flex">
+    <div className="flex w-full items-center justify-center">
+      <div className="hidden w-full items-center justify-between py-[32px] md:flex">
         <Links />
         <User user={props.user} />
       </div>
-      <div className="!mt-0 flex w-full flex-row items-center justify-between py-6 md:hidden">
+      <div className="!mt-0 flex w-full items-center justify-between py-6 md:hidden">
         <Link href="/">
-          <a className="flex flex-row items-center justify-start space-x-3">
+          <a className="flex items-center justify-start space-x-3">
             <img
               src="/logo.svg"
               className="h-8 w-8 cursor-pointer"

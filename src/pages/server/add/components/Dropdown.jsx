@@ -6,7 +6,7 @@ export default function Dropdown(props) {
   const [dropdown, showDropdown] = useState(false);
 
   return (
-    <div className="flex w-full flex-row items-start justify-between space-x-8">
+    <div className="flex w-full items-start justify-between space-x-8">
       <div className="!ml-0 flex flex-col items-start justify-start">
         <p className="text-2xl text-white text-opacity-80">
           {props.label}
@@ -19,7 +19,7 @@ export default function Dropdown(props) {
         </p>
       </div>
       <div
-        className="relative flex h-[60px] w-[450px] cursor-pointer flex-row items-center justify-between rounded-md border-2 border-white border-opacity-10 bg-white bg-opacity-5 px-4"
+        className="relative flex h-[60px] w-[450px] cursor-pointer items-center justify-between rounded-md border-2 border-white border-opacity-10 bg-white bg-opacity-5 px-4"
         onClick={() => showDropdown((d) => !d)}
       >
         <p className="select-none text-lg text-white text-opacity-80">
@@ -54,7 +54,7 @@ function DropdownElement(props) {
         {props.options.map((option, index) => (
           <div
             key={index}
-            className={`flex w-full flex-row items-center justify-start px-4 py-1  ${
+            className={`flex w-full items-center justify-start px-4 py-1  ${
               props.value.id === option.id
                 ? "bg-black bg-opacity-[0.15]"
                 : "cursor-pointer transition duration-300 hover:bg-black hover:bg-opacity-[0.15]"

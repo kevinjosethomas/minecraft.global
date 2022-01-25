@@ -51,7 +51,7 @@ export default function Accounts(props) {
         </h1>
         <div className="flex flex-col items-start justify-start space-y-2">
           {props.google_id && (
-            <div className="flex w-[500px] cursor-default flex-row items-center justify-start space-x-2 rounded-lg bg-[#DCA504] px-4 py-1.5 transition duration-300 hover:bg-opacity-80">
+            <div className="flex w-[500px] cursor-default items-center justify-start space-x-2 rounded-lg bg-[#DCA504] px-4 py-1.5 transition duration-300 hover:bg-opacity-80">
               <i className="fab fa-google w-[30px] text-2xl text-white" />
               <p className="select-none text-2xl text-white">
                 {props.google_name}
@@ -59,7 +59,7 @@ export default function Accounts(props) {
             </div>
           )}
           {props.discord_id && (
-            <div className="flex w-[500px] cursor-default flex-row items-center justify-start space-x-2 rounded-lg bg-[#5865F2] px-4 py-1.5 transition duration-300 hover:bg-opacity-70">
+            <div className="flex w-[500px] cursor-default items-center justify-start space-x-2 rounded-lg bg-[#5865F2] px-4 py-1.5 transition duration-300 hover:bg-opacity-70">
               <i className="fab fa-discord w-[30px] text-2xl text-white" />
               <p className="select-none text-2xl text-white">
                 {props.discord_username}
@@ -67,7 +67,7 @@ export default function Accounts(props) {
             </div>
           )}
           {props.minecraft_uuid ? (
-            <div className="flex w-[500px] cursor-default flex-row items-center justify-start space-x-2 rounded-lg bg-olive-800 px-4 py-1.5 transition duration-300 hover:bg-opacity-80">
+            <div className="flex w-[500px] cursor-default items-center justify-start space-x-2 rounded-lg bg-olive-800 px-4 py-1.5 transition duration-300 hover:bg-opacity-80">
               <i className="far fa-cube w-[30px] text-2xl text-white" />
               <p className="select-none text-2xl text-white">
                 {props.minecraft_username}
@@ -75,7 +75,7 @@ export default function Accounts(props) {
             </div>
           ) : (
             <div
-              className="flex w-[500px] cursor-pointer flex-row items-center justify-start space-x-2 rounded-lg bg-olive-800 px-4 py-1.5 transition duration-300 hover:bg-opacity-80"
+              className="flex w-[500px] cursor-pointer items-center justify-start space-x-2 rounded-lg bg-olive-800 px-4 py-1.5 transition duration-300 hover:bg-opacity-80"
               onClick={() => showLinkModal(true)}
             >
               <i className="far fa-cube w-[30px] text-2xl text-white" />

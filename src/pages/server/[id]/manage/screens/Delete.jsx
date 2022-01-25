@@ -42,7 +42,7 @@ export default function Delete(props) {
         </p>
       </div>
       <div
-        className="flex cursor-pointer flex-row items-center justify-center rounded bg-red-900 px-6 py-2 transition duration-300 hover:bg-red-800"
+        className="flex cursor-pointer items-center justify-center rounded bg-red-900 px-6 py-2 transition duration-300 hover:bg-red-800"
         onClick={() => showModal(true)}
       >
         <p className="select-none text-2xl font-medium text-white text-opacity-90">

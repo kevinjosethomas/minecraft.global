@@ -197,7 +197,7 @@ export default function ManageServer(props) {
       <Head>
         <title>{`${props.server.name} - Minecraft Server List`}</title>
       </Head>
-      <div className="flex w-full flex-row items-start justify-start space-x-6">
+      <div className="flex w-full items-start justify-start space-x-6">
         <Navigation
           screen={screen}
           screens={screens}
@@ -210,7 +210,7 @@ export default function ManageServer(props) {
         <div className="flex w-full flex-col items-start justify-start space-y-4 overflow-hidden rounded-lg border-2 border-olive-930 bg-olive-950 p-8">
           {screen.name != "delete" ||
             (screen.name === "billing" && (
-              <div className="flex w-full flex-row items-center justify-start">
+              <div className="flex w-full items-center justify-start">
                 <h1 className="text-4xl font-medium text-white text-opacity-90">
                   {screen.label}
                 </h1>

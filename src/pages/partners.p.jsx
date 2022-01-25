@@ -38,7 +38,7 @@ function Partner(props) {
   return (
     <div className="flex h-[22rem] w-96 flex-col items-start justify-between rounded-lg border-2 border-olive-930 bg-olive-950 p-4">
       <div className="flex w-full flex-col items-start justify-start space-y-4">
-        <div className="flex flex-row items-center justify-start space-x-2">
+        <div className="flex items-center justify-start space-x-2">
           <img
             src={props.icon}
             alt={`${props.name}'s Logo`}
@@ -54,7 +54,7 @@ function Partner(props) {
         </p>
       </div>
       <a
-        className="flex w-full cursor-pointer flex-row items-center justify-center rounded bg-olive-930 py-4 transition duration-300 hover:bg-olive-920"
+        className="flex w-full cursor-pointer items-center justify-center rounded bg-olive-930 py-4 transition duration-300 hover:bg-olive-920"
         rel="noreferrer nofollow"
         href={props.href}
         target="_blank"

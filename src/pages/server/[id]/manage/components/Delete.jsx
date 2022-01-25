@@ -23,16 +23,16 @@ export default function Delete(props) {
           </p>
         </div>
         <div
-          className="flex flex-row items-center justify-center space-x-4"
+          className="flex items-center justify-center space-x-4"
           onClick={() => props.showModal(false)}
         >
-          <div className="flex cursor-pointer flex-row items-center justify-center rounded bg-olive-900 px-8 py-3 transition duration-300 hover:bg-olive-800">
+          <div className="flex cursor-pointer items-center justify-center rounded bg-olive-900 px-8 py-3 transition duration-300 hover:bg-olive-800">
             <p className="select-none text-3xl font-medium text-white text-opacity-90">
               Go Back
             </p>
           </div>
           <div
-            className="flex cursor-pointer flex-row items-center justify-center rounded bg-red-900 px-8 py-3 transition duration-300 hover:bg-red-800"
+            className="flex cursor-pointer items-center justify-center rounded bg-red-900 px-8 py-3 transition duration-300 hover:bg-red-800"
             onClick={props.submit}
           >
             <p className="select-none text-3xl font-medium text-white text-opacity-90">

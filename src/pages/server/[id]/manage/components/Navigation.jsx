@@ -4,7 +4,7 @@ export default function Navigation(props) {
   return (
     <div className="flex max-w-[300px] flex-col items-start justify-start space-y-4">
       <Link href={`/server/${props.server.server_id}`}>
-        <a className="group flex w-full flex-row items-center justify-center space-x-3 rounded-lg border-2 border-olive-930 bg-olive-950 py-2.5 transition duration-300 hover:bg-olive-940">
+        <a className="group flex w-full items-center justify-center space-x-3 rounded-lg border-2 border-olive-930 bg-olive-950 py-2.5 transition duration-300 hover:bg-olive-940">
           <i className="far fa-arrow-left transform text-xl text-white text-opacity-90 duration-300 group-hover:-translate-x-1" />
           <p className="select-none text-xl text-white text-opacity-90">
             View Server
@@ -17,7 +17,7 @@ export default function Navigation(props) {
           {props.screens.map((screen, index) => (
             <div
               key={index}
-              className="flex w-full cursor-pointer flex-row items-center justify-start space-x-2.5"
+              className="flex w-full cursor-pointer items-center justify-start space-x-2.5"
               onClick={() => props.setScreen(screen)}
             >
               <i
@@ -35,7 +35,7 @@ export default function Navigation(props) {
         </div>
       </div>
       <div
-        className="flex w-full cursor-pointer flex-row items-center justify-center rounded-lg bg-olive-900 py-3 transition duration-300 hover:bg-olive-800"
+        className="flex w-full cursor-pointer items-center justify-center rounded-lg bg-olive-900 py-3 transition duration-300 hover:bg-olive-800"
         onClick={props.submit}
       >
         <p className="select-none text-xl text-white text-opacity-90">
@@ -48,7 +48,7 @@ export default function Navigation(props) {
 
 function Identity(props) {
   return (
-    <div className="flex w-full flex-row items-center justify-start space-x-2">
+    <div className="flex w-full items-center justify-start space-x-2">
       <img
         src={props.favicon}
         alt={`${props.name} Favicon`}

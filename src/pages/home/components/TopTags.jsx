@@ -5,7 +5,7 @@ import tags from "lib/tags.json";
 export default function TopTags(props) {
   return (
     <div className="flex w-full flex-col items-start justify-start space-y-2">
-      <div className="flex flex-row items-center justify-start space-x-2 px-4">
+      <div className="flex items-center justify-start space-x-2 px-4">
         <i className="fas fa-tags text-3xl text-olive-600" />
         <p className="text-3xl text-white text-opacity-80">Popular Tags</p>
       </div>
@@ -21,7 +21,7 @@ export default function TopTags(props) {
 function Tag(props) {
   return (
     <Link href={`/tag/${props.name}`}>
-      <a className="flex w-full flex-row items-center justify-start space-x-2 rounded py-1.5 transition duration-300 hover:bg-white hover:bg-opacity-5">
+      <a className="flex w-full items-center justify-start space-x-2 rounded py-1.5 transition duration-300 hover:bg-white hover:bg-opacity-5">
         <p className="w-8 text-center text-2xl text-white text-opacity-60">
           {props.index}
         </p>

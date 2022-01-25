@@ -22,7 +22,7 @@ export default function Premium() {
             </p>
           </div>
           <Link href="/premium">
-            <a className="flex w-full cursor-pointer flex-row items-center justify-center rounded bg-olive-900 py-2 transition duration-300 hover:bg-olive-800">
+            <a className="flex w-full cursor-pointer items-center justify-center rounded bg-olive-900 py-2 transition duration-300 hover:bg-olive-800">
               <p className="select-none text-2xl font-medium text-white text-opacity-80">
                 Check it out
               </p>

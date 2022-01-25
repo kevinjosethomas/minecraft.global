@@ -35,7 +35,7 @@ export default function Links(props) {
   ];
 
   return (
-    <div className="flex flex-row items-center justify-start space-x-[28px]">
+    <div className="flex items-center justify-start space-x-[28px]">
       <Link href="/">
         <a>
           <img
@@ -53,7 +53,7 @@ export default function Links(props) {
           href={element.href}
         />
       ))}
-      <div className="mt-1 flex flex-row items-center justify-start space-x-[12px]">
+      <div className="mt-1 flex items-center justify-start space-x-[12px]">
         {socials.map((social, index) => (
           <Social key={index} icon={social.icon} href={social.href} />
         ))}
@@ -65,7 +65,7 @@ export default function Links(props) {
 function Element(props) {
   return (
     <Link href={props.href}>
-      <a className="group flex flex-row items-center justify-start space-x-2">
+      <a className="group flex items-center justify-start space-x-2">
         <i
           className={`${props.icon} text-2xl text-white text-opacity-80 transition duration-300 group-hover:text-opacity-90`}
         />

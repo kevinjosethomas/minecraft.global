@@ -6,7 +6,7 @@ const ReactTooltip = dynamic(() => import("react-tooltip"), {
 
 export default function Input(props) {
   return (
-    <div className="flex w-full flex-row items-start justify-between space-x-8">
+    <div className="flex w-full items-start justify-between space-x-8">
       <ReactTooltip
         effect="solid"
         className="!rounded-md !border-2 !border-olive-930 !bg-olive-800 !text-white !text-opacity-90"

@@ -87,16 +87,16 @@ export default function Upvote(props) {
         onChange={onChange}
         sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY}
       />
-      <div className="flex w-full flex-row items-center justify-center space-x-4">
+      <div className="flex w-full items-center justify-center space-x-4">
         <Link href={`/server/${props.server_id}`}>
-          <a className="flex w-full cursor-pointer flex-row items-center justify-center rounded bg-white bg-opacity-10 py-2 transition duration-300 hover:bg-opacity-[0.15]">
+          <a className="flex w-full cursor-pointer items-center justify-center rounded bg-white bg-opacity-10 py-2 transition duration-300 hover:bg-opacity-[0.15]">
             <p className="select-none text-xl text-white text-opacity-80 md:text-2xl">
               Go Back
             </p>
           </a>
         </Link>
         <div
-          className={`flex w-full flex-row items-center justify-center py-2 ${
+          className={`flex w-full items-center justify-center py-2 ${
             username && captchaCode
               ? "cursor-pointer bg-olive-900 transition duration-300 hover:bg-olive-800"
               : "cursor-not-allowed bg-olive-940"

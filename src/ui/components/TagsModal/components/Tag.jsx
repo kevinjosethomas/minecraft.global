@@ -23,7 +23,7 @@ export default function Tag(props) {
 
   return (
     <div
-      className={`mr-2 mb-2 flex flex-row items-center justify-center px-5 py-1.5 ${
+      className={`mr-2 mb-2 flex items-center justify-center px-5 py-1.5 ${
         selected
           ? "bg-olive-800 hover:bg-olive-700"
           : "bg-white bg-opacity-10 hover:bg-opacity-[0.15]"

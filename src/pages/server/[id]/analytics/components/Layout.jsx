@@ -7,7 +7,7 @@ export default function Layout(props) {
       <h3 className="text-4xl font-medium text-white text-opacity-80">
         {props.title}
       </h3>
-      <div className="flex w-full flex-row items-center items-stretch">
+      <div className="flex w-full items-center items-stretch">
         <div
           className={`grid w-full grid-cols-2 gap-3 ${
             props.index % 2 === 0 ? "mr-3" : "order-2 ml-3"

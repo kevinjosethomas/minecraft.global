@@ -14,7 +14,7 @@ export default function ServerCard(props) {
       server_id={props.server_id}
       premium={props.premium}
     >
-      <div className="flex w-full flex-row items-center justify-start space-x-3 overflow-x-hidden">
+      <div className="flex w-full items-center justify-start space-x-3 overflow-x-hidden">
         <Favicon favicon={props.favicon} name={props.name} />
         <Identity
           user={props.user}

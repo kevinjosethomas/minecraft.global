@@ -56,7 +56,7 @@ export default function Auctions(props) {
 
   return (
     <div className="flex w-full flex-col items-start justify-start">
-      <div className="flex w-full flex-row items-start justify-start space-x-6">
+      <div className="flex w-full items-start justify-start space-x-6">
         <Bids pages={pages} page={page} setPage={setPage} />
         <Form
           page={page}

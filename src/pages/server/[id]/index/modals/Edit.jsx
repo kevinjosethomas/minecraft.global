@@ -74,9 +74,9 @@ export default function Edit(props) {
           onChange={onCommentChange}
           className="focus:outline-none h-40 w-full resize-none rounded-lg border-2 border-white border-opacity-10 bg-white bg-opacity-5 p-3 text-xl text-white text-opacity-80"
         />
-        <div className="flex w-full flex-row items-center justify-end space-x-2">
+        <div className="flex w-full items-center justify-end space-x-2">
           <div
-            className="flex cursor-pointer flex-row items-center justify-center rounded bg-red-900 px-4 py-1.5 transition duration-300 hover:bg-red-800"
+            className="flex cursor-pointer items-center justify-center rounded bg-red-900 px-4 py-1.5 transition duration-300 hover:bg-red-800"
             onClick={() => props.showModal(false)}
           >
             <p className="select-none text-xl text-white text-opacity-90">
@@ -84,7 +84,7 @@ export default function Edit(props) {
             </p>
           </div>
           <div
-            className="flex cursor-pointer flex-row items-center justify-center rounded bg-olive-900 px-4 py-1.5 transition duration-300 hover:bg-olive-800"
+            className="flex cursor-pointer items-center justify-center rounded bg-olive-900 px-4 py-1.5 transition duration-300 hover:bg-olive-800"
             onClick={submit}
           >
             <p className="select-none text-xl text-white text-opacity-90">

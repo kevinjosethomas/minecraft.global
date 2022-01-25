@@ -61,7 +61,7 @@ export default function Tag(props) {
             .join(", ")}`}
         />
       </Head>
-      <div className="j+ustify-center flex w-full flex-row items-start space-x-8">
+      <div className="j+ustify-center flex w-full items-start space-x-8">
         <Servers
           tag={props.tag}
           user={props.user}

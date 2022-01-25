@@ -26,7 +26,7 @@ export default function Header(props) {
           className="h-[64px] w-[64px] md:h-[128px] md:w-[128px]"
         />
         <div className="flex flex-col items-start justify-start">
-          <div className="flex flex-row items-center justify-start space-x-3 md:space-x-4">
+          <div className="flex items-center justify-start space-x-3 md:space-x-4">
             <h1 className="text-2xl text-white text-opacity-90 md:text-4xl">
               {props.name}
             </h1>
@@ -45,7 +45,7 @@ export default function Header(props) {
 
 function Badges(props) {
   return (
-    <div className="flex flex-row items-center justify-start space-x-2 md:space-x-3">
+    <div className="flex items-center justify-start space-x-2 md:space-x-3">
       {props.permissions >= 8 && (
         <i
           className="fad fa-tools text-lg text-yellow-600 md:text-2xl"
@@ -70,10 +70,10 @@ function Badges(props) {
 
 function Buttons(props) {
   return (
-    <div className="flex w-full flex-row items-center justify-center space-x-2 md:w-auto md:flex-col md:space-x-0 md:space-y-2">
+    <div className="flex w-full items-center justify-center space-x-2 md:w-auto md:flex-col md:space-x-0 md:space-y-2">
       {props.user_id === props.user?.user_id && (
         <Link href={`/user/${props.user?.user_id}/edit`}>
-          <a className="flex w-full cursor-pointer flex-row items-center justify-center space-x-2 rounded border-2 border-blue-900 bg-blue-700 bg-opacity-40 px-2 py-2 transition duration-300 hover:scale-[1.01] md:space-x-3 md:rounded-lg md:px-5">
+          <a className="flex w-full cursor-pointer items-center justify-center space-x-2 rounded border-2 border-blue-900 bg-blue-700 bg-opacity-40 px-2 py-2 transition duration-300 hover:scale-[1.01] md:space-x-3 md:rounded-lg md:px-5">
             <i className="fad fa-pencil-paintbrush text-white md:text-xl" />
             <p className="text-white text-opacity-90 md:text-xl">
               Edit Profile
@@ -83,7 +83,7 @@ function Buttons(props) {
       )}
       {props.user_id === props.user?.user_id && (
         <Link href="/server/add">
-          <a className="flex w-full cursor-pointer flex-row items-center justify-center space-x-2 rounded border-2 border-yellow-900 bg-yellow-700 bg-opacity-50 px-2 py-2 transition duration-300 hover:scale-[1.01] md:space-x-3 md:rounded-lg md:px-5">
+          <a className="flex w-full cursor-pointer items-center justify-center space-x-2 rounded border-2 border-yellow-900 bg-yellow-700 bg-opacity-50 px-2 py-2 transition duration-300 hover:scale-[1.01] md:space-x-3 md:rounded-lg md:px-5">
             <i className="fad fa-plus-circle text-white md:text-xl" />
             <p className="text-white text-opacity-90 md:text-xl">Add server</p>
           </a>

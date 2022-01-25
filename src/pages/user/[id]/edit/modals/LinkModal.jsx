@@ -30,10 +30,10 @@ export default function LinkModal(props) {
             • Join our verification server at{" "}
             <code>verify.minecraft.global</code> (1.8 - 1.18)
           </li>
-          <li className="flex flex-row items-center text-xl leading-tight text-white text-opacity-90">
+          <li className="flex items-center text-xl leading-tight text-white text-opacity-90">
             • Copy and paste the command - <code>/link {props.code}</code>{" "}
             <div
-              className="ml-2 flex cursor-pointer flex-row items-center justify-center rounded bg-olive-800 p-2 transition duration-300 hover:bg-olive-910"
+              className="ml-2 flex cursor-pointer items-center justify-center rounded bg-olive-800 p-2 transition duration-300 hover:bg-olive-910"
               onClick={onClick}
             >
               <i className="far fa-copy text-xl" />

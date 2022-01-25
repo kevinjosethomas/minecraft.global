@@ -56,7 +56,7 @@ function Info(props) {
   return (
     <div className="flex w-full flex-col items-start justify-start space-y-4 md:w-[400px] md:min-w-[400px] md:max-w-[400px]">
       <div className="flex w-full flex-col items-start justify-start space-y-1 md:space-y-2">
-        <div className="flex flex-row items-center justify-start">
+        <div className="flex items-center justify-start">
           <motion.h3
             className="text-3xl font-medium text-white text-opacity-90 md:text-4xl"
             initial={{ y: 10, opacity: 0 }}
@@ -85,7 +85,7 @@ function Info(props) {
 
 function Field(props) {
   return (
-    <div className="flex flex-row items-center justify-start">
+    <div className="flex items-center justify-start">
       <h3 className="text-xl font-medium text-white text-opacity-90 md:text-2xl">
         {props.label}{" "}
         <span className="font-normal text-white text-opacity-60">

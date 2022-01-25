@@ -49,7 +49,7 @@ export default function Premium(props) {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.3, delay: 0.4 }}
             >
-              <div className="flex flex-row items-center justify-start space-x-2">
+              <div className="flex items-center justify-start space-x-2">
                 <i className="fal fa-chart-bar w-[32px] text-center text-3xl text-teal-500" />
                 <p className="text-2xl text-teal-500 md:text-3xl">
                   Server Analytics
@@ -68,7 +68,7 @@ export default function Premium(props) {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.3, delay: 0.5 }}
             >
-              <div className="flex flex-row items-center justify-start space-x-2">
+              <div className="flex items-center justify-start space-x-2">
                 <i className="fal fa-sack-dollar w-[32px] text-center text-3xl text-yellow-500" />
                 <p className="text-2xl text-yellow-500 md:text-3xl">
                   Monthly Advertising Credit
