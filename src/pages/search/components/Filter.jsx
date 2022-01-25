@@ -7,16 +7,16 @@ export default function Filter(props) {
   };
 
   return (
-    <div className="flex flex-col items-start justify-start">
+    <div className="relative flex w-full flex-col items-start justify-start space-y-2 overflow-hidden rounded-lg border-2 border-olive-960 bg-olive-940 bg-opacity-30 py-4 px-6">
       <p
-        className="text-3xl font-medium text-white text-opacity-90"
+        className="text-4xl text-white"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3, delay: 0.2 }}
       >
-        Filter By
+        Filter
       </p>
-      <div className="flex w-full flex-col items-start justify-start">
+      <div className="flex w-full flex-col items-start justify-start space-y-0.5">
         <Option
           label="Online"
           checked={props.parameters.online}
@@ -43,6 +43,12 @@ export default function Filter(props) {
           onClick={() => update("cracked")}
         />
       </div>
+      <img
+        alt="creeper"
+        draggable="false"
+        src="/images/creeper2.png"
+        className="absolute right-14 -bottom-14 !m-0 w-16 rotate-[-15deg] select-none"
+      />
     </div>
   );
 }
@@ -55,14 +61,14 @@ function Option(props) {
     >
       <div
         className={`flex h-6 w-6 flex-col items-center justify-center ${
-          props.checked ? "bg-olive-700" : "bg-white bg-opacity-10"
+          props.checked ? "bg-olive-900" : "bg-white bg-opacity-5"
         } rounded`}
       >
         {props.checked && (
           <i className="fas fa-check text-xs text-white text-opacity-80" />
         )}
       </div>
-      <p className="select-none text-2xl tracking-[0.015em] text-white text-opacity-80">
+      <p className="select-none text-xl text-white text-opacity-80">
         {props.label}
       </p>
     </div>
