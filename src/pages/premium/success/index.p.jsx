@@ -8,22 +8,30 @@ export default function PremiumSuccess(props) {
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search>
       <div className="flex flex-col items-start justify-start">
-        <h3 className="font-medium text-4xl text-white">Thank you for subscribing to Premium!</h3>
+        <h3 className="text-4xl font-medium text-white">
+          Thank you for subscribing to Premium!
+        </h3>
         <div className="flex flex-col items-start justify-start space-y-4">
-          <p className="text-2xl text-white text-opacity-60 format-links">
-            You have unlocked a handful of new features to grow your server! You can start by
-            claiming a custom vanity URL in your{" "}
+          <p className="format-links text-2xl text-white text-opacity-60">
+            You have unlocked a handful of new features to grow your server! You
+            can start by claiming a custom vanity URL in your{" "}
             <Link href={`/server/${props.server_id}/manage`}>
               <a>Manage Server</a>
             </Link>{" "}
-            page! We have automatically added a Premium badge to your server card on all pages!
+            page! We have automatically added a Premium badge to your server
+            card on all pages!
           </p>
-          <p className="text-2xl text-white text-opacity-60 format-links">
+          <p className="format-links text-2xl text-white text-opacity-60">
             We would recommend joining our{" "}
-            <a href="https://discord.minecraft.global" target="_blank" rel="nofollow noreferrer">
+            <a
+              href="https://discord.minecraft.global"
+              target="_blank"
+              rel="nofollow noreferrer"
+            >
               Discord server
             </a>{" "}
-            to get access to any beta Premium features that haven&apos;t been documented yet!
+            to get access to any beta Premium features that haven&apos;t been
+            documented yet!
           </p>
         </div>
       </div>
@@ -44,7 +52,10 @@ export async function getServerSideProps(ctx) {
       };
     }
 
-    const [user, data] = await Promise.all([GetLoggedInUser(ctx), GetDefaultData()]);
+    const [user, data] = await Promise.all([
+      GetLoggedInUser(ctx),
+      GetDefaultData(),
+    ]);
 
     if (data[1]) {
       return {

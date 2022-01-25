@@ -12,11 +12,14 @@ const GetLoggedInUser = async (ctx, full) => {
       return [null, 1];
     }
 
-    const response = await axios.get(`${process.env.API_URL}/auth?full=${full || false}`, {
-      headers: {
-        Authorization: token,
-      },
-    });
+    const response = await axios.get(
+      `${process.env.API_URL}/auth?full=${full || false}`,
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
 
     return [response.data.payload, null];
   } catch (e) {
@@ -40,11 +43,14 @@ const LoginWithDiscord = async (code) => {
 
 const LoginWithGoogle = async (token) => {
   try {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/login/google`, {
-      headers: {
-        Authorization: token,
-      },
-    });
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/login/google`,
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
 
     return [response.data, null];
   } catch (e) {

@@ -9,7 +9,10 @@ export default function Card(props) {
     { icon: "far fa-link text-yellow-700", label: "Custom Server URL" },
     { icon: "fab fa-discord text-[#5865F2]", label: "Exclusive Discord Role" },
     { icon: "far fa-stars text-red-700", label: "Prominent Server Card" },
-    { icon: "fal fa-chart-bar text-teal-500", label: "Advanced Server Analytics" },
+    {
+      icon: "fal fa-chart-bar text-teal-500",
+      label: "Advanced Server Analytics",
+    },
     {
       icon: "fal fa-sack-dollar text-orange-500",
       label: "$5 Monthly Auction Credit",
@@ -27,42 +30,55 @@ export default function Card(props) {
   };
 
   return (
-    <Tilt tiltMaxAngleX={2} tiltMaxAngleY={2} tiltReverse className="w-full md:w-auto">
+    <Tilt
+      tiltMaxAngleX={2}
+      tiltMaxAngleY={2}
+      tiltReverse
+      className="w-full md:w-auto"
+    >
       <motion.div
-        className="flex flex-col items-start justify-start w-full md:w-[450px] rounded-[12px] border-2 border-olive-940 overflow-hidden"
+        className="flex w-full flex-col items-start justify-start overflow-hidden rounded-[12px] border-2 border-olive-940 md:w-[450px]"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
       >
-        <div className="flex flex-col items-start justify-center w-full h-40 md:h-48 px-5 space-y-2 bg-gradient-to-br from-olive-800 to-olive-930">
-          <div className="flex flex-row items-center justify-center py-1 px-4 space-x-1.5 bg-white rounded-full">
+        <div className="flex h-40 w-full flex-col items-start justify-center space-y-2 bg-gradient-to-br from-olive-800 to-olive-930 px-5 md:h-48">
+          <div className="flex flex-row items-center justify-center space-x-1.5 rounded-full bg-white py-1 px-4">
             <i className="fad fa-diamond text-base text-olive-500" />
-            <p className="font-medium text-base text-olive-500 select-none">MONTHLY</p>
+            <p className="select-none text-base font-medium text-olive-500">
+              MONTHLY
+            </p>
           </div>
-          <p className="font-bold text-6xl md:text-7xl text-white tracking-tight leading-tight select-none">
+          <p className="select-none text-6xl font-bold leading-tight tracking-tight text-white md:text-7xl">
             $4.99
           </p>
         </div>
-        <div className="flex flex-col items-start justify-start w-full p-3 md:p-6 space-y-5 bg-olive-980">
-          <div className="flex flex-col items-start justify-start space-y-1 select-none">
-            <p className="font-bold text-2xl md:text-3xl text-white text-opacity-90">Features</p>
+        <div className="flex w-full flex-col items-start justify-start space-y-5 bg-olive-980 p-3 md:p-6">
+          <div className="flex select-none flex-col items-start justify-start space-y-1">
+            <p className="text-2xl font-bold text-white text-opacity-90 md:text-3xl">
+              Features
+            </p>
             {features.map((feature, index) => (
               <Feature key={index} {...feature} />
             ))}
           </div>
           {props.user ? (
             <div
-              className="flex flex-row items-center justify-center w-full py-3 space-x-2 bg-white bg-opacity-[0.08] hover:bg-opacity-10 rounded cursor-pointer transition duration-300"
+              className="flex w-full cursor-pointer flex-row items-center justify-center space-x-2 rounded bg-white bg-opacity-[0.08] py-3 transition duration-300 hover:bg-opacity-10"
               onClick={openModal}
             >
-              <i className="fad fa-shopping-cart text-lg md:text-xl text-olive-400" />
-              <p className="font-bold text-lg md:text-xl text-olive-400">SUBSCRIBE</p>
+              <i className="fad fa-shopping-cart text-lg text-olive-400 md:text-xl" />
+              <p className="text-lg font-bold text-olive-400 md:text-xl">
+                SUBSCRIBE
+              </p>
             </div>
           ) : (
             <Link href="/login">
-              <a className="flex flex-row items-center justify-center w-full py-3 space-x-2 bg-white bg-opacity-[0.08] hover:bg-opacity-10 rounded cursor-pointer transition duration-300">
-                <i className="fad fa-sign-in text-lg md:text-xl text-olive-400" />
-                <p className="font-bold text-lg md:text-xl text-olive-400">LOGIN</p>
+              <a className="flex w-full cursor-pointer flex-row items-center justify-center space-x-2 rounded bg-white bg-opacity-[0.08] py-3 transition duration-300 hover:bg-opacity-10">
+                <i className="fad fa-sign-in text-lg text-olive-400 md:text-xl" />
+                <p className="text-lg font-bold text-olive-400 md:text-xl">
+                  LOGIN
+                </p>
               </a>
             </Link>
           )}
@@ -75,8 +91,12 @@ export default function Card(props) {
 function Feature(props) {
   return (
     <div className="flex flex-row items-center justify-start space-x-2">
-      <i className={`${props.icon} w-[23px] md:w-[32px] text-lg md:text-2xl text-center`} />
-      <p className="text-lg md:text-2xl text-white text-opacity-70">{props.label}</p>
+      <i
+        className={`${props.icon} w-[23px] text-center text-lg md:w-[32px] md:text-2xl`}
+      />
+      <p className="text-lg text-white text-opacity-70 md:text-2xl">
+        {props.label}
+      </p>
     </div>
   );
 }

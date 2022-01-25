@@ -56,10 +56,14 @@ export default function Servers(props) {
   }, [props.parameters]);
 
   return (
-    <div className="flex flex-col items-start justify-start w-full space-y-3">
+    <div className="flex w-full flex-col items-start justify-start space-y-3">
       <div className="flex flex-col items-start justify-start">
-        <h1 className="text-3xl text-white text-opacity-90">{props.tag} Minecraft Servers</h1>
-        <p className="text-xl text-white text-opacity-80">Showing about {resultCount} results...</p>
+        <h1 className="text-3xl text-white text-opacity-90">
+          {props.tag} Minecraft Servers
+        </h1>
+        <p className="text-xl text-white text-opacity-80">
+          Showing about {resultCount} results...
+        </p>
       </div>
       {results.length !== 0 ? (
         <InfiniteScroll
@@ -69,22 +73,30 @@ export default function Servers(props) {
           hasMore={props.results.total_records > results.length}
           loading={<Loading />}
         >
-          <div className="flex flex-col items-start justify-start w-full space-y-0.5 rounded-[12px] overflow-hidden">
+          <div className="flex w-full flex-col items-start justify-start space-y-0.5 overflow-hidden rounded-[12px]">
             {results.map((server, index) => (
-              <ServerCard key={index} index={index} user={props.user} {...server} animate />
+              <ServerCard
+                key={index}
+                index={index}
+                user={props.user}
+                {...server}
+                animate
+              />
             ))}
           </div>
         </InfiniteScroll>
       ) : (
-        <div className="flex flex-row items-center justify-center w-full !mt-10 space-x-4">
+        <div className="!mt-10 flex w-full flex-row items-center justify-center space-x-4">
           <img
             src="/images/creeper.png"
             alt="Not Found Creeper Illustration"
-            className="w-48 filter saturate-0"
+            className="w-48 saturate-0 filter"
             draggable="false"
           />
           <div className="flex flex-col items-start justify-start">
-            <p className="font-medium text-4xl text-white text-opacity-90">No Results Found...</p>
+            <p className="text-4xl font-medium text-white text-opacity-90">
+              No Results Found...
+            </p>
             <p className="max-w-sm text-2xl text-white text-opacity-60">
               We couldn't find any servers that match your filters :(
             </p>
@@ -98,12 +110,17 @@ export default function Servers(props) {
 function Loading() {
   return (
     <motion.div
-      className="flex flex-row items-center justify-center w-full py-3 mt-4 space-x-2 rounded-[12px]"
+      className="mt-4 flex w-full flex-row items-center justify-center space-x-2 rounded-[12px] py-3"
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.2 }}
     >
-      <img src="/images/clock.gif" alt="Minecraft Clock" draggable="false" className="w-16 h-16" />
+      <img
+        src="/images/clock.gif"
+        alt="Minecraft Clock"
+        draggable="false"
+        className="h-16 w-16"
+      />
     </motion.div>
   );
 }

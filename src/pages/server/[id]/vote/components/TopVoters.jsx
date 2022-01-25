@@ -30,18 +30,23 @@ export default function TopVoters(props) {
 
   return (
     <motion.div
-      className="flex flex-col items-start justify-between w-full max-w-full md:h-[416px] p-4 md:p-8 space-y-4 md:space-y-0 bg-olive-950 rounded border-2 border-olive-920"
+      className="flex w-full max-w-full flex-col items-start justify-between space-y-4 rounded border-2 border-olive-920 bg-olive-950 p-4 md:h-[416px] md:space-y-0 md:p-8"
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3, delay: 0.4 }}
     >
-      <p className="font-medium text-3xl text-white text-opacity-90">
+      <p className="text-3xl font-medium text-white text-opacity-90">
         {moment(new Date()).format("MMM")}'s top voters
       </p>
-      <div className="flex flex-col items-start justify-start w-full space-y-0.5">
+      <div className="flex w-full flex-col items-start justify-start space-y-0.5">
         {voters.map((voter, index) => (
-          <div key={index} className="flex flex-row items-center justify-between w-full">
-            <p className="text-xl text-white text-opacity-80">{voter.minecraft_username}</p>
+          <div
+            key={index}
+            className="flex w-full flex-row items-center justify-between"
+          >
+            <p className="text-xl text-white text-opacity-80">
+              {voter.minecraft_username}
+            </p>
             <p className="w-[20px] text-center text-xl text-white text-opacity-80">
               {voter.vote_count}
             </p>

@@ -4,7 +4,12 @@ export default function Duration(props) {
   return (
     <div className="flex flex-row items-center justify-start">
       {durations.map((d, i) => (
-        <Time key={i} duration={d} active={props.active} setActive={props.setActive} />
+        <Time
+          key={i}
+          duration={d}
+          active={props.active}
+          setActive={props.setActive}
+        />
       ))}
     </div>
   );

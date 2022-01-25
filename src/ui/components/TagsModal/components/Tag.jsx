@@ -5,7 +5,9 @@ export default function Tag(props) {
 
   const select = () => {
     if (props.tags.length >= props.limit) {
-      toast.error(`You can only select ${props.limit} tag${props.limit !== 1 && "s"}!`);
+      toast.error(
+        `You can only select ${props.limit} tag${props.limit !== 1 && "s"}!`
+      );
       return;
     }
 
@@ -13,19 +15,24 @@ export default function Tag(props) {
   };
 
   const deselect = () => {
-    props.setTags((d) => ({ ...d, tags: d.tags.filter((t) => t !== props.name) }));
+    props.setTags((d) => ({
+      ...d,
+      tags: d.tags.filter((t) => t !== props.name),
+    }));
   };
 
   return (
     <div
-      className={`flex flex-row items-center justify-center px-5 py-1.5 mr-2 mb-2 ${
+      className={`mr-2 mb-2 flex flex-row items-center justify-center px-5 py-1.5 ${
         selected
           ? "bg-olive-800 hover:bg-olive-700"
           : "bg-white bg-opacity-10 hover:bg-opacity-[0.15]"
-      } rounded-full cursor-pointer transition duration-300`}
+      } cursor-pointer rounded-full transition duration-300`}
       onClick={selected ? deselect : select}
     >
-      <p className="text-xl text-white text-opacity-80 select-none">{props.name}</p>
+      <p className="select-none text-xl text-white text-opacity-80">
+        {props.name}
+      </p>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import Identity from "./Identity";
 
 export default function Header(props) {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between w-full space-y-6 md:space-y-0">
+    <div className="flex w-full flex-col items-center justify-between space-y-6 md:flex-row md:space-y-0">
       <Identity
         name={props.name}
         tags={props.tags}

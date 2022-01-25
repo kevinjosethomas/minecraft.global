@@ -30,7 +30,11 @@ export default function Upvote(props) {
   }, []);
 
   const submit = async () => {
-    const [response, error] = await UpvoteServer(props.server_id, username, captchaCode);
+    const [response, error] = await UpvoteServer(
+      props.server_id,
+      username,
+      captchaCode
+    );
 
     if (error) {
       switch (error.response?.status) {
@@ -52,7 +56,9 @@ export default function Upvote(props) {
       return;
     }
 
-    toast.success("Successfully upvoted the server! Check out other servers in the meantime!");
+    toast.success(
+      "Successfully upvoted the server! Check out other servers in the meantime!"
+    );
     props.setUpvoted(true);
     props.setCanVoteAt(moment().add(18, "hours").toDate());
     localStorage.setItem("upvote_playername", username);
@@ -60,18 +66,20 @@ export default function Upvote(props) {
 
   return (
     <motion.div
-      className="flex flex-col items-start justify-between w-full md:h-[416px] p-4 md:p-8 space-y-4 md:space-y-0 bg-olive-950 rounded border-2 border-olive-920"
+      className="flex w-full flex-col items-start justify-between space-y-4 rounded border-2 border-olive-920 bg-olive-950 p-4 md:h-[416px] md:space-y-0 md:p-8"
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3, delay: 0.2 }}
     >
       <Identity name={props.name} favicon={props.favicon} />
       <div className="flex flex-col items-start justify-start">
-        <p className="text-lg md:text-2xl text-white text-opacity-80">Your Minecraft Username</p>
+        <p className="text-lg text-white text-opacity-80 md:text-2xl">
+          Your Minecraft Username
+        </p>
         <input
           value={username}
           onChange={onUsernameChange}
-          className="w-full px-2 py-1 bg-white bg-opacity-10 text-xl text-white text-opacity-90 rounded focus:outline-none"
+          className="focus:outline-none w-full rounded bg-white bg-opacity-10 px-2 py-1 text-xl text-white text-opacity-90"
         />
       </div>
       <ReCAPTCHA
@@ -79,21 +87,25 @@ export default function Upvote(props) {
         onChange={onChange}
         sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY}
       />
-      <div className="flex flex-row items-center justify-center w-full space-x-4">
+      <div className="flex w-full flex-row items-center justify-center space-x-4">
         <Link href={`/server/${props.server_id}`}>
-          <a className="flex flex-row items-center justify-center w-full py-2 bg-white bg-opacity-10 cursor-pointer rounded hover:bg-opacity-[0.15] transition duration-300">
-            <p className="text-xl md:text-2xl text-white text-opacity-80 select-none">Go Back</p>
+          <a className="flex w-full cursor-pointer flex-row items-center justify-center rounded bg-white bg-opacity-10 py-2 transition duration-300 hover:bg-opacity-[0.15]">
+            <p className="select-none text-xl text-white text-opacity-80 md:text-2xl">
+              Go Back
+            </p>
           </a>
         </Link>
         <div
-          className={`flex flex-row items-center justify-center w-full py-2 ${
+          className={`flex w-full flex-row items-center justify-center py-2 ${
             username && captchaCode
-              ? "bg-olive-900 hover:bg-olive-800 cursor-pointer transition duration-300"
-              : "bg-olive-940 cursor-not-allowed"
+              ? "cursor-pointer bg-olive-900 transition duration-300 hover:bg-olive-800"
+              : "cursor-not-allowed bg-olive-940"
           } rounded`}
           onClick={() => (username && captchaCode ? submit() : void 0)}
         >
-          <p className="text-xl md:text-2xl text-white text-opacity-80 select-none">Upvote</p>
+          <p className="select-none text-xl text-white text-opacity-80 md:text-2xl">
+            Upvote
+          </p>
         </div>
       </div>
     </motion.div>

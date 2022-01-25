@@ -16,7 +16,10 @@ export default function Confirm(props) {
 
   const onClick = async () => {
     const token = cookies.get("token");
-    const [response, error] = await CreatePremiumSession(selected.server_id, token);
+    const [response, error] = await CreatePremiumSession(
+      selected.server_id,
+      token
+    );
     if (error) {
       toast.error("Failed to redirect you! Please try again later!");
       return;
@@ -28,23 +31,25 @@ export default function Confirm(props) {
   return (
     <Modal showModal={props.showModal}>
       <motion.div
-        className="flex flex-col items-start justify-between w-[800px] h-[400px] p-8 space-y-8 bg-olive-950 border-2 border-olive-930 rounded-md"
+        className="flex h-[400px] w-[800px] flex-col items-start justify-between space-y-8 rounded-md border-2 border-olive-930 bg-olive-950 p-8"
         onClick={(e) => e.stopPropagation()}
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 10, opacity: 0 }}
         transition={{ duration: 0.3, delay: 0.2 }}
       >
-        <div className="flex flex-col items-start justify-start w-full space-y-4">
-          <p className="text-3xl text-white text-opacity-90 max-w-lg leading-tight">
+        <div className="flex w-full flex-col items-start justify-start space-y-4">
+          <p className="max-w-lg text-3xl leading-tight text-white text-opacity-90">
             Select the server you want to purchase Premium for:
           </p>
-          <div className="relative flex flex-col items-start justify-start w-[400px] space-y-1">
+          <div className="relative flex w-[400px] flex-col items-start justify-start space-y-1">
             <div
-              className="flex flex-row items-center justify-between w-full px-5 py-2 bg-white bg-opacity-10 rounded cursor-pointer"
+              className="flex w-full cursor-pointer flex-row items-center justify-between rounded bg-white bg-opacity-10 px-5 py-2"
               onClick={() => setDropdown((dd) => !dd)}
             >
-              <p className="text-2xl text-white text-opacity-80 select-none">{selected.name}</p>
+              <p className="select-none text-2xl text-white text-opacity-80">
+                {selected.name}
+              </p>
               <i
                 className={`far ${
                   props.dropdown ? "fa-angle-up" : "fa-angle-down"
@@ -52,22 +57,30 @@ export default function Confirm(props) {
               />
             </div>
             {dropdown && (
-              <Dropdown servers={servers} setSelected={setSelected} setDropdown={setDropdown} />
+              <Dropdown
+                servers={servers}
+                setSelected={setSelected}
+                setDropdown={setDropdown}
+              />
             )}
           </div>
         </div>
-        <div className="flex flex-row items-center justify-start w-full space-x-4">
+        <div className="flex w-full flex-row items-center justify-start space-x-4">
           <div
-            className="flex flex-row items-center justify-center w-full py-2 bg-white bg-opacity-5 hover:bg-opacity-[0.08] cursor-pointer rounded transition duration-300"
+            className="flex w-full cursor-pointer flex-row items-center justify-center rounded bg-white bg-opacity-5 py-2 transition duration-300 hover:bg-opacity-[0.08]"
             onClick={() => props.showModal(false)}
           >
-            <p className="text-2xl text-white text-opacity-80 select-none">Cancel</p>
+            <p className="select-none text-2xl text-white text-opacity-80">
+              Cancel
+            </p>
           </div>
           <div
-            className="flex flex-row items-center justify-center w-full py-2 bg-olive-900 bg-opacity-80 hover:bg-opacity-100 cursor-pointer rounded transition duration-300"
+            className="flex w-full cursor-pointer flex-row items-center justify-center rounded bg-olive-900 bg-opacity-80 py-2 transition duration-300 hover:bg-opacity-100"
             onClick={onClick}
           >
-            <p className="text-2xl text-white text-opacity-80 select-none">Subscribe</p>
+            <p className="select-none text-2xl text-white text-opacity-80">
+              Subscribe
+            </p>
           </div>
         </div>
       </motion.div>
@@ -77,7 +90,7 @@ export default function Confirm(props) {
 
 function Dropdown(props) {
   return (
-    <div className="absolute top-14 left-0 flex flex-col items-start justify-start w-full max-h-[175px] py-2 bg-[#1d2c24] rounded overflow-y-auto border-2 border-olive-920">
+    <div className="absolute top-14 left-0 flex max-h-[175px] w-full flex-col items-start justify-start overflow-y-auto rounded border-2 border-olive-920 bg-[#1d2c24] py-2">
       {props.servers.map((server, index) => (
         <DropdownElement
           key={server.server_id}
@@ -101,9 +114,11 @@ function DropdownElement(props) {
   return (
     <div
       onClick={onClick}
-      className="flex flex-row items-center justify-start w-full pl-5 py-1 hover:bg-black hover:bg-opacity-10 cursor-pointer"
+      className="flex w-full cursor-pointer flex-row items-center justify-start py-1 pl-5 hover:bg-black hover:bg-opacity-10"
     >
-      <p className="text-xl text-white text-opacity-60 select-none">{props.label}</p>
+      <p className="select-none text-xl text-white text-opacity-60">
+        {props.label}
+      </p>
     </div>
   );
 }

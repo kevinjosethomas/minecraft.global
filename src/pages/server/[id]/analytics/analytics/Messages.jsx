@@ -61,7 +61,9 @@ export default function Messages(props) {
     {
       title: "Most Active",
       subtitle: `Avg. ${highest[1]} msgs at`,
-      value: `${highest[0] > 12 ? `${highest[0] - 12}pm` : `${highest[0]}am`} UTC`,
+      value: `${
+        highest[0] > 12 ? `${highest[0] - 12}pm` : `${highest[0]}am`
+      } UTC`,
     },
     {
       title: "Lowest Peak",
@@ -70,21 +72,25 @@ export default function Messages(props) {
     },
     {
       title: "Highest Peak",
-      subtitle: `On ${moment(sorted[sorted.length - 1].checked_at).format("DD MMM h:MMa")}`,
+      subtitle: `On ${moment(sorted[sorted.length - 1].checked_at).format(
+        "DD MMM h:MMa"
+      )}`,
       value: Math.round(sorted[sorted.length - 1][p1]),
     },
     {
       title: "Avg. Messages",
       subtitle: "Every hour (last 15d)",
       value: Math.round(
-        total["15"].filter((x) => x).reduce((a, b) => a + b) / total["15"].filter((x) => x).length
+        total["15"].filter((x) => x).reduce((a, b) => a + b) /
+          total["15"].filter((x) => x).length
       ),
     },
     {
       title: "Avg. Messages",
       subtitle: "Every hour (last 30d)",
       value: Math.round(
-        total["30"].filter((x) => x).reduce((a, b) => a + b) / total["30"].filter((x) => x).length
+        total["30"].filter((x) => x).reduce((a, b) => a + b) /
+          total["30"].filter((x) => x).length
       ),
     },
   ];

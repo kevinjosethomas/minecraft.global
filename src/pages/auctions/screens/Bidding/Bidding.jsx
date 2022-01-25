@@ -55,10 +55,16 @@ export default function Auctions(props) {
   }, [page]);
 
   return (
-    <div className="flex flex-col items-start justify-start w-full">
-      <div className="flex flex-row items-start justify-start w-full space-x-6">
+    <div className="flex w-full flex-col items-start justify-start">
+      <div className="flex w-full flex-row items-start justify-start space-x-6">
         <Bids pages={pages} page={page} setPage={setPage} />
-        <Form page={page} bids={bids} endsAt={endsAt} user={props.user} startingBid={startingBid} />
+        <Form
+          page={page}
+          bids={bids}
+          endsAt={endsAt}
+          user={props.user}
+          startingBid={startingBid}
+        />
       </div>
     </div>
   );

@@ -53,7 +53,8 @@ export default function ManageServer(props) {
   const [screen, setScreen] = useState(screens[0]);
   const [details, setDetails] = useState({
     name: props.server.name,
-    host: props.server.host + (props.server.port ? `:${props.server.port}` : ""),
+    host:
+      props.server.host + (props.server.port ? `:${props.server.port}` : ""),
     vanity: props.server.vanity || "",
     description: props.server.description,
     tags: [...props.server.tags],
@@ -145,24 +146,38 @@ export default function ManageServer(props) {
     }
 
     const token = cookie.get("token");
-    const [response, error] = await EditServer(props.server.server_id, data, token);
+    const [response, error] = await EditServer(
+      props.server.server_id,
+      data,
+      token
+    );
 
     if (error) {
       switch (error.response?.status) {
         case 401:
-          toast.error("An authorization error occured, please relogin and try again!");
+          toast.error(
+            "An authorization error occured, please relogin and try again!"
+          );
           break;
         case 409:
-          if (error?.response?.data.payload.detail === "Duplicate vantities are not allowed.") {
+          if (
+            error?.response?.data.payload.detail ===
+            "Duplicate vantities are not allowed."
+          ) {
             toast.error("The provided vanity URL is already taken!");
           } else {
             toast.error("Another server already uses that host and port!");
           }
           break;
         case 422:
-          if (error.response?.data.payload.detail === "Invalid server address.") {
+          if (
+            error.response?.data.payload.detail === "Invalid server address."
+          ) {
             toast.error("Invalid server address provided!");
-          } else if (error.response?.data.payload.detail === "Invalid vanity URL provided") {
+          } else if (
+            error.response?.data.payload.detail ===
+            "Invalid vanity URL provided"
+          ) {
             toast.error("Invalid vanity URL provided!");
           } else {
             toast.error("Invalid information provided!");
@@ -182,7 +197,7 @@ export default function ManageServer(props) {
       <Head>
         <title>{`${props.server.name} - Minecraft Server List`}</title>
       </Head>
-      <div className="flex flex-row items-start justify-start w-full space-x-6">
+      <div className="flex w-full flex-row items-start justify-start space-x-6">
         <Navigation
           screen={screen}
           screens={screens}
@@ -192,15 +207,21 @@ export default function ManageServer(props) {
           server={props.server}
           submit={submit}
         />
-        <div className="flex flex-col items-start justify-start w-full p-8 space-y-4 bg-olive-950 border-2 border-olive-930 rounded-lg overflow-hidden">
+        <div className="flex w-full flex-col items-start justify-start space-y-4 overflow-hidden rounded-lg border-2 border-olive-930 bg-olive-950 p-8">
           {screen.name != "delete" ||
             (screen.name === "billing" && (
-              <div className="flex flex-row items-center justify-start w-full">
-                <h1 className="font-medium text-4xl text-white text-opacity-90">{screen.label}</h1>
+              <div className="flex w-full flex-row items-center justify-start">
+                <h1 className="text-4xl font-medium text-white text-opacity-90">
+                  {screen.label}
+                </h1>
               </div>
             ))}
           {screen.name === "details" ? (
-            <Details server={props.server} details={details} setDetails={setDetails} />
+            <Details
+              server={props.server}
+              details={details}
+              setDetails={setDetails}
+            />
           ) : screen.name === "votifier" ? (
             <Votifier
               details={details}

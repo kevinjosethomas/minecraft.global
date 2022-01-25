@@ -6,9 +6,9 @@ import Metadata from "./Metadata";
 
 export default function BiddingPanel(props) {
   return (
-    <div className="flex flex-col items-start justify-start w-full p-5 space-y-2 bg-olive-950 border-2 border-olive-930 rounded-lg">
+    <div className="flex w-full flex-col items-start justify-start space-y-2 rounded-lg border-2 border-olive-930 bg-olive-950 p-5">
       <Metadata {...props} />
-      <div className="w-full h-0.5 bg-white bg-opacity-20 !my-4" />
+      <div className="!my-4 h-0.5 w-full bg-white bg-opacity-20" />
       <Bid user={props.user} />
     </div>
   );
@@ -30,14 +30,16 @@ function Bid(props) {
   };
 
   return (
-    <div className="flex flex-col items-start justify-start w-full !mt-0 space-y-3">
-      <div className="flex flex-col items-start justify-start w-full space-y-1 cursor-pointer">
+    <div className="!mt-0 flex w-full flex-col items-start justify-start space-y-4">
+      <div className="flex w-full flex-col items-start justify-start space-y-1">
         <p className="text-lg text-white text-opacity-80">Select a server</p>
         <div
-          className="relative flex flex-row items-center justify-between w-full h-12 px-4 bg-olive-910 rounded cursor-pointer"
+          className="relative flex h-12 w-full cursor-pointer items-center justify-between rounded bg-olive-900 px-4"
           onClick={() => showDropdown((d) => !d)}
         >
-          <p className="text-lg text-white text-opacity-80 select-none">{server.name}</p>
+          <p className="select-none text-lg text-white text-opacity-80">
+            {server.name}
+          </p>
           <AnimatePresence>
             {dropdown && (
               <Dropdown
@@ -51,17 +53,28 @@ function Bid(props) {
           <i className="far fa-angle-down text-lg text-white text-opacity-80" />
         </div>
       </div>
-      <div className="flex flex-col items-start justify-start w-full space-y-1">
+      <div className="flex w-full flex-col items-start justify-start">
         <p className="text-lg text-white text-opacity-80">Enter bid amount</p>
-        <div className="flex flex-row items-center justify-start w-full h-12 bg-black bg-opacity-10 rounded border-2 border-olive-940 overflow-hidden">
-          <div className="flex flex-row items-center justify-center min-w-[3rem] h-12 bg-white bg-opacity-5 border-r-2 border-olive-940">
-            <i className="far fa-dollar-sign text-lg text-white text-opacity-80" />
+        <div className="flex w-full items-center justify-start space-x-2">
+          <div className="flex h-12 w-full items-center justify-start overflow-hidden rounded border-2 border-olive-930 bg-olive-950">
+            <div className="flex h-12 min-w-[3rem] items-center justify-center border-r-2 border-olive-930 bg-olive-900">
+              <i className="far fa-dollar-sign text-lg text-white text-opacity-80" />
+            </div>
+            <input
+              value={bid}
+              className="focus:outline-none h-full w-full bg-transparent px-2 text-lg text-white text-opacity-60"
+              onChange={onBidChange}
+            />
           </div>
-          <input
-            value={bid}
-            className="h-full w-full px-2 bg-transparent text-lg text-white text-opacity-60 focus:outline-none"
-            onChange={onBidChange}
-          />
+          <div
+            className={`flex h-12 min-w-[3rem] items-center justify-center rounded ${
+              Number(bid.replace(/\D/g, ""))
+                ? "cursor-pointer bg-olive-700 transition duration-300 hover:bg-olive-800"
+                : "bg-olive-900"
+            }`}
+          >
+            <i className="far fa-angle-right text-2xl text-white text-opacity-80" />
+          </div>
         </div>
       </div>
     </div>
@@ -72,7 +85,7 @@ function Dropdown(props) {
   return (
     <OnOutsideClick onOutsideClick={() => props.showDropdown(false)}>
       <motion.div
-        className="absolute flex flex-col items-start justify-start top-14 left-0 w-full bg-olive-930 rounded"
+        className="absolute top-14 left-0 flex w-full flex-col items-start justify-start rounded border-2 border-olive-920 bg-olive-930"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 10, opacity: 0 }}
@@ -81,7 +94,7 @@ function Dropdown(props) {
         {props.servers.map((server, index) => (
           <div
             key={index}
-            className="flex flex-row items-center justify-start w-full px-4 py-1 hover:bg-black hover:bg-opacity-20 transition duration-300"
+            className="flex w-full flex-row items-center justify-start px-3 py-1 transition duration-300 hover:bg-black hover:bg-opacity-20"
             onClick={() => props.setServer(server)}
           >
             <p className="text-lg text-white text-opacity-80">{server.name}</p>

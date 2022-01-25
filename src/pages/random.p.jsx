@@ -2,7 +2,7 @@ import { FetchRandomServerID } from "api/server";
 
 function Random() {
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen bg-dark-800"></div>
+    <div className="flex h-screen w-screen flex-col items-center justify-center bg-dark-800"></div>
   );
 }
 

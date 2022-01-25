@@ -18,8 +18,8 @@ export default function Details(props) {
   }
 
   return (
-    <div className="flex flex-col items-start justify-start w-full">
-      <div className="flex flex-col items-start justify-start w-full space-y-8">
+    <div className="flex w-full flex-col items-start justify-start">
+      <div className="flex w-full flex-col items-start justify-start space-y-8">
         <Input
           label="Server Name"
           description="Your server's name"

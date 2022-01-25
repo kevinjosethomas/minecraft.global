@@ -10,15 +10,18 @@ export default function Details(props) {
         return;
       }
     }
-    props.setDetails((d) => ({ ...d, votifier: { ...d.votifier, [key]: formatted } }));
+    props.setDetails((d) => ({
+      ...d,
+      votifier: { ...d.votifier, [key]: formatted },
+    }));
   }
 
   return (
-    <div className="flex flex-col items-start justify-start w-full">
-      <div className="flex flex-col items-start justify-start w-full space-y-8">
+    <div className="flex w-full flex-col items-start justify-start">
+      <div className="flex w-full flex-col items-start justify-start space-y-8">
         <p className="max-w-lg text-lg text-white text-opacity-80">
-          We support Votifier and NuVotifier. This section is optional. However, we recommend
-          setting up vote rewards (read more).
+          We support Votifier and NuVotifier. This section is optional. However,
+          we recommend setting up vote rewards (read more).
         </p>
         <Input
           label="Votifier Host"
@@ -36,7 +39,9 @@ export default function Details(props) {
           label="Votifier Token"
           description="Your Votifier token or key (in config.yml, or the public RSA key file)"
           value={props.details.votifier.votifier_token}
-          onChange={(e) => onValueChange("votifier_token", e.target.value, 1024)}
+          onChange={(e) =>
+            onValueChange("votifier_token", e.target.value, 1024)
+          }
         />
       </div>
     </div>

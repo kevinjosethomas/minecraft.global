@@ -15,13 +15,31 @@ import Impressions from "./analytics/Impressions";
 import { FetchServer, FetchServerAnalytics } from "api/server";
 
 export default function ServerAnalytics(props) {
-  const analytics = [Players, Upvotes, Pageviews, Impressions, Memory, CPU, TPS, Messages, World];
+  const analytics = [
+    Players,
+    Upvotes,
+    Pageviews,
+    Impressions,
+    Memory,
+    CPU,
+    TPS,
+    Messages,
+    World,
+  ];
 
   const labels = {
-    1: props.analytics.records.slice(-1 * 1 * 24).map((x) => moment(x.checked_at).format("H:mm")),
-    7: props.analytics.records.slice(-1 * 7 * 24).map((x) => moment(x.checked_at).format("D/MM")),
-    15: props.analytics.records.slice(-1 * 15 * 24).map((x) => moment(x.checked_at).format("D/MM")),
-    30: props.analytics.records.slice(-1 * 30 * 24).map((x) => moment(x.checked_at).format("D/MM")),
+    1: props.analytics.records
+      .slice(-1 * 1 * 24)
+      .map((x) => moment(x.checked_at).format("H:mm")),
+    7: props.analytics.records
+      .slice(-1 * 7 * 24)
+      .map((x) => moment(x.checked_at).format("D/MM")),
+    15: props.analytics.records
+      .slice(-1 * 15 * 24)
+      .map((x) => moment(x.checked_at).format("D/MM")),
+    30: props.analytics.records
+      .slice(-1 * 30 * 24)
+      .map((x) => moment(x.checked_at).format("D/MM")),
   };
 
   const fetch = (property, duration) => {
@@ -45,21 +63,23 @@ export default function ServerAnalytics(props) {
       title={`${props.analytics.name} Analytics - Minecraft Server List`}
       noindex
     >
-      <div className="flex flex-col items-start justify-start w-full space-y-5">
+      <div className="flex w-full flex-col items-start justify-start space-y-5">
         <div className="flex flex-row items-center justify-start space-x-4">
           <img
-            className="w-16 h-16 rounded"
-            src={props.analytics.favicon || "/images/default_server_favicon.png"}
+            className="h-16 w-16 rounded"
+            src={
+              props.analytics.favicon || "/images/default_server_favicon.png"
+            }
             alt={`${props.analytics.name}'s favicon'`}
             draggable="false"
           />
-          <h1 className="font-medium text-4xl text-white text-opacity-80">
+          <h1 className="text-4xl font-medium text-white text-opacity-80">
             {props.analytics.name} Server Analytics
           </h1>
           <i className="fad fa-diamond text-4xl text-olive-500" />
         </div>
-        <div className="w-full h-0.5 bg-white bg-opacity-10" />
-        <div className="flex flex-col items-start justify-start w-full space-y-8">
+        <div className="h-0.5 w-full bg-white bg-opacity-10" />
+        <div className="flex w-full flex-col items-start justify-start space-y-8">
           {analytics.map((Analytic, i) => (
             <Analytic
               key={i}

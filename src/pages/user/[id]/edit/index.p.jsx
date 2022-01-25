@@ -92,8 +92,12 @@ export default function EditUserPage(props) {
   };
 
   return (
-    <Default user={props.user} title={`${props.user.name} - Minecraft Server List`} noindex>
-      <div className="flex flex-row items-start justify-start w-full space-x-6">
+    <Default
+      user={props.user}
+      title={`${props.user.name} - Minecraft Server List`}
+      noindex
+    >
+      <div className="flex w-full flex-row items-start justify-start space-x-6">
         <Navigation
           submit={submit}
           user={props.user}
@@ -102,7 +106,11 @@ export default function EditUserPage(props) {
           setScreen={setScreen}
         />
         {screen.name === "profile" ? (
-          <Profile user={props.user} parameters={parameters} setParameters={setParameters} />
+          <Profile
+            user={props.user}
+            parameters={parameters}
+            setParameters={setParameters}
+          />
         ) : screen.name === "accounts" ? (
           <Accounts {...props.user} />
         ) : screen.name === "credit" ? (

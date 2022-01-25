@@ -5,12 +5,12 @@ import Options from "./Options";
 export default function Navigation(props) {
   return (
     <motion.div
-      className="flex flex-col items-start justify-start w-full select-none"
+      className="flex w-full select-none flex-col items-start justify-start"
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3, delay: 0.2 }}
     >
-      <div className="flex flex-row items-center justify-between w-full">
+      <div className="flex w-full flex-row items-center justify-between">
         <div className="flex flex-row items-center justify-start space-x-4 md:space-x-10">
           <AnimateSharedLayout>
             <Screen
@@ -25,9 +25,13 @@ export default function Navigation(props) {
             />
           </AnimateSharedLayout>
         </div>
-        <Options user={props.user} server={props.server} showReportModal={props.showReportModal} />
+        <Options
+          user={props.user}
+          server={props.server}
+          showReportModal={props.showReportModal}
+        />
       </div>
-      <div className="w-full h-[3px] bg-white bg-opacity-10" />
+      <div className="h-[3px] w-full bg-white bg-opacity-10" />
     </motion.div>
   );
 }
@@ -35,14 +39,14 @@ export default function Navigation(props) {
 function Screen(props) {
   return (
     <div
-      className="relative flex flex-row items-center justify-start cursor-pointer"
+      className="relative flex cursor-pointer flex-row items-center justify-start"
       onClick={props.onClick}
     >
       <p
-        className={`px-1 md:px-2 text-2xl md:text-3xl text-white ${
+        className={`px-1 text-2xl text-white md:px-2 md:text-3xl ${
           props.active
             ? "text-opacity-80"
-            : "text-opacity-60 hover:text-opacity-80 transition duration-300"
+            : "text-opacity-60 transition duration-300 hover:text-opacity-80"
         }`}
       >
         {props.label}
@@ -50,7 +54,7 @@ function Screen(props) {
       {props.active && (
         <motion.div
           layoutId="underline"
-          className="bottom-[-3px] md:bottom-[-4.5px] absolute w-full h-[3px] bg-olive-600"
+          className="absolute bottom-[-3px] h-[3px] w-full bg-olive-600 md:bottom-[-4.5px]"
         />
       )}
     </div>

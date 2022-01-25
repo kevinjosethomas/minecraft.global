@@ -42,7 +42,11 @@ export default function Servers(props) {
     const tag = results[page].tag;
     const resultsCopy = [...results];
 
-    const [response, error] = await GetSearchResults({ tags: tag, amount: 4, track_tags: false });
+    const [response, error] = await GetSearchResults({
+      tags: tag,
+      amount: 4,
+      track_tags: false,
+    });
 
     if (error) {
       toast.error("Failed to fetch servers :(");
@@ -72,7 +76,7 @@ export default function Servers(props) {
       hasMore={canFetchmore}
       loader={<Loading />}
     >
-      <div className="flex flex-col items-start justify-start w-full space-y-8 rounded-[12px] overflow-hidden">
+      <div className="flex w-full flex-col items-start justify-start space-y-8 overflow-hidden rounded-[12px]">
         {results
           .filter((result) => result.results.length)
           .map((result, index) => (
@@ -85,11 +89,11 @@ export default function Servers(props) {
 
 function ServerCollection(props) {
   return (
-    <div className="flex flex-col items-start justify-start w-full space-y-2 overflow-x-hidden">
-      <div className="flex flex-row items-center justify-between w-full">
+    <div className="flex w-full flex-col items-start justify-start space-y-2 overflow-x-hidden">
+      <div className="flex w-full flex-row items-center justify-between">
         <div className="flex flex-col items-start justify-start">
           <motion.h2
-            className="text-xl md:text-4xl text-white text-opacity-80 leading-tight"
+            className="text-xl leading-tight text-white text-opacity-80 md:text-4xl"
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
@@ -97,7 +101,7 @@ function ServerCollection(props) {
             {props.name}
           </motion.h2>
           <motion.p
-            className="text-xs md:text-xl text-white text-opacity-60 leading-tight"
+            className="text-xs leading-tight text-white text-opacity-60 md:text-xl"
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.2 }}
@@ -105,19 +109,24 @@ function ServerCollection(props) {
             {props.description}
           </motion.p>
         </div>
-        <Link href={props.tag ? `/tag/${props.tag}` : "/search?sort=popular"} passHref>
+        <Link
+          href={props.tag ? `/tag/${props.tag}` : "/search?sort=popular"}
+          passHref
+        >
           <motion.a
-            className="group flex flex-row items-center justify-center px-2.5 md:px-3 md:px-4 py-0.5 md:py-1 md:py-2 space-x-2 bg-olive-600 bg-opacity-25 hover:bg-opacity-50 rounded-[6px] select-none transition duration-300"
+            className="group flex select-none flex-row items-center justify-center space-x-2 rounded-[6px] bg-olive-600 bg-opacity-25 px-2.5 py-0.5 transition duration-300 hover:bg-opacity-50 md:px-3 md:px-4 md:py-1 md:py-2"
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
           >
-            <p className="font-medium text-sm md:text-lg text-white whitespace-nowrap">See More</p>
-            <i className="far fa-angle-right text-lg text-white group-hover:translate-x-0.5 transform duration-300" />
+            <p className="whitespace-nowrap text-sm font-medium text-white md:text-lg">
+              See More
+            </p>
+            <i className="far fa-angle-right transform text-lg text-white duration-300 group-hover:translate-x-0.5" />
           </motion.a>
         </Link>
       </div>
-      <div className="flex flex-col items-start justify-start w-full space-y-0.5 rounded-[12px] overflow-hidden">
+      <div className="flex w-full flex-col items-start justify-start space-y-0.5 overflow-hidden rounded-[12px]">
         {props.results.map((server, serverindex) => (
           <ServerCard
             key={server.server_id}
@@ -135,12 +144,17 @@ function ServerCollection(props) {
 function Loading() {
   return (
     <motion.div
-      className="flex flex-row items-center justify-center w-full py-3 mt-4 space-x-2 rounded-[12px]"
+      className="mt-4 flex w-full flex-row items-center justify-center space-x-2 rounded-[12px] py-3"
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.2 }}
     >
-      <img src="/images/clock.gif" alt="Minecraft Clock" draggable="false" className="w-16 h-16" />
+      <img
+        src="/images/clock.gif"
+        alt="Minecraft Clock"
+        draggable="false"
+        className="h-16 w-16"
+      />
     </motion.div>
   );
 }

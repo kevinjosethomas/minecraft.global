@@ -74,7 +74,9 @@ export default function Players(props) {
     {
       title: "Most Active",
       subtitle: `Avg. ${Math.round(highest[1])} players daily`,
-      value: `${highest[0] > 12 ? `${highest[0] - 12}pm` : `${highest[0]}am`} UTC`,
+      value: `${
+        highest[0] > 12 ? `${highest[0] - 12}pm` : `${highest[0]}am`
+      } UTC`,
     },
     {
       title: "Lowest Peak",
@@ -83,7 +85,9 @@ export default function Players(props) {
     },
     {
       title: "Highest Peak",
-      subtitle: `On ${moment(sorted[sorted.length - 1].checked_at).format("DD MMM h:MMa")}`,
+      subtitle: `On ${moment(sorted[sorted.length - 1].checked_at).format(
+        "DD MMM h:MMa"
+      )}`,
       value: sorted[sorted.length - 1][p1],
     },
     {
@@ -94,7 +98,9 @@ export default function Players(props) {
     {
       title: "Avg. Players",
       subtitle: "Last 15 days",
-      value: Math.round(total["15"].reduce((a, b) => a + b) / total["15"].length),
+      value: Math.round(
+        total["15"].reduce((a, b) => a + b) / total["15"].length
+      ),
     },
   ];
 

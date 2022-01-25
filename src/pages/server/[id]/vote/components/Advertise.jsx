@@ -3,25 +3,27 @@ import Link from "next/link";
 
 export default function Advertise(props) {
   return (
-    <div className="flex flex-col items-star justify-start w-full md:h-[416px] p-4 md:p-8 space-y-4 bg-olive-950 rounded border-2 border-olive-920">
-      <div className="flex flex-col items-start justify-start w-full space-y-1">
-        <p className="font-medium text-2xl md:text-3xl text-white text-opacity-90">
+    <div className="items-star flex w-full flex-col justify-start space-y-4 rounded border-2 border-olive-920 bg-olive-950 p-4 md:h-[416px] md:p-8">
+      <div className="flex w-full flex-col items-start justify-start space-y-1">
+        <p className="text-2xl font-medium text-white text-opacity-90 md:text-3xl">
           {props.previouslyVoted
             ? `You already voted for ${props.name}!`
             : `Thanks for voting for ${props.name}!`}
         </p>
-        <p className="text-lg md:text-2xl text-white text-opacity-60">
-          You can vote again at {moment(props.canVoteAt).format("h:mma")}! Check similar servers out
-          -
+        <p className="text-lg text-white text-opacity-60 md:text-2xl">
+          You can vote again at {moment(props.canVoteAt).format("h:mma")}! Check
+          similar servers out -
         </p>
       </div>
-      <div className="flex flex-col items-start justify-start w-full space-y-0.5 rounded-xl overflow-hidden">
+      <div className="flex w-full flex-col items-start justify-start space-y-0.5 overflow-hidden rounded-xl">
         {props.tags.map((tag, index) => (
           <Link key={index} href={`/tag/${tag}`}>
             <a
-              className={`flex flex-row items-center justify-between w-full py-2.5 pl-4 pr-8 bg-olive-940 hover:bg-olive-930 transition duration-300 cursor-pointer`}
+              className={`flex w-full cursor-pointer flex-row items-center justify-between bg-olive-940 py-2.5 pl-4 pr-8 transition duration-300 hover:bg-olive-930`}
             >
-              <p className="text-xl text-white text-opacity-80 select-none">{tag}</p>
+              <p className="select-none text-xl text-white text-opacity-80">
+                {tag}
+              </p>
               <i className="far fa-angle-right text-xl text-white text-opacity-80" />
             </a>
           </Link>

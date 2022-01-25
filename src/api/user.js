@@ -13,11 +13,14 @@ const FetchUser = async (id) => {
 
 const FetchLinkCode = async (token) => {
   try {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/mc/link/generate`, {
-      headers: {
-        Authorization: token,
-      },
-    });
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/mc/link/generate`,
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
 
     return [response.data, null];
   } catch (e) {

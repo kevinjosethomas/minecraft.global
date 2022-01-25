@@ -35,12 +35,18 @@ const questions = [
     ),
   },
   {
-    question: "Someone else added my server to the site! What can I do about it?",
+    question:
+      "Someone else added my server to the site! What can I do about it?",
     answer: (
       <Fragment>
-        Unfortunately, there is no easy way to determine who actually owns a server :( To claim
-        ownership, you can report the server on the server page or join our{" "}
-        <a href="https://discord.minecraft.global" target="_blank" rel="noreferrer nofollow">
+        Unfortunately, there is no easy way to determine who actually owns a
+        server :( To claim ownership, you can report the server on the server
+        page or join our{" "}
+        <a
+          href="https://discord.minecraft.global"
+          target="_blank"
+          rel="noreferrer nofollow"
+        >
           Discord server
         </a>{" "}
         and create a ticket (for faster action)
@@ -57,30 +63,32 @@ export default function Support(props) {
       title="Support - Minecraft Server List"
       search
     >
-      <div className="flex flex-col items-start justify-start w-full space-y-10">
-        <div className="flex flex-col items-start justify-start w-full space-y-3">
-          <h1 className="font-bold text-5xl text-white text-opacity-90 tracking-tight">
+      <div className="flex w-full flex-col items-start justify-start space-y-10">
+        <div className="flex w-full flex-col items-start justify-start space-y-3">
+          <h1 className="text-5xl font-bold tracking-tight text-white text-opacity-90">
             Contact us <i className="fas fa-caret-down ml-2 text-4xl" />
           </h1>
-          <div className="grid grid-cols-3 items-start justify-start w-full gap-x-10">
+          <div className="grid w-full grid-cols-3 items-start justify-start gap-x-10">
             {socials.map((social, index) => (
               <Link href={social.href} passHref>
                 <a
                   target="_blank"
                   key={index}
-                  className="flex flex-col items-center justify-center py-16 bg-olive-940 hover:bg-olive-930 border-2 border-olive-920 cursor-pointer rounded-md transition duration-500"
+                  className="flex cursor-pointer flex-col items-center justify-center rounded-md border-2 border-olive-920 bg-olive-940 py-16 transition duration-500 hover:bg-olive-930"
                 >
-                  <i className={`${social.icon} text-5xl text-white text-opacity-90`} />
+                  <i
+                    className={`${social.icon} text-5xl text-white text-opacity-90`}
+                  />
                 </a>
               </Link>
             ))}
           </div>
         </div>
-        <div className="flex flex-col items-start justify-start w-full space-y-3">
-          <h1 className="font-bold text-5xl text-white text-opacity-90 tracking-tight">
+        <div className="flex w-full flex-col items-start justify-start space-y-3">
+          <h1 className="text-5xl font-bold tracking-tight text-white text-opacity-90">
             FAQ <i className="fas fa-caret-down ml-2 text-4xl" />
           </h1>
-          <div className="flex flex-col items-start justify-start w-full space-y-2">
+          <div className="flex w-full flex-col items-start justify-start space-y-2">
             {questions.map((question, index) => (
               <Question key={index} {...question} />
             ))}
@@ -106,14 +114,16 @@ function Question(props) {
   }, [open]);
 
   return (
-    <div className="flex flex-col items-start justify-start w-full space-y-0.5">
+    <div className="flex w-full flex-col items-start justify-start space-y-0.5">
       <div
-        className={`flex flex-row items-center justify-between w-full p-5 bg-olive-920 cursor-pointer ${
+        className={`flex w-full cursor-pointer flex-row items-center justify-between bg-olive-920 p-5 ${
           open ? "rounded-t-lg" : "rounded-lg"
         }`}
         onClick={() => setOpen((o) => !o)}
       >
-        <p className="text-2xl text-white text-opacity-80 select-none">{props.question}</p>
+        <p className="select-none text-2xl text-white text-opacity-80">
+          {props.question}
+        </p>
         <motion.i
           animate={controls}
           className="far fa-angle-down text-2xl text-white text-opacity-80"
@@ -122,13 +132,13 @@ function Question(props) {
       <AnimatePresence>
         {open && (
           <motion.div
-            className={`flex flex-row items-start justify-start w-full bg-olive-950 rounded-b-lg`}
+            className={`flex w-full flex-row items-start justify-start rounded-b-lg bg-olive-950`}
             initial={{ height: 0 }}
             animate={{ height: "auto" }}
             exit={{ height: 0 }}
             transition={{ duration: 0.1 }}
           >
-            <p className="p-5 text-xl text-white text-opacity-80 format-links select-none">
+            <p className="format-links select-none p-5 text-xl text-white text-opacity-80">
               {props.answer}
             </p>
           </motion.div>
@@ -140,7 +150,10 @@ function Question(props) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const [user, data] = await Promise.all([GetLoggedInUser(ctx), GetDefaultData()]);
+    const [user, data] = await Promise.all([
+      GetLoggedInUser(ctx),
+      GetDefaultData(),
+    ]);
 
     if (data[1]) {
       return {

@@ -1,6 +1,6 @@
 export default function Disclaimer(props) {
   return (
-    <div className="flex flex-row items-center justify-between w-full">
+    <div className="flex w-full flex-row items-center justify-between">
       <Legal />
       <Socials />
     </div>
@@ -9,13 +9,13 @@ export default function Disclaimer(props) {
 
 function Legal() {
   return (
-    <p className="max-w-[250px] md:max-w-none text-lg text-white text-opacity-70">
+    <p className="max-w-[250px] text-lg text-white text-opacity-70 md:max-w-none">
       minecraft.global is not associated with{" "}
       <a
         target="_blank"
         rel="noreferrer nofollow"
         href="https://minecraft.net/"
-        className="hover:text-white hover:text-opacity-80 transition duration-300"
+        className="transition duration-300 hover:text-white hover:text-opacity-80"
       >
         Minecraft
       </a>
@@ -24,7 +24,7 @@ function Legal() {
         target="_blank"
         rel="noreferrer nofollow"
         href="https://minecraft.net/"
-        className="hover:text-white hover:text-opacity-80 transition duration-300"
+        className="transition duration-300 hover:text-white hover:text-opacity-80"
       >
         Mojang
       </a>{" "}
@@ -33,7 +33,7 @@ function Legal() {
         target="_blank"
         rel="noreferrer nofollow"
         href="https://microsoft.com/"
-        className="hover:text-white hover:text-opacity-80 transition duration-300"
+        className="transition duration-300 hover:text-white hover:text-opacity-80"
       >
         Microsoft
       </a>
@@ -43,15 +43,27 @@ function Legal() {
 
 function Socials() {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-start md:space-x-4">
-      <a href="https://discord.minecraft.global" target="_blank" rel="noreferrer nofollow">
-        <i className="fab fa-discord text-lg text-white text-opacity-70 hover:text-opacity-80 transition duration-300" />
+    <div className="flex flex-col items-center justify-start md:flex-row md:space-x-4">
+      <a
+        href="https://discord.minecraft.global"
+        target="_blank"
+        rel="noreferrer nofollow"
+      >
+        <i className="fab fa-discord text-lg text-white text-opacity-70 transition duration-300 hover:text-opacity-80" />
       </a>
-      <a href="https://twitter.com/mcdotglobal" target="_blank" rel="noreferrer nofollow">
-        <i className="fab fa-twitter text-lg text-white text-opacity-70 hover:text-opacity-80 transition duration-300" />
+      <a
+        href="https://twitter.com/mcdotglobal"
+        target="_blank"
+        rel="noreferrer nofollow"
+      >
+        <i className="fab fa-twitter text-lg text-white text-opacity-70 transition duration-300 hover:text-opacity-80" />
       </a>
-      <a href="mailto:staff@minecraft.global" target="_blank" rel="noreferrer nofollow">
-        <i className="fas fa-envelope text-lg text-white text-opacity-70 hover:text-opacity-80 transition duration-300" />
+      <a
+        href="mailto:staff@minecraft.global"
+        target="_blank"
+        rel="noreferrer nofollow"
+      >
+        <i className="fas fa-envelope text-lg text-white text-opacity-70 transition duration-300 hover:text-opacity-80" />
       </a>
     </div>
   );

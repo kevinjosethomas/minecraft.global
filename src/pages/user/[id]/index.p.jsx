@@ -17,7 +17,7 @@ export default function User(props) {
       title={`${props.userinfo.name} - Minecraft Server List`}
       search
     >
-      <div className="flex flex-col items-center justify-center w-full space-y-8">
+      <div className="flex w-full flex-col items-center justify-center space-y-8">
         <Header avatar={avatar} {...props.userinfo} user={props.user} />
         <Servers
           {...props.userinfo}

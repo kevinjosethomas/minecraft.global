@@ -7,7 +7,7 @@ import Searchbar from "./components/Searchbar";
 export default function SearchBox(props) {
   return (
     <motion.div
-      className={`flex flex-col items-start justify-start w-full ${
+      className={`flex w-full flex-col items-start justify-start ${
         props.header ? "!mt-0 md:!mt-[40px]" : "!mt-0"
       }`}
       initial={{ y: 10, opacity: 0 }}
@@ -23,7 +23,7 @@ export default function SearchBox(props) {
 
 function Header() {
   return (
-    <h1 className="font-bold text-lg md:text-5xl text-white text-opacity-90">
+    <h1 className="text-lg font-bold text-white text-opacity-90 md:text-5xl">
       The y=-58 for Minecraft Servers
     </h1>
   );
@@ -31,20 +31,20 @@ function Header() {
 
 function Tags() {
   return (
-    <div className="flex flex-row items-center justify-start w-full space-x-2 mt-2 overflow-auto no-scrollbar">
+    <div className="no-scrollbar mt-2 flex w-full flex-row items-center justify-start space-x-2 overflow-auto">
       <Link href="/random">
-        <a className="group flex flex-row items-center justify-start space-x-2 px-3 py-0.5 bg-white bg-opacity-10 hover:bg-opacity-[0.15] rounded transition duration-300">
-          <i className="far fa-random text-sm md:text-lg text-olive-600" />
-          <h3 className="md:text-lg text-white text-opacity-70 group-hover:text-opacity-80 transition duration-300 whitespace-nowrap">
+        <a className="group flex flex-row items-center justify-start space-x-2 rounded bg-white bg-opacity-10 px-3 py-0.5 transition duration-300 hover:bg-opacity-[0.15]">
+          <i className="far fa-random text-sm text-olive-600 md:text-lg" />
+          <h3 className="whitespace-nowrap text-white text-opacity-70 transition duration-300 group-hover:text-opacity-80 md:text-lg">
             Random Server
           </h3>
         </a>
       </Link>
       {tags.slice(0, 8).map((tag, index) => (
         <Link key={index} href={`/tag/${tag.name}`} shallow={false}>
-          <a className="group flex flex-row items-center justify-start space-x-1 px-3 py-0.5 bg-white bg-opacity-[0.06] hover:bg-opacity-10 rounded cursor-pointer transition duration-300">
+          <a className="group flex cursor-pointer flex-row items-center justify-start space-x-1 rounded bg-white bg-opacity-[0.06] px-3 py-0.5 transition duration-300 hover:bg-opacity-10">
             <i className="far fa-hashtag text-sm text-olive-600" />
-            <h3 className="md:text-lg text-white text-opacity-70 group-hover:text-opacity-80 transition duration-300 whitespace-nowrap">
+            <h3 className="whitespace-nowrap text-white text-opacity-70 transition duration-300 group-hover:text-opacity-80 md:text-lg">
               {tag.name}
             </h3>
           </a>

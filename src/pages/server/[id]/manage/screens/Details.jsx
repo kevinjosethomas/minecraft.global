@@ -28,13 +28,25 @@ export default function Details(props) {
   useEffect(() => {
     switch (platform.id) {
       case 1:
-        props.setDetails((d) => ({ ...d, bedrock: false, supports_bedrock: false }));
+        props.setDetails((d) => ({
+          ...d,
+          bedrock: false,
+          supports_bedrock: false,
+        }));
         break;
       case 2:
-        props.setDetails((d) => ({ ...d, bedrock: true, supports_bedrock: false }));
+        props.setDetails((d) => ({
+          ...d,
+          bedrock: true,
+          supports_bedrock: false,
+        }));
         break;
       case 3:
-        props.setDetails((d) => ({ ...d, bedrock: false, supports_bedrock: true }));
+        props.setDetails((d) => ({
+          ...d,
+          bedrock: false,
+          supports_bedrock: true,
+        }));
         break;
     }
   }, [platform]);
@@ -54,8 +66,8 @@ export default function Details(props) {
   }
 
   return (
-    <div className="flex flex-col items-start justify-start w-full">
-      <div className="flex flex-col items-start justify-start w-full space-y-8">
+    <div className="flex w-full flex-col items-start justify-start">
+      <div className="flex w-full flex-col items-start justify-start space-y-8">
         <Input
           label="Server Name"
           description="Your server's name"
@@ -120,7 +132,9 @@ export default function Details(props) {
         />
         <LongDescription
           value={props.details.long_description}
-          onChange={(e) => onValueChange("long_description", e.target.value, 5000)}
+          onChange={(e) =>
+            onValueChange("long_description", e.target.value, 5000)
+          }
         />
       </div>
     </div>

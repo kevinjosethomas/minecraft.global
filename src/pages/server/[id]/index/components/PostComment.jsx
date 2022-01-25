@@ -39,19 +39,19 @@ export default function PosComment(props) {
   };
 
   return (
-    <div className="flex flex-col items-start justify-start w-full space-y-2">
+    <div className="flex w-full flex-col items-start justify-start space-y-2">
       <div className="flex flex-row items-center justify-start space-x-2">
         <i className="fas fa-comment-edit text-3xl text-white" />
         <p className="text-3xl text-white">Write a Comment</p>
       </div>
       <textarea
-        className="w-full h-[150px] p-2 text-xl text-white text-opacity-80 bg-olive-940 resize-none border-2 border-olive-920 rounded focus:outline-none"
+        className="focus:outline-none h-[150px] w-full resize-none rounded border-2 border-olive-920 bg-olive-940 p-2 text-xl text-white text-opacity-80"
         value={content}
         onChange={onContentChange}
       />
-      <div className="flex flex-row items-center justify-end w-full">
+      <div className="flex w-full flex-row items-center justify-end">
         <div
-          className="flex flex-row items-center justify-center px-6 py-2 bg-olive-800 rounded cursor-pointer hover:bg-olive-900 transition duration-300"
+          className="flex cursor-pointer flex-row items-center justify-center rounded bg-olive-800 px-6 py-2 transition duration-300 hover:bg-olive-900"
           onClick={submit}
         >
           <p className="text-xl text-white">Post</p>

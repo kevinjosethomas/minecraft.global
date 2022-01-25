@@ -7,7 +7,7 @@ import Servers from "./components/Servers";
 export default function Why(props) {
   return (
     <Default user={props.user} defaultResults={props.defaultResults} search>
-      <div className="grid grid-rows-2 md:grid-rows-none md:grid-cols-2 items-start justify-center w-full gap-y-5 md:gap-y-0 md:gap-x-10">
+      <div className="grid w-full grid-rows-2 items-start justify-center gap-y-5 md:grid-cols-2 md:grid-rows-none md:gap-y-0 md:gap-x-10">
         <Players />
         <Servers />
       </div>
@@ -17,7 +17,10 @@ export default function Why(props) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const [user, data] = await Promise.all([GetLoggedInUser(ctx), GetDefaultData()]);
+    const [user, data] = await Promise.all([
+      GetLoggedInUser(ctx),
+      GetDefaultData(),
+    ]);
 
     if (data[1]) {
       return {

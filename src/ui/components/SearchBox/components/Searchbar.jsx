@@ -47,7 +47,9 @@ export default function Searchbar(props) {
         sort: "upvotes",
         amount: 6,
       });
-      setPreviewResults(response.payload.entries.length ? response.payload.entries : null);
+      setPreviewResults(
+        response.payload.entries.length ? response.payload.entries : null
+      );
     })();
   }, [query]);
 
@@ -68,7 +70,7 @@ export default function Searchbar(props) {
       <AnimatePresence>
         {popup && (
           <motion.div
-            className="fixed top-0 left-0 z-20 hidden md:flex flex-col items-center justify-center w-screen h-screen bg-black bg-opacity-60"
+            className="fixed top-0 left-0 z-20 hidden h-screen w-screen flex-col items-center justify-center bg-black bg-opacity-60 md:flex"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -76,10 +78,13 @@ export default function Searchbar(props) {
           />
         )}
       </AnimatePresence>
-      <div ref={node} className="relative flex flex-row items-center justify-start w-full mt-2">
+      <div
+        ref={node}
+        className="relative mt-2 flex w-full flex-row items-center justify-start"
+      >
         <input
           value={input}
-          className="z-30 flex flex-row items-center justify-start w-full h-[50px] md:h-[75px] px-4 md:px-6 md:text-2xl text-white text-opacity-60 placeholder-white placeholder-opacity-60 bg-white bg-opacity-[0.06] rounded md:rounded-xl focus:outline-none"
+          className="focus:outline-none z-30 flex h-[50px] w-full flex-row items-center justify-start rounded bg-white bg-opacity-[0.06] px-4 text-white text-opacity-60 placeholder-white placeholder-opacity-60 md:h-[75px] md:rounded-xl md:px-6 md:text-2xl"
           placeholder="Search for Minecraft servers..."
           onChange={(e) => setInput(e.target.value)}
           onFocus={() => showPopup(true)}
@@ -88,7 +93,12 @@ export default function Searchbar(props) {
         <SearchButton onClick={onSearch} />
         <AnimatePresence>
           {popup && (
-            <Popup query={query} results={previewResults} parentNode={node} showPopup={showPopup} />
+            <Popup
+              query={query}
+              results={previewResults}
+              parentNode={node}
+              showPopup={showPopup}
+            />
           )}
         </AnimatePresence>
       </div>
@@ -99,10 +109,10 @@ export default function Searchbar(props) {
 function SearchButton(props) {
   return (
     <div
-      className="z-30 flex flex-row items-center justify-center min-w-[50px] md:min-w-[75px] min-h-[50px] md:min-h-[75px] ml-[8px] md:ml-[16px] bg-olive-700 hover:bg-olive-800 rounded md:rounded-xl transition duration-300 cursor-pointer"
+      className="z-30 ml-[8px] flex min-h-[50px] min-w-[50px] cursor-pointer flex-row items-center justify-center rounded bg-olive-700 transition duration-300 hover:bg-olive-800 md:ml-[16px] md:min-h-[75px] md:min-w-[75px] md:rounded-xl"
       onClick={props.onClick}
     >
-      <i className="far fa-search text-lg md:text-2xl text-white text-opacity-90" />
+      <i className="far fa-search text-lg text-white text-opacity-90 md:text-2xl" />
     </div>
   );
 }

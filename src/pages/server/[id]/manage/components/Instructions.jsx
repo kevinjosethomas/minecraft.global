@@ -38,11 +38,12 @@ export default function Instructions(props) {
   }, []);
 
   return (
-    <div className="flex flex-col items-start justify-start w-full space-y-6 overflow-hidden">
+    <div className="flex w-full flex-col items-start justify-start space-y-6 overflow-hidden">
       <p className="text-xl text-white text-opacity-80">
-        Thanks for purchasing Premium! Here are the steps to setup Server Analytics -
+        Thanks for purchasing Premium! Here are the steps to setup Server
+        Analytics -
       </p>
-      <div className="flex flex-col items-start justify-start w-full space-y-8">
+      <div className="flex w-full flex-col items-start justify-start space-y-8">
         <Download url={downloadUrl} />
         <Token token={token} regen={regenerateToken} />
         <Analytics server_id={props.server.server_id} />
@@ -55,22 +56,27 @@ function Download(props) {
   return (
     <div className="flex flex-col items-start justify-start space-y-2">
       <div className="flex flex-row items-center justify-start space-x-3">
-        <div className="flex flex-row items-center justify-center w-10 h-10 bg-olive-900 rounded-full">
-          <p className="text-xl text-white text-opacity-90 select-none">1</p>
+        <div className="flex h-10 w-10 flex-row items-center justify-center rounded-full bg-olive-900">
+          <p className="select-none text-xl text-white text-opacity-90">1</p>
         </div>
-        <p className="text-3xl text-white text-opacity-90">Download Analytics Plugin</p>
+        <p className="text-3xl text-white text-opacity-90">
+          Download Analytics Plugin
+        </p>
       </div>
       <div className="flex flex-col items-start justify-start space-y-2">
-        <p className="text-white text-xl text-opacity-80">
-          Download our Analytics plugin and add it to your server&apos;s plugin directory! The
-          plugin supports 1.8 - 1.18 Bukkit, Spigot & Paper servers!
+        <p className="text-xl text-white text-opacity-80">
+          Download our Analytics plugin and add it to your server&apos;s plugin
+          directory! The plugin supports 1.8 - 1.18 Bukkit, Spigot & Paper
+          servers!
         </p>
         <a
           href={props.url}
-          className="flex flex-row items-center justify-center px-4 py-2 bg-olive-800 hover:bg-olive-900 rounded cursor-pointer transition duration-300"
+          className="flex cursor-pointer flex-row items-center justify-center rounded bg-olive-800 px-4 py-2 transition duration-300 hover:bg-olive-900"
           download
         >
-          <p className="text-xl text-white text-opacity-90 select-none">Download Plugin</p>
+          <p className="select-none text-xl text-white text-opacity-90">
+            Download Plugin
+          </p>
         </a>
       </div>
     </div>
@@ -86,29 +92,33 @@ function Token(props) {
   return (
     <div className="flex flex-col items-start justify-start space-y-2">
       <div className="flex flex-row items-center justify-start space-x-3">
-        <div className="flex flex-row items-center justify-center w-10 h-10 bg-olive-900 rounded-full">
-          <p className="text-xl text-white text-opacity-90 select-none">2</p>
+        <div className="flex h-10 w-10 flex-row items-center justify-center rounded-full bg-olive-900">
+          <p className="select-none text-xl text-white text-opacity-90">2</p>
         </div>
         <p className="text-3xl text-white text-opacity-90">Set Server Token</p>
       </div>
       <div className="flex flex-col items-start justify-start space-y-2">
-        <p className="text-white text-xl text-opacity-80">
-          Restart your server once you add the plugin and run the command below to use your
-          server&apos;s token to initialize plugin. If your token is compromised, regenerate it via
-          the button below -
+        <p className="text-xl text-white text-opacity-80">
+          Restart your server once you add the plugin and run the command below
+          to use your server&apos;s token to initialize plugin. If your token is
+          compromised, regenerate it via the button below -
         </p>
         <div className="flex flex-row items-center justify-start space-x-4">
           <div
-            className="flex flex-row items-center justify-center px-4 py-2 bg-olive-800 hover:bg-olive-900 rounded cursor-pointer transition duration-300"
+            className="flex cursor-pointer flex-row items-center justify-center rounded bg-olive-800 px-4 py-2 transition duration-300 hover:bg-olive-900"
             onClick={copyCommand}
           >
-            <p className="text-xl text-white text-opacity-90 select-none">Copy Command</p>
+            <p className="select-none text-xl text-white text-opacity-90">
+              Copy Command
+            </p>
           </div>
           <div
-            className="flex flex-row items-center justify-center px-4 py-2 bg-olive-800 hover:bg-olive-900 rounded cursor-pointer transition duration-300"
+            className="flex cursor-pointer flex-row items-center justify-center rounded bg-olive-800 px-4 py-2 transition duration-300 hover:bg-olive-900"
             onClick={props.regen}
           >
-            <p className="text-xl text-white text-opacity-90 select-none">Regenerate Token</p>
+            <p className="select-none text-xl text-white text-opacity-90">
+              Regenerate Token
+            </p>
           </div>
         </div>
       </div>
@@ -120,23 +130,32 @@ function Analytics(props) {
   return (
     <div className="flex flex-col items-start justify-start space-y-2">
       <div className="flex flex-row items-center justify-start space-x-3">
-        <div className="flex flex-row items-center justify-center w-10 h-10 bg-olive-900 rounded-full">
-          <p className="text-xl text-white text-opacity-90 select-none">3</p>
+        <div className="flex h-10 w-10 flex-row items-center justify-center rounded-full bg-olive-900">
+          <p className="select-none text-xl text-white text-opacity-90">3</p>
         </div>
-        <p className="text-3xl text-white text-opacity-90">Analyze Statistics</p>
+        <p className="text-3xl text-white text-opacity-90">
+          Analyze Statistics
+        </p>
       </div>
       <div className="flex flex-col items-start justify-start space-y-2">
-        <p className="text-white text-xl text-opacity-80 format-links">
-          Congratulations! Your server will now send statistics to our website every hour! Join our{" "}
-          <a href="https://discord.minecraft.global/" target="_blank" rel="noreferrer nofollow">
+        <p className="format-links text-xl text-white text-opacity-80">
+          Congratulations! Your server will now send statistics to our website
+          every hour! Join our{" "}
+          <a
+            href="https://discord.minecraft.global/"
+            target="_blank"
+            rel="noreferrer nofollow"
+          >
             Discord
           </a>{" "}
           if you have any questions, suggestions or issues regarding analytics!
         </p>
         <div className="flex flex-row items-center justify-start">
           <Link href={`/server/${props.server_id}/analytics`}>
-            <a className="flex flex-row items-center justify-center px-4 py-2 bg-olive-800 hover:bg-olive-900 rounded cursor-pointer transition duration-300">
-              <p className="text-xl text-white text-opacity-90 select-none">View Analytics</p>
+            <a className="flex cursor-pointer flex-row items-center justify-center rounded bg-olive-800 px-4 py-2 transition duration-300 hover:bg-olive-900">
+              <p className="select-none text-xl text-white text-opacity-90">
+                View Analytics
+              </p>
             </a>
           </Link>
         </div>

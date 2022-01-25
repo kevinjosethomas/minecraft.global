@@ -18,7 +18,9 @@ async function UpvoteServer(server_id, username, captcha) {
 
 const FetchServerTopVoters = async (id) => {
   try {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/server/${id}/votes/top`);
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/server/${id}/votes/top`
+    );
 
     return [response.data, null];
   } catch (e) {
@@ -55,4 +57,9 @@ async function TestUpvoteServer(server_id, username, token) {
   }
 }
 
-export { UpvoteServer, FetchServerTopVoters, FetchTimeTillUpvote, TestUpvoteServer };
+export {
+  UpvoteServer,
+  FetchServerTopVoters,
+  FetchTimeTillUpvote,
+  TestUpvoteServer,
+};

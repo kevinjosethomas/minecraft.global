@@ -2,7 +2,7 @@ import Comment from "./Comment";
 
 export default function Comments(props) {
   return (
-    <div className="flex flex-col items-start justify-start w-full space-y-0.5">
+    <div className="flex w-full flex-col items-start justify-start space-y-0.5">
       {props.comments.map((comment, index) => (
         <Comment
           key={index}

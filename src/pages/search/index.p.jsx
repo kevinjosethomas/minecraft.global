@@ -32,9 +32,13 @@ export default function Search(props) {
       search
       header
     >
-      <div className="flex flex-row items-start justify-center w-full space-x-8">
-        <Servers user={props.user} results={props.results} parameters={parameters} />
-        <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px] space-y-6">
+      <div className="flex w-full flex-row items-start justify-center space-x-8">
+        <Servers
+          user={props.user}
+          results={props.results}
+          parameters={parameters}
+        />
+        <div className="flex min-w-[400px] max-w-[400px] flex-col items-start justify-start space-y-6">
           <Sort parameters={parameters} setParameters={setParameters} />
           <Filter parameters={parameters} setParameters={setParameters} />
           <Sidebar addServer servers={props.results.total_records} />

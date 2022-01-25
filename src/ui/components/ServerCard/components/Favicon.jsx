@@ -3,7 +3,7 @@ export default function Favicon(props) {
     <img
       alt={`${props.name}'s Logo`}
       src={props.favicon || "/images/default_server_favicon.png"}
-      className="w-[48px] md:w-[66px] h-[48px] md:h-[66px] rounded-full"
+      className="h-[48px] w-[48px] rounded-full md:h-[66px] md:w-[66px]"
       draggable="false"
     />
   );

@@ -6,7 +6,7 @@ import SimplifyNumber from "simplify-number";
 
 export default function Sidebar(props) {
   return (
-    <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px] space-y-8 overflow-hidden">
+    <div className="flex min-w-[400px] max-w-[400px] flex-col items-start justify-start space-y-8 overflow-hidden">
       <Details
         port={props.port}
         host={props.host}
@@ -21,7 +21,10 @@ export default function Sidebar(props) {
         owner_name={props.owner_name}
         user_id={props.user_id}
       />
-      {(props.discord_url || props.website_url || props.trailer_url || props.store_url) && (
+      {(props.discord_url ||
+        props.website_url ||
+        props.trailer_url ||
+        props.store_url) && (
         <Socials
           discord_url={props.discord_url}
           website_url={props.website_url}
@@ -35,7 +38,10 @@ export default function Sidebar(props) {
 
 function Details(props) {
   const router = useRouter();
-  const ip = !props.port || props.port === 25565 ? props.host : `${props.host}:${props.port}`;
+  const ip =
+    !props.port || props.port === 25565
+      ? props.host
+      : `${props.host}:${props.port}`;
 
   const copyIP = async () => {
     navigator.clipboard.writeText(ip);
@@ -72,14 +78,25 @@ function Details(props) {
         <p className="text-3xl text-white text-opacity-90">Details</p>
       </div>
       <div className="flex flex-col items-start justify-start space-y-2">
-        <Element label={`${props.name}'s IP Address`} content={ip} onClick={copyIP} column />
+        <Element
+          label={`${props.name}'s IP Address`}
+          content={ip}
+          onClick={copyIP}
+          column
+        />
         <Element
           label="Online Players"
           content={SimplifyNumber(props.players_online, { decimal: 1 })}
         />
         <Element label="Platform" content={platform} />
-        <Element label="Whitelist" content={props.whitelisted ? "Enabled" : "Disabled"} />
-        <Element label="Cracked" content={props.cracked ? "Enabled" : "Disabled"} />
+        <Element
+          label="Whitelist"
+          content={props.whitelisted ? "Enabled" : "Disabled"}
+        />
+        <Element
+          label="Cracked"
+          content={props.cracked ? "Enabled" : "Disabled"}
+        />
         <Element
           label="Owner"
           content={props.owner_name}
@@ -104,16 +121,32 @@ function Socials(props) {
       </div>
       <div className="flex flex-col items-start justify-start space-y-2">
         {props.discord_url && (
-          <SocialElement icon="fab fa-discord" label="Discord Server" href={props.discord_url} />
+          <SocialElement
+            icon="fab fa-discord"
+            label="Discord Server"
+            href={props.discord_url}
+          />
         )}
         {props.website_url && (
-          <SocialElement icon="far fa-link" label="Server Website" href={props.website_url} />
+          <SocialElement
+            icon="far fa-link"
+            label="Server Website"
+            href={props.website_url}
+          />
         )}
         {props.trailer_url && (
-          <SocialElement icon="fab fa-youtube" label="Server Trailer" href={props.trailer_url} />
+          <SocialElement
+            icon="fab fa-youtube"
+            label="Server Trailer"
+            href={props.trailer_url}
+          />
         )}
         {props.store_url && (
-          <SocialElement icon="fas fa-shopping-cart" label="Server Store" href={props.store_url} />
+          <SocialElement
+            icon="fas fa-shopping-cart"
+            label="Server Store"
+            href={props.store_url}
+          />
         )}
       </div>
     </motion.div>
@@ -130,10 +163,10 @@ function Element(props) {
       } whitespace-nowrap ${props.onClick && "cursor-pointer"}`}
       onClick={props.onClick}
     >
-      <h3 className="font-medium text-xl md:text-2xl text-white text-opacity-80 leading-tight">
+      <h3 className="text-xl font-medium leading-tight text-white text-opacity-80 md:text-2xl">
         {props.label}
       </h3>
-      <h4 className="text-xl md:text-2xl text-white text-opacity-60 leading-tight">
+      <h4 className="text-xl leading-tight text-white text-opacity-60 md:text-2xl">
         {props.content}
       </h4>
     </div>
@@ -149,9 +182,9 @@ function SocialElement(props) {
       target="_blank"
     >
       <i
-        className={`${props.icon} w-[25px] md:w-[30px] text-xl md:text-2xl text-white text-opacity-60 text-center group-hover:text-opacity-70 transition duration-300`}
+        className={`${props.icon} w-[25px] text-center text-xl text-white text-opacity-60 transition duration-300 group-hover:text-opacity-70 md:w-[30px] md:text-2xl`}
       />
-      <h3 className="text-xl md:text-2xl text-white text-opacity-60 leading-tight group-hover:text-opacity-70 transition duration-300 select-none">
+      <h3 className="select-none text-xl leading-tight text-white text-opacity-60 transition duration-300 group-hover:text-opacity-70 md:text-2xl">
         {props.label}
       </h3>
     </a>

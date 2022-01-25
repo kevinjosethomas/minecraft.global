@@ -16,13 +16,25 @@ export default function Features(props) {
   useEffect(() => {
     switch (platform.id) {
       case 1:
-        props.setDetails((d) => ({ ...d, bedrock: false, supports_bedrock: false }));
+        props.setDetails((d) => ({
+          ...d,
+          bedrock: false,
+          supports_bedrock: false,
+        }));
         break;
       case 2:
-        props.setDetails((d) => ({ ...d, bedrock: true, supports_bedrock: false }));
+        props.setDetails((d) => ({
+          ...d,
+          bedrock: true,
+          supports_bedrock: false,
+        }));
         break;
       case 3:
-        props.setDetails((d) => ({ ...d, bedrock: false, supports_bedrock: true }));
+        props.setDetails((d) => ({
+          ...d,
+          bedrock: false,
+          supports_bedrock: true,
+        }));
         break;
     }
   }, [platform]);
@@ -36,8 +48,8 @@ export default function Features(props) {
   }
 
   return (
-    <div className="flex flex-col items-start justify-start w-full">
-      <div className="flex flex-col items-start justify-start w-full space-y-8">
+    <div className="flex w-full flex-col items-start justify-start">
+      <div className="flex w-full flex-col items-start justify-start space-y-8">
         <Dropdown
           label="Server Platform"
           description="Select the platform your server runs on"

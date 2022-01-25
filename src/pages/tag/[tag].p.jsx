@@ -35,7 +35,9 @@ export default function Tag(props) {
         />
         <meta
           name="description"
-          content={`The best ${props.tag} minecraft servers! ${props.results.entries
+          content={`The best ${
+            props.tag
+          } minecraft servers! ${props.results.entries
             .map((s) => s.name)
             .join(", ")}`}
         />
@@ -43,26 +45,30 @@ export default function Tag(props) {
         <meta property="og:image" content="/images/embed.png" />
         <meta
           name="og:description"
-          content={`The best ${props.tag} minecraft servers! ${props.results.entries
+          content={`The best ${
+            props.tag
+          } minecraft servers! ${props.results.entries
             .map((s) => s.name)
             .join(", ")}`}
         />
         <meta property="twitter:image" content="/images/embed.png" />
         <meta
           name="twitter:description"
-          content={`The best ${props.tag} minecraft servers! ${props.results.entries
+          content={`The best ${
+            props.tag
+          } minecraft servers! ${props.results.entries
             .map((s) => s.name)
             .join(", ")}`}
         />
       </Head>
-      <div className="flex flex-row items-start j+ustify-center w-full space-x-8">
+      <div className="j+ustify-center flex w-full flex-row items-start space-x-8">
         <Servers
           tag={props.tag}
           user={props.user}
           results={props.results}
           parameters={parameters}
         />
-        <div className="flex flex-col items-start justify-start min-w-[400px] max-w-[400px] space-y-6">
+        <div className="flex min-w-[400px] max-w-[400px] flex-col items-start justify-start space-y-6">
           <Sort parameters={parameters} setParameters={setParameters} />
           <Filter parameters={parameters} setParameters={setParameters} />
           <Sidebar addServer servers={props.results.total_records} />

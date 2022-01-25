@@ -85,18 +85,18 @@ export default function Links(props) {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between w-full md:space-x-16">
+    <div className="flex w-full flex-col items-center justify-between md:flex-row md:space-x-16">
       <Link href="/">
         <a>
           <img
             src="/logo.svg"
             draggable="false"
-            className="hidden md:inline w-32 h-32 cursor-pointer"
+            className="hidden h-32 w-32 cursor-pointer md:inline"
             alt="Logo"
           />
         </a>
       </Link>
-      <div className="flex flex-col md:flex-row items-start justify-start md:justify-between w-full space-y-2 md:space-y-0">
+      <div className="flex w-full flex-col items-start justify-start space-y-2 md:flex-row md:justify-between md:space-y-0">
         {footer.map((element, index) => (
           <Column key={index} {...element} />
         ))}
@@ -107,11 +107,11 @@ export default function Links(props) {
 
 function Column(props) {
   return (
-    <div className="flex flex-col items-start justify-start w-full md:w-auto px-4 py-3 md:py-0 md:space-y-2 bg-olive-950 md:bg-transparent border-2 md:border-0 border-olive-920 rounded">
-      <p className="hidden md:inline font-medium text-xl text-white text-opacity-90">
+    <div className="flex w-full flex-col items-start justify-start rounded border-2 border-olive-920 bg-olive-950 px-4 py-3 md:w-auto md:space-y-2 md:border-0 md:bg-transparent md:py-0">
+      <p className="hidden text-xl font-medium text-white text-opacity-90 md:inline">
         {props.name}
       </p>
-      <div className="flex flex-col items-start justify-start space-y-2 w-full">
+      <div className="flex w-full flex-col items-start justify-start space-y-2">
         {props.links.map((link, index) => (
           <Row key={index} {...link} />
         ))}
@@ -125,9 +125,9 @@ function Row(props) {
     <Link href={props.href}>
       <a className="flex flex-row items-center justify-start space-x-4 md:space-x-0">
         <i
-          className={`${props.icon} md:hidden w-[25px] text-center text-xl text-white text-opacity-60`}
+          className={`${props.icon} w-[25px] text-center text-xl text-white text-opacity-60 md:hidden`}
         />
-        <p className="text-xl text-white text-opacity-60 hover:text-opacity-70 transition duration-300">
+        <p className="text-xl text-white text-opacity-60 transition duration-300 hover:text-opacity-70">
           {props.name}
         </p>
       </a>

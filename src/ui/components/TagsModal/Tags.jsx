@@ -8,28 +8,37 @@ export default function TagsModal(props) {
   return (
     <Modal showModal={props.showModal}>
       <motion.div
-        className="flex flex-col items-start justify-start w-[1200px] h-[700px] p-10 space-y-6 bg-olive-950 border-2 border-olive-930 rounded-md overflow-y-auto"
+        className="flex h-[700px] w-[1200px] flex-col items-start justify-start space-y-6 overflow-y-auto rounded-md border-2 border-olive-930 bg-olive-950 p-10"
         onClick={(e) => e.stopPropagation()}
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 10, opacity: 0 }}
         transition={{ duration: 0.3, delay: 0.2 }}
       >
-        <div className="flex flex-row items-center justify-between w-full">
-          <p className="font-medium text-5xl text-white text-opacity-90">Choose Tags</p>
+        <div className="flex w-full flex-row items-center justify-between">
+          <p className="text-5xl font-medium text-white text-opacity-90">
+            Choose Tags
+          </p>
           <div
-            className="flex flex-row items-center justify-center px-4 py-1 bg-olive-930 hover:bg-olive-920 rounded cursor-pointer transition duration-300"
+            className="flex cursor-pointer flex-row items-center justify-center rounded bg-olive-930 px-4 py-1 transition duration-300 hover:bg-olive-920"
             onClick={() => props.showModal(false)}
           >
-            <p className="font-medium text-xl text-white text-opacity-90 select-none">Go Back</p>
+            <p className="select-none text-xl font-medium text-white text-opacity-90">
+              Go Back
+            </p>
           </div>
         </div>
-        <div className="bg-white bg-opacity-10 w-full h-1" />
-        <div className="flex flex-col items-start justify-between w-full h-full">
+        <div className="h-1 w-full bg-white bg-opacity-10" />
+        <div className="flex h-full w-full flex-col items-start justify-between">
           {categories.map((category, i) => (
-            <div key={i} className="flex flex-col items-start justify-start w-full space-y-4">
-              <p className="text-4xl text-white text-opacity-80">{category.label}</p>
-              <div className="flex flex-row items-center justify-start w-full flex-wrap">
+            <div
+              key={i}
+              className="flex w-full flex-col items-start justify-start space-y-4"
+            >
+              <p className="text-4xl text-white text-opacity-80">
+                {category.label}
+              </p>
+              <div className="flex w-full flex-row flex-wrap items-center justify-start">
                 {category.tags.map((tag, index) => (
                   <Tag
                     key={index}

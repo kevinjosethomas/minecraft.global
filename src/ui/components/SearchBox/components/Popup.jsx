@@ -9,7 +9,10 @@ export default function Popup(props) {
   const node = useRef();
 
   const handleClick = (e) => {
-    if (node.current.contains(e.target) || props.parentNode.current.contains(e.target)) {
+    if (
+      node.current.contains(e.target) ||
+      props.parentNode.current.contains(e.target)
+    ) {
       return;
     }
 
@@ -27,7 +30,7 @@ export default function Popup(props) {
   return (
     <motion.div
       ref={node}
-      className="absolute z-30 top-[85px] left-0 hidden md:flex flex-col items-start justify-start w-full p-6 space-y-6 bg-olive-980 rounded-[12px] border-2 border-olive-940"
+      className="absolute top-[85px] left-0 z-30 hidden w-full flex-col items-start justify-start space-y-6 rounded-[12px] border-2 border-olive-940 bg-olive-980 p-6 md:flex"
       initial={{ y: 5, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: 5, opacity: 0 }}
@@ -42,19 +45,19 @@ export default function Popup(props) {
 
 function Tags() {
   return (
-    <div className="flex flex-col items-start justify-start w-full space-y-2">
-      <div className="flex flex-row items-center justify-start ml-3 space-x-1.5">
+    <div className="flex w-full flex-col items-start justify-start space-y-2">
+      <div className="ml-3 flex flex-row items-center justify-start space-x-1.5">
         <i className="far fa-tags text-xl text-white text-opacity-80" />
-        <p className="font-medium text-xl text-white text-opacity-80 tracking-tight">
+        <p className="text-xl font-medium tracking-tight text-white text-opacity-80">
           FILTER BY CATEGORIES
         </p>
       </div>
-      <div className="flex flex-row items-center justify-center space-x-2 mt-2">
+      <div className="mt-2 flex flex-row items-center justify-center space-x-2">
         {tags.slice(0, 8).map((tag, index) => (
           <Link key={index} href={`/tag/${tag.name}`}>
-            <a className="group flex flex-row items-center justify-start space-x-1 px-3 py-0.5 bg-white bg-opacity-[0.04] hover:bg-opacity-[0.08] rounded-[4px] cursor-pointer transition duration-300">
+            <a className="group flex cursor-pointer flex-row items-center justify-start space-x-1 rounded-[4px] bg-white bg-opacity-[0.04] px-3 py-0.5 transition duration-300 hover:bg-opacity-[0.08]">
               <i className="far fa-hashtag text-sm text-olive-600" />
-              <h3 className="text-lg text-white text-opacity-70 group-hover:text-opacity-80 transition duration-300">
+              <h3 className="text-lg text-white text-opacity-70 transition duration-300 group-hover:text-opacity-80">
                 {tag.name}
               </h3>
             </a>

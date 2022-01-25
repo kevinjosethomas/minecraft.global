@@ -14,11 +14,18 @@ const categories = JSON.parse(await fs.readFileSync("./categories.json"));
     tags = [...categories];
     tags.forEach((category, index) => {
       category.tags.forEach((tag, index2) => {
-        sortedTags.push({ id: tag.id, name: tag.name, count: servercount[tag.id] });
+        sortedTags.push({
+          id: tag.id,
+          name: tag.name,
+          count: servercount[tag.id],
+        });
       });
     });
 
-    fs.writeFileSync("./tags.json", JSON.stringify(sortedTags.sort((a, b) => b.count - a.count)));
+    fs.writeFileSync(
+      "./tags.json",
+      JSON.stringify(sortedTags.sort((a, b) => b.count - a.count))
+    );
 
     console.log("UPDATED TAGS SERVER COUNT");
   } catch (e) {

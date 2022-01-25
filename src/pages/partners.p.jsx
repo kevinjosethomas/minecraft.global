@@ -20,9 +20,11 @@ export default function Partners(props) {
       title="Partners - Minecraft Server List"
       search
     >
-      <div className="flex flex-col items-start justify-start w-full space-y-2">
-        <h1 className="font-bold text-6xl text-white text-opacity-90">Partners</h1>
-        <div className="grid grid-cols-3 w-full">
+      <div className="flex w-full flex-col items-start justify-start space-y-2">
+        <h1 className="text-6xl font-bold text-white text-opacity-90">
+          Partners
+        </h1>
+        <div className="grid w-full grid-cols-3">
           {partners.map((partner, index) => (
             <Partner key={index} {...partner} />
           ))}
@@ -34,26 +36,32 @@ export default function Partners(props) {
 
 function Partner(props) {
   return (
-    <div className="flex flex-col items-start justify-between w-96 h-[22rem] p-4 bg-olive-950 border-2 border-olive-930 rounded-lg">
-      <div className="flex flex-col items-start justify-start w-full space-y-4">
+    <div className="flex h-[22rem] w-96 flex-col items-start justify-between rounded-lg border-2 border-olive-930 bg-olive-950 p-4">
+      <div className="flex w-full flex-col items-start justify-start space-y-4">
         <div className="flex flex-row items-center justify-start space-x-2">
           <img
             src={props.icon}
             alt={`${props.name}'s Logo`}
             draggable="false"
-            className="w-16 h-16 rounded-lg"
+            className="h-16 w-16 rounded-lg"
           />
-          <h2 className="font-medium text-3xl text-white text-opacity-80">{props.name}</h2>
+          <h2 className="text-3xl font-medium text-white text-opacity-80">
+            {props.name}
+          </h2>
         </div>
-        <p className="text-lg text-white text-opacity-60">{props.description}</p>
+        <p className="text-lg text-white text-opacity-60">
+          {props.description}
+        </p>
       </div>
       <a
-        className="flex flex-row items-center justify-center w-full py-4 bg-olive-930 hover:bg-olive-920 cursor-pointer rounded transition duration-300"
+        className="flex w-full cursor-pointer flex-row items-center justify-center rounded bg-olive-930 py-4 transition duration-300 hover:bg-olive-920"
         rel="noreferrer nofollow"
         href={props.href}
         target="_blank"
       >
-        <p className="text-xl text-white text-opacity-90 select-none">View {props.name}</p>
+        <p className="select-none text-xl text-white text-opacity-90">
+          View {props.name}
+        </p>
       </a>
     </div>
   );
@@ -61,7 +69,10 @@ function Partner(props) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const [user, data] = await Promise.all([GetLoggedInUser(ctx), GetDefaultData()]);
+    const [user, data] = await Promise.all([
+      GetLoggedInUser(ctx),
+      GetDefaultData(),
+    ]);
 
     if (data[1]) {
       return {

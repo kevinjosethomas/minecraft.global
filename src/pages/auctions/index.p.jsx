@@ -23,9 +23,13 @@ export default function Auctions(props) {
 
   return (
     <Default user={props.user}>
-      <div className="flex flex-col items-start justify-start w-full space-y-6">
+      <div className="flex w-full flex-col items-start justify-start space-y-6">
         <Navigation screen={screen} screens={screens} setScreen={setScreen} />
-        {screen.name === "bidding" ? <Bidding user={props.user} /> : <Fragment />}
+        {screen.name === "bidding" ? (
+          <Bidding user={props.user} />
+        ) : (
+          <Fragment />
+        )}
       </div>
     </Default>
   );

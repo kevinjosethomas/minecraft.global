@@ -74,7 +74,9 @@ export default function Players(props) {
     {
       title: "Most Upvotes",
       subtitle: `Avg. ${highest[1]} votes daily`,
-      value: `${highest[0] > 12 ? `${highest[0] - 12}pm` : `${highest[0]}am`} UTC`,
+      value: `${
+        highest[0] > 12 ? `${highest[0] - 12}pm` : `${highest[0]}am`
+      } UTC`,
     },
     {
       title: "Lowest Peak",
@@ -83,18 +85,24 @@ export default function Players(props) {
     },
     {
       title: "Highest Peak",
-      subtitle: `On ${moment(sorted[sorted.length - 1].checked_at).format("DD MMM h:MMa")}`,
+      subtitle: `On ${moment(sorted[sorted.length - 1].checked_at).format(
+        "DD MMM h:MMa"
+      )}`,
       value: sorted[sorted.length - 1][p2],
     },
     {
       title: "Avg. Upvotes",
       subtitle: "Every hour (last 15d)",
-      value: Math.round(since["15"].reduce((a, b) => a + b) / since["15"].length),
+      value: Math.round(
+        since["15"].reduce((a, b) => a + b) / since["15"].length
+      ),
     },
     {
       title: "Avg. Upvotes",
       subtitle: "Every hour (last 30d)",
-      value: Math.round(since["30"].reduce((a, b) => a + b) / since["30"].length),
+      value: Math.round(
+        since["30"].reduce((a, b) => a + b) / since["30"].length
+      ),
     },
   ];
 

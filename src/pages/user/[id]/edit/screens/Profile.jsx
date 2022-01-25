@@ -7,14 +7,23 @@ export default function Profile(props) {
   };
 
   const onDescriptionChange = (e) => {
-    props.setParameters((p) => ({ ...p, description: e.target.value.slice(0, 128) }));
+    props.setParameters((p) => ({
+      ...p,
+      description: e.target.value.slice(0, 128),
+    }));
   };
 
   return (
-    <div className="flex flex-col items-start justify-start w-full p-10 space-y-6 bg-olive-950 rounded border-2 border-olive-940">
-      <h1 className="font-medium text-5xl text-white text-opacity-90">Edit Profile</h1>
-      <div className="flex flex-col items-start justify-start w-full space-y-4">
-        <Input label="Username" value={props.parameters.name} onChange={onNameChange} />
+    <div className="flex w-full flex-col items-start justify-start space-y-6 rounded border-2 border-olive-940 bg-olive-950 p-10">
+      <h1 className="text-5xl font-medium text-white text-opacity-90">
+        Edit Profile
+      </h1>
+      <div className="flex w-full flex-col items-start justify-start space-y-4">
+        <Input
+          label="Username"
+          value={props.parameters.name}
+          onChange={onNameChange}
+        />
         <TextArea
           label="Description"
           value={props.parameters.description}

@@ -10,9 +10,9 @@ import { GetLoggedInUser, LoginWithGoogle } from "api/login";
 export default function Login(props) {
   return (
     <Default user={props.user} title="Login - Minecraft Server List">
-      <div className="flex flex-col items-center justify-center w-full 2xl:py-12 3xl:py-28 space-y-6">
+      <div className="flex w-full flex-col items-center justify-center space-y-6 2xl:py-12 3xl:py-28">
         <motion.h1
-          className="font-bold text-5xl text-white text-opacity-90 leading-tight"
+          className="text-5xl font-bold leading-tight text-white text-opacity-90"
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.3 }}
@@ -60,7 +60,7 @@ function Google() {
       onFailure={onFailure}
       render={(renderProps) => (
         <motion.div
-          className="google-gradient flex flex-row items-center justify-center w-96 h-96 hover:scale-[1.01] border-2 border-olive-950 rounded-[12px] transform duration-300 cursor-pointer"
+          className="google-gradient flex h-96 w-96 transform cursor-pointer flex-row items-center justify-center rounded-[12px] border-2 border-olive-950 duration-300 hover:scale-[1.01]"
           onClick={renderProps.onClick}
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -77,7 +77,7 @@ function Discord() {
   return (
     <motion.a
       href={process.env.NEXT_PUBLIC_DISCORD_LOGIN_URL}
-      className="discord-gradient flex flex-row items-center justify-center w-96 h-96 hover:scale-[1.01] border-2 border-olive-950 rounded-[12px] transform duration-300"
+      className="discord-gradient flex h-96 w-96 transform flex-row items-center justify-center rounded-[12px] border-2 border-olive-950 duration-300 hover:scale-[1.01]"
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3, delay: 0.2 }}

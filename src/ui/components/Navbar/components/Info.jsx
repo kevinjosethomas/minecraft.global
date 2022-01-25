@@ -25,18 +25,22 @@ export default function Info(props) {
     <div className="flex flex-row items-center justify-center">
       <div className="relative flex flex-row items-center justify-center">
         <div
-          className="flex flex-row items-center justify-center px-3 py-2 space-x-3 bg-olive-940 rounded cursor-pointer"
+          className="flex cursor-pointer flex-row items-center justify-center space-x-3 rounded bg-olive-940 px-3 py-2"
           onClick={() => showDropdown((dd) => !dd)}
         >
           <img
             draggable="false"
             src={avatar}
             alt={`${props.user.name}'s skinhead`}
-            className="w-10 h-10 rounded-sm"
+            className="h-10 w-10 rounded-sm"
           />
           <div className="flex flex-col items-start justify-start">
-            <p className="text-lg text-white select-none leading-tight">{props.user.name}</p>
-            <p className="text-xs text-white text-opacity-60 leading-tight">View Menu</p>
+            <p className="select-none text-lg leading-tight text-white">
+              {props.user.name}
+            </p>
+            <p className="text-xs leading-tight text-white text-opacity-60">
+              View Menu
+            </p>
           </div>
           <motion.i
             animate={controls}
@@ -46,7 +50,11 @@ export default function Info(props) {
         </div>
         <AnimatePresence>
           {dropdown && (
-            <Dropdown id={props.user.user_id} name={props.user.name} showDropdown={showDropdown} />
+            <Dropdown
+              id={props.user.user_id}
+              name={props.user.name}
+              showDropdown={showDropdown}
+            />
           )}
         </AnimatePresence>
       </div>

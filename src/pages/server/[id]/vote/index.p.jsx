@@ -24,7 +24,10 @@ export default function UpvoteServer(props) {
 
       if (!stored) return;
 
-      const [response, error] = await FetchTimeTillUpvote(props.server.server_id, stored);
+      const [response, error] = await FetchTimeTillUpvote(
+        props.server.server_id,
+        stored
+      );
 
       if (error || !response.payload.can_vote_at) {
         return;
@@ -62,7 +65,10 @@ export default function UpvoteServer(props) {
           content={`https://api.minecraft.global/server/${props.server.server_id}/favicon`}
         />
 
-        <meta property="twitter:title" content={`Vote - ${props.server.name}`} />
+        <meta
+          property="twitter:title"
+          content={`Vote - ${props.server.name}`}
+        />
         <meta
           property="twitter:description"
           content={`Vote for ${props.server.name}! ${props.server.description}`}
@@ -81,10 +87,10 @@ export default function UpvoteServer(props) {
           )} minecraft servers`}
         />
       </Head>
-      <div className="flex flex-col items-start justify-start w-full space-y-6">
+      <div className="flex w-full flex-col items-start justify-start space-y-6">
         <Back server_id={props.server.server_id} />
-        <div className="flex flex-col md:flex-row items-start justify-start w-full space-y-4 md:space-y-0 md:space-x-8">
-          <div className="flex flex-col items-start justify-start w-full">
+        <div className="flex w-full flex-col items-start justify-start space-y-4 md:flex-row md:space-y-0 md:space-x-8">
+          <div className="flex w-full flex-col items-start justify-start">
             {upvoted ? (
               <Advertise
                 canVoteAt={canVoteAt}
@@ -103,11 +109,15 @@ export default function UpvoteServer(props) {
               />
             )}
           </div>
-          <div className="flex flex-col items-start justify-start w-full md:min-w-[400px] md:w-[400px] md:max-w-[400px] space-y-8 overflow-hidden">
+          <div className="flex w-full flex-col items-start justify-start space-y-8 overflow-hidden md:w-[400px] md:min-w-[400px] md:max-w-[400px]">
             <TopVoters server_id={props.server.server_id} />
           </div>
         </div>
-        <a href="https://discord.minecraft.global/" target="_blank" rel="noreferrer">
+        <a
+          href="https://discord.minecraft.global/"
+          target="_blank"
+          rel="noreferrer"
+        >
           <img
             src="/images/votepage-ad.png"
             draggable="false"
@@ -145,7 +155,10 @@ export async function getServerSideProps(ctx) {
       };
     }
 
-    const tag = server[0].payload.tags[Math.floor(Math.random() * server[0].payload.tags.length)];
+    const tag =
+      server[0].payload.tags[
+        Math.floor(Math.random() * server[0].payload.tags.length)
+      ];
 
     if (user[1]) {
       return {

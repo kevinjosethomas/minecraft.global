@@ -33,7 +33,9 @@ export default function World(props) {
     },
     {
       title: "Size 30d Ago",
-      subtitle: `On ${moment(props.analytics[0].checked_at).format("DD MMM h:MMa")}`,
+      subtitle: `On ${moment(props.analytics[0].checked_at).format(
+        "DD MMM h:MMa"
+      )}`,
       value: `${Math.round(props.analytics[0][p1] / 10000000) / 100}gb`,
     },
     {
@@ -43,7 +45,9 @@ export default function World(props) {
     },
     {
       title: "Highest Peak",
-      subtitle: `On ${moment(sorted[sorted.length - 1].checked_at).format("DD MMM h:MMa")}`,
+      subtitle: `On ${moment(sorted[sorted.length - 1].checked_at).format(
+        "DD MMM h:MMa"
+      )}`,
       value: `${Math.round(sorted[sorted.length - 1][p1] / 10000000) / 100}gb`,
     },
     {

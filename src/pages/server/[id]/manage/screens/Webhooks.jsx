@@ -12,24 +12,30 @@ export default function Webhooks(props) {
   }
 
   return (
-    <div className="flex flex-col items-start justify-start w-full space-y-10">
-      <div className="flex flex-col items-start justify-start w-full space-y-8">
+    <div className="flex w-full flex-col items-start justify-start space-y-10">
+      <div className="flex w-full flex-col items-start justify-start space-y-8">
         <p className="max-w-lg text-lg text-white text-opacity-80">
-          Discord Webhooks are a feature that broadcasts messages to a Discord channel when someone
-          votes for your server! Use variables <code>{"{username}"}</code>
-          and <code>{"{total_votes}"}</code> to customize the message with dynamic data!
+          Discord Webhooks are a feature that broadcasts messages to a Discord
+          channel when someone votes for your server! Use variables{" "}
+          <code>{"{username}"}</code>
+          and <code>{"{total_votes}"}</code> to customize the message with
+          dynamic data!
         </p>
         <Input
           label="Webhook URL"
           description="Your Discord Channel's Webhook URL"
           value={props.details.dsc_webhook_url}
-          onChange={(e) => onValueChange("dsc_webhook_url", e.target.value, 1000)}
+          onChange={(e) =>
+            onValueChange("dsc_webhook_url", e.target.value, 1000)
+          }
         />
         <Input
           label="Webhook Message"
           description="Your custom Webhooks message"
           value={props.details.dsc_webhook_msg}
-          onChange={(e) => onValueChange("dsc_webhook_msg", e.target.value, 100)}
+          onChange={(e) =>
+            onValueChange("dsc_webhook_msg", e.target.value, 100)
+          }
         />
       </div>
     </div>

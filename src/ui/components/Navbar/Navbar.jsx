@@ -18,16 +18,22 @@ export default function Navbar(props) {
   }, [mobile]);
 
   return (
-    <div className="flex flex-row items-center justify-center w-full">
-      <div className="hidden md:flex flex-row items-center justify-between py-[32px] w-full">
+    <div className="flex w-full flex-row items-center justify-center">
+      <div className="hidden w-full flex-row items-center justify-between py-[32px] md:flex">
         <Links />
         <User user={props.user} />
       </div>
-      <div className="flex md:hidden flex-row items-center justify-between w-full py-6 !mt-0">
+      <div className="!mt-0 flex w-full flex-row items-center justify-between py-6 md:hidden">
         <Link href="/">
           <a className="flex flex-row items-center justify-start space-x-3">
-            <img src="/logo.svg" className="w-8 h-8 cursor-pointer" alt="Logo" />
-            <p className="text-2xl text-olive-300 text-opacity-90">minecraft.global</p>
+            <img
+              src="/logo.svg"
+              className="h-8 w-8 cursor-pointer"
+              alt="Logo"
+            />
+            <p className="text-2xl text-olive-300 text-opacity-90">
+              minecraft.global
+            </p>
           </a>
         </Link>
         <i

@@ -61,7 +61,9 @@ export default function Memory(props) {
     {
       title: "Highest Usage",
       subtitle: `Avg. ${Math.round(highest[1] / 10) / 100}gb daily at -`,
-      value: `${highest[0] > 12 ? `${highest[0] - 12}pm` : `${highest[0]}am`} UTC`,
+      value: `${
+        highest[0] > 12 ? `${highest[0] - 12}pm` : `${highest[0]}am`
+      } UTC`,
     },
     {
       title: "Lowest Peak",
@@ -70,7 +72,9 @@ export default function Memory(props) {
     },
     {
       title: "Highest Peak",
-      subtitle: `On ${moment(sorted[sorted.length - 1].checked_at).format("DD MMM h:MMa")}`,
+      subtitle: `On ${moment(sorted[sorted.length - 1].checked_at).format(
+        "DD MMM h:MMa"
+      )}`,
       value: `${Math.ceil(sorted[sorted.length - 1][p1] / 10000000) / 100}gb`,
     },
     {

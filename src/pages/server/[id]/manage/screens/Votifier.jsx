@@ -17,7 +17,10 @@ export default function Votifier(props) {
         return;
       }
     }
-    props.setDetails((d) => ({ ...d, votifier: { ...d.votifier, [key]: formatted } }));
+    props.setDetails((d) => ({
+      ...d,
+      votifier: { ...d.votifier, [key]: formatted },
+    }));
   }
 
   const testUpvote = async () => {
@@ -27,12 +30,18 @@ export default function Votifier(props) {
     }
 
     const token = cookie.get("token");
-    const [response, error] = await TestUpvoteServer(props.server_id, username, token);
+    const [response, error] = await TestUpvoteServer(
+      props.server_id,
+      username,
+      token
+    );
 
     if (error) {
       switch (error.response?.status) {
         case 401:
-          toast.error("An authorization error occured, please relogin and try again!");
+          toast.error(
+            "An authorization error occured, please relogin and try again!"
+          );
           break;
         case 422:
           toast.error(
@@ -53,21 +62,29 @@ export default function Votifier(props) {
 
     switch (response.payload.reason) {
       case "timeout":
-        toast.error("Your server took too long to respond! (check your firewall)");
+        toast.error(
+          "Your server took too long to respond! (check your firewall)"
+        );
         break;
       case "connection_error":
         toast.error("Couldn't connect to your server! (check your firewall)");
         break;
       case "invalid_header":
-        toast.error("Your server provided an invalid response! Check console (Ctrl+Shift+I)");
+        toast.error(
+          "Your server provided an invalid response! Check console (Ctrl+Shift+I)"
+        );
         console.error(response.payload.message);
         break;
       case "not_ok_response":
-        toast.error("Your server provided an invalid response! Check console (Ctrl+Shift+I)");
+        toast.error(
+          "Your server provided an invalid response! Check console (Ctrl+Shift+I)"
+        );
         console.error(response.payload.message);
         break;
       case "unsupported_votifier_version":
-        toast.error("We don't support the version of Votifier that your server uses!");
+        toast.error(
+          "We don't support the version of Votifier that your server uses!"
+        );
         break;
       case "get_addr_info_failure":
         toast.error("Your votifier address is invalid!");
@@ -79,11 +96,11 @@ export default function Votifier(props) {
   };
 
   return (
-    <div className="flex flex-col items-start justify-start w-full space-y-10">
-      <div className="flex flex-col items-start justify-start w-full space-y-8">
+    <div className="flex w-full flex-col items-start justify-start space-y-10">
+      <div className="flex w-full flex-col items-start justify-start space-y-8">
         <p className="max-w-lg text-lg text-white text-opacity-80">
-          We support Votifier and NuVotifier. This section is optional, however, we recommend
-          setting up vote rewards.
+          We support Votifier and NuVotifier. This section is optional, however,
+          we recommend setting up vote rewards.
         </p>
         <Input
           label="Votifier Host"
@@ -101,16 +118,20 @@ export default function Votifier(props) {
           label="Votifier Token"
           description="Your Votifier token or key (in config.yml, or the public RSA key file"
           value={props.details.votifier.votifier_token}
-          onChange={(e) => onValueChange("votifier_token", e.target.value, 1024)}
+          onChange={(e) =>
+            onValueChange("votifier_token", e.target.value, 1024)
+          }
         />
       </div>
-      <div className="w-full h-0.5 bg-white bg-opacity-20" />
-      <div className="flex flex-col items-start justify-start w-full space-y-6">
-        <div className="flex flex-col items-start justify-start w-full space-y-2">
-          <h1 className="font-medium text-4xl text-white text-opacity-90">Test Votifier</h1>
+      <div className="h-0.5 w-full bg-white bg-opacity-20" />
+      <div className="flex w-full flex-col items-start justify-start space-y-6">
+        <div className="flex w-full flex-col items-start justify-start space-y-2">
+          <h1 className="text-4xl font-medium text-white text-opacity-90">
+            Test Votifier
+          </h1>
           <p className="max-w-lg text-lg text-white text-opacity-80">
-            Make sure you save any changes before testing Votifier! We will send a test vote to
-            reward the specified user!
+            Make sure you save any changes before testing Votifier! We will send
+            a test vote to reward the specified user!
           </p>
         </div>
         <Input
@@ -120,11 +141,11 @@ export default function Votifier(props) {
           onChange={(e) => setUsername(e.target.value.substring(0, 16))}
         />
         <div
-          className="flex flex-row items-center justify-center px-4 py-2 space-x-2 bg-olive-800 hover:bg-olive-900 rounded cursor-pointer transition duration-300"
+          className="flex cursor-pointer flex-row items-center justify-center space-x-2 rounded bg-olive-800 px-4 py-2 transition duration-300 hover:bg-olive-900"
           onClick={testUpvote}
         >
           <i className="fas fa-arrow-alt-up text-xl text-white text-opacity-80" />
-          <p className="font-medium text-xl text-white text-opacity-80 select-none">
+          <p className="select-none text-xl font-medium text-white text-opacity-80">
             Send Test Upvote
           </p>
         </div>

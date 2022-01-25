@@ -2,7 +2,9 @@ import axios from "axios";
 
 const FetchServerComments = async (id) => {
   try {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/server/${id}/comments`);
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/server/${id}/comments`
+    );
 
     return [response.data, null];
   } catch (e) {

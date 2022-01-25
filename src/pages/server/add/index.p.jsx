@@ -153,13 +153,17 @@ export default function AddServer(props) {
     if (error) {
       switch (error.response?.status) {
         case 401:
-          toast.error("An authorization error occured, please relogin and try again!");
+          toast.error(
+            "An authorization error occured, please relogin and try again!"
+          );
           break;
         case 409:
           toast.error("Another server already uses that host and port!");
           break;
         case 422:
-          if (error.response?.data.payload.detail.reason === "invalid_address") {
+          if (
+            error.response?.data.payload.detail.reason === "invalid_address"
+          ) {
             toast.error("Invalid server address provided!");
           } else if (error.response?.data.payload.detail.reason === "offline") {
             toast.error("Your server is currently offline!");
@@ -182,7 +186,7 @@ export default function AddServer(props) {
       defaultResults={props.defaultResults}
       title="Add Server - Minecraft Server List"
     >
-      <div className="flex flex-row items-start justify-start w-full space-x-6">
+      <div className="flex w-full flex-row items-start justify-start space-x-6">
         <Navigation
           submit={submit}
           screen={screen}
@@ -190,10 +194,12 @@ export default function AddServer(props) {
           screens={screens}
           setScreen={setScreen}
         />
-        <div className="flex flex-col items-start justify-start w-full space-y-4">
-          <div className="flex flex-col items-start justify-start w-full p-8 space-y-4 bg-olive-950 border-2 border-olive-930 rounded-lg">
-            <div className="flex flex-row items-center justify-start w-full">
-              <h1 className="font-medium text-4xl text-white text-opacity-90">{screen.label}</h1>
+        <div className="flex w-full flex-col items-start justify-start space-y-4">
+          <div className="flex w-full flex-col items-start justify-start space-y-4 rounded-lg border-2 border-olive-930 bg-olive-950 p-8">
+            <div className="flex w-full flex-row items-center justify-start">
+              <h1 className="text-4xl font-medium text-white text-opacity-90">
+                {screen.label}
+              </h1>
             </div>
             {screen.name === "details" ? (
               <Details details={details} setDetails={setDetails} />
@@ -208,25 +214,27 @@ export default function AddServer(props) {
             )}
           </div>
           <div
-            className={`flex flex-row items-center justify-end w-full ${
-              screen.name !== "details" && screen.name !== "votifier" && "space-x-2"
+            className={`flex w-full flex-row items-center justify-end ${
+              screen.name !== "details" &&
+              screen.name !== "votifier" &&
+              "space-x-2"
             }`}
           >
             {screen.name !== "details" && (
               <div
-                className="flex flex-row items-center justify-center px-4 py-0.5 space-x-2.5 bg-olive-930 hover:bg-olive-910 cursor-pointer rounded transition duration-300"
+                className="flex cursor-pointer flex-row items-center justify-center space-x-2.5 rounded bg-olive-930 px-4 py-0.5 transition duration-300 hover:bg-olive-910"
                 onClick={decrementScreen}
               >
                 <i className="far fa-arrow-left text-lg text-white" />
-                <p className="text-lg text-white select-none">Back</p>
+                <p className="select-none text-lg text-white">Back</p>
               </div>
             )}
             {screen.name !== "votifier" && (
               <div
-                className="flex flex-row items-center justify-center px-4 py-0.5 space-x-2.5 bg-olive-930 hover:bg-olive-910 cursor-pointer rounded transition duration-300"
+                className="flex cursor-pointer flex-row items-center justify-center space-x-2.5 rounded bg-olive-930 px-4 py-0.5 transition duration-300 hover:bg-olive-910"
                 onClick={incrementScreen}
               >
-                <p className="text-lg text-white select-none">Next</p>
+                <p className="select-none text-lg text-white">Next</p>
                 <i className="far fa-arrow-right text-lg text-white" />
               </div>
             )}

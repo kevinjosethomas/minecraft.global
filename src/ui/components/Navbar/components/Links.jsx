@@ -40,15 +40,20 @@ export default function Links(props) {
         <a>
           <img
             src="/logo.svg"
-            className="w-10 h-10 hover:rotate-[360deg] transform duration-1000 cursor-pointer"
+            className="h-10 w-10 transform cursor-pointer duration-1000 hover:rotate-[360deg]"
             alt="Logo"
           />
         </a>
       </Link>
       {elements.map((element, index) => (
-        <Element key={index} icon={element.icon} label={element.label} href={element.href} />
+        <Element
+          key={index}
+          icon={element.icon}
+          label={element.label}
+          href={element.href}
+        />
       ))}
-      <div className="flex flex-row items-center justify-start mt-1 space-x-[12px]">
+      <div className="mt-1 flex flex-row items-center justify-start space-x-[12px]">
         {socials.map((social, index) => (
           <Social key={index} icon={social.icon} href={social.href} />
         ))}
@@ -62,9 +67,9 @@ function Element(props) {
     <Link href={props.href}>
       <a className="group flex flex-row items-center justify-start space-x-2">
         <i
-          className={`${props.icon} text-2xl text-white text-opacity-80 group-hover:text-opacity-90 transition duration-300`}
+          className={`${props.icon} text-2xl text-white text-opacity-80 transition duration-300 group-hover:text-opacity-90`}
         />
-        <p className="text-2xl text-white text-opacity-80 group-hover:text-opacity-90 transition duration-300">
+        <p className="text-2xl text-white text-opacity-80 transition duration-300 group-hover:text-opacity-90">
           {props.label}
         </p>
       </a>
@@ -92,7 +97,7 @@ function Social(props) {
   return (
     <Container>
       <i
-        className={`${props.icon} text-xl text-white text-opacity-80 hover:text-opacity-90 transition duration-300`}
+        className={`${props.icon} text-xl text-white text-opacity-80 transition duration-300 hover:text-opacity-90`}
       />
     </Container>
   );

@@ -30,15 +30,24 @@ export default function Server(props) {
       <Head>
         <title>{props.server.name} - Minecraft Server List</title>
 
-        <link rel="canonical" href={`https://minecraft.global/server/${props.server.server_id}`} />
+        <link
+          rel="canonical"
+          href={`https://minecraft.global/server/${props.server.server_id}`}
+        />
 
-        <meta name="title" content={`${props.server.name} - Minecraft Server List`} />
+        <meta
+          name="title"
+          content={`${props.server.name} - Minecraft Server List`}
+        />
         <meta
           name="description"
           content={`${props.server.name} IP, Vote, Store & Discord - ${props.server.description}`}
         />
 
-        <meta property="og:title" content={`${props.server.name} - Minecraft Server List`} />
+        <meta
+          property="og:title"
+          content={`${props.server.name} - Minecraft Server List`}
+        />
         <meta
           property="og:description"
           content={`${props.server.name} IP, Vote, Store & Discord - ${props.server.description}`}
@@ -48,7 +57,10 @@ export default function Server(props) {
           content={`https://api.minecraft.global/server/${props.server.server_id}/favicon`}
         />
 
-        <meta property="twitter:title" content={`${props.server.name} - Minecraft Server List`} />
+        <meta
+          property="twitter:title"
+          content={`${props.server.name} - Minecraft Server List`}
+        />
         <meta
           property="twitter:description"
           content={`${props.server.name} IP, Vote, Store & Discord - ${props.server.description}`}
@@ -64,13 +76,17 @@ export default function Server(props) {
             props.server.name
           } Store, ${props.server.name} Vote, ${
             props.server.name
-          } Discord, ${props.server.tags.join(" minecraft servers, ")} minecraft servers`}
+          } Discord, ${props.server.tags.join(
+            " minecraft servers, "
+          )} minecraft servers`}
         />
       </Head>
       <AnimatePresence>
-        {reportModal && <Report showModal={showReportModal} id={props.server.server_id} />}
+        {reportModal && (
+          <Report showModal={showReportModal} id={props.server.server_id} />
+        )}
       </AnimatePresence>
-      <div className="flex flex-col items-start justify-start w-full md:mt-6 space-y-10 md:space-y-16">
+      <div className="flex w-full flex-col items-start justify-start space-y-10 md:mt-6 md:space-y-16">
         <Header
           server_id={props.server.server_id}
           name={props.server.name}
@@ -80,7 +96,7 @@ export default function Server(props) {
           monthly_votes={props.server.monthly_votes}
           premium={props.server.premium}
         />
-        <div className="flex flex-col items-start justify-start w-full space-y-4 md:space-y-8">
+        <div className="flex w-full flex-col items-start justify-start space-y-4 md:space-y-8">
           <Navigation
             screen={screen}
             user={props.user}
@@ -88,12 +104,15 @@ export default function Server(props) {
             setScreen={setScreen}
             showReportModal={showReportModal}
           />
-          <div className="flex flex-col md:flex-row items-start justify-start w-full space-y-8 md:space-y-0 md:space-x-8">
-            <div className="flex flex-col items-start justify-start w-full">
+          <div className="flex w-full flex-col items-start justify-start space-y-8 md:flex-row md:space-y-0 md:space-x-8">
+            <div className="flex w-full flex-col items-start justify-start">
               {screen === "overview" ? (
                 <Overview long_description={props.server.long_description} />
               ) : (
-                <Comments server_id={props.server.server_id} user={props.user} />
+                <Comments
+                  server_id={props.server.server_id}
+                  user={props.user}
+                />
               )}
             </div>
             <Sidebar {...props.server} user_id={props.user?.user_id} />

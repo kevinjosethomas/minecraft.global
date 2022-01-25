@@ -61,7 +61,9 @@ export default function TPS(props) {
     {
       title: "Highest TPS",
       subtitle: `Avg. ${Math.round(highest[1])}tps daily at -`,
-      value: `${highest[0] > 12 ? `${highest[0] - 12}pm` : `${highest[0]}am`} UTC`,
+      value: `${
+        highest[0] > 12 ? `${highest[0] - 12}pm` : `${highest[0]}am`
+      } UTC`,
     },
     {
       title: "Lowest Peak",
@@ -70,26 +72,36 @@ export default function TPS(props) {
     },
     {
       title: "Highest Peak",
-      subtitle: `On ${moment(sorted[sorted.length - 1].checked_at).format("DD MMM h:MMa")}`,
+      subtitle: `On ${moment(sorted[sorted.length - 1].checked_at).format(
+        "DD MMM h:MMa"
+      )}`,
       value: Math.round(sorted[sorted.length - 1][p1]),
     },
     {
       title: "Avg. TPS",
       subtitle: "Every hour (last 15d)",
       value: Math.round(
-        total["15"].filter((x) => x).reduce((a, b) => a + b) / total["15"].filter((x) => x).length
+        total["15"].filter((x) => x).reduce((a, b) => a + b) /
+          total["15"].filter((x) => x).length
       ),
     },
     {
       title: "Avg. TPS",
       subtitle: "Every hour (last 30d)",
       value: Math.round(
-        total["30"].filter((x) => x).reduce((a, b) => a + b) / total["30"].filter((x) => x).length
+        total["30"].filter((x) => x).reduce((a, b) => a + b) /
+          total["30"].filter((x) => x).length
       ),
     },
   ];
 
   return (
-    <Layout title="TPS" cards={cards} types={types} labels={props.labels} index={props.index} />
+    <Layout
+      title="TPS"
+      cards={cards}
+      types={types}
+      labels={props.labels}
+      index={props.index}
+    />
   );
 }

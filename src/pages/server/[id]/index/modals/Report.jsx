@@ -64,25 +64,35 @@ export default function Report(props) {
   return (
     <Modal showModal={props.showModal}>
       <motion.div
-        className="flex flex-col items-start justify-start w-[1000px] p-8 space-y-4 2xl:space-y-8 bg-olive-950 border-2 border-olive-930 rounded-md"
+        className="flex w-[1000px] flex-col items-start justify-start space-y-4 rounded-md border-2 border-olive-930 bg-olive-950 p-8 2xl:space-y-8"
         onClick={(e) => e.stopPropagation()}
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 10, opacity: 0 }}
         transition={{ duration: 0.3, delay: 0.2 }}
       >
-        <p className="font-medium text-5xl text-white text-opacity-90">Report Server</p>
-        <TextArea label="Reason" value={parameters.report} onChange={onReportChange} />
-        <TextArea label="Proof (links/images)" value={parameters.proof} onChange={onProofChange} />
-        <div className="flex flex-row items-center justify-center w-full space-x-4">
+        <p className="text-5xl font-medium text-white text-opacity-90">
+          Report Server
+        </p>
+        <TextArea
+          label="Reason"
+          value={parameters.report}
+          onChange={onReportChange}
+        />
+        <TextArea
+          label="Proof (links/images)"
+          value={parameters.proof}
+          onChange={onProofChange}
+        />
+        <div className="flex w-full flex-row items-center justify-center space-x-4">
           <div
-            className="flex flex-row items-center justify-center w-full py-2 bg-black bg-opacity-20 rounded hover:bg-opacity-30 transition duration-500 cursor-pointer"
+            className="flex w-full cursor-pointer flex-row items-center justify-center rounded bg-black bg-opacity-20 py-2 transition duration-500 hover:bg-opacity-30"
             onClick={() => props.showModal(false)}
           >
             <p className="text-3xl text-white text-opacity-80">Cancel</p>
           </div>
           <div
-            className="flex flex-row items-center justify-center w-full py-2 bg-olive-800 rounded hover:bg-olive-900 transition duration-500 cursor-pointer"
+            className="flex w-full cursor-pointer flex-row items-center justify-center rounded bg-olive-800 py-2 transition duration-500 hover:bg-olive-900"
             onClick={submit}
           >
             <p className="text-3xl text-white text-opacity-80">Submit</p>

@@ -31,19 +31,23 @@ export default function Comments(props) {
 
   return (
     <motion.div
-      className="flex flex-col items-start justify-start w-full"
+      className="flex w-full flex-col items-start justify-start"
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3, delay: 0.2 }}
     >
-      <div className="flex flex-col items-start justify-start w-full space-y-4">
+      <div className="flex w-full flex-col items-start justify-start space-y-4">
         {!commented && props.user && (
           <Fragment>
             <PostComment id={props.server_id} />
-            <div className="w-full h-[3px] bg-white bg-opacity-10" />
+            <div className="h-[3px] w-full bg-white bg-opacity-10" />
           </Fragment>
         )}
-        <CommentsList server_id={props.server_id} comments={comments} user={props.user} />
+        <CommentsList
+          server_id={props.server_id}
+          comments={comments}
+          user={props.user}
+        />
       </div>
     </motion.div>
   );

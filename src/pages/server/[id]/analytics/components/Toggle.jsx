@@ -5,7 +5,13 @@ export default function Toggle(props) {
     <AnimateSharedLayout>
       <div className="flex flex-row items-center justify-start space-x-4">
         {props.types.map((t, i) => (
-          <Type key={i} i={i} t={t.name} type={props.type} setType={props.setType} />
+          <Type
+            key={i}
+            i={i}
+            t={t.name}
+            type={props.type}
+            setType={props.setType}
+          />
         ))}
       </div>
     </AnimateSharedLayout>
@@ -21,8 +27,8 @@ function Type(props) {
         className={`text-xl text-white text-white ${
           active
             ? "text-opacity-80"
-            : "text-opacity-70 hover:text-opacity-80 transition duration-300"
-        } select-none cursor-pointer`}
+            : "text-opacity-70 transition duration-300 hover:text-opacity-80"
+        } cursor-pointer select-none`}
         onClick={() => props.setType(props.i)}
       >
         {props.t}
@@ -30,7 +36,7 @@ function Type(props) {
       {active && (
         <motion.div
           layoutId="underline"
-          className="absolute -bottom-1 w-full h-0.5 bg-white bg-opacity-80"
+          className="absolute -bottom-1 h-0.5 w-full bg-white bg-opacity-80"
         />
       )}
     </div>

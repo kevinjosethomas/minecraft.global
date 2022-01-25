@@ -24,26 +24,26 @@ export default function Metadata(props) {
   return (
     <Fragment>
       <div className="flex flex-row items-center justify-start space-x-2">
-        <div className="w-3 h-3 auctions-red-dot rounded-full" />
+        <div className="auctions-red-dot h-3 w-3 rounded-full" />
         <p className="text-lg text-white text-opacity-80">
           Ends on {moment(props.endsAt).format("ddd, Do MMM")} at{" "}
           {moment(props.endsAt).format("HH:MMa")}
         </p>
       </div>
-      <div className="flex flex-col items-start justify-start w-full">
+      <div className="flex w-full flex-col items-start justify-start">
         <a
           target="_blank"
           rel="noreferrer"
           href={props.page?.link || null}
-          className="flex flex-row items-center justify-between w-full py-2 px-3 mb-2 bg-white bg-opacity-5 rounded"
+          className="mb-2 flex w-full flex-row items-center justify-between rounded bg-white bg-opacity-5 py-2 px-3"
         >
           <div className="flex flex-row items-center justify-start space-x-2">
             <i className="fas fa-tag text-lg text-white text-opacity-80" />
-            <p className="text-lg text-white text-opacity-80 select-none">
+            <p className="select-none text-lg text-white text-opacity-80">
               {props.page?.name || "Loading..."}
             </p>
           </div>
-          {props.page.link && (
+          {props.page?.link && (
             <i className="far fa-external-link-alt text-lg text-white text-opacity-80" />
           )}
         </a>
@@ -57,7 +57,9 @@ export default function Metadata(props) {
         <Value
           icon="far fa-eye"
           value={`${
-            props.page?.views ? SimplifyNumber(props.page.views, { decimal: 1 }) : "..."
+            props.page?.views
+              ? SimplifyNumber(props.page.views, { decimal: 1 })
+              : "..."
           } weekly views`}
         />
         <Value icon="far fa-clock">
@@ -76,9 +78,13 @@ export default function Metadata(props) {
 
 function Value(props) {
   return (
-    <div className="flex flex-row items-center justify-start space-x-2 mb-1">
-      <i className={`${props.icon} w-[20.5px] text-center text-lg text-white text-opacity-80`} />
-      <p className="text-lg text-white text-opacity-80">{props.value || props.children}</p>
+    <div className="mb-1 flex flex-row items-center justify-start space-x-2">
+      <i
+        className={`${props.icon} w-[20.5px] text-center text-lg text-white text-opacity-80`}
+      />
+      <p className="text-lg text-white text-opacity-80">
+        {props.value || props.children}
+      </p>
     </div>
   );
 }

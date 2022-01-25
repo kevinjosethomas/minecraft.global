@@ -2,8 +2,8 @@ import { AnimateSharedLayout, motion } from "framer-motion";
 
 export default function Navigation(props) {
   return (
-    <div className="flex flex-col items-start justify-start w-full space-y-2">
-      <div className="flex flex-row items-start justify-start w-full space-x-8">
+    <div className="flex w-full flex-col items-start justify-start space-y-2">
+      <div className="flex w-full flex-row items-start justify-start space-x-8">
         <AnimateSharedLayout>
           {props.screens.map((screen, index) => (
             <Screen
@@ -25,7 +25,7 @@ function Screen(props) {
 
   return (
     <div
-      className="relative flex flex-row items-center justify-center px-2 space-x-2 cursor-pointer select-none"
+      className="relative flex cursor-pointer select-none flex-row items-center justify-center space-x-2 px-2"
       onClick={props.onClick}
     >
       <i
@@ -33,13 +33,17 @@ function Screen(props) {
           active ? "text-opacity-90" : "text-opacity-80"
         }`}
       />
-      <p className={`text-2xl text-white ${active ? "text-opacity-90" : "text-opacity-80"}`}>
+      <p
+        className={`text-2xl text-white ${
+          active ? "text-opacity-90" : "text-opacity-80"
+        }`}
+      >
         {props.label}
       </p>
       {active && (
         <motion.div
           layoutId="highlight-underline"
-          className="absolute -bottom-3 w-full h-1 bg-olive-600"
+          className="absolute -bottom-3 h-1 w-full bg-olive-600"
         />
       )}
     </div>

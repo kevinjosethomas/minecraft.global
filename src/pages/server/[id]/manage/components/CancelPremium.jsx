@@ -7,15 +7,15 @@ export default function CancelPremiumButton(props) {
   const [modal, showModal] = useState(false);
 
   return (
-    <div className="flex flex-col items-start justify-start w-full">
+    <div className="flex w-full flex-col items-start justify-start">
       <AnimatePresence>
         {modal && <CancelPremium showModal={showModal} server={props.server} />}
       </AnimatePresence>
       <div
-        className="flex flex-row items-center justify-center w-full py-3 cursor-pointer bg-olive-800 hover:bg-olive-900 rounded-lg transition duration-300"
+        className="flex w-full cursor-pointer flex-row items-center justify-center rounded-lg bg-olive-800 py-3 transition duration-300 hover:bg-olive-900"
         onClick={() => showModal(true)}
       >
-        <p className="font-medium text-2xl text-white text-opacity-90 select-none">
+        <p className="select-none text-2xl font-medium text-white text-opacity-90">
           Cancel Premium
         </p>
       </div>
