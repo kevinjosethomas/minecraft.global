@@ -38,7 +38,7 @@ export default function Tags(props) {
   };
 
   return (
-    <div className="flex w-full flex-col items-start justify-start space-y-2">
+    <div className="flex w-full flex-col items-start justify-start space-y-2 rounded-lg border-2 border-olive-960 bg-olive-940 bg-opacity-30 py-6 px-4">
       <div className="flex items-center justify-start space-x-2 px-4">
         <i className="fas fa-tags text-3xl text-olive-600" />
         <p className="text-3xl text-white text-opacity-80">Popular Tags</p>
@@ -53,7 +53,7 @@ export default function Tags(props) {
           {tags.map((tag, index) => (
             <Link key={index} href={`/tag/${tag.name}`} passHref>
               <motion.a
-                className="flex w-full items-center justify-start space-x-2 rounded py-1.5 transition duration-300 hover:bg-white hover:bg-opacity-5"
+                className="flex w-full items-center justify-start space-x-2 rounded py-1.5 px-2 transition duration-300 hover:bg-white hover:bg-opacity-5"
                 initial={{ x: -10, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.3 }}
