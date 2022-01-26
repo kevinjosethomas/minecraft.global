@@ -194,7 +194,7 @@ function SocialElement(props) {
   return (
     <a
       className="group flex items-center justify-start space-x-2 whitespace-nowrap"
-      rel="noreferrer nofollow"
+      rel="noopener nofollow"
       href={props.href}
       target="_blank"
     >
