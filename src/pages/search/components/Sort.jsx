@@ -4,12 +4,7 @@ export default function Sort(props) {
   return (
     <div className="flex w-full w-full items-center justify-between">
       <i className="fas fa-sort text-3xl text-white text-opacity-90" />
-      <motion.div
-        className="flex items-center justify-between rounded-full bg-white bg-opacity-5 transition duration-500 hover:bg-opacity-10"
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.3, delay: 0.4 }}
-      >
+      <div className="flex items-center justify-between rounded-full bg-white bg-opacity-5 transition duration-500 hover:bg-opacity-10">
         <AnimateSharedLayout>
           <Option
             label="Upvotes"
@@ -28,7 +23,7 @@ export default function Sort(props) {
             active={props.parameters.sort === "players"}
           />
         </AnimateSharedLayout>
-      </motion.div>
+      </div>
     </div>
   );
 }

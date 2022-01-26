@@ -25,26 +25,28 @@ export default function Info(props) {
     <div className="flex items-center justify-center">
       <div className="relative flex items-center justify-center">
         <div
-          className="flex cursor-pointer items-center justify-center space-x-3 rounded bg-olive-940 px-3 py-2"
+          className="flex cursor-pointer items-center justify-center space-x-8 rounded-lg border-2 border-olive-930 bg-olive-900 bg-opacity-30 px-3 py-2"
           onClick={() => showDropdown((dd) => !dd)}
         >
-          <img
-            draggable="false"
-            src={avatar}
-            alt={`${props.user.name}'s skinhead`}
-            className="h-10 w-10 rounded-sm"
-          />
-          <div className="flex flex-col items-start justify-start">
-            <p className="select-none text-lg leading-tight text-white">
-              {props.user.name}
-            </p>
-            <p className="text-xs leading-tight text-white text-opacity-60">
-              View Menu
-            </p>
+          <div className="flex flex-row items-center justify-start space-x-3">
+            <img
+              draggable="false"
+              src={avatar}
+              alt={`${props.user.name}'s skinhead`}
+              className="h-10 w-10 rounded-sm"
+            />
+            <div className="flex flex-col items-start justify-start">
+              <p className="select-none text-lg leading-tight text-white">
+                {props.user.name}
+              </p>
+              <p className="text-xs leading-tight text-white text-opacity-60">
+                View Menu
+              </p>
+            </div>
           </div>
           <motion.i
             animate={controls}
-            className="far fa-angle-down !ml-5 text-xl text-white text-opacity-60"
+            className="far fa-angle-down text-xl text-white text-opacity-60"
             transition={{ duration: 0.3 }}
           />
         </div>
