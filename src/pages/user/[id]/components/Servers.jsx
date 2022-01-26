@@ -27,7 +27,7 @@ function ServerList(props) {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3, delay: 0.4 }}
       >
-        Servers
+        {props.servers.length ? "Servers" : "No Servers"}
       </motion.h2>
       <div className="flex w-full flex-col items-start justify-start space-y-0.5 overflow-hidden rounded-[12px]">
         {props.servers.map((server, index) => (
