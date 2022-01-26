@@ -1,7 +1,5 @@
 import { motion, AnimateSharedLayout } from "framer-motion";
 
-import Options from "./Options";
-
 export default function Navigation(props) {
   return (
     <motion.div
@@ -25,11 +23,6 @@ export default function Navigation(props) {
             />
           </AnimateSharedLayout>
         </div>
-        <Options
-          user={props.user}
-          server={props.server}
-          showReportModal={props.showReportModal}
-        />
       </div>
       <div className="h-[3px] w-full bg-white bg-opacity-10" />
     </motion.div>

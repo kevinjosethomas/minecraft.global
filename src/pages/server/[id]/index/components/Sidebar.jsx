@@ -1,3 +1,4 @@
+import Link from "next/link";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
@@ -31,6 +32,22 @@ export default function Sidebar(props) {
           trailer_url={props.trailer_url}
           store_url={props.store_url}
         />
+      )}
+      {props.user_id === props.owner_id ? (
+        <Link href={`/server/${props.server_id}/manage`}>
+          <a className="flex select-none items-center justify-start space-x-3">
+            <i className="fas fa-tools text-3xl text-olive-600" />
+            <p className="text-3xl text-olive-600">Manage Server</p>
+          </a>
+        </Link>
+      ) : (
+        <div
+          className="flex cursor-pointer select-none items-center justify-start space-x-3"
+          onClick={() => props.showReportModal(true)}
+        >
+          <i className="fas fa-do-not-enter text-3xl text-red-700 text-opacity-80" />
+          <p className="text-3xl text-red-700 text-opacity-80">Report Server</p>
+        </div>
       )}
     </div>
   );

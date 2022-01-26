@@ -102,7 +102,6 @@ export default function Server(props) {
             user={props.user}
             server={props.server}
             setScreen={setScreen}
-            showReportModal={showReportModal}
           />
           <div className="flex w-full flex-col items-start justify-start space-y-8 md:flex-row md:space-y-0 md:space-x-8">
             <div className="flex w-full flex-col items-start justify-start">
@@ -115,7 +114,11 @@ export default function Server(props) {
                 />
               )}
             </div>
-            <Sidebar {...props.server} user_id={props.user?.user_id} />
+            <Sidebar
+              {...props.server}
+              user_id={props.user?.user_id}
+              showReportModal={showReportModal}
+            />
           </div>
         </div>
       </div>
