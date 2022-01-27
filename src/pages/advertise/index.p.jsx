@@ -1,0 +1,138 @@
+import Link from "next/link";
+
+import Default from "ui/layouts/Default";
+import { GetLoggedInUser } from "api/login";
+
+export default function Advertise(props) {
+  return (
+    <Default user={props.user} defaultResults={props.defaultResults}>
+      <div className="flex flex-col space-y-4">
+        <h1 className="text-4xl font-medium tracking-tight text-white">
+          Advertise on minecraft.global
+        </h1>
+        <div className="grid w-full grid-cols-2 gap-x-5">
+          <Banners />
+          <Auctions />
+        </div>
+      </div>
+    </Default>
+  );
+}
+
+function Banners() {
+  const info = [
+    "Fixed pricing every week",
+    "2 site-wide advertising slots",
+    "Advertisements rotate weekly",
+    "Displayed via a banner image",
+    "Links to an external website",
+    "Price range: $20-$25 weekly",
+  ];
+
+  return (
+    <div className="bg-opacity- flex flex-col items-center justify-start rounded-lg border-2 border-olive-930 bg-olive-950 transition duration-300">
+      <div className="flex w-full flex-col items-center justify-start space-y-5 border-b-2 border-olive-930 bg-black bg-opacity-20 p-6">
+        <img
+          src="/images/illustrations/wandering-trader.png"
+          draggable="false"
+          alt="Wandering Trader"
+          className="h-64"
+        />
+        <h2 className="text-4xl font-medium tracking-tight text-white">
+          Banner Advertisements
+        </h2>
+      </div>
+      <div className="flex w-full  flex-col items-start justify-start space-y-6 p-6">
+        <ul className="list-inside list-disc space-y-1">
+          {info.map((i, index) => (
+            <li
+              key={index}
+              className="text-2xl font-light text-white text-opacity-80"
+            >
+              {i}
+            </li>
+          ))}
+        </ul>
+        <Link href="/advertise/banner">
+          <a className="flex w-full flex-row items-center justify-center rounded bg-olive-910 py-2 transition duration-300 hover:bg-olive-900">
+            <p className="select-none text-2xl text-white text-opacity-90">
+              Check it out
+            </p>
+          </a>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function Auctions() {
+  const info = [
+    "Varying pricing every week",
+    "41 site-wide advertising slots",
+    "Advertisements rotate weekly",
+    "Displayed via a highlighted server card",
+    "Links to your server's minecraft.global page",
+    "Price range: $5+ weekly",
+  ];
+
+  return (
+    <div className="bg-opacity- flex flex-col items-center justify-start rounded-lg border-2 border-olive-930 bg-olive-950 transition duration-300">
+      <div className="flex w-full flex-col items-center justify-start space-y-5 border-b-2 border-olive-930 bg-black bg-opacity-20 p-6">
+        <img
+          src="/images/illustrations/auction-traders.png"
+          draggable="false"
+          alt="Wandering Trader"
+          className="h-64"
+        />
+        <h2 className="text-4xl font-medium tracking-tight text-white">
+          Auction Advertisements
+        </h2>
+      </div>
+      <div className="flex w-full  flex-col items-start justify-start space-y-6 p-6">
+        <ul className="list-inside list-disc space-y-1">
+          {info.map((i, index) => (
+            <li
+              key={index}
+              className="text-2xl font-light text-white text-opacity-80"
+            >
+              {i}
+            </li>
+          ))}
+        </ul>
+        <div className="flex w-full flex-row items-center justify-center rounded bg-olive-930 py-2 transition duration-300">
+          <p className="select-none text-2xl text-white text-opacity-90">
+            Coming Soon
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export async function getServerSideProps(ctx) {
+  try {
+    const user = await GetLoggedInUser(ctx);
+
+    if (user[1]) {
+      return {
+        redirect: {
+          destination: "/login",
+          permanent: false,
+        },
+      };
+    } else {
+      return {
+        props: {
+          user: user[0],
+        },
+      };
+    }
+  } catch (e) {
+    console.log(e);
+    return {
+      props: {
+        error: 500,
+      },
+    };
+  }
+}
