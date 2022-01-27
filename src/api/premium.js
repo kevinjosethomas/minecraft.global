@@ -3,7 +3,7 @@ import axios from "axios";
 const CreatePremiumSession = async (server_id, token) => {
   try {
     const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/premium/session?dev=${process.env.NEXT_PUBLIC_DEV}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/stripe/session/premium?dev=${process.env.NEXT_PUBLIC_DEV}`,
       {
         server_id: server_id,
       },
@@ -35,7 +35,7 @@ const GetAnalyticsPlugin = async () => {
 const CancelPremiumSubscription = async (id, token) => {
   try {
     const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/premium/cancel`,
+      `${process.env.NEXT_PUBLIC_API_URL}/stripe/premium/cancel`,
       {
         server_id: id,
       },
