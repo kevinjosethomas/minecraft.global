@@ -20,16 +20,13 @@ const FetchWeeeklyAdvertisements = async () => {
   }
 };
 
-const FetchUserProducts = async (user_id, token) => {
+const FetchUserProducts = async (token) => {
   try {
-    const response = await axios.get(
-      `${process.env.API_URL}/a/user/${user_id}/products`,
-      {
-        headers: {
-          Authorization: token,
-        },
-      }
-    );
+    const response = await axios.get(`${process.env.API_URL}/a/user/products`, {
+      headers: {
+        Authorization: token,
+      },
+    });
 
     return [response.data, null];
   } catch (e) {

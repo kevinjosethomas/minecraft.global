@@ -1,5 +1,11 @@
 import { Fragment, useState } from "react";
+import Cookies from "cookies";
 
+import {
+  FetchUserProducts,
+  FetchAdvertisementPrices,
+  FetchWeeeklyAdvertisements,
+} from "api/advertisements";
 import Default from "ui/layouts/Default";
 import { GetLoggedInUser } from "api/login";
 import Navigation from "./components/Navigation";
@@ -47,7 +53,23 @@ export default function Banner(props) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const user = await GetLoggedInUser(ctx);
+    const cookies = new Cookies(ctx.req, ctx.res);
+    const token = cookies.get("token");
+
+    const [user, products, prices, slots] = await Promise.all([
+      GetLoggedInUser(ctx),
+      FetchUserProducts(token),
+      FetchAdvertisementPrices(),
+      FetchWeeeklyAdvertisements(),
+    ]);
+
+    if (products[1] || prices[1] || slots[1]) {
+      return {
+        props: {
+          error: 500,
+        },
+      };
+    }
 
     if (user[1]) {
       return {
