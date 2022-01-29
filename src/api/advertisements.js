@@ -36,12 +36,15 @@ const FetchUserProducts = async (token) => {
 
 const CreateNewProduct = async (name, url, image, token) => {
   try {
+    const formdata = new FormData();
+
+    formdata.append("image", image);
+    // formdata.append("name", name);
+    // formdata.append("url", url);
+
     const response = await axios.post(
-      `${process.env.API_URL}/a/product/new`,
-      {
-        name,
-        url,
-      },
+      `${process.env.NEXT_PUBLIC_API_URL}/a/product/new`,
+      { image: formdata, name, url },
       {
         headers: {
           Authorization: token,
@@ -58,7 +61,7 @@ const CreateNewProduct = async (name, url, image, token) => {
 const EditProduct = async (product_id, name, url, image, token) => {
   try {
     const response = await axios.put(
-      `${process.env.API_URL}/a/product/${product_id}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/a/product/${product_id}`,
       {
         name,
         url,
@@ -79,7 +82,7 @@ const EditProduct = async (product_id, name, url, image, token) => {
 const DeleteProduct = async (product_id, token) => {
   try {
     const response = await axios.delete(
-      `${process.env.API_URL}/a/product/${product_id}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/a/product/${product_id}`,
       {
         headers: {
           Authorization: token,

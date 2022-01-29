@@ -9,6 +9,7 @@ import {
 import Default from "ui/layouts/Default";
 import { GetLoggedInUser } from "api/login";
 import Navigation from "./components/Navigation";
+import Products from "./screens/Products/Products";
 import Information from "./screens/Information/Information";
 
 const screens = [
@@ -42,6 +43,8 @@ export default function Banner(props) {
           <Navigation screens={screens} screen={screen} setScreen={setScreen} />
           {screen.name === "information" ? (
             <Information screens={screens} setScreen={setScreen} />
+          ) : screen.name === "products" ? (
+            <Products products={props.products} />
           ) : (
             <Fragment />
           )}
@@ -64,6 +67,7 @@ export async function getServerSideProps(ctx) {
     ]);
 
     if (products[1] || prices[1] || slots[1]) {
+      console.log(products[1]);
       return {
         props: {
           error: 500,
@@ -82,6 +86,9 @@ export async function getServerSideProps(ctx) {
       return {
         props: {
           user: user[0],
+          products: products[0],
+          prices: prices[0],
+          slots: slots[0],
         },
       };
     }
