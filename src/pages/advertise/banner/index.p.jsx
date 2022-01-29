@@ -1,5 +1,6 @@
-import { Fragment, useState } from "react";
 import Cookies from "cookies";
+import { useRouter } from "next/router";
+import { Fragment, useEffect, useState } from "react";
 
 import {
   FetchUserProducts,
@@ -31,7 +32,21 @@ const screens = [
 ];
 
 export default function Banner(props) {
+  const router = useRouter();
   const [screen, setScreen] = useState(screens[0]);
+
+  useEffect(() => {
+    if (!router.query.screen) {
+      return;
+    }
+
+    const q = router.query.screen.toLowerCase();
+    const s = screens.find((x) => x.name === q);
+
+    if (s) {
+      setScreen(s);
+    }
+  }, []);
 
   return (
     <Default user={props.user}>
@@ -86,9 +101,9 @@ export async function getServerSideProps(ctx) {
       return {
         props: {
           user: user[0],
-          products: products[0],
-          prices: prices[0],
-          slots: slots[0],
+          products: products[0].payload,
+          prices: prices[0].payload,
+          slots: slots[0].payload,
         },
       };
     }

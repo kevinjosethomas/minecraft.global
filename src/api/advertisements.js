@@ -39,12 +39,12 @@ const CreateNewProduct = async (name, url, image, token) => {
     const formdata = new FormData();
 
     formdata.append("image", image);
-    // formdata.append("name", name);
-    // formdata.append("url", url);
+    formdata.append("name", name);
+    formdata.append("url", url);
 
     const response = await axios.post(
       `${process.env.NEXT_PUBLIC_API_URL}/a/product/new`,
-      { image: formdata, name, url },
+      formdata,
       {
         headers: {
           Authorization: token,

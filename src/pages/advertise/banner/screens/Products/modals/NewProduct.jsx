@@ -1,14 +1,17 @@
 import cookies from "js-cookie";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import Dropzone from "react-dropzone";
 import { motion } from "framer-motion";
-import toast from "react-hot-toast";
+import { useRouter } from "next/router";
 
 import Modal from "ui/layouts/Modal";
 import Input from "../components/Input";
 import { CreateNewProduct } from "api/advertisements";
 
 export default function NewProduct(props) {
+  const router = useRouter();
+
   const [image, setImage] = useState();
   const [name, setName] = useState("");
   const [link, setLink] = useState("");
@@ -35,25 +38,43 @@ export default function NewProduct(props) {
       return;
     }
 
+    let formattedLink = link;
+
+    if (
+      !formattedLink.startsWith("http") &&
+      !formattedLink.startsWith("https")
+    ) {
+      formattedLink = `https://${link}`;
+    }
+
     const token = cookies.get("token");
-    const [response, error] = await CreateNewProduct(name, link, image, token);
+    const [response, error] = await CreateNewProduct(
+      name,
+      formattedLink,
+      image,
+      token
+    );
 
     if (error) {
-      switch (error.response.status) {
+      switch (error?.response?.status) {
         case 403:
           toast.error("You cannot have more than 8 products!");
+          break;
         case 415:
           toast.error("Invalid image provided!");
+          break;
         case 422:
           toast.error("Invalid information provided!");
+          break;
         default:
           toast.error("An unknown error occured!");
+          break;
       }
       return;
     }
 
-    toast.error("Successfully created your product!");
     props.showModal(false);
+    router.push("/advertise/banner?screen=products");
   };
 
   return (
