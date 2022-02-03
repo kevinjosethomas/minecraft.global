@@ -14,7 +14,7 @@ export default function Vote(props) {
       <ul className="list-inside list-disc">
         <li>~10,000 impressions / month</li>
         <li>Around 1194 x 216px resolution</li>
-        <li>Current Price: $25 / week</li>
+        <li>Current Price: ${props.price} / week</li>
       </ul>
       <a
         className="flex items-center space-x-2"

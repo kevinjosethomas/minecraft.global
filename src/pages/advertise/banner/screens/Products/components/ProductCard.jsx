@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
+import EditProduct from "../modals/EditProduct";
 import DeleteProduct from "../modals/DeleteProduct";
 
 export default function ProductCard(props) {
+  const [editModal, showEditModal] = useState(false);
   const [deleteModal, showDeleteModal] = useState(false);
 
   return (
@@ -16,6 +18,7 @@ export default function ProductCard(props) {
         </div>
       </div>
       <AnimatePresence>
+        {editModal && <EditProduct showModal={showEditModal} {...props} />}
         {deleteModal && (
           <DeleteProduct showModal={showDeleteModal} {...props} />
         )}
@@ -31,7 +34,7 @@ export default function ProductCard(props) {
           <span className="group-hover:underline">View Banner</span>
         </a>
         <span>•</span>
-        <p className="group cursor-pointer">
+        <p className="group cursor-pointer" onClick={() => showEditModal(true)}>
           <i className="far fa-pencil-paintbrush" />{" "}
           <span className="group-hover:underline">Edit</span>
         </p>

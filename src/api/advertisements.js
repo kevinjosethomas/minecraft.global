@@ -60,12 +60,18 @@ const CreateNewProduct = async (name, url, image, token) => {
 
 const EditProduct = async (product_id, name, url, image, token) => {
   try {
+    const formdata = new FormData();
+
+    if (image.preview.startsWith("blob:")) {
+      formdata.append("image", image);
+    }
+
+    formdata.append("name", name);
+    formdata.append("url", url);
+
     const response = await axios.put(
       `${process.env.NEXT_PUBLIC_API_URL}/a/product/${product_id}`,
-      {
-        name,
-        url,
-      },
+      formdata,
       {
         headers: {
           Authorization: token,

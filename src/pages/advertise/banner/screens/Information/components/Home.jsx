@@ -14,7 +14,7 @@ export default function Home(props) {
       <ul className="mt-2 list-inside list-disc">
         <li>~4,500 impressions / month</li>
         <li>Around 400 x 100px resolution</li>
-        <li>Current Price: $20 / week</li>
+        <li>Current Price: ${props.price} / week</li>
       </ul>
       <a
         className="flex items-center space-x-2"

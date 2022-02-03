@@ -57,7 +57,11 @@ export default function Banner(props) {
         <div className="flex flex-col space-y-4">
           <Navigation screens={screens} screen={screen} setScreen={setScreen} />
           {screen.name === "information" ? (
-            <Information screens={screens} setScreen={setScreen} />
+            <Information
+              screens={screens}
+              setScreen={setScreen}
+              prices={props.prices}
+            />
           ) : screen.name === "products" ? (
             <Products products={props.products} />
           ) : (
@@ -81,15 +85,6 @@ export async function getServerSideProps(ctx) {
       FetchWeeeklyAdvertisements(),
     ]);
 
-    if (products[1] || prices[1] || slots[1]) {
-      console.log(products[1]);
-      return {
-        props: {
-          error: 500,
-        },
-      };
-    }
-
     if (user[1]) {
       return {
         redirect: {
@@ -97,16 +92,24 @@ export async function getServerSideProps(ctx) {
           permanent: false,
         },
       };
-    } else {
+    }
+
+    if (products[1] || prices[1] || slots[1]) {
       return {
         props: {
-          user: user[0],
-          products: products[0].payload,
-          prices: prices[0].payload,
-          slots: slots[0].payload,
+          error: 500,
         },
       };
     }
+
+    return {
+      props: {
+        user: user[0],
+        products: products[0].payload,
+        prices: prices[0].payload,
+        slots: slots[0].payload,
+      },
+    };
   } catch (e) {
     console.log(e);
     return {
