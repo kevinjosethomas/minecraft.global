@@ -113,7 +113,7 @@ export default function UpvoteServer(props) {
             <TopVoters server_id={props.server.server_id} />
           </div>
         </div>
-        {/* <a
+        <a
           href="https://discord.minecraft.global/"
           target="_blank"
           rel="noopener"
@@ -124,8 +124,8 @@ export default function UpvoteServer(props) {
             alt="Rent this advertisement spot"
             className="rounded"
           />
-        </a> */}
-        <div className="flex flex-col items-center justify-start space-y-2 rounded border-2 border-olive-920 bg-olive-950 p-4">
+        </a>
+        {/* <div className="flex flex-col items-center justify-start space-y-2 rounded border-2 border-olive-920 bg-olive-950 p-4">
           <p className="text-2xl font-medium text-white text-opacity-90">
             Sponsored
           </p>
@@ -137,7 +137,7 @@ export default function UpvoteServer(props) {
               className="rounded"
             />
           </a>
-        </div>
+        </div> */}
         {/* <Similar tag={props.tag} /> */}
       </div>
     </Default>
