@@ -11,6 +11,7 @@ import Default from "ui/layouts/Default";
 import { GetLoggedInUser } from "api/login";
 import Navigation from "./components/Navigation";
 import Products from "./screens/Products/Products";
+import Purchase from "./screens/Purchase/Purchase";
 import Information from "./screens/Information/Information";
 
 const screens = [
@@ -64,6 +65,8 @@ export default function Banner(props) {
             />
           ) : screen.name === "products" ? (
             <Products products={props.products} />
+          ) : screen.name === "purchase" ? (
+            <Purchase slots={props.slots} prices={props.prices} />
           ) : (
             <Fragment />
           )}
