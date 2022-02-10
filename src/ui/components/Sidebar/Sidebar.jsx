@@ -8,15 +8,15 @@ export default function Sidebar(props) {
       {/* <div className="flex flex-col items-start justify-start w-full space-y-2"></div> */}
       {!props.addServer && <AddServer />}
       <div className="flex flex-col items-start justify-start space-y-2 rounded-lg border-2 border-olive-960 bg-olive-940 bg-opacity-30 p-2">
-        <a href="https://semivanilla.com/" target="_blank" rel="noopener">
+        {/* <a href="https://semivanilla.com/" target="_blank" rel="noopener">
           <img
             src="/images/semivanilla.png"
             draggable="false"
             alt="Semi Vanilla MC 1.18.1 Survival Join Now"
             className="rounded"
           />
-        </a>
-        {/* <a
+        </a> */}
+        <a
           href="https://discord.minecraft.global/"
           target="_blank"
           rel="noopener"
@@ -27,7 +27,7 @@ export default function Sidebar(props) {
             alt="Rent this advertisement spot"
             className="rounded"
           />
-        </a> */}
+        </a>
       </div>
 
       {/* <Premium /> */}

@@ -66,7 +66,11 @@ export default function Banner(props) {
           ) : screen.name === "products" ? (
             <Products products={props.products} />
           ) : screen.name === "purchase" ? (
-            <Purchase slots={props.slots} prices={props.prices} />
+            <Purchase
+              slots={props.slots}
+              prices={props.prices}
+              products={props.products}
+            />
           ) : (
             <Fragment />
           )}

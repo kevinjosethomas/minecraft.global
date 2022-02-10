@@ -17,7 +17,12 @@ export default function Products(props) {
         </div>
         <div className="flex w-full flex-col space-y-2">
           {props.slots.map((slot, index) => (
-            <Slot key={index} {...slot} prices={props.prices} />
+            <Slot
+              key={index}
+              {...slot}
+              prices={props.prices}
+              products={props.products}
+            />
           ))}
         </div>
       </div>
