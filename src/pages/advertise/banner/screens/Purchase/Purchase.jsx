@@ -1,6 +1,6 @@
 import Slot from "./components/Slot";
 
-export default function Products(props) {
+export default function Purchase(props) {
   return (
     <div className="flex w-full rounded-lg border-2 border-olive-940 bg-olive-950 p-6">
       <div className="flex w-full flex-col space-y-4">

@@ -14,6 +14,8 @@ const FetchWeeeklyAdvertisements = async () => {
   try {
     const response = await axios.get(`${process.env.API_URL}/a/slots`);
 
+    console.log(response.data.payload);
+
     return [response.data, null];
   } catch (e) {
     return [null, e];
@@ -102,6 +104,33 @@ const DeleteProduct = async (product_id, token) => {
   }
 };
 
+const CreateAdvertisementSession = async (
+  product_id,
+  week_id,
+  location,
+  token
+) => {
+  try {
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_API_URL}/stripe/session/advertisement?dev=${process.env.NEXT_PUBLIC_DEV}`,
+      {
+        product_id,
+        week_id,
+        location,
+      },
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+
+    return [response.data, null];
+  } catch (e) {
+    return [null, e];
+  }
+};
+
 export {
   FetchAdvertisementPrices,
   FetchWeeeklyAdvertisements,
@@ -109,4 +138,5 @@ export {
   CreateNewProduct,
   EditProduct,
   DeleteProduct,
+  CreateAdvertisementSession,
 };

@@ -26,6 +26,7 @@ export default function Slot(props) {
         {modal && (
           <Purchase
             type={modal}
+            week_id={props.week_id}
             showModal={showModal}
             products={props.products}
             prices={props.prices}
