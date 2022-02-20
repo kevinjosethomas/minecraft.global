@@ -7,15 +7,15 @@ export default function Sidebar(props) {
     <div className="hidden min-w-[400px] max-w-[400px] flex-col items-start justify-start space-y-8 md:flex">
       {/* <div className="flex flex-col items-start justify-start w-full space-y-2"></div> */}
       {!props.addServer && <AddServer />}
-      <div className="flex flex-col items-start justify-start space-y-2 rounded-lg border-2 border-olive-960 bg-olive-940 bg-opacity-30 p-2">
-        {/* <a href="https://semivanilla.com/" target="_blank" rel="noopener">
+      {/* <div className="flex flex-col items-start justify-start space-y-2 rounded-lg border-2 border-olive-960 bg-olive-940 bg-opacity-30 p-2">
+        <a href="https://semivanilla.com/" target="_blank" rel="noopener">
           <img
             src="/images/semivanilla.png"
             draggable="false"
             alt="Semi Vanilla MC 1.18.1 Survival Join Now"
             className="rounded"
           />
-        </a> */}
+        </a>
         <a
           href="https://discord.minecraft.global/"
           target="_blank"
@@ -28,8 +28,7 @@ export default function Sidebar(props) {
             className="rounded"
           />
         </a>
-      </div>
-
+      </div> */}
       {/* <Premium /> */}
       <Tags servers={props.servers} />
     </div>

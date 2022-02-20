@@ -38,12 +38,17 @@ export default function Tags(props) {
   };
 
   return (
-    <div className="flex w-full flex-col items-start justify-start space-y-2 rounded-lg border-2 border-olive-960 bg-olive-940 bg-opacity-30 py-6 px-4">
+    <div className="flex w-full flex-col items-start justify-start space-y-2 overflow-hidden rounded-lg border-2 border-olive-960 bg-olive-940 bg-opacity-30 py-6 px-4">
       <div className="flex items-center justify-start space-x-2 px-4">
         <i className="fas fa-tags text-3xl text-olive-600" />
         <p className="text-3xl text-white text-opacity-80">Popular Tags</p>
       </div>
-      <div className="flex w-full flex-col items-start justify-start">
+      <div className="relative flex w-full flex-col items-start justify-start">
+        <img
+          draggable="false"
+          src="/images/illustrations/ghast.gif"
+          className="absolute -right-16 top-10 w-1/2 opacity-80"
+        />
         <InfiniteScroll
           pageStart={5}
           loadMore={loadMore}
