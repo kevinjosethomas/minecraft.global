@@ -25,7 +25,7 @@ export default function Info(props) {
     <div className="flex items-center justify-center">
       <div className="relative flex items-center justify-center">
         <div
-          className="flex cursor-pointer items-center justify-center space-x-8 rounded-lg border-2 border-olive-930 bg-olive-900 bg-opacity-30 px-3 py-2"
+          className="flex cursor-pointer items-center justify-center space-x-8 rounded-lg border-2 border-olive-920 bg-olive-910 bg-opacity-60 px-3 py-2"
           onClick={() => showDropdown((dd) => !dd)}
         >
           <div className="flex flex-row items-center justify-start space-x-3">

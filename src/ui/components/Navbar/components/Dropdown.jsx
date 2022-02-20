@@ -1,5 +1,6 @@
 import Link from "next/link";
 import cookie from "js-cookie";
+import { Fragment } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import OnOutsideClick from "react-outclick";
@@ -8,7 +9,7 @@ export default function Dropdown(props) {
   return (
     <OnOutsideClick onOutsideClick={() => props.showDropdown(false)}>
       <motion.div
-        className="absolute top-16 right-0 z-40 flex flex-col items-start justify-start space-y-2 overflow-hidden rounded-md border-2 border-olive-940 bg-olive-960"
+        className="user-dropdown absolute top-16 right-0 z-40 flex flex-col items-start justify-start space-y-4 overflow-hidden rounded-lg border-2 border-olive-920 bg-olive-910 bg-opacity-60 py-4 px-6"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 10, opacity: 0 }}
@@ -23,7 +24,7 @@ export default function Dropdown(props) {
 
 function Identity(props) {
   return (
-    <div className="flex w-full flex-col items-start justify-start bg-olive-980 py-4 pl-7 pr-10">
+    <div className="flex w-full flex-col items-start justify-start pr-10">
       <p className="whitespace-nowrap text-lg leading-tight text-white text-opacity-60">
         Logged in as
       </p>
@@ -38,43 +39,62 @@ function Links(props) {
   const router = useRouter();
 
   return (
-    <div className="flex w-full flex-col items-start justify-start py-2 px-3">
-      <Link href={`/user/${props.id}`}>
-        <a className="flex w-full cursor-pointer select-none items-center justify-start space-x-2 rounded py-1 pl-4 pr-14 transition duration-300 hover:bg-black hover:bg-opacity-30">
-          <i className="fas fa-info-circle w-[30px] text-2xl text-white text-opacity-60" />
-          <p className="whitespace-nowrap text-2xl text-white text-opacity-60">
-            View Profile
-          </p>
-        </a>
-      </Link>
-      <Link href="/server/add">
-        <a className="flex w-full cursor-pointer select-none items-center justify-start space-x-2 rounded py-1 pl-4 pr-14 transition duration-300 hover:bg-black hover:bg-opacity-30">
-          <i className="fas fa-plus-circle w-[30px] text-2xl text-white text-opacity-60" />
-          <p className="whitespace-nowrap text-2xl text-white text-opacity-60">
-            Add Server
-          </p>
-        </a>
-      </Link>
-      <Link href={`/user/${props.id}/edit`}>
-        <a className="flex w-full cursor-pointer select-none items-center justify-start space-x-2 rounded py-1 pl-4 pr-14 transition duration-300 hover:bg-black hover:bg-opacity-30">
-          <i className="far fa-pencil-paintbrush w-[30px] text-2xl text-white text-opacity-60" />
-          <p className="whitespace-nowrap text-2xl text-white text-opacity-60">
-            Edit Profile
-          </p>
-        </a>
-      </Link>
-      <div
-        className="flex w-full cursor-pointer select-none items-center justify-start space-x-2 rounded py-1 pl-4 pr-14 transition duration-300 hover:bg-black hover:bg-opacity-30"
+    <div className="flex w-full flex-col items-start justify-start space-y-1">
+      <Element
+        href={`/user/${props.id}`}
+        label="View Profile"
+        icon="fas fa-info-circle"
+      />
+      <Element
+        href="/server/add"
+        label="Add Server"
+        icon="fas fa-plus-circle"
+      />
+      <Element
+        href={`/user/${props.id}/edit`}
+        label="Edit Profile"
+        icon="far fa-pencil-paintbrush"
+      />
+      <Element
+        label="Log Out"
+        icon="far fa-sign-out"
         onClick={() => {
           cookie.remove("token");
           router.reload();
         }}
-      >
-        <i className="far fa-sign-out w-[30px] text-2xl text-white text-opacity-60" />
-        <p className="whitespace-nowrap text-2xl text-white text-opacity-60">
-          Log Out
-        </p>
-      </div>
+      />
     </div>
+  );
+}
+
+function Element(props) {
+  const Container = (p) => (
+    <Fragment>
+      {props.href ? (
+        <Link href={props.href}>
+          <a className="group flex cursor-pointer select-none items-center justify-start space-x-2">
+            {p.children}
+          </a>
+        </Link>
+      ) : (
+        <div
+          className="group flex cursor-pointer select-none items-center justify-start space-x-2"
+          onClick={props.onClick}
+        >
+          {p.children}
+        </div>
+      )}
+    </Fragment>
+  );
+
+  return (
+    <Container>
+      <i
+        className={`${props.icon} w-[30px] text-2xl text-white text-opacity-80 transition duration-300 group-hover:text-opacity-90`}
+      />
+      <p className="whitespace-nowrap text-2xl text-white text-opacity-80 transition duration-300 group-hover:text-opacity-90">
+        {props.label}
+      </p>
+    </Container>
   );
 }

@@ -76,6 +76,11 @@ code {
   bottom: -3px;
 }
 
+.user-dropdown {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
 .auctions-red-dot {
   animation: auctions-red-dot 2s infinite;
 }
