@@ -39,17 +39,37 @@ export default function Slot(props) {
         Week: {start.format("MMM Do")} → {end.format("MMM Do")}
       </p>
       <div className="flex space-x-6">
-        <div className="flex w-[200px] justify-center">
-          <Button
-            price={props.prices.vote_page}
-            onClick={() => onClick("vote")}
-          />
+        <div className="flex w-[200px] items-center justify-center">
+          {props.slot_vote_page ? (
+            <p className="text-xl font-bold text-olive-500">
+              {props.products.filter(
+                (x) => x.product_id == props.slot_vote_page
+              ).length
+                ? "Purchased by you"
+                : "Sold"}
+            </p>
+          ) : (
+            <Button
+              price={props.prices.vote_page}
+              onClick={() => onClick("vote")}
+            />
+          )}
         </div>
-        <div className="flex w-[200px] justify-center">
-          <Button
-            price={props.prices.home_page}
-            onClick={() => onClick("home")}
-          />
+        <div className="flex w-[200px] items-center justify-center">
+          {props.slot_home_page ? (
+            <p className="text-xl font-bold text-olive-500">
+              {props.products.filter(
+                (x) => x.product_id == props.slot_home_page
+              ).length
+                ? "Purchased by you"
+                : "Sold"}
+            </p>
+          ) : (
+            <Button
+              price={props.prices.home_page}
+              onClick={() => onClick("home")}
+            />
+          )}
         </div>
       </div>
     </div>
