@@ -125,20 +125,6 @@ export default function UpvoteServer(props) {
             className="rounded"
           />
         </a>
-        {/* <div className="flex flex-col items-center justify-start space-y-2 rounded border-2 border-olive-920 bg-olive-950 p-4">
-          <p className="text-2xl font-medium text-white text-opacity-90">
-            Sponsored
-          </p>
-          <a href="https://oreomc.com/" target="_blank" rel="noopener">
-            <img
-              src="/images/oreomc-ad.png"
-              draggable="false"
-              alt="Semi Vanilla MC 1.18.1 Survival Join Now"
-              className="rounded"
-            />
-          </a>
-        </div> */}
-        {/* <Similar tag={props.tag} /> */}
       </div>
     </Default>
   );
