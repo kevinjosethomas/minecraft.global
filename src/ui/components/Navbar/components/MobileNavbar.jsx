@@ -5,20 +5,20 @@ import { motion } from "framer-motion";
 export default function MobileNavbar(props) {
   return (
     <motion.div
-      className="absolute top-0 left-0 z-40 !mt-0 flex h-screen w-screen flex-col items-start justify-start bg-black bg-opacity-60"
+      className="absolute top-0 left-0 z-40 !mt-0 flex h-screen w-screen flex-col items-start justify-start bg-black bg-opacity-80"
       onClick={() => props.setMobile(false)}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.2 }}
     >
       <motion.div
-        className="flex h-full w-[85%] flex-col items-center justify-center space-y-4 border-r-2 border-olive-940 bg-olive-960 px-4"
+        className="flex h-full w-[85%] flex-col items-center justify-center space-y-4 border-r-2 border-olive-910 bg-olive-920 px-4"
         onClick={(e) => e.stopPropagation()}
         initial={{ x: "-100%" }}
         animate={{ x: 0 }}
         exit={{ x: "-100%" }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.2 }}
       >
         {props.user && <User user={props.user} />}
         <Default />
@@ -37,7 +37,7 @@ export default function MobileNavbar(props) {
 
 function Default() {
   return (
-    <div className="flex w-full flex-col items-start justify-start overflow-hidden rounded border-2 border-olive-940 bg-olive-980 py-1">
+    <div className="flex w-full flex-col items-start justify-start overflow-hidden rounded-xl bg-olive-930 py-1">
       <Element icon="far fa-home-alt" label="Discover" href="/" />
       <Element icon="far fa-search" label="Search" href="/search" />
       <Element icon="far fa-badge-dollar" label="Advertise" href="/advertise" />
@@ -52,11 +52,11 @@ function User(props) {
     : "/images/steve.png";
 
   return (
-    <div className="flex w-full flex-col items-start justify-start space-y-3 overflow-hidden rounded border-2 border-olive-940 bg-olive-980 p-4">
+    <div className="flex w-full flex-col items-start justify-start space-y-3 overflow-hidden rounded-xl bg-olive-930 p-4">
       <img
         src={avatar}
         alt={`${props.user.name}'s skinhead`}
-        className="w-[72px] rounded-sm"
+        className="w-[72px] rounded-xl"
       />
       <div className="flex flex-col items-start justify-start">
         <p className="text- leading-tight text-white text-opacity-60">
@@ -72,7 +72,7 @@ function User(props) {
 
 function Logged(props) {
   return (
-    <div className="flex w-full flex-col items-start justify-start overflow-hidden rounded border-2 border-olive-940 bg-olive-980 py-1">
+    <div className="flex w-full flex-col items-start justify-start overflow-hidden rounded-xl bg-olive-930 py-1">
       <Element
         icon="far fa-info-circle"
         label="View Profile"
@@ -94,7 +94,7 @@ function Logged(props) {
 
 function Login() {
   return (
-    <div className="flex w-full flex-col items-start justify-start overflow-hidden rounded border-2 border-olive-940 bg-olive-980 py-1">
+    <div className="flex w-full flex-col items-start justify-start overflow-hidden rounded-xl bg-olive-930 py-1">
       <Element icon="far fa-sign-in-alt" label="Login" href="/login" />
     </div>
   );
@@ -102,7 +102,7 @@ function Login() {
 
 function Logout() {
   return (
-    <div className="flex w-full flex-col items-start justify-start overflow-hidden rounded border-2 border-olive-940 bg-olive-980 py-1">
+    <div className="flex w-full flex-col items-start justify-start overflow-hidden rounded-xl bg-olive-930 py-1">
       <Element icon="far fa-sign-out-alt" label="Logout" />
     </div>
   );
