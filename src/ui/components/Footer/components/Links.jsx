@@ -107,7 +107,7 @@ export default function Links(props) {
 
 function Column(props) {
   return (
-    <div className="flex w-full flex-col items-start justify-start rounded border-2 border-olive-920 bg-olive-950 px-4 py-3 md:w-auto md:space-y-2 md:border-0 md:bg-transparent md:py-0">
+    <div className="flex w-full flex-col items-start justify-start rounded-xl border-2 border-olive-920 bg-olive-930 px-4 py-3 md:w-auto md:space-y-2 md:border-0 md:bg-transparent md:py-0">
       <p className="hidden text-xl font-medium text-white text-opacity-90 md:inline">
         {props.name}
       </p>
@@ -125,9 +125,9 @@ function Row(props) {
     <Link href={props.href}>
       <a className="flex items-center justify-start space-x-4 md:space-x-0">
         <i
-          className={`${props.icon} w-[25px] text-center text-xl text-white text-opacity-60 md:hidden`}
+          className={`${props.icon} w-[25px] text-center text-xl text-white text-opacity-80 md:hidden md:text-opacity-60`}
         />
-        <p className="text-xl text-white text-opacity-60 transition duration-300 hover:text-opacity-70">
+        <p className="text-xl text-white text-opacity-80 transition duration-300 hover:text-opacity-70 md:text-opacity-60">
           {props.name}
         </p>
       </a>

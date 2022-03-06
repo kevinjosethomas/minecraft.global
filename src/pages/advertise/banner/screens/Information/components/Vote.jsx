@@ -2,8 +2,8 @@ export default function Vote(props) {
   return (
     <div className="flex flex-col space-y-2">
       <div className="flex items-center space-x-2">
-        <i className="fas fa-arrow-alt-up text-3xl text-white text-opacity-90" />{" "}
-        <p className="text-3xl font-medium text-white text-opacity-90">
+        <i className="fas fa-arrow-alt-up t-whipacity-90 text-2xl md:text-3xl md:text-3xl" />{" "}
+        <p className="text-2xl font-medium text-white text-opacity-90 md:text-3xl">
           Server Vote Page
         </p>
       </div>

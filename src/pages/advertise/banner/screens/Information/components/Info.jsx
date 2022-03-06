@@ -2,8 +2,8 @@ export default function Info(props) {
   return (
     <div className="flex flex-col">
       <div className="mb-2 flex items-center space-x-2">
-        <i className="far fa-info-circle text-3xl text-white text-opacity-90" />{" "}
-        <p className="text-3xl font-medium text-white text-opacity-90">
+        <i className="far fa-info-circle text-2xl text-white text-opacity-90 md:text-3xl" />{" "}
+        <p className="text-2xl font-medium text-white text-opacity-90 md:text-3xl">
           How do banner ads work?
         </p>
       </div>
@@ -13,9 +13,9 @@ export default function Info(props) {
         <li>Prices are fixed but will be manually increased as we grow</li>
       </ul>
       <div className="mb-2 flex items-center space-x-2">
-        <i className="far fa-badge-dollar text-3xl text-white text-opacity-90" />{" "}
-        <p className="text-3xl font-medium text-white text-opacity-90">
-          How to purchase a banner ad?
+        <i className="far fa-badge-dollar text-2xl text-white text-opacity-90 md:text-3xl" />{" "}
+        <p className="text-2xl font-medium text-white text-opacity-90 md:text-3xl">
+          How to purchase an ad?
         </p>
       </div>
       <p>You can purchase a banner ad for any week in the next 4 weeks.</p>

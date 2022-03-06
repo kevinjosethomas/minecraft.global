@@ -80,17 +80,17 @@ export default function NewProduct(props) {
   return (
     <Modal showModal={props.showModal}>
       <motion.div
-        className="flex-col space-y-6 rounded-lg border-2 border-olive-940 bg-olive-950 p-6"
+        className="max-h-[90%] w-11/12 flex-col space-y-4 overflow-y-scroll rounded-lg border-2 border-olive-940 bg-olive-950 p-6 md:w-auto md:space-y-6"
         onClick={(e) => e.stopPropagation()}
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 10, opacity: 0 }}
         transition={{ duration: 0.3, delay: 0.2 }}
       >
-        <h1 className="text-4xl font-medium text-white text-opacity-90">
+        <h1 className="text-3xl font-medium text-white text-opacity-90 md:text-4xl">
           Create Advertisement
         </h1>
-        <div className="flex flex-col items-start justify-start space-y-5">
+        <div className="flex flex-col items-start justify-start space-y-3 md:space-y-5">
           <Input
             value={name}
             label="Advertisement Name"
@@ -138,10 +138,10 @@ function DropFiles(props) {
   return (
     <div className="flex w-full flex-col space-y-3">
       <div className="flex flex-col items-start justify-start">
-        <p className="text-2xl text-white text-opacity-80">
+        <p className="text-xl text-white text-opacity-80 md:text-2xl">
           Advertisement Banner Image
         </p>
-        <p className="text-lg leading-tight text-white text-opacity-60">
+        <p className="leading-tight text-white text-opacity-60 md:text-lg">
           Click or drag and drop an image to upload
         </p>
       </div>

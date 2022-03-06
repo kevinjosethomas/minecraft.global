@@ -40,7 +40,7 @@ function Default() {
     <div className="flex w-full flex-col items-start justify-start overflow-hidden rounded border-2 border-olive-940 bg-olive-980 py-1">
       <Element icon="far fa-home-alt" label="Discover" href="/" />
       <Element icon="far fa-search" label="Search" href="/search" />
-      <Element icon="far fa-badge-dollar" label="Premium" href="/premium" />
+      <Element icon="far fa-badge-dollar" label="Advertise" href="/advertise" />
       {/* <Element icon="far fa-stars" label="Advertise" href="/auctions" /> */}
     </div>
   );

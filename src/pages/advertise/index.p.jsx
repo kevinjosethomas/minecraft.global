@@ -6,11 +6,11 @@ import { GetLoggedInUser } from "api/login";
 export default function Advertise(props) {
   return (
     <Default user={props.user} defaultResults={props.defaultResults}>
-      <div className="flex flex-col space-y-4">
+      <div className="flex w-full flex-col space-y-4">
         <h1 className="text-4xl font-medium tracking-tight text-white">
           Advertise on minecraft.global
         </h1>
-        <div className="grid w-full grid-cols-2 gap-x-5">
+        <div className="grid w-full  gap-y-5 md:grid-cols-2 md:gap-y-0 md:gap-x-5">
           <Banners />
           <Auctions />
         </div>
@@ -38,7 +38,7 @@ function Banners() {
           alt="Wandering Trader"
           className="h-64"
         />
-        <h2 className="text-4xl font-medium tracking-tight text-white">
+        <h2 className="text-3xl font-medium tracking-tight text-white md:text-4xl">
           Banner Advertisements
         </h2>
       </div>
@@ -47,7 +47,7 @@ function Banners() {
           {info.map((i, index) => (
             <li
               key={index}
-              className="text-2xl font-light text-white text-opacity-80"
+              className="text-lg font-light text-white text-opacity-80 md:text-2xl"
             >
               {i}
             </li>
@@ -70,7 +70,7 @@ function Auctions() {
     "Varying pricing every week",
     "41 site-wide advertising slots",
     "Advertisements rotate weekly",
-    "Displayed via a highlighted server card",
+    "Displayed as a highlighted server",
     "Links to your server's minecraft.global page",
     "Price range: $5+ weekly",
   ];
@@ -84,16 +84,16 @@ function Auctions() {
           alt="Wandering Trader"
           className="h-64"
         />
-        <h2 className="text-4xl font-medium tracking-tight text-white">
+        <h2 className="text-3xl font-medium tracking-tight text-white md:text-4xl">
           Auction Advertisements
         </h2>
       </div>
-      <div className="flex w-full  flex-col items-start justify-start space-y-6 p-6">
+      <div className="flex w-full flex-col items-start justify-start space-y-6 p-6">
         <ul className="list-inside list-disc space-y-1">
           {info.map((i, index) => (
             <li
               key={index}
-              className="text-2xl font-light text-white text-opacity-80"
+              className="text-lg font-light text-white text-opacity-80 md:text-2xl"
             >
               {i}
             </li>

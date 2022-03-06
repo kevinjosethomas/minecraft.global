@@ -51,8 +51,8 @@ export default function Banner(props) {
 
   return (
     <Default user={props.user}>
-      <div className="flex w-full flex-col space-y-8">
-        <h1 className="text-5xl font-medium tracking-tight text-white">
+      <div className="flex w-full flex-col space-y-4 md:space-y-8">
+        <h1 className="text-3xl font-medium tracking-tight text-white md:text-5xl">
           Banner Advertising
         </h1>
         <div className="flex flex-col space-y-4">

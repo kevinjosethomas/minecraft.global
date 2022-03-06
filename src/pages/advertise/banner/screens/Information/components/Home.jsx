@@ -2,8 +2,8 @@ export default function Home(props) {
   return (
     <div className="flex flex-col space-y-2">
       <div className="flex items-center space-x-2">
-        <i className="fas fa-home-alt text-3xl text-white text-opacity-90" />{" "}
-        <p className="text-3xl font-medium text-white text-opacity-90">
+        <i className="fas fa-home-alt text-2xl text-white text-opacity-90 md:text-3xl" />{" "}
+        <p className="text-2xl font-medium text-white text-opacity-90 md:text-3xl">
           Home & Search Pages
         </p>
       </div>

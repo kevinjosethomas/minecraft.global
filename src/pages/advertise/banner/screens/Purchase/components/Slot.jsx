@@ -21,7 +21,7 @@ export default function Slot(props) {
   };
 
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex flex-col items-center space-y-1 md:flex-row md:justify-between md:space-y-0">
       <AnimatePresence>
         {modal && (
           <Purchase
@@ -38,8 +38,8 @@ export default function Slot(props) {
       <p className="text-2xl text-white text-opacity-80">
         Week: {start.format("MMM Do")} → {end.format("MMM Do")}
       </p>
-      <div className="flex space-x-6">
-        <div className="flex w-[200px] items-center justify-center">
+      <div className="flex w-full justify-between md:w-auto md:justify-start md:space-x-6">
+        <div className="flex items-center justify-center md:w-[200px]">
           {props.slot_vote_page ? (
             <p className="text-xl font-bold text-olive-500">
               {props.products.filter(
@@ -55,7 +55,7 @@ export default function Slot(props) {
             />
           )}
         </div>
-        <div className="flex w-[200px] items-center justify-center">
+        <div className="flex items-center justify-center md:w-[200px]">
           {props.slot_home_page ? (
             <p className="text-xl font-bold text-olive-500">
               {props.products.filter(
@@ -82,7 +82,9 @@ function Button(props) {
       className="flex cursor-pointer items-center rounded bg-olive-900 px-4 py-2 transition duration-300 hover:bg-olive-800"
       onClick={props.onClick}
     >
-      <p className="select-none text-xl text-white">Buy for ${props.price}</p>
+      <p className="select-none text-lg text-white md:text-xl">
+        Buy for ${props.price}
+      </p>
     </div>
   );
 }

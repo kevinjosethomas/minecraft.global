@@ -56,7 +56,7 @@ export default function Purchase(props) {
   return (
     <Modal showModal={props.showModal}>
       <motion.div
-        className="flex flex-col space-y-8 rounded-lg border-2 border-olive-940 bg-olive-950 p-6"
+        className="flex w-11/12 flex-col space-y-8 rounded-lg border-2 border-olive-940 bg-olive-950 p-6 md:w-auto"
         onClick={(e) => e.stopPropagation()}
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

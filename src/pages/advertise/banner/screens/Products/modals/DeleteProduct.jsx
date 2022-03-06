@@ -32,17 +32,17 @@ export default function DeleteProductModal(props) {
   return (
     <Modal showModal={props.showModal}>
       <motion.div
-        className="w-[600px] flex-col space-y-2 rounded-lg border-2 border-olive-940 bg-olive-950 p-6"
+        className="w-11/12 flex-col space-y-2 rounded-lg border-2 border-olive-940 bg-olive-950 p-6 md:w-[600px]"
         onClick={(e) => e.stopPropagation()}
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 10, opacity: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <h1 className="text-4xl font-medium text-white text-opacity-90">
+        <h1 className="text-3xl font-medium text-white text-opacity-90 md:text-4xl">
           Delete Advertisement
         </h1>
-        <p className="text-xl text-white text-opacity-80">
+        <p className="text-lg text-white text-opacity-80 md:text-xl">
           Are you sure you want to permanently delete the &quot;{props.name}
           &quot; Advertisement Product?
         </p>
