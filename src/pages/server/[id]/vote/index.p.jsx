@@ -114,15 +114,16 @@ export default function UpvoteServer(props) {
           </div>
         </div>
         <a
-          href="https://discord.minecraft.global/"
+          className="w-full"
+          href="https://api.minecraft.global/a/vote/redirect"
           target="_blank"
           rel="noopener"
         >
           <img
-            src="/images/votepage-ad.png"
             draggable="false"
-            alt="Rent this advertisement spot"
-            className="rounded"
+            alt="Embedded Image"
+            src="https://api.minecraft.global/a/vote/image"
+            className="w-full"
           />
         </a>
       </div>
