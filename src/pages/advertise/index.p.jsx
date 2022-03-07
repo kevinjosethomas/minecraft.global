@@ -7,12 +7,21 @@ export default function Advertise(props) {
   return (
     <Default user={props.user} defaultResults={props.defaultResults}>
       <div className="flex w-full flex-col space-y-4">
-        <h1 className="text-4xl font-medium tracking-tight text-white">
+        <h1 className="text-5xl font-medium tracking-tight text-white">
           Advertise on minecraft.global
         </h1>
-        <div className="grid w-full  gap-y-5 md:grid-cols-2 md:gap-y-0 md:gap-x-5">
-          <Banners />
-          <Auctions />
+        <div className="flex w-full flex-col space-y-5">
+          <Link href="/advertise/dashboard">
+            <a className="flex w-full items-center justify-center rounded-lg border-2 border-olive-900 bg-olive-910 py-2 transition duration-300 hover:bg-olive-900">
+              <p className="select-none text-xl text-white md:text-2xl">
+                View Advertising Dashboard
+              </p>
+            </a>
+          </Link>
+          <div className="grid w-full gap-y-5 md:grid-cols-2 md:gap-y-0 md:gap-x-5">
+            <Banners />
+            <Auctions />
+          </div>
         </div>
       </div>
     </Default>

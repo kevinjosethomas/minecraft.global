@@ -14,7 +14,19 @@ const FetchWeeeklyAdvertisements = async () => {
   try {
     const response = await axios.get(`${process.env.API_URL}/a/slots`);
 
-    console.log(response.data.payload);
+    return [response.data, null];
+  } catch (e) {
+    return [null, e];
+  }
+};
+
+const FetchUserAdvertisements = async (token) => {
+  try {
+    const response = await axios.get(`${process.env.API_URL}/a/user/slots`, {
+      headers: {
+        Authorization: token,
+      },
+    });
 
     return [response.data, null];
   } catch (e) {
@@ -133,6 +145,7 @@ const CreateAdvertisementSession = async (
 
 export {
   FetchAdvertisementPrices,
+  FetchUserAdvertisements,
   FetchWeeeklyAdvertisements,
   FetchUserProducts,
   CreateNewProduct,
