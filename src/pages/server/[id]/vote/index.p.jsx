@@ -123,7 +123,7 @@ export default function UpvoteServer(props) {
             draggable="false"
             alt="Embedded Image"
             src="https://api.minecraft.global/a/vote/image"
-            className="w-full"
+            className="h-[200px] w-[1200px]"
           />
         </a>
       </div>

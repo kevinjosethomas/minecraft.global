@@ -14,6 +14,7 @@ export default function Sidebar(props) {
           draggable="false"
           alt="Embedded Image"
           src="https://api.minecraft.global/a/home/image"
+          className="h-[66px] w-[400px]"
         />
       </a>
       <Tags servers={props.servers} />
