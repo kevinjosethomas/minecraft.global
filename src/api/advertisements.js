@@ -34,6 +34,23 @@ const FetchUserAdvertisements = async (token) => {
   }
 };
 
+const FetchAdvertisementAnalytics = async (week_id, location, token) => {
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/a/user/slots/analytics?week_id=${week_id}&location=${location}`,
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+
+    return [response.data, null];
+  } catch (e) {
+    return [null, e];
+  }
+};
+
 const FetchUserProducts = async (token) => {
   try {
     const response = await axios.get(`${process.env.API_URL}/a/user/products`, {
@@ -148,6 +165,7 @@ export {
   FetchUserAdvertisements,
   FetchWeeeklyAdvertisements,
   FetchUserProducts,
+  FetchAdvertisementAnalytics,
   CreateNewProduct,
   EditProduct,
   DeleteProduct,

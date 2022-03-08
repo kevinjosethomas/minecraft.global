@@ -80,7 +80,7 @@ export default function NewProduct(props) {
   return (
     <Modal showModal={props.showModal}>
       <motion.div
-        className="max-h-[90%] w-11/12 flex-col space-y-4 overflow-y-scroll rounded-lg border-2 border-olive-940 bg-olive-950 p-6 md:w-auto md:space-y-6"
+        className="flex max-h-[90%] w-11/12 flex-col space-y-4 overflow-y-scroll rounded-lg border-2 border-olive-940 bg-olive-950 p-6 md:w-auto md:space-y-6"
         onClick={(e) => e.stopPropagation()}
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

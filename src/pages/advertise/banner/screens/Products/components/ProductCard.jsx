@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
 import EditProduct from "../modals/EditProduct";
@@ -7,6 +7,14 @@ import DeleteProduct from "../modals/DeleteProduct";
 export default function ProductCard(props) {
   const [editModal, showEditModal] = useState(false);
   const [deleteModal, showDeleteModal] = useState(false);
+
+  useEffect(() => {
+    if (editModal || deleteModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [editModal, deleteModal]);
 
   return (
     <div className="flex h-40 flex-col justify-between rounded-lg border-2 border-olive-940 bg-olive-950 p-4">

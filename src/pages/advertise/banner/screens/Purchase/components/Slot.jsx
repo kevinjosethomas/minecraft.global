@@ -1,6 +1,6 @@
 import moment from "moment";
-import { useState } from "react";
 import toast from "react-hot-toast";
+import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
 import Purchase from "../modals/Purchase";
@@ -10,6 +10,14 @@ export default function Slot(props) {
   const end = moment(props.starts_at).local().add(7, "days");
 
   const [modal, showModal] = useState(false);
+
+  useEffect(() => {
+    if (modal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [modal]);
 
   const onClick = (type) => {
     if (props.products.length === 0) {
