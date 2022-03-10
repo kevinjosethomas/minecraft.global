@@ -21,7 +21,7 @@ export default function Advertising() {
               versions!
             </p>
           </div>
-          <Link href="/advertise">
+          <Link href="/a">
             <a className="flex w-full cursor-pointer items-center justify-center rounded bg-olive-900 py-2 transition duration-300 hover:bg-olive-800">
               <p className="select-none text-2xl font-medium text-white text-opacity-80">
                 Visit Auctions

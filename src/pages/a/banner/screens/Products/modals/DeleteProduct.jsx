@@ -26,7 +26,7 @@ export default function DeleteProductModal(props) {
     }
 
     props.showModal(false);
-    router.push("/advertise/banner?screen=products");
+    router.push("/a/banner?screen=products");
   };
 
   return (

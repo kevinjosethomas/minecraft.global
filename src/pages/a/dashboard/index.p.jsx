@@ -10,6 +10,20 @@ export default function Dashboard(props) {
   return (
     <Default user={props.user}>
       <div className="flex w-full flex-col space-y-6">
+        <div className="flex items-center space-x-2">
+          <Link href="/a">
+            <a className="group flex cursor-pointer space-x-2 rounded-lg bg-olive-700 px-5 py-2 transition duration-300 hover:bg-olive-800">
+              <i className="far fa-arrow-left transform text-xl text-white duration-300 group-hover:-translate-x-0.5" />
+              <p className="select-none text-xl text-white">Go Back</p>
+            </a>
+          </Link>
+          <Link href="/a/banner?screen=products">
+            <a className="flex cursor-pointer space-x-2 rounded-lg bg-olive-700 px-5 py-2 transition duration-300 hover:bg-olive-800">
+              <i className="far fa-pencil-paintbrush transform text-xl text-white" />
+              <p className="select-none text-xl text-white">Manage Products</p>
+            </a>
+          </Link>
+        </div>
         <div className="flex flex-col space-y-2">
           <h1 className="text-3xl font-medium tracking-tight text-white md:text-5xl">
             Advertising Dashboard
@@ -33,7 +47,7 @@ export default function Dashboard(props) {
               />
               <p className="max-w-sm text-center text-3xl font-medium text-white">
                 You have no ongoing or upcoming advertisements.{" "}
-                <Link href="/advertise/banner">
+                <Link href="/a/banner">
                   <a className="cursor-pointer text-olive-300 underline">
                     Check availabilty
                   </a>

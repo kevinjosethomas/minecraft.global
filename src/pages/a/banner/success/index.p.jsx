@@ -16,7 +16,7 @@ export default function Success(props) {
               draggable="false"
             />
           </p>
-          <Link href="/advertise/dashboard">
+          <Link href="/a/dashboard">
             <a className="flex select-none items-center justify-center rounded-lg bg-olive-700  px-6 py-3 transition duration-300 hover:bg-olive-800">
               <p className="text-2xl font-medium text-white">
                 Visit Advertisement Dashboard

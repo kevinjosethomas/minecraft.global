@@ -53,9 +53,17 @@ export default function Analytics(props) {
       >
         {analytics ? (
           <div className="flex w-full flex-col space-y-4">
-            <h1 className="text-4xl font-medium text-white">
-              Advertisement Analytics
-            </h1>
+            <div className="flex w-full items-center justify-between">
+              <h1 className="text-4xl font-medium text-white">
+                Advertisement Analytics
+              </h1>
+              <div
+                className="flex cursor-pointer rounded-lg bg-olive-700 px-4 py-1.5 transition duration-300 hover:bg-olive-800"
+                onClick={() => props.showModal(false)}
+              >
+                <p className="select-none text-xl text-white">Close</p>
+              </div>
+            </div>
             <div className="flex flex-col">
               <p className="text-xl text-white text-opacity-80 md:text-2xl">
                 <span className="font-medium text-white">Product:</span>{" "}
@@ -86,13 +94,13 @@ export default function Analytics(props) {
               />
               <Highlight
                 label="Click-Through-Rate"
-                value={`${analytics.click_through_rate * 100}%`}
+                value={`${analytics.click_through_rate}%`}
                 icon="fas fa-percentage -right-4"
               />
             </div>
             <div className="flex flex-col justify-center space-y-2 overflow-hidden rounded-lg border-2 border-olive-920 bg-olive-930 p-4">
               <h1 className="text-xl font-medium text-white text-opacity-90 md:text-4xl md:text-4xl">
-                Weekly Impressions Chart
+                Advertisement Analytics
               </h1>{" "}
               <Line
                 data={{
@@ -104,42 +112,11 @@ export default function Analytics(props) {
                       backgroundColor: "#448361",
                       borderColor: "#2E5841",
                     },
-                  ],
-                }}
-                options={{
-                  scales: {
-                    xAxes: {
-                      ticks: {
-                        color: "rgba(255, 255, 255, 0.8)",
-                      },
-                    },
-                    yAxes: {
-                      ticks: {
-                        color: "rgba(255, 255, 255, 0.8)",
-                      },
-                    },
-                  },
-                  plugins: {
-                    legend: {
-                      display: false,
-                    },
-                  },
-                }}
-              />
-            </div>
-            <div className="flex flex-col justify-center space-y-2 overflow-hidden rounded-lg border-2 border-olive-920 bg-olive-930 p-4">
-              <h1 className="text-xl font-medium text-white text-opacity-90 md:text-4xl">
-                Weekly Clicks Chart
-              </h1>{" "}
-              <Line
-                data={{
-                  labels: labels,
-                  datasets: [
                     {
-                      label: "Impressions",
+                      label: "Clicks",
                       data: analytics.clicks,
-                      backgroundColor: "#448361",
-                      borderColor: "#2E5841",
+                      backgroundColor: "#70A889",
+                      borderColor: "#448361",
                     },
                   ],
                 }}
@@ -151,14 +128,20 @@ export default function Analytics(props) {
                       },
                     },
                     yAxes: {
+                      min: 0,
+                      beginAtZero: true,
                       ticks: {
+                        precision: 0,
+
                         color: "rgba(255, 255, 255, 0.8)",
                       },
                     },
                   },
                   plugins: {
                     legend: {
-                      display: false,
+                      labels: {
+                        color: "rgba(255, 255, 255, 0.8)",
+                      },
                     },
                   },
                 }}

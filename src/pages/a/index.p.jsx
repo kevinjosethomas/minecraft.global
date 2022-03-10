@@ -11,7 +11,7 @@ export default function Advertise(props) {
           Advertise on minecraft.global
         </h1>
         <div className="flex w-full flex-col space-y-5">
-          <Link href="/advertise/dashboard">
+          <Link href="/a/dashboard">
             <a className="flex w-full items-center justify-center rounded-lg border-2 border-olive-900 bg-olive-910 py-2 transition duration-300 hover:bg-olive-900">
               <p className="select-none text-xl text-white md:text-2xl">
                 View Advertising Dashboard
@@ -62,7 +62,7 @@ function Banners() {
             </li>
           ))}
         </ul>
-        <Link href="/advertise/banner">
+        <Link href="/a/banner">
           <a className="flex w-full flex-row items-center justify-center rounded bg-olive-910 py-2 transition duration-300 hover:bg-olive-900">
             <p className="select-none text-2xl text-white text-opacity-90">
               Check it out

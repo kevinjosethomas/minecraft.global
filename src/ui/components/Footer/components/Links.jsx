@@ -33,7 +33,7 @@ export default function Links(props) {
         {
           icon: "far fa-heartbeat",
           name: "Advertise",
-          href: "/advertise",
+          href: "/a",
         },
         {
           icon: "far fa-newspaper",

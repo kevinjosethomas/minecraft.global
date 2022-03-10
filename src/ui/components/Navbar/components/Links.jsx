@@ -15,7 +15,7 @@ export default function Links(props) {
     {
       icon: "far fa-sparkles",
       label: "Advertise",
-      href: "/advertise",
+      href: "/a",
     },
   ];
 

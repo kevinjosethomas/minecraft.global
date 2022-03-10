@@ -7,16 +7,14 @@ import { useRouter } from "next/router";
 
 import Modal from "ui/layouts/Modal";
 import Input from "../components/Input";
-import { EditProduct } from "api/advertisements";
+import { CreateNewProduct } from "api/advertisements";
 
 export default function NewProduct(props) {
   const router = useRouter();
 
-  const [image, setImage] = useState({
-    preview: `${process.env.NEXT_PUBLIC_API_URL}/a/product/${props.product_id}/image`,
-  });
-  const [name, setName] = useState(props.name);
-  const [link, setLink] = useState(props.url);
+  const [image, setImage] = useState();
+  const [name, setName] = useState("");
+  const [link, setLink] = useState("");
 
   const submit = async () => {
     if (!name) {
@@ -50,8 +48,7 @@ export default function NewProduct(props) {
     }
 
     const token = cookies.get("token");
-    const [response, error] = await EditProduct(
-      props.product_id,
+    const [response, error] = await CreateNewProduct(
       name,
       formattedLink,
       image,
@@ -60,11 +57,8 @@ export default function NewProduct(props) {
 
     if (error) {
       switch (error?.response?.status) {
-        case 401:
-          toast.error("You do not have permission to do this!");
-          break;
-        case 404:
-          toast.error("This product does not exist!");
+        case 403:
+          toast.error("You cannot have more than 8 products!");
           break;
         case 415:
           toast.error("Invalid image provided!");
@@ -80,13 +74,13 @@ export default function NewProduct(props) {
     }
 
     props.showModal(false);
-    router.push("/advertise/banner?screen=products");
+    router.push("/a/banner?screen=products");
   };
 
   return (
     <Modal showModal={props.showModal}>
       <motion.div
-        className="max-h-[90%] w-11/12 flex-col space-y-6 overflow-y-scroll rounded-lg border-2 border-olive-940 bg-olive-950 p-6 md:w-auto"
+        className="flex max-h-[90%] w-11/12 flex-col space-y-4 overflow-y-scroll rounded-lg border-2 border-olive-940 bg-olive-950 p-6 md:w-auto md:space-y-6"
         onClick={(e) => e.stopPropagation()}
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -94,9 +88,9 @@ export default function NewProduct(props) {
         transition={{ duration: 0.3, delay: 0.2 }}
       >
         <h1 className="text-3xl font-medium text-white text-opacity-90 md:text-4xl">
-          Edit Advertisement
+          Create Advertisement
         </h1>
-        <div className="flex flex-col items-start justify-start space-y-5">
+        <div className="flex flex-col items-start justify-start space-y-3 md:space-y-5">
           <Input
             value={name}
             label="Advertisement Name"
