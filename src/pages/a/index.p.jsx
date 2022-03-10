@@ -35,7 +35,7 @@ function Banners() {
     "Advertisements rotate weekly",
     "Displayed via a banner image",
     "Links to an external website",
-    "Price range: $20-$25 weekly",
+    "Price range: $10-$15 weekly",
   ];
 
   return (
@@ -81,7 +81,7 @@ function Auctions() {
     "Advertisements rotate weekly",
     "Displayed as a highlighted server",
     "Links to your server's minecraft.global page",
-    "Price range: $5+ weekly",
+    "Price range: $50+ weekly",
   ];
 
   return (

@@ -12,8 +12,8 @@ export default function Home(props) {
         visitors and new users!
       </p>
       <ul className="mt-2 list-inside list-disc">
-        <li>~4,500 impressions / month</li>
-        <li>Around 400 x 100px resolution</li>
+        <li>~3,000 impressions / month</li>
+        <li>Resolution: 1200px x 200px</li>
         <li>Current Price: ${props.price} / week</li>
       </ul>
       <a

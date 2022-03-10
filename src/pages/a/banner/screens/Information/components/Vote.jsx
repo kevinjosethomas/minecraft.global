@@ -12,8 +12,8 @@ export default function Vote(props) {
         on the website!
       </p>
       <ul className="list-inside list-disc">
-        <li>~10,000 impressions / month</li>
-        <li>Around 1194 x 216px resolution</li>
+        <li>~6,000 impressions / month</li>
+        <li>Resolution: 1200px x 200px</li>
         <li>Current Price: ${props.price} / week</li>
       </ul>
       <a
