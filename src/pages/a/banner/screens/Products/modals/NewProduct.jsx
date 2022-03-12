@@ -162,7 +162,7 @@ function DropFiles(props) {
       ) : (
         <Dropzone
           onDrop={onDrop}
-          accept={["image/png", "image/jpeg"]}
+          accept={["image/png", "image/jpeg", "image/gif"]}
           multiple={false}
         >
           {({ getRootProps, getInputProps, isDragActive }) => (
