@@ -30,7 +30,7 @@ export default function Popup(props) {
   return (
     <motion.div
       ref={node}
-      className="absolute top-[85px] left-0 z-30 hidden w-full flex-col items-start justify-start space-y-6 rounded-[12px] border-2 border-olive-940 bg-olive-980 p-6 md:flex"
+      className="absolute top-[85px] left-0 z-30 hidden w-full flex-col items-start justify-start space-y-6 rounded-[12px] border-2 border-olive-920 bg-olive-940 p-6 md:flex"
       initial={{ y: 5, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: 5, opacity: 0 }}

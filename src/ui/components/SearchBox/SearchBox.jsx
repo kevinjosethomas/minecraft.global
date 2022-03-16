@@ -14,18 +14,14 @@ export default function SearchBox(props) {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
-      {props.header && <Header />}
+      {props.header && (
+        <h1 className="text-lg font-bold text-white text-opacity-90 md:text-5xl">
+          The y=-58 for Minecraft Servers
+        </h1>
+      )}
       <Searchbar defaultResults={props.defaultResults} />
       <Tags />
     </motion.div>
-  );
-}
-
-function Header() {
-  return (
-    <h1 className="text-lg font-bold text-white text-opacity-90 md:text-5xl">
-      The y=-58 for Minecraft Servers
-    </h1>
   );
 }
 
