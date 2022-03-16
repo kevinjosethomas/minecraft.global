@@ -18,7 +18,7 @@ export default function Identity(props) {
       />
       <div className="flex flex-col items-start justify-start">
         <div className="flex items-center justify-start space-x-2">
-          <h3 className="text-xl text-white text-opacity-90 md:text-3xl">
+          <h3 className="whitespace-nowrap text-xl text-white text-opacity-90 md:text-3xl">
             {props.name}
           </h3>
           {props.premium && (
