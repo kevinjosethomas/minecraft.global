@@ -9,7 +9,7 @@ export default function Dropdown(props) {
   return (
     <OnOutsideClick onOutsideClick={() => props.showDropdown(false)}>
       <motion.div
-        className="user-dropdown absolute top-16 right-0 z-40 flex flex-col items-start justify-start space-y-4 overflow-hidden rounded-lg border-2 border-olive-920 bg-olive-910 bg-opacity-60 py-4 px-6"
+        className="bg-blur absolute top-16 right-0 z-40 flex flex-col items-start justify-start space-y-4 overflow-hidden rounded-lg border-2 border-olive-920 bg-olive-910 bg-opacity-60 py-4 px-6"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 10, opacity: 0 }}
