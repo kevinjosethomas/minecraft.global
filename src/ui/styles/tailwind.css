@@ -76,7 +76,7 @@ code {
   bottom: -3px;
 }
 
-.user-dropdown {
+.bg-blur {
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }

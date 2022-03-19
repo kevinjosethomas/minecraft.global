@@ -28,7 +28,7 @@ export default function Search(props) {
 
 function Results(props) {
   return (
-    <div className="grid w-full grid-cols-3 gap-5">
+    <div className="grid w-full grid-cols-3 gap-2">
       {props.results?.length ? (
         <Fragment>
           {props.results.map((server) => (

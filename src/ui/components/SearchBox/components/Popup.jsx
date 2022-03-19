@@ -30,11 +30,11 @@ export default function Popup(props) {
   return (
     <motion.div
       ref={node}
-      className="absolute top-[85px] left-0 z-30 hidden w-full flex-col items-start justify-start space-y-6 rounded-[12px] border-2 border-olive-940 bg-olive-980 p-6 md:flex"
+      className="bg-blur absolute top-[90px] left-0 z-30 hidden w-full flex-col items-start justify-start space-y-6 rounded-xl border-2 border-olive-910 bg-olive-920 bg-opacity-80 p-6 md:flex"
       initial={{ y: 5, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: 5, opacity: 0 }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.3 }}
     >
       <Search results={props.results} query={props.query} />
       <Separator />

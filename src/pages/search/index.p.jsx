@@ -38,7 +38,7 @@ export default function Search(props) {
           results={props.results}
           parameters={parameters}
         />
-        <div className="flex min-w-[400px] max-w-[400px] flex-col items-start justify-start space-y-6">
+        <div className="hidden min-w-[400px] max-w-[400px] flex-col items-start justify-start space-y-6 md:flex">
           <Sort parameters={parameters} setParameters={setParameters} />
           <Filter parameters={parameters} setParameters={setParameters} />
           <Sidebar addServer servers={props.results.total_records} />
