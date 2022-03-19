@@ -31,7 +31,7 @@ const PostServerComment = async (id, content, token) => {
 const EditServerComment = async (comment_id, server_id, content, token) => {
   try {
     const response = await axios.put(
-      `${process.env.NEXT_PUBLIC_API_URL}/server/${server_id}/comment/${comment_id}/edit`,
+      `${process.env.NEXT_PUBLIC_API_URL}/server/${server_id}/comment/${comment_id}`,
       { content: content },
       { headers: { Authorization: token } }
     );

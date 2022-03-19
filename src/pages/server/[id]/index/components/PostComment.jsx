@@ -24,7 +24,11 @@ export default function PosComment(props) {
       if (error.response?.status === 401) {
         toast.error("Please login and try again!");
       } else if (error.response?.status === 409) {
-        toast.error("You have already commented on this server!");
+        let errorCode = error.response?.data?.payload?.error;
+
+        if (errorCode === "limited_comments") toast.error("You've already commented on this server!");
+        else if (errorCode === "spam_comment") toast.error("You've commented that elsewhere already.");
+        else toast.error("An unknown error occurred!");
       } else {
         toast.error("An unknown error occurred!");
       }
