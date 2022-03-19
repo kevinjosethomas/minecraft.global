@@ -41,7 +41,7 @@ export default function Upvote(props) {
         case 401:
           toast.error("Invalid captcha, please reload and try again!");
           break;
-        case 422:
+        case 400:
           toast.error("Invalid username, please try again!");
           break;
         case 429:

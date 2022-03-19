@@ -69,7 +69,7 @@ export default function NewProduct(props) {
         case 415:
           toast.error("Invalid image provided!");
           break;
-        case 422:
+        case 400:
           toast.error("Invalid information provided!");
           break;
         default:
