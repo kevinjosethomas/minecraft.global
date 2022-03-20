@@ -154,8 +154,8 @@ export default function ManageServer(props) {
 
     if (error) {
       let payload = error?.response?.data?.payload;
-      let error = payload.error;
-      let errors = payload.errors;
+      let errorCode = payload?.error;
+      let errors = payload?.errors;
 
       switch (error.response?.status) {
         case 401:
@@ -164,18 +164,18 @@ export default function ManageServer(props) {
           );
           break;
         case 409:
-          if (error === "duplicate_vanity") toast.error("The provided vanity URl is alreay taken!");
-          else if (error === "duplicate_server") toast.error("Another server already uses that host and port!");
+          if (errorCode === "duplicate_vanity") toast.error("The provided vanity URl is alreay taken!");
+          else if (errorCode === "duplicate_server") toast.error("Another server already uses that host and port!");
           else toast.error("An unknown error ocurred, please try again later!");
 
           break;
         case 400:
           if (errors.host || errors.port) toast.error("Invalid server address provided!");
-          else if (error === "server_offline") toast.error("Your server is currently offline!");
+          else if (errorCode === "server_offline") toast.error("Your server is currently offline!");
           else if (errors.description) toast.error("Your description contains invalid characters!");
           else if (errors.long_description) toast.error("Your long description contains invalid characters!");
           else if (errors.vanity) toast.error("Invalid vanity URL provided!");
-          else toast.error("Invalid information provided!");
+          else toast.error(`Invalid information provided! (${JSON.stringify(errors)})`);
 
           break;
         default:

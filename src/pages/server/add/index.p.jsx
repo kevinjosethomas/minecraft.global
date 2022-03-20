@@ -163,11 +163,11 @@ export default function AddServer(props) {
           toast.error("Another server already uses that host and port!");
           break;
         case 400:
-          let error = payload.error;
-          let errors = payload.errors;
+          let errorCode = payload?.error;
+          let errors = payload?.errors;
 
           if (errors.host || errors.port) toast.error("Invalid server address provided!");
-          else if (error === "server_offline") toast.error("Your server is currently offline!");
+          else if (errorCode === "server_offline") toast.error("Your server is currently offline!");
           else if (errors.description) toast.error("Your description contains invalid characters!");
           else if (errors.long_description) toast.error("Your long description contains invalid characters!");
           else toast.error("Invalid information provided!");
