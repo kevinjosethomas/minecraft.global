@@ -7,7 +7,6 @@ import { FetchServer } from "api/server";
 import Default from "ui/layouts/Default";
 import Upvote from "./components/Upvote";
 import { GetDefaultData } from "api/core";
-import Similar from "./components/Similar";
 import { GetLoggedInUser } from "api/login";
 import Advertise from "./components/Advertise";
 import TopVoters from "./components/TopVoters";
@@ -110,7 +109,7 @@ export default function UpvoteServer(props) {
             )}
           </div>
           <div className="flex w-full flex-col items-start justify-start space-y-8 overflow-hidden md:w-[400px] md:min-w-[400px] md:max-w-[400px]">
-            <TopVoters server_id={props.server.server_id} />
+            <TopVoters server_id={props.server.server_id} upvoted={upvoted} />
           </div>
         </div>
         <a
