@@ -1,49 +1,95 @@
-import Link from "next/link";
-import { AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import cookie from "js-cookie";
+import { useRouter } from "next/router";
 
-import User from "./components/User";
-import Links from "./components/Links";
-import MobileNavbar from "./components/MobileNavbar";
+import Mobile from "./components/Mobile";
+import Desktop from "./components/Desktop";
 
 export default function Navbar(props) {
-  const [mobile, setMobile] = useState(false);
+  const router = useRouter();
 
-  useEffect(() => {
-    if (mobile) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [mobile]);
+  const links = [
+    {
+      icon: "far fa-stars",
+      label: "Discover",
+      href: "/search",
+    },
+    {
+      icon: "far fa-sparkles",
+      label: "Advertise",
+      href: "/a",
+    },
+  ];
+
+  const mobile = [
+    {
+      icon: "far fa-home-alt",
+      label: "Discover",
+      href: "/",
+    },
+    {
+      icon: "far fa-search",
+      label: "Search",
+      href: "/search",
+    },
+    {
+      icon: "far fa-badge-dollar",
+      label: "Advertise",
+      href: "/a",
+    },
+  ];
+
+  const icons = [
+    {
+      icon: "fab fa-discord",
+      href: "https://discord.minecraft.global",
+    },
+    {
+      icon: "fab fa-twitter",
+      href: "https://twitter.com/mcdotglobal",
+    },
+    {
+      icon: "far fa-question-circle",
+      href: "/why",
+    },
+  ];
+
+  const user = [
+    {
+      icon: "fas fa-info-circle",
+      label: "View Profile",
+      href: `/user/${props.user?.user_id}`,
+    },
+    {
+      icon: "fas fa-plus-circle",
+      label: "Add Server",
+      href: "/server/add",
+    },
+    {
+      icon: "far fa-pencil-paintbrush",
+      label: "Edit Profile",
+      href: `/user/${props.user?.user_id}/edit`,
+    },
+    {
+      icon: "far fa-sign-out",
+      label: "Log Out",
+      onClick: () => {
+        cookie.remove("token");
+        router.reload();
+      },
+    },
+  ];
+
+  const data = {
+    links,
+    icons,
+    user,
+    mobile,
+  };
 
   return (
     <div className="flex w-full items-center justify-center">
-      <div className="hidden w-full items-center justify-between py-[32px] md:flex">
-        <Links />
-        <User user={props.user} />
-      </div>
-      <div className="!mt-0 flex w-full items-center justify-between py-6 md:hidden">
-        <Link href="/">
-          <a className="flex items-center justify-start space-x-3">
-            <img
-              src="/logo.svg"
-              className="h-8 w-8 cursor-pointer"
-              alt="Logo"
-            />
-            <p className="text-2xl text-olive-300 text-opacity-90">
-              minecraft.global
-            </p>
-          </a>
-        </Link>
-        <i
-          className="far fa-bars text-2xl text-white text-opacity-80"
-          onClick={() => setMobile(true)}
-        />
-      </div>
-      <AnimatePresence>
-        {mobile && <MobileNavbar user={props.user} setMobile={setMobile} />}
-      </AnimatePresence>
+      <Mobile user={props.user} data={data} />
+      <Desktop user={props.user} data={data} />
     </div>
   );
 }

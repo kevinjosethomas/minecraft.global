@@ -12,14 +12,14 @@ export default function Login(props) {
     <Default user={props.user} title="Login - Minecraft Server List">
       <div className="flex w-full flex-col items-center justify-center space-y-6 2xl:py-12 3xl:py-28">
         <motion.h1
-          className="text-5xl font-bold leading-tight text-white text-opacity-90"
+          className="text-3xl font-bold leading-tight text-white text-opacity-90 md:text-5xl"
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.3 }}
         >
           How would you like to login or sign up?
         </motion.h1>
-        <div className="flex items-center justify-center space-x-6">
+        <div className="flex flex-col items-center justify-center space-y-4 md:flex-row md:space-y-0 md:space-x-6">
           <Google />
           <Discord />
         </div>
