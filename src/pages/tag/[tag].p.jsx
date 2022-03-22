@@ -97,7 +97,7 @@ export async function getServerSideProps(ctx) {
       GetDefaultData(),
       GetSearchResults({
         // tags: encodeURIComponent(tag),
-        tags: tag,
+        tag: tag,
         amount: 12,
       }),
     ]);
