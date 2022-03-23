@@ -1,39 +1,33 @@
 import Link from "next/link";
 
 import Default from "ui/layouts/Default";
-import { GetDefaultData } from "api/core";
 import { GetLoggedInUser } from "api/login";
 
 export default function PremiumSuccess(props) {
   return (
-    <Default user={props.user} defaultResults={props.defaultResults} search>
-      <div className="flex flex-col items-start justify-start">
-        <h3 className="text-4xl font-medium text-white">
-          Thank you for subscribing to Premium!
-        </h3>
-        <div className="flex flex-col items-start justify-start space-y-4">
-          <p className="format-links text-2xl text-white text-opacity-60">
-            You have unlocked a handful of new features to grow your server! You
-            can start by claiming a custom vanity URL in your{" "}
-            <Link href={`/server/${props.server_id}/manage`}>
-              <a>Manage Server</a>
-            </Link>{" "}
-            page! We have automatically added a Premium badge to your server
-            card on all pages!
+    <Default user={props.user} search>
+      <div className="relative flex w-full flex-col">
+        <div className="absolute z-10 flex h-full w-full flex-col items-center justify-center space-y-4">
+          <p className="max-w-2xl select-none text-center text-6xl font-bold text-white">
+            Thanks for purchasing premium!{" "}
+            <img
+              alt="Heart"
+              src="/images/heart.png"
+              className="inline w-10"
+              draggable="false"
+            />
           </p>
-          <p className="format-links text-2xl text-white text-opacity-60">
-            We would recommend joining our{" "}
-            <a
-              href="https://discord.minecraft.global"
-              target="_blank"
-              rel="nofollow noreferrer"
-            >
-              Discord server
-            </a>{" "}
-            to get access to any beta Premium features that haven&apos;t been
-            documented yet!
-          </p>
+          <Link href={`/server/${props.id}/manage`}>
+            <a className="flex select-none items-center justify-center rounded-lg bg-olive-700  px-6 py-3 transition duration-300 hover:bg-olive-800">
+              <p className="text-2xl font-medium text-white">Manage Server</p>
+            </a>
+          </Link>
         </div>
+        <img
+          alt="Mobs"
+          className="opacity-20"
+          src="/images/illustrations/mobs.png"
+        />
       </div>
     </Default>
   );
@@ -52,32 +46,19 @@ export async function getServerSideProps(ctx) {
       };
     }
 
-    const [user, data] = await Promise.all([
-      GetLoggedInUser(ctx),
-      GetDefaultData(),
-    ]);
+    const [response, error] = await GetLoggedInUser(ctx);
 
-    if (data[1]) {
+    if (error) {
       return {
         props: {
-          error: data[1].response?.status || 500,
-        },
-      };
-    }
-
-    if (user[1]) {
-      return {
-        props: {
-          server_id: server_id,
-          defaultResults: data[0],
+          id: server_id,
         },
       };
     } else {
       return {
         props: {
-          user: user[0],
-          server_id: server_id,
-          defaultResults: data[0],
+          user: response,
+          id: server_id,
         },
       };
     }

@@ -16,7 +16,7 @@ export default function Servers(props) {
       name: "Popular Servers",
       description: "The most upvoted servers!",
       url: null,
-      results: props.defaultResults.slice(0, 4),
+      results: props.servers.slice(0, 4),
     },
   ]);
 

@@ -6,7 +6,6 @@ import Back from "./components/Back";
 import { FetchServer } from "api/server";
 import Default from "ui/layouts/Default";
 import Upvote from "./components/Upvote";
-import { GetDefaultData } from "api/core";
 import { GetLoggedInUser } from "api/login";
 import Advertise from "./components/Advertise";
 import TopVoters from "./components/TopVoters";
@@ -39,7 +38,7 @@ export default function UpvoteServer(props) {
   }, []);
 
   return (
-    <Default user={props.user} defaultResults={props.defaultResults} search>
+    <Default user={props.user} search>
       <Head>
         <title>Vote for {props.server.name} - Minecraft Server List</title>
 
@@ -132,19 +131,10 @@ export default function UpvoteServer(props) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const [user, data, server] = await Promise.all([
+    const [user, server] = await Promise.all([
       GetLoggedInUser(ctx),
-      GetDefaultData(),
       FetchServer(ctx.params.id),
     ]);
-
-    if (data[1]) {
-      return {
-        props: {
-          error: data[1].response?.status || 500,
-        },
-      };
-    }
 
     if (server[1]) {
       return {
@@ -164,7 +154,6 @@ export async function getServerSideProps(ctx) {
         props: {
           tag: tag,
           server: server[0].payload,
-          defaultResults: data[0],
         },
       };
     } else {
@@ -173,7 +162,6 @@ export async function getServerSideProps(ctx) {
           tag: tag,
           user: user[0],
           server: server[0].payload,
-          defaultResults: data[0],
         },
       };
     }

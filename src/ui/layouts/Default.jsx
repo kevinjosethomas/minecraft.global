@@ -40,12 +40,7 @@ const Default = (props) => {
         <div className="bg-gradient absolute top-0 left-0 h-full w-full" />
         <div className="z-[1] flex h-full w-full flex-col items-center justify-start space-y-6 px-4 pb-10 md:w-1200 md:space-y-10 md:px-0 md:pb-20">
           <Navbar user={props.user} />
-          {props.search && (
-            <SearchBox
-              header={props.header}
-              defaultResults={props.defaultResults}
-            />
-          )}
+          {props.search && <SearchBox header={props.header} />}
           <div className="flex h-full w-full flex-col items-start justify-start">
             {props.children}
           </div>

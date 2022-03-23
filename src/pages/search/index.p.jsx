@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import Sort from "./components/Sort";
 import Filter from "./components/Filter";
 import Default from "ui/layouts/Default";
-import { GetDefaultData } from "api/core";
 import Servers from "./components/Servers";
 import { GetLoggedInUser } from "api/login";
 import { GetSearchResults } from "api/search";
@@ -27,7 +26,6 @@ export default function Search(props) {
   return (
     <Default
       user={props.user}
-      defaultResults={props.defaultResults}
       title="Search - Minecraft Server List"
       search
       header
@@ -52,19 +50,10 @@ export async function getServerSideProps(ctx) {
   try {
     const query = ctx.query?.q || "";
 
-    const [user, data, search] = await Promise.all([
+    const [user, search] = await Promise.all([
       GetLoggedInUser(ctx),
-      GetDefaultData(),
       GetSearchResults({ query: query, amount: 12 }),
     ]);
-
-    if (data[1]) {
-      return {
-        props: {
-          error: data[1].response?.status || 500,
-        },
-      };
-    }
 
     if (search[1]) {
       return {
@@ -79,7 +68,6 @@ export async function getServerSideProps(ctx) {
         props: {
           query: query,
           results: search[0].payload,
-          defaultResults: data[0],
         },
       };
     } else {
@@ -88,7 +76,6 @@ export async function getServerSideProps(ctx) {
           query: query,
           user: user[0],
           results: search[0].payload,
-          defaultResults: data[0],
         },
       };
     }

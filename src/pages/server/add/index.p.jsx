@@ -181,11 +181,7 @@ export default function AddServer(props) {
   };
 
   return (
-    <Default
-      user={props.user}
-      defaultResults={props.defaultResults}
-      title="Add Server - Minecraft Server List"
-    >
+    <Default user={props.user} title="Add Server - Minecraft Server List">
       <div className="flex w-full items-start justify-start space-x-6">
         <Navigation
           submit={submit}
@@ -247,9 +243,9 @@ export default function AddServer(props) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const user = await GetLoggedInUser(ctx);
+    const [user, error] = await GetLoggedInUser(ctx);
 
-    if (user[1]) {
+    if (error) {
       return {
         redirect: {
           destination: "/login",
@@ -260,7 +256,7 @@ export async function getServerSideProps(ctx) {
 
     return {
       props: {
-        user: user[0],
+        user: user,
       },
     };
   } catch (e) {

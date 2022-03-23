@@ -4,7 +4,6 @@ import { AnimatePresence } from "framer-motion";
 
 import { FetchServer } from "api/server";
 import Default from "ui/layouts/Default";
-import { GetDefaultData } from "api/core";
 import Report from "./index/modals/Report";
 import { GetLoggedInUser } from "api/login";
 import Header from "./index/components/Header";
@@ -26,7 +25,7 @@ export default function Server(props) {
   }, [reportModal]);
 
   return (
-    <Default user={props.user} defaultResults={props.defaultResults} search>
+    <Default user={props.user} search>
       <Head>
         <title>{props.server.name} - Minecraft Server List</title>
 
@@ -128,19 +127,10 @@ export default function Server(props) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const [user, data, server] = await Promise.all([
+    const [user, server] = await Promise.all([
       GetLoggedInUser(ctx),
-      GetDefaultData(),
       FetchServer(ctx.params.id),
     ]);
-
-    if (data[1]) {
-      return {
-        props: {
-          error: data[1].response?.status || 500,
-        },
-      };
-    }
 
     if (server[1]) {
       return {
@@ -154,7 +144,6 @@ export async function getServerSideProps(ctx) {
       return {
         props: {
           server: server[0].payload,
-          defaultResults: data[0],
         },
       };
     } else {
@@ -162,7 +151,6 @@ export async function getServerSideProps(ctx) {
         props: {
           user: user[0],
           server: server[0].payload,
-          defaultResults: data[0],
         },
       };
     }

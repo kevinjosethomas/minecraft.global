@@ -1,12 +1,10 @@
 import Default from "ui/layouts/Default";
-import { GetDefaultData } from "api/core";
 import { GetLoggedInUser } from "api/login";
 
 export default function Privacy(props) {
   return (
     <Default
       user={props.user}
-      defaultResults={props.defaultResults}
       title="Privacy Policy - Minecraft Server List"
       search
     >
@@ -247,30 +245,16 @@ export default function Privacy(props) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const [user, data] = await Promise.all([
-      GetLoggedInUser(ctx),
-      GetDefaultData(),
-    ]);
+    const [response, error] = await GetLoggedInUser(ctx);
 
-    if (data[1]) {
+    if (error) {
       return {
-        props: {
-          error: data[1].response?.status || 500,
-        },
-      };
-    }
-
-    if (user[1]) {
-      return {
-        props: {
-          defaultResults: data[0],
-        },
+        props: {},
       };
     } else {
       return {
         props: {
-          user: user[0],
-          defaultResults: data[0],
+          user: response,
         },
       };
     }

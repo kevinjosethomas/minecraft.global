@@ -3,7 +3,6 @@ import { Fragment, useEffect, useState } from "react";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
 
 import Default from "ui/layouts/Default";
-import { GetDefaultData } from "api/core";
 import { GetLoggedInUser } from "api/login";
 
 const socials = [
@@ -57,12 +56,7 @@ const questions = [
 
 export default function Support(props) {
   return (
-    <Default
-      user={props.user}
-      defaultResults={props.defaultResults}
-      title="Support - Minecraft Server List"
-      search
-    >
+    <Default user={props.user} title="Support - Minecraft Server List" search>
       <div className="flex w-full flex-col items-start justify-start space-y-10">
         <div className="flex w-full flex-col items-start justify-start space-y-3">
           <h1 className="text-5xl font-bold tracking-tight text-white text-opacity-90">
@@ -150,30 +144,16 @@ function Question(props) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const [user, data] = await Promise.all([
-      GetLoggedInUser(ctx),
-      GetDefaultData(),
-    ]);
+    const [response, error] = await GetLoggedInUser(ctx);
 
-    if (data[1]) {
+    if (error) {
       return {
-        props: {
-          error: data[1].response?.status || 500,
-        },
-      };
-    }
-
-    if (user[1]) {
-      return {
-        props: {
-          defaultResults: data[0],
-        },
+        props: {},
       };
     } else {
       return {
         props: {
-          user: user[0],
-          defaultResults: data[0],
+          user: response,
         },
       };
     }

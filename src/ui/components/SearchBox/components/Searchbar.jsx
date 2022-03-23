@@ -9,10 +9,11 @@ import { GetSearchResults } from "api/search";
 export default function Searchbar(props) {
   const router = useRouter();
 
+  const [results, setResults] = useState([]);
   const [input, setInput] = useState(router.query.q || "");
   const [query, setQuery] = useState("");
   const [popup, showPopup] = useState(false);
-  const [previewResults, setPreviewResults] = useState(props.defaultResults);
+  const [previewResults, setPreviewResults] = useState([]);
 
   const node = useRef();
 
@@ -30,6 +31,19 @@ export default function Searchbar(props) {
   };
 
   useEffect(() => {
+    (async () => {
+      const [response, error] = await GetSearchResults({
+        amount: 6,
+        sort: "upvotes",
+        track_tags: false,
+      });
+
+      setResults(response.payload.entries);
+      setPreviewResults(response.payload.entries);
+    })();
+  }, []);
+
+  useEffect(() => {
     input && setPreviewResults([]);
     const id = setTimeout(() => setQuery(input), 400);
     return () => clearTimeout(id);
@@ -38,7 +52,7 @@ export default function Searchbar(props) {
   useEffect(() => {
     (async () => {
       if (!query) {
-        setPreviewResults(props.defaultResults);
+        setPreviewResults(results);
         return;
       }
 
@@ -47,6 +61,7 @@ export default function Searchbar(props) {
         sort: "upvotes",
         amount: 6,
       });
+
       setPreviewResults(
         response.payload.entries.length ? response.payload.entries : null
       );
