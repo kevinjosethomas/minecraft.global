@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
 import { FetchServer } from "api/server";
@@ -15,14 +15,6 @@ import Navigation from "./index/components/Navigation";
 export default function Server(props) {
   const [screen, setScreen] = useState("overview");
   const [reportModal, showReportModal] = useState(false);
-
-  useEffect(() => {
-    if (reportModal) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [reportModal]);
 
   return (
     <Default user={props.user} search>

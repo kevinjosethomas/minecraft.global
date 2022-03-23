@@ -1,19 +1,11 @@
 import moment from "moment";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import Analytics from "../modals/Analytics";
 
 export default function Advertisement(props) {
   const [modal, showModal] = useState(false);
-
-  useEffect(() => {
-    if (modal) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [modal]);
 
   return (
     <motion.div

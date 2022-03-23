@@ -69,14 +69,6 @@ export default function Searchbar(props) {
   }, [query]);
 
   useEffect(() => {
-    if (popup) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [popup]);
-
-  useEffect(() => {
     showPopup(false);
   }, [router.asPath]);
 

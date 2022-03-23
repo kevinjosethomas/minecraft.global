@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import Card from "./components/Card";
@@ -8,14 +8,6 @@ import { GetLoggedInUser } from "api/login";
 
 export default function Premium(props) {
   const [modal, showModal] = useState(false);
-
-  useEffect(() => {
-    if (modal) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [modal]);
 
   return (
     <Default user={props.user} title="Premium - Minecraft Server List" search>
