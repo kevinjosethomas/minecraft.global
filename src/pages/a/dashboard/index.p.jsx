@@ -8,7 +8,10 @@ import { FetchUserAdvertisements } from "api/advertisements";
 
 export default function Dashboard(props) {
   return (
-    <Default user={props.user}>
+    <Default
+      user={props.user}
+      title="Advertising Dashboard - Minecraft Server List"
+    >
       <div className="flex w-full flex-col space-y-6">
         <div className="flex items-center space-x-2">
           <Link href="/a">

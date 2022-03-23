@@ -5,7 +5,7 @@ import { GetLoggedInUser } from "api/login";
 
 export default function Why(props) {
   return (
-    <Default user={props.user} search>
+    <Default title="Why Us? - Minecraft Server List" user={props.user} search>
       <div className="grid w-full grid-rows-2 items-start justify-center gap-y-5 md:grid-cols-2 md:grid-rows-none md:gap-y-0 md:gap-x-10">
         <Players />
         <Servers />

@@ -5,7 +5,11 @@ import { GetLoggedInUser } from "api/login";
 
 export default function PremiumSuccess(props) {
   return (
-    <Default user={props.user} search>
+    <Default
+      user={props.user}
+      title="Purchase Complete - Minecraft Server List"
+      search
+    >
       <div className="relative flex w-full flex-col">
         <div className="absolute z-10 flex h-full w-full flex-col items-center justify-center space-y-4">
           <p className="max-w-2xl select-none text-center text-6xl font-bold text-white">
