@@ -76,7 +76,7 @@ export default function Servers(props) {
       hasMore={canFetchmore}
       loader={<Loading />}
     >
-      <div className="flex w-full flex-col items-start justify-start space-y-8 overflow-hidden rounded-[12px]">
+      <div className="flex w-full flex-col items-start justify-start space-y-8 overflow-hidden rounded-2xl">
         {results
           .filter((result) => result.results.length)
           .map((result, index) => (
