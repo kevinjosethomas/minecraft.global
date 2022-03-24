@@ -2,7 +2,7 @@ import axios from "axios";
 
 const CreatePremiumSession = async (server_id, token) => {
   try {
-    const response = await axios.post(
+    const response = await axios.delete(
       `${process.env.NEXT_PUBLIC_API_URL}/stripe/session/premium?dev=${process.env.NEXT_PUBLIC_DEV}`,
       {
         server_id: server_id,
