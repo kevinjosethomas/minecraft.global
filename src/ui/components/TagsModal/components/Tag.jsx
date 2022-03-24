@@ -25,8 +25,8 @@ export default function Tag(props) {
     <div
       className={`mr-2 mb-2 flex items-center justify-center px-5 py-1.5 ${
         selected
-          ? "bg-olive-800 hover:bg-olive-700"
-          : "bg-white bg-opacity-10 hover:bg-opacity-[0.15]"
+          ? "bg-olive-500 hover:bg-olive-600"
+          : "bg-white bg-opacity-10 hover:bg-opacity-20"
       } cursor-pointer rounded-full transition duration-300`}
       onClick={selected ? deselect : select}
     >

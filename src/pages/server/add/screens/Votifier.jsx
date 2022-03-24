@@ -19,13 +19,15 @@ export default function Details(props) {
   return (
     <div className="flex w-full flex-col items-start justify-start">
       <div className="flex w-full flex-col items-start justify-start space-y-8">
-        <p className="max-w-lg text-lg text-white text-opacity-80">
-          We support Votifier and NuVotifier. This section is optional. However,
-          we recommend setting up vote rewards (read more).
+        <p className=" text-lg text-white text-opacity-80">
+          We support Votifier and NuVotifier. Although this section is optional,
+          we recommend setting up vote rewards. Since servers are ranked based
+          on the number of votes they have, rewarding your players for voting is
+          a great way to grow your server.
         </p>
         <Input
           label="Votifier Host"
-          description="Your Votifier server IP (probably the same as your server's IP)"
+          description="Your Votifier server IP (likely the same as your server's IP)"
           value={props.details.votifier.votifier_host}
           onChange={(e) => onValueChange("votifier_host", e.target.value, 32)}
         />
