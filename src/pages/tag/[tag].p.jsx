@@ -5,7 +5,6 @@ import tags from "lib/tags.json";
 import Sort from "./components/Sort";
 import Filter from "./components/Filter";
 import Default from "ui/layouts/Default";
-import { GetDefaultData } from "api/core";
 import Servers from "./components/Servers";
 import { GetLoggedInUser } from "api/login";
 import { GetSearchResults } from "api/search";
@@ -24,7 +23,6 @@ export default function Tag(props) {
   return (
     <Default
       user={props.user}
-      defaultResults={props.defaultResults}
       title={`${props.tag} Servers - Minecraft Server List`}
       search
     >
@@ -61,7 +59,7 @@ export default function Tag(props) {
             .join(", ")}`}
         />
       </Head>
-      <div className="j+ustify-center flex w-full items-start space-x-8">
+      <div className="flex w-full items-start justify-center space-x-8">
         <Servers
           tag={props.tag}
           user={props.user}
@@ -92,23 +90,14 @@ export async function getServerSideProps(ctx) {
       };
     }
 
-    const [user, data, results] = await Promise.all([
+    const [user, results] = await Promise.all([
       GetLoggedInUser(ctx),
-      GetDefaultData(),
       GetSearchResults({
         // tags: encodeURIComponent(tag),
         tag: tag,
         amount: 12,
       }),
     ]);
-
-    if (data[1]) {
-      return {
-        props: {
-          error: data[1].response?.status || 500,
-        },
-      };
-    }
 
     if (results[1]) {
       return {
@@ -123,7 +112,6 @@ export async function getServerSideProps(ctx) {
         props: {
           tag: tag,
           results: results[0].payload,
-          defaultResults: data[0],
         },
       };
     } else {
@@ -132,7 +120,6 @@ export async function getServerSideProps(ctx) {
           tag: tag,
           user: user[0],
           results: results[0].payload,
-          defaultResults: data[0],
         },
       };
     }

@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 import Default from "ui/layouts/Default";
-import { GetDefaultData } from "api/core";
 import { GetLoggedInUser } from "api/login";
+import { GetSearchResults } from "api/search";
 import Servers from "./home/components/Servers";
 import Sidebar from "ui/components/Sidebar/Sidebar";
 
@@ -19,13 +19,12 @@ export default function Home(props) {
   return (
     <Default
       user={props.user}
-      defaultResults={props.defaultResults}
       title="Home - Minecraft Server List"
       search
       header
     >
       <div className="flex w-full items-start justify-center md:space-x-8">
-        <Servers user={props.user} defaultResults={props.defaultResults} />
+        <Servers user={props.user} servers={props.servers} />
         <Sidebar />
       </div>
     </Default>
@@ -34,33 +33,34 @@ export default function Home(props) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const user = GetLoggedInUser(ctx);
-    const data = GetDefaultData();
+    const [user, data] = await Promise.all([
+      GetLoggedInUser(ctx),
+      GetSearchResults({
+        amount: 6,
+        sort: "upvotes",
+        track_tags: false,
+      }),
+    ]);
 
-    const responses = await Promise.all([user, data]);
-
-    const userdata = responses[0];
-    const defaultdata = responses[1];
-
-    if (defaultdata[1]) {
+    if (data[1]) {
       return {
         props: {
-          error: defaultdata[1].response?.status || 500,
+          error: data[1].response?.status || 500,
         },
       };
     }
 
-    if (userdata[1]) {
+    if (user[1]) {
       return {
         props: {
-          defaultResults: defaultdata[0],
+          servers: data[0].payload.entries,
         },
       };
     } else {
       return {
         props: {
-          user: userdata[0],
-          defaultResults: defaultdata[0],
+          user: user[0],
+          servers: data[0].payload.entries,
         },
       };
     }

@@ -20,9 +20,11 @@ export default function Popup(props) {
   };
 
   useEffect(() => {
+    document.body.style.overflow = "hidden";
     document.addEventListener("mousedown", handleClick);
 
     return () => {
+      document.body.style.overflow = "auto";
       document.removeEventListener("mousedown", handleClick);
     };
   }, []);

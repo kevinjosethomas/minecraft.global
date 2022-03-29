@@ -50,7 +50,10 @@ export default function Banner(props) {
   }, []);
 
   return (
-    <Default user={props.user}>
+    <Default
+      user={props.user}
+      title="Banner Advertising - Minecraft Server List"
+    >
       <div className="flex w-full flex-col space-y-4 md:space-y-8">
         <h1 className="text-3xl font-medium tracking-tight text-white md:text-5xl">
           Banner Advertising

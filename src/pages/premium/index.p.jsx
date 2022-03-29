@@ -1,30 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import Card from "./components/Card";
 import Confirm from "./modals/Confirm";
 import Default from "ui/layouts/Default";
-import { GetDefaultData } from "api/core";
 import { GetLoggedInUser } from "api/login";
 
 export default function Premium(props) {
   const [modal, showModal] = useState(false);
 
-  useEffect(() => {
-    if (modal) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [modal]);
-
   return (
-    <Default
-      user={props.user}
-      defaultResults={props.defaultResults}
-      title="Premium - Minecraft Server List"
-      search
-    >
+    <Default user={props.user} title="Premium - Minecraft Server List" search>
       <AnimatePresence>
         {modal && <Confirm user={props.user} showModal={showModal} />}
       </AnimatePresence>
@@ -99,33 +85,16 @@ export default function Premium(props) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const user = GetLoggedInUser(ctx, true);
-    const data = GetDefaultData();
+    const [response, error] = await GetLoggedInUser(ctx);
 
-    const responses = await Promise.all([user, data]);
-
-    const userdata = responses[0];
-    const defaultdata = responses[1];
-
-    if (defaultdata[1]) {
+    if (error) {
       return {
-        props: {
-          error: defaultdata[1].response?.status || 500,
-        },
-      };
-    }
-
-    if (userdata[1]) {
-      return {
-        props: {
-          defaultResults: defaultdata[0],
-        },
+        props: {},
       };
     } else {
       return {
         props: {
-          user: userdata[0],
-          defaultResults: defaultdata[0],
+          user: response,
         },
       };
     }

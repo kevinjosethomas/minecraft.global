@@ -25,9 +25,9 @@ export default function Success(props) {
           </Link>
         </div>
         <img
-          src="/images/illustrations/mobs.png"
           alt="Mobs"
           className="opacity-20"
+          src="/images/illustrations/mobs.png"
         />
       </div>
     </Default>

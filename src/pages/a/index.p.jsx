@@ -5,7 +5,7 @@ import { GetLoggedInUser } from "api/login";
 
 export default function Advertise(props) {
   return (
-    <Default user={props.user} defaultResults={props.defaultResults}>
+    <Default user={props.user} title="Advertise - Minecraft Server List">
       <div className="flex w-full flex-col space-y-4">
         <h1 className="text-5xl font-medium tracking-tight text-white">
           Advertise on minecraft.global

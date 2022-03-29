@@ -1,7 +1,6 @@
 import { FetchUser } from "api/user";
 import Header from "./components/Header";
 import Default from "ui/layouts/Default";
-import { GetDefaultData } from "api/core";
 import Servers from "./components/Servers";
 import { GetLoggedInUser } from "api/login";
 
@@ -13,7 +12,6 @@ export default function User(props) {
   return (
     <Default
       user={props.user}
-      defaultResults={props.defaultResults}
       title={`${props.userinfo.name} - Minecraft Server List`}
       search
     >
@@ -36,19 +34,10 @@ export async function getServerSideProps(ctx) {
   try {
     const id = ctx.params.id;
 
-    const [user, page, data] = await Promise.all([
+    const [user, page] = await Promise.all([
       GetLoggedInUser(ctx),
       FetchUser(id),
-      GetDefaultData(),
     ]);
-
-    if (data[1]) {
-      return {
-        props: {
-          error: data[1].response?.status || 500,
-        },
-      };
-    }
 
     if (page[1]) {
       return {
@@ -62,7 +51,6 @@ export async function getServerSideProps(ctx) {
       return {
         props: {
           userinfo: page[0],
-          defaultResults: data[0],
         },
       };
     } else {
@@ -70,7 +58,6 @@ export async function getServerSideProps(ctx) {
         props: {
           user: user[0],
           userinfo: page[0],
-          defaultResults: data[0],
         },
       };
     }

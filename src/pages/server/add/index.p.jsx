@@ -1,7 +1,7 @@
 import cookie from "js-cookie";
 import toast from "react-hot-toast";
 import { useRouter } from "next/router";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 import validate from "lib/validate";
 import { NewServer } from "api/server";
@@ -183,11 +183,7 @@ export default function AddServer(props) {
   };
 
   return (
-    <Default
-      user={props.user}
-      defaultResults={props.defaultResults}
-      title="Add Server - Minecraft Server List"
-    >
+    <Default user={props.user} title="Add Server - Minecraft Server List">
       <div className="flex w-full items-start justify-start space-x-6">
         <Navigation
           submit={submit}
@@ -197,7 +193,7 @@ export default function AddServer(props) {
           setScreen={setScreen}
         />
         <div className="flex w-full flex-col items-start justify-start space-y-4">
-          <div className="flex w-full flex-col items-start justify-start space-y-4 rounded-lg border-2 border-olive-930 bg-olive-950 p-8">
+          <div className="flex w-full flex-col items-start justify-start space-y-4 rounded-2xl border-2 border-olive-900 bg-olive-920 bg-opacity-90 p-8">
             <div className="flex w-full items-center justify-start">
               <h1 className="text-4xl font-medium text-white text-opacity-90">
                 {screen.label}
@@ -217,23 +213,29 @@ export default function AddServer(props) {
           </div>
           <div
             className={`flex w-full items-center justify-end ${
-              screen.name !== "details" &&
-              screen.name !== "votifier" &&
-              "space-x-2"
+              screen.name !== "details" && "space-x-2"
             }`}
           >
             {screen.name !== "details" && (
               <div
-                className="flex cursor-pointer items-center justify-center space-x-2.5 rounded bg-olive-930 px-4 py-0.5 transition duration-300 hover:bg-olive-910"
+                className="flex cursor-pointer items-center justify-center space-x-2.5 rounded-xl bg-olive-800 px-6 py-1.5 transition duration-300 hover:bg-olive-900"
                 onClick={decrementScreen}
               >
                 <i className="far fa-arrow-left text-lg text-white" />
                 <p className="select-none text-lg text-white">Back</p>
               </div>
             )}
-            {screen.name !== "votifier" && (
+            {screen.name === "votifier" ? (
               <div
-                className="flex cursor-pointer items-center justify-center space-x-2.5 rounded bg-olive-930 px-4 py-0.5 transition duration-300 hover:bg-olive-910"
+                className="flex cursor-pointer items-center justify-center space-x-2.5 rounded-xl bg-olive-800 px-6 py-1.5 transition duration-300 hover:bg-olive-900"
+                onClick={submit}
+              >
+                <p className="select-none text-lg text-white">Add Server</p>
+                <i className="far fa-rocket-launch text-lg text-white" />
+              </div>
+            ) : (
+              <div
+                className="flex cursor-pointer items-center justify-center space-x-2.5 rounded-xl bg-olive-800 px-6 py-1.5 transition duration-300 hover:bg-olive-900"
                 onClick={incrementScreen}
               >
                 <p className="select-none text-lg text-white">Next</p>
@@ -249,9 +251,9 @@ export default function AddServer(props) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const user = await GetLoggedInUser(ctx);
+    const [user, error] = await GetLoggedInUser(ctx);
 
-    if (user[1]) {
+    if (error) {
       return {
         redirect: {
           destination: "/login",
@@ -262,7 +264,7 @@ export async function getServerSideProps(ctx) {
 
     return {
       props: {
-        user: user[0],
+        user: user,
       },
     };
   } catch (e) {
