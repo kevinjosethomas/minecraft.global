@@ -22,7 +22,7 @@ export default function Auctions(props) {
   const [screen, setScreen] = useState(screens[1]);
 
   return (
-    <Default user={props.user}>
+    <Default user={props.user} title="Auctions - Minecraft Server List">
       <div className="flex w-full flex-col items-start justify-start space-y-6">
         <Navigation screen={screen} screens={screens} setScreen={setScreen} />
         {screen.name === "bidding" ? (

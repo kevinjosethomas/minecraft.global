@@ -11,14 +11,6 @@ export default function Accounts(props) {
   const [linkModal, showLinkModal] = useState(false);
 
   useEffect(() => {
-    if (linkModal) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [linkModal]);
-
-  useEffect(() => {
     (async () => {
       if (linkCode !== "...") return;
 

@@ -81,6 +81,11 @@ code {
   -webkit-backdrop-filter: blur(6px);
 }
 
+.bg-blur-xl {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
 .auctions-red-dot {
   animation: auctions-red-dot 2s infinite;
 }

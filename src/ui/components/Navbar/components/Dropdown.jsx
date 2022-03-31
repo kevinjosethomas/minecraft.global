@@ -1,22 +1,20 @@
 import Link from "next/link";
-import cookie from "js-cookie";
 import { Fragment } from "react";
 import { motion } from "framer-motion";
-import { useRouter } from "next/router";
 import OnOutsideClick from "react-outclick";
 
 export default function Dropdown(props) {
   return (
     <OnOutsideClick onOutsideClick={() => props.showDropdown(false)}>
       <motion.div
-        className="bg-blur absolute top-16 right-0 z-40 flex flex-col items-start justify-start space-y-4 overflow-hidden rounded-lg border-2 border-olive-920 bg-olive-910 bg-opacity-60 py-4 px-6"
+        className="bg-blur absolute top-[4.25rem] right-0 z-40 flex flex-col items-start justify-start space-y-4 overflow-hidden rounded-lg border-2 border-olive-920 bg-olive-910 bg-opacity-60 py-4 px-6"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 10, opacity: 0 }}
         transition={{ duration: 0.3 }}
       >
         <Identity name={props.name} />
-        <Links id={props.id} />
+        <Links id={props.id} links={props.links} />
       </motion.div>
     </OnOutsideClick>
   );
@@ -36,44 +34,28 @@ function Identity(props) {
 }
 
 function Links(props) {
-  const router = useRouter();
-
   return (
     <div className="flex w-full flex-col items-start justify-start space-y-1">
-      <Element
-        href={`/user/${props.id}`}
-        label="View Profile"
-        icon="fas fa-info-circle"
-      />
-      <Element
-        href="/server/add"
-        label="Add Server"
-        icon="fas fa-plus-circle"
-      />
-      <Element
-        href={`/user/${props.id}/edit`}
-        label="Edit Profile"
-        icon="far fa-pencil-paintbrush"
-      />
-      <Element
-        label="Log Out"
-        icon="far fa-sign-out"
-        onClick={() => {
-          cookie.remove("token");
-          router.reload();
-        }}
-      />
+      {props.links.map((link, index) => (
+        <Element
+          key={index}
+          href={link.href}
+          label={link.label}
+          icon={link.icon}
+          onClick={link.onClick}
+        />
+      ))}
     </div>
   );
 }
 
 function Element(props) {
-  const Container = (p) => (
+  const Container = ({ children }) => (
     <Fragment>
       {props.href ? (
         <Link href={props.href}>
           <a className="group flex cursor-pointer select-none items-center justify-start space-x-2">
-            {p.children}
+            {children}
           </a>
         </Link>
       ) : (
@@ -81,7 +63,7 @@ function Element(props) {
           className="group flex cursor-pointer select-none items-center justify-start space-x-2"
           onClick={props.onClick}
         >
-          {p.children}
+          {children}
         </div>
       )}
     </Fragment>

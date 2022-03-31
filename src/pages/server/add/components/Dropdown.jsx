@@ -19,7 +19,7 @@ export default function Dropdown(props) {
         </p>
       </div>
       <div
-        className="relative flex h-[60px] w-[450px] cursor-pointer items-center justify-between rounded-md border-2 border-white border-opacity-10 bg-white bg-opacity-5 px-4"
+        className="relative flex h-[60px] w-[450px] cursor-pointer items-center justify-between rounded-md border-2 border-white border-opacity-20 bg-white bg-opacity-10 px-4"
         onClick={() => showDropdown((d) => !d)}
       >
         <p className="select-none text-lg text-white text-opacity-80">
@@ -45,7 +45,7 @@ function DropdownElement(props) {
   return (
     <OnOutsideClick onOutsideClick={() => props.showDropdown(false)}>
       <motion.div
-        className="absolute top-[62px] -left-0.5 flex w-[450px] flex-col items-start justify-start rounded-md border-2 border-white border-opacity-10 bg-[#1d2c24] py-1"
+        className="bg-blur-xl absolute top-[62px] -left-0.5 flex w-[450px] flex-col items-start justify-start rounded-md border-2 border-white border-opacity-20 bg-white bg-opacity-10 py-2"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 10, opacity: 0 }}
@@ -56,8 +56,8 @@ function DropdownElement(props) {
             key={index}
             className={`flex w-full items-center justify-start px-4 py-1  ${
               props.value.id === option.id
-                ? "bg-black bg-opacity-[0.15]"
-                : "cursor-pointer transition duration-300 hover:bg-black hover:bg-opacity-[0.15]"
+                ? "bg-black bg-opacity-10"
+                : "cursor-pointer transition duration-300 hover:bg-black hover:bg-opacity-10"
             }`}
             onClick={() => props.setValue(option)}
           >

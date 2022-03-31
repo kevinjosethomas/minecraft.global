@@ -26,7 +26,7 @@ export default function TopVoters(props) {
         }),
       ]);
     })();
-  }, []);
+  }, [props.upvoted]);
 
   return (
     <motion.div

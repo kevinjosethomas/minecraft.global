@@ -8,7 +8,10 @@ import { FetchUserAdvertisements } from "api/advertisements";
 
 export default function Dashboard(props) {
   return (
-    <Default user={props.user}>
+    <Default
+      user={props.user}
+      title="Advertising Dashboard - Minecraft Server List"
+    >
       <div className="flex w-full flex-col space-y-6">
         <div className="flex items-center space-x-2">
           <Link href="/a">
@@ -41,9 +44,10 @@ export default function Dashboard(props) {
           ) : (
             <div className="flex w-full flex-row items-center justify-center space-x-8 space-y-1 rounded-lg border-2 border-olive-940 bg-olive-950 py-10">
               <img
-                src="/images/creeper.png"
                 alt="Creeper"
+                src="/images/creeper.png"
                 className="w-64 saturate-100"
+                draggable="false"
               />
               <p className="max-w-sm text-center text-3xl font-medium text-white">
                 You have no ongoing or upcoming advertisements.{" "}

@@ -22,21 +22,21 @@ export default function Details(props) {
       <div className="flex w-full flex-col items-start justify-start space-y-8">
         <Input
           label="Server Name"
-          description="Your server's name"
+          description="Your server's display name"
           value={props.details.name}
           onChange={(e) => onValueChange("name", e.target.value, 32)}
           required
         />
         <Input
           label="Server Address"
-          description="Your server's IP address + port"
+          description="Your server's IP address (and port)"
           value={props.details.host}
           onChange={(e) => onValueChange("host", e.target.value, 258)}
           required
         />
         <TextArea
           label="Server Description"
-          description="Brief description about your server! Make it enticing enough so players fall for your server in the few seconds they take to read it!"
+          description="A brief description about your server! Make it enticing enough so players fall for your server in the few seconds they take to read it!"
           value={props.details.description}
           onChange={(e) => onValueChange("description", e.target.value, 150)}
           required
