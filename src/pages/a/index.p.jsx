@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Fragment } from "react";
 
 import Default from "ui/layouts/Default";
 import { GetLoggedInUser } from "api/login";
@@ -11,20 +12,101 @@ export default function Advertise(props) {
           Advertise on minecraft.global
         </h1>
         <div className="flex w-full flex-col space-y-5">
-          <Link href="/a/dashboard">
-            <a className="flex w-full items-center justify-center rounded-lg border-2 border-olive-900 bg-olive-910 py-2 transition duration-300 hover:bg-olive-900">
-              <p className="select-none text-xl text-white md:text-2xl">
-                View Advertising Dashboard
-              </p>
-            </a>
-          </Link>
-          <div className="grid w-full gap-y-5 md:grid-cols-2 md:gap-y-0 md:gap-x-5">
-            <Banners />
-            <Auctions />
+          <div className="grid w-full gap-y-5 md:grid-cols-3 md:gap-y-0 md:gap-x-5">
+            <Embed
+              title="Ad Dashboard"
+              image="/images/illustrations/wandering-trader.png"
+              info={[
+                "View & edit all purchased ads",
+                "Monitor analytics of active ads",
+                "Manage all advertising funds",
+                "Manage all products and ads",
+              ]}
+              label="View Ad Dashboard"
+              href="/a/dashboard"
+              active
+            />
+            <Embed
+              title="Banner Ads"
+              image="/images/illustrations/wandering-trader.png"
+              info={[
+                "Fixed weekly pricing",
+                "2 site-wide advertising slots",
+                "Displayed via a banner image",
+                "Price range: $10-$15 weekly",
+              ]}
+              label="View Banner Ads"
+              href="/a/banner"
+              active
+            />
+            <Embed
+              title="Auction Ads"
+              image="/images/illustrations/auction-traders.png"
+              info={[
+                "Varying weekly pricing",
+                "40+ site-wide advertising slots",
+                "Displayed as a highlighted server",
+                "Price range: $50+ weekly",
+              ]}
+              label="Coming Soon"
+              active={false}
+            />
           </div>
         </div>
       </div>
     </Default>
+  );
+}
+
+function Embed(props) {
+  const Button = () => (
+    <Fragment>
+      {props.active ? (
+        <Link href={props.href}>
+          <a className="group mx-4 mb-4 flex items-center justify-center space-x-4 rounded-xl bg-olive-910 py-3 transition duration-300 hover:bg-olive-920">
+            <p className="text-xl text-white text-opacity-80 group-hover:text-opacity-100">
+              {props.label}
+            </p>
+            <i className="far fa-external-link text-xl text-white text-opacity-80" />
+          </a>
+        </Link>
+      ) : (
+        <div className="mx-4 mb-4 flex items-center justify-center rounded-xl bg-olive-920 py-3">
+          <p className="select-none text-xl text-white text-opacity-80 group-hover:text-opacity-100">
+            {props.label}
+          </p>
+        </div>
+      )}
+    </Fragment>
+  );
+
+  return (
+    <div className="flex flex-col overflow-hidden rounded-2xl bg-olive-900">
+      <div className="flex w-full flex-col items-center space-y-2 bg-olive-920 py-8">
+        <img
+          src={props.image}
+          alt={props.title}
+          draggable="false"
+          className="h-40"
+        />
+        <h2 className="text-2xl font-medium tracking-tight text-white md:text-3xl">
+          {props.title}
+        </h2>
+      </div>
+      <div className="flex flex-col p-6">
+        <ul className="list-inside list-disc space-y-1">
+          {props.info.map((i, index) => (
+            <li
+              key={index}
+              className="text-lg font-light text-white text-opacity-80 md:text-xl"
+            >
+              {i}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <Button />
+    </div>
   );
 }
 
@@ -45,9 +127,9 @@ function Banners() {
           src="/images/illustrations/wandering-trader.png"
           draggable="false"
           alt="Wandering Trader"
-          className="h-64"
+          className="h-40"
         />
-        <h2 className="text-3xl font-medium tracking-tight text-white md:text-4xl">
+        <h2 className="text-2xl font-medium tracking-tight text-white md:text-3xl">
           Banner Advertisements
         </h2>
       </div>
@@ -91,9 +173,9 @@ function Auctions() {
           src="/images/illustrations/auction-traders.png"
           draggable="false"
           alt="Wandering Trader"
-          className="h-64"
+          className="h-40"
         />
-        <h2 className="text-3xl font-medium tracking-tight text-white md:text-4xl">
+        <h2 className="text-3xl font-medium tracking-tight text-white md:text-3xl">
           Auction Advertisements
         </h2>
       </div>
