@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import { useRouter } from "next/router";
 import { Toaster } from "react-hot-toast";
 
+import tags from "lib/tags.json";
 import _404 from "pages/404.p.jsx";
 
 import "ui/styles/tailwind.css";
@@ -16,6 +17,11 @@ function MyApp({ Component, pageProps }) {
     return <_404 error={404} />;
   }
 
+  const formattedTags = tags
+    .slice(0, 5)
+    .map((x) => x.name)
+    .join(", ");
+
   return (
     <Fragment>
       <Head>
@@ -26,21 +32,22 @@ function MyApp({ Component, pageProps }) {
                 name="keywords"
                 content="minecraft, minecraft servers, minecraft server list, cracked minecraft, bedrock minecraft servers"
               />
+
               <meta
-                name="description"
-                content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
+                property="description"
+                content={`A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on! ${formattedTags}`}
               />
 
               <meta property="og:image" content="/images/embed.png" />
               <meta
                 property="og:description"
-                content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
+                content={`A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on! ${formattedTags}`}
               />
 
               <meta property="twitter:image" content="/images/embed.png" />
               <meta
                 property="twitter:description"
-                content="A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on!"
+                content={`A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on! ${formattedTags}`}
               />
             </Fragment>
           )}

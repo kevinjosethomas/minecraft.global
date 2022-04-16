@@ -47,16 +47,22 @@ export default function UpvoteServer(props) {
           href={`https://minecraft.global/server/${props.server.server_id}/vote`}
         />
 
-        <meta name="title" content={`Vote - ${props.server.name}`} />
+        <meta
+          name="title"
+          content={`Vote for ${props.server.name} - Minecraft Server List`}
+        />
         <meta
           name="description"
-          content={`Vote for ${props.server.name}! ${props.server.description}`}
+          content={`Vote for ${props.server.name}. Find ${props.server.name}'s Server IP Address, Vote, Store, Website, Forums & Discord`}
         />
 
-        <meta property="og:title" content={`Vote - ${props.server.name}`} />
+        <meta
+          property="og:title"
+          content={`Vote for ${props.server.name} - Minecraft Server List`}
+        />
         <meta
           property="og:description"
-          content={`Vote for ${props.server.name} here! ${props.server.description}`}
+          content={`Vote for ${props.server.name}. Find ${props.server.name}'s Server IP Address, Vote, Store, Website, Forums & Discord`}
         />
         <meta
           property="og:image"
@@ -65,11 +71,11 @@ export default function UpvoteServer(props) {
 
         <meta
           property="twitter:title"
-          content={`Vote - ${props.server.name}`}
+          content={`Vote for ${props.server.name} - Minecraft Server List`}
         />
         <meta
           property="twitter:description"
-          content={`Vote for ${props.server.name}! ${props.server.description}`}
+          content={`Vote for ${props.server.name}. Find ${props.server.name}'s Server IP Address, Vote, Store, Website, Forums & Discord`}
         />
         <meta
           property="twitter:image"
@@ -78,9 +84,9 @@ export default function UpvoteServer(props) {
 
         <meta
           name="keywords"
-          content={`${props.server.name}, ${props.server.name} IP Address, ${
+          content={`${
             props.server.name
-          } Vote, ${props.server.name} Discord, ${props.server.tags.join(
+          }, IP Address, Vote, Store, Website, Forums, Discord, ${props.server.tags.join(
             " minecraft servers, "
           )} minecraft servers`}
         />

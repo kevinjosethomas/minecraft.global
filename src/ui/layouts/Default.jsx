@@ -15,19 +15,28 @@ const Default = (props) => {
         <Head>
           <title>
             {props.title ||
-              "Minecraft Server List - Discover the best Minecraft Servers"}
+              "Minecraft Server List - Discover the Best Minecraft Servers"}
           </title>
           <meta
             name="title"
-            content="minecraft.global - Find the best Minecraft Servers"
+            content={
+              props.title ||
+              "Minecraft Server List - Discover the Best Minecraft Servers"
+            }
           />
           <meta
             property="og:title"
-            content="minecraft.global - Find the best Minecraft Servers"
+            content={
+              props.title ||
+              "Minecraft Server List - Discover the Best Minecraft Servers"
+            }
           />
           <meta
             property="twitter:title"
-            content="minecraft.global - Find the best Minecraft Servers"
+            content={
+              props.title ||
+              "Minecraft Server List - Discover the Best Minecraft Servers"
+            }
           />
         </Head>
       )}
