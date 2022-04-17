@@ -150,7 +150,7 @@ function Loading() {
       transition={{ duration: 0.2 }}
     >
       <img
-        src="/images/clock.gif"
+        src="/images/icons/clock.gif"
         alt="Minecraft Clock"
         draggable="false"
         className="h-16 w-16"

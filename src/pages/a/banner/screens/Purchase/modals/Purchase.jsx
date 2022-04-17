@@ -100,7 +100,7 @@ export default function Purchase(props) {
               {loading ? (
                 <img
                   draggable="false"
-                  src="/images/loading.svg"
+                  src="/images/icons/loading.svg"
                   className="h-7 w-7"
                   alt="Loading"
                 />

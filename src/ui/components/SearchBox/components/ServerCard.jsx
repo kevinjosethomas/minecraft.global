@@ -7,7 +7,7 @@ export default function ServerCard(props) {
     <Link href={`/server/${props.server_id}`} passHref>
       <div className="flex cursor-pointer select-none items-center justify-start space-x-4 rounded-lg bg-black bg-opacity-10 px-5 py-4 transition duration-300 hover:bg-opacity-20">
         <img
-          src={props.favicon || "/images/default_server_favicon.png"}
+          src={props.favicon || "/images/icons/default_favicon.png"}
           alt={`${props.name}'s Logo`}
           className="h-[64px] w-[64px] rounded-full"
         />

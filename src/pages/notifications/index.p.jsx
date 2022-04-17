@@ -16,7 +16,7 @@ export default function Notifications(props) {
         <div className="flex w-full items-center justify-center space-x-8 space-y-1 rounded-lg border-2 border-olive-940 bg-olive-950 py-10">
           <img
             alt="Creeper"
-            src="/images/creeper.png"
+            src="/images/illustrations/creeper-hole.png"
             className="w-64 saturate-100"
             draggable="false"
           />

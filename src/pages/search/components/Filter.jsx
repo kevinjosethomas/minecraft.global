@@ -46,7 +46,7 @@ export default function Filter(props) {
       <img
         alt="creeper"
         draggable="false"
-        src="/images/creeper2.png"
+        src="/images/illustrations/creeper.png"
         className="absolute right-14 -bottom-14 !m-0 w-16 rotate-[-15deg] select-none"
       />
     </div>

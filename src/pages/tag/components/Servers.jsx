@@ -88,7 +88,7 @@ export default function Servers(props) {
       ) : (
         <div className="!mt-10 flex w-full items-center justify-center space-x-4">
           <img
-            src="/images/creeper.png"
+            src="/images/illustrations/creeper-hole.png"
             alt="Not Found Creeper Illustration"
             className="w-48 saturate-0 filter"
             draggable="false"
@@ -116,7 +116,7 @@ function Loading() {
       transition={{ duration: 0.2 }}
     >
       <img
-        src="/images/clock.gif"
+        src="/images/icons/clock.gif"
         alt="Minecraft Clock"
         draggable="false"
         className="h-16 w-16"

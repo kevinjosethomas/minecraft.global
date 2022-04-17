@@ -67,9 +67,7 @@ export default function ServerAnalytics(props) {
         <div className="flex items-center justify-start space-x-4">
           <img
             className="h-16 w-16 rounded"
-            src={
-              props.analytics.favicon || "/images/default_server_favicon.png"
-            }
+            src={props.analytics.favicon || "/images/icons/default_favicon.png"}
             alt={`${props.analytics.name}'s favicon'`}
             draggable="false"
           />

@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }) {
                 content={`A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on! ${formattedTags}`}
               />
 
-              <meta property="og:image" content="/images/embed.png" />
+              <meta property="og:image" content="/images/banners/meta.png" />
               <meta
                 property="og:description"
                 content={`A Minecraft server list with advanced search & recommendation features to help players find the perfect servers to play on! ${formattedTags}`}

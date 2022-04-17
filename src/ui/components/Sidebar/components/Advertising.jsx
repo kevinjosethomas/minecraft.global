@@ -5,8 +5,8 @@ export default function Advertising() {
     <div className="w-ful flex flex-col items-center justify-center overflow-hidden rounded-lg">
       <div className="flex flex-col items-start justify-start">
         <img
-          src="/images/auctions-embed.png"
           draggable="false"
+          src="/images/banners/auctions.png"
           alt="Auctions Advertising"
         />
         <div className="flex w-full flex-col items-start justify-start space-y-4 bg-olive-960 p-5">

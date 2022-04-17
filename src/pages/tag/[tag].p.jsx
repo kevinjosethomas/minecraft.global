@@ -40,7 +40,7 @@ export default function Tag(props) {
             .join(", ")}`}
         />
 
-        <meta property="og:image" content="/images/embed.png" />
+        <meta property="og:image" content="/images/banners/meta.png" />
         <meta
           name="og:description"
           content={`The best ${
@@ -49,7 +49,7 @@ export default function Tag(props) {
             .map((s) => s.name)
             .join(", ")}`}
         />
-        <meta property="twitter:image" content="/images/embed.png" />
+        <meta property="twitter:image" content="/images/banners/meta.png" />
         <meta
           name="twitter:description"
           content={`The best ${

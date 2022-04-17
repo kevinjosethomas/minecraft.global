@@ -39,7 +39,7 @@ export default function Similar(props) {
         </Link>
       </div>
       <img
-        src="/images/servers.png"
+        src="/images/banners/servers.png"
         alt="servers"
         draggable="false"
         className="-rotate-6"

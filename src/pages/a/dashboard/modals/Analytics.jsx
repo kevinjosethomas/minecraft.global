@@ -150,7 +150,7 @@ export default function Analytics(props) {
           </div>
         ) : (
           <div className="flex w-full items-center justify-center py-40">
-            <img src="/images/loading.svg" className="w-32" />
+            <img src="/images/icons/loading.svg" className="w-32" />
           </div>
         )}
       </motion.div>

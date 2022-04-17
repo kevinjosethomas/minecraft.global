@@ -16,7 +16,7 @@ export default function PremiumSuccess(props) {
             Thanks for purchasing premium!{" "}
             <img
               alt="Heart"
-              src="/images/heart.png"
+              src="/images/icons/heart.png"
               className="inline w-10"
               draggable="false"
             />

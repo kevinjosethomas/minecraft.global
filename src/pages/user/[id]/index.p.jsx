@@ -7,7 +7,7 @@ import { GetLoggedInUser } from "api/login";
 export default function User(props) {
   const avatar = props.userinfo.minecraft_uuid
     ? `https://crafatar.com/avatars/${props.userinfo.minecraft_uuid}?size=128&overlay`
-    : "/images/steve.png";
+    : "/images/icons/steve-head.png";
 
   return (
     <Default

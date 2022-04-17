@@ -10,7 +10,7 @@ export default function Comment(props) {
 
   const avatar = props.minecraft_uuid
     ? `https://crafatar.com/avatars/${props.minecraft_uuid}?size=128&overlay`
-    : "/images/steve.png";
+    : "/images/icons/steve-head.png";
 
   return (
     <div
