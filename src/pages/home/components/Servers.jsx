@@ -93,7 +93,7 @@ function ServerCollection(props) {
       <div className="flex w-full items-center justify-between">
         <div className="flex flex-col items-start justify-start">
           <motion.h2
-            className="text-xl leading-tight text-white text-opacity-80 md:text-4xl"
+            className="text-xl leading-tight text-white md:text-4xl"
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
@@ -101,7 +101,7 @@ function ServerCollection(props) {
             {props.name}
           </motion.h2>
           <motion.p
-            className="text-xs leading-tight text-white text-opacity-60 md:text-xl"
+            className="text-xs leading-tight text-white text-opacity-80 md:text-xl"
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.2 }}
@@ -114,7 +114,7 @@ function ServerCollection(props) {
           passHref
         >
           <motion.a
-            className="group flex select-none items-center justify-center space-x-2 rounded-[6px] bg-olive-600 bg-opacity-25 px-2.5 py-0.5 transition duration-300 hover:bg-opacity-50 md:px-3 md:px-4 md:py-1 md:py-2"
+            className="group over:bg-olive-800 duration-300md:px-3 flex select-none items-center justify-center space-x-2 rounded-lg bg-olive-900 px-2.5 py-0.5 transition md:px-4 md:py-2"
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}

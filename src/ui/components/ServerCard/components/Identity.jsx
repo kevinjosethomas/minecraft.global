@@ -18,7 +18,7 @@ export default function Identity(props) {
       />
       <div className="flex flex-col items-start justify-start">
         <div className="flex items-center justify-start space-x-2">
-          <h3 className="whitespace-nowrap text-xl text-white text-opacity-90 md:text-3xl">
+          <h3 className="whitespace-nowrap text-xl text-white md:text-3xl">
             {props.name}
           </h3>
           {props.premium && (
@@ -103,7 +103,7 @@ function CopyButton(props) {
 
   return (
     <div
-      className="hidden select-none items-center justify-center rounded-[6px] bg-olive-600 bg-opacity-25 px-4 py-2 transition duration-300 hover:bg-opacity-50 md:flex"
+      className="hidden select-none items-center justify-center rounded-lg bg-olive-900 px-4 py-2 transition duration-300 hover:bg-olive-800 md:flex"
       onClick={onClick}
     >
       <p className="text-lg font-medium text-white">Copy IP</p>

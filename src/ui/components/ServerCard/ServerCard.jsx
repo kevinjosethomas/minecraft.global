@@ -36,8 +36,11 @@ export default function ServerCard(props) {
 
 const Container = (props) => {
   const background = props.premium
-    ? "bg-olive-500 bg-opacity-[0.12] hover:bg-opacity-[0.17]"
-    : "bg-white bg-opacity-[0.06] hover:bg-opacity-[0.08]";
+    ? "bg-olive-910 hover:bg-olive-900"
+    : "bg-olive-930 hover:bg-olive-920";
+  // props.premium
+  //   ? "bg-olive-500 bg-opacity-[0.12] hover:bg-opacity-[0.17]"
+  //   : "bg-white bg-opacity-[0.06] hover:bg-opacity-[0.08]";
 
   return (
     <Link href={`/server/${props.server_id}`} passHref>
