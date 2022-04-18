@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
 
 import storedTags from "lib/tags.json";
+import Container from "ui/components/core/Container";
 
 export default function Tags(props) {
   const [maximum, setMaximum] = useState(
@@ -32,23 +32,16 @@ export default function Tags(props) {
   const [tags, setTags] = useState(storedTags.slice(0, 5));
 
   const loadMore = (page) => {
-    setTimeout(() => {
-      setTags(storedTags.slice(0, page));
-    }, 75);
+    setTags(storedTags.slice(0, page));
   };
 
   return (
-    <div className="flex w-full flex-col items-start justify-start space-y-2 overflow-hidden rounded-lg border-2 border-olive-960 bg-olive-940 bg-opacity-30 py-6 px-4">
+    <Container className="flex w-full flex-col items-start justify-start space-y-2 overflow-hidden py-6 px-4">
       <div className="flex items-center justify-start space-x-2 px-4">
         <i className="fas fa-tags text-3xl text-olive-600" />
         <p className="text-3xl text-white text-opacity-80">Popular Tags</p>
       </div>
-      <div className="relative flex w-full flex-col items-start justify-start">
-        <img
-          draggable="false"
-          src="/images/illustrations/ghast.gif"
-          className="absolute -right-16 top-10 w-1/2 opacity-80"
-        />
+      <div className="flex w-full flex-col items-start justify-start">
         <InfiniteScroll
           pageStart={5}
           loadMore={loadMore}
@@ -56,24 +49,23 @@ export default function Tags(props) {
           className="w-full"
         >
           {tags.map((tag, index) => (
-            <Link key={index} href={`/tag/${tag.name}`} passHref>
-              <motion.a
-                className="flex w-full items-center justify-start space-x-2 rounded py-1.5 px-2 transition duration-300 hover:bg-white hover:bg-opacity-5"
-                initial={{ x: -10, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                <p className="w-8 text-center text-2xl text-white text-opacity-60">
-                  {index + 1}
-                </p>
-                <p className="text-2xl text-white text-opacity-80">
-                  {tag.name}
-                </p>
-              </motion.a>
-            </Link>
+            <Tag index={index} {...tag} />
           ))}
         </InfiniteScroll>
       </div>
-    </div>
+    </Container>
+  );
+}
+
+function Tag(props) {
+  return (
+    <Link href={`/tag/${props.name}`} passHref>
+      <a className="flex w-full items-center justify-start space-x-2 rounded py-1.5 px-2 transition duration-300 hover:bg-black hover:bg-opacity-10">
+        <p className="w-8 text-center text-2xl text-white text-opacity-70">
+          {props.index + 1}
+        </p>
+        <p className="text-2xl text-white text-opacity-90">{props.name}</p>
+      </a>
+    </Link>
   );
 }
