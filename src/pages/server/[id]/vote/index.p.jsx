@@ -118,7 +118,7 @@ export default function UpvoteServer(props) {
           </div>
         </div>
         <a
-          className="w-full"
+          className="self-center"
           href="https://api.minecraft.global/a/vote/redirect"
           target="_blank"
           rel="noopener"
@@ -127,7 +127,7 @@ export default function UpvoteServer(props) {
             draggable="false"
             alt="Embedded Image"
             src="https://api.minecraft.global/a/vote/image"
-            className="h-[200px] w-[1200px]"
+            className=""
           />
         </a>
       </div>
