@@ -43,7 +43,7 @@ export default function Votifier(props) {
             "An authorization error occured, please relogin and try again!"
           );
           break;
-        case 422:
+        case 400:
           toast.error(
             "Your server doesn't have any votifier data. Make sure you save changes first!"
           );
@@ -61,37 +61,29 @@ export default function Votifier(props) {
     }
 
     switch (response.payload.reason) {
-      case "timeout":
-        toast.error(
-          "Your server took too long to respond! (check your firewall)"
-        );
-        break;
-      case "connection_error":
+      case "connection_error": {
         toast.error("Couldn't connect to your server! (check your firewall)");
         break;
-      case "invalid_header":
-        toast.error(
-          "Your server provided an invalid response! Check console (Ctrl+Shift+I)"
-        );
-        console.error(response.payload.message);
+      }
+      case "invalid_response": {
+        toast.error("Your server provided invalid data.");
         break;
-      case "not_ok_response":
-        toast.error(
-          "Your server provided an invalid response! Check console (Ctrl+Shift+I)"
-        );
-        console.error(response.payload.message);
+      }
+      case "timeout": {
+        toast.error("Your server took too long to response! (check your firewall)");
         break;
-      case "unsupported_votifier_version":
-        toast.error(
-          "We don't support the version of Votifier that your server uses!"
-        );
-        break;
-      case "get_addr_info_failure":
-        toast.error("Your votifier address is invalid!");
-        break;
-      default:
+      }
+      case "not_ok_response": {
         toast.error("Your server provided an invalid response!");
         break;
+      }
+      case "unsupported_votifier_version": {
+        toast.error("We don't support the version of Votifier that your server uses!");
+        break;
+      }
+      default: {
+        toast.error("An unknown error occurred!");
+      }
     }
   };
 

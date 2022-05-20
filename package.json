@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "yarn tags && next dev",
     "build": "next build",
-    "start": "next start -p 10981",
+    "start": "next start -p 10969",
     "tags": "cd src/lib && node update_tag_count.mjs",
     "lint": "next lint"
   },

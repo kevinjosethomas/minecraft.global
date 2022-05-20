@@ -40,7 +40,7 @@ export default function Servers(props) {
     (async () => {
       const [response, error] = await GetSearchResults({
         ...props.parameters,
-        tags: props.tag,
+        tag: props.tag,
         // tags: encodeURIComponent(props.tag),
         amount: 12,
       });

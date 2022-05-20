@@ -151,6 +151,8 @@ export default function AddServer(props) {
     const [response, error] = await NewServer(data, token);
 
     if (error) {
+      let payload = error?.response?.data?.payload;
+
       switch (error.response?.status) {
         case 401:
           toast.error(
@@ -160,16 +162,16 @@ export default function AddServer(props) {
         case 409:
           toast.error("Another server already uses that host and port!");
           break;
-        case 422:
-          if (
-            error.response?.data.payload.detail.reason === "invalid_address"
-          ) {
-            toast.error("Invalid server address provided!");
-          } else if (error.response?.data.payload.detail.reason === "offline") {
-            toast.error("Your server is currently offline!");
-          } else {
-            toast.error("Invalid information provided!");
-          }
+        case 400:
+          let errorCode = payload?.error;
+          let errors = payload?.errors;
+
+          if (errors.host || errors.port) toast.error("Invalid server address provided!");
+          else if (errorCode === "server_offline") toast.error("Your server is currently offline!");
+          else if (errors.description) toast.error("Your description contains invalid characters!");
+          else if (errors.long_description) toast.error("Your long description contains invalid characters!");
+          else toast.error("Invalid information provided!");
+
           break;
         default:
           toast.error("An unknown error occured, please try again later!");

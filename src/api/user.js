@@ -32,7 +32,7 @@ const FetchLinkCode = async (token) => {
 const EditUser = async (id, parameters, token) => {
   try {
     const response = await axios.put(
-      `${process.env.NEXT_PUBLIC_API_URL}/user/${id}/edit`,
+      `${process.env.NEXT_PUBLIC_API_URL}/user/${id}`,
       parameters,
       {
         headers: {

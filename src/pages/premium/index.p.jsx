@@ -85,7 +85,7 @@ export default function Premium(props) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const [response, error] = await GetLoggedInUser(ctx);
+    const [response, error] = await GetLoggedInUser(ctx, true);
 
     if (error) {
       return {

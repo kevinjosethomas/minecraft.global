@@ -108,7 +108,7 @@ const ReportServer = async (id, parameters, token) => {
 const EditServer = async (id, data, token) => {
   try {
     const response = await axios.put(
-      `${process.env.NEXT_PUBLIC_API_URL}/server/${id}/edit`,
+      `${process.env.NEXT_PUBLIC_API_URL}/server/${id}`,
       data,
       {
         headers: { Authorization: token },

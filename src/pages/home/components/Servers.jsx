@@ -43,7 +43,7 @@ export default function Servers(props) {
     const resultsCopy = [...results];
 
     const [response, error] = await GetSearchResults({
-      tags: tag,
+      tag: tag,
       amount: 4,
       track_tags: false,
     });
