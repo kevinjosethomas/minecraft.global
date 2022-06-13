@@ -3,6 +3,10 @@
     "label": "Versions",
     "tags": [
       {
+        "id": 42,
+        "name": "1.19"
+      },
+      {
         "id": 40,
         "name": "1.18"
       },

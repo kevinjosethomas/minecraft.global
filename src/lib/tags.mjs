@@ -1,4 +1,5 @@
 const versions = [
+  { id: 42, name: "1.19", checked: false },
   { id: 40, name: "1.18", checked: false },
   { id: 39, name: "1.17", checked: false },
   { id: 38, name: "1.16", checked: false },
