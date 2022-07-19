@@ -20,7 +20,7 @@ export default function Advertisement(props) {
       <div className="!ml-0 flex w-full items-center justify-center bg-olive-500 py-4 md:h-32 md:w-32 md:py-0">
         <i
           className={`${
-            props.location === "home"
+            props.location === 1
               ? "far fa-home-alt"
               : "far fa-arrow-alt-up"
           } text-4xl text-olive-930`}
@@ -36,7 +36,7 @@ export default function Advertisement(props) {
         <p className="select-none text-lg font-medium text-white text-opacity-70">
           LOCATION
         </p>
-        <p className="text-2xl capitalize text-white">{props.location} Page</p>
+        <p className="text-2xl capitalize text-white">{props.location === 1 ? "Home" : "Vote"} Page</p>
       </div>
       <div className="flex flex-col items-center md:w-[25%] md:items-start">
         <p className="select-none text-lg font-medium text-white text-opacity-70">
