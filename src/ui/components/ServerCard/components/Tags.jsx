@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Tags(props) {
   return (
-    <div className="no-scrollbar flex w-full items-center justify-start space-x-3 overflow-x-auto">
+    <div className="scrollbar-none flex w-full items-center justify-start space-x-3 overflow-x-auto">
       {props.tags.map((tag, index) => (
         <Tag key={index} tag={tag} />
       ))}

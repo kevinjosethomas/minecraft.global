@@ -24,12 +24,7 @@ export default function Search(props) {
   }, [props.query]);
 
   return (
-    <Default
-      user={props.user}
-      title="Search - Minecraft Server List"
-      search
-      header
-    >
+    <Default user={props.user} title="Search - Minecraft Server List" search>
       <div className="flex w-full items-start justify-center space-x-8">
         <Servers
           user={props.user}

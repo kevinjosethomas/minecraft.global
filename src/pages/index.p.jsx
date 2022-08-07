@@ -17,12 +17,7 @@ export default function Home(props) {
   }, []);
 
   return (
-    <Default
-      user={props.user}
-      title="Home - Minecraft Server List"
-      search
-      header
-    >
+    <Default user={props.user} title="Home - Minecraft Server List" search>
       <div className="flex w-full items-start justify-center md:space-x-8">
         <Servers user={props.user} servers={props.servers} />
         <Sidebar />

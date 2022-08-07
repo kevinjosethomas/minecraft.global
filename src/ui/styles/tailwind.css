@@ -22,6 +22,10 @@ code {
   border-radius: 4px;
 }
 
+.scroll-smooth {
+  scroll-behavior: auto;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -40,9 +44,9 @@ code {
   visibility: visible;
 }
 
-.no-scrollbar::-webkit-scrollbar,
-.no-scrollbar::-webkit-scrollbar-track,
-.no-scrollbar::-webkit-scrollbar-thumb {
+.scrollbar-none::-webkit-scrollbar,
+.scrollbar-none::-webkit-scrollbar-track,
+.scrollbar-none::-webkit-scrollbar-thumb {
   display: none;
 }
 
