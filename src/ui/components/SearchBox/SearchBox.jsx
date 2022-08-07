@@ -6,18 +6,11 @@ import Searchbar from "./components/Searchbar";
 
 export default function SearchBox(props) {
   return (
-    <motion.div
-      className={`flex w-full flex-col items-start justify-start ${
-        props.header ? "!mt-0 md:!mt-[40px]" : "!mt-0"
-      }`}
-      initial={{ y: 10, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.3 }}
-    >
-      {props.header && <Header />}
+    <div className="!mt-0 flex w-full flex-col items-start justify-start">
+      {/* {props.header && <Header />} */}
       <Searchbar />
       <PopularTags />
-    </motion.div>
+    </div>
   );
 }
 
