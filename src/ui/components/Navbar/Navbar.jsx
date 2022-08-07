@@ -47,10 +47,6 @@ export default function Navbar(props) {
       icon: "fab fa-twitter",
       href: "https://twitter.com/mcdotglobal",
     },
-    {
-      icon: "far fa-question-circle",
-      href: "/why",
-    },
   ];
 
   const user = [
