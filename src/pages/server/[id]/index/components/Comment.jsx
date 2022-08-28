@@ -8,9 +8,11 @@ export default function Comment(props) {
   const [editModal, showEditModal] = useState(false);
   const [deleteModal, showDeleteModal] = useState(false);
 
-  const avatar = props.minecraft_uuid
-    ? `https://crafatar.com/avatars/${props.minecraft_uuid}?size=128&overlay`
-    : "/images/icons/steve-head.png";
+  // const avatar = props.minecraft_uuid
+  //   ? `https://crafatar.com/avatars/${props.minecraft_uuid}?size=128&overlay`
+  //   : "/images/icons/steve-head.png";
+
+  const avatar = "/images/icons/steve-head.png";
 
   return (
     <div

@@ -61,9 +61,10 @@ function NotLoggedIn(props) {
 }
 
 function Identity(props) {
-  const avatar = props.uuid
-    ? `https://crafatar.com/avatars/${props.uuid}?size=128&overlay`
-    : "/images/icons/steve-head.png";
+  // const avatar = props.uuid
+  //   ? `https://crafatar.com/avatars/${props.uuid}?size=128&overlay`
+  //   : "/images/icons/steve-head.png";
+  const avatar = "/images/icons/steve-head.png";
 
   return (
     <div className="flex w-full flex-col items-start justify-start space-y-3 overflow-hidden rounded-xl bg-olive-930 p-4">

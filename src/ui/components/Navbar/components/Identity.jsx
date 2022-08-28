@@ -43,9 +43,11 @@ export default function Identity(props) {
 }
 
 function Info(props) {
-  const avatar = props.uuid
-    ? `https://crafatar.com/avatars/${props.uuid}?size=128&overlay`
-    : "/images/icons/steve-head.png";
+  // const avatar = props.uuid
+  //   // ? `https://crafatar.com/avatars/${props.uuid}?size=128&overlay`
+  //   : "/images/icons/steve-head.png";
+
+  const avatar = "/images/icons/steve-head.png";
 
   return (
     <div className="flex items-center space-x-6">
