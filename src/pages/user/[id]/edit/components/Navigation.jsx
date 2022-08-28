@@ -47,10 +47,9 @@ export default function Navigation(props) {
 }
 
 function Identity(props) {
-  // const avatar = props.user.minecraft_uuid
-  //   ? `https://crafatar.com/avatars/${props.user.minecraft_uuid}?size=128&overlay`
-  //   : "/images/icons/steve-head.png";
-  const avatar = "/images/icons/steve-head.png";
+  const avatar = props.user.minecraft_uuid
+    ? `https://visage.surgeplay.com/face/${props.user.minecraft_uuid}.png`
+    : "/images/icons/steve-head.png";
 
   return (
     <div className="flex w-full items-center justify-start space-x-2">
