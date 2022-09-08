@@ -78,7 +78,7 @@ export default function Votifier(props) {
         break;
       }
       case "unsupported_votifier_version": {
-        toast.error("We don't support the version of Votifier that your server uses!");
+        toast.error(response.payload.message);
         break;
       }
       default: {
