@@ -147,6 +147,11 @@ export default function AddServer(props) {
       return;
     }
 
+    // deal with votifier fields
+    if (!data.votifier.votifier_host && !data.votifier.votifier_port && !data.votifier.votifier_token) {
+      data.votifier = null;
+    }
+
     const token = cookie.get("token");
     const [response, error] = await NewServer(data, token);
 
